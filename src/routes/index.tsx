@@ -329,6 +329,8 @@ function Index() {
       <Hero />
       <Universe />
       <HonestScience />
+      <EyegisGuard />
+      <LifestyleUniverse />
       <Collection />
     </main>
   );
