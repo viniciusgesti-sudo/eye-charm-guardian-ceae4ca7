@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
 import heroParis from "@/assets/hero-paris.jpg";
 import { Universe } from "@/components/eyegis/Universe";
+import { HonestScience } from "@/components/eyegis/HonestScience";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -324,6 +325,7 @@ function Index() {
       <Header />
       <Hero />
       <Universe />
+      <HonestScience />
     </main>
   );
 }
