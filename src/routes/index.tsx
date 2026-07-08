@@ -212,7 +212,7 @@ function Hero() {
       </div>
 
       {/* --- Center editorial composition --- */}
-      <div className="relative z-20 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-32 md:px-10 md:pb-24 lg:px-14 lg:pb-20">
+      <div className="relative z-20 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-36 md:px-10 md:pb-32 lg:px-14 lg:pb-28">
         {/* Headline — split across the diagonal */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-end">
           {/* LEFT half */}
