@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Eyegis crafts premium blue-light filtering eyewear for the digital generation. Visual comfort, digital wellness and timeless design — engineered with scientific transparency.",
+          "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed.",
       },
       { name: "author", content: "Eyegis" },
       { name: "theme-color", content: "#F9F9F9" },
@@ -80,12 +80,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Premium blue-light filtering eyewear. Luxury design meets optical science.",
+          "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Eyegis" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@eyegis" },
+      { name: "twitter:title", content: "Eyegis — Engineered for Vision. Designed for Style." },
+      { name: "twitter:description", content: "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1fb53879-960b-4f0b-a3a8-56155eb44d65/id-preview-3d870059--386cc3f9-294b-4fad-9ae3-6992fa480663.lovable.app-1783554090201.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1fb53879-960b-4f0b-a3a8-56155eb44d65/id-preview-3d870059--386cc3f9-294b-4fad-9ae3-6992fa480663.lovable.app-1783554090201.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
