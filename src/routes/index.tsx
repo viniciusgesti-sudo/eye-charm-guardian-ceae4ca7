@@ -230,7 +230,7 @@ function Hero() {
 
           {/* RIGHT half */}
           <div className="max-w-xl lg:justify-self-end lg:text-right">
-            <h2 className="font-editorial text-ink lg:text-ink text-paper leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
+            <h2 className="font-editorial text-paper lg:text-ink leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
               <span className="rise block" style={{ animationDelay: "0.9s" }}>
                 Designed
               </span>
