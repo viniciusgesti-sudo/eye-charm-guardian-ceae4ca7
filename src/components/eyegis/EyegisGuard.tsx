@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ElementType } from "react";
 
 import lensFloat from "@/assets/guard-lens-float.jpg";
 import lensMacro from "@/assets/products/solene-macro.jpg";
@@ -40,11 +40,11 @@ function Reveal({
 }: {
   children: React.ReactNode;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   className?: string;
 }) {
   const { ref, visible } = useReveal<HTMLElement>();
-  const Comp = Tag as any;
+  const Comp = Tag as ElementType;
   return (
     <Comp
       ref={ref as any}
