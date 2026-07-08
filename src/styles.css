@@ -181,14 +181,66 @@
   transform: scale(1.03);
 }
 
-/* Marquee for the running header line */
-@keyframes eyegis-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* ---------- Hero motion system ---------- */
+
+/* Cinematic Ken-Burns — very slow, meaningful */
+@keyframes eyegis-kenburns-left {
+  0%   { transform: scale(1.09) translate3d(1.2%, -0.6%, 0); }
+  100% { transform: scale(1.00) translate3d(0, 0, 0); }
 }
-@utility marquee {
-  animation: eyegis-marquee 60s linear infinite;
+@keyframes eyegis-kenburns-right {
+  0%   { transform: scale(1.09) translate3d(-1.2%, -0.6%, 0); }
+  100% { transform: scale(1.00) translate3d(0, 0, 0); }
 }
+@utility kenburns-left {
+  animation: eyegis-kenburns-left 14s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+@utility kenburns-right {
+  animation: eyegis-kenburns-right 14s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+
+/* Sequential reveal — sets its own delay via inline style */
+@keyframes eyegis-rise {
+  0%   { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+@utility rise {
+  opacity: 0;
+  animation: eyegis-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+/* Curtain reveal for full panels */
+@keyframes eyegis-curtain {
+  0%   { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+@utility curtain {
+  animation: eyegis-curtain 1.4s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+/* Scroll indicator — thin line drift */
+@keyframes eyegis-scroll {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+@utility scroll-line {
+  animation: eyegis-scroll 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Subtle hover lift for premium CTAs */
+@utility cta-lift {
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.6s ease;
+}
+
+
 
 /* Link underline — editorial */
 @utility link-line {
