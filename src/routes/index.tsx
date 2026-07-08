@@ -323,6 +323,7 @@ function Index() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <Universe />
     </main>
   );
 }
