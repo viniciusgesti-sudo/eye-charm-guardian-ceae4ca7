@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 import universePortrait from "@/assets/universe-portrait.jpg";
-import universeLens from "@/assets/universe-lens-macro.jpg";
+import universeLens from "@/assets/products/solene-macro.jpg";
 import universeScience from "@/assets/universe-science.jpg";
-import universeEyewear from "@/assets/universe-eyewear.jpg";
+import universeEyewear from "@/assets/products/collection-family.jpg";
 
 /* ------------------------------------------------------------------
    Reveal on scroll — subtle editorial fade + rise
