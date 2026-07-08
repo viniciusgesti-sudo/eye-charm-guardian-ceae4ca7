@@ -144,7 +144,7 @@ function Hero() {
 
       {/* --- DIAGONAL PANEL : Paris (right, clipped) --- */}
       <div
-        className="absolute inset-0 hidden lg:block opacity-0 animate-[eyegis-rise_1.6s_cubic-bezier(0.22,1,0.36,1)_0.35s_forwards]"
+        className="absolute inset-0 hidden lg:block"
         style={{
           clipPath: "polygon(58% 0, 100% 0, 100% 100%, 42% 100%)",
           WebkitClipPath: "polygon(58% 0, 100% 0, 100% 100%, 42% 100%)",
@@ -160,6 +160,7 @@ function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(239,229,217,0.15),rgba(226,209,195,0.55))]" />
         <div className="absolute inset-0 bg-gradient-to-t from-sand/60 via-transparent to-sand/25" />
       </div>
+
 
 
 
