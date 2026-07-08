@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
 import heroParis from "@/assets/hero-paris.jpg";
+import { Universe } from "@/components/eyegis/Universe";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -322,6 +323,7 @@ function Index() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <Universe />
     </main>
   );
 }
