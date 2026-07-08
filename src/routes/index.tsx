@@ -144,13 +144,15 @@ function Hero() {
 
       {/* --- DIAGONAL PANEL : Paris (right, clipped) --- */}
       <div
-        className="absolute inset-0 curtain"
+        className="absolute inset-0 hidden lg:block"
         style={{
-          animationDelay: "0.15s",
           clipPath: "polygon(58% 0, 100% 0, 100% 100%, 42% 100%)",
         }}
       >
-        <div className="hidden lg:block absolute inset-0">
+        <div
+          className="absolute inset-0 rise"
+          style={{ animationDelay: "0.35s", animationDuration: "1.6s" }}
+        >
           <img
             src={heroParis}
             alt="Eyegis Women — Paris, golden hour"
@@ -162,6 +164,7 @@ function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-sand/60 via-transparent to-sand/25" />
         </div>
       </div>
+
 
       {/* --- Diagonal seam hairline --- */}
       <div
