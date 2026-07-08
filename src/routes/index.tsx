@@ -5,6 +5,7 @@ import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
 import heroParis from "@/assets/hero-paris.jpg";
 import { Universe } from "@/components/eyegis/Universe";
 import { HonestScience } from "@/components/eyegis/HonestScience";
+import { Collection } from "@/components/eyegis/Collection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -326,6 +327,7 @@ function Index() {
       <Hero />
       <Universe />
       <HonestScience />
+      <Collection />
     </main>
   );
 }

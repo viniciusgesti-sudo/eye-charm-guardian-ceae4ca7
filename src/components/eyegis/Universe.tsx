@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 import universePortrait from "@/assets/universe-portrait.jpg";
-import universeLens from "@/assets/universe-lens-macro.jpg";
+import universeLens from "@/assets/products/solene-macro.jpg";
 import universeScience from "@/assets/universe-science.jpg";
-import universeEyewear from "@/assets/universe-eyewear.jpg";
+import universeEyewear from "@/assets/products/collection-family.jpg";
 
 /* ------------------------------------------------------------------
    Reveal on scroll — subtle editorial fade + rise
@@ -183,7 +183,7 @@ export function Universe() {
       cta: "Learn More",
       href: "#eyegisguard",
       image: universeLens,
-      imageAlt: "Macro photograph of a single premium optical lens catching a soft teal reflection",
+      imageAlt: "Eyegis Solène tortoise cat-eye frame in macro, showing the selective blue-light filtering lens",
       icon: <IconShield />,
       tone: "paper",
       aspect: "aspect-[4/5]",
@@ -215,7 +215,7 @@ export function Universe() {
       cta: "Choose Your Lens",
       href: "#lenses",
       image: universeEyewear,
-      imageAlt: "Editorial flat lay of three premium acetate eyewear frames on warm linen",
+      imageAlt: "The Eyegis collection — four premium acetate frames arranged with signature peach packaging",
       icon: <IconLens />,
       tone: "paper",
       aspect: "aspect-[4/5]",
