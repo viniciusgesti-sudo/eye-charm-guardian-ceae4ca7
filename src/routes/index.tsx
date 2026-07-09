@@ -335,6 +335,7 @@ function Index() {
       <LifestyleUniverse />
       <Collection />
       <DigitalEyeScore />
+      <SocialProof />
     </main>
   );
 }
