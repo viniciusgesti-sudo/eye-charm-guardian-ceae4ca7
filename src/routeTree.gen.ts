@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 
 const LensesRoute = LensesRouteImport.update({
   id: '/lenses',
   path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,30 +37,34 @@ const ProductMeridianRoute = ProductMeridianRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lenses' | '/product/meridian'
+  fullPaths: '/' | '/about' | '/lenses' | '/product/meridian'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lenses' | '/product/meridian'
-  id: '__root__' | '/' | '/lenses' | '/product/meridian'
+  to: '/' | '/about' | '/lenses' | '/product/meridian'
+  id: '__root__' | '/' | '/about' | '/lenses' | '/product/meridian'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   LensesRoute: typeof LensesRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/lenses'
       fullPath: '/lenses'
       preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   LensesRoute: LensesRoute,
   ProductMeridianRoute: ProductMeridianRoute,
 }
