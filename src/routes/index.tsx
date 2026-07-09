@@ -8,6 +8,7 @@ import { HonestScience } from "@/components/eyegis/HonestScience";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { Collection } from "@/components/eyegis/Collection";
+import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -332,6 +333,7 @@ function Index() {
       <EyegisGuard />
       <LifestyleUniverse />
       <Collection />
+      <DigitalEyeScore />
     </main>
   );
 }
