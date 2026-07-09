@@ -9,6 +9,7 @@ import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { Collection } from "@/components/eyegis/Collection";
 import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
+import { SocialProof } from "@/components/eyegis/SocialProof";
 
 export const Route = createFileRoute("/")({
   head: () => ({
