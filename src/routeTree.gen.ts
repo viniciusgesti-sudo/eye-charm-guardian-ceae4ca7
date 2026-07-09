@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WarrantyRouteImport } from './routes/warranty'
+import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -18,6 +19,11 @@ import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 const WarrantyRoute = WarrantyRouteImport.update({
   id: '/warranty',
   path: '/warranty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingRoute = ShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LensesRoute = LensesRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
+  '/shipping': typeof ShippingRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
+  '/shipping': typeof ShippingRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/lenses': typeof LensesRoute
+  '/shipping': typeof ShippingRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/lenses' | '/warranty' | '/product/meridian'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/lenses'
+    | '/shipping'
+    | '/warranty'
+    | '/product/meridian'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/lenses' | '/warranty' | '/product/meridian'
+  to:
+    | '/'
+    | '/about'
+    | '/lenses'
+    | '/shipping'
+    | '/warranty'
+    | '/product/meridian'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/lenses'
+    | '/shipping'
     | '/warranty'
     | '/product/meridian'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   LensesRoute: typeof LensesRoute
+  ShippingRoute: typeof ShippingRoute
   WarrantyRoute: typeof WarrantyRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
 }
@@ -92,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/warranty'
       fullPath: '/warranty'
       preLoaderRoute: typeof WarrantyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping': {
+      id: '/shipping'
+      path: '/shipping'
+      fullPath: '/shipping'
+      preLoaderRoute: typeof ShippingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lenses': {
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   LensesRoute: LensesRoute,
+  ShippingRoute: ShippingRoute,
   WarrantyRoute: WarrantyRoute,
   ProductMeridianRoute: ProductMeridianRoute,
 }
