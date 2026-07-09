@@ -291,10 +291,9 @@ function CollectionSection({ c, i }: { c: CollectionBlock; i: number }) {
               {c.highlights.map((h) => (
                 <li
                   key={h}
-                  className={`flex items-baseline gap-3 border-t ${t.hairline.replace(
-                    "bg-",
-                    "border-"
-                  )} pt-3`}
+                  className={`flex items-baseline gap-3 border-t ${
+                    c.tone === "teal" ? "border-paper/20" : "border-ink/15"
+                  } pt-3`}
                 >
                   <span className={`font-eyebrow text-[9px] ${t.script}`}>•</span>
                   <span className={`text-sm ${t.text}`}>{h}</span>
