@@ -4,6 +4,203 @@ import universePortrait from "@/assets/universe-portrait.jpg";
 import universeLens from "@/assets/products/solene-macro.jpg";
 import universeScience from "@/assets/universe-science.jpg";
 import universeEyewear from "@/assets/products/collection-family.jpg";
+import { useI18n } from "@/i18n/context";
+import type { Lang } from "@/i18n/translations";
+
+/* ---------- Localized copy ---------- */
+type UniverseCopy = {
+  chapter: string;
+  title1: string;
+  titleAccent: string;
+  tagline: string;
+  noteEyebrow: string;
+  noteHeadline1: string;
+  noteHeadlineAccent: string;
+  noteHeadline2: string;
+  noteBody1: string;
+  noteBody2: string;
+  stats: { k: string; v: string }[];
+  portraitCaption1: string;
+  portraitCaption2: string;
+  principlesEyebrow: string;
+  principlesLine: string;
+  panels: {
+    index: string;
+    eyebrow: string;
+    headline: string;
+    description: string;
+    cta: string;
+    imageAlt: string;
+  }[];
+  closingLine: string;
+  closingCta: string;
+};
+
+const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
+  EN: {
+    chapter: "Chapter III",
+    title1: "The Eyegis",
+    titleAccent: "Universe",
+    tagline: "Vision · Science · Style",
+    noteEyebrow: "A Note on Purpose",
+    noteHeadline1: "At Eyegis, we believe eye protection should never come at the expense of ",
+    noteHeadlineAccent: "style",
+    noteHeadline2: ".",
+    noteBody1:
+      "Our mission is simple: protect the eyes of the digital generation through scientifically engineered lenses designed to be worn every day.",
+    noteBody2:
+      "We combine optical engineering, honest science and thoughtful design to create products that help people work, create and play more comfortably — without compromising style.",
+    stats: [
+      { k: "Est.", v: "MMXXIV" },
+      { k: "Ateliers", v: "SP · PAR" },
+      { k: "Lenses", v: "9 series" },
+    ],
+    portraitCaption1: "Solène — Le Marais, Paris",
+    portraitCaption2: "Portrait N°04",
+    principlesEyebrow: "Three Principles",
+    principlesLine: "Technology, science and style — quietly held in balance.",
+    panels: [
+      {
+        index: "Panel 01",
+        eyebrow: "EyegisGuard™",
+        headline: "Our proprietary technology.",
+        description:
+          "Selective blue-light filtering designed to preserve natural colors while reducing unnecessary visual stress.",
+        cta: "Learn More",
+        imageAlt: "Eyegis Solène tortoise cat-eye frame in macro, showing the selective blue-light filtering lens",
+      },
+      {
+        index: "Panel 02",
+        eyebrow: "Honest Science™",
+        headline: "Evidence before marketing.",
+        description:
+          "No exaggerated promises. No pseudoscience. Only transparent, evidence-based optical engineering.",
+        cta: "Explore the Science",
+        imageAlt: "Minimal optical laboratory with a brass microscope on a concrete bench",
+      },
+      {
+        index: "Panel 03",
+        eyebrow: "Choose Your Lens",
+        headline: "Find your perfect lens.",
+        description:
+          "Compare every Eyegis lens and discover the right balance between protection, comfort and style.",
+        cta: "Choose Your Lens",
+        imageAlt: "The Eyegis collection — four premium acetate frames arranged with signature peach packaging",
+      },
+    ],
+    closingLine: "Continue into the science that makes it possible.",
+    closingCta: "Read Honest Science™",
+  },
+  PT: {
+    chapter: "Capítulo III",
+    title1: "O Universo",
+    titleAccent: "Eyegis",
+    tagline: "Visão · Ciência · Estilo",
+    noteEyebrow: "Uma Nota Sobre Propósito",
+    noteHeadline1: "Na Eyegis, acreditamos que proteger os olhos nunca deve custar o ",
+    noteHeadlineAccent: "estilo",
+    noteHeadline2: ".",
+    noteBody1:
+      "Nossa missão é simples: proteger os olhos da geração digital através de lentes cientificamente desenvolvidas para o uso diário.",
+    noteBody2:
+      "Combinamos engenharia óptica, ciência honesta e design pensado para criar produtos que ajudam pessoas a trabalhar, criar e viver com mais conforto — sem abrir mão do estilo.",
+    stats: [
+      { k: "Fund.", v: "MMXXIV" },
+      { k: "Ateliês", v: "SP · PAR" },
+      { k: "Lentes", v: "9 séries" },
+    ],
+    portraitCaption1: "Solène — Le Marais, Paris",
+    portraitCaption2: "Retrato N°04",
+    principlesEyebrow: "Três Princípios",
+    principlesLine: "Tecnologia, ciência e estilo — em silencioso equilíbrio.",
+    panels: [
+      {
+        index: "Painel 01",
+        eyebrow: "EyegisGuard™",
+        headline: "Nossa tecnologia proprietária.",
+        description:
+          "Filtro seletivo de luz azul, desenhado para preservar cores naturais reduzindo o estresse visual desnecessário.",
+        cta: "Saiba Mais",
+        imageAlt: "Armação Eyegis Solène tortoise em macro, mostrando a lente com filtro seletivo",
+      },
+      {
+        index: "Painel 02",
+        eyebrow: "Honest Science™",
+        headline: "Evidência antes do marketing.",
+        description:
+          "Sem promessas exageradas. Sem pseudociência. Apenas engenharia óptica transparente, baseada em evidência.",
+        cta: "Explorar a Ciência",
+        imageAlt: "Laboratório óptico minimalista com microscópio de latão sobre bancada de concreto",
+      },
+      {
+        index: "Painel 03",
+        eyebrow: "Escolha Sua Lente",
+        headline: "Encontre a lente perfeita para você.",
+        description:
+          "Compare cada lente Eyegis e descubra o equilíbrio certo entre proteção, conforto e estilo.",
+        cta: "Escolher Minha Lente",
+        imageAlt: "A coleção Eyegis — quatro armações premium em acetato com embalagem pêssego assinatura",
+      },
+    ],
+    closingLine: "Continue pela ciência que torna tudo isso possível.",
+    closingCta: "Ler Honest Science™",
+  },
+  FR: {
+    chapter: "Chapitre III",
+    title1: "L'Univers",
+    titleAccent: "Eyegis",
+    tagline: "Vision · Science · Style",
+    noteEyebrow: "Une Note d'Intention",
+    noteHeadline1: "Chez Eyegis, protéger les yeux ne doit jamais se faire au détriment du ",
+    noteHeadlineAccent: "style",
+    noteHeadline2: ".",
+    noteBody1:
+      "Notre mission est simple : protéger les yeux de la génération numérique grâce à des verres pensés scientifiquement pour un usage quotidien.",
+    noteBody2:
+      "Nous conjuguons ingénierie optique, science honnête et design réfléchi pour créer des produits qui aident à travailler, créer et vivre plus confortablement — sans compromis sur le style.",
+    stats: [
+      { k: "Fondée", v: "MMXXIV" },
+      { k: "Ateliers", v: "SP · PAR" },
+      { k: "Verres", v: "9 séries" },
+    ],
+    portraitCaption1: "Solène — Le Marais, Paris",
+    portraitCaption2: "Portrait N°04",
+    principlesEyebrow: "Trois Principes",
+    principlesLine: "Technologie, science et style — en équilibre silencieux.",
+    panels: [
+      {
+        index: "Panneau 01",
+        eyebrow: "EyegisGuard™",
+        headline: "Notre technologie propriétaire.",
+        description:
+          "Un filtre sélectif de lumière bleue, conçu pour préserver les couleurs naturelles tout en réduisant la fatigue visuelle.",
+        cta: "En savoir plus",
+        imageAlt: "Monture Eyegis Solène écaille en macro, montrant le verre filtrant sélectif",
+      },
+      {
+        index: "Panneau 02",
+        eyebrow: "Honest Science™",
+        headline: "L'évidence avant le marketing.",
+        description:
+          "Aucune promesse exagérée. Aucune pseudo-science. Uniquement une ingénierie optique transparente, fondée sur la preuve.",
+        cta: "Explorer la Science",
+        imageAlt: "Laboratoire optique minimaliste avec un microscope en laiton sur béton",
+      },
+      {
+        index: "Panneau 03",
+        eyebrow: "Choisir vos verres",
+        headline: "Trouvez le verre qui vous ressemble.",
+        description:
+          "Comparez chaque verre Eyegis et découvrez le juste équilibre entre protection, confort et style.",
+        cta: "Choisir mes verres",
+        imageAlt: "La collection Eyegis — quatre montures acétate premium avec l'étui pêche signature",
+      },
+    ],
+    closingLine: "Poursuivez avec la science qui rend tout cela possible.",
+    closingCta: "Lire Honest Science™",
+  },
+};
+
 
 /* ------------------------------------------------------------------
    Reveal on scroll — subtle editorial fade + rise
