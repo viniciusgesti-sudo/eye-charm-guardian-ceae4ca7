@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
+import { useI18n } from "@/i18n/context";
+
 import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
 import heroParis from "@/assets/hero-paris.jpg";
 import { Universe } from "@/components/eyegis/Universe";
@@ -32,7 +34,7 @@ export const Route = createFileRoute("/")({
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState<"EN" | "PT" | "FR">("EN");
+  const { lang, setLang, langs, t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,6 +42,15 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navItems: { key: string; label: string }[] = [
+    { key: "men", label: t("nav.men") },
+    { key: "women", label: t("nav.women") },
+    { key: "kids", label: t("nav.kids") },
+    { key: "technology", label: t("nav.technology") },
+    { key: "honestScience", label: t("nav.honestScience") },
+    { key: "about", label: t("nav.about") },
+  ];
 
   return (
     <header
@@ -64,7 +75,7 @@ function Header() {
               scrolled ? "text-muted-foreground" : "text-paper/60"
             }`}
           >
-            ® Optical Science
+            {t("nav.opticalScience")}
           </span>
         </a>
 
@@ -74,16 +85,15 @@ function Header() {
             scrolled ? "text-ink/80" : "text-paper/85"
           }`}
         >
-          {["Men", "Women", "Kids", "Technology", "Honest Science™", "About"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
+              key={item.key}
               href="#"
               className="relative py-1 whitespace-nowrap transition-colors duration-300 hover:text-current after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 hover:after:origin-left hover:after:scale-x-100"
             >
-              {item}
+              {item.label}
             </a>
           ))}
-
         </nav>
 
         {/* Right cluster */}
@@ -93,22 +103,25 @@ function Header() {
           }`}
         >
           <div className="hidden sm:flex items-center gap-2">
-            {(["EN", "PT", "FR"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`transition-opacity ${
-                  lang === l ? "opacity-100" : "opacity-40 hover:opacity-70"
-                }`}
-                aria-label={`Language: ${l}`}
-              >
-                {l}
-              </button>
+            {langs.map((l, i) => (
+              <div key={l} className="flex items-center gap-2">
+                {i > 0 && <span className="opacity-25">·</span>}
+                <button
+                  onClick={() => setLang(l)}
+                  className={`transition-opacity ${
+                    lang === l ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  }`}
+                  aria-label={`Language: ${l}`}
+                  aria-current={lang === l ? "true" : undefined}
+                >
+                  {l}
+                </button>
+              </div>
             ))}
           </div>
-          <button className="flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label="Shopping bag">
+          <button className="flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label={t("nav.bag")}>
             <BagIcon />
-            <span className="hidden sm:inline">Bag (0)</span>
+            <span className="hidden sm:inline">{t("nav.bag")} (0)</span>
           </button>
         </div>
       </div>
@@ -134,6 +147,8 @@ function BagIcon() {
    ------------------------------------------------------------------ */
 
 function Hero() {
+  const { t } = useI18n();
+
   return (
     <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-ink">
       {/* --- BASE LAYER : São Paulo (left, full width) --- */}
@@ -206,15 +221,15 @@ function Hero() {
           className="rise flex flex-col items-start gap-2"
           style={{ animationDelay: "1.2s" }}
         >
-          <span className="font-eyebrow text-mint">Chapter I · Meridian</span>
-          <span className="font-eyebrow text-paper/70">São Paulo · 22:41</span>
+          <span className="font-eyebrow text-mint">{t("hero.chapter1")}</span>
+          <span className="font-eyebrow text-paper/70">{t("hero.chapter1.location")}</span>
         </div>
         <div
           className="rise hidden lg:flex flex-col items-end gap-2 text-ink"
           style={{ animationDelay: "1.35s" }}
         >
-          <span className="font-eyebrow text-teal">Chapter II · Solène</span>
-          <span className="font-eyebrow text-ink/60">Paris · 17:12</span>
+          <span className="font-eyebrow text-teal">{t("hero.chapter2")}</span>
+          <span className="font-eyebrow text-ink/60">{t("hero.chapter2.location")}</span>
         </div>
       </div>
 
@@ -226,13 +241,13 @@ function Hero() {
           <div className="max-w-xl">
             <h1 className="font-editorial text-paper leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
               <span className="rise block" style={{ animationDelay: "0.5s" }}>
-                Engineered
+                {t("hero.headline1.line1")}
               </span>
               <span
                 className="rise block italic text-mint"
                 style={{ animationDelay: "0.75s" }}
               >
-                for Vision.
+                {t("hero.headline1.line2")}
               </span>
             </h1>
           </div>
@@ -241,13 +256,13 @@ function Hero() {
           <div className="max-w-xl lg:justify-self-end lg:text-right">
             <h2 className="font-editorial text-paper lg:text-ink leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
               <span className="rise block" style={{ animationDelay: "0.9s" }}>
-                Designed
+                {t("hero.headline2.line1")}
               </span>
               <span
                 className="rise block italic text-teal"
                 style={{ animationDelay: "1.05s" }}
               >
-                for Style.
+                {t("hero.headline2.line2")}
               </span>
             </h2>
           </div>
@@ -259,9 +274,9 @@ function Hero() {
             className="rise lg:col-span-4 font-light text-base md:text-lg leading-relaxed text-paper/85 max-w-md"
             style={{ animationDelay: "1.5s" }}
           >
-            Premium blue-light filtering eyewear created for the digital generation.
+            {t("hero.subcopy.line1")}
             <span className="block mt-2 text-paper/60">
-              Scientifically engineered. Timelessly designed.
+              {t("hero.subcopy.line2")}
             </span>
           </p>
 
@@ -271,7 +286,7 @@ function Hero() {
               className="rise cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-8 py-5 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(0,56,66,0.85)]"
               style={{ animationDelay: "1.7s" }}
             >
-              <span className="font-eyebrow">Explore Men's Collection</span>
+              <span className="font-eyebrow">{t("hero.cta.men")}</span>
               <span
                 className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform duration-500 group-hover:translate-x-1"
                 aria-hidden="true"
@@ -285,7 +300,7 @@ function Hero() {
               className="rise cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-sand px-8 py-5 text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.9)] hover:bg-sand-warm hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(226,209,195,1)]"
               style={{ animationDelay: "1.85s" }}
             >
-              <span className="font-eyebrow">Explore Women's Collection</span>
+              <span className="font-eyebrow">{t("hero.cta.women")}</span>
               <span
                 className="grid h-8 w-8 place-items-center rounded-full bg-ink/10 transition-transform duration-500 group-hover:translate-x-1"
                 aria-hidden="true"
@@ -300,7 +315,7 @@ function Hero() {
       {/* --- Scroll indicator --- */}
       <div className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 rise" style={{ animationDelay: "2.1s" }}>
         <div className="flex flex-col items-center gap-3">
-          <span className="font-eyebrow text-[9px] text-paper/70">Scroll</span>
+          <span className="font-eyebrow text-[9px] text-paper/70">{t("hero.scroll")}</span>
           <div className="relative h-14 w-px overflow-hidden bg-paper/15">
             <span className="absolute inset-x-0 h-6 bg-paper scroll-line" />
           </div>
