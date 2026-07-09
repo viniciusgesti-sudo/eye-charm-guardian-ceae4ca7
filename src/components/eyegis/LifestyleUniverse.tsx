@@ -548,32 +548,31 @@ export function LifestyleUniverse() {
           <Reveal>
             <div className="flex items-center justify-center gap-4 text-ink/60">
               <span className="h-px w-14 bg-ink/25" />
-              <span className="font-eyebrow">A Frame For Every Life</span>
+              <span className="font-eyebrow">{copy.finalEyebrow}</span>
               <span className="h-px w-14 bg-ink/25" />
             </div>
           </Reveal>
 
           <Reveal delay={200}>
             <h3 className="mt-12 font-editorial text-ink text-balance-tight text-[10vw] sm:text-[7vw] md:text-[5.6vw] lg:text-[4.8vw] xl:text-[76px] leading-[0.95]">
-              Find the collection
+              {copy.finalHeadline1}
               <br />
-              <span className="italic text-teal">that fits your lifestyle.</span>
+              <span className="italic text-teal">{copy.finalHeadline2}</span>
             </h3>
           </Reveal>
 
           <Reveal delay={360}>
             <p className="mx-auto mt-8 max-w-xl font-light text-base md:text-lg leading-relaxed text-ink/65">
-              Three families. One optical philosophy. Shaped for the way you live,
-              work and see the world.
+              {copy.finalBody}
             </p>
           </Reveal>
 
           <Reveal delay={520}>
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
               {[
-                { label: "Men", href: "#men", variant: "teal" as const },
-                { label: "Women", href: "#women", variant: "sand" as const },
-                { label: "Kids & Teens", href: "#kids", variant: "outline" as const },
+                { label: copy.btnMen, href: "#men", variant: "teal" as const },
+                { label: copy.btnWomen, href: "#women", variant: "sand" as const },
+                { label: copy.btnKids, href: "#kids", variant: "outline" as const },
               ].map((b) => (
                 <a
                   key={b.label}
@@ -586,7 +585,7 @@ export function LifestyleUniverse() {
                       : "bg-transparent text-ink ring-1 ring-ink/25 hover:bg-ink hover:text-paper hover:-translate-y-0.5"
                   }`}
                 >
-                  <span className="font-eyebrow">Explore {b.label}</span>
+                  <span className="font-eyebrow">{copy.buttonPrefix} {b.label}</span>
                   <span
                     className={`grid h-8 w-8 place-items-center rounded-full transition-transform duration-500 group-hover:translate-x-1 ${
                       b.variant === "teal"
@@ -606,9 +605,9 @@ export function LifestyleUniverse() {
 
           <Reveal delay={680}>
             <div className="mt-16 flex items-center justify-center gap-4 font-eyebrow text-[9px] text-ink/50">
-              <span>Continue</span>
+              <span>{copy.continueLabel}</span>
               <span className="block h-px w-10 bg-ink/25" />
-              <span>The Collections</span>
+              <span>{copy.continueTarget}</span>
             </div>
           </Reveal>
         </div>
