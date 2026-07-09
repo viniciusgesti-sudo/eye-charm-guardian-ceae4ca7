@@ -5,6 +5,8 @@ import lifeBusiness from "@/assets/life-business.jpg";
 import lifeGaming from "@/assets/life-gaming.jpg";
 import lifeStudent from "@/assets/life-student.jpg";
 import lifeTravel from "@/assets/life-travel.jpg";
+import { useI18n } from "@/i18n/context";
+import type { Lang } from "@/i18n/translations";
 
 /* ---------- Reveal ---------- */
 function useReveal<T extends HTMLElement>() {
