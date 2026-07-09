@@ -340,21 +340,7 @@ const LIFESTYLE_COPY: Record<Lang, LifestyleCopy> = {
   },
 };
 
-type Tone = "paper" | "champagne" | "teal";
-type Panel = {
-  index: string;
-  eyebrow: string;
-  tags: string[];
-  title: string;
-  script: string;
-  body: string;
-  cta: string;
-  image: string;
-  imageAlt: string;
-  align: "left" | "right";
-  tone: Tone;
-  Icon: React.FC;
-};
+/* Panel/Tone types are declared above near the copy dictionary. */
 
 const PANEL_META = [
   { image: lifeCreative, align: "right" as const, tone: "paper" as const, Icon: IconCreative },
