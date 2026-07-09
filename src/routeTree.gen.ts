@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 
+const LensesRoute = LensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +31,43 @@ const ProductMeridianRoute = ProductMeridianRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/lenses': typeof LensesRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/product/meridian'
+  fullPaths: '/' | '/lenses' | '/product/meridian'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/product/meridian'
-  id: '__root__' | '/' | '/product/meridian'
+  to: '/' | '/lenses' | '/product/meridian'
+  id: '__root__' | '/' | '/lenses' | '/product/meridian'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LensesRoute: typeof LensesRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/lenses': {
+      id: '/lenses'
+      path: '/lenses'
+      fullPath: '/lenses'
+      preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LensesRoute: LensesRoute,
   ProductMeridianRoute: ProductMeridianRoute,
 }
 export const routeTree = rootRouteImport
