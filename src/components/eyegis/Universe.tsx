@@ -370,54 +370,26 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
    Section
    ------------------------------------------------------------------ */
 export function Universe() {
-  const panels: Panel[] = [
-    {
-      index: "Panel 01",
-      eyebrow: "EyegisGuard™",
-      headline: "Our proprietary technology.",
-      description:
-        "Selective blue-light filtering designed to preserve natural colors while reducing unnecessary visual stress.",
-      cta: "Learn More",
-      href: "#eyegisguard",
-      image: universeLens,
-      imageAlt: "Eyegis Solène tortoise cat-eye frame in macro, showing the selective blue-light filtering lens",
-      icon: <IconShield />,
-      tone: "paper",
-      aspect: "aspect-[4/5]",
-    },
-    {
-      index: "Panel 02",
-      eyebrow: "Honest Science™",
-      headline: "Evidence before marketing.",
-      description: (
-        <>
-          No exaggerated promises. No pseudoscience. Only transparent,
-          evidence-based optical engineering.
-        </>
-      ),
-      cta: "Explore the Science",
-      href: "#honest-science",
-      image: universeScience,
-      imageAlt: "Minimal optical laboratory with a brass microscope on a concrete bench",
-      icon: <IconFlask />,
-      tone: "champagne",
-      aspect: "aspect-[4/5]",
-    },
-    {
-      index: "Panel 03",
-      eyebrow: "Choose Your Lens",
-      headline: "Find your perfect lens.",
-      description:
-        "Compare every Eyegis lens and discover the right balance between protection, comfort and style.",
-      cta: "Choose Your Lens",
-      href: "#lenses",
-      image: universeEyewear,
-      imageAlt: "The Eyegis collection — four premium acetate frames arranged with signature peach packaging",
-      icon: <IconLens />,
-      tone: "paper",
-      aspect: "aspect-[4/5]",
-    },
+  const { lang } = useI18n();
+  const copy = UNIVERSE_COPY[lang];
+  const panelMeta = [
+    { href: "#eyegisguard", image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: "#honest-science", image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
+    { href: "#lenses", image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
   ];
+  const panels: Panel[] = copy.panels.map((p, i) => ({
+    index: p.index,
+    eyebrow: p.eyebrow,
+    headline: p.headline,
+    description: p.description,
+    cta: p.cta,
+    href: panelMeta[i].href,
+    image: panelMeta[i].image,
+    imageAlt: p.imageAlt,
+    icon: panelMeta[i].icon,
+    tone: panelMeta[i].tone,
+    aspect: panelMeta[i].aspect,
+  }));
 
   return (
     <section
@@ -429,7 +401,7 @@ export function Universe() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-40 lg:pt-48">
         <Reveal className="flex items-center gap-4">
           <span className="h-px w-10 bg-ink/30" />
-          <span className="font-eyebrow text-ink/60">Chapter III</span>
+          <span className="font-eyebrow text-ink/60">{copy.chapter}</span>
         </Reveal>
 
         <Reveal delay={120}>
@@ -437,13 +409,13 @@ export function Universe() {
             id="universe-title"
             className="mt-8 font-editorial text-center text-ink text-balance-tight leading-[0.92] tracking-[-0.02em] text-[13vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[112px]"
           >
-            The Eyegis <span className="italic text-teal">Universe</span>
+            {copy.title1} <span className="italic text-teal">{copy.titleAccent}</span>
           </h2>
         </Reveal>
 
         <Reveal delay={220} className="mt-10 flex justify-center">
           <span className="font-eyebrow text-ink/50">
-            Vision · Science · Style
+            {copy.tagline}
           </span>
         </Reveal>
       </div>
@@ -454,39 +426,28 @@ export function Universe() {
           {/* Left — Editorial content (7 col, offset 1) */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
             <Reveal delay={80} className="flex items-center gap-4">
-              <span className="font-eyebrow text-ink/50">A Note on Purpose</span>
+              <span className="font-eyebrow text-ink/50">{copy.noteEyebrow}</span>
               <span className="h-px w-8 bg-ink/25" />
             </Reveal>
 
             <Reveal delay={160}>
               <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.02] tracking-[-0.02em] text-[36px] md:text-[46px] lg:text-[54px] max-w-[18ch]">
-                At Eyegis, we believe eye protection should never come at the
-                expense of <span className="italic text-teal">style</span>.
+                {copy.noteHeadline1}
+                <span className="italic text-teal">{copy.noteHeadlineAccent}</span>
+                {copy.noteHeadline2}
               </p>
             </Reveal>
 
             <Reveal delay={280}>
               <div className="mt-12 max-w-[62ch] space-y-6 text-[16px] md:text-[17px] leading-[1.75] text-ink/75">
-                <p>
-                  Our mission is simple: protect the eyes of the digital
-                  generation through scientifically engineered lenses designed
-                  to be worn every day.
-                </p>
-                <p>
-                  We combine optical engineering, honest science and thoughtful
-                  design to create products that help people work, create and
-                  play more comfortably — without compromising style.
-                </p>
+                <p>{copy.noteBody1}</p>
+                <p>{copy.noteBody2}</p>
               </div>
             </Reveal>
 
             <Reveal delay={380}>
               <div className="mt-14 grid grid-cols-3 gap-8 max-w-lg">
-                {[
-                  { k: "Est.", v: "MMXXIV" },
-                  { k: "Ateliers", v: "SP · PAR" },
-                  { k: "Lenses", v: "9 series" },
-                ].map((s) => (
+                {copy.stats.map((s) => (
                   <div key={s.k} className="flex flex-col gap-2 border-t border-ink/15 pt-4">
                     <span className="font-eyebrow text-ink/50 text-[10px]">
                       {s.k}
@@ -515,8 +476,8 @@ export function Universe() {
                   />
                 </div>
                 <figcaption className="mt-5 flex items-center justify-between font-eyebrow text-ink/55">
-                  <span>Solène — Le Marais, Paris</span>
-                  <span>Portrait N°04</span>
+                  <span>{copy.portraitCaption1}</span>
+                  <span>{copy.portraitCaption2}</span>
                 </figcaption>
               </figure>
             </Reveal>
@@ -528,12 +489,12 @@ export function Universe() {
       <div className="mx-auto mt-32 md:mt-40 lg:mt-48 max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-12 gap-10 items-end">
           <Reveal className="col-span-12 md:col-span-6 flex items-center gap-4">
-            <span className="font-eyebrow text-ink/50">Three Principles</span>
+            <span className="font-eyebrow text-ink/50">{copy.principlesEyebrow}</span>
             <span className="h-px w-16 bg-ink/25" />
           </Reveal>
           <Reveal delay={120} className="col-span-12 md:col-span-6 md:text-right">
             <p className="font-editorial text-ink text-2xl md:text-3xl tracking-[-0.01em] leading-tight max-w-[32ch] md:ml-auto">
-              Technology, science and style — quietly held in balance.
+              {copy.principlesLine}
             </p>
           </Reveal>
         </div>
@@ -565,7 +526,7 @@ export function Universe() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-24 md:py-28 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <Reveal>
             <p className="font-editorial text-ink text-3xl md:text-4xl tracking-[-0.01em] leading-[1.05] max-w-[24ch]">
-              Continue into the science that makes it possible.
+              {copy.closingLine}
             </p>
           </Reveal>
           <Reveal delay={120}>
@@ -574,7 +535,7 @@ export function Universe() {
               className="group inline-flex items-center gap-4 font-eyebrow text-ink"
             >
               <span className="relative">
-                Read Honest Science™
+                {copy.closingCta}
                 <span className="absolute inset-x-0 -bottom-1 h-px bg-ink/40" />
               </span>
               <span
