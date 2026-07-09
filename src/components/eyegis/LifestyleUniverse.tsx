@@ -501,6 +501,9 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
 
 /* ---------- Main ---------- */
 export function LifestyleUniverse() {
+  const { lang } = useI18n();
+  const copy = LIFESTYLE_COPY[lang];
+  const panels = buildPanels(copy);
   return (
     <section id="lifestyles" className="relative">
       {/* ============ INTRO ============ */}
@@ -510,26 +513,23 @@ export function LifestyleUniverse() {
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">§ 05</span>
               <span className="h-px w-8 bg-ink/25" />
-              <span className="font-eyebrow">Designed for Every Digital Life</span>
+              <span className="font-eyebrow">{copy.sectionEyebrow}</span>
             </div>
           </Reveal>
 
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <Reveal delay={120} className="lg:col-span-8">
               <h2 className="font-editorial text-ink text-balance-tight text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] xl:text-[96px] leading-[0.9]">
-                Whatever your screen.
+                {copy.headline1}
                 <br />
-                <span className="italic text-teal">Wherever your ambition.</span>
+                <span className="italic text-teal">{copy.headline2}</span>
               </h2>
             </Reveal>
             <Reveal delay={260} className="lg:col-span-4">
               <p className="font-light text-base md:text-lg leading-relaxed text-ink/75 max-w-md">
-                Every profession, every passion and every creative journey deserves
-                visual comfort without compromising style.
+                {copy.introBody1}
                 <span className="mt-3 block text-ink/55">
-                  Eyegis is designed to support the modern digital life — from
-                  focused work to creative expression, from competitive play to
-                  everyday productivity.
+                  {copy.introBody2}
                 </span>
               </p>
             </Reveal>
@@ -538,7 +538,7 @@ export function LifestyleUniverse() {
       </div>
 
       {/* ============ PANELS ============ */}
-      {PANELS.map((p, i) => (
+      {panels.map((p, i) => (
         <LifestylePanel key={p.index} panel={p} i={i} />
       ))}
 
