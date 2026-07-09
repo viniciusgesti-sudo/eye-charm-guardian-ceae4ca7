@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
+import { useI18n } from "@/i18n/context";
+
 import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
 import heroParis from "@/assets/hero-paris.jpg";
 import { Universe } from "@/components/eyegis/Universe";
@@ -32,7 +34,7 @@ export const Route = createFileRoute("/")({
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState<"EN" | "PT" | "FR">("EN");
+  const { lang, setLang, langs, t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,6 +42,15 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navItems: { key: string; label: string }[] = [
+    { key: "men", label: t("nav.men") },
+    { key: "women", label: t("nav.women") },
+    { key: "kids", label: t("nav.kids") },
+    { key: "technology", label: t("nav.technology") },
+    { key: "honestScience", label: t("nav.honestScience") },
+    { key: "about", label: t("nav.about") },
+  ];
 
   return (
     <header
@@ -64,7 +75,7 @@ function Header() {
               scrolled ? "text-muted-foreground" : "text-paper/60"
             }`}
           >
-            ® Optical Science
+            {t("nav.opticalScience")}
           </span>
         </a>
 
@@ -74,16 +85,15 @@ function Header() {
             scrolled ? "text-ink/80" : "text-paper/85"
           }`}
         >
-          {["Men", "Women", "Kids", "Technology", "Honest Science™", "About"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
+              key={item.key}
               href="#"
               className="relative py-1 whitespace-nowrap transition-colors duration-300 hover:text-current after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 hover:after:origin-left hover:after:scale-x-100"
             >
-              {item}
+              {item.label}
             </a>
           ))}
-
         </nav>
 
         {/* Right cluster */}
@@ -93,22 +103,25 @@ function Header() {
           }`}
         >
           <div className="hidden sm:flex items-center gap-2">
-            {(["EN", "PT", "FR"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`transition-opacity ${
-                  lang === l ? "opacity-100" : "opacity-40 hover:opacity-70"
-                }`}
-                aria-label={`Language: ${l}`}
-              >
-                {l}
-              </button>
+            {langs.map((l, i) => (
+              <div key={l} className="flex items-center gap-2">
+                {i > 0 && <span className="opacity-25">·</span>}
+                <button
+                  onClick={() => setLang(l)}
+                  className={`transition-opacity ${
+                    lang === l ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  }`}
+                  aria-label={`Language: ${l}`}
+                  aria-current={lang === l ? "true" : undefined}
+                >
+                  {l}
+                </button>
+              </div>
             ))}
           </div>
-          <button className="flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label="Shopping bag">
+          <button className="flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label={t("nav.bag")}>
             <BagIcon />
-            <span className="hidden sm:inline">Bag (0)</span>
+            <span className="hidden sm:inline">{t("nav.bag")} (0)</span>
           </button>
         </div>
       </div>
