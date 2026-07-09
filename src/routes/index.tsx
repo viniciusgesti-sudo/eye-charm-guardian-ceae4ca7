@@ -333,6 +333,7 @@ function Index() {
       <EyegisGuard />
       <LifestyleUniverse />
       <Collection />
+      <DigitalEyeScore />
     </main>
   );
 }
