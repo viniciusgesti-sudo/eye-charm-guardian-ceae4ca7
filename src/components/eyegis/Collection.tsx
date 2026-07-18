@@ -1044,9 +1044,20 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           </a>
         </div>
       </div>
+      {open && (
+        <Lightbox
+          shots={shots}
+          index={active}
+          onIndex={setActive}
+          onClose={() => setOpen(false)}
+          title={pc.name}
+          eyebrow={`${pc.collection} · ${pc.city}`}
+        />
+      )}
     </article>
   );
 }
+
 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
