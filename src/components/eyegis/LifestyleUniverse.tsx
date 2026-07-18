@@ -483,7 +483,7 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
 
           <Reveal delay={560}>
             <a
-              href="#collections"
+              href="/#collections"
               className={`group mt-12 inline-flex items-center gap-5 ${t.ctaBase} ${t.ctaHover} transition-colors duration-500`}
             >
               <span className="font-eyebrow">{panel.cta}</span>

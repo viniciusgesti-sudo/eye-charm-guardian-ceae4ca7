@@ -875,7 +875,7 @@ export function SocialProof() {
                 </span>
               </a>
               <a
-                href="#collections"
+                href="/#collections"
                 className="inline-flex items-center justify-center rounded-full border border-paper/25 px-9 py-5 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
               >
                 {copy.ctaExplore}

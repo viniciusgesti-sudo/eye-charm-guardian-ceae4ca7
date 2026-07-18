@@ -374,7 +374,7 @@ export function Universe() {
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
     { href: "#eyegisguard", image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
-    { href: "#honest-science", image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
+    { href: "/#honest-science", image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
     { href: "#lenses", image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
@@ -531,7 +531,7 @@ export function Universe() {
           </Reveal>
           <Reveal delay={120}>
             <a
-              href="#honest-science"
+              href="/#honest-science"
               className="group inline-flex items-center gap-4 font-eyebrow text-ink"
             >
               <span className="relative">

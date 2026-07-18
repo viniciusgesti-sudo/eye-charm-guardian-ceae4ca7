@@ -95,8 +95,8 @@ const cols = [
   {
     title: "Learn",
     links: [
-      { label: "Our Technology", href: "#technology" },
-      { label: "Honest Science™", href: "#honest-science" },
+      { label: "Our Technology", href: "/#technology" },
+      { label: "Honest Science™", href: "/#honest-science" },
       { label: "Who We Are", href: "/about" },
     ],
   },
@@ -120,8 +120,8 @@ const socials = [
 
 const topNav = [
   { label: "Shop",       href: AMZ, external: true },
-  { label: "Technology", href: "#technology" },
-  { label: "Science",    href: "#honest-science" },
+  { label: "Technology", href: "/#technology" },
+  { label: "Science",    href: "/#honest-science" },
   { label: "About",      href: "/about" },
   { label: "Support",    href: "/contact" },
 ];
