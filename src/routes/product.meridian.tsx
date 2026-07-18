@@ -671,9 +671,15 @@ function Gallery() {
                   }`}
                   aria-label={`View ${c.gallery.labels[i]}`}
                 >
-                  <img src={src} alt={c.gallery.labels[i]} loading="lazy" className="h-full w-full object-cover"
-            decoding="async"
-          />
+                  <img
+                    src={src}
+                    alt={`Meridian gallery thumbnail — ${c.gallery.labels[i]}`}
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
                 </button>
               ))}
             </div>
