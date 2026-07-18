@@ -704,9 +704,15 @@ function ShippingPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={deliveryImg} alt="Eyegis package in transit" className="h-[70vh] w-full object-cover"
-            loading="lazy" decoding="async"
-          />
+            <img
+              src={deliveryImg}
+              alt="Eyegis premium package in transit — sealed and protected for global delivery"
+              width={1400}
+              height={1750}
+              className="h-[70vh] w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
           </Reveal>
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={120}>
