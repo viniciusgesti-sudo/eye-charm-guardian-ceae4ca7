@@ -17,7 +17,7 @@ import { SocialProof } from "@/components/eyegis/SocialProof";
 import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { FAQ } from "@/components/eyegis/FAQ";
-import { TechBar } from "@/components/eyegis/TechBar";
+
 import { Logo } from "@/components/eyegis/Logo";
 import { Footer } from "@/components/eyegis/Footer";
 import { LiveStats } from "@/components/eyegis/LiveStats";
@@ -363,7 +363,7 @@ function Hero() {
 function Index() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
-      <TechBar />
+      
       <Header />
       <Hero />
       <HowItWorks />
