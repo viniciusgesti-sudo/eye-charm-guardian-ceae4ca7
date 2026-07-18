@@ -1,6 +1,6 @@
 import type { ImgHTMLAttributes } from "react";
 
-type PictureSource = {
+export type PictureSource = {
   sources: Record<string, string>;
   img: { src: string; w: number; h: number };
 };
