@@ -947,11 +947,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           Zoom
         </span>
 
-            className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
-              idx === active ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+
 
         <div className="absolute left-4 top-4 z-10 flex flex-col items-start gap-2">
           {p.bestSeller && (
