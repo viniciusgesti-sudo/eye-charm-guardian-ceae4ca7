@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 
-import heroImg from "@/assets/hero-paris.jpg";
+import heroImg from "@/assets/hero-paris.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import supportImg from "@/assets/universe-portrait.jpg";
 import storeImg from "@/assets/product-hero.jpg";
 import { useI18n } from "@/i18n/context";
