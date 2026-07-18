@@ -171,19 +171,19 @@ function Hero() {
           alt="Eyegis Men — São Paulo, night"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[65%_center] kenburns-left"
+          className="h-full w-full object-cover object-[28%_38%] kenburns-left"
         />
-        {/* Editorial gradient for legibility + teal cast */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,rgba(0,56,66,0.15),rgba(0,30,36,0.75))]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/80 via-teal-deep/10 to-teal-deep/50" />
+        {/* Editorial gradient for legibility + teal cast (softer over subject) */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_45%,rgba(0,56,66,0.05),rgba(0,30,36,0.55)_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/70 via-transparent to-teal-deep/25" />
       </div>
 
       {/* --- DIAGONAL PANEL : Paris (right, clipped) --- */}
       <div
         className="absolute inset-0 hidden lg:block"
         style={{
-          clipPath: "polygon(58% 0, 100% 0, 100% 100%, 42% 100%)",
-          WebkitClipPath: "polygon(58% 0, 100% 0, 100% 100%, 42% 100%)",
+          clipPath: "polygon(54% 0, 100% 0, 100% 100%, 46% 100%)",
+          WebkitClipPath: "polygon(54% 0, 100% 0, 100% 100%, 46% 100%)",
         }}
       >
         <img
@@ -191,10 +191,10 @@ function Hero() {
           alt="Eyegis Women — Paris, golden hour"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[40%_center] kenburns-right"
+          className="h-full w-full object-cover object-[58%_28%] kenburns-right"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(239,229,217,0.15),rgba(226,209,195,0.55))]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-sand/60 via-transparent to-sand/25" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_45%,rgba(239,229,217,0.05),rgba(226,209,195,0.35)_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-sand/45 via-transparent to-sand/15" />
       </div>
 
 
