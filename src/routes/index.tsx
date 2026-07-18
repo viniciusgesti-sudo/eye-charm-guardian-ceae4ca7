@@ -380,7 +380,9 @@ function Index() {
       <SocialProof />
       <ShopOnAmazon />
       <FAQ />
+      <Footer />
       <StickyBuyBar />
+
     </main>
   );
 }
