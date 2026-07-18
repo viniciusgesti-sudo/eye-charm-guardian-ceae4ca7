@@ -928,9 +928,15 @@ function TechnologyRecap() {
         <div className="lg:col-span-7">
           <Reveal>
             <div className="relative aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
-              <img src={guardLens} alt="EyegisGuard optical filter study" loading="lazy" className="h-full w-full object-cover float-slow"
-            decoding="async"
-          />
+              <img
+                src={guardLens}
+                alt="EyegisGuard optical filter lens macro — showing anti-reflective coating detail"
+                width={1500}
+                height={1200}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover float-slow"
+              />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(134,217,209,0.14),transparent_65%)]" />
             </div>
           </Reveal>
