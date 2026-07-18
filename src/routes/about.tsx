@@ -484,6 +484,7 @@ function AboutPage() {
             alt={c.hero.alt}
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
+            loading="lazy" decoding="async"
           />
           <div
             className="absolute inset-0"
@@ -584,7 +585,8 @@ function AboutPage() {
                 src={whyImg1}
                 alt={c.why.alt1}
                 className="h-[70vh] w-full object-cover"
-              />
+            loading="lazy" decoding="async"
+          />
             </Reveal>
             <div className="md:col-span-5 md:col-start-8">
               <Reveal delay={120}>
@@ -626,7 +628,8 @@ function AboutPage() {
                 src={whyImg2}
                 alt={c.why.alt2}
                 className="h-[70vh] w-full object-cover"
-              />
+            loading="lazy" decoding="async"
+          />
             </Reveal>
           </div>
         </div>
@@ -659,7 +662,8 @@ function AboutPage() {
                       src={imgs[i]}
                       alt={p.title}
                       className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
-                    />
+            loading="lazy" decoding="async"
+          />
                   </div>
                   <div className="mt-8">
                     <span
@@ -850,7 +854,8 @@ function AboutPage() {
                       alt={label}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-                    />
+            decoding="async"
+          />
                   </div>
                   <figcaption
                     className="mt-3 text-[11px] uppercase tracking-[0.3em]"

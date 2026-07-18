@@ -433,7 +433,8 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
-            />
+            decoding="async"
+          />
             {/* index marker overlay */}
             <div className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${panel.tone === "teal" ? "text-paper/80" : "text-paper/85"} drop-shadow`}>
               <span>N° {panel.index}</span>

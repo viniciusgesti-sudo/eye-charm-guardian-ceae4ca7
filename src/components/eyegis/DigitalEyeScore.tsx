@@ -859,6 +859,7 @@ function Results({
             className="h-full w-full object-cover"
             style={{ animation: "floaty 6s ease-in-out infinite" }}
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="md:col-span-3 flex flex-col justify-center">
