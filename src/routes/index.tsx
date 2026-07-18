@@ -292,14 +292,8 @@ function Hero() {
         />
         <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center md:py-20">
           {/* Wordmark */}
-          <div className="flex items-center gap-3">
-            <span
-              className="font-editorial text-3xl tracking-[0.28em] md:text-4xl"
-              style={{ color: "#004B57" }}
-            >
-              EYEGIS
-            </span>
-          </div>
+          <Logo className="h-10 w-auto text-[#004B57] md:h-12" />
+
           <div
             className="mt-4 h-px w-16"
             style={{ background: "rgba(0,75,87,0.35)" }}
