@@ -164,26 +164,33 @@ function Hero() {
 
   return (
     <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-ink">
-      {/* --- BASE LAYER : São Paulo (left, full width) --- */}
-      <div className="absolute inset-0 curtain">
+      {/* --- LEFT HALF : São Paulo / Man (teal side) --- */}
+      <div
+        className="absolute inset-y-0 left-0 w-full lg:w-1/2 curtain overflow-hidden"
+        style={{
+          clipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
+          WebkitClipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
+        }}
+      >
         <img
           src={heroSaoPaulo}
           alt="Eyegis Men — São Paulo, night"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[50%_65%] kenburns-left"
+          className="h-full w-full object-cover object-[50%_35%] kenburns-left"
         />
-        {/* Editorial gradient for legibility + teal cast (softer over subject) */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_45%,rgba(0,56,66,0.05),rgba(0,30,36,0.55)_75%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/70 via-transparent to-teal-deep/25" />
+        {/* Teal editorial cast */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
+        <div className="absolute inset-0 mix-blend-multiply bg-teal-deep/30" />
       </div>
 
-      {/* --- DIAGONAL PANEL : Paris (right, clipped) --- */}
+      {/* --- RIGHT HALF : Paris / Woman (natural side) --- */}
       <div
-        className="absolute inset-0 hidden lg:block"
+        className="absolute inset-y-0 right-0 hidden lg:block w-1/2 curtain overflow-hidden"
         style={{
-          clipPath: "polygon(54% 0, 100% 0, 100% 100%, 46% 100%)",
-          WebkitClipPath: "polygon(54% 0, 100% 0, 100% 100%, 46% 100%)",
+          animationDelay: "0.15s",
+          clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
+          WebkitClipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
         }}
       >
         <img
@@ -191,32 +198,17 @@ function Hero() {
           alt="Eyegis Women — Paris, golden hour"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[58%_28%] kenburns-right"
+          className="h-full w-full object-cover object-[50%_30%] kenburns-right"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_45%,rgba(239,229,217,0.05),rgba(226,209,195,0.35)_75%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-sand/45 via-transparent to-sand/15" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
       </div>
 
-
-
-
-      {/* --- Diagonal seam hairline --- */}
+      {/* --- Vertical seam hairline --- */}
       <div
-        className="hidden lg:block absolute inset-0 pointer-events-none z-10"
+        className="hidden lg:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-off-white/25 pointer-events-none z-10"
         aria-hidden="true"
-      >
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-          <line
-            x1="58"
-            y1="0"
-            x2="42"
-            y2="100"
-            stroke="rgba(249,249,249,0.22)"
-            strokeWidth="0.08"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-      </div>
+      />
+
 
       {/* --- Mobile stack : Paris shown as a second block below --- */}
       <div className="lg:hidden absolute inset-x-0 top-1/2 bottom-0 curtain" style={{ animationDelay: "0.15s" }}>
