@@ -8,6 +8,7 @@ import heroParis from "@/assets/hero-paris-eyegis.jpg";
 import { Universe } from "@/components/eyegis/Universe";
 import { HonestScience } from "@/components/eyegis/HonestScience";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
+import { TechCore } from "@/components/eyegis/TechCore";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { Collection } from "@/components/eyegis/Collection";
 import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
@@ -392,6 +393,7 @@ function Index() {
       <ModelRunway />
       <Universe />
       <HonestScience />
+      <TechCore />
       <EyegisGuard />
       <LifestyleUniverse />
       <Collection />
