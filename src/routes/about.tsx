@@ -859,7 +859,9 @@ function AboutPage() {
                   <div className="aspect-[3/4] w-full overflow-hidden">
                     <img
                       src={PEOPLE_IMAGES[i]}
-                      alt={label}
+                      alt={`${label} wearing Eyegis eyewear`}
+                      width={900}
+                      height={1200}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
             decoding="async"
