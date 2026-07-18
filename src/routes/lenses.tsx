@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/lifestyle-work.jpg";
+import heroImg from "@/assets/lifestyle-work.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import compareImg from "@/assets/guard-comparison.jpg";
 import lifeBusiness from "@/assets/life-business.jpg";
 import lifeCreative from "@/assets/life-creative.jpg";
