@@ -1026,7 +1026,8 @@ function WorldMap({ countries }: { countries: { x: number; y: number; k: string;
               fill={c.live ? INK : MUTED}
               style={{ letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Inter', sans-serif" }}
             >
-              {c.k}
+              {c.label}
+
             </text>
           </g>
         ))}
