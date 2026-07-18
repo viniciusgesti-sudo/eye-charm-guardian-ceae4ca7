@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WarrantyRouteImport } from './routes/warranty'
+import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as LensesRouteImport } from './routes/lenses'
@@ -22,6 +23,11 @@ import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 const WarrantyRoute = WarrantyRouteImport.update({
   id: '/warranty',
   path: '/warranty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/lenses': typeof LensesRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/lenses': typeof LensesRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/lenses': typeof LensesRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/product/meridian': typeof ProductMeridianRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/shipping'
     | '/sitemap.xml'
+    | '/technology'
     | '/warranty'
     | '/product/meridian'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/shipping'
     | '/sitemap.xml'
+    | '/technology'
     | '/warranty'
     | '/product/meridian'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/shipping'
     | '/sitemap.xml'
+    | '/technology'
     | '/warranty'
     | '/product/meridian'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   LensesRoute: typeof LensesRoute
   ShippingRoute: typeof ShippingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TechnologyRoute: typeof TechnologyRoute
   WarrantyRoute: typeof WarrantyRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
 }
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/warranty'
       fullPath: '/warranty'
       preLoaderRoute: typeof WarrantyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   LensesRoute: LensesRoute,
   ShippingRoute: ShippingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TechnologyRoute: TechnologyRoute,
   WarrantyRoute: WarrantyRoute,
   ProductMeridianRoute: ProductMeridianRoute,
 }
