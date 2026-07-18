@@ -1141,10 +1141,12 @@ function BeforeAfter({ c }: { c: Copy }) {
             <img
               src={compareImg}
               alt={c.demo.with}
+              width={1920}
+              height={1080}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
-            decoding="async"
-          />
+              decoding="async"
+            />
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
@@ -1152,11 +1154,13 @@ function BeforeAfter({ c }: { c: Copy }) {
               <img
                 src={compareImg}
                 alt={c.demo.without}
+                width={1920}
+                height={1080}
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
                 loading="lazy"
-            decoding="async"
-          />
+                decoding="async"
+              />
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
