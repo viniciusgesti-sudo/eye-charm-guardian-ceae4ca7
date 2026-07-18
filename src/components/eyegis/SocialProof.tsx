@@ -72,7 +72,7 @@ function Reveal({
 
 type ShotMeta = {
   id: string;
-  src: string;
+  src: PictureSource;
   alt: string;
   collectionKey: keyof Copy["collections"];
   product: string;
@@ -99,7 +99,7 @@ type TestimonialMeta = {
   name: string;
   country: string;
   rating: number;
-  portrait: string;
+  portrait: PictureSource;
 };
 
 const TESTIMONIALS: TestimonialMeta[] = [
