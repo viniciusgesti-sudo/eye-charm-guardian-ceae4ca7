@@ -655,8 +655,12 @@ function ContactPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Eyegis atelier — Parisian golden hour interior with premium eyewear on display" width={1600} height={1000} className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
-            loading="lazy" decoding="async"
+          <Picture
+            source={heroImg}
+            alt="Eyegis atelier — Parisian golden hour interior with premium eyewear on display"
+            sizes="100vw"
+            className="h-full w-full object-cover"
+            style={{ filter: "saturate(0.92) contrast(1.02)" }}
           />
           <div
             className="absolute inset-0"
