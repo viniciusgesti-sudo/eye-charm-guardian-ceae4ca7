@@ -16,6 +16,7 @@ import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
 import { SocialProof } from "@/components/eyegis/SocialProof";
 import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
+import { FAQ } from "@/components/eyegis/FAQ";
 import { TechBar } from "@/components/eyegis/TechBar";
 import { LiveStats } from "@/components/eyegis/LiveStats";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
