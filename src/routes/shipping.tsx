@@ -973,7 +973,7 @@ function FAQList({ items }: { items: { q: string; a: string }[] }) {
   );
 }
 
-function WorldMap({ countries }: { countries: { x: number; y: number; k: string; live: boolean }[] }) {
+function WorldMap({ countries }: { countries: { x: number; y: number; k: string; label: string; live: boolean }[] }) {
   const dots: { x: number; y: number }[] = [];
   const seed = (x: number, y: number) =>
     Math.abs(Math.sin(x * 12.9898 + y * 78.233) * 43758.5453) % 1;
