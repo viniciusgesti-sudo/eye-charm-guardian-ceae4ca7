@@ -166,218 +166,199 @@ function BagIcon() {
    ------------------------------------------------------------------ */
 
 function Hero() {
-  const { t } = useI18n();
-
   return (
-    <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-ink">
-      {/* --- LEFT HALF : São Paulo / Man (teal side) --- */}
-      <div
-        className="absolute inset-y-0 left-0 w-full lg:w-1/2 overflow-hidden"
-        style={{
-          clipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
-          WebkitClipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
-        }}
-      >
-        <img
-          src={heroSaoPaulo}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-55 blur-xl"
-        />
-        <img
-          src={heroSaoPaulo}
-          alt="Eyegis Men — São Paulo, night"
-          width={1600}
-          height={1920}
-          className="absolute inset-0 h-full w-full object-cover object-[50%_50%]"
-        />
-        {/* Teal editorial cast */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
-        <div className="absolute inset-0 mix-blend-multiply bg-teal-deep/30" />
-      </div>
-
-      {/* --- RIGHT HALF : Paris / Woman (natural side) --- */}
-      <div
-        className="absolute inset-y-0 right-0 hidden lg:block w-1/2 overflow-hidden"
-        style={{
-          clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
-          WebkitClipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
-        }}
-      >
-        <img
-          src={heroParis}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-50 blur-xl"
-        />
-        <img
-          src={heroParis}
-          alt="Eyegis Women — Paris, golden hour"
-          width={1600}
-          height={1920}
-          className="absolute inset-0 h-full w-full object-cover object-[48%_50%]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
-      </div>
-
-      {/* --- Vertical seam hairline --- */}
-      <div
-        className="hidden lg:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-off-white/25 pointer-events-none z-10"
-        aria-hidden="true"
-      />
-
-
-      {/* --- Mobile stack : Paris shown as a second block below --- */}
-      <div className="lg:hidden absolute inset-x-0 top-1/2 bottom-0 curtain" style={{ animationDelay: "0.15s" }}>
-        <img
-          src={heroParis}
-          alt="Eyegis Women — Paris, golden hour"
-          className="h-full w-full object-cover object-[48%_45%]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-sand/70 via-transparent to-sand/20" />
-      </div>
-
-      {/* --- Panel eyebrows (top corners) --- */}
-      <div className="absolute inset-x-0 top-24 md:top-28 z-20 mx-auto flex max-w-[1600px] items-start justify-between px-6 md:px-10 lg:px-14 text-paper">
-        <div
-          className="rise flex flex-col items-start gap-2"
-          style={{ animationDelay: "1.2s" }}
-        >
-          <span className="font-eyebrow text-mint">{t("hero.chapter1")}</span>
-          <span className="font-eyebrow text-paper/70">{t("hero.chapter1.location")}</span>
-        </div>
-        <div
-          className="rise hidden lg:flex flex-col items-end gap-2 text-ink"
-          style={{ animationDelay: "1.35s" }}
-        >
-          <span className="font-eyebrow text-teal">{t("hero.chapter2")}</span>
-          <span className="font-eyebrow text-ink/60">{t("hero.chapter2.location")}</span>
-        </div>
-      </div>
-
-      {/* --- Center editorial composition --- */}
-      <div className="relative z-20 mx-auto flex h-full max-w-[1600px] flex-col justify-end px-6 pb-36 md:px-10 md:pb-32 lg:px-14 lg:pb-28">
-        {/* Headline — split across the diagonal */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-end">
-          {/* LEFT half */}
-          <div className="max-w-xl">
-            <h1 className="font-editorial text-paper leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
-              <span className="rise block" style={{ animationDelay: "0.5s" }}>
-                {t("hero.headline1.line1")}
-              </span>
-              <span
-                className="rise block italic text-mint"
-                style={{ animationDelay: "0.75s" }}
-              >
-                {t("hero.headline1.line2")}
-              </span>
-            </h1>
+    <section className="relative w-full bg-ink text-paper">
+      {/* ============ SPLIT SCREEN ============ */}
+      <div className="relative flex min-h-[720px] w-full flex-col lg:h-[92vh] lg:min-h-[760px] lg:flex-row">
+        {/* --- LEFT / ZENITH · Men --- */}
+        <div className="group relative w-full overflow-hidden lg:w-1/2">
+          <img
+            src={heroZenith}
+            alt="Eyegis Zenith — man wearing dark-frame glasses, São Paulo night"
+            width={1024}
+            height={1536}
+            className="absolute inset-0 h-full w-full object-cover object-[60%_35%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
+          />
+          {/* Cyan night grade */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(0,180,255,0.18),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 mix-blend-multiply bg-[linear-gradient(180deg,rgba(2,12,20,0.35)_0%,rgba(2,12,20,0.55)_60%,rgba(2,12,20,0.9)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-teal-deep/25 mix-blend-color" />
+          {/* HUD eyebrow */}
+          <div className="absolute left-6 top-6 md:left-10 md:top-10 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-cyan-200/80">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-300" />
+            <span>SP · 23:47 · Night Grid</span>
           </div>
-
-          {/* RIGHT half */}
-          <div className="max-w-xl lg:justify-self-end lg:text-right">
-            <h2 className="font-editorial text-paper lg:text-ink leading-[0.88] text-balance-tight text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.4vw] xl:text-[104px]">
-              <span className="rise block" style={{ animationDelay: "0.9s" }}>
-                {t("hero.headline2.line1")}
-              </span>
-              <span
-                className="rise block italic text-teal"
-                style={{ animationDelay: "1.05s" }}
-              >
-                {t("hero.headline2.line2")}
-              </span>
-            </h2>
-          </div>
-        </div>
-
-        {/* Sub-copy + CTA row */}
-        <div className="mt-14 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
-          <p
-            className="rise lg:col-span-4 font-light text-base md:text-lg leading-relaxed text-paper/85 max-w-md"
-            style={{ animationDelay: "1.5s" }}
-          >
-            {t("hero.subcopy.line1")}
-            <span className="block mt-2 text-paper/60">
-              {t("hero.subcopy.line2")}
+          {/* Content */}
+          <div className="relative z-10 mx-auto flex h-full min-h-[560px] max-w-xl flex-col justify-end px-6 pb-14 md:px-10 md:pb-16">
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-cyan-200/90">
+              Men · Zenith Universe
             </span>
+            <h1 className="mt-4 font-editorial text-[13vw] leading-[0.88] text-paper sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]">
+              ZENITH<br />
+              <span className="italic text-cyan-200">LENS</span>
+            </h1>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-paper/80 md:text-lg">
+              High-Intensity Protection for the 24/7 Hustle.
+            </p>
+            <div className="mt-8">
+              <a
+                href="#men"
+                className="group/cta inline-flex items-center gap-5 rounded-full bg-teal-deep px-7 py-4 text-paper shadow-[0_20px_60px_-20px_rgba(0,180,255,0.55)] transition-all hover:-translate-y-0.5 hover:bg-teal"
+              >
+                <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
+                  Explore Men's Collection
+                </span>
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform group-hover/cta:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* --- RIGHT / CLARITY · Women --- */}
+        <div className="group relative w-full overflow-hidden lg:w-1/2">
+          <img
+            src={heroClarity}
+            alt="Eyegis Clarity — woman wearing light champagne acetate glasses, Paris golden hour"
+            width={1024}
+            height={1536}
+            className="absolute inset-0 h-full w-full object-cover object-[45%_30%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
+          />
+          {/* Warm champagne grade */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_20%,rgba(255,220,170,0.22),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,235,205,0.05)_0%,rgba(226,209,195,0.35)_65%,rgba(226,209,195,0.85)_100%)]" />
+          {/* Eyebrow */}
+          <div className="absolute right-6 top-6 md:right-10 md:top-10 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
+            <span>Golden Hour · Paris</span>
+            <span className="h-2 w-2 rounded-full bg-[#B4956B]" />
+          </div>
+          <div className="relative z-10 mx-auto flex h-full min-h-[560px] max-w-xl flex-col justify-end px-6 pb-14 text-ink md:px-10 md:pb-16 lg:items-end lg:text-right">
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-teal-deep/80">
+              Women · Clarity Universe
+            </span>
+            <h2 className="mt-4 font-editorial text-[13vw] leading-[0.88] text-ink sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]">
+              CLARITY<br />
+              <span className="italic text-teal-deep">LENS</span>
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
+              High-Fidelity Precision for the Visionary.
+            </p>
+            <div className="mt-8">
+              <a
+                href="#women"
+                className="group/cta inline-flex items-center gap-5 rounded-full bg-sand px-7 py-4 text-ink shadow-[0_20px_60px_-20px_rgba(180,149,107,0.55)] transition-all hover:-translate-y-0.5 hover:bg-sand-warm"
+                style={{ backgroundColor: "#E2D1C3" }}
+              >
+                <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
+                  Explore Women's Collection
+                </span>
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-ink/10 transition-transform group-hover/cta:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* --- Seamless diagonal seam between the two panels (desktop only) --- */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-32 -translate-x-1/2 lg:block"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(2,12,20,0.85) 0%, rgba(2,12,20,0.35) 40%, rgba(226,209,195,0.35) 60%, rgba(226,209,195,0.85) 100%)",
+            mixBlendMode: "normal",
+            clipPath: "polygon(45% 0, 100% 0, 55% 100%, 0 100%)",
+          }}
+        />
+        {/* Hairline down the seam */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/40 to-transparent lg:block"
+        />
+      </div>
+
+      {/* ============ CENTERED BRAND STRIP BELOW SPLIT ============ */}
+      <div className="relative overflow-hidden bg-off-white text-ink">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(0,75,87,0.35), transparent)",
+          }}
+        />
+        <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center md:py-20">
+          {/* Wordmark */}
+          <div className="flex items-center gap-3">
+            <span
+              className="font-editorial text-3xl tracking-[0.28em] md:text-4xl"
+              style={{ color: "#004B57" }}
+            >
+              EYEGIS
+            </span>
+          </div>
+          <div
+            className="mt-4 h-px w-16"
+            style={{ background: "rgba(0,75,87,0.35)" }}
+          />
+          <p className="mt-6 max-w-2xl font-editorial text-lg leading-relaxed text-ink/80 md:text-xl">
+            Eyegis — Digital eye strain eyewear, engineered for vision,
+            designed for style.
           </p>
 
-          <div className="lg:col-span-8 flex flex-col sm:flex-row gap-4 lg:justify-end">
-            <a
-              href="#men"
-              className="rise cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-8 py-5 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(0,56,66,0.85)]"
-              style={{ animationDelay: "1.7s" }}
-            >
-              <span className="font-eyebrow">{t("hero.cta.men")}</span>
-              <span
-                className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform duration-500 group-hover:translate-x-1"
-                aria-hidden="true"
-              >
-                →
-              </span>
-            </a>
-
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <a
               href="#women"
-              className="rise cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-sand px-8 py-5 text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.9)] hover:bg-sand-warm hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(226,209,195,1)]"
-              style={{ animationDelay: "1.85s" }}
+              className="group inline-flex items-center gap-4 rounded-full px-7 py-4 text-ink shadow-[0_20px_50px_-20px_rgba(180,149,107,0.55)] transition-all hover:-translate-y-0.5"
+              style={{ backgroundColor: "#E2D1C3" }}
             >
-              <span className="font-eyebrow">{t("hero.cta.women")}</span>
-              <span
-                className="grid h-8 w-8 place-items-center rounded-full bg-ink/10 transition-transform duration-500 group-hover:translate-x-1"
-                aria-hidden="true"
-              >
+              <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
+                Explore CLARITY Lenses
+              </span>
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-ink/10 transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            <a
+              href="#men"
+              className="group inline-flex items-center gap-4 rounded-full px-7 py-4 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.55)] transition-all hover:-translate-y-0.5"
+              style={{ backgroundColor: "#004B57" }}
+            >
+              <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
+                Explore ZENITH Lenses
+              </span>
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-paper/15 transition-transform group-hover:translate-x-1">
                 →
               </span>
             </a>
           </div>
-        </div>
 
-        {/* Sales trust strip */}
-        <div
-          className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/70"
-          style={{ animationDelay: "2s" }}
-        >
-          <a
-            href={DEFAULT_AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className="inline-flex items-center gap-2 hover:text-mint transition-colors"
-          >
-            <span className="text-[#FF9900]">★ {AMAZON_RATING.stars}</span>
-            <span>{AMAZON_RATING.count.toLocaleString("en")} Amazon reviews</span>
-          </a>
-          <span className="opacity-30">/</span>
-          <span>Amazon's Choice</span>
-          <span className="opacity-30">/</span>
-          <span>Prime · 24h ship</span>
-          <span className="opacity-30">/</span>
-          <span>60-day guarantee</span>
-        </div>
-      </div>
-
-      {/* --- Scroll indicator --- */}
-      <div className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 rise" style={{ animationDelay: "2.1s" }}>
-        <div className="flex flex-col items-center gap-3">
-          <span className="font-eyebrow text-[9px] text-paper/70">{t("hero.scroll")}</span>
-          <div className="relative h-14 w-px overflow-hidden bg-paper/15">
-            <span className="absolute inset-x-0 h-6 bg-paper scroll-line" />
+          {/* Trust strip */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">
+            <a
+              href={DEFAULT_AMAZON_URL}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="inline-flex items-center gap-2 transition-colors hover:text-teal-deep"
+            >
+              <span className="text-[#FF9900]">★ {AMAZON_RATING.stars}</span>
+              <span>{AMAZON_RATING.count.toLocaleString("en")} Amazon reviews</span>
+            </a>
+            <span className="opacity-30">/</span>
+            <span>Amazon's Choice</span>
+            <span className="opacity-30">/</span>
+            <span>Prime · 24h ship</span>
+            <span className="opacity-30">/</span>
+            <span>60-day guarantee</span>
           </div>
         </div>
-      </div>
-
-      {/* --- Corner brand marker --- */}
-      <div
-        className="rise absolute bottom-8 right-6 md:right-10 lg:right-14 z-20 hidden md:flex items-center gap-3 text-paper/70"
-        style={{ animationDelay: "2.2s" }}
-      >
-        <span className="font-eyebrow text-[9px]">EST · MMXXIV</span>
-        <span className="h-px w-8 bg-paper/40" />
-        <span className="font-eyebrow text-[9px]">SP · PAR · PRT</span>
       </div>
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------
    Page
