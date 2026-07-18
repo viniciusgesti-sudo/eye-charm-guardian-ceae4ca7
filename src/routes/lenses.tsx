@@ -9,6 +9,8 @@ import lifeGaming from "@/assets/life-gaming.jpg";
 import meridianHero from "@/assets/products/meridian-hero.jpg";
 import atelierFront from "@/assets/products/atelier-front.jpg";
 import soleneFront from "@/assets/products/solene-front.jpg";
+import { useI18n } from "@/i18n/context";
+import type { Lang } from "@/i18n/translations";
 
 export const Route = createFileRoute("/lenses")({
   head: () => ({
@@ -31,6 +33,626 @@ export const Route = createFileRoute("/lenses")({
 });
 
 const AMAZON_URL = "https://www.amazon.com/";
+
+/* ------------------------------------------------------------------ */
+/*  Localized copy                                                    */
+/* ------------------------------------------------------------------ */
+
+type PersonaId = "everyday" | "creative" | "max";
+
+type PersonaCopy = {
+  id: PersonaId;
+  label: string;
+  eyebrow: string;
+  hours: string;
+  contexts: string[];
+  desc: string;
+  collection: string;
+  cta: string;
+  product: { name: string; line: string; desc: string };
+};
+
+type LensCopy = {
+  key: "clear" | "shield" | "pro";
+  name: string;
+  tagline: string;
+  bestFor: string[];
+  scoresLabel: string; // "Best for"
+};
+
+type Copy = {
+  nav: { home: string; buy: string };
+  hero: {
+    eyebrow: string;
+    h1a: string;
+    h1b: string;
+    sub: string;
+    start: string;
+    assessment: string;
+    heroAlt: string;
+  };
+  how: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    selected: string;
+  };
+  personas: PersonaCopy[];
+  compare: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    mostPopular: string;
+    lensTier: string;
+    bestFor: string;
+    choose: string;
+    criteria: string[];
+  };
+  lenses: LensCopy[];
+  demo: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    body: string;
+    without: string;
+    with: string;
+    drag: string;
+  };
+  who: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    see: string;
+    items: { label: string; note: string; target: PersonaId }[];
+  };
+  faq: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    items: { q: string; a: string }[];
+  };
+  reco: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    collection: string;
+    buy: string;
+    learn: string;
+    guard: string;
+    comfort: string;
+    warranty: string;
+  };
+  cta: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    body: string;
+    take: string;
+    browse: string;
+    buy: string;
+  };
+};
+
+const CONTENT: Record<Lang, Copy> = {
+  EN: {
+    nav: { home: "← Home", buy: "Buy on Amazon" },
+    hero: {
+      eyebrow: "Choose Your Lenses",
+      h1a: "Find the perfect lens",
+      h1b: "for the way you live.",
+      sub: "Every digital lifestyle is different. Discover which Eyegis lens best matches your daily routine — from short reading sessions to full days on multiple monitors.",
+      start: "Start comparing",
+      assessment: "Take the Assessment",
+      heroAlt: "A professional wearing Eyegis at a bright workspace",
+    },
+    how: {
+      eyebrow: "Section 01 · How to choose",
+      h2a: "Start with your day,",
+      h2b: " not the spec sheet.",
+      selected: "✓ Selected",
+    },
+    personas: [
+      {
+        id: "everyday",
+        label: "Everyday Digital Life",
+        eyebrow: "Card 01 · 3–6 hours daily",
+        hours: "3 – 6 h",
+        contexts: ["Office", "Email", "Browsing", "Meetings"],
+        desc: "For people who spend a moderate part of the day in front of screens and value elegance in everyday wear.",
+        collection: "Men · Everyday",
+        cta: "Discover Meridian",
+        product: {
+          name: "Meridian",
+          line: "by Eyegis",
+          desc: "A quiet architectural silhouette with EyegisGuard™ optical filter. Effortless for daily wear.",
+        },
+      },
+      {
+        id: "creative",
+        label: "Creative Performance",
+        eyebrow: "Card 02 · 6–8 hours daily",
+        hours: "6 – 8 h",
+        contexts: ["Designers", "Editors", "Photographers", "Architects", "Developers"],
+        desc: "For long creative sessions where accurate color perception and sustained comfort matter most.",
+        collection: "Women · Creative",
+        cta: "Discover Solène",
+        product: {
+          name: "Solène",
+          line: "by Eyegis",
+          desc: "A sculpted profile designed for creative professionals. Precision optical clarity, no color shift.",
+        },
+      },
+      {
+        id: "max",
+        label: "Maximum Screen Exposure",
+        eyebrow: "Card 03 · 8+ hours daily",
+        hours: "8 h +",
+        contexts: ["Gamers", "Streamers", "Remote work", "Traders", "Multi-monitor"],
+        desc: "For people whose daily routine involves multiple screens, extended focus and demanding sessions.",
+        collection: "Men · Business",
+        cta: "Discover Atelier",
+        product: {
+          name: "Atelier",
+          line: "by Eyegis",
+          desc: "Balanced weight distribution and premium filtration for the longest, most demanding sessions.",
+        },
+      },
+    ],
+    compare: {
+      eyebrow: "Section 02 · Comparison",
+      h2a: "Three lenses.",
+      h2b: " One perfect fit.",
+      mostPopular: "Most popular",
+      lensTier: "Lens tier",
+      bestFor: "Best for",
+      choose: "Choose this lens",
+      criteria: [
+        "Visual Comfort",
+        "Color Accuracy",
+        "Screen Exposure",
+        "Everyday Use",
+        "Creative Work",
+        "Gaming",
+        "Reading",
+        "Long Sessions",
+      ],
+    },
+    lenses: [
+      {
+        key: "clear",
+        name: "EyegisGuard™ Clear",
+        tagline: "For everyday moderate screen use.",
+        bestFor: ["Office", "Reading", "Meetings"],
+        scoresLabel: "Best for",
+      },
+      {
+        key: "shield",
+        name: "EyegisGuard™ Shield",
+        tagline: "For creative professionals and long sessions.",
+        bestFor: ["Design", "Photography", "Editing"],
+        scoresLabel: "Best for",
+      },
+      {
+        key: "pro",
+        name: "EyegisGuard™ Pro",
+        tagline: "For maximum daily screen exposure.",
+        bestFor: ["Gaming", "Trading", "Streaming"],
+        scoresLabel: "Best for",
+      },
+    ],
+    demo: {
+      eyebrow: "Section 03 · Demonstration",
+      h2a: "A quieter screen,",
+      h2b: " in true color.",
+      body: "Drag the slider to see how EyegisGuard™ filters high-energy blue light without introducing an amber tint. Subtle, precise, honest.",
+      without: "Without Eyegis",
+      with: "With Eyegis",
+      drag: "Drag to compare",
+    },
+    who: {
+      eyebrow: "Section 04 · Who it's for",
+      h2a: "Made for",
+      h2b: " every kind of screen day.",
+      see: "See recommendation →",
+      items: [
+        { label: "Creative Professionals", note: "Design, editing, photography.", target: "creative" },
+        { label: "Business", note: "Meetings, presentations, deep focus.", target: "everyday" },
+        { label: "Students", note: "Reading, notes, lectures.", target: "everyday" },
+        { label: "Gaming", note: "Long sessions, competitive play.", target: "max" },
+        { label: "Travel", note: "Airports, flights, hotels.", target: "everyday" },
+        { label: "Healthcare", note: "Screens between shifts.", target: "creative" },
+        { label: "Education", note: "Teaching, research, tutoring.", target: "everyday" },
+        { label: "Remote Work", note: "Video calls, all-day monitors.", target: "max" },
+      ],
+    },
+    faq: {
+      eyebrow: "Section 05 · Questions",
+      h2a: "Questions",
+      h2b: " people ask.",
+      items: [
+        { q: "Can I wear them all day?", a: "Yes. Eyegis frames are designed for continuous wear — lightweight TR90 build, balanced weight distribution and coatings tuned for long sessions." },
+        { q: "Can I drive with them?", a: "Yes. EyegisGuard™ lenses preserve natural color perception and are safe for daytime driving." },
+        { q: "Do they change colors on my screen?", a: "No. The filter is tuned to attenuate high-energy blue light without introducing a visible amber tint — color-critical work stays accurate." },
+        { q: "Can I wear them with contact lenses?", a: "Yes. Eyegis frames pair comfortably with soft or rigid contact lenses." },
+        { q: "Are they compatible with gaming headsets?", a: "Yes. The temple arms are slim enough to sit comfortably under most on-ear and over-ear gaming headsets." },
+        { q: "Can I use them while reading?", a: "Yes — the coating supports both screen and print. Many readers find them noticeably more comfortable at night." },
+      ],
+    },
+    reco: {
+      eyebrow: "Section 06 · Recommendation",
+      h2a: "Based on your day,",
+      h2b: " we suggest…",
+      collection: "Collection",
+      buy: "Buy on Amazon",
+      learn: "Learn More",
+      guard: "EyegisGuard™",
+      comfort: "60-Day Comfort",
+      warranty: "2-Year Warranty",
+    },
+    cta: {
+      eyebrow: "Still deciding?",
+      h2a: "Take the",
+      h2b: "Digital Eye Score™.",
+      body: "A one-minute personalized assessment. It maps your daily habits to the Eyegis lens that fits you best.",
+      take: "Take the Assessment",
+      browse: "Browse Products",
+      buy: "Buy on Amazon",
+    },
+  },
+  PT: {
+    nav: { home: "← Início", buy: "Comprar na Amazon" },
+    hero: {
+      eyebrow: "Escolha as Suas Lentes",
+      h1a: "Encontre a lente ideal",
+      h1b: "para o seu estilo de vida.",
+      sub: "Cada rotina digital é única. Descubra qual lente Eyegis se ajusta melhor ao seu dia a dia — de leituras curtas a jornadas completas em múltiplos monitores.",
+      start: "Começar a comparar",
+      assessment: "Fazer a Avaliação",
+      heroAlt: "Um profissional usando Eyegis em um espaço de trabalho iluminado",
+    },
+    how: {
+      eyebrow: "Seção 01 · Como escolher",
+      h2a: "Comece pelo seu dia,",
+      h2b: " não pela ficha técnica.",
+      selected: "✓ Selecionado",
+    },
+    personas: [
+      {
+        id: "everyday",
+        label: "Vida Digital Diária",
+        eyebrow: "Cartão 01 · 3–6 horas por dia",
+        hours: "3 – 6 h",
+        contexts: ["Escritório", "E-mail", "Navegação", "Reuniões"],
+        desc: "Para quem passa uma parte moderada do dia em frente às telas e valoriza elegância no uso diário.",
+        collection: "Homem · Diário",
+        cta: "Conhecer Meridian",
+        product: {
+          name: "Meridian",
+          line: "por Eyegis",
+          desc: "Uma silhueta arquitetônica discreta com filtro óptico EyegisGuard™. Perfeita para o dia a dia.",
+        },
+      },
+      {
+        id: "creative",
+        label: "Performance Criativa",
+        eyebrow: "Cartão 02 · 6–8 horas por dia",
+        hours: "6 – 8 h",
+        contexts: ["Designers", "Editores", "Fotógrafos", "Arquitetos", "Desenvolvedores"],
+        desc: "Para sessões criativas longas, onde percepção precisa de cor e conforto contínuo são essenciais.",
+        collection: "Mulher · Criativo",
+        cta: "Conhecer Solène",
+        product: {
+          name: "Solène",
+          line: "por Eyegis",
+          desc: "Um perfil esculpido para profissionais criativos. Clareza óptica de precisão, sem alteração de cor.",
+        },
+      },
+      {
+        id: "max",
+        label: "Exposição Máxima a Telas",
+        eyebrow: "Cartão 03 · 8+ horas por dia",
+        hours: "8 h +",
+        contexts: ["Gamers", "Streamers", "Trabalho remoto", "Traders", "Multi-monitores"],
+        desc: "Para quem convive com múltiplas telas, foco prolongado e sessões exigentes.",
+        collection: "Homem · Business",
+        cta: "Conhecer Atelier",
+        product: {
+          name: "Atelier",
+          line: "por Eyegis",
+          desc: "Distribuição de peso equilibrada e filtragem premium para as sessões mais longas e exigentes.",
+        },
+      },
+    ],
+    compare: {
+      eyebrow: "Seção 02 · Comparação",
+      h2a: "Três lentes.",
+      h2b: " Uma escolha certa.",
+      mostPopular: "Mais popular",
+      lensTier: "Nível de lente",
+      bestFor: "Ideal para",
+      choose: "Escolher esta lente",
+      criteria: [
+        "Conforto Visual",
+        "Precisão de Cor",
+        "Exposição a Telas",
+        "Uso Diário",
+        "Trabalho Criativo",
+        "Gaming",
+        "Leitura",
+        "Sessões Longas",
+      ],
+    },
+    lenses: [
+      {
+        key: "clear",
+        name: "EyegisGuard™ Clear",
+        tagline: "Para uso moderado diário de telas.",
+        bestFor: ["Escritório", "Leitura", "Reuniões"],
+        scoresLabel: "Ideal para",
+      },
+      {
+        key: "shield",
+        name: "EyegisGuard™ Shield",
+        tagline: "Para profissionais criativos e sessões longas.",
+        bestFor: ["Design", "Fotografia", "Edição"],
+        scoresLabel: "Ideal para",
+      },
+      {
+        key: "pro",
+        name: "EyegisGuard™ Pro",
+        tagline: "Para máxima exposição diária a telas.",
+        bestFor: ["Gaming", "Trading", "Streaming"],
+        scoresLabel: "Ideal para",
+      },
+    ],
+    demo: {
+      eyebrow: "Seção 03 · Demonstração",
+      h2a: "Uma tela mais silenciosa,",
+      h2b: " em cores reais.",
+      body: "Arraste o controle para ver como o EyegisGuard™ filtra a luz azul de alta energia sem adicionar tom âmbar. Sutil, preciso, honesto.",
+      without: "Sem Eyegis",
+      with: "Com Eyegis",
+      drag: "Arraste para comparar",
+    },
+    who: {
+      eyebrow: "Seção 04 · Para quem é",
+      h2a: "Feito para",
+      h2b: " todo tipo de dia em frente à tela.",
+      see: "Ver recomendação →",
+      items: [
+        { label: "Profissionais Criativos", note: "Design, edição, fotografia.", target: "creative" },
+        { label: "Negócios", note: "Reuniões, apresentações, foco profundo.", target: "everyday" },
+        { label: "Estudantes", note: "Leituras, anotações, aulas.", target: "everyday" },
+        { label: "Gaming", note: "Sessões longas, jogo competitivo.", target: "max" },
+        { label: "Viagens", note: "Aeroportos, voos, hotéis.", target: "everyday" },
+        { label: "Saúde", note: "Telas entre plantões.", target: "creative" },
+        { label: "Educação", note: "Ensino, pesquisa, tutoria.", target: "everyday" },
+        { label: "Trabalho Remoto", note: "Videochamadas, monitores o dia todo.", target: "max" },
+      ],
+    },
+    faq: {
+      eyebrow: "Seção 05 · Perguntas",
+      h2a: "Perguntas",
+      h2b: " que as pessoas fazem.",
+      items: [
+        { q: "Posso usar o dia inteiro?", a: "Sim. As armações Eyegis são feitas para uso contínuo — construção leve em TR90, distribuição de peso equilibrada e tratamentos pensados para sessões longas." },
+        { q: "Posso dirigir usando?", a: "Sim. As lentes EyegisGuard™ preservam a percepção natural de cor e são seguras para dirigir durante o dia." },
+        { q: "Alteram as cores da tela?", a: "Não. O filtro atenua a luz azul de alta energia sem introduzir tom âmbar visível — trabalhos com cor crítica permanecem precisos." },
+        { q: "Posso usar com lentes de contato?", a: "Sim. As armações Eyegis convivem bem com lentes de contato gelatinosas ou rígidas." },
+        { q: "São compatíveis com headsets gamer?", a: "Sim. As hastes são finas o suficiente para acomodar a maioria dos headsets on-ear e over-ear." },
+        { q: "Posso usar para ler?", a: "Sim — o tratamento funciona tanto para telas quanto para papel. Muitos leitores relatam mais conforto à noite." },
+      ],
+    },
+    reco: {
+      eyebrow: "Seção 06 · Recomendação",
+      h2a: "Com base no seu dia,",
+      h2b: " sugerimos…",
+      collection: "Coleção",
+      buy: "Comprar na Amazon",
+      learn: "Saber mais",
+      guard: "EyegisGuard™",
+      comfort: "Conforto de 60 dias",
+      warranty: "Garantia de 2 anos",
+    },
+    cta: {
+      eyebrow: "Ainda em dúvida?",
+      h2a: "Faça o",
+      h2b: "Digital Eye Score™.",
+      body: "Uma avaliação personalizada de um minuto. Ela conecta seus hábitos diários à lente Eyegis ideal para você.",
+      take: "Fazer a Avaliação",
+      browse: "Ver Produtos",
+      buy: "Comprar na Amazon",
+    },
+  },
+  FR: {
+    nav: { home: "← Accueil", buy: "Acheter sur Amazon" },
+    hero: {
+      eyebrow: "Choisissez Vos Verres",
+      h1a: "Trouvez le verre parfait",
+      h1b: "pour votre mode de vie.",
+      sub: "Chaque vie numérique est différente. Découvrez quel verre Eyegis correspond le mieux à votre quotidien — de courtes lectures à de longues journées sur plusieurs écrans.",
+      start: "Commencer la comparaison",
+      assessment: "Faire l'évaluation",
+      heroAlt: "Un professionnel portant Eyegis dans un espace de travail lumineux",
+    },
+    how: {
+      eyebrow: "Section 01 · Comment choisir",
+      h2a: "Partez de votre journée,",
+      h2b: " pas de la fiche technique.",
+      selected: "✓ Sélectionné",
+    },
+    personas: [
+      {
+        id: "everyday",
+        label: "Vie numérique quotidienne",
+        eyebrow: "Carte 01 · 3–6 heures par jour",
+        hours: "3 – 6 h",
+        contexts: ["Bureau", "E-mail", "Navigation", "Réunions"],
+        desc: "Pour celles et ceux qui passent une part modérée de leur journée devant un écran et recherchent l'élégance au quotidien.",
+        collection: "Homme · Quotidien",
+        cta: "Découvrir Meridian",
+        product: {
+          name: "Meridian",
+          line: "par Eyegis",
+          desc: "Une silhouette architecturale discrète avec le filtre optique EyegisGuard™. Idéal pour un port quotidien.",
+        },
+      },
+      {
+        id: "creative",
+        label: "Performance créative",
+        eyebrow: "Carte 02 · 6–8 heures par jour",
+        hours: "6 – 8 h",
+        contexts: ["Designers", "Monteurs", "Photographes", "Architectes", "Développeurs"],
+        desc: "Pour de longues sessions créatives où la précision des couleurs et le confort prolongé sont essentiels.",
+        collection: "Femme · Créatif",
+        cta: "Découvrir Solène",
+        product: {
+          name: "Solène",
+          line: "par Eyegis",
+          desc: "Un profil sculpté pour les professionnels créatifs. Clarté optique de précision, sans dérive de couleur.",
+        },
+      },
+      {
+        id: "max",
+        label: "Exposition maximale aux écrans",
+        eyebrow: "Carte 03 · 8h+ par jour",
+        hours: "8 h +",
+        contexts: ["Gamers", "Streamers", "Télétravail", "Traders", "Multi-écrans"],
+        desc: "Pour celles et ceux dont la routine implique plusieurs écrans, une concentration prolongée et des sessions exigeantes.",
+        collection: "Homme · Business",
+        cta: "Découvrir Atelier",
+        product: {
+          name: "Atelier",
+          line: "par Eyegis",
+          desc: "Répartition équilibrée du poids et filtration premium pour les sessions les plus longues et exigeantes.",
+        },
+      },
+    ],
+    compare: {
+      eyebrow: "Section 02 · Comparaison",
+      h2a: "Trois verres.",
+      h2b: " Un choix parfait.",
+      mostPopular: "Le plus populaire",
+      lensTier: "Niveau de verre",
+      bestFor: "Idéal pour",
+      choose: "Choisir ce verre",
+      criteria: [
+        "Confort visuel",
+        "Précision des couleurs",
+        "Exposition aux écrans",
+        "Usage quotidien",
+        "Travail créatif",
+        "Gaming",
+        "Lecture",
+        "Longues sessions",
+      ],
+    },
+    lenses: [
+      {
+        key: "clear",
+        name: "EyegisGuard™ Clear",
+        tagline: "Pour un usage quotidien modéré des écrans.",
+        bestFor: ["Bureau", "Lecture", "Réunions"],
+        scoresLabel: "Idéal pour",
+      },
+      {
+        key: "shield",
+        name: "EyegisGuard™ Shield",
+        tagline: "Pour les professionnels créatifs et les longues sessions.",
+        bestFor: ["Design", "Photographie", "Montage"],
+        scoresLabel: "Idéal pour",
+      },
+      {
+        key: "pro",
+        name: "EyegisGuard™ Pro",
+        tagline: "Pour une exposition maximale aux écrans.",
+        bestFor: ["Gaming", "Trading", "Streaming"],
+        scoresLabel: "Idéal pour",
+      },
+    ],
+    demo: {
+      eyebrow: "Section 03 · Démonstration",
+      h2a: "Un écran plus doux,",
+      h2b: " en couleurs fidèles.",
+      body: "Faites glisser le curseur pour voir comment EyegisGuard™ filtre la lumière bleue haute énergie sans ajouter de teinte ambrée. Subtil, précis, honnête.",
+      without: "Sans Eyegis",
+      with: "Avec Eyegis",
+      drag: "Glisser pour comparer",
+    },
+    who: {
+      eyebrow: "Section 04 · Pour qui",
+      h2a: "Conçu pour",
+      h2b: " toute journée devant un écran.",
+      see: "Voir la recommandation →",
+      items: [
+        { label: "Professionnels créatifs", note: "Design, montage, photographie.", target: "creative" },
+        { label: "Business", note: "Réunions, présentations, concentration.", target: "everyday" },
+        { label: "Étudiants", note: "Lecture, notes, cours.", target: "everyday" },
+        { label: "Gaming", note: "Sessions longues, jeu compétitif.", target: "max" },
+        { label: "Voyages", note: "Aéroports, vols, hôtels.", target: "everyday" },
+        { label: "Santé", note: "Écrans entre les gardes.", target: "creative" },
+        { label: "Éducation", note: "Enseignement, recherche, tutorat.", target: "everyday" },
+        { label: "Télétravail", note: "Visio, écrans toute la journée.", target: "max" },
+      ],
+    },
+    faq: {
+      eyebrow: "Section 05 · Questions",
+      h2a: "Questions",
+      h2b: " fréquentes.",
+      items: [
+        { q: "Puis-je les porter toute la journée ?", a: "Oui. Les montures Eyegis sont conçues pour un port continu — construction TR90 légère, répartition équilibrée du poids et traitements pensés pour les longues sessions." },
+        { q: "Puis-je conduire avec ?", a: "Oui. Les verres EyegisGuard™ préservent la perception naturelle des couleurs et sont sûrs pour la conduite de jour." },
+        { q: "Modifient-ils les couleurs de l'écran ?", a: "Non. Le filtre atténue la lumière bleue haute énergie sans introduire de teinte ambrée visible — le travail chromatique reste précis." },
+        { q: "Compatibles avec des lentilles de contact ?", a: "Oui. Les montures Eyegis se portent confortablement avec des lentilles souples ou rigides." },
+        { q: "Compatibles avec des casques de gaming ?", a: "Oui. Les branches sont assez fines pour passer sous la plupart des casques on-ear et over-ear." },
+        { q: "Utilisables pour la lecture ?", a: "Oui — le traitement fonctionne aussi bien pour l'écran que pour le papier. De nombreux lecteurs les trouvent plus confortables le soir." },
+      ],
+    },
+    reco: {
+      eyebrow: "Section 06 · Recommandation",
+      h2a: "En fonction de votre journée,",
+      h2b: " nous suggérons…",
+      collection: "Collection",
+      buy: "Acheter sur Amazon",
+      learn: "En savoir plus",
+      guard: "EyegisGuard™",
+      comfort: "Confort 60 jours",
+      warranty: "Garantie 2 ans",
+    },
+    cta: {
+      eyebrow: "Encore hésitant ?",
+      h2a: "Faites le",
+      h2b: "Digital Eye Score™.",
+      body: "Une évaluation personnalisée d'une minute. Elle relie vos habitudes quotidiennes au verre Eyegis qui vous convient le mieux.",
+      take: "Faire l'évaluation",
+      browse: "Voir les produits",
+      buy: "Acheter sur Amazon",
+    },
+  },
+};
+
+/* ------------------------------------------------------------------ */
+/*  Data (scores keyed by criterion index — language independent)     */
+/* ------------------------------------------------------------------ */
+
+// Scores per lens per criterion index (aligned with compare.criteria order)
+const LENS_SCORES: Record<"clear" | "shield" | "pro", number[]> = {
+  clear:  [4, 5, 3, 5, 4, 3, 5, 3],
+  shield: [5, 5, 5, 4, 5, 4, 4, 5],
+  pro:    [5, 4, 5, 4, 4, 5, 4, 5],
+};
+
+const PERSONA_IMAGES: Record<PersonaId, string> = {
+  everyday: lifeBusiness,
+  creative: lifeCreative,
+  max: lifeGaming,
+};
+
+const PERSONA_PRODUCT_IMAGES: Record<PersonaId, string> = {
+  everyday: meridianHero,
+  creative: soleneFront,
+  max: atelierFront,
+};
 
 /* ------------------------------------------------------------------ */
 /*  Reveal                                                            */
@@ -82,7 +704,7 @@ function Reveal({
 /*  Header                                                            */
 /* ------------------------------------------------------------------ */
 
-function MiniHeader() {
+function MiniHeader({ c }: { c: Copy }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 8);
@@ -107,7 +729,7 @@ function MiniHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-8 font-eyebrow text-ink/70">
           <Link to="/" className="hover:text-ink transition-colors">
-            ← Home
+            {c.nav.home}
           </Link>
         </nav>
         <a
@@ -116,7 +738,7 @@ function MiniHeader() {
           rel="noopener noreferrer"
           className="rounded-full bg-teal px-5 py-2.5 font-eyebrow text-paper hover:bg-teal-deep transition-colors"
         >
-          Buy on Amazon
+          {c.nav.buy}
         </a>
       </div>
     </header>
@@ -127,25 +749,23 @@ function MiniHeader() {
 /*  Hero                                                              */
 /* ------------------------------------------------------------------ */
 
-function Hero() {
+function Hero({ c }: { c: Copy }) {
   return (
     <section className="relative bg-paper pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-6">
           <Reveal>
-            <span className="font-eyebrow text-teal">Choose Your Lenses</span>
+            <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
             <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[104px]">
-              Find the perfect lens
-              <span className="block italic text-teal">for the way you live.</span>
+              {c.hero.h1a}
+              <span className="block italic text-teal">{c.hero.h1b}</span>
             </h1>
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-8 max-w-lg font-light text-lg leading-relaxed text-ink/75">
-              Every digital lifestyle is different. Discover which Eyegis lens
-              best matches your daily routine — from short reading sessions to
-              full days on multiple monitors.
+              {c.hero.sub}
             </p>
           </Reveal>
           <Reveal delay={340}>
@@ -154,7 +774,7 @@ function Hero() {
                 href="#compare"
                 className="group inline-flex items-center gap-6 rounded-full bg-teal px-8 py-5 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
-                <span className="font-eyebrow">Start comparing</span>
+                <span className="font-eyebrow">{c.hero.start}</span>
                 <span aria-hidden="true">→</span>
               </a>
               <Link
@@ -162,7 +782,7 @@ function Hero() {
                 hash="digital-eye-score"
                 className="inline-flex items-center justify-center rounded-full border border-ink/20 px-8 py-5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors"
               >
-                Take the Assessment
+                {c.hero.assessment}
               </Link>
             </div>
           </Reveal>
@@ -173,7 +793,7 @@ function Hero() {
             <div className="relative aspect-[5/6] overflow-hidden rounded-md bg-paper-warm">
               <img
                 src={heroImg}
-                alt="A professional wearing Eyegis at a bright workspace"
+                alt={c.hero.heroAlt}
                 loading="eager"
                 className="h-full w-full object-cover"
               />
@@ -190,74 +810,7 @@ function Hero() {
 /*  How to choose (3 cards)                                           */
 /* ------------------------------------------------------------------ */
 
-type Persona = {
-  id: "everyday" | "creative" | "max";
-  label: string;
-  eyebrow: string;
-  hours: string;
-  contexts: string[];
-  desc: string;
-  collection: string;
-  cta: string;
-  image: string;
-  product: { name: string; line: string; desc: string; image: string };
-};
-
-const PERSONAS: Persona[] = [
-  {
-    id: "everyday",
-    label: "Everyday Digital Life",
-    eyebrow: "Card 01 · 3–6 hours daily",
-    hours: "3 – 6 h",
-    contexts: ["Office", "Email", "Browsing", "Meetings"],
-    desc: "For people who spend a moderate part of the day in front of screens and value elegance in everyday wear.",
-    collection: "Men · Everyday",
-    cta: "Discover Meridian",
-    image: lifeBusiness,
-    product: {
-      name: "Meridian",
-      line: "by Eyegis",
-      desc: "A quiet architectural silhouette with EyegisGuard™ optical filter. Effortless for daily wear.",
-      image: meridianHero,
-    },
-  },
-  {
-    id: "creative",
-    label: "Creative Performance",
-    eyebrow: "Card 02 · 6–8 hours daily",
-    hours: "6 – 8 h",
-    contexts: ["Designers", "Editors", "Photographers", "Architects", "Developers"],
-    desc: "For long creative sessions where accurate color perception and sustained comfort matter most.",
-    collection: "Women · Creative",
-    cta: "Discover Solène",
-    image: lifeCreative,
-    product: {
-      name: "Solène",
-      line: "by Eyegis",
-      desc: "A sculpted profile designed for creative professionals. Precision optical clarity, no color shift.",
-      image: soleneFront,
-    },
-  },
-  {
-    id: "max",
-    label: "Maximum Screen Exposure",
-    eyebrow: "Card 03 · 8+ hours daily",
-    hours: "8 h +",
-    contexts: ["Gamers", "Streamers", "Remote work", "Traders", "Multi-monitor"],
-    desc: "For people whose daily routine involves multiple screens, extended focus and demanding sessions.",
-    collection: "Men · Business",
-    cta: "Discover Atelier",
-    image: lifeGaming,
-    product: {
-      name: "Atelier",
-      line: "by Eyegis",
-      desc: "Balanced weight distribution and premium filtration for the longest, most demanding sessions.",
-      image: atelierFront,
-    },
-  },
-];
-
-function PersonaIcon({ id }: { id: Persona["id"] }) {
+function PersonaIcon({ id }: { id: PersonaId }) {
   if (id === "everyday") {
     return (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -284,27 +837,29 @@ function PersonaIcon({ id }: { id: Persona["id"] }) {
 }
 
 function HowToChoose({
+  c,
   onPick,
   active,
 }: {
-  onPick: (id: Persona["id"]) => void;
-  active: Persona["id"];
+  c: Copy;
+  onPick: (id: PersonaId) => void;
+  active: PersonaId;
 }) {
   return (
     <section className="bg-paper-warm py-28 md:py-36">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
-          <span className="font-eyebrow text-teal">Section 01 · How to choose</span>
+          <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            Start with your day,
-            <span className="italic text-teal"> not the spec sheet.</span>
+            {c.how.h2a}
+            <span className="italic text-teal">{c.how.h2b}</span>
           </h2>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PERSONAS.map((p, i) => {
+          {c.personas.map((p, i) => {
             const isActive = active === p.id;
             return (
               <Reveal key={p.id} delay={i * 100}>
@@ -319,7 +874,7 @@ function HowToChoose({
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
-                      src={p.image}
+                      src={PERSONA_IMAGES[p.id]}
                       alt={p.label}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
@@ -339,12 +894,12 @@ function HowToChoose({
                     </h3>
                     <p className="font-light text-ink/70 leading-relaxed">{p.desc}</p>
                     <div className="flex flex-wrap gap-1.5">
-                      {p.contexts.map((c) => (
+                      {p.contexts.map((cx) => (
                         <span
-                          key={c}
+                          key={cx}
                           className="rounded-full border border-ink/12 px-2.5 py-0.5 font-eyebrow text-[9px] text-ink/60"
                         >
-                          {c}
+                          {cx}
                         </span>
                       ))}
                     </div>
@@ -366,7 +921,7 @@ function HowToChoose({
                   </div>
                   {isActive && (
                     <span className="absolute top-4 right-4 font-eyebrow text-[9px] text-teal">
-                      ✓ Selected
+                      {c.how.selected}
                     </span>
                   )}
                 </button>
@@ -383,77 +938,6 @@ function HowToChoose({
 /*  Interactive Comparison                                            */
 /* ------------------------------------------------------------------ */
 
-type LensKey = "clear" | "shield" | "pro";
-type Lens = {
-  key: LensKey;
-  name: string;
-  tagline: string;
-  scores: { [k: string]: number }; // 0..5
-  bestFor: string[];
-};
-
-const CRITERIA = [
-  "Visual Comfort",
-  "Color Accuracy",
-  "Screen Exposure",
-  "Everyday Use",
-  "Creative Work",
-  "Gaming",
-  "Reading",
-  "Long Sessions",
-];
-
-const LENSES: Lens[] = [
-  {
-    key: "clear",
-    name: "EyegisGuard™ Clear",
-    tagline: "For everyday moderate screen use.",
-    scores: {
-      "Visual Comfort": 4,
-      "Color Accuracy": 5,
-      "Screen Exposure": 3,
-      "Everyday Use": 5,
-      "Creative Work": 4,
-      Gaming: 3,
-      Reading: 5,
-      "Long Sessions": 3,
-    },
-    bestFor: ["Office", "Reading", "Meetings"],
-  },
-  {
-    key: "shield",
-    name: "EyegisGuard™ Shield",
-    tagline: "For creative professionals and long sessions.",
-    scores: {
-      "Visual Comfort": 5,
-      "Color Accuracy": 5,
-      "Screen Exposure": 5,
-      "Everyday Use": 4,
-      "Creative Work": 5,
-      Gaming: 4,
-      Reading: 4,
-      "Long Sessions": 5,
-    },
-    bestFor: ["Design", "Photography", "Editing"],
-  },
-  {
-    key: "pro",
-    name: "EyegisGuard™ Pro",
-    tagline: "For maximum daily screen exposure.",
-    scores: {
-      "Visual Comfort": 5,
-      "Color Accuracy": 4,
-      "Screen Exposure": 5,
-      "Everyday Use": 4,
-      "Creative Work": 4,
-      Gaming: 5,
-      Reading: 4,
-      "Long Sessions": 5,
-    },
-    bestFor: ["Gaming", "Trading", "Streaming"],
-  },
-];
-
 function ScoreBar({ v }: { v: number }) {
   const pct = (v / 5) * 100;
   return (
@@ -466,120 +950,123 @@ function ScoreBar({ v }: { v: number }) {
   );
 }
 
-function Comparison() {
+function Comparison({ c }: { c: Copy }) {
   return (
     <section id="compare" className="bg-paper py-28 md:py-36">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
-          <span className="font-eyebrow text-teal">Section 02 · Comparison</span>
+          <span className="font-eyebrow text-teal">{c.compare.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            Three lenses.
-            <span className="italic text-teal"> One perfect fit.</span>
+            {c.compare.h2a}
+            <span className="italic text-teal">{c.compare.h2b}</span>
           </h2>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {LENSES.map((l, i) => (
-            <Reveal key={l.key} delay={i * 100}>
-              <article
-                className={`group h-full rounded-2xl p-8 md:p-10 flex flex-col gap-8 transition-all duration-500 ${
-                  l.key === "shield"
-                    ? "bg-teal-deep text-paper shadow-[0_50px_120px_-50px_rgba(0,56,66,0.55)]"
-                    : "bg-paper-warm text-ink border border-ink/10 hover:-translate-y-1"
-                }`}
-              >
-                <div>
-                  <span
-                    className={`font-eyebrow text-[10px] ${
-                      l.key === "shield" ? "text-mint" : "text-teal"
-                    }`}
-                  >
-                    {l.key === "shield" ? "Most popular" : "Lens tier"}
-                  </span>
-                  <h3
-                    className={`mt-4 font-editorial text-3xl md:text-4xl leading-tight ${
-                      l.key === "shield" ? "text-paper" : "text-ink"
-                    }`}
-                  >
-                    {l.name}
-                  </h3>
-                  <p
-                    className={`mt-3 font-light leading-relaxed ${
-                      l.key === "shield" ? "text-paper/75" : "text-ink/70"
-                    }`}
-                  >
-                    {l.tagline}
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  {CRITERIA.map((c) => (
-                    <div key={c}>
-                      <div
-                        className={`flex items-center justify-between font-eyebrow text-[10px] ${
-                          l.key === "shield" ? "text-paper/70" : "text-ink/55"
-                        }`}
-                      >
-                        <span>{c}</span>
-                        <span className="tabular-nums">{l.scores[c]}/5</span>
-                      </div>
-                      <div className="mt-1.5">
-                        {l.key === "shield" ? (
-                          <div className="relative h-[3px] w-full overflow-hidden bg-paper/15 rounded-full">
-                            <div
-                              className="absolute inset-y-0 left-0 bg-mint transition-[width] duration-[900ms] ease-out"
-                              style={{ width: `${(l.scores[c] / 5) * 100}%` }}
-                            />
-                          </div>
-                        ) : (
-                          <ScoreBar v={l.scores[c]} />
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-auto">
-                  <div
-                    className={`font-eyebrow text-[10px] ${
-                      l.key === "shield" ? "text-mint" : "text-teal"
-                    }`}
-                  >
-                    Best for
+          {c.lenses.map((l, i) => {
+            const scores = LENS_SCORES[l.key];
+            return (
+              <Reveal key={l.key} delay={i * 100}>
+                <article
+                  className={`group h-full rounded-2xl p-8 md:p-10 flex flex-col gap-8 transition-all duration-500 ${
+                    l.key === "shield"
+                      ? "bg-teal-deep text-paper shadow-[0_50px_120px_-50px_rgba(0,56,66,0.55)]"
+                      : "bg-paper-warm text-ink border border-ink/10 hover:-translate-y-1"
+                  }`}
+                >
+                  <div>
+                    <span
+                      className={`font-eyebrow text-[10px] ${
+                        l.key === "shield" ? "text-mint" : "text-teal"
+                      }`}
+                    >
+                      {l.key === "shield" ? c.compare.mostPopular : c.compare.lensTier}
+                    </span>
+                    <h3
+                      className={`mt-4 font-editorial text-3xl md:text-4xl leading-tight ${
+                        l.key === "shield" ? "text-paper" : "text-ink"
+                      }`}
+                    >
+                      {l.name}
+                    </h3>
+                    <p
+                      className={`mt-3 font-light leading-relaxed ${
+                        l.key === "shield" ? "text-paper/75" : "text-ink/70"
+                      }`}
+                    >
+                      {l.tagline}
+                    </p>
                   </div>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {l.bestFor.map((b) => (
-                      <span
-                        key={b}
-                        className={`rounded-full px-2.5 py-0.5 font-eyebrow text-[9px] ${
-                          l.key === "shield"
-                            ? "border border-paper/25 text-paper/85"
-                            : "border border-ink/15 text-ink/70"
-                        }`}
-                      >
-                        {b}
-                      </span>
+
+                  <div className="space-y-4">
+                    {c.compare.criteria.map((crit, idx) => (
+                      <div key={crit}>
+                        <div
+                          className={`flex items-center justify-between font-eyebrow text-[10px] ${
+                            l.key === "shield" ? "text-paper/70" : "text-ink/55"
+                          }`}
+                        >
+                          <span>{crit}</span>
+                          <span className="tabular-nums">{scores[idx]}/5</span>
+                        </div>
+                        <div className="mt-1.5">
+                          {l.key === "shield" ? (
+                            <div className="relative h-[3px] w-full overflow-hidden bg-paper/15 rounded-full">
+                              <div
+                                className="absolute inset-y-0 left-0 bg-mint transition-[width] duration-[900ms] ease-out"
+                                style={{ width: `${(scores[idx] / 5) * 100}%` }}
+                              />
+                            </div>
+                          ) : (
+                            <ScoreBar v={scores[idx]} />
+                          )}
+                        </div>
+                      </div>
                     ))}
                   </div>
-                  <a
-                    href={AMAZON_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-8 inline-flex items-center gap-4 rounded-full px-6 py-3.5 font-eyebrow transition-all duration-500 ${
-                      l.key === "shield"
-                        ? "bg-mint text-teal-deep hover:-translate-y-0.5"
-                        : "bg-ink text-paper hover:-translate-y-0.5"
-                    }`}
-                  >
-                    Choose this lens
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+
+                  <div className="mt-auto">
+                    <div
+                      className={`font-eyebrow text-[10px] ${
+                        l.key === "shield" ? "text-mint" : "text-teal"
+                      }`}
+                    >
+                      {c.compare.bestFor}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {l.bestFor.map((b) => (
+                        <span
+                          key={b}
+                          className={`rounded-full px-2.5 py-0.5 font-eyebrow text-[9px] ${
+                            l.key === "shield"
+                              ? "border border-paper/25 text-paper/85"
+                              : "border border-ink/15 text-ink/70"
+                          }`}
+                        >
+                          {b}
+                        </span>
+                      ))}
+                    </div>
+                    <a
+                      href={AMAZON_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`mt-8 inline-flex items-center gap-4 rounded-full px-6 py-3.5 font-eyebrow transition-all duration-500 ${
+                        l.key === "shield"
+                          ? "bg-mint text-teal-deep hover:-translate-y-0.5"
+                          : "bg-ink text-paper hover:-translate-y-0.5"
+                      }`}
+                    >
+                      {c.compare.choose}
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -590,7 +1077,7 @@ function Comparison() {
 /*  Visual Demonstration (before/after slider)                        */
 /* ------------------------------------------------------------------ */
 
-function BeforeAfter() {
+function BeforeAfter({ c }: { c: Copy }) {
   const [pos, setPos] = useState(52);
   const dragging = useRef(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -626,20 +1113,17 @@ function BeforeAfter() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-12">
           <div className="lg:col-span-6">
             <Reveal>
-              <span className="font-eyebrow text-teal">Section 03 · Demonstration</span>
+              <span className="font-eyebrow text-teal">{c.demo.eyebrow}</span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-4 font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-                A quieter screen,
-                <span className="italic text-teal"> in true color.</span>
+                {c.demo.h2a}
+                <span className="italic text-teal">{c.demo.h2b}</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={200} className="lg:col-span-5 lg:col-start-8">
-            <p className="font-light text-ink/70 leading-relaxed">
-              Drag the slider to see how EyegisGuard™ filters high-energy blue
-              light without introducing an amber tint. Subtle, precise, honest.
-            </p>
+            <p className="font-light text-ink/70 leading-relaxed">{c.demo.body}</p>
           </Reveal>
         </div>
 
@@ -648,21 +1132,19 @@ function BeforeAfter() {
             ref={wrapRef}
             className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-ink select-none"
           >
-            {/* WITH Eyegis (base) */}
             <img
               src={compareImg}
-              alt="With Eyegis — natural color"
+              alt={c.demo.with}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
-            {/* WITHOUT (overlay with subtle harshness) */}
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
             >
               <img
                 src={compareImg}
-                alt="Without Eyegis"
+                alt={c.demo.without}
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
                 loading="lazy"
@@ -678,15 +1160,13 @@ function BeforeAfter() {
               />
             </div>
 
-            {/* labels */}
             <div className="pointer-events-none absolute top-5 left-5 rounded-full bg-ink/60 backdrop-blur px-3 py-1 font-eyebrow text-[10px] text-paper">
-              Without Eyegis
+              {c.demo.without}
             </div>
             <div className="pointer-events-none absolute top-5 right-5 rounded-full bg-mint/85 px-3 py-1 font-eyebrow text-[10px] text-teal-deep">
-              With Eyegis
+              {c.demo.with}
             </div>
 
-            {/* divider */}
             <div
               className="absolute inset-y-0 z-10 w-px bg-paper/80"
               style={{ left: `${pos}%` }}
@@ -695,7 +1175,7 @@ function BeforeAfter() {
                 type="button"
                 onMouseDown={() => (dragging.current = true)}
                 onTouchStart={() => (dragging.current = true)}
-                aria-label="Drag to compare"
+                aria-label={c.demo.drag}
                 className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full bg-paper text-teal shadow-[0_20px_40px_-15px_rgba(0,56,66,0.4)] cursor-ew-resize"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -714,33 +1194,22 @@ function BeforeAfter() {
 /*  Who is it for                                                     */
 /* ------------------------------------------------------------------ */
 
-const LIFESTYLES = [
-  { label: "Creative Professionals", note: "Design, editing, photography.", target: "creative" as const },
-  { label: "Business", note: "Meetings, presentations, deep focus.", target: "everyday" as const },
-  { label: "Students", note: "Reading, notes, lectures.", target: "everyday" as const },
-  { label: "Gaming", note: "Long sessions, competitive play.", target: "max" as const },
-  { label: "Travel", note: "Airports, flights, hotels.", target: "everyday" as const },
-  { label: "Healthcare", note: "Screens between shifts.", target: "creative" as const },
-  { label: "Education", note: "Teaching, research, tutoring.", target: "everyday" as const },
-  { label: "Remote Work", note: "Video calls, all-day monitors.", target: "max" as const },
-];
-
-function WhoFor({ onPick }: { onPick: (id: Persona["id"]) => void }) {
+function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
   return (
     <section className="bg-paper py-28 md:py-36">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
-          <span className="font-eyebrow text-teal">Section 04 · Who it's for</span>
+          <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            Made for
-            <span className="italic text-teal"> every kind of screen day.</span>
+            {c.who.h2a}
+            <span className="italic text-teal">{c.who.h2b}</span>
           </h2>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {LIFESTYLES.map((l, i) => (
+          {c.who.items.map((l, i) => (
             <Reveal key={l.label} delay={i * 50}>
               <button
                 type="button"
@@ -757,7 +1226,7 @@ function WhoFor({ onPick }: { onPick: (id: Persona["id"]) => void }) {
                   {l.note}
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 font-eyebrow text-[10px] text-ink/50 transition-colors group-hover:text-teal">
-                  See recommendation →
+                  {c.who.see}
                 </span>
               </button>
             </Reveal>
@@ -771,33 +1240,6 @@ function WhoFor({ onPick }: { onPick: (id: Persona["id"]) => void }) {
 /* ------------------------------------------------------------------ */
 /*  FAQ                                                               */
 /* ------------------------------------------------------------------ */
-
-const FAQ = [
-  {
-    q: "Can I wear them all day?",
-    a: "Yes. Eyegis frames are designed for continuous wear — lightweight TR90 build, balanced weight distribution and coatings tuned for long sessions.",
-  },
-  {
-    q: "Can I drive with them?",
-    a: "Yes. EyegisGuard™ lenses preserve natural color perception and are safe for daytime driving.",
-  },
-  {
-    q: "Do they change colors on my screen?",
-    a: "No. The filter is tuned to attenuate high-energy blue light without introducing a visible amber tint — color-critical work stays accurate.",
-  },
-  {
-    q: "Can I wear them with contact lenses?",
-    a: "Yes. Eyegis frames pair comfortably with soft or rigid contact lenses.",
-  },
-  {
-    q: "Are they compatible with gaming headsets?",
-    a: "Yes. The temple arms are slim enough to sit comfortably under most on-ear and over-ear gaming headsets.",
-  },
-  {
-    q: "Can I use them while reading?",
-    a: "Yes — the coating supports both screen and print. Many readers find them noticeably more comfortable at night.",
-  },
-];
 
 function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
   return (
@@ -830,22 +1272,22 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
   );
 }
 
-function Faq() {
+function Faq({ c }: { c: Copy }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="bg-paper-warm py-28 md:py-36">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <Reveal>
-          <span className="font-eyebrow text-teal">Section 05 · Questions</span>
+          <span className="font-eyebrow text-teal">{c.faq.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            Questions
-            <span className="italic text-teal"> people ask.</span>
+            {c.faq.h2a}
+            <span className="italic text-teal">{c.faq.h2b}</span>
           </h2>
         </Reveal>
         <div className="mt-14">
-          {FAQ.map((f, i) => (
+          {c.faq.items.map((f, i) => (
             <FaqItem
               key={f.q}
               q={f.q}
@@ -865,17 +1307,17 @@ function Faq() {
 /*  Recommended product (reacts to selected persona)                  */
 /* ------------------------------------------------------------------ */
 
-function Recommended({ persona }: { persona: Persona }) {
+function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
   return (
     <section className="bg-paper py-28 md:py-36">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
-          <span className="font-eyebrow text-teal">Section 06 · Recommendation</span>
+          <span className="font-eyebrow text-teal">{c.reco.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            Based on your day,
-            <span className="italic text-teal"> we suggest…</span>
+            {c.reco.h2a}
+            <span className="italic text-teal">{c.reco.h2b}</span>
           </h2>
         </Reveal>
 
@@ -885,8 +1327,8 @@ function Recommended({ persona }: { persona: Persona }) {
         >
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
             <img
-              src={persona.product.image}
-              alt={`${persona.product.name} — recommended`}
+              src={PERSONA_PRODUCT_IMAGES[persona.id]}
+              alt={`${persona.product.name} — ${c.reco.eyebrow}`}
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
@@ -894,7 +1336,7 @@ function Recommended({ persona }: { persona: Persona }) {
           </div>
           <div className="md:col-span-3 flex flex-col justify-center">
             <span className="font-eyebrow text-teal">
-              Collection · {persona.collection}
+              {c.reco.collection} · {persona.collection}
             </span>
             <h3 className="mt-4 font-editorial text-ink text-3xl md:text-5xl leading-tight">
               {persona.product.name}
@@ -905,13 +1347,13 @@ function Recommended({ persona }: { persona: Persona }) {
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="rounded-full border border-teal/30 bg-teal/5 px-3 py-1 font-eyebrow text-[10px] text-teal">
-                EyegisGuard™
+                {c.reco.guard}
               </span>
               <span className="rounded-full border border-ink/15 px-3 py-1 font-eyebrow text-[10px] text-ink/70">
-                60-Day Comfort
+                {c.reco.comfort}
               </span>
               <span className="rounded-full border border-ink/15 px-3 py-1 font-eyebrow text-[10px] text-ink/70">
-                2-Year Warranty
+                {c.reco.warranty}
               </span>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -921,14 +1363,14 @@ function Recommended({ persona }: { persona: Persona }) {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-6 py-4 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
-                <span className="font-eyebrow">Buy on Amazon</span>
+                <span className="font-eyebrow">{c.reco.buy}</span>
                 <span aria-hidden="true">→</span>
               </a>
               <Link
                 to="/product/meridian"
                 className="inline-flex items-center justify-center gap-3 rounded-full border border-ink/20 px-6 py-4 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors duration-500"
               >
-                Learn More
+                {c.reco.learn}
               </Link>
             </div>
           </div>
@@ -953,7 +1395,7 @@ function Recommended({ persona }: { persona: Persona }) {
 /*  Final CTA                                                         */
 /* ------------------------------------------------------------------ */
 
-function FinalCta() {
+function FinalCta({ c }: { c: Copy }) {
   return (
     <section className="relative bg-teal-deep py-28 md:py-40 text-paper overflow-hidden">
       <div
@@ -962,18 +1404,17 @@ function FinalCta() {
       />
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 text-center">
         <Reveal>
-          <span className="font-eyebrow text-mint">Still deciding?</span>
+          <span className="font-eyebrow text-mint">{c.cta.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[96px] leading-[0.94]">
-            Take the
-            <span className="block italic text-mint">Digital Eye Score™.</span>
+            {c.cta.h2a}
+            <span className="block italic text-mint">{c.cta.h2b}</span>
           </h2>
         </Reveal>
         <Reveal delay={220}>
           <p className="mx-auto mt-8 max-w-xl font-light text-paper/75 leading-relaxed">
-            A one-minute personalized assessment. It maps your daily habits to
-            the Eyegis lens that fits you best.
+            {c.cta.body}
           </p>
         </Reveal>
         <Reveal delay={340}>
@@ -983,14 +1424,14 @@ function FinalCta() {
               hash="digital-eye-score"
               className="rounded-full bg-mint px-8 py-4 font-eyebrow text-teal-deep hover:-translate-y-0.5 transition-transform duration-500"
             >
-              Take the Assessment
+              {c.cta.take}
             </Link>
             <Link
               to="/"
               hash="collections"
               className="rounded-full border border-paper/25 px-8 py-4 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
             >
-              Browse Products
+              {c.cta.browse}
             </Link>
             <a
               href={AMAZON_URL}
@@ -998,7 +1439,7 @@ function FinalCta() {
               rel="noopener noreferrer"
               className="rounded-full border border-paper/25 px-8 py-4 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
             >
-              Buy on Amazon
+              {c.cta.buy}
             </a>
           </div>
         </Reveal>
@@ -1012,11 +1453,13 @@ function FinalCta() {
 /* ------------------------------------------------------------------ */
 
 function LensesPage() {
-  const [active, setActive] = useState<Persona["id"]>("creative");
+  const { lang } = useI18n();
+  const c = CONTENT[lang];
+  const [active, setActive] = useState<PersonaId>("creative");
 
-  const persona = PERSONAS.find((p) => p.id === active) ?? PERSONAS[1];
+  const persona = c.personas.find((p) => p.id === active) ?? c.personas[1];
 
-  const pickAndScroll = (id: Persona["id"]) => {
+  const pickAndScroll = (id: PersonaId) => {
     setActive(id);
     if (typeof window !== "undefined") {
       const el = document.getElementById("recommendation");
@@ -1026,17 +1469,17 @@ function LensesPage() {
 
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
-      <MiniHeader />
-      <Hero />
-      <HowToChoose active={active} onPick={setActive} />
-      <Comparison />
-      <BeforeAfter />
-      <WhoFor onPick={pickAndScroll} />
-      <Faq />
+      <MiniHeader c={c} />
+      <Hero c={c} />
+      <HowToChoose c={c} active={active} onPick={setActive} />
+      <Comparison c={c} />
+      <BeforeAfter c={c} />
+      <WhoFor c={c} onPick={pickAndScroll} />
+      <Faq c={c} />
       <div id="recommendation">
-        <Recommended persona={persona} />
+        <Recommended c={c} persona={persona} />
       </div>
-      <FinalCta />
+      <FinalCta c={c} />
     </main>
   );
 }
