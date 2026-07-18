@@ -666,7 +666,9 @@ function AboutPage() {
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <img
                       src={imgs[i]}
-                      alt={p.title}
+                      alt={`${p.title} — Eyegis philosophy portrait`}
+                      width={1024}
+                      height={1280}
                       className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
             loading="lazy" decoding="async"
           />
