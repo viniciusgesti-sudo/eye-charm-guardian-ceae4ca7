@@ -714,15 +714,12 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
-        <img
-          src={p.image}
+        <Picture
+          source={p.image}
           alt={p.imageAlt}
-          width={1200}
-          height={1500}
-          loading="lazy"
+          sizes="(min-width:1024px) 460px, 85vw"
           className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-            decoding="async"
-          />
+        />
         <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
           {p.bestSeller && (
             <span className="rounded-full bg-paper/90 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
