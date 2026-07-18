@@ -12,6 +12,9 @@ import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { Collection } from "@/components/eyegis/Collection";
 import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
 import { SocialProof } from "@/components/eyegis/SocialProof";
+import { HowItWorks } from "@/components/eyegis/HowItWorks";
+import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
+import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -119,10 +122,20 @@ function Header() {
               </div>
             ))}
           </div>
-          <button className="flex items-center gap-2 hover:opacity-70 transition-opacity" aria-label={t("nav.bag")}>
-            <BagIcon />
-            <span className="hidden sm:inline">{t("nav.bag")} (0)</span>
-          </button>
+          <a
+            href={DEFAULT_AMAZON_URL}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className={`group inline-flex items-center gap-2 rounded-full border px-4 py-2 transition-all duration-500 ${
+              scrolled
+                ? "border-teal/40 text-teal hover:bg-teal hover:text-paper"
+                : "border-paper/40 text-paper hover:bg-paper hover:text-ink"
+            }`}
+            aria-label={t("nav.shopAmazon")}
+          >
+            <span className="whitespace-nowrap">{t("nav.shopAmazon")}</span>
+            <span className="transition-transform duration-500 group-hover:translate-x-0.5" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </header>
@@ -344,6 +357,7 @@ function Index() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <HowItWorks />
       <Universe />
       <HonestScience />
       <EyegisGuard />
@@ -351,6 +365,7 @@ function Index() {
       <Collection />
       <DigitalEyeScore />
       <SocialProof />
+      <ShopOnAmazon />
     </main>
   );
 }
