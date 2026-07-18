@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
+import { Picture, type PictureSource } from "./Picture";
+
 type Props = {
   eyebrow: string;
   title: ReactNode;
   subtitle?: string;
   bgImage: string;
+  bgSource?: PictureSource;
   tone?: "dark" | "light";
   align?: "center" | "left";
   cta?: { label: string; to: "/$locale/men" | "/$locale/women" | "/$locale/kids" | "/$locale/technology"; locale: string };
@@ -17,6 +20,7 @@ export function PageHero({
   title,
   subtitle,
   bgImage,
+  bgSource,
   tone = "dark",
   align = "center",
   cta,
@@ -29,16 +33,28 @@ export function PageHero({
         isDark ? "bg-ink text-paper" : "bg-paper text-ink"
       }`}
     >
-      <img
-        src={bgImage}
-        alt=""
-        aria-hidden="true"
-        width={2400}
-        height={1600}
-        loading="eager"
-        decoding="async"
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-      />
+      {bgSource ? (
+        <Picture
+          source={bgSource}
+          alt=""
+          aria-hidden="true"
+          priority
+          sizes="100vw"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+      ) : (
+        <img
+          src={bgImage}
+          alt=""
+          aria-hidden="true"
+          width={2400}
+          height={1600}
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+      )}
+
       <div
         aria-hidden
         className={`absolute inset-0 -z-10 ${

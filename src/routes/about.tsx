@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/lifestyle-architecture.jpg";
+import heroImgSrc from "@/assets/lifestyle-architecture.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import beliefImg from "@/assets/universe-portrait.jpg";
 import whyImg1 from "@/assets/science-devices.jpg";
 import whyImg2 from "@/assets/universe-lens-macro.jpg";
@@ -479,14 +481,12 @@ function AboutPage() {
       {/* HERO */}
       <section className="relative min-h-[92vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
+          <Picture
+            source={heroImgSrc}
             alt={c.hero.alt}
-            width={1600}
-            height={1000}
+            sizes="100vw"
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
-            loading="lazy" decoding="async"
           />
           <div
             className="absolute inset-0"

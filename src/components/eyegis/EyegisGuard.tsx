@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
 import lensFloat from "@/assets/guard-lens-float.jpg";
-import lensMacro from "@/assets/products/solene-macro.jpg";
+import lensMacro from "@/assets/products/solene-macro.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import { Picture } from "./Picture";
 import comparisonImg from "@/assets/guard-comparison.jpg";
 import lifeCreative from "@/assets/guard-life-creative.jpg";
 import lifeBusiness from "@/assets/guard-life-business.jpg";
@@ -803,15 +804,12 @@ export function EyegisGuard() {
             <Reveal delay={280} className="lg:col-span-3">
               <div className="overflow-hidden rounded-sm bg-ink/[0.03] p-4 ring-1 ring-ink/10">
                 <div className="aspect-square w-full overflow-hidden rounded-sm">
-                  <img
-                    src={lensMacro}
+                  <Picture
+                    source={lensMacro}
                     alt="EyegisGuard™ lens macro detail"
-                    width={800}
-                    height={800}
-                    loading="lazy"
+                    sizes="(min-width: 1024px) 25vw, 60vw"
                     className="h-full w-full object-cover object-center"
-            decoding="async"
-          />
+                  />
                 </div>
               </div>
             </Reveal>

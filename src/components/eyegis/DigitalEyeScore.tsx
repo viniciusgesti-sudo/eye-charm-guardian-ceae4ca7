@@ -3,10 +3,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import soleneFront from "@/assets/products/solene-front.jpg";
-import maraisFront from "@/assets/products/marais-front.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import maraisFront from "@/assets/products/marais-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 
 /* ------------------------------------------------------------------ */
 /*  Reveal on scroll                                                  */
@@ -509,7 +510,7 @@ function recKey(answers: string[][]): keyof Copy["recommendations"] {
   return "default";
 }
 
-const REC_IMAGES: Record<keyof Copy["recommendations"], string> = {
+const REC_IMAGES: Record<keyof Copy["recommendations"], PictureSource> = {
   gamer: meridianHero,
   business: atelierFront,
   creative: soleneFront,
@@ -830,7 +831,7 @@ function Results({
 }: {
   score: number;
   rec: RecCopy;
-  recImage: string;
+  recImage: PictureSource;
   onReset: () => void;
   copy: Copy;
 }) {
@@ -853,15 +854,12 @@ function Results({
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 rounded-xl border border-ink/10 bg-paper p-6 md:p-8">
         <div className="md:col-span-2 relative overflow-hidden rounded-lg bg-paper-warm">
-          <img
-            src={recImage}
+          <Picture
+            source={recImage}
             alt={`${rec.productName} — recommended Eyegis eyewear based on your Digital Eye Score`}
-            width={1200}
-            height={1500}
+            sizes="(min-width: 768px) 40vw, 100vw"
             className="h-full w-full object-cover"
             style={{ animation: "floaty 6s ease-in-out infinite" }}
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <div className="md:col-span-3 flex flex-col justify-center">

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/lifestyle-work.jpg";
+import heroImg from "@/assets/lifestyle-work.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import compareImg from "@/assets/guard-comparison.jpg";
 import lifeBusiness from "@/assets/life-business.jpg";
 import lifeCreative from "@/assets/life-creative.jpg";
@@ -791,13 +792,11 @@ function Hero({ c }: { c: Copy }) {
         <div className="lg:col-span-6">
           <Reveal delay={200}>
             <div className="relative aspect-[5/6] overflow-hidden rounded-md bg-paper-warm">
-              <img
-                src={heroImg}
+              <Picture
+                source={heroImg}
                 alt={c.hero.heroAlt}
-                width={1500}
-                height={1800}
-                loading="eager"
-                decoding="async"
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.14),transparent_60%)]" />

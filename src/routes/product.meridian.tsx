@@ -5,9 +5,12 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 import heroImg from "@/assets/products/meridian-hero.jpg";
+import heroImgSrc from "@/assets/products/meridian-hero.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import pairImg from "@/assets/products/meridian-pair.jpg";
+import pairImgSrc from "@/assets/products/meridian-pair.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/meridian-package.jpg";
 import pouchImg from "@/assets/products/meridian-pouch.jpg";
+import { Picture } from "@/components/eyegis/Picture";
 import lensMacro from "@/assets/universe-lens-macro.jpg";
 import portrait from "@/assets/universe-portrait.jpg";
 import lifestyleImg from "@/assets/life-business.jpg";
@@ -583,14 +586,12 @@ function ProductHero() {
           <Reveal delay={100}>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-paper-warm">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
-              <img
-                src={heroImg}
+              <Picture
+                source={heroImgSrc}
                 alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
-                width={1600}
-                height={2000}
+                priority
+                sizes="(min-width: 1024px) 58vw, 100vw"
                 className="h-full w-full object-cover object-center float-slow"
-                loading="eager"
-                decoding="async"
               />
               <div className="pointer-events-none absolute inset-x-[20%] bottom-6 h-6 rounded-[50%] bg-ink/15 blur-2xl" />
             </div>
@@ -768,13 +769,10 @@ function FrameDetails() {
           <div className="lg:col-span-8 relative">
             <Reveal>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[#0f1a1e]">
-                <img
-                  src={pairImg}
+                <Picture
+                  source={pairImgSrc}
                   alt="Meridian eyewear — dual-angle technical study showing front and profile pair"
-                  width={1600}
-                  height={1000}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="(min-width: 1024px) 66vw, 100vw"
                   className="h-full w-full object-cover opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />

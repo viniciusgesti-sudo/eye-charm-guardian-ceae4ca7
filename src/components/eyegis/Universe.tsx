@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 import universePortrait from "@/assets/universe-portrait.jpg";
-import universeLens from "@/assets/products/solene-macro.jpg";
-import universeScience from "@/assets/universe-science.jpg";
-import universeEyewear from "@/assets/products/collection-family.jpg";
+import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import universeScience from "@/assets/universe-science.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -290,7 +291,7 @@ type Panel = {
   description: React.ReactNode;
   cta: string;
   href: string;
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   icon: React.ReactNode;
   tone: "paper" | "champagne";
@@ -311,13 +312,10 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
           panel.tone === "champagne" ? "bg-[var(--paper-warm)]" : "bg-[var(--paper)]"
         } shadow-[0_1px_0_rgba(29,37,45,0.04)] transition-[box-shadow,transform] duration-700 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_40px_60px_-40px_rgba(29,37,45,0.25)]`}
       >
-        <img
-          src={panel.image}
+        <Picture
+          source={panel.image}
           alt={panel.imageAlt}
-          width={1024}
-          height={1280}
-          loading="lazy"
-          decoding="async"
+          sizes="(min-width: 1024px) 33vw, 100vw"
           className={`h-full w-full object-cover transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             visible ? "scale-100" : "scale-[1.06]"
           } group-hover:scale-[1.05]`}

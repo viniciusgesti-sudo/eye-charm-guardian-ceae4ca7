@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/lifestyle-work.jpg";
-import deliveryImg from "@/assets/lifestyle-travel.jpg";
+import heroImg from "@/assets/lifestyle-work.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import deliveryImg from "@/assets/lifestyle-travel.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import storeImg from "@/assets/product-hero.jpg";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
@@ -570,15 +571,12 @@ function ShippingPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
+          <Picture
+            source={heroImg}
             alt="Eyegis lifestyle scene — minimalist desk with Eyegis eyewear ready to ship"
-            width={2400}
-            height={1400}
+            sizes="100vw"
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
-            loading="lazy"
-            decoding="async"
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
@@ -704,14 +702,11 @@ function ShippingPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img
-              src={deliveryImg}
+            <Picture
+              source={deliveryImg}
               alt="Eyegis premium package in transit — sealed and protected for global delivery"
-              width={1400}
-              height={1750}
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="h-[70vh] w-full object-cover"
-              loading="lazy"
-              decoding="async"
             />
           </Reveal>
           <div className="md:col-span-5 md:col-start-8">
