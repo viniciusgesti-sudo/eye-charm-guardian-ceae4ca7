@@ -169,7 +169,7 @@ function Hero() {
     <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-ink">
       {/* --- LEFT HALF : São Paulo / Man (teal side) --- */}
       <div
-        className="absolute inset-y-0 left-0 w-full lg:w-1/2 curtain overflow-hidden"
+        className="absolute inset-y-0 left-0 w-full lg:w-1/2 overflow-hidden"
         style={{
           clipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
           WebkitClipPath: "polygon(0 0, 100% 0, calc(100% - 40px) 100%, 0 100%)",
@@ -180,7 +180,8 @@ function Hero() {
           alt="Eyegis Men — São Paulo, night"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[50%_8%] scale-110 origin-center kenburns-left"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_center]"
+          style={{ transform: "translateY(-13%) scale(1.08)", transformOrigin: "center center" }}
         />
         {/* Teal editorial cast */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
@@ -189,9 +190,8 @@ function Hero() {
 
       {/* --- RIGHT HALF : Paris / Woman (natural side) --- */}
       <div
-        className="absolute inset-y-0 right-0 hidden lg:block w-1/2 curtain overflow-hidden"
+        className="absolute inset-y-0 right-0 hidden lg:block w-1/2 overflow-hidden"
         style={{
-          animationDelay: "0.15s",
           clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
           WebkitClipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%)",
         }}
@@ -201,7 +201,8 @@ function Hero() {
           alt="Eyegis Women — Paris, golden hour"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[50%_45%] kenburns-right"
+          className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
+          style={{ transform: "translateY(9%) scale(1.16)", transformOrigin: "center center" }}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
       </div>
