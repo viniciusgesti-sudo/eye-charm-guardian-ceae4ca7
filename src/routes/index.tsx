@@ -36,6 +36,10 @@ export const Route = createFileRoute("/")({
           "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed.",
       },
     ],
+    links: [
+      { rel: "preload", as: "image", href: heroZenith.img.src, imageSrcSet: heroZenith.sources.webp, imageSizes: "(min-width: 1024px) 50vw, 100vw", fetchpriority: "high" } as never,
+      { rel: "preload", as: "image", href: heroClarity.img.src, imageSrcSet: heroClarity.sources.webp, imageSizes: "(min-width: 1024px) 50vw, 100vw", fetchpriority: "high" } as never,
+    ],
   }),
   component: Index,
 });
