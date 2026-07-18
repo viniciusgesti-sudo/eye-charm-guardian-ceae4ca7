@@ -32,7 +32,9 @@ export function PageHero({
       <img
         src={bgImage}
         alt=""
-        aria-hidden
+        aria-hidden="true"
+        width={2400}
+        height={1600}
         loading="eager"
         decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
