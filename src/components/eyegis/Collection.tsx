@@ -950,9 +950,11 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
         {shots.map((s, idx) => (
           <Picture
             key={idx}
-            source={s.src}
+            source={s.thumb}
             alt={s.alt}
-            sizes="(min-width:1024px) 460px, 85vw"
+            loading={idx === active ? "eager" : "lazy"}
+            decoding="async"
+            sizes="(min-width:1024px) 460px, (min-width:640px) 440px, 85vw"
             className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
               idx === active ? "opacity-100" : "opacity-0"
             }`}
