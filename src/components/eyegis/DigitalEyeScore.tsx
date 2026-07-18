@@ -936,13 +936,13 @@ function Results({
             {copy.ctaShop}
           </a>
           <a
-            href="#collections"
+            href="/#collections"
             className="rounded-full border border-paper/25 px-7 py-4 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
           >
             {copy.ctaExplore}
           </a>
           <a
-            href="#technology"
+            href="/#technology"
             className="rounded-full border border-paper/25 px-7 py-4 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
           >
             {copy.ctaLearn}
