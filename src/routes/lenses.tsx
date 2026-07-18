@@ -792,13 +792,11 @@ function Hero({ c }: { c: Copy }) {
         <div className="lg:col-span-6">
           <Reveal delay={200}>
             <div className="relative aspect-[5/6] overflow-hidden rounded-md bg-paper-warm">
-              <img
-                src={heroImg}
+              <Picture
+                source={heroImg}
                 alt={c.hero.heroAlt}
-                width={1500}
-                height={1800}
-                loading="eager"
-                decoding="async"
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.14),transparent_60%)]" />
