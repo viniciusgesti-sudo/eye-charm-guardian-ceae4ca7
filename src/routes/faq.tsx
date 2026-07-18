@@ -908,7 +908,7 @@ function FAQPage() {
             </div>
           </aside>
 
-          <div className="md:col-span-8 lg:col-span-9">
+          <div className="min-w-0 md:col-span-8 lg:col-span-9">
             <div key={activeCategory.id} style={{ animation: "fade-in 0.4s ease-out both" }}>
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4">
                 <h2
