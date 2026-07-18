@@ -14,7 +14,10 @@ import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
 import { SocialProof } from "@/components/eyegis/SocialProof";
 import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
-import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import { TechBar } from "@/components/eyegis/TechBar";
+import { LiveStats } from "@/components/eyegis/LiveStats";
+import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
+import { AMAZON_RATING, DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -347,9 +350,11 @@ function Hero() {
 function Index() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
+      <TechBar />
       <Header />
       <Hero />
       <HowItWorks />
+      <LiveStats />
       <Universe />
       <HonestScience />
       <EyegisGuard />
@@ -358,6 +363,7 @@ function Index() {
       <DigitalEyeScore />
       <SocialProof />
       <ShopOnAmazon />
+      <StickyBuyBar />
     </main>
   );
 }
