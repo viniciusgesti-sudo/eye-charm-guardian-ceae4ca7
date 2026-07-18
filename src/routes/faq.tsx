@@ -867,8 +867,8 @@ function FAQPage() {
 
       {/* CATEGORY NAV + BODY */}
       <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
-        <div className="grid gap-16 md:grid-cols-12">
-          <aside className="md:col-span-4 lg:col-span-3">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-16 md:grid-cols-12">
+          <aside className="min-w-0 md:col-span-4 lg:col-span-3">
             <div className="sticky top-6">
               <Rule label={c.categoriesRule} />
               <nav className="mt-8 -mx-2 flex snap-x gap-2 overflow-x-auto md:mx-0 md:block md:overflow-visible">
@@ -908,7 +908,7 @@ function FAQPage() {
             </div>
           </aside>
 
-          <div className="md:col-span-8 lg:col-span-9">
+          <div className="min-w-0 md:col-span-8 lg:col-span-9">
             <div key={activeCategory.id} style={{ animation: "fade-in 0.4s ease-out both" }}>
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4">
                 <h2

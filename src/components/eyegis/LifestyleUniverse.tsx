@@ -567,7 +567,7 @@ export function LifestyleUniverse() {
           </Reveal>
 
           <Reveal delay={520}>
-            <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-14 flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-4">
               {[
                 { label: copy.btnMen, href: "#men", variant: "teal" as const },
                 { label: copy.btnWomen, href: "#women", variant: "sand" as const },
@@ -576,7 +576,7 @@ export function LifestyleUniverse() {
                 <a
                   key={b.label}
                   href={b.href}
-                  className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[260px] transition-all duration-500 ${
+                  className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[240px] max-w-full transition-all duration-500 ${
                     b.variant === "teal"
                       ? "bg-teal text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.6)] hover:bg-teal-deep hover:-translate-y-0.5"
                       : b.variant === "sand"
