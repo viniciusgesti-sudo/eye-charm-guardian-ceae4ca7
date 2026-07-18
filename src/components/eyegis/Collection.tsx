@@ -799,7 +799,7 @@ function Lightbox({
   }, [index, total, onClose, onIndex]);
 
   const shot = shots[index];
-  const move = (e: React.MouseEvent<HTMLDivElement>) => {
+  const move = (e: ReactMouseEvent<HTMLDivElement>) => {
     if (!zoomed) return;
     const r = e.currentTarget.getBoundingClientRect();
     setOrigin({
