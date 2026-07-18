@@ -847,9 +847,15 @@ function Lifestyle() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[80vh] min-h-[560px] w-full">
-        <img src={lifestyleImg} alt="Meridian in a modern architectural workspace" loading="lazy" className="h-full w-full object-cover opacity-75"
-            decoding="async"
-          />
+        <img
+          src={lifestyleImg}
+          alt="Meridian eyewear worn during a long screen session in a modern architectural workspace"
+          width={2400}
+          height={1500}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover opacity-75"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-14 pb-16 md:pb-24 text-paper">
