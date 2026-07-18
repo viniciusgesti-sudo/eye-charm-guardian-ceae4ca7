@@ -473,18 +473,15 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
       <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-28 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-16 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-7`}>
           <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[5/6] lg:aspect-[4/5]">
-            <img
-              src={meta.image}
+            <Picture
+              source={meta.image}
               alt={meta.imageAlt}
-              width={1600}
-              height={2000}
-              loading="lazy"
+              sizes="(min-width:1024px) 58vw, 100vw"
               className={`h-full w-full object-cover will-change-transform transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
-            decoding="async"
-          />
+            />
             <div
               className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${
                 meta.tone === "champagne" ? "text-paper/95" : "text-paper/90"
