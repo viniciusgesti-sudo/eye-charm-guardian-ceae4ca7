@@ -767,6 +767,11 @@ function ProductPreview({ copy }: { copy: Copy }) {
 function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const pc = copy.products[p.productKey];
+  const shots = p.gallery.length > 0 ? p.gallery : [{ src: p.image, alt: p.imageAlt, label: "01" }];
+  const [active, setActive] = useState(0);
+  const total = shots.length;
+  const go = (dir: 1 | -1) => setActive((v) => (v + dir + total) % total);
+
   return (
     <article
       ref={ref}
@@ -777,13 +782,19 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
-        <Picture
-          source={p.image}
-          alt={p.imageAlt}
-          sizes="(min-width:1024px) 460px, 85vw"
-          className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-        />
-        <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
+        {shots.map((s, idx) => (
+          <Picture
+            key={idx}
+            source={s.src}
+            alt={s.alt}
+            sizes="(min-width:1024px) 460px, 85vw"
+            className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
+              idx === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        <div className="absolute left-4 top-4 z-10 flex flex-col items-start gap-2">
           {p.bestSeller && (
             <span className="rounded-full bg-paper/90 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
               {copy.preview.bestSeller}
@@ -795,10 +806,92 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
             </span>
           )}
         </div>
-        <div className="absolute right-4 bottom-4 rounded-full bg-paper/85 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
+        <div className="absolute right-4 top-4 z-10 rounded-full bg-paper/85 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
           EyegisGuard™
         </div>
+
+        {total > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); go(-1); }}
+              className="absolute left-3 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-paper/85 text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-paper"
+              aria-label="Previous image"
+            >
+              <IconArrow className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); go(1); }}
+              className="absolute right-3 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-paper/85 text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-paper"
+              aria-label="Next image"
+            >
+              <IconArrow />
+            </button>
+
+            <div className="absolute inset-x-4 bottom-4 z-10 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-1.5">
+                {shots.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={(e) => { e.preventDefault(); setActive(idx); }}
+                    aria-label={`Show image ${idx + 1}`}
+                    aria-current={idx === active}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      idx === active ? "w-6 bg-paper" : "w-1.5 bg-paper/55 hover:bg-paper/80"
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="rounded-full bg-ink/70 px-2.5 py-1 font-eyebrow text-[9px] text-paper backdrop-blur">
+                {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {shots[active].label}
+              </span>
+            </div>
+          </>
+        )}
       </div>
+
+      <div className="mt-6">
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="font-eyebrow text-[10px] text-ink/50">
+            {pc.collection} · {pc.city}
+          </span>
+          <span className="h-px flex-1 bg-ink/15" />
+        </div>
+        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">{pc.name}</h4>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
+          {pc.description}
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-eyebrow text-[9px] text-ink/55">
+          <span>{copy.preview.warranty}</span>
+          <span className="opacity-40">/</span>
+          <span>{copy.preview.comfort}</span>
+        </div>
+
+        <div className="mt-6 flex items-center gap-4">
+          <a
+            href={AMAZON_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal"
+          >
+            <span className="font-eyebrow">{copy.buyOnAmazon}</span>
+            <IconExternal className="opacity-80" />
+          </a>
+          <a
+            href={`#${p.id}`}
+            className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
+          >
+            <span>{copy.preview.learnMore}</span>
+            <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+}
 
       <div className="mt-6">
         <div className="flex items-baseline justify-between gap-3">
