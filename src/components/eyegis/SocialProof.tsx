@@ -489,12 +489,13 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
       >
         <div className="lg:col-span-3">
           <div className="relative overflow-hidden rounded-md bg-ink">
-            <img
-              src={shot.src}
+            <Picture
+              source={shot.src}
               alt={shot.alt}
+              sizes="(min-width:1024px) 60vw, 100vw"
+              priority
               className="h-full max-h-[78vh] w-full object-cover animate-[zoomIn_800ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            loading="lazy" decoding="async"
-          />
+            />
           </div>
         </div>
         <div className="lg:col-span-2 flex flex-col justify-center text-paper">
@@ -646,9 +647,7 @@ export function SocialProof() {
     <article className="h-full rounded-lg border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 overflow-hidden rounded-full bg-ink/10">
-          <img src={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} className="h-full w-full object-cover" loading="lazy"
-            decoding="async"
-          />
+          <Picture source={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} sizes="56px" className="h-full w-full object-cover" />
         </div>
         <div>
           <div className="font-editorial text-ink text-lg leading-tight">{t.name}</div>
