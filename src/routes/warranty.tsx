@@ -962,8 +962,15 @@ function WarrantyPage() {
       {/* FINAL CTA */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
-          <img src={promiseImg} alt="" className="h-full w-full object-cover"
-            loading="lazy" decoding="async"
+          <img
+            src={promiseImg}
+            alt=""
+            aria-hidden="true"
+            width={2400}
+            height={1400}
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
