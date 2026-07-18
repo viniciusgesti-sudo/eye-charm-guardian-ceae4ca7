@@ -86,6 +86,7 @@ function MenPage() {
         title={c.title}
         subtitle={c.subtitle}
         bgImage={heroZenith}
+        bgSource={heroZenithSrc}
         tone="dark"
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
