@@ -488,7 +488,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
         onClick={(e) => e.stopPropagation()}
       >
         <div className="lg:col-span-3">
-          <div className="relative overflow-hidden rounded-md bg-ink">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-ink">
             <Picture
               source={shot.src}
               alt={shot.alt}
