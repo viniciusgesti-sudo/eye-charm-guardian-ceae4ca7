@@ -3,10 +3,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import soleneFront from "@/assets/products/solene-front.jpg";
-import maraisFront from "@/assets/products/marais-front.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import maraisFront from "@/assets/products/marais-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 
 /* ------------------------------------------------------------------ */
 /*  Reveal on scroll                                                  */
