@@ -580,12 +580,13 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 }
 
 /* ---------- PRODUCT PREVIEW ---------- */
-type GalleryShot = { src: PictureSource; alt: string; label: string };
+type GalleryShot = { src: PictureSource; thumb: PictureSource; alt: string; label: string };
 type ProductMeta = {
   id: string;
   productKey: keyof Copy["products"];
   filterKey: "Men" | "Women" | "Kids";
   image: PictureSource;
+  thumbImage: PictureSource;
   imageAlt: string;
   gallery: GalleryShot[];
   bestSeller?: boolean;
@@ -595,70 +596,78 @@ type ProductMeta = {
 const PRODUCTS: ProductMeta[] = [
   {
     id: "meridian", productKey: "meridian", filterKey: "Men",
-    image: meridianHero, imageAlt: "Meridian frame — official Eyegis product photography",
+    image: meridianHero, thumbImage: meridianHeroThumb,
+    imageAlt: "Meridian frame — official Eyegis product photography",
     gallery: [
-      { src: meridianHero, alt: "Meridian — hero shot on obsidian gradient", label: "Hero" },
-      { src: meridianPair, alt: "Meridian — dual angle pair", label: "Pair" },
+      { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot on obsidian gradient", label: "Hero" },
+      { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — dual angle pair", label: "Pair" },
     ],
     bestSeller: true,
   },
   {
     id: "atelier", productKey: "atelier", filterKey: "Men",
-    image: atelierFront, imageAlt: "Atelier frame — official Eyegis product photography",
+    image: atelierFront, thumbImage: atelierFrontThumb,
+    imageAlt: "Atelier frame — official Eyegis product photography",
     gallery: [
-      { src: atelierFront, alt: "Atelier — front three-quarter view", label: "Front" },
-      { src: atelierProfile, alt: "Atelier — studied side profile", label: "Profile" },
+      { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier — front three-quarter view", label: "Front" },
+      { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier — studied side profile", label: "Profile" },
     ],
     newest: true,
   },
   {
     id: "solene", productKey: "solene", filterKey: "Women",
-    image: soleneFront, imageAlt: "Solène frame — official Eyegis product photography",
+    image: soleneFront, thumbImage: soleneFrontThumb,
+    imageAlt: "Solène frame — official Eyegis product photography",
     gallery: [
-      { src: soleneFront, alt: "Solène — floating hero in champagne light", label: "Hero" },
-      { src: soleneMacro, alt: "Solène — hinge and coating macro", label: "Macro" },
+      { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — floating hero in champagne light", label: "Hero" },
+      { src: soleneMacro, thumb: soleneMacroThumb, alt: "Solène — hinge and coating macro", label: "Macro" },
     ],
     bestSeller: true,
   },
   {
     id: "marais", productKey: "marais", filterKey: "Women",
-    image: maraisFront, imageAlt: "Marais frame — official Eyegis product photography",
+    image: maraisFront, thumbImage: maraisFrontThumb,
+    imageAlt: "Marais frame — official Eyegis product photography",
     gallery: [
-      { src: maraisFront, alt: "Marais — front three-quarter view", label: "Front" },
+      { src: maraisFront, thumb: maraisFrontThumb, alt: "Marais — front three-quarter view", label: "Front" },
     ],
     newest: true,
   },
   {
     id: "meridian-pair", productKey: "meridian-pair", filterKey: "Men",
-    image: meridianPair, imageAlt: "Meridian pair — editorial still life",
+    image: meridianPair, thumbImage: meridianPairThumb,
+    imageAlt: "Meridian pair — editorial still life",
     gallery: [
-      { src: meridianPair, alt: "Meridian — twin pair still life", label: "Pair" },
-      { src: meridianHero, alt: "Meridian — hero shot", label: "Hero" },
+      { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — twin pair still life", label: "Pair" },
+      { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot", label: "Hero" },
     ],
   },
   {
     id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
-    image: atelierProfile, imageAlt: "Atelier frame profile — editorial",
+    image: atelierProfile, thumbImage: atelierProfileThumb,
+    imageAlt: "Atelier frame profile — editorial",
     gallery: [
-      { src: atelierProfile, alt: "Atelier — profile study", label: "Profile" },
-      { src: atelierFront, alt: "Atelier — front view", label: "Front" },
+      { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier — profile study", label: "Profile" },
+      { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier — front view", label: "Front" },
     ],
   },
   {
     id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
-    image: soleneMacro, imageAlt: "Solène lens macro — editorial",
+    image: soleneMacro, thumbImage: soleneMacroThumb,
+    imageAlt: "Solène lens macro — editorial",
     gallery: [
-      { src: soleneMacro, alt: "Solène — lens coating macro", label: "Macro" },
-      { src: soleneFront, alt: "Solène — hero shot", label: "Hero" },
+      { src: soleneMacro, thumb: soleneMacroThumb, alt: "Solène — lens coating macro", label: "Macro" },
+      { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — hero shot", label: "Hero" },
     ],
     bestSeller: true,
   },
   {
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
-    image: atelierFront, imageAlt: "Atelier frame — teen edition",
+    image: atelierFront, thumbImage: atelierFrontThumb,
+    imageAlt: "Atelier frame — teen edition",
     gallery: [
-      { src: atelierFront, alt: "Atelier Young — front", label: "Front" },
-      { src: atelierProfile, alt: "Atelier Young — profile", label: "Profile" },
+      { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier Young — front", label: "Front" },
+      { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier Young — profile", label: "Profile" },
     ],
     newest: true,
   },
