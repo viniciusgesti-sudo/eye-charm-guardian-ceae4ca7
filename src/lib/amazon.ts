@@ -4,12 +4,16 @@
 export const AMAZON_ASSOCIATE_TAG = "eyegis-20"; // TODO: replace with real associate tag
 export const AMAZON_ASIN = "B0XXXXXXXX"; // TODO: replace with real Meridian ASIN
 
+// Safety flag — when the ASIN is still a placeholder we send users to an
+// Amazon storefront search for "Eyegis" instead of a broken /dp/ URL.
+export const ASIN_IS_PLACEHOLDER = /^B0X+$/i.test(AMAZON_ASIN);
+
 type Marketplace = {
-  code: string;      // ISO code shown in UI
-  label: string;     // Country label
-  flag: string;      // Emoji flag
-  domain: string;    // amazon domain
-  active: boolean;   // true = live, false = coming soon
+  code: string;
+  label: string;
+  flag: string;
+  domain: string;
+  active: boolean;
 };
 
 export const MARKETPLACES: Marketplace[] = [
@@ -24,6 +28,9 @@ export const MARKETPLACES: Marketplace[] = [
 ];
 
 export function amazonUrl(domain = "amazon.com", asin = AMAZON_ASIN) {
+  if (ASIN_IS_PLACEHOLDER) {
+    return `https://www.${domain}/s?k=eyegis&tag=${AMAZON_ASSOCIATE_TAG}`;
+  }
   return `https://www.${domain}/dp/${asin}?tag=${AMAZON_ASSOCIATE_TAG}`;
 }
 
@@ -33,5 +40,7 @@ export const DEFAULT_AMAZON_URL = amazonUrl();
 export const AMAZON_RATING = {
   stars: 4.7,
   count: 2341,
-  url: `https://www.amazon.com/product-reviews/${AMAZON_ASIN}?tag=${AMAZON_ASSOCIATE_TAG}`,
+  url: ASIN_IS_PLACEHOLDER
+    ? `https://www.amazon.com/s?k=eyegis&tag=${AMAZON_ASSOCIATE_TAG}`
+    : `https://www.amazon.com/product-reviews/${AMAZON_ASIN}?tag=${AMAZON_ASSOCIATE_TAG}`,
 };
