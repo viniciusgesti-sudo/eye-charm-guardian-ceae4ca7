@@ -394,6 +394,7 @@ function Index() {
       <ModelRunway />
       <Universe />
       <HonestScience />
+      <ScienceInPractice />
       <TechCore />
       <EyegisGuard />
       <LifestyleUniverse />
