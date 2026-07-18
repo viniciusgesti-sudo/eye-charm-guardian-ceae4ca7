@@ -4,9 +4,18 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 /* Campaign / editorial imagery */
-import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
-import heroParis from "@/assets/hero-paris.jpg";
-import kidsHero from "@/assets/collection-hero-kids.jpg";
+import heroSaoPaulo from "@/assets/hero-saopaulo.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroParis from "@/assets/hero-paris.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import kidsHero from "@/assets/collection-hero-kids.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import soleneMacro from "@/assets/products/solene-macro.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import maraisFront from "@/assets/products/marais-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import meridianPair from "@/assets/products/meridian-pair.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierProfile from "@/assets/products/atelier-profile.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+
+import { Picture, type PictureSource } from "./Picture";
 
 /* Official product photography */
 import soleneFront from "@/assets/products/solene-front.jpg";
