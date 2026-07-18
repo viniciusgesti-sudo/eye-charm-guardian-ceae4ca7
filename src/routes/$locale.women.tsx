@@ -86,6 +86,7 @@ function WomenPage() {
         title={c.title}
         subtitle={c.subtitle}
         bgImage={heroClarity}
+        bgSource={heroClaritySrc}
         tone="light"
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
