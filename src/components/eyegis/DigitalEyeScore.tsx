@@ -510,7 +510,7 @@ function recKey(answers: string[][]): keyof Copy["recommendations"] {
   return "default";
 }
 
-const REC_IMAGES: Record<keyof Copy["recommendations"], string> = {
+const REC_IMAGES: Record<keyof Copy["recommendations"], PictureSource> = {
   gamer: meridianHero,
   business: atelierFront,
   creative: soleneFront,
