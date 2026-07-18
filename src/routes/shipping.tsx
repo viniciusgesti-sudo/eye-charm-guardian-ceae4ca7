@@ -4,6 +4,408 @@ import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/lifestyle-work.jpg";
 import deliveryImg from "@/assets/lifestyle-travel.jpg";
 import storeImg from "@/assets/product-hero.jpg";
+import { useI18n } from "@/i18n/context";
+import type { Lang } from "@/i18n/translations";
+
+type ShippingCopy = {
+  nav: { back: string; tag: string };
+  hero: { kicker: string; title: [string, string, string]; lead: string };
+  why: {
+    rule: string;
+    title: string;
+    lead: string;
+    cards: { k: string; d: string }[];
+    tileIndex: (n: number) => string;
+  };
+  steps: { rule: string; title: [string, string]; stepLabel: (n: number) => string; items: { k: string; d: string }[] };
+  delivery: { rule: string; title: [string, string]; paragraphs: [string, string, string] };
+  returns: { rule: string; title: [string, string]; items: { tag: string; k: string; d: string }[] };
+  countries: {
+    rule: string;
+    title: string;
+    lead: string;
+    soonSuffix: string;
+    names: Record<string, string>;
+  };
+  faq: {
+    rule: string;
+    title: [string, string];
+    lead: string;
+    items: { q: string; a: string }[];
+  };
+  support: {
+    rule: string;
+    title: [string, string];
+    lead: string;
+    tiles: { k: string; d: string; href: string }[];
+    openLabel: string;
+    tileIndex: (n: number) => string;
+  };
+  store: {
+    rule: string;
+    title: [string, string];
+    bullets: [string, string, string, string];
+    amazon: string;
+    collections: string;
+    footer: string;
+    home: string;
+    warranty: string;
+    about: string;
+    lenses: string;
+  };
+};
+
+const COUNTRY_KEYS = [
+  "United States",
+  "Canada",
+  "United Kingdom",
+  "France",
+  "Germany",
+  "Italy",
+  "Spain",
+  "Brazil",
+  "Japan",
+  "Australia",
+  "UAE",
+  "Mexico",
+];
+
+const CONTENT: Record<Lang, ShippingCopy> = {
+  EN: {
+    nav: { back: "← Eyegis", tag: "Shipping & Returns" },
+    hero: {
+      kicker: "— Fulfilled by Amazon",
+      title: ["Simple.", "Fast.", "Trusted."],
+      lead:
+        "Every Eyegis purchase is fulfilled through Amazon — providing a secure shopping experience, fast delivery and reliable customer support in every marketplace we serve.",
+    },
+    why: {
+      rule: "01 — Why Amazon",
+      title: "The most trusted checkout in the world.",
+      lead:
+        "We chose Amazon as our official retail partner so that every Eyegis order is protected by the same standards you already know and trust.",
+      cards: [
+        { k: "Secure Checkout", d: "Industry-leading payment security, protected by Amazon Pay." },
+        { k: "Fast Delivery", d: "Backed by Amazon's global logistics and Prime-eligible where available." },
+        { k: "Easy Returns", d: "A simple, transparent return process managed through your Amazon account." },
+        { k: "Trusted Platform", d: "Hundreds of millions of customers worldwide already trust Amazon." },
+      ],
+      tileIndex: (n) => `0${n}`,
+    },
+    steps: {
+      rule: "02 — How Your Order Works",
+      title: ["Six quiet steps", "from click to comfort."],
+      stepLabel: (n) => `Step 0${n}`,
+      items: [
+        { k: "Choose your frame", d: "Discover the collection that fits your life." },
+        { k: "Click Buy on Amazon", d: "One click sends you to the official Eyegis store." },
+        { k: "Secure purchase", d: "Complete checkout with Amazon Pay." },
+        { k: "Amazon prepares your order", d: "Your Eyegis is picked, verified and boxed." },
+        { k: "Fast delivery", d: "Shipped to your address via Amazon logistics." },
+        { k: "Enjoy your Eyegis", d: "Wear, work, create — comfortably." },
+      ],
+    },
+    delivery: {
+      rule: "03 — Delivery",
+      title: ["Delivered by the world's", "largest logistics network."],
+      paragraphs: [
+        "Delivery times vary depending on your country and Amazon marketplace, and are quoted in real time at checkout.",
+        "Amazon Prime members may benefit from faster, complimentary shipping wherever Prime is available.",
+        "Every Eyegis order is dispatched from an Amazon fulfilment center and tracked end-to-end inside your Amazon account.",
+      ],
+    },
+    returns: {
+      rule: "04 — Returns",
+      title: ["Three scenarios,", "one calm answer."],
+      items: [
+        { tag: "01 — Arrives damaged", k: "If your product arrives damaged", d: "Amazon's standard return policy applies. Report the issue directly from your Amazon order — replacement or refund handled end-to-end." },
+        { tag: "02 — Change of mind", k: "If you simply change your mind", d: "Return within your local Amazon return window. No questions, no forms, no friction." },
+        { tag: "03 — Comfort concerns", k: "If you experience comfort issues", d: "Reach out to Eyegis Customer Support — we'll help you find the right frame, fit or collection under our 60-Day Comfort Guarantee." },
+      ],
+    },
+    countries: {
+      rule: "05 — Countries",
+      title: "Available in eight marketplaces.",
+      lead: "Eyegis ships through Amazon's regional marketplaces today, with more markets on the roadmap.",
+      soonSuffix: "Soon",
+      names: {
+        "United States": "United States",
+        Canada: "Canada",
+        "United Kingdom": "United Kingdom",
+        France: "France",
+        Germany: "Germany",
+        Italy: "Italy",
+        Spain: "Spain",
+        Brazil: "Brazil",
+        Japan: "Japan",
+        Australia: "Australia",
+        UAE: "UAE",
+        Mexico: "Mexico",
+      },
+    },
+    faq: {
+      rule: "06 — Questions",
+      title: ["Everything else,", "answered."],
+      lead: "Still stuck? The Eyegis Care team responds within one business day.",
+      items: [
+        { q: "Can I use Amazon Prime?", a: "Yes. Where Prime is available, Eyegis products are eligible for Prime shipping and returns." },
+        { q: "Can I track my order?", a: "All orders are tracked directly inside your Amazon account, from dispatch to delivery." },
+        { q: "Can I exchange sizes?", a: "Yes — initiate an exchange or return from your Amazon order page, then reorder your preferred size." },
+        { q: "Who handles returns?", a: "Returns are managed by Amazon under your local marketplace's return window and process." },
+        { q: "Who provides support?", a: "Amazon handles shipping and return logistics. Eyegis Care handles product, comfort and warranty questions." },
+        { q: "What if my product arrives damaged?", a: "Report it inside your Amazon order within the return window — replacement is typically dispatched immediately." },
+      ],
+    },
+    support: {
+      rule: "07 — Customer Support",
+      title: ["Need help?", "A real person is waiting."],
+      lead: "For product, comfort or warranty questions — write to us. For shipping or refunds, open your Amazon order directly.",
+      tiles: [
+        { k: "Contact Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
+        { k: "Visit Amazon Store", d: "Shop the full collection", href: "https://www.amazon.com/eyegis" },
+        { k: "Warranty", d: "2 years + 60-day comfort", href: "/warranty" },
+        { k: "FAQ", d: "Lenses, fit & care", href: "/lenses" },
+      ],
+      openLabel: "Open →",
+      tileIndex: (n) => `0${n}`,
+    },
+    store: {
+      rule: "08 — Official Amazon Store",
+      title: ["The official", "Eyegis store."],
+      bullets: ["Verified Products", "Secure Checkout", "Fast Delivery", "Trusted Reviews"],
+      amazon: "Buy on Amazon",
+      collections: "Explore Collections",
+      footer: "Eyegis © 2026 — Shipping & Returns",
+      home: "Home",
+      warranty: "Warranty",
+      about: "About",
+      lenses: "Lenses",
+    },
+  },
+  PT: {
+    nav: { back: "← Eyegis", tag: "Envio & Devoluções" },
+    hero: {
+      kicker: "— Entregue pela Amazon",
+      title: ["Simples.", "Rápido.", "Confiável."],
+      lead:
+        "Cada compra Eyegis é processada pela Amazon — proporcionando uma experiência segura, entrega rápida e suporte confiável em cada mercado que atendemos.",
+    },
+    why: {
+      rule: "01 — Por que Amazon",
+      title: "O checkout mais confiável do mundo.",
+      lead:
+        "Escolhemos a Amazon como nosso parceiro oficial de varejo para que cada pedido Eyegis seja protegido pelos mesmos padrões que você já conhece e confia.",
+      cards: [
+        { k: "Checkout Seguro", d: "Segurança de pagamento líder do setor, protegida pelo Amazon Pay." },
+        { k: "Entrega Rápida", d: "Suportada pela logística global da Amazon e elegível ao Prime onde disponível." },
+        { k: "Devoluções Fáceis", d: "Um processo de devolução simples e transparente gerenciado pela sua conta Amazon." },
+        { k: "Plataforma Confiável", d: "Centenas de milhões de clientes no mundo já confiam na Amazon." },
+      ],
+      tileIndex: (n) => `0${n}`,
+    },
+    steps: {
+      rule: "02 — Como Funciona Seu Pedido",
+      title: ["Seis passos tranquilos", "do clique ao conforto."],
+      stepLabel: (n) => `Etapa 0${n}`,
+      items: [
+        { k: "Escolha sua armação", d: "Descubra a coleção que combina com sua vida." },
+        { k: "Clique em Comprar na Amazon", d: "Um clique leva você à loja oficial Eyegis." },
+        { k: "Compra segura", d: "Finalize o checkout com Amazon Pay." },
+        { k: "A Amazon prepara seu pedido", d: "Seu Eyegis é separado, verificado e embalado." },
+        { k: "Entrega rápida", d: "Enviado ao seu endereço pela logística Amazon." },
+        { k: "Aproveite seu Eyegis", d: "Use, trabalhe, crie — com conforto." },
+      ],
+    },
+    delivery: {
+      rule: "03 — Entrega",
+      title: ["Entregue pela maior", "rede logística do mundo."],
+      paragraphs: [
+        "Os prazos de entrega variam de acordo com seu país e marketplace Amazon, e são calculados em tempo real no checkout.",
+        "Membros Amazon Prime podem se beneficiar de envio mais rápido e gratuito onde o Prime estiver disponível.",
+        "Cada pedido Eyegis é despachado de um centro de distribuição Amazon e rastreado de ponta a ponta na sua conta Amazon.",
+      ],
+    },
+    returns: {
+      rule: "04 — Devoluções",
+      title: ["Três cenários,", "uma resposta tranquila."],
+      items: [
+        { tag: "01 — Chega danificado", k: "Se seu produto chegar danificado", d: "A política padrão de devolução da Amazon se aplica. Reporte o problema diretamente do seu pedido Amazon — substituição ou reembolso tratados de ponta a ponta." },
+        { tag: "02 — Mudança de ideia", k: "Se você simplesmente mudar de ideia", d: "Devolva dentro do prazo do seu marketplace Amazon local. Sem perguntas, sem formulários, sem atrito." },
+        { tag: "03 — Questões de conforto", k: "Se sentir problemas de conforto", d: "Entre em contato com o Suporte Eyegis — vamos ajudar você a encontrar a armação, ajuste ou coleção certa sob nossa Garantia de Conforto de 60 Dias." },
+      ],
+    },
+    countries: {
+      rule: "05 — Países",
+      title: "Disponível em oito marketplaces.",
+      lead: "A Eyegis envia hoje pelos marketplaces regionais da Amazon, com mais mercados no roadmap.",
+      soonSuffix: "Em breve",
+      names: {
+        "United States": "Estados Unidos",
+        Canada: "Canadá",
+        "United Kingdom": "Reino Unido",
+        France: "França",
+        Germany: "Alemanha",
+        Italy: "Itália",
+        Spain: "Espanha",
+        Brazil: "Brasil",
+        Japan: "Japão",
+        Australia: "Austrália",
+        UAE: "Emirados",
+        Mexico: "México",
+      },
+    },
+    faq: {
+      rule: "06 — Perguntas",
+      title: ["Todo o resto,", "respondido."],
+      lead: "Ainda com dúvidas? A equipe Eyegis Care responde em até um dia útil.",
+      items: [
+        { q: "Posso usar Amazon Prime?", a: "Sim. Onde o Prime estiver disponível, os produtos Eyegis são elegíveis para envio e devoluções Prime." },
+        { q: "Posso rastrear meu pedido?", a: "Todos os pedidos são rastreados diretamente na sua conta Amazon, do despacho à entrega." },
+        { q: "Posso trocar de tamanho?", a: "Sim — inicie uma troca ou devolução na página do seu pedido Amazon e depois refaça o pedido no tamanho desejado." },
+        { q: "Quem cuida das devoluções?", a: "As devoluções são gerenciadas pela Amazon sob o prazo e processo do seu marketplace local." },
+        { q: "Quem fornece suporte?", a: "A Amazon cuida da logística de envio e devolução. A Eyegis Care cuida de perguntas sobre produto, conforto e garantia." },
+        { q: "E se meu produto chegar danificado?", a: "Reporte no seu pedido Amazon dentro do prazo de devolução — a substituição normalmente é despachada imediatamente." },
+      ],
+    },
+    support: {
+      rule: "07 — Suporte ao Cliente",
+      title: ["Precisa de ajuda?", "Uma pessoa real está esperando."],
+      lead: "Para dúvidas de produto, conforto ou garantia — escreva-nos. Para envio ou reembolsos, abra seu pedido Amazon diretamente.",
+      tiles: [
+        { k: "Contato Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
+        { k: "Visitar Loja Amazon", d: "Compre a coleção completa", href: "https://www.amazon.com/eyegis" },
+        { k: "Garantia", d: "2 anos + 60 dias de conforto", href: "/warranty" },
+        { k: "FAQ", d: "Lentes, ajuste e cuidados", href: "/lenses" },
+      ],
+      openLabel: "Abrir →",
+      tileIndex: (n) => `0${n}`,
+    },
+    store: {
+      rule: "08 — Loja Oficial Amazon",
+      title: ["A loja oficial", "Eyegis."],
+      bullets: ["Produtos Verificados", "Checkout Seguro", "Entrega Rápida", "Avaliações Confiáveis"],
+      amazon: "Comprar na Amazon",
+      collections: "Explorar Coleções",
+      footer: "Eyegis © 2026 — Envio & Devoluções",
+      home: "Início",
+      warranty: "Garantia",
+      about: "Sobre",
+      lenses: "Lentes",
+    },
+  },
+  FR: {
+    nav: { back: "← Eyegis", tag: "Livraison & Retours" },
+    hero: {
+      kicker: "— Expédié par Amazon",
+      title: ["Simple.", "Rapide.", "De confiance."],
+      lead:
+        "Chaque achat Eyegis est expédié via Amazon — offrant une expérience d'achat sécurisée, une livraison rapide et un support fiable dans chaque marché que nous servons.",
+    },
+    why: {
+      rule: "01 — Pourquoi Amazon",
+      title: "Le checkout le plus fiable au monde.",
+      lead:
+        "Nous avons choisi Amazon comme partenaire officiel afin que chaque commande Eyegis soit protégée par les mêmes standards que vous connaissez.",
+      cards: [
+        { k: "Paiement Sécurisé", d: "Sécurité de paiement de pointe, protégée par Amazon Pay." },
+        { k: "Livraison Rapide", d: "Soutenue par la logistique mondiale d'Amazon et éligible Prime quand disponible." },
+        { k: "Retours Faciles", d: "Un processus de retour simple et transparent géré via votre compte Amazon." },
+        { k: "Plateforme de Confiance", d: "Des centaines de millions de clients font déjà confiance à Amazon." },
+      ],
+      tileIndex: (n) => `0${n}`,
+    },
+    steps: {
+      rule: "02 — Comment Fonctionne Votre Commande",
+      title: ["Six étapes tranquilles", "du clic au confort."],
+      stepLabel: (n) => `Étape 0${n}`,
+      items: [
+        { k: "Choisissez votre monture", d: "Découvrez la collection qui correspond à votre vie." },
+        { k: "Cliquez sur Acheter sur Amazon", d: "Un clic vous mène à la boutique officielle Eyegis." },
+        { k: "Achat sécurisé", d: "Finalisez le paiement avec Amazon Pay." },
+        { k: "Amazon prépare votre commande", d: "Votre Eyegis est prélevé, vérifié et emballé." },
+        { k: "Livraison rapide", d: "Expédié à votre adresse via la logistique Amazon." },
+        { k: "Profitez de votre Eyegis", d: "Portez, travaillez, créez — confortablement." },
+      ],
+    },
+    delivery: {
+      rule: "03 — Livraison",
+      title: ["Livré par le plus grand", "réseau logistique au monde."],
+      paragraphs: [
+        "Les délais de livraison varient selon votre pays et le marketplace Amazon, et sont indiqués en temps réel au checkout.",
+        "Les membres Amazon Prime peuvent bénéficier d'une livraison plus rapide et gratuite là où Prime est disponible.",
+        "Chaque commande Eyegis est expédiée depuis un centre Amazon et suivie de bout en bout dans votre compte Amazon.",
+      ],
+    },
+    returns: {
+      rule: "04 — Retours",
+      title: ["Trois scénarios,", "une réponse sereine."],
+      items: [
+        { tag: "01 — Arrive endommagé", k: "Si votre produit arrive endommagé", d: "La politique standard de retour d'Amazon s'applique. Signalez le problème directement depuis votre commande Amazon — remplacement ou remboursement pris en charge de bout en bout." },
+        { tag: "02 — Changement d'avis", k: "Si vous changez simplement d'avis", d: "Retournez dans le délai de votre marketplace Amazon local. Sans questions, sans formulaires, sans friction." },
+        { tag: "03 — Problèmes de confort", k: "Si vous rencontrez des problèmes de confort", d: "Contactez le Service Client Eyegis — nous vous aiderons à trouver la bonne monture, ajustement ou collection sous notre Garantie Confort 60 jours." },
+      ],
+    },
+    countries: {
+      rule: "05 — Pays",
+      title: "Disponible dans huit marketplaces.",
+      lead: "Eyegis expédie aujourd'hui via les marketplaces régionaux d'Amazon, avec plus de marchés à venir.",
+      soonSuffix: "Bientôt",
+      names: {
+        "United States": "États-Unis",
+        Canada: "Canada",
+        "United Kingdom": "Royaume-Uni",
+        France: "France",
+        Germany: "Allemagne",
+        Italy: "Italie",
+        Spain: "Espagne",
+        Brazil: "Brésil",
+        Japan: "Japon",
+        Australia: "Australie",
+        UAE: "Émirats",
+        Mexico: "Mexique",
+      },
+    },
+    faq: {
+      rule: "06 — Questions",
+      title: ["Tout le reste,", "répondu."],
+      lead: "Encore bloqué ? L'équipe Eyegis Care répond sous un jour ouvré.",
+      items: [
+        { q: "Puis-je utiliser Amazon Prime ?", a: "Oui. Là où Prime est disponible, les produits Eyegis sont éligibles à la livraison et aux retours Prime." },
+        { q: "Puis-je suivre ma commande ?", a: "Toutes les commandes sont suivies directement dans votre compte Amazon, de l'expédition à la livraison." },
+        { q: "Puis-je échanger les tailles ?", a: "Oui — initiez un échange ou retour depuis votre page de commande Amazon, puis recommandez la taille souhaitée." },
+        { q: "Qui gère les retours ?", a: "Les retours sont gérés par Amazon selon les délais et le processus de votre marketplace local." },
+        { q: "Qui fournit le support ?", a: "Amazon gère la logistique de livraison et de retour. Eyegis Care gère les questions de produit, confort et garantie." },
+        { q: "Et si mon produit arrive endommagé ?", a: "Signalez-le dans votre commande Amazon dans le délai de retour — le remplacement est généralement expédié immédiatement." },
+      ],
+    },
+    support: {
+      rule: "07 — Service Client",
+      title: ["Besoin d'aide ?", "Une vraie personne vous attend."],
+      lead: "Pour les questions produit, confort ou garantie — écrivez-nous. Pour la livraison ou les remboursements, ouvrez directement votre commande Amazon.",
+      tiles: [
+        { k: "Contact Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
+        { k: "Visiter la Boutique Amazon", d: "Voir toute la collection", href: "https://www.amazon.com/eyegis" },
+        { k: "Garantie", d: "2 ans + confort 60 jours", href: "/warranty" },
+        { k: "FAQ", d: "Verres, ajustement et entretien", href: "/lenses" },
+      ],
+      openLabel: "Ouvrir →",
+      tileIndex: (n) => `0${n}`,
+    },
+    store: {
+      rule: "08 — Boutique Officielle Amazon",
+      title: ["La boutique officielle", "Eyegis."],
+      bullets: ["Produits Vérifiés", "Paiement Sécurisé", "Livraison Rapide", "Avis de Confiance"],
+      amazon: "Acheter sur Amazon",
+      collections: "Explorer les Collections",
+      footer: "Eyegis © 2026 — Livraison & Retours",
+      home: "Accueil",
+      warranty: "Garantie",
+      about: "À propos",
+      lenses: "Verres",
+    },
+  },
+};
+
 
 export const Route = createFileRoute("/shipping")({
   head: () => ({
