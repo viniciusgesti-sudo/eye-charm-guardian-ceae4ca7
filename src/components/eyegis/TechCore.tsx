@@ -288,68 +288,181 @@ function Spectrum({ filterLabel, passLabel }: { filterLabel: string; passLabel: 
 
 function LensStack({ layers }: { layers: Copy["stack"]["layers"] }) {
   const [ref, seen] = useInView<HTMLDivElement>();
-  const colors = ["#86D9D1", "#5EBFB8", "#004B57", "#003842", "#1D252D"];
+  const colors = ["#86D9D1", "#5EBFB8", "#3DA69E", "#004B57", "#003842"];
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 items-stretch">
-      {/* SVG cross-section */}
-      <div className="relative h-[320px] md:h-full min-h-[320px] rounded-sm border border-mint/20 bg-ink/60 overflow-hidden">
-        <svg viewBox="0 0 280 320" className="absolute inset-0 h-full w-full">
-          {/* lens silhouette (biconvex, side view) */}
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6 md:gap-10 items-stretch">
+      {/* Futuristic lens viewport */}
+      <div className="relative aspect-square md:aspect-auto md:min-h-[520px] rounded-sm border border-mint/30 overflow-hidden bg-[radial-gradient(circle_at_50%_50%,#032329_0%,#010b0f_60%,#000306_100%)]">
+        {/* HUD grid */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(134,217,209,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(134,217,209,0.08) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        {/* corner brackets */}
+        <span className="absolute top-3 left-3 h-4 w-4 border-t-2 border-l-2 border-mint" />
+        <span className="absolute top-3 right-3 h-4 w-4 border-t-2 border-r-2 border-mint" />
+        <span className="absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-mint" />
+        <span className="absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-mint" />
+
+        {/* HUD labels */}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[9px] uppercase tracking-[0.28em] text-mint/80">
+          ● REC · OPTICAL SCAN
+        </div>
+        <div className="absolute bottom-4 left-4 font-mono text-[9px] uppercase tracking-[0.16em] text-mint/70">
+          Ø 52.00mm · biconvex
+        </div>
+        <div className="absolute bottom-4 right-4 font-mono text-[9px] uppercase tracking-[0.16em] text-mint/70">
+          LAT 41.157 · LON −8.629
+        </div>
+        <div className="absolute top-1/2 left-4 -translate-y-1/2 font-mono text-[9px] uppercase tracking-[0.2em] text-mint/50 [writing-mode:vertical-rl] rotate-180">
+          λ 400—700 nm
+        </div>
+        <div className="absolute top-1/2 right-4 -translate-y-1/2 font-mono text-[9px] uppercase tracking-[0.2em] text-mint/50 [writing-mode:vertical-rl]">
+          EGS-3.2 · CR-39
+        </div>
+
+        <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full">
           <defs>
-            <clipPath id="lensClip">
-              <path d="M 90 40 Q 40 160 90 280 L 190 280 Q 240 160 190 40 Z" />
-            </clipPath>
+            <radialGradient id="lensIris" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#86D9D1" stopOpacity="0.35" />
+              <stop offset="45%" stopColor="#004B57" stopOpacity="0.55" />
+              <stop offset="85%" stopColor="#01131A" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#000" stopOpacity="1" />
+            </radialGradient>
+            <radialGradient id="hevGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#86D9D1" stopOpacity="0" />
+              <stop offset="60%" stopColor="#86D9D1" stopOpacity="0.15" />
+              <stop offset="85%" stopColor="#86D9D1" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#86D9D1" stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="scanBeam" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stopColor="#86D9D1" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#86D9D1" stopOpacity="0.9" />
+              <stop offset="1" stopColor="#86D9D1" stopOpacity="0" />
+            </linearGradient>
           </defs>
-          <g clipPath="url(#lensClip)">
-            {layers.map((_, i) => {
-              const y = 40 + i * 48;
+
+          {/* faint outer HUD circles */}
+          <circle cx="200" cy="200" r="185" fill="none" stroke="rgba(134,217,209,0.15)" strokeWidth="0.6" strokeDasharray="2 6" />
+          <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(134,217,209,0.1)" strokeWidth="0.4" />
+
+          {/* rotating tick ring */}
+          <g style={{ transformOrigin: "200px 200px", animation: "techRotate 40s linear infinite" }}>
+            {Array.from({ length: 60 }).map((_, i) => {
+              const angle = (i * 6 * Math.PI) / 180;
+              const inner = i % 5 === 0 ? 148 : 154;
+              const outer = 160;
               return (
-                <rect
+                <line
                   key={i}
-                  x="0"
-                  y={y}
-                  width="280"
-                  height={seen ? 48 : 0}
-                  fill={colors[i]}
-                  opacity="0.9"
-                  style={{ transition: `height .6s ease ${0.15 * i}s` }}
+                  x1={200 + Math.cos(angle) * inner}
+                  y1={200 + Math.sin(angle) * inner}
+                  x2={200 + Math.cos(angle) * outer}
+                  y2={200 + Math.sin(angle) * outer}
+                  stroke="#86D9D1"
+                  strokeWidth={i % 5 === 0 ? 1 : 0.5}
+                  opacity={i % 5 === 0 ? 0.9 : 0.4}
                 />
               );
             })}
           </g>
-          {/* outline */}
-          <path
-            d="M 90 40 Q 40 160 90 280 L 190 280 Q 240 160 190 40 Z"
-            fill="none"
-            stroke="#86D9D1"
-            strokeWidth="1"
-            opacity="0.7"
-          />
-          {/* leader lines + codes */}
+
+          {/* Layer arcs — each layer is a concentric ring */}
           {layers.map((l, i) => {
-            const y = 40 + i * 48 + 24;
+            const r = 138 - i * 22;
+            const dash = 2 * Math.PI * r;
             return (
-              <g key={l.code} style={{ opacity: seen ? 1 : 0, transition: `opacity .5s ease ${0.5 + i * 0.1}s` }}>
-                <line x1="190" x2="260" y1={y} y2={y} stroke="#86D9D1" strokeWidth="0.6" opacity="0.6" />
-                <circle cx="260" cy={y} r="2" fill="#86D9D1" />
-                <text
-                  x="256"
-                  y={y - 4}
-                  fill="#86D9D1"
-                  fontSize="8"
-                  fontFamily="JetBrains Mono, monospace"
-                  textAnchor="end"
-                >
-                  {l.code}
-                </text>
+              <g key={l.code}>
+                <circle
+                  cx="200"
+                  cy="200"
+                  r={r}
+                  fill="none"
+                  stroke={colors[i]}
+                  strokeWidth="2.5"
+                  opacity="0.85"
+                  strokeLinecap="round"
+                  strokeDasharray={`${dash} ${dash}`}
+                  style={{
+                    strokeDashoffset: seen ? 0 : dash,
+                    transition: `stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) ${0.15 * i}s`,
+                    filter: `drop-shadow(0 0 6px ${colors[i]}80)`,
+                  }}
+                />
+                {/* small marker on ring */}
+                <circle
+                  cx={200 + r}
+                  cy="200"
+                  r="3"
+                  fill={colors[i]}
+                  opacity={seen ? 1 : 0}
+                  style={{
+                    transition: `opacity .4s ease ${0.6 + i * 0.15}s`,
+                    filter: `drop-shadow(0 0 4px ${colors[i]})`,
+                  }}
+                />
               </g>
             );
           })}
+
+          {/* Iris core */}
+          <circle cx="200" cy="200" r="40" fill="url(#lensIris)" />
+          <circle
+            cx="200"
+            cy="200"
+            r="40"
+            fill="none"
+            stroke="#86D9D1"
+            strokeWidth="1"
+            opacity="0.8"
+            style={{
+              transformOrigin: "200px 200px",
+              animation: seen ? "techPulse 3s ease-in-out infinite" : "none",
+            }}
+          />
+          {/* HEV glow overlay */}
+          <circle cx="200" cy="200" r="140" fill="url(#hevGlow)" opacity={seen ? 1 : 0} style={{ transition: "opacity 1.5s ease .8s" }} />
+
+          {/* crosshair */}
+          <g stroke="#86D9D1" strokeWidth="0.6" opacity="0.5">
+            <line x1="200" y1="20" x2="200" y2="60" />
+            <line x1="200" y1="340" x2="200" y2="380" />
+            <line x1="20" y1="200" x2="60" y2="200" />
+            <line x1="340" y1="200" x2="380" y2="200" />
+          </g>
+          {/* center reticle */}
+          <circle cx="200" cy="200" r="6" fill="none" stroke="#86D9D1" strokeWidth="0.8" />
+          <circle cx="200" cy="200" r="1.5" fill="#86D9D1" />
+
+          {/* sweeping scan beam */}
+          <g style={{ transformOrigin: "200px 200px", animation: seen ? "techSweep 4s linear infinite" : "none" }}>
+            <path d="M 200 200 L 200 40 A 160 160 0 0 1 320 120 Z" fill="url(#hevGlow)" opacity="0.6" />
+            <line x1="200" y1="200" x2="200" y2="40" stroke="url(#scanBeam)" strokeWidth="2" />
+          </g>
+
+          {/* orbital particle */}
+          <g style={{ transformOrigin: "200px 200px", animation: seen ? "techRotate 8s linear infinite reverse" : "none" }}>
+            <circle cx="316" cy="200" r="2.5" fill="#86D9D1" style={{ filter: "drop-shadow(0 0 6px #86D9D1)" }} />
+          </g>
+          <g style={{ transformOrigin: "200px 200px", animation: seen ? "techRotate 12s linear infinite" : "none" }}>
+            <circle cx="272" cy="200" r="2" fill="#5EBFB8" style={{ filter: "drop-shadow(0 0 5px #5EBFB8)" }} />
+          </g>
         </svg>
-        <div className="absolute bottom-2 left-3 font-mono text-[9px] uppercase tracking-[0.16em] text-mint/60">
-          Ø 52mm · biconvex
-        </div>
+
+        <style>{`
+          @keyframes techRotate { to { transform: rotate(360deg); } }
+          @keyframes techSweep  { to { transform: rotate(360deg); } }
+          @keyframes techPulse  {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50%      { transform: scale(1.08); opacity: 0.4; }
+          }
+        `}</style>
       </div>
 
       {/* Layer list */}
@@ -357,7 +470,7 @@ function LensStack({ layers }: { layers: Copy["stack"]["layers"] }) {
         {layers.map((l, i) => (
           <li
             key={l.code}
-            className="group grid grid-cols-[56px_1fr_auto] items-center gap-4 py-4 px-1 transition-colors hover:bg-mint/5"
+            className="group grid grid-cols-[56px_1fr_auto] items-center gap-4 py-5 px-1 transition-colors hover:bg-mint/5"
             style={{
               opacity: seen ? 1 : 0,
               transform: seen ? "translateY(0)" : "translateY(8px)",
@@ -370,8 +483,8 @@ function LensStack({ layers }: { layers: Copy["stack"]["layers"] }) {
               <div className="mt-1 text-[12px] leading-relaxed text-paper/55">{l.desc}</div>
             </div>
             <span
-              className="h-2.5 w-2.5 rounded-full border border-paper/20"
-              style={{ backgroundColor: colors[i] }}
+              className="h-2.5 w-2.5 rounded-full"
+              style={{ backgroundColor: colors[i], boxShadow: `0 0 8px ${colors[i]}` }}
               aria-hidden="true"
             />
           </li>
