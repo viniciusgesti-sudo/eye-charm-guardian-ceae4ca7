@@ -19,6 +19,7 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { TechBar } from "@/components/eyegis/TechBar";
 import { Logo } from "@/components/eyegis/Logo";
+import { Footer } from "@/components/eyegis/Footer";
 import { LiveStats } from "@/components/eyegis/LiveStats";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
@@ -379,7 +380,9 @@ function Index() {
       <SocialProof />
       <ShopOnAmazon />
       <FAQ />
+      <Footer />
       <StickyBuyBar />
+
     </main>
   );
 }
