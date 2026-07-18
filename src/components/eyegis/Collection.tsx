@@ -921,12 +921,32 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="absolute inset-0 z-[5] cursor-zoom-in"
+          aria-label={`Zoom ${pc.name} — ${shots[active].label}`}
+        />
         {shots.map((s, idx) => (
           <Picture
             key={idx}
             source={s.src}
             alt={s.alt}
             sizes="(min-width:1024px) 460px, 85vw"
+            className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
+              idx === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        <span className="absolute right-4 bottom-4 z-10 hidden md:inline-flex items-center gap-1.5 rounded-full bg-paper/90 px-2.5 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="11" cy="11" r="6" />
+            <path d="M20 20l-4-4M9 11h4M11 9v4" />
+          </svg>
+          Zoom
+        </span>
+
             className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
               idx === active ? "opacity-100" : "opacity-0"
             }`}
