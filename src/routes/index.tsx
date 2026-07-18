@@ -185,11 +185,11 @@ function Hero() {
       <div className="relative flex min-h-[720px] w-full flex-col lg:h-[92vh] lg:min-h-[760px] lg:flex-row">
         {/* --- LEFT / ZENITH · Men --- */}
         <div className="group relative w-full overflow-hidden lg:w-1/2">
-          <img
-            src={heroZenith}
+          <Picture
+            source={heroZenith}
             alt="Eyegis Zenith — man wearing dark-frame glasses, São Paulo night"
-            width={1024}
-            height={1536}
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[60%_35%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
           />
           {/* Cyan night grade */}
