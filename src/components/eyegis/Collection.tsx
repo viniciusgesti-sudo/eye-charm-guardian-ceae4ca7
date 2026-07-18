@@ -922,7 +922,9 @@ function Lightbox({
 function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const pc = copy.products[p.productKey];
-  const shots = p.gallery.length > 0 ? p.gallery : [{ src: p.image, alt: p.imageAlt, label: "01" }];
+  const shots: GalleryShot[] = p.gallery.length > 0
+    ? p.gallery
+    : [{ src: p.image, thumb: p.thumbImage, alt: p.imageAlt, label: "01" }];
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
   const total = shots.length;
