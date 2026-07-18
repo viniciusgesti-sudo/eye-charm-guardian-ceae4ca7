@@ -318,6 +318,28 @@ function Hero() {
             </a>
           </div>
         </div>
+
+        {/* Sales trust strip */}
+        <div
+          className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/70"
+          style={{ animationDelay: "2s" }}
+        >
+          <a
+            href={DEFAULT_AMAZON_URL}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="inline-flex items-center gap-2 hover:text-mint transition-colors"
+          >
+            <span className="text-[#FF9900]">★ {AMAZON_RATING.stars}</span>
+            <span>{AMAZON_RATING.count.toLocaleString("en")} Amazon reviews</span>
+          </a>
+          <span className="opacity-30">/</span>
+          <span>Amazon's Choice</span>
+          <span className="opacity-30">/</span>
+          <span>Prime · 24h ship</span>
+          <span className="opacity-30">/</span>
+          <span>60-day guarantee</span>
+        </div>
       </div>
 
       {/* --- Scroll indicator --- */}
