@@ -571,25 +571,88 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 }
 
 /* ---------- PRODUCT PREVIEW ---------- */
+type GalleryShot = { src: PictureSource; alt: string; label: string };
 type ProductMeta = {
   id: string;
   productKey: keyof Copy["products"];
   filterKey: "Men" | "Women" | "Kids";
   image: PictureSource;
   imageAlt: string;
+  gallery: GalleryShot[];
   bestSeller?: boolean;
   newest?: boolean;
 };
 
 const PRODUCTS: ProductMeta[] = [
-  { id: "meridian", productKey: "meridian", filterKey: "Men", image: meridianHero, imageAlt: "Meridian frame — official Eyegis product photography", bestSeller: true },
-  { id: "atelier", productKey: "atelier", filterKey: "Men", image: atelierFront, imageAlt: "Atelier frame — official Eyegis product photography", newest: true },
-  { id: "solene", productKey: "solene", filterKey: "Women", image: soleneFront, imageAlt: "Solène frame — official Eyegis product photography", bestSeller: true },
-  { id: "marais", productKey: "marais", filterKey: "Women", image: maraisFront, imageAlt: "Marais frame — official Eyegis product photography", newest: true },
-  { id: "meridian-pair", productKey: "meridian-pair", filterKey: "Men", image: meridianPair, imageAlt: "Meridian pair — editorial still life" },
-  { id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men", image: atelierProfile, imageAlt: "Atelier frame profile — editorial" },
-  { id: "solene-macro", productKey: "solene-macro", filterKey: "Women", image: soleneMacro, imageAlt: "Solène lens macro — editorial", bestSeller: true },
-  { id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids", image: atelierFront, imageAlt: "Atelier frame — teen edition", newest: true },
+  {
+    id: "meridian", productKey: "meridian", filterKey: "Men",
+    image: meridianHero, imageAlt: "Meridian frame — official Eyegis product photography",
+    gallery: [
+      { src: meridianHero, alt: "Meridian — hero shot on obsidian gradient", label: "Hero" },
+      { src: meridianPair, alt: "Meridian — dual angle pair", label: "Pair" },
+    ],
+    bestSeller: true,
+  },
+  {
+    id: "atelier", productKey: "atelier", filterKey: "Men",
+    image: atelierFront, imageAlt: "Atelier frame — official Eyegis product photography",
+    gallery: [
+      { src: atelierFront, alt: "Atelier — front three-quarter view", label: "Front" },
+      { src: atelierProfile, alt: "Atelier — studied side profile", label: "Profile" },
+    ],
+    newest: true,
+  },
+  {
+    id: "solene", productKey: "solene", filterKey: "Women",
+    image: soleneFront, imageAlt: "Solène frame — official Eyegis product photography",
+    gallery: [
+      { src: soleneFront, alt: "Solène — floating hero in champagne light", label: "Hero" },
+      { src: soleneMacro, alt: "Solène — hinge and coating macro", label: "Macro" },
+    ],
+    bestSeller: true,
+  },
+  {
+    id: "marais", productKey: "marais", filterKey: "Women",
+    image: maraisFront, imageAlt: "Marais frame — official Eyegis product photography",
+    gallery: [
+      { src: maraisFront, alt: "Marais — front three-quarter view", label: "Front" },
+    ],
+    newest: true,
+  },
+  {
+    id: "meridian-pair", productKey: "meridian-pair", filterKey: "Men",
+    image: meridianPair, imageAlt: "Meridian pair — editorial still life",
+    gallery: [
+      { src: meridianPair, alt: "Meridian — twin pair still life", label: "Pair" },
+      { src: meridianHero, alt: "Meridian — hero shot", label: "Hero" },
+    ],
+  },
+  {
+    id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
+    image: atelierProfile, imageAlt: "Atelier frame profile — editorial",
+    gallery: [
+      { src: atelierProfile, alt: "Atelier — profile study", label: "Profile" },
+      { src: atelierFront, alt: "Atelier — front view", label: "Front" },
+    ],
+  },
+  {
+    id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
+    image: soleneMacro, imageAlt: "Solène lens macro — editorial",
+    gallery: [
+      { src: soleneMacro, alt: "Solène — lens coating macro", label: "Macro" },
+      { src: soleneFront, alt: "Solène — hero shot", label: "Hero" },
+    ],
+    bestSeller: true,
+  },
+  {
+    id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
+    image: atelierFront, imageAlt: "Atelier frame — teen edition",
+    gallery: [
+      { src: atelierFront, alt: "Atelier Young — front", label: "Front" },
+      { src: atelierProfile, alt: "Atelier Young — profile", label: "Profile" },
+    ],
+    newest: true,
+  },
 ];
 
 type Filter = "All" | "Men" | "Women" | "Kids" | "Newest" | "Best";
@@ -704,6 +767,11 @@ function ProductPreview({ copy }: { copy: Copy }) {
 function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const pc = copy.products[p.productKey];
+  const shots = p.gallery.length > 0 ? p.gallery : [{ src: p.image, alt: p.imageAlt, label: "01" }];
+  const [active, setActive] = useState(0);
+  const total = shots.length;
+  const go = (dir: 1 | -1) => setActive((v) => (v + dir + total) % total);
+
   return (
     <article
       ref={ref}
@@ -714,13 +782,19 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
-        <Picture
-          source={p.image}
-          alt={p.imageAlt}
-          sizes="(min-width:1024px) 460px, 85vw"
-          className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-        />
-        <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
+        {shots.map((s, idx) => (
+          <Picture
+            key={idx}
+            source={s.src}
+            alt={s.alt}
+            sizes="(min-width:1024px) 460px, 85vw"
+            className={`absolute inset-0 h-full w-full object-cover img-hover group-hover:img-hover-in transition-opacity duration-[700ms] ease-out ${
+              idx === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        <div className="absolute left-4 top-4 z-10 flex flex-col items-start gap-2">
           {p.bestSeller && (
             <span className="rounded-full bg-paper/90 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
               {copy.preview.bestSeller}
@@ -732,9 +806,50 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
             </span>
           )}
         </div>
-        <div className="absolute right-4 bottom-4 rounded-full bg-paper/85 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
+        <div className="absolute right-4 top-4 z-10 rounded-full bg-paper/85 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">
           EyegisGuard™
         </div>
+
+        {total > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); go(-1); }}
+              className="absolute left-3 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-paper/85 text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-paper"
+              aria-label="Previous image"
+            >
+              <IconArrow className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); go(1); }}
+              className="absolute right-3 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-paper/85 text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-paper"
+              aria-label="Next image"
+            >
+              <IconArrow />
+            </button>
+
+            <div className="absolute inset-x-4 bottom-4 z-10 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-1.5">
+                {shots.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={(e) => { e.preventDefault(); setActive(idx); }}
+                    aria-label={`Show image ${idx + 1}`}
+                    aria-current={idx === active}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      idx === active ? "w-6 bg-paper" : "w-1.5 bg-paper/55 hover:bg-paper/80"
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="rounded-full bg-ink/70 px-2.5 py-1 font-eyebrow text-[9px] text-paper backdrop-blur">
+                {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {shots[active].label}
+              </span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-6">
