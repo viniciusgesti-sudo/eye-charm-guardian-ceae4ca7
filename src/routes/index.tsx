@@ -18,6 +18,7 @@ import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { TechBar } from "@/components/eyegis/TechBar";
+import { Logo } from "@/components/eyegis/Logo";
 import { LiveStats } from "@/components/eyegis/LiveStats";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
@@ -72,22 +73,21 @@ function Header() {
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-3 items-center px-6 py-5 md:px-10 lg:px-14">
         {/* Logo */}
-        <a href="/" className="flex items-baseline gap-2 justify-self-start">
-          <span
-            className={`font-editorial text-2xl tracking-tight transition-colors duration-500 ${
+        <a href="/" className="flex items-center gap-3 justify-self-start" aria-label="Eyegis home">
+          <Logo
+            className={`h-6 w-auto transition-colors duration-500 ${
               scrolled ? "text-ink" : "text-paper"
             }`}
-          >
-            Eyegis
-          </span>
+          />
           <span
-            className={`font-eyebrow hidden text-[9px] sm:inline transition-colors duration-500 ${
+            className={`small-caps hidden text-[9px] sm:inline transition-colors duration-500 ${
               scrolled ? "text-muted-foreground" : "text-paper/60"
             }`}
           >
             {t("nav.opticalScience")}
           </span>
         </a>
+
 
         {/* Nav — centered */}
         <nav
@@ -292,14 +292,8 @@ function Hero() {
         />
         <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center md:py-20">
           {/* Wordmark */}
-          <div className="flex items-center gap-3">
-            <span
-              className="font-editorial text-3xl tracking-[0.28em] md:text-4xl"
-              style={{ color: "#004B57" }}
-            >
-              EYEGIS
-            </span>
-          </div>
+          <Logo className="h-10 w-auto text-[#004B57] md:h-12" />
+
           <div
             className="mt-4 h-px w-16"
             style={{ background: "rgba(0,75,87,0.35)" }}
