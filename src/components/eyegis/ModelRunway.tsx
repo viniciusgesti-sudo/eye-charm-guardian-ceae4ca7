@@ -225,7 +225,7 @@ export function ModelRunway() {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
-            <h2 id="model-runway-title" className="mt-5 max-w-3xl font-editorial text-[12vw] leading-[0.9] sm:text-[9vw] md:text-[72px] lg:text-[88px]">
+            <h2 id="model-runway-title" className="mt-5 max-w-3xl font-editorial text-[12vw] leading-[0.9] text-fluid-hero">
               {copy.title}
               <span className="block italic text-teal">{copy.titleAccent}</span>
             </h2>

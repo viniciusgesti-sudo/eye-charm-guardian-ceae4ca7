@@ -618,7 +618,7 @@ export function TechCore() {
               </span>
               {c.eyebrow}
             </div>
-            <h2 className="mt-6 font-editorial text-paper leading-[0.9] text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] xl:text-[92px]">
+            <h2 className="mt-6 font-editorial text-paper leading-[0.9] text-fluid-hero">
               {c.headline1}
               <br />
               <span className="italic text-mint">{c.headline2}</span>
