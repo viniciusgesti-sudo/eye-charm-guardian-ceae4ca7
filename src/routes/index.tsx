@@ -177,7 +177,7 @@ function Hero() {
           alt="Eyegis Men — São Paulo, night"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[50%_22%] kenburns-left"
+          className="h-full w-full object-cover object-[50%_8%] scale-110 origin-center kenburns-left"
         />
         {/* Teal editorial cast */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
