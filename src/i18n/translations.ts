@@ -17,6 +17,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.honestScience": "Honest Science™",
     "nav.about": "About",
     "nav.bag": "Bag",
+    "nav.shopAmazon": "Shop on Amazon",
     "nav.opticalScience": "® Optical Science",
 
     // Hero
@@ -43,6 +44,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.honestScience": "Honest Science™",
     "nav.about": "Sobre",
     "nav.bag": "Sacola",
+    "nav.shopAmazon": "Comprar na Amazon",
     "nav.opticalScience": "® Ciência Óptica",
 
     // Hero
@@ -69,6 +71,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.honestScience": "Honest Science™",
     "nav.about": "À propos",
     "nav.bag": "Panier",
+    "nav.shopAmazon": "Acheter sur Amazon",
     "nav.opticalScience": "® Science Optique",
 
     // Hero
