@@ -456,7 +456,7 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
           </Reveal>
 
           <Reveal delay={220}>
-            <h3 className={`mt-8 font-editorial leading-[0.92] text-balance-tight break-words hyphens-auto text-[12vw] sm:text-[8vw] lg:text-[4.6vw] xl:text-[64px] 2xl:text-[72px] ${t.text}`}>
+            <h3 className={`mt-8 font-editorial leading-[0.92] text-balance-tight break-words hyphens-auto text-fluid-display ${t.text}`}>
               {panel.title}
               <br />
               <span className={`italic ${t.script}`}>{panel.script}</span>
@@ -520,7 +520,7 @@ export function LifestyleUniverse() {
 
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <Reveal delay={120} className="lg:col-span-8">
-              <h2 className="font-editorial text-ink text-balance-tight text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] xl:text-[96px] leading-[0.9]">
+              <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
                 {copy.headline1}
                 <br />
                 <span className="italic text-teal">{copy.headline2}</span>
@@ -555,7 +555,7 @@ export function LifestyleUniverse() {
           </Reveal>
 
           <Reveal delay={200}>
-            <h3 className="mt-12 font-editorial text-ink text-balance-tight text-[10vw] sm:text-[7vw] md:text-[5.6vw] lg:text-[4.8vw] xl:text-[76px] leading-[0.95]">
+            <h3 className="mt-12 font-editorial text-ink text-balance-tight text-fluid-display leading-[0.95]">
               {copy.finalHeadline1}
               <br />
               <span className="italic text-teal">{copy.finalHeadline2}</span>

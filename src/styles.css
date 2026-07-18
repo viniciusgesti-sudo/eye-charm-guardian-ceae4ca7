@@ -123,6 +123,18 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     letter-spacing: -0.005em;
+    /* Fluid base — never below 15px, never above 17px */
+    font-size: clamp(0.9375rem, 0.35vw + 0.85rem, 1.0625rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: 1.65;
   }
 
   ::selection {
@@ -150,10 +162,59 @@
 
 @utility font-eyebrow {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: clamp(0.6875rem, 0.15vw + 0.65rem, 0.75rem);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* -------- Fluid editorial scale (headlines) --------
+   Each step uses clamp(min, fluid, max) so nothing collapses on 320px
+   phones or explodes past 1920px monitors. Line-heights tuned per step. */
+@utility text-fluid-hero {
+  font-size: clamp(2.5rem, 8.4vw + 0.25rem, 6.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+@utility text-fluid-display {
+  font-size: clamp(2rem, 6vw + 0.25rem, 5.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+}
+@utility text-fluid-h1 {
+  font-size: clamp(1.75rem, 4.4vw + 0.4rem, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+@utility text-fluid-h2 {
+  font-size: clamp(1.5rem, 2.6vw + 0.6rem, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+}
+@utility text-fluid-h3 {
+  font-size: clamp(1.25rem, 1.6vw + 0.6rem, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+}
+@utility text-fluid-lead {
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.25rem);
+  line-height: 1.55;
+}
+
+/* -------- CTA labels --------
+   Guarantees readable label size + 48px minimum touch target. */
+@utility cta-label {
+  font-family: var(--font-display);
+  font-size: clamp(0.8125rem, 0.25vw + 0.75rem, 0.9375rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+@utility cta-target {
+  min-height: 48px;
+  min-width: 48px;
 }
 
 @utility small-caps {

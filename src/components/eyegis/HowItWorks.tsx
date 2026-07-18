@@ -50,7 +50,7 @@ export function HowItWorks() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <div className="mb-16 md:mb-20 max-w-3xl">
           <span className="font-eyebrow text-teal">{c.eyebrow}</span>
-          <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-[10vw] sm:text-[7vw] md:text-[5vw] lg:text-[4vw] xl:text-[64px]">
+          <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-fluid-h1">
             {c.title1}
             <span className="block italic text-teal">{c.title2}</span>
           </h2>

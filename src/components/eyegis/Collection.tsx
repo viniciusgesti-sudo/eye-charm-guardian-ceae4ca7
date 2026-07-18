@@ -507,7 +507,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 
           <Reveal delay={220}>
             <h3
-              className={`mt-8 font-editorial leading-[0.92] text-balance-tight text-[13vw] sm:text-[9vw] lg:text-[5.4vw] xl:text-[84px] ${t.text}`}
+              className={`mt-8 font-editorial leading-[0.92] text-balance-tight text-fluid-hero ${t.text}`}
             >
               {c.headline}
               <br />
@@ -627,7 +627,7 @@ function ProductPreview({ copy }: { copy: Copy }) {
               <span className="h-px w-8 bg-ink/25" />
               <span className="font-eyebrow">{copy.preview.eyebrow}</span>
             </div>
-            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-[10vw] sm:text-[7vw] lg:text-[4.6vw] xl:text-[72px]">
+            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
               {copy.preview.headline1}
               <br />
               <span className="italic text-teal">{copy.preview.headline2}</span>
@@ -796,7 +796,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={180}>
-          <h3 className="mt-12 font-editorial text-paper text-balance-tight text-[10vw] sm:text-[7vw] md:text-[5.8vw] lg:text-[5vw] xl:text-[84px] leading-[0.95]">
+          <h3 className="mt-12 font-editorial text-paper text-balance-tight text-fluid-hero leading-[0.95]">
             {copy.closing.headline1}
             <br />
             <span className="italic text-mint">{copy.closing.headline2}</span>
@@ -863,7 +863,7 @@ export function Collection() {
 
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <Reveal delay={120} className="lg:col-span-8">
-              <h2 className="font-editorial text-ink text-balance-tight text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] xl:text-[92px] leading-[0.9]">
+              <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
                 {copy.introHeadline1}
                 <br />
                 <span className="italic text-teal">{copy.introHeadline2}</span>

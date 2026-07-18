@@ -640,7 +640,7 @@ export function EyegisGuard() {
         </Reveal>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <Reveal delay={120} className="lg:col-span-8">
-            <h2 className="font-editorial text-ink text-balance-tight text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] xl:text-[92px] leading-[0.9]">
+            <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
               {copy.intro.headline1}
               <br />
               <span className="italic text-teal">{copy.intro.headlineAccent}</span>
@@ -662,7 +662,7 @@ export function EyegisGuard() {
               <IndexMark n="01" label={copy.s01.label} />
             </Reveal>
             <Reveal delay={140} className="lg:col-span-6">
-              <h3 className="font-editorial text-[38px] md:text-[52px] leading-[0.95] text-ink">{copy.s01.title}</h3>
+              <h3 className="font-editorial text-fluid-h1 leading-[0.95] text-ink">{copy.s01.title}</h3>
             </Reveal>
             <Reveal delay={280} className="lg:col-span-3">
               <p className="text-sm md:text-base leading-relaxed text-ink/65">{copy.s01.body}</p>
@@ -690,7 +690,7 @@ export function EyegisGuard() {
               <IndexMark n="02" label={copy.s02.label} />
             </Reveal>
             <Reveal delay={140} className="lg:col-span-6">
-              <h3 className="font-editorial text-[38px] md:text-[54px] leading-[0.95] text-ink">
+              <h3 className="font-editorial text-fluid-h1 leading-[0.95] text-ink">
                 {copy.s02.title1}
                 <span className="italic text-teal">{copy.s02.titleAccent}</span>
               </h3>
@@ -715,7 +715,7 @@ export function EyegisGuard() {
               <IndexMark n="03" label={copy.s03.label} />
             </Reveal>
             <Reveal delay={140} className="lg:col-span-6">
-              <h3 className="font-editorial text-[38px] md:text-[54px] leading-[0.95] text-ink">
+              <h3 className="font-editorial text-fluid-h1 leading-[0.95] text-ink">
                 {copy.s03.title1}
                 <span className="italic text-teal">{copy.s03.titleAccent}</span>
               </h3>
@@ -746,7 +746,7 @@ export function EyegisGuard() {
               <IndexMark n="04" label={copy.s04.label} />
             </Reveal>
             <Reveal delay={140} className="lg:col-span-6">
-              <h3 className="font-editorial text-[38px] md:text-[54px] leading-[0.95] text-ink">
+              <h3 className="font-editorial text-fluid-h1 leading-[0.95] text-ink">
                 {copy.s04.title1}
                 <span className="italic text-teal">{copy.s04.titleAccent}</span>
               </h3>
@@ -795,7 +795,7 @@ export function EyegisGuard() {
               <IndexMark n="05" label={copy.s05.label} />
             </Reveal>
             <Reveal delay={140} className="lg:col-span-6">
-              <h3 className="font-editorial text-[38px] md:text-[54px] leading-[0.95] text-ink">
+              <h3 className="font-editorial text-fluid-h1 leading-[0.95] text-ink">
                 {copy.s05.title1}
                 <span className="italic text-teal">{copy.s05.titleAccent}</span>
               </h3>
@@ -839,7 +839,7 @@ export function EyegisGuard() {
             <IndexMark n="06" label={copy.s06.label} />
           </Reveal>
           <Reveal delay={180}>
-            <blockquote className="mt-12 max-w-5xl font-editorial text-paper text-[8vw] md:text-[5.4vw] lg:text-[4.2vw] xl:text-[68px] leading-[1.02] text-balance-tight">
+            <blockquote className="mt-12 max-w-5xl font-editorial text-paper text-fluid-display leading-[1.02] text-balance-tight">
               {copy.s06.quoteA}
               <span className="italic text-mint">{copy.s06.quoteMid}</span>
               {copy.s06.quoteB}
