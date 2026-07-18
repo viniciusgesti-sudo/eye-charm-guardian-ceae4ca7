@@ -702,13 +702,12 @@ export function SocialProof() {
                   className="block h-full w-full text-left"
                   aria-label={copy.lightbox.open(caption)}
                 >
-                  <img
-                    src={s.src}
+                  <Picture
+                    source={s.src}
                     alt={s.alt}
-                    loading="lazy"
+                    sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
                     className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-            decoding="async"
-          />
+                  />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between text-paper opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                     <div>
