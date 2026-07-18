@@ -245,7 +245,7 @@ export function ModelRunway() {
               key={look.code}
               className="group relative grid min-h-[720px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
             >
-              <img src={look.image} alt={look.alt} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" loading={index > 1 ? "lazy" : "eager"} />
+              <img src={look.image} alt={look.alt} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" loading={index > 1 ? "lazy" : "eager"} decoding="async" />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.82)_0%,rgba(29,37,45,0.42)_42%,rgba(29,37,45,0.08)_100%)]" />
               <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-paper/15 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/65 md:px-8">
                 <span>{look.code}</span>
