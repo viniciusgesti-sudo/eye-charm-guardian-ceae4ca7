@@ -14,7 +14,10 @@ import { DigitalEyeScore } from "@/components/eyegis/DigitalEyeScore";
 import { SocialProof } from "@/components/eyegis/SocialProof";
 import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
-import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import { TechBar } from "@/components/eyegis/TechBar";
+import { LiveStats } from "@/components/eyegis/LiveStats";
+import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
+import { AMAZON_RATING, DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -57,7 +60,7 @@ function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-700 ease-out ${
+      className={`fixed inset-x-0 top-[34px] md:top-[36px] z-50 transition-[background-color,backdrop-filter,border-color] duration-700 ease-out ${
         scrolled
           ? "bg-background/70 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent border-b border-transparent"
@@ -315,6 +318,28 @@ function Hero() {
             </a>
           </div>
         </div>
+
+        {/* Sales trust strip */}
+        <div
+          className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/70"
+          style={{ animationDelay: "2s" }}
+        >
+          <a
+            href={DEFAULT_AMAZON_URL}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="inline-flex items-center gap-2 hover:text-mint transition-colors"
+          >
+            <span className="text-[#FF9900]">★ {AMAZON_RATING.stars}</span>
+            <span>{AMAZON_RATING.count.toLocaleString("en")} Amazon reviews</span>
+          </a>
+          <span className="opacity-30">/</span>
+          <span>Amazon's Choice</span>
+          <span className="opacity-30">/</span>
+          <span>Prime · 24h ship</span>
+          <span className="opacity-30">/</span>
+          <span>60-day guarantee</span>
+        </div>
       </div>
 
       {/* --- Scroll indicator --- */}
@@ -347,9 +372,11 @@ function Hero() {
 function Index() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
+      <TechBar />
       <Header />
       <Hero />
       <HowItWorks />
+      <LiveStats />
       <Universe />
       <HonestScience />
       <EyegisGuard />
@@ -358,6 +385,7 @@ function Index() {
       <DigitalEyeScore />
       <SocialProof />
       <ShopOnAmazon />
+      <StickyBuyBar />
     </main>
   );
 }
