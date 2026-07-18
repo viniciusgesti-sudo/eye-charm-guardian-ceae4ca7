@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ElementType } from "react";
+import { useEffect, useRef, useState, type ElementType, type MouseEvent as ReactMouseEvent } from "react";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
