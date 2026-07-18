@@ -146,10 +146,11 @@ async def capture(mode: str):
                 page = await ctx.new_page()
                 url = base_url.rstrip("/") + route
                 try:
-                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                    await page.goto(url, wait_until="load", timeout=20000)
                 except Exception as e:
                     print(f"! goto failed {url}: {e}")
                     await ctx.close(); continue
+                print(f"→ {route} · {vp['name']}", flush=True)
 
                 await settle_reveals(page, vp["height"])
                 await load_axe(page)

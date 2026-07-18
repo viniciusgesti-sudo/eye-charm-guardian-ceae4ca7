@@ -1,8 +1,9 @@
 {
   "baseUrl": "http://localhost:8080",
-  "routes": ["/"],
+  "routes": ["/", "/about", "/technology", "/lenses", "/faq", "/product/meridian"],
   "viewports": [
-    { "name": "desktop", "width": 1280, "height": 1400 }
+    { "name": "desktop", "width": 1280, "height": 1800 },
+    { "name": "mobile",  "width": 390,  "height": 1600 }
   ],
   "sectionSelectors": ["section[id]", "[data-vr-section]"],
   "pixelThreshold": 0.02,
