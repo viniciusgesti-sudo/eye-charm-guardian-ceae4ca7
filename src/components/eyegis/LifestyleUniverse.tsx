@@ -455,7 +455,7 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
           </Reveal>
 
           <Reveal delay={220}>
-            <h3 className={`mt-8 font-editorial leading-[0.92] text-balance-tight text-[13vw] sm:text-[9vw] lg:text-[5.4vw] xl:text-[86px] ${t.text}`}>
+            <h3 className={`mt-8 font-editorial leading-[0.92] text-balance-tight break-words hyphens-auto text-[12vw] sm:text-[8vw] lg:text-[4.6vw] xl:text-[64px] 2xl:text-[72px] ${t.text}`}>
               {panel.title}
               <br />
               <span className={`italic ${t.script}`}>{panel.script}</span>
