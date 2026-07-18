@@ -867,8 +867,8 @@ function FAQPage() {
 
       {/* CATEGORY NAV + BODY */}
       <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
-        <div className="grid gap-16 md:grid-cols-12">
-          <aside className="md:col-span-4 lg:col-span-3">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-16 md:grid-cols-12">
+          <aside className="min-w-0 md:col-span-4 lg:col-span-3">
             <div className="sticky top-6">
               <Rule label={c.categoriesRule} />
               <nav className="mt-8 -mx-2 flex snap-x gap-2 overflow-x-auto md:mx-0 md:block md:overflow-visible">
