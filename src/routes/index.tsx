@@ -73,22 +73,21 @@ function Header() {
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-3 items-center px-6 py-5 md:px-10 lg:px-14">
         {/* Logo */}
-        <a href="/" className="flex items-baseline gap-2 justify-self-start">
-          <span
-            className={`font-editorial text-2xl tracking-tight transition-colors duration-500 ${
+        <a href="/" className="flex items-center gap-3 justify-self-start" aria-label="Eyegis home">
+          <Logo
+            className={`h-6 w-auto transition-colors duration-500 ${
               scrolled ? "text-ink" : "text-paper"
             }`}
-          >
-            Eyegis
-          </span>
+          />
           <span
-            className={`font-eyebrow hidden text-[9px] sm:inline transition-colors duration-500 ${
+            className={`small-caps hidden text-[9px] sm:inline transition-colors duration-500 ${
               scrolled ? "text-muted-foreground" : "text-paper/60"
             }`}
           >
             {t("nav.opticalScience")}
           </span>
         </a>
+
 
         {/* Nav — centered */}
         <nav
