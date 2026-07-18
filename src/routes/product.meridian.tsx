@@ -14,6 +14,8 @@ import lifestyleImg from "@/assets/life-business.jpg";
 import guardLens from "@/assets/guard-lens-float.jpg";
 
 import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
+import { VsGenerics } from "@/components/eyegis/VsGenerics";
 
 export const Route = createFileRoute("/product/meridian")({
   head: () => ({
@@ -1098,6 +1100,8 @@ function MeridianProduct() {
       <WhyLove />
       <FrameDetails />
       <Specifications />
+      <WhatsInTheBox />
+      <VsGenerics />
       <Lifestyle />
       <TechnologyRecap />
       <Reviews />
