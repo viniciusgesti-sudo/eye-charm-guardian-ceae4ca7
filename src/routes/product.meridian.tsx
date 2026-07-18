@@ -586,14 +586,12 @@ function ProductHero() {
           <Reveal delay={100}>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-paper-warm">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
-              <img
-                src={heroImg}
+              <Picture
+                source={heroImgSrc}
                 alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
-                width={1600}
-                height={2000}
+                priority
+                sizes="(min-width: 1024px) 58vw, 100vw"
                 className="h-full w-full object-cover object-center float-slow"
-                loading="eager"
-                decoding="async"
               />
               <div className="pointer-events-none absolute inset-x-[20%] bottom-6 h-6 rounded-[50%] bg-ink/15 blur-2xl" />
             </div>
