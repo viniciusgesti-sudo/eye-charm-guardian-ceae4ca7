@@ -292,7 +292,7 @@ function Hero() {
       </div>
 
       {/* ============ CENTERED BRAND STRIP BELOW SPLIT ============ */}
-      <div className="relative overflow-hidden bg-off-white text-ink">
+      <div className="relative overflow-hidden bg-paper text-ink">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 h-px"
