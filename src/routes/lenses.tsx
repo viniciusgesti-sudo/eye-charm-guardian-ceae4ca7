@@ -878,11 +878,13 @@ function HowToChoose({
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={PERSONA_IMAGES[p.id]}
-                      alt={p.label}
+                      alt={`${p.label} — persona wearing Eyegis eyewear during ${p.hours}`}
+                      width={1600}
+                      height={1000}
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
-            decoding="async"
-          />
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4 rounded-full bg-paper/85 backdrop-blur px-3 py-1 font-eyebrow text-[9px] text-teal">
                       {p.hours}
