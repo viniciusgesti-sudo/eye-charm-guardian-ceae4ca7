@@ -231,11 +231,11 @@ function Hero() {
 
         {/* --- RIGHT / CLARITY · Women --- */}
         <div className="group relative w-full overflow-hidden lg:w-1/2">
-          <img
-            src={heroClarity}
+          <Picture
+            source={heroClarity}
             alt="Eyegis Clarity — woman wearing light champagne acetate glasses, Paris golden hour"
-            width={1024}
-            height={1536}
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[45%_30%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
           />
           {/* Warm champagne grade */}
