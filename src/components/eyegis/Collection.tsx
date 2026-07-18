@@ -4,18 +4,19 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 /* Campaign / editorial imagery */
-import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
-import heroParis from "@/assets/hero-paris.jpg";
-import kidsHero from "@/assets/collection-hero-kids.jpg";
+import heroSaoPaulo from "@/assets/hero-saopaulo.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroParis from "@/assets/hero-paris.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import kidsHero from "@/assets/collection-hero-kids.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import soleneMacro from "@/assets/products/solene-macro.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import maraisFront from "@/assets/products/marais-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import meridianPair from "@/assets/products/meridian-pair.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierProfile from "@/assets/products/atelier-profile.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 
-/* Official product photography */
-import soleneFront from "@/assets/products/solene-front.jpg";
-import soleneMacro from "@/assets/products/solene-macro.jpg";
-import maraisFront from "@/assets/products/marais-front.jpg";
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import meridianPair from "@/assets/products/meridian-pair.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
-import atelierProfile from "@/assets/products/atelier-profile.jpg";
+import { Picture, type PictureSource } from "./Picture";
+
 
 const AMAZON_URL = "https://www.amazon.com/stores/Eyegis/page";
 
@@ -385,7 +386,7 @@ const COPY: Record<Lang, Copy> = {
 type CollectionMeta = {
   id: "men" | "women" | "kids";
   index: string;
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   align: "left" | "right";
   tone: Tone;
@@ -472,18 +473,15 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
       <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-28 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-16 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-7`}>
           <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[5/6] lg:aspect-[4/5]">
-            <img
-              src={meta.image}
+            <Picture
+              source={meta.image}
               alt={meta.imageAlt}
-              width={1600}
-              height={2000}
-              loading="lazy"
+              sizes="(min-width:1024px) 58vw, 100vw"
               className={`h-full w-full object-cover will-change-transform transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
-            decoding="async"
-          />
+            />
             <div
               className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${
                 meta.tone === "champagne" ? "text-paper/95" : "text-paper/90"
@@ -577,7 +575,7 @@ type ProductMeta = {
   id: string;
   productKey: keyof Copy["products"];
   filterKey: "Men" | "Women" | "Kids";
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   bestSeller?: boolean;
   newest?: boolean;
@@ -716,15 +714,12 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
-        <img
-          src={p.image}
+        <Picture
+          source={p.image}
           alt={p.imageAlt}
-          width={1200}
-          height={1500}
-          loading="lazy"
+          sizes="(min-width:1024px) 460px, 85vw"
           className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-            decoding="async"
-          />
+        />
         <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
           {p.bestSeller && (
             <span className="rounded-full bg-paper/90 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">

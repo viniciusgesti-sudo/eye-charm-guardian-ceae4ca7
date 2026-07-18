@@ -1,18 +1,20 @@
-import heroMan from "@/assets/hero-saopaulo-eyegis.jpg";
-import heroWoman from "@/assets/hero-paris-eyegis.jpg";
-import businessModel from "@/assets/models-business-eyegis.jpg";
-import creativeModel from "@/assets/models-creative-eyegis.jpg";
-import focusModel from "@/assets/models-focus-eyegis.jpg";
+import heroMan from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroWoman from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import businessModel from "@/assets/models-business-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import creativeModel from "@/assets/models-creative-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import focusModel from "@/assets/models-focus-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+
+import { Picture, type PictureSource } from "./Picture";
 
 type RunwayLook = {
   code: string;
   city: string;
   hour: string;
   lens: string;
-  image: string;
+  image: PictureSource;
   alt: string;
   title: string;
   body: string;
@@ -245,7 +247,7 @@ export function ModelRunway() {
               key={look.code}
               className="group relative grid min-h-[720px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
             >
-              <img src={look.image} alt={look.alt} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" loading={index > 1 ? "lazy" : "eager"} decoding="async" />
+              <Picture source={look.image} alt={look.alt} sizes="(min-width:1024px) 60vw, 90vw" priority={index < 2} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.82)_0%,rgba(29,37,45,0.42)_42%,rgba(29,37,45,0.08)_100%)]" />
               <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-paper/15 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/65 md:px-8">
                 <span>{look.code}</span>

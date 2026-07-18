@@ -4,19 +4,21 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { AMAZON_RATING } from "@/lib/amazon";
 
-import lifeBusiness from "@/assets/life-business.jpg";
-import lifeCreative from "@/assets/life-creative.jpg";
-import lifeGaming from "@/assets/life-gaming.jpg";
-import lifeStudent from "@/assets/life-student.jpg";
-import lifeTravel from "@/assets/life-travel.jpg";
-import lifestyleArch from "@/assets/lifestyle-architecture.jpg";
-import lifestyleWork from "@/assets/lifestyle-work.jpg";
-import lifestyleTravel from "@/assets/lifestyle-travel.jpg";
-import portrait from "@/assets/universe-portrait.jpg";
-import guardBusiness from "@/assets/guard-life-business.jpg";
-import guardCreative from "@/assets/guard-life-creative.jpg";
-import guardStudent from "@/assets/guard-life-student.jpg";
-import guardGamer from "@/assets/guard-life-gamer.jpg";
+import lifeBusiness from "@/assets/life-business.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifeCreative from "@/assets/life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/life-gaming.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifeStudent from "@/assets/life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifeTravel from "@/assets/life-travel.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifestyleArch from "@/assets/lifestyle-architecture.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifestyleWork from "@/assets/lifestyle-work.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import lifestyleTravel from "@/assets/lifestyle-travel.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import portrait from "@/assets/universe-portrait.jpg?w=160;320;480&format=avif;webp;jpg&as=picture";
+import guardBusiness from "@/assets/guard-life-business.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import guardCreative from "@/assets/guard-life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import guardStudent from "@/assets/guard-life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import guardGamer from "@/assets/guard-life-gamer.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+
+import { Picture, type PictureSource } from "./Picture";
 
 /* ------------------------------------------------------------------ */
 /*  Reveal hook                                                       */
@@ -70,7 +72,7 @@ function Reveal({
 
 type ShotMeta = {
   id: string;
-  src: string;
+  src: PictureSource;
   alt: string;
   collectionKey: keyof Copy["collections"];
   product: string;
@@ -97,7 +99,7 @@ type TestimonialMeta = {
   name: string;
   country: string;
   rating: number;
-  portrait: string;
+  portrait: PictureSource;
 };
 
 const TESTIMONIALS: TestimonialMeta[] = [
@@ -487,12 +489,13 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
       >
         <div className="lg:col-span-3">
           <div className="relative overflow-hidden rounded-md bg-ink">
-            <img
-              src={shot.src}
+            <Picture
+              source={shot.src}
               alt={shot.alt}
+              sizes="(min-width:1024px) 60vw, 100vw"
+              priority
               className="h-full max-h-[78vh] w-full object-cover animate-[zoomIn_800ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            loading="lazy" decoding="async"
-          />
+            />
           </div>
         </div>
         <div className="lg:col-span-2 flex flex-col justify-center text-paper">
@@ -644,9 +647,7 @@ export function SocialProof() {
     <article className="h-full rounded-lg border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 overflow-hidden rounded-full bg-ink/10">
-          <img src={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} className="h-full w-full object-cover" loading="lazy"
-            decoding="async"
-          />
+          <Picture source={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} sizes="56px" className="h-full w-full object-cover" />
         </div>
         <div>
           <div className="font-editorial text-ink text-lg leading-tight">{t.name}</div>
@@ -701,13 +702,12 @@ export function SocialProof() {
                   className="block h-full w-full text-left"
                   aria-label={copy.lightbox.open(caption)}
                 >
-                  <img
-                    src={s.src}
+                  <Picture
+                    source={s.src}
                     alt={s.alt}
-                    loading="lazy"
+                    sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
                     className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-            decoding="async"
-          />
+                  />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between text-paper opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                     <div>

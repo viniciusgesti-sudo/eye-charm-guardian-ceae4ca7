@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
-import lifeCreative from "@/assets/life-creative.jpg";
-import lifeBusiness from "@/assets/life-business.jpg";
-import lifeGaming from "@/assets/life-gaming.jpg";
-import lifeStudent from "@/assets/life-student.jpg";
-import lifeTravel from "@/assets/life-travel.jpg";
+import lifeCreative from "@/assets/life-creative.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/life-business.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/life-gaming.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeStudent from "@/assets/life-student.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeTravel from "@/assets/life-travel.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -105,7 +106,7 @@ type Panel = {
   script: string;
   body: string;
   cta: string;
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   align: "left" | "right";
   tone: Tone;
@@ -423,18 +424,15 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
         {/* IMAGE */}
         <div className={`relative ${imageOrder} lg:col-span-7`}>
           <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[5/6] lg:aspect-[4/5]">
-            <img
-              src={panel.image}
+            <Picture
+              source={panel.image}
               alt={panel.imageAlt}
-              width={1800}
-              height={1200}
-              loading="lazy"
+              sizes="(min-width:1024px) 58vw, 100vw"
               className={`h-full w-full object-cover transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
-            decoding="async"
-          />
+            />
             {/* index marker overlay */}
             <div className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${panel.tone === "teal" ? "text-paper/80" : "text-paper/85"} drop-shadow`}>
               <span>N° {panel.index}</span>
