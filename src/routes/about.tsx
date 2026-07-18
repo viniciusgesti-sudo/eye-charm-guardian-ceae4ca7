@@ -631,6 +631,8 @@ function AboutPage() {
               <img
                 src={whyImg2}
                 alt={c.why.alt2}
+                width={1400}
+                height={1750}
                 className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
