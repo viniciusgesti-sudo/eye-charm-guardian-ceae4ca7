@@ -22,7 +22,7 @@ export function StickyBuyBar() {
     pt: { label: "Comprar na Amazon", sub: "Prime · Devolução grátis 30 dias", rating: "avaliações" },
     fr: { label: "Acheter sur Amazon", sub: "Prime · Retours gratuits 30 jours", rating: "avis vérifiés" },
   } as const;
-  const c = copy[lang as keyof typeof copy] ?? copy.en;
+  const c = copy[lang.toLowerCase() as keyof typeof copy] ?? copy.en;
 
   return (
     <div

@@ -101,7 +101,7 @@ export function LiveStats() {
     },
   } as const;
 
-  const c = copy[lang as keyof typeof copy] ?? copy.en;
+  const c = copy[lang.toLowerCase() as keyof typeof copy] ?? copy.en;
 
   return (
     <section

@@ -32,7 +32,7 @@ export function TechBar() {
     ],
   };
 
-  const items = messages[lang] ?? messages.en;
+  const items = messages[lang.toLowerCase()] ?? messages.en;
   const track = [...items, ...items];
 
   return (
