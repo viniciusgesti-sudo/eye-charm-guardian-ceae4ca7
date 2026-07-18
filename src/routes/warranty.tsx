@@ -597,8 +597,15 @@ function WarrantyPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Eyegis frame in soft studio light" className="h-full w-full object-cover" style={{ filter: "saturate(0.9) contrast(1.02)" }}
-            loading="lazy" decoding="async"
+          <img
+            src={heroImg}
+            alt="Eyegis eyewear in soft studio light — hero image for warranty page"
+            width={2400}
+            height={1400}
+            className="h-full w-full object-cover"
+            style={{ filter: "saturate(0.9) contrast(1.02)" }}
+            loading="lazy"
+            decoding="async"
           />
           <div
             className="absolute inset-0"
