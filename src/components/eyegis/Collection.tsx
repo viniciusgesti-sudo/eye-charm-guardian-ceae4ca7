@@ -482,7 +482,8 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
-            />
+            decoding="async"
+          />
             <div
               className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${
                 meta.tone === "champagne" ? "text-paper/95" : "text-paper/90"
@@ -722,7 +723,8 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           height={1500}
           loading="lazy"
           className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-        />
+            decoding="async"
+          />
         <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
           {p.bestSeller && (
             <span className="rounded-full bg-paper/90 px-3 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur">

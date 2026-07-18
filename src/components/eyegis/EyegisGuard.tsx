@@ -383,7 +383,8 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
             transform: `rotate(${rot.toFixed(2)}deg)`,
             transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
-        />
+            decoding="async"
+          />
         {callouts.map((c, i) => {
           const pos = CALLOUT_POS[i];
           return <CalloutBadge key={c.n} c={c} pos={pos} delay={200 + i * 120} />;
@@ -534,7 +535,9 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
         setFromClientX(e.touches[0].clientX);
       }}
     >
-      <img src={comparisonImg} alt={withLabel} width={1800} height={1200} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={comparisonImg} alt={withLabel} width={1800} height={1200} loading="lazy" className="absolute inset-0 h-full w-full object-cover"
+            decoding="async"
+          />
       <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pos}%` }}>
         <img
           src={comparisonImg}
@@ -548,7 +551,8 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
             width: `${(100 / pos) * 100}%`,
             maxWidth: "none",
           }}
-        />
+            decoding="async"
+          />
         <div
           className="absolute inset-0"
           style={{
@@ -763,7 +767,8 @@ export function EyegisGuard() {
                         height={1750}
                         loading="lazy"
                         className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-                      />
+            decoding="async"
+          />
                     </div>
                     <div className="mt-6 flex items-start gap-6">
                       <div className="mt-1 text-teal">
@@ -805,7 +810,8 @@ export function EyegisGuard() {
                     height={800}
                     loading="lazy"
                     className="h-full w-full object-cover object-center"
-                  />
+            decoding="async"
+          />
                 </div>
               </div>
             </Reveal>

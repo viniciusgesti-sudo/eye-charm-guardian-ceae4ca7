@@ -654,7 +654,9 @@ function ContactPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }} />
+          <img src={heroImg} alt="" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
+            loading="lazy" decoding="async"
+          />
           <div
             className="absolute inset-0"
             style={{
@@ -806,7 +808,9 @@ function ContactPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={supportImg} alt="" className="h-[70vh] w-full object-cover" />
+            <img src={supportImg} alt="" className="h-[70vh] w-full object-cover"
+            loading="lazy" decoding="async"
+          />
           </Reveal>
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={120}>
@@ -836,7 +840,9 @@ function ContactPage() {
       {/* 04 — OFFICIAL AMAZON STORE */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
-          <img src={storeImg} alt="" className="h-full w-full object-cover" />
+          <img src={storeImg} alt="" className="h-full w-full object-cover"
+            loading="lazy" decoding="async"
+          />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
           <Reveal>

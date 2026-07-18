@@ -318,7 +318,8 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
           className={`h-full w-full object-cover transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             visible ? "scale-100" : "scale-[1.06]"
           } group-hover:scale-[1.05]`}
-        />
+            decoding="async"
+          />
         {/* Index marker */}
         <div className="absolute left-6 top-6 flex items-center gap-3 text-paper mix-blend-difference">
           <span className="font-eyebrow text-[10px] tracking-[0.28em]">
@@ -473,7 +474,8 @@ export function Universe() {
                     width={1024}
                     height={1280}
                     className="h-full w-full object-cover"
-                  />
+            decoding="async"
+          />
                 </div>
                 <figcaption className="mt-5 flex items-center justify-between font-eyebrow text-ink/55">
                   <span>{copy.portraitCaption1}</span>

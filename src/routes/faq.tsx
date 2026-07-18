@@ -714,6 +714,7 @@ function FAQPage() {
             alt=""
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.85) contrast(1.02)" }}
+            loading="lazy" decoding="async"
           />
           <div
             className="absolute inset-0"

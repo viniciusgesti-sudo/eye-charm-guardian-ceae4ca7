@@ -491,7 +491,8 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
               src={shot.src}
               alt={shot.alt}
               className="h-full max-h-[78vh] w-full object-cover animate-[zoomIn_800ms_cubic-bezier(0.22,1,0.36,1)_both]"
-            />
+            loading="lazy" decoding="async"
+          />
           </div>
         </div>
         <div className="lg:col-span-2 flex flex-col justify-center text-paper">
@@ -643,7 +644,9 @@ export function SocialProof() {
     <article className="h-full rounded-lg border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 overflow-hidden rounded-full bg-ink/10">
-          <img src={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} className="h-full w-full object-cover" loading="lazy" />
+          <img src={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} className="h-full w-full object-cover" loading="lazy"
+            decoding="async"
+          />
         </div>
         <div>
           <div className="font-editorial text-ink text-lg leading-tight">{t.name}</div>
@@ -703,7 +706,8 @@ export function SocialProof() {
                     alt={s.alt}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-                  />
+            decoding="async"
+          />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between text-paper opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                     <div>

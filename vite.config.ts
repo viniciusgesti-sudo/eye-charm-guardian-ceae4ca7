@@ -5,6 +5,7 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { imagetools } from "vite-imagetools";
 
 export default defineConfig({
   tanstackStart: {
@@ -12,4 +13,20 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  plugins: [
+    imagetools({
+      // Enable ?url and ?picture etc. Defaults are fine; we opt-in per import.
+      defaultDirectives: (url) => {
+        // Auto-optimize JPGs referenced via ?optimized query
+        if (url.searchParams.has("optimized")) {
+          return new URLSearchParams({
+            format: "webp",
+            quality: "78",
+            w: "1600",
+          });
+        }
+        return new URLSearchParams();
+      },
+    }),
+  ],
 });

@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
 
-import heroZenith from "@/assets/hero-zenith-man.jpg";
-import heroClarity from "@/assets/hero-clarity-woman.jpg";
+import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import { Universe } from "@/components/eyegis/Universe";
 import { HonestScience } from "@/components/eyegis/HonestScience";
 import { ScienceInPractice } from "@/components/eyegis/ScienceInPractice";
@@ -34,6 +35,10 @@ export const Route = createFileRoute("/")({
         content:
           "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed.",
       },
+    ],
+    links: [
+      { rel: "preload", as: "image", href: heroZenith.img.src, imageSrcSet: heroZenith.sources.webp, imageSizes: "(min-width: 1024px) 50vw, 100vw", fetchpriority: "high" } as never,
+      { rel: "preload", as: "image", href: heroClarity.img.src, imageSrcSet: heroClarity.sources.webp, imageSizes: "(min-width: 1024px) 50vw, 100vw", fetchpriority: "high" } as never,
     ],
   }),
   component: Index,
@@ -184,11 +189,11 @@ function Hero() {
       <div className="relative flex min-h-[720px] w-full flex-col lg:h-[92vh] lg:min-h-[760px] lg:flex-row">
         {/* --- LEFT / ZENITH · Men --- */}
         <div className="group relative w-full overflow-hidden lg:w-1/2">
-          <img
-            src={heroZenith}
+          <Picture
+            source={heroZenith}
             alt="Eyegis Zenith — man wearing dark-frame glasses, São Paulo night"
-            width={1024}
-            height={1536}
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[60%_35%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
           />
           {/* Cyan night grade */}
@@ -230,11 +235,11 @@ function Hero() {
 
         {/* --- RIGHT / CLARITY · Women --- */}
         <div className="group relative w-full overflow-hidden lg:w-1/2">
-          <img
-            src={heroClarity}
+          <Picture
+            source={heroClarity}
             alt="Eyegis Clarity — woman wearing light champagne acetate glasses, Paris golden hour"
-            width={1024}
-            height={1536}
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[45%_30%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
           />
           {/* Warm champagne grade */}

@@ -570,7 +570,9 @@ function ShippingPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Eyegis lifestyle — desk with minimalist objects" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }} />
+          <img src={heroImg} alt="Eyegis lifestyle — desk with minimalist objects" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
+            loading="lazy" decoding="async"
+          />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
@@ -695,7 +697,9 @@ function ShippingPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={deliveryImg} alt="Eyegis package in transit" className="h-[70vh] w-full object-cover" />
+            <img src={deliveryImg} alt="Eyegis package in transit" className="h-[70vh] w-full object-cover"
+            loading="lazy" decoding="async"
+          />
           </Reveal>
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={120}>
@@ -870,7 +874,9 @@ function ShippingPage() {
       {/* 08 — OFFICIAL AMAZON STORE */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-30">
-          <img src={storeImg} alt="" className="h-full w-full object-cover" />
+          <img src={storeImg} alt="" className="h-full w-full object-cover"
+            loading="lazy" decoding="async"
+          />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
           <Reveal>

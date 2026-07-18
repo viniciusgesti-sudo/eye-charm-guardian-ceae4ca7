@@ -796,7 +796,8 @@ function Hero({ c }: { c: Copy }) {
                 alt={c.hero.heroAlt}
                 loading="eager"
                 className="h-full w-full object-cover"
-              />
+            decoding="async"
+          />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.14),transparent_60%)]" />
             </div>
           </Reveal>
@@ -878,7 +879,8 @@ function HowToChoose({
                       alt={p.label}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
-                    />
+            decoding="async"
+          />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4 rounded-full bg-paper/85 backdrop-blur px-3 py-1 font-eyebrow text-[9px] text-teal">
                       {p.hours}
@@ -1137,7 +1139,8 @@ function BeforeAfter({ c }: { c: Copy }) {
               alt={c.demo.with}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
-            />
+            decoding="async"
+          />
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
@@ -1148,7 +1151,8 @@ function BeforeAfter({ c }: { c: Copy }) {
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
                 loading="lazy"
-              />
+            decoding="async"
+          />
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
@@ -1332,7 +1336,8 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
-            />
+            decoding="async"
+          />
           </div>
           <div className="md:col-span-3 flex flex-col justify-center">
             <span className="font-eyebrow text-teal">
