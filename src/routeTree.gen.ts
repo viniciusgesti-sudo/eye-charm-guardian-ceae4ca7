@@ -17,8 +17,17 @@ import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as LocaleRouteImport } from './routes/$locale'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
 import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
+import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
+import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
+import { Route as LocaleMenRouteImport } from './routes/$locale.men'
+import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
+import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
+import { Route as LocaleContactRouteImport } from './routes/$locale.contact'
+import { Route as LocaleAboutRouteImport } from './routes/$locale.about'
 
 const WarrantyRoute = WarrantyRouteImport.update({
   id: '/warranty',
@@ -60,19 +69,65 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocaleRoute = LocaleRouteImport.update({
+  id: '/$locale',
+  path: '/$locale',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LocaleIndexRoute = LocaleIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LocaleRoute,
 } as any)
 const ProductMeridianRoute = ProductMeridianRouteImport.update({
   id: '/product/meridian',
   path: '/product/meridian',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocaleWomenRoute = LocaleWomenRouteImport.update({
+  id: '/women',
+  path: '/women',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleTechnologyRoute = LocaleTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleMenRoute = LocaleMenRouteImport.update({
+  id: '/men',
+  path: '/men',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleKidsRoute = LocaleKidsRouteImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleFaqRoute = LocaleFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleContactRoute = LocaleContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleAboutRoute = LocaleAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LocaleRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -81,7 +136,15 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/men': typeof LocaleMenRoute
+  '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/women': typeof LocaleWomenRoute
   '/product/meridian': typeof ProductMeridianRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -93,11 +156,20 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/men': typeof LocaleMenRoute
+  '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/women': typeof LocaleWomenRoute
   '/product/meridian': typeof ProductMeridianRoute
+  '/$locale': typeof LocaleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -106,12 +178,21 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/faq': typeof LocaleFaqRoute
+  '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/men': typeof LocaleMenRoute
+  '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/women': typeof LocaleWomenRoute
   '/product/meridian': typeof ProductMeridianRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$locale'
     | '/about'
     | '/contact'
     | '/faq'
@@ -120,7 +201,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
+    | '/$locale/about'
+    | '/$locale/contact'
+    | '/$locale/faq'
+    | '/$locale/kids'
+    | '/$locale/men'
+    | '/$locale/technology'
+    | '/$locale/women'
     | '/product/meridian'
+    | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -132,10 +221,19 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
+    | '/$locale/about'
+    | '/$locale/contact'
+    | '/$locale/faq'
+    | '/$locale/kids'
+    | '/$locale/men'
+    | '/$locale/technology'
+    | '/$locale/women'
     | '/product/meridian'
+    | '/$locale'
   id:
     | '__root__'
     | '/'
+    | '/$locale'
     | '/about'
     | '/contact'
     | '/faq'
@@ -144,11 +242,20 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
+    | '/$locale/about'
+    | '/$locale/contact'
+    | '/$locale/faq'
+    | '/$locale/kids'
+    | '/$locale/men'
+    | '/$locale/technology'
+    | '/$locale/women'
     | '/product/meridian'
+    | '/$locale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LocaleRoute: typeof LocaleRouteWithChildren
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
@@ -218,12 +325,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$locale': {
+      id: '/$locale'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof LocaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/$locale/': {
+      id: '/$locale/'
+      path: '/'
+      fullPath: '/$locale/'
+      preLoaderRoute: typeof LocaleIndexRouteImport
+      parentRoute: typeof LocaleRoute
     }
     '/product/meridian': {
       id: '/product/meridian'
@@ -232,11 +353,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductMeridianRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$locale/women': {
+      id: '/$locale/women'
+      path: '/women'
+      fullPath: '/$locale/women'
+      preLoaderRoute: typeof LocaleWomenRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/technology': {
+      id: '/$locale/technology'
+      path: '/technology'
+      fullPath: '/$locale/technology'
+      preLoaderRoute: typeof LocaleTechnologyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/men': {
+      id: '/$locale/men'
+      path: '/men'
+      fullPath: '/$locale/men'
+      preLoaderRoute: typeof LocaleMenRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/kids': {
+      id: '/$locale/kids'
+      path: '/kids'
+      fullPath: '/$locale/kids'
+      preLoaderRoute: typeof LocaleKidsRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/faq': {
+      id: '/$locale/faq'
+      path: '/faq'
+      fullPath: '/$locale/faq'
+      preLoaderRoute: typeof LocaleFaqRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/contact': {
+      id: '/$locale/contact'
+      path: '/contact'
+      fullPath: '/$locale/contact'
+      preLoaderRoute: typeof LocaleContactRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/about': {
+      id: '/$locale/about'
+      path: '/about'
+      fullPath: '/$locale/about'
+      preLoaderRoute: typeof LocaleAboutRouteImport
+      parentRoute: typeof LocaleRoute
+    }
   }
 }
 
+interface LocaleRouteChildren {
+  LocaleAboutRoute: typeof LocaleAboutRoute
+  LocaleContactRoute: typeof LocaleContactRoute
+  LocaleFaqRoute: typeof LocaleFaqRoute
+  LocaleKidsRoute: typeof LocaleKidsRoute
+  LocaleMenRoute: typeof LocaleMenRoute
+  LocaleTechnologyRoute: typeof LocaleTechnologyRoute
+  LocaleWomenRoute: typeof LocaleWomenRoute
+  LocaleIndexRoute: typeof LocaleIndexRoute
+}
+
+const LocaleRouteChildren: LocaleRouteChildren = {
+  LocaleAboutRoute: LocaleAboutRoute,
+  LocaleContactRoute: LocaleContactRoute,
+  LocaleFaqRoute: LocaleFaqRoute,
+  LocaleKidsRoute: LocaleKidsRoute,
+  LocaleMenRoute: LocaleMenRoute,
+  LocaleTechnologyRoute: LocaleTechnologyRoute,
+  LocaleWomenRoute: LocaleWomenRoute,
+  LocaleIndexRoute: LocaleIndexRoute,
+}
+
+const LocaleRouteWithChildren =
+  LocaleRoute._addFileChildren(LocaleRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LocaleRoute: LocaleRouteWithChildren,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
