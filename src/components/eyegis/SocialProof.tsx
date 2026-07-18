@@ -89,7 +89,7 @@ const SHOTS: ShotMeta[] = [
   { id: "streamer", src: lifeGaming, alt: "Streamer setup", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
   { id: "kitchen", src: lifestyleWork, alt: "Remote worker in kitchen", collectionKey: "womenEveryday", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
   { id: "airport", src: lifestyleTravel, alt: "Airport terminal", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
-  { id: "portrait", src: portrait, alt: "Portrait", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-6 aspect-[16/9]" },
+  { id: "portrait", src: portrait, alt: "Portrait", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
 ];
 
 type TestimonialMeta = {

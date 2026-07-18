@@ -797,14 +797,16 @@ export function EyegisGuard() {
             </Reveal>
             <Reveal delay={280} className="lg:col-span-3">
               <div className="overflow-hidden rounded-sm bg-ink/[0.03] p-4 ring-1 ring-ink/10">
-                <img
-                  src={lensMacro}
-                  alt="EyegisGuard™ lens macro detail"
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  className="h-40 w-full object-cover"
-                />
+                <div className="aspect-square w-full overflow-hidden rounded-sm">
+                  <img
+                    src={lensMacro}
+                    alt="EyegisGuard™ lens macro detail"
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
