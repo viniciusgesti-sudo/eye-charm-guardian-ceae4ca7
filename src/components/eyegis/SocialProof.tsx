@@ -488,7 +488,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
         onClick={(e) => e.stopPropagation()}
       >
         <div className="lg:col-span-3">
-          <div className="relative overflow-hidden rounded-md bg-ink">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-ink">
             <Picture
               source={shot.src}
               alt={shot.alt}
@@ -699,7 +699,7 @@ export function SocialProof() {
                 <button
                   type="button"
                   onClick={() => setOpen(s)}
-                  className="block h-full w-full text-left"
+                  className="block h-full w-full text-left aspect-[3/4] bg-teal-deep/10"
                   aria-label={copy.lightbox.open(caption)}
                 >
                   <Picture
