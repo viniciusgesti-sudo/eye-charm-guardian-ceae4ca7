@@ -181,7 +181,7 @@ function Hero() {
           width={1600}
           height={1920}
           className="absolute inset-0 h-full w-full object-cover object-[50%_center]"
-          style={{ transform: "translateY(-7%) scale(1.1)", transformOrigin: "center center" }}
+          style={{ transform: "translateY(-13%) scale(1.08)", transformOrigin: "center center" }}
         />
         {/* Teal editorial cast */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
@@ -202,7 +202,7 @@ function Hero() {
           width={1600}
           height={1920}
           className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
-          style={{ transform: "translateY(16%) scale(1.34)", transformOrigin: "center center" }}
+          style={{ transform: "translateY(9%) scale(1.16)", transformOrigin: "center center" }}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
       </div>
