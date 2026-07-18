@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 import universePortrait from "@/assets/universe-portrait.jpg";
-import universeLens from "@/assets/products/solene-macro.jpg";
-import universeScience from "@/assets/universe-science.jpg";
-import universeEyewear from "@/assets/products/collection-family.jpg";
+import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import universeScience from "@/assets/universe-science.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
