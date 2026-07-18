@@ -834,9 +834,15 @@ function WarrantyPage() {
 
         <div className="mt-20 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-5">
-            <img src={qualityImg} alt="Eyegis lens engineering detail" className="h-[70vh] w-full object-cover"
-            loading="lazy" decoding="async"
-          />
+            <img
+              src={qualityImg}
+              alt="Eyegis lens engineering detail — precision QC inspection close-up"
+              width={1400}
+              height={1750}
+              className="h-[70vh] w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
           </Reveal>
 
           <div className="md:col-span-6 md:col-start-7">
