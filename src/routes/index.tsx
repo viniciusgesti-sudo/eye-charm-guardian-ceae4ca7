@@ -384,6 +384,7 @@ function Index() {
       <DigitalEyeScore />
       <SocialProof />
       <ShopOnAmazon />
+      <FAQ />
       <StickyBuyBar />
     </main>
   );
