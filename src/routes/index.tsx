@@ -198,7 +198,7 @@ function Hero() {
           alt="Eyegis Women — Paris, golden hour"
           width={1600}
           height={1920}
-          className="h-full w-full object-cover object-[50%_38%] kenburns-right"
+          className="h-full w-full object-cover object-[50%_45%] kenburns-right"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
       </div>
