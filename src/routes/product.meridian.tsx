@@ -768,9 +768,15 @@ function FrameDetails() {
           <div className="lg:col-span-8 relative">
             <Reveal>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[#0f1a1e]">
-                <img src={pairImg} alt="Meridian frame — exploded technical study" loading="lazy" className="h-full w-full object-cover opacity-90"
-            decoding="async"
-          />
+                <img
+                  src={pairImg}
+                  alt="Meridian eyewear — dual-angle technical study showing front and profile pair"
+                  width={1600}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover opacity-90"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
                 {c.details.parts.map((p, i) => (
                   <div key={i} className="absolute group" style={PART_POS[i]}>
