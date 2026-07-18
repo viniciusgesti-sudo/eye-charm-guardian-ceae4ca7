@@ -123,6 +123,18 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     letter-spacing: -0.005em;
+    /* Fluid base — never below 15px, never above 17px */
+    font-size: clamp(0.9375rem, 0.35vw + 0.85rem, 1.0625rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: 1.65;
   }
 
   ::selection {
