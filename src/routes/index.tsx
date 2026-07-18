@@ -55,14 +55,22 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItems: { key: string; label: string }[] = [
-    { key: "men", label: t("nav.men") },
-    { key: "women", label: t("nav.women") },
-    { key: "kids", label: t("nav.kids") },
-    { key: "technology", label: t("nav.technology") },
-    { key: "honestScience", label: t("nav.honestScience") },
-    { key: "about", label: t("nav.about") },
+  const navItems: { key: string; label: string; href: string }[] = [
+    { key: "men", label: t("nav.men"), href: "#collections" },
+    { key: "women", label: t("nav.women"), href: "#collections" },
+    { key: "kids", label: t("nav.kids"), href: "#collections" },
+    { key: "technology", label: t("nav.technology"), href: "#technology" },
+    { key: "honestScience", label: t("nav.honestScience"), href: "#honest-science" },
+    { key: "about", label: t("nav.about"), href: "/about" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <header
@@ -99,13 +107,15 @@ function Header() {
           {navItems.map((item) => (
             <a
               key={item.key}
-              href="#"
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="relative py-1 whitespace-nowrap transition-colors duration-300 hover:text-current after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 hover:after:origin-left hover:after:scale-x-100"
             >
               {item.label}
             </a>
           ))}
         </nav>
+
 
         {/* Right cluster */}
         <div
