@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
 import lensFloat from "@/assets/guard-lens-float.jpg";
-import lensMacro from "@/assets/products/solene-macro.jpg";
+import lensMacro from "@/assets/products/solene-macro.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import { Picture } from "./Picture";
 import comparisonImg from "@/assets/guard-comparison.jpg";
 import lifeCreative from "@/assets/guard-life-creative.jpg";
 import lifeBusiness from "@/assets/guard-life-business.jpg";
