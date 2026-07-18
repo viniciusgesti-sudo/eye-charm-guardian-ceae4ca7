@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import heroZenith from "@/assets/hero-zenith-man.jpg";
+import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+
 import { Collection } from "@/components/eyegis/Collection";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
