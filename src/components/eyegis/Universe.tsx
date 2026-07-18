@@ -291,7 +291,7 @@ type Panel = {
   description: React.ReactNode;
   cta: string;
   href: string;
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   icon: React.ReactNode;
   tone: "paper" | "champagne";
