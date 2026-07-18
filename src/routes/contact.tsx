@@ -654,7 +654,7 @@ function ContactPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
+          <img src={heroImg} alt="Eyegis atelier — Parisian golden hour interior with premium eyewear on display" width={1600} height={1000} className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
             loading="lazy" decoding="async"
           />
           <div
@@ -808,7 +808,7 @@ function ContactPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={supportImg} alt="" className="h-[70vh] w-full object-cover"
+            <img src={supportImg} alt="Eyegis client-care specialist ready to guide the perfect frame selection" width={1400} height={1750} className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
           </Reveal>
@@ -840,7 +840,7 @@ function ContactPage() {
       {/* 04 — OFFICIAL AMAZON STORE */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
-          <img src={storeImg} alt="" className="h-full w-full object-cover"
+          <img src={storeImg} alt="Eyegis flagship product display — signature acetate frames in warm studio light" width={1600} height={1000} className="h-full w-full object-cover"
             loading="lazy" decoding="async"
           />
         </div>

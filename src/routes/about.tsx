@@ -482,6 +482,8 @@ function AboutPage() {
           <img
             src={heroImg}
             alt={c.hero.alt}
+            width={1600}
+            height={1000}
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
             loading="lazy" decoding="async"
@@ -584,6 +586,8 @@ function AboutPage() {
               <img
                 src={whyImg1}
                 alt={c.why.alt1}
+                width={1400}
+                height={1750}
                 className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
@@ -627,6 +631,8 @@ function AboutPage() {
               <img
                 src={whyImg2}
                 alt={c.why.alt2}
+                width={1400}
+                height={1750}
                 className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
@@ -660,7 +666,9 @@ function AboutPage() {
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <img
                       src={imgs[i]}
-                      alt={p.title}
+                      alt={`${p.title} — Eyegis philosophy portrait`}
+                      width={1024}
+                      height={1280}
                       className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
             loading="lazy" decoding="async"
           />
@@ -851,7 +859,9 @@ function AboutPage() {
                   <div className="aspect-[3/4] w-full overflow-hidden">
                     <img
                       src={PEOPLE_IMAGES[i]}
-                      alt={label}
+                      alt={`${label} wearing Eyegis eyewear`}
+                      width={900}
+                      height={1200}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
             decoding="async"
