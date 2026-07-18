@@ -66,7 +66,7 @@ export function TechBar() {
           className="hidden md:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#FF9900] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink hover:bg-[#ffb84d] transition-colors"
         >
           <span>a</span>
-          <span>{lang === "pt" ? "Comprar" : lang === "fr" ? "Acheter" : "Buy"}</span>
+          <span>{lang === "PT" ? "Comprar" : lang === "FR" ? "Acheter" : "Buy"}</span>
         </a>
       </div>
 
