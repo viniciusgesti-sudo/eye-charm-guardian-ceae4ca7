@@ -831,7 +831,7 @@ function Results({
 }: {
   score: number;
   rec: RecCopy;
-  recImage: string;
+  recImage: PictureSource;
   onReset: () => void;
   copy: Copy;
 }) {
