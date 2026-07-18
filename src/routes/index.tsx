@@ -18,6 +18,7 @@ import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { TechBar } from "@/components/eyegis/TechBar";
+import { Logo } from "@/components/eyegis/Logo";
 import { LiveStats } from "@/components/eyegis/LiveStats";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
