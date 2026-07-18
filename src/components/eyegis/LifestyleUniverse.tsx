@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
-import lifeCreative from "@/assets/life-creative.jpg";
-import lifeBusiness from "@/assets/life-business.jpg";
-import lifeGaming from "@/assets/life-gaming.jpg";
-import lifeStudent from "@/assets/life-student.jpg";
-import lifeTravel from "@/assets/life-travel.jpg";
+import lifeCreative from "@/assets/life-creative.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/life-business.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/life-gaming.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeStudent from "@/assets/life-student.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeTravel from "@/assets/life-travel.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
