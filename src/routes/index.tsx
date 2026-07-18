@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
 
-import heroZenith from "@/assets/hero-zenith-man.jpg";
-import heroClarity from "@/assets/hero-clarity-woman.jpg";
+import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import { Universe } from "@/components/eyegis/Universe";
 import { HonestScience } from "@/components/eyegis/HonestScience";
 import { ScienceInPractice } from "@/components/eyegis/ScienceInPractice";
