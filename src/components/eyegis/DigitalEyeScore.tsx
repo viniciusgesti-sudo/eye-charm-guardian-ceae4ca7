@@ -854,15 +854,12 @@ function Results({
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 rounded-xl border border-ink/10 bg-paper p-6 md:p-8">
         <div className="md:col-span-2 relative overflow-hidden rounded-lg bg-paper-warm">
-          <img
-            src={recImage}
+          <Picture
+            source={recImage}
             alt={`${rec.productName} — recommended Eyegis eyewear based on your Digital Eye Score`}
-            width={1200}
-            height={1500}
+            sizes="(min-width: 768px) 40vw, 100vw"
             className="h-full w-full object-cover"
             style={{ animation: "floaty 6s ease-in-out infinite" }}
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <div className="md:col-span-3 flex flex-col justify-center">
