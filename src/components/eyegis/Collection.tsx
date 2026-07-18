@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ElementType } from "react";
+import { useEffect, useRef, useState, type ElementType, type MouseEvent as ReactMouseEvent } from "react";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
@@ -764,13 +764,152 @@ function ProductPreview({ copy }: { copy: Copy }) {
   );
 }
 
+function Lightbox({
+  shots,
+  index,
+  onIndex,
+  onClose,
+  title,
+  eyebrow,
+}: {
+  shots: GalleryShot[];
+  index: number;
+  onIndex: (i: number) => void;
+  onClose: () => void;
+  title: string;
+  eyebrow: string;
+}) {
+  const [zoomed, setZoomed] = useState(false);
+  const [origin, setOrigin] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
+  const total = shots.length;
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onIndex((index + 1) % total);
+      if (e.key === "ArrowLeft") onIndex((index - 1 + total) % total);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [index, total, onClose, onIndex]);
+
+  const shot = shots[index];
+  const move = (e: ReactMouseEvent<HTMLDivElement>) => {
+    if (!zoomed) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    setOrigin({
+      x: ((e.clientX - r.left) / r.width) * 100,
+      y: ((e.clientY - r.top) / r.height) * 100,
+    });
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/92 backdrop-blur-sm animate-fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        className="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-paper/10 text-paper ring-1 ring-paper/25 backdrop-blur transition hover:bg-paper hover:text-ink"
+        aria-label="Close"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div className="absolute left-5 top-5 max-w-[70%] font-eyebrow text-[10px] text-paper/75">
+        <div>{eyebrow}</div>
+        <div className="mt-1 text-paper/95">{title}</div>
+      </div>
+
+      {total > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); onIndex((index - 1 + total) % total); }}
+            className="absolute left-4 md:left-8 grid h-12 w-12 place-items-center rounded-full bg-paper/10 text-paper ring-1 ring-paper/25 backdrop-blur transition hover:bg-paper hover:text-ink"
+            aria-label="Previous image"
+          >
+            <IconArrow className="rotate-180" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); onIndex((index + 1) % total); }}
+            className="absolute right-4 md:right-8 grid h-12 w-12 place-items-center rounded-full bg-paper/10 text-paper ring-1 ring-paper/25 backdrop-blur transition hover:bg-paper hover:text-ink"
+            aria-label="Next image"
+          >
+            <IconArrow />
+          </button>
+        </>
+      )}
+
+      <div
+        className="relative flex h-full w-full items-center justify-center p-6 md:p-12"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div
+          className={`relative max-h-[86vh] max-w-[92vw] overflow-hidden ${zoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+          onClick={() => setZoomed((v) => !v)}
+          onMouseMove={move}
+          onMouseLeave={() => setOrigin({ x: 50, y: 50 })}
+        >
+          <Picture
+            source={shot.src}
+            alt={shot.alt}
+            sizes="90vw"
+            className="max-h-[86vh] max-w-[92vw] object-contain transition-transform duration-500 ease-out select-none"
+            style={{
+              transform: zoomed ? "scale(2.1)" : "scale(1)",
+              transformOrigin: `${origin.x}% ${origin.y}%`,
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-3">
+        {total > 1 && (
+          <div className="pointer-events-auto flex items-center gap-1.5 rounded-full bg-paper/10 px-3 py-2 ring-1 ring-paper/20 backdrop-blur">
+            {shots.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={(e) => { e.stopPropagation(); onIndex(idx); }}
+                aria-label={`Show image ${idx + 1}`}
+                aria-current={idx === index}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  idx === index ? "w-7 bg-paper" : "w-1.5 bg-paper/50 hover:bg-paper/80"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+        <span className="font-eyebrow text-[10px] text-paper/70">
+          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {shot.label} · {zoomed ? "Click to zoom out" : "Click to zoom in"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const pc = copy.products[p.productKey];
   const shots = p.gallery.length > 0 ? p.gallery : [{ src: p.image, alt: p.imageAlt, label: "01" }];
   const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
   const total = shots.length;
   const go = (dir: 1 | -1) => setActive((v) => (v + dir + total) % total);
+
 
   return (
     <article
@@ -782,6 +921,12 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="absolute inset-0 z-[5] cursor-zoom-in"
+          aria-label={`Zoom ${pc.name} — ${shots[active].label}`}
+        />
         {shots.map((s, idx) => (
           <Picture
             key={idx}
@@ -793,6 +938,16 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
             }`}
           />
         ))}
+
+        <span className="absolute right-4 bottom-4 z-10 hidden md:inline-flex items-center gap-1.5 rounded-full bg-paper/90 px-2.5 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="11" cy="11" r="6" />
+            <path d="M20 20l-4-4M9 11h4M11 9v4" />
+          </svg>
+          Zoom
+        </span>
+
+
 
         <div className="absolute left-4 top-4 z-10 flex flex-col items-start gap-2">
           {p.bestSeller && (
@@ -889,9 +1044,20 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           </a>
         </div>
       </div>
+      {open && (
+        <Lightbox
+          shots={shots}
+          index={active}
+          onIndex={setActive}
+          onClose={() => setOpen(false)}
+          title={pc.name}
+          eyebrow={`${pc.collection} · ${pc.city}`}
+        />
+      )}
     </article>
   );
 }
+
 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
