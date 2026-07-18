@@ -570,8 +570,15 @@ function ShippingPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Eyegis lifestyle — desk with minimalist objects" className="h-full w-full object-cover" style={{ filter: "saturate(0.92) contrast(1.02)" }}
-            loading="lazy" decoding="async"
+          <img
+            src={heroImg}
+            alt="Eyegis lifestyle scene — minimalist desk with Eyegis eyewear ready to ship"
+            width={2400}
+            height={1400}
+            className="h-full w-full object-cover"
+            style={{ filter: "saturate(0.92) contrast(1.02)" }}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
