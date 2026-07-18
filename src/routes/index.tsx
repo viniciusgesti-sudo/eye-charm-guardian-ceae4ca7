@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
 
-import heroSaoPaulo from "@/assets/hero-saopaulo.jpg";
-import heroParis from "@/assets/hero-paris.jpg";
+import heroSaoPaulo from "@/assets/hero-saopaulo-eyegis.jpg";
+import heroParis from "@/assets/hero-paris-eyegis.jpg";
 import { Universe } from "@/components/eyegis/Universe";
 import { HonestScience } from "@/components/eyegis/HonestScience";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
@@ -16,6 +16,7 @@ import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { TechBar } from "@/components/eyegis/TechBar";
 import { LiveStats } from "@/components/eyegis/LiveStats";
+import { ModelRunway } from "@/components/eyegis/ModelRunway";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
 import { AMAZON_RATING, DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
@@ -177,11 +178,16 @@ function Hero() {
       >
         <img
           src={heroSaoPaulo}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-55 blur-xl"
+        />
+        <img
+          src={heroSaoPaulo}
           alt="Eyegis Men — São Paulo, night"
           width={1600}
           height={1920}
-          className="absolute inset-0 h-full w-full object-cover object-[50%_center]"
-          style={{ transform: "translateY(-13%) scale(1.08)", transformOrigin: "center center" }}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_50%]"
         />
         {/* Teal editorial cast */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,30,36,0.35)_0%,rgba(0,30,36,0.15)_45%,rgba(0,30,36,0.65)_100%)]" />
@@ -198,11 +204,16 @@ function Hero() {
       >
         <img
           src={heroParis}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-50 blur-xl"
+        />
+        <img
+          src={heroParis}
           alt="Eyegis Women — Paris, golden hour"
           width={1600}
           height={1920}
-          className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
-          style={{ transform: "translateY(9%) scale(1.16)", transformOrigin: "center center" }}
+          className="absolute inset-0 h-full w-full object-cover object-[48%_50%]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(239,229,217,0.20)_0%,rgba(239,229,217,0.05)_45%,rgba(226,209,195,0.55)_100%)]" />
       </div>
@@ -219,7 +230,7 @@ function Hero() {
         <img
           src={heroParis}
           alt="Eyegis Women — Paris, golden hour"
-          className="h-full w-full object-cover object-[40%_center] kenburns-right"
+          className="h-full w-full object-cover object-[48%_45%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-sand/70 via-transparent to-sand/20" />
       </div>
@@ -378,6 +389,7 @@ function Index() {
       <Hero />
       <HowItWorks />
       <LiveStats />
+      <ModelRunway />
       <Universe />
       <HonestScience />
       <EyegisGuard />
