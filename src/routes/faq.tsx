@@ -712,9 +712,13 @@ function FAQPage() {
           <img
             src={heroImg}
             alt=""
+            aria-hidden="true"
+            width={2400}
+            height={1400}
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.85) contrast(1.02)" }}
-            loading="lazy" decoding="async"
+            loading="lazy"
+            decoding="async"
           />
           <div
             className="absolute inset-0"

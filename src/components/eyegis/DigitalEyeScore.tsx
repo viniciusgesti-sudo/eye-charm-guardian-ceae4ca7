@@ -855,7 +855,9 @@ function Results({
         <div className="md:col-span-2 relative overflow-hidden rounded-lg bg-paper-warm">
           <img
             src={recImage}
-            alt={`${rec.productName} — Eyegis`}
+            alt={`${rec.productName} — recommended Eyegis eyewear based on your Digital Eye Score`}
+            width={1200}
+            height={1500}
             className="h-full w-full object-cover"
             style={{ animation: "floaty 6s ease-in-out infinite" }}
             loading="lazy"

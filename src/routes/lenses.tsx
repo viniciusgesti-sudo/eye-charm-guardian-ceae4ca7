@@ -794,10 +794,12 @@ function Hero({ c }: { c: Copy }) {
               <img
                 src={heroImg}
                 alt={c.hero.heroAlt}
+                width={1500}
+                height={1800}
                 loading="eager"
+                decoding="async"
                 className="h-full w-full object-cover"
-            decoding="async"
-          />
+              />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.14),transparent_60%)]" />
             </div>
           </Reveal>
@@ -876,11 +878,13 @@ function HowToChoose({
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={PERSONA_IMAGES[p.id]}
-                      alt={p.label}
+                      alt={`${p.label} — persona wearing Eyegis eyewear during ${p.hours}`}
+                      width={1600}
+                      height={1000}
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
-            decoding="async"
-          />
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4 rounded-full bg-paper/85 backdrop-blur px-3 py-1 font-eyebrow text-[9px] text-teal">
                       {p.hours}
@@ -1137,10 +1141,12 @@ function BeforeAfter({ c }: { c: Copy }) {
             <img
               src={compareImg}
               alt={c.demo.with}
+              width={1920}
+              height={1080}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
-            decoding="async"
-          />
+              decoding="async"
+            />
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
@@ -1148,11 +1154,13 @@ function BeforeAfter({ c }: { c: Copy }) {
               <img
                 src={compareImg}
                 alt={c.demo.without}
+                width={1920}
+                height={1080}
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
                 loading="lazy"
-            decoding="async"
-          />
+                decoding="async"
+              />
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
@@ -1332,12 +1340,14 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
             <img
               src={PERSONA_PRODUCT_IMAGES[persona.id]}
-              alt={`${persona.product.name} — ${c.reco.eyebrow}`}
+              alt={`${persona.product.name} — recommended Eyegis eyewear for ${c.reco.eyebrow}`}
+              width={1200}
+              height={1500}
               loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
-            decoding="async"
-          />
+            />
           </div>
           <div className="md:col-span-3 flex flex-col justify-center">
             <span className="font-eyebrow text-teal">

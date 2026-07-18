@@ -585,11 +585,13 @@ function ProductHero() {
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
               <img
                 src={heroImg}
-                alt="Meridian frame — front view, luxury studio lighting"
+                alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
+                width={1600}
+                height={2000}
                 className="h-full w-full object-cover object-center float-slow"
                 loading="eager"
-            decoding="async"
-          />
+                decoding="async"
+              />
               <div className="pointer-events-none absolute inset-x-[20%] bottom-6 h-6 rounded-[50%] bg-ink/15 blur-2xl" />
             </div>
           </Reveal>
@@ -642,13 +644,15 @@ function Gallery() {
               >
                 <img
                   src={GALLERY_SRC[active]}
-                  alt={`Meridian — ${c.gallery.labels[active]}`}
+                  alt={`Meridian eyewear — ${c.gallery.labels[active]} view for detailed inspection`}
+                  width={1600}
+                  height={1100}
                   loading="lazy"
+                  decoding="async"
                   className={`h-full w-full object-cover transition-transform duration-[1400ms] ease-out ${
                     zoom ? "scale-[1.35]" : "scale-100 group-hover:scale-[1.04]"
                   }`}
-            decoding="async"
-          />
+                />
                 <span className="pointer-events-none absolute bottom-5 left-6 font-eyebrow text-[10px] text-ink/70">
                   {zoom ? c.gallery.reset : c.gallery.zoom}
                 </span>
@@ -667,9 +671,15 @@ function Gallery() {
                   }`}
                   aria-label={`View ${c.gallery.labels[i]}`}
                 >
-                  <img src={src} alt={c.gallery.labels[i]} loading="lazy" className="h-full w-full object-cover"
-            decoding="async"
-          />
+                  <img
+                    src={src}
+                    alt={`Meridian gallery thumbnail — ${c.gallery.labels[i]}`}
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
                 </button>
               ))}
             </div>
@@ -758,9 +768,15 @@ function FrameDetails() {
           <div className="lg:col-span-8 relative">
             <Reveal>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[#0f1a1e]">
-                <img src={pairImg} alt="Meridian frame — exploded technical study" loading="lazy" className="h-full w-full object-cover opacity-90"
-            decoding="async"
-          />
+                <img
+                  src={pairImg}
+                  alt="Meridian eyewear — dual-angle technical study showing front and profile pair"
+                  width={1600}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover opacity-90"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
                 {c.details.parts.map((p, i) => (
                   <div key={i} className="absolute group" style={PART_POS[i]}>
@@ -831,9 +847,15 @@ function Lifestyle() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[80vh] min-h-[560px] w-full">
-        <img src={lifestyleImg} alt="Meridian in a modern architectural workspace" loading="lazy" className="h-full w-full object-cover opacity-75"
-            decoding="async"
-          />
+        <img
+          src={lifestyleImg}
+          alt="Meridian eyewear worn during a long screen session in a modern architectural workspace"
+          width={2400}
+          height={1500}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover opacity-75"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-14 pb-16 md:pb-24 text-paper">
@@ -906,9 +928,15 @@ function TechnologyRecap() {
         <div className="lg:col-span-7">
           <Reveal>
             <div className="relative aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
-              <img src={guardLens} alt="EyegisGuard optical filter study" loading="lazy" className="h-full w-full object-cover float-slow"
-            decoding="async"
-          />
+              <img
+                src={guardLens}
+                alt="EyegisGuard optical filter lens macro — showing anti-reflective coating detail"
+                width={1500}
+                height={1200}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover float-slow"
+              />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(134,217,209,0.14),transparent_65%)]" />
             </div>
           </Reveal>
