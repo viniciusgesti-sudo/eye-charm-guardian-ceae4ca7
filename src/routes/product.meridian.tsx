@@ -769,13 +769,10 @@ function FrameDetails() {
           <div className="lg:col-span-8 relative">
             <Reveal>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[#0f1a1e]">
-                <img
-                  src={pairImg}
+                <Picture
+                  source={pairImgSrc}
                   alt="Meridian eyewear — dual-angle technical study showing front and profile pair"
-                  width={1600}
-                  height={1000}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="(min-width: 1024px) 66vw, 100vw"
                   className="h-full w-full object-cover opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
