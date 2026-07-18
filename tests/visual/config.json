@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "routes": ["/", "/about", "/technology", "/lenses", "/faq", "/product/meridian"],
+  "viewports": [
+    { "name": "desktop", "width": 1280, "height": 1800 },
+    { "name": "mobile",  "width": 390,  "height": 1600 }
+  ],
+  "sectionSelectors": ["section[id]", "[data-vr-section]"],
+  "pixelThreshold": 0.02,
+  "baselineDir": "tests/visual/__baseline__",
+  "outputDir": "/mnt/documents/visual-report"
+}
