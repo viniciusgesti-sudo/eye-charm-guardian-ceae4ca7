@@ -15,6 +15,15 @@ import meridianPair from "@/assets/products/meridian-pair.jpg?w=480;768;1200&for
 import atelierFront from "@/assets/products/atelier-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import atelierProfile from "@/assets/products/atelier-profile.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 
+/* Standardized list/collection thumbnails — smaller widths, same source */
+import soleneFrontThumb from "@/assets/products/solene-front.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import soleneMacroThumb from "@/assets/products/solene-macro.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import maraisFrontThumb from "@/assets/products/marais-front.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import meridianHeroThumb from "@/assets/products/meridian-hero.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import meridianPairThumb from "@/assets/products/meridian-pair.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import atelierFrontThumb from "@/assets/products/atelier-front.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+import atelierProfileThumb from "@/assets/products/atelier-profile.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
+
 import { Picture, type PictureSource } from "./Picture";
 
 
