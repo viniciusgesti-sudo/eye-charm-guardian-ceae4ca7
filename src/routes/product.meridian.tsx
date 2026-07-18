@@ -13,6 +13,8 @@ import portrait from "@/assets/universe-portrait.jpg";
 import lifestyleImg from "@/assets/life-business.jpg";
 import guardLens from "@/assets/guard-lens-float.jpg";
 
+import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+
 export const Route = createFileRoute("/product/meridian")({
   head: () => ({
     meta: [
@@ -28,14 +30,45 @@ export const Route = createFileRoute("/product/meridian")({
         content:
           "Premium blue-light filtering eyewear. TR90 frame, anti-reflective coating, 60-day comfort guarantee.",
       },
+      { property: "og:type", content: "product" },
       { property: "og:image", content: "https://eye-charm-guardian.lovable.app/og-meridian.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://eye-charm-guardian.lovable.app/product/meridian" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "Meridian by Eyegis",
+          brand: { "@type": "Brand", name: "Eyegis" },
+          description:
+            "Premium blue-light filtering eyewear. TR90 lightweight frame with EyegisGuard™ lenses that block up to 45% of harmful blue light (400–455 nm) without distorting color.",
+          image: ["https://eye-charm-guardian.lovable.app/og-meridian.jpg"],
+          sku: "EYG-MRD-01",
+          category: "Eyewear > Blue Light Glasses",
+          offers: {
+            "@type": "Offer",
+            url: DEFAULT_AMAZON_URL,
+            availability: "https://schema.org/InStock",
+            priceCurrency: "USD",
+            price: "89.00",
+            seller: { "@type": "Organization", name: "Amazon" },
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: AMAZON_RATING.stars,
+            reviewCount: AMAZON_RATING.count,
+          },
+        }),
+      },
     ],
   }),
   component: MeridianProduct,
 });
 
-const AMAZON_URL = "https://www.amazon.com/";
+const AMAZON_URL = DEFAULT_AMAZON_URL;
 
 /* ---------------------------------------------------------------- */
 /*  i18n content                                                    */
