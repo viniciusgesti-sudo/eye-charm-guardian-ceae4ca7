@@ -808,7 +808,7 @@ function ContactPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={supportImg} alt="" className="h-[70vh] w-full object-cover"
+            <img src={supportImg} alt="Eyegis client-care specialist ready to guide the perfect frame selection" width={1400} height={1750} className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
           </Reveal>
