@@ -34,6 +34,8 @@ export const translations: Record<Lang, Dict> = {
     "hero.cta.men": "Explore Men's Collection",
     "hero.cta.women": "Explore Women's Collection",
     "hero.scroll": "Scroll",
+    "hero.zenith.tag": "High-intensity blue-light and glare protection for the 24/7 hustle.",
+    "hero.clarity.tag": "High-fidelity color and champagne acetate lightness for those who create in daylight.",
   },
   PT: {
     // Navigation
@@ -61,6 +63,8 @@ export const translations: Record<Lang, Dict> = {
     "hero.cta.men": "Explorar Coleção Masculina",
     "hero.cta.women": "Explorar Coleção Feminina",
     "hero.scroll": "Role",
+    "hero.zenith.tag": "Proteção intensa contra luz azul e reflexos para a rotina 24/7.",
+    "hero.clarity.tag": "Alta fidelidade de cor e leveza de acetato champagne para quem cria à luz do dia.",
   },
   FR: {
     // Navigation
@@ -88,6 +92,8 @@ export const translations: Record<Lang, Dict> = {
     "hero.cta.men": "Découvrir la Collection Homme",
     "hero.cta.women": "Découvrir la Collection Femme",
     "hero.scroll": "Défiler",
+    "hero.zenith.tag": "Protection intense contre la lumière bleue et les reflets pour le rythme 24/7.",
+    "hero.clarity.tag": "Haute fidélité des couleurs et légèreté de l'acétate champagne pour créer à la lumière du jour.",
   },
 };
 
