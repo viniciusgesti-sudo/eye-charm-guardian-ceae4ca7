@@ -482,6 +482,8 @@ function AboutPage() {
           <img
             src={heroImg}
             alt={c.hero.alt}
+            width={1600}
+            height={1000}
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
             loading="lazy" decoding="async"
