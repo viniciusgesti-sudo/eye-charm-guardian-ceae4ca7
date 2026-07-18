@@ -567,7 +567,7 @@ export function LifestyleUniverse() {
           </Reveal>
 
           <Reveal delay={520}>
-            <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-14 flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-4">
               {[
                 { label: copy.btnMen, href: "#men", variant: "teal" as const },
                 { label: copy.btnWomen, href: "#women", variant: "sand" as const },
