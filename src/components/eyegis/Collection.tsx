@@ -386,7 +386,7 @@ const COPY: Record<Lang, Copy> = {
 type CollectionMeta = {
   id: "men" | "women" | "kids";
   index: string;
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   align: "left" | "right";
   tone: Tone;
@@ -578,7 +578,7 @@ type ProductMeta = {
   id: string;
   productKey: keyof Copy["products"];
   filterKey: "Men" | "Women" | "Kids";
-  image: string;
+  image: PictureSource;
   imageAlt: string;
   bestSeller?: boolean;
   newest?: boolean;
