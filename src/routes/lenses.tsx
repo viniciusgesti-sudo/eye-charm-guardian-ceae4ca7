@@ -1340,12 +1340,14 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
             <img
               src={PERSONA_PRODUCT_IMAGES[persona.id]}
-              alt={`${persona.product.name} — ${c.reco.eyebrow}`}
+              alt={`${persona.product.name} — recommended Eyegis eyewear for ${c.reco.eyebrow}`}
+              width={1200}
+              height={1500}
               loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
-            decoding="async"
-          />
+            />
           </div>
           <div className="md:col-span-3 flex flex-col justify-center">
             <span className="font-eyebrow text-teal">
