@@ -794,10 +794,12 @@ function Hero({ c }: { c: Copy }) {
               <img
                 src={heroImg}
                 alt={c.hero.heroAlt}
+                width={1500}
+                height={1800}
                 loading="eager"
+                decoding="async"
                 className="h-full w-full object-cover"
-            decoding="async"
-          />
+              />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.14),transparent_60%)]" />
             </div>
           </Reveal>
