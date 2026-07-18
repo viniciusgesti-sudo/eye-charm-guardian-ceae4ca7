@@ -36,7 +36,7 @@ export function TechBar() {
   const track = [...items, ...items];
 
   return (
-    <div className="relative z-[60] w-full overflow-hidden border-b border-paper/10 bg-teal-deep text-paper">
+    <div className="fixed inset-x-0 top-0 z-[60] w-full overflow-hidden border-b border-paper/10 bg-teal-deep text-paper">
       <div className="mx-auto flex max-w-[1600px] items-center gap-4 px-6 py-2 md:px-10 lg:px-14">
         {/* status dot */}
         <span className="hidden sm:inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-mint">

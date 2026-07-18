@@ -60,7 +60,7 @@ function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-700 ease-out ${
+      className={`fixed inset-x-0 top-[34px] md:top-[36px] z-50 transition-[background-color,backdrop-filter,border-color] duration-700 ease-out ${
         scrolled
           ? "bg-background/70 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent border-b border-transparent"
