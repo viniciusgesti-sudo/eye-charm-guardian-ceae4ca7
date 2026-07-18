@@ -17,14 +17,6 @@ import atelierProfile from "@/assets/products/atelier-profile.jpg?w=480;768;1200
 
 import { Picture, type PictureSource } from "./Picture";
 
-/* Official product photography */
-import soleneFront from "@/assets/products/solene-front.jpg";
-import soleneMacro from "@/assets/products/solene-macro.jpg";
-import maraisFront from "@/assets/products/marais-front.jpg";
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import meridianPair from "@/assets/products/meridian-pair.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
-import atelierProfile from "@/assets/products/atelier-profile.jpg";
 
 const AMAZON_URL = "https://www.amazon.com/stores/Eyegis/page";
 
