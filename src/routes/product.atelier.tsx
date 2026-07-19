@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Picture } from "@/components/eyegis/Picture";
-import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import heroImg from "@/assets/products/atelier-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import profileImg from "@/assets/products/atelier-profile.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -46,15 +46,10 @@ export const Route = createFileRoute("/product/atelier")({
           offers: {
             "@type": "Offer",
             url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/InStock",
+            availability: "https://schema.org/PreOrder",
             priceCurrency: "USD",
             price: "89.00",
-            seller: { "@type": "Organization", name: "Amazon" },
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: AMAZON_RATING.stars,
-            reviewCount: AMAZON_RATING.count,
+            seller: { "@type": "Organization", name: "Eyegis" },
           },
         }),
       },
