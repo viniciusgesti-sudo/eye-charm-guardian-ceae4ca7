@@ -157,6 +157,8 @@ type Copy = {
     womenEveryday: string;
   };
   captions: Record<string, string>;
+  alts: Record<string, string>;
+  portraitAlt: (name: string, role: string, country: string) => string;
   lightbox: { body: (caption: string) => string; buyOnAmazon: string; details: string; close: string; open: (caption: string) => string };
   quote1Prefix: string;
   quote1Italic: string;
@@ -214,6 +216,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Gate B24 · 06:41",
       "portrait": "Off-duty",
     },
+    alts: {
+      "creative-studio": "Woman working in a design studio wearing Eyegis Solène blue-light glasses with champagne acetate frame — natural daylight, unretouched.",
+      "business-meeting": "Executive between meetings wearing Eyegis Atelier blue-light glasses with dark tortoise frame — corporate office setting.",
+      "architecture": "Minimalist architectural interior of concrete and glass, referencing the everyday environment where Eyegis Meridian glasses are worn.",
+      "student": "Student reading long-form text wearing Eyegis Marais blue-light glasses — round lightweight frame, quiet study environment.",
+      "editing": "Photographer editing images on a calibrated monitor wearing Eyegis Solène — true-tone lenses preserving accurate color perception.",
+      "travel": "Traveler on a European high-speed train wearing Eyegis Meridian — anti-fatigue lenses during a long journey.",
+      "founder": "Founder at a standing desk wearing Eyegis Atelier during a morning deep-work session in a modern home office.",
+      "gaming-late": "Gamer during a late-night session wearing Eyegis Meridian — filter tuned for hours of screen exposure.",
+      "streamer": "Live streamer on camera wearing Eyegis — dark frame that stays discreet under stage lighting.",
+      "kitchen": "Remote worker focused at a kitchen-table home office wearing Eyegis Solène — everyday-life eyewear.",
+      "airport": "Business traveler waiting at an airport gate wearing Eyegis Atelier — lightweight TR90 frame for long-haul flights.",
+      "portrait": "Editorial portrait of a Paris-based professional wearing Eyegis Solène — champagne acetate frame in golden-hour light.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Verified customer portrait — ${name}, ${role} based in ${country}, wearing Eyegis blue-light glasses in everyday life.`,
     lightbox: {
       body: (caption) =>
         `${caption} — captured in an unretouched moment of everyday wear. EyegisGuard™ optical filter, TR90 frame, natural color perception.`,
@@ -295,6 +313,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Portão B24 · 06:41",
       "portrait": "Fora do expediente",
     },
+    alts: {
+      "creative-studio": "Mulher trabalhando em estúdio de design usando os óculos com filtro de luz azul Eyegis Solène de acetato champanhe — luz natural, sem retoque.",
+      "business-meeting": "Executivo entre reuniões usando os óculos com filtro de luz azul Eyegis Atelier de armação escura — ambiente corporativo.",
+      "architecture": "Interior arquitetônico minimalista de concreto e vidro, referência ao dia a dia de quem usa os óculos Eyegis Meridian.",
+      "student": "Estudante em longa sessão de leitura usando os óculos com filtro de luz azul Eyegis Marais — armação redonda e leve, ambiente silencioso de estudo.",
+      "editing": "Fotógrafa editando imagens em monitor calibrado usando Eyegis Solène — lentes de tons reais que preservam a percepção fiel de cor.",
+      "travel": "Viajante em trem de alta velocidade europeu usando Eyegis Meridian — lentes anti-fadiga em longos deslocamentos.",
+      "founder": "Fundadora em mesa de trabalho em pé usando Eyegis Atelier em sessão matinal de foco profundo em home office moderno.",
+      "gaming-late": "Gamer em sessão noturna usando Eyegis Meridian — filtro calibrado para horas de exposição à tela.",
+      "streamer": "Streamer ao vivo em frente à câmera usando Eyegis — armação escura discreta sob luz de estúdio.",
+      "kitchen": "Profissional remoto focado em home office na mesa da cozinha usando Eyegis Solène — óculos do cotidiano.",
+      "airport": "Executivo em viagem aguardando no portão do aeroporto usando Eyegis Atelier — armação leve em TR90 para voos longos.",
+      "portrait": "Retrato editorial de profissional em Paris usando Eyegis Solène — armação de acetato champanhe na hora dourada.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Retrato de cliente verificada — ${name}, ${role} de ${country}, usando os óculos com filtro de luz azul Eyegis no dia a dia.`,
     lightbox: {
       body: (caption) =>
         `${caption} — um instante cotidiano capturado sem retoque. Filtro óptico EyegisGuard™, armação TR90, percepção natural de cor.`,
@@ -376,6 +410,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Porte B24 · 06:41",
       "portrait": "En pause",
     },
+    alts: {
+      "creative-studio": "Femme au travail dans un studio de design, portant les lunettes anti-lumière bleue Eyegis Solène en acétate champagne — lumière naturelle, sans retouche.",
+      "business-meeting": "Cadre entre deux réunions portant les lunettes anti-lumière bleue Eyegis Atelier à monture sombre — cadre professionnel.",
+      "architecture": "Intérieur architectural minimaliste en béton et verre, évoquant le quotidien des porteurs des lunettes Eyegis Meridian.",
+      "student": "Étudiant en longue session de lecture portant les lunettes anti-lumière bleue Eyegis Marais — monture ronde et légère, environnement de travail calme.",
+      "editing": "Photographe retouchant des images sur un écran calibré, portant Eyegis Solène — verres à tons naturels préservant une perception fidèle des couleurs.",
+      "travel": "Voyageur en train à grande vitesse européen portant Eyegis Meridian — verres anti-fatigue pour les longs trajets.",
+      "founder": "Fondatrice à un bureau debout portant Eyegis Atelier lors d'une session matinale de deep-work dans un home office moderne.",
+      "gaming-late": "Gamer en session nocturne portant Eyegis Meridian — filtre calibré pour de longues heures devant l'écran.",
+      "streamer": "Streameur en direct face caméra portant Eyegis — monture sombre discrète sous les lumières de studio.",
+      "kitchen": "Télétravailleuse concentrée dans un home office sur la table de cuisine, portant Eyegis Solène — lunettes du quotidien.",
+      "airport": "Cadre en déplacement à la porte d'embarquement portant Eyegis Atelier — monture légère en TR90 pour les vols long-courriers.",
+      "portrait": "Portrait éditorial d'une professionnelle parisienne portant Eyegis Solène — monture en acétate champagne à l'heure dorée.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Portrait client vérifié — ${name}, ${role} basée à ${country}, portant les lunettes anti-lumière bleue Eyegis au quotidien.`,
     lightbox: {
       body: (caption) =>
         `${caption} — un instant du quotidien capté sans retouche. Filtre optique EyegisGuard™, monture TR90, perception naturelle des couleurs.`,
@@ -491,7 +541,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-ink">
             <Picture
               source={shot.src}
-              alt={shot.alt}
+              alt={copy.alts[shot.id] ?? shot.alt}
               sizes="(min-width:1024px) 60vw, 100vw"
               priority
               className="h-full max-h-[78vh] w-full object-cover animate-[zoomIn_800ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -647,7 +697,7 @@ export function SocialProof() {
     <article className="h-full rounded-lg border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 overflow-hidden rounded-full bg-ink/10">
-          <Picture source={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} sizes="56px" className="h-full w-full object-cover" />
+          <Picture source={t.portrait} alt={copy.portraitAlt(t.name, copy.roles[t.id], t.country)} sizes="56px" className="h-full w-full object-cover" />
         </div>
         <div>
           <div className="font-editorial text-ink text-lg leading-tight">{t.name}</div>
@@ -704,7 +754,7 @@ export function SocialProof() {
                 >
                   <Picture
                     source={s.src}
-                    alt={s.alt}
+                    alt={copy.alts[s.id] ?? s.alt}
                     sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
                     className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
                   />
