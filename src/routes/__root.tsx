@@ -126,6 +126,19 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    // One-time cleanup of legacy high-contrast toggle state.
+    try {
+      document.documentElement.classList.remove("hc");
+      localStorage.removeItem("eyegis:hc");
+      localStorage.removeItem("eyegis-hc");
+      localStorage.removeItem("hc");
+      document.cookie = "eyegis_hc=; Max-Age=0; path=/";
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
@@ -135,3 +148,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
