@@ -15,7 +15,7 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 const COPY = {
-  pt: {
+  br: {
     eyebrow: "Coleção · Mulher",
     title: (
       <>
@@ -64,7 +64,7 @@ const COPY = {
 
 export const Route = createFileRoute("/$locale/women")({
   head: ({ params }) => {
-    const locale = (params.locale in COPY ? params.locale : "pt") as "pt" | "en" | "fr";
+    const locale = (params.locale in COPY ? params.locale : "br") as "br" | "en" | "fr";
     const c = COPY[locale];
     return buildSeo({
       title: c.metaTitle,
@@ -81,7 +81,7 @@ export const Route = createFileRoute("/$locale/women")({
 
 function WomenPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.pt;
+  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
   return (
     <>
       <PageHero

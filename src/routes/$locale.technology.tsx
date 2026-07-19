@@ -25,7 +25,7 @@ const ShopOnAmazon = lazy(() =>
 
 
 const META = {
-  pt: {
+  br: {
     title: "Tecnologia — Eyegis | E-Guard Retina™ & Circadian™",
     description:
       "Conheça a engenharia óptica Eyegis: E-Guard Retina™ para a fadiga digital diurna e E-Guard Circadian™ para o sono noturno.",
@@ -44,7 +44,7 @@ const META = {
 
 export const Route = createFileRoute("/$locale/technology")({
   head: ({ params }) => {
-    const locale = (params.locale in META ? params.locale : "pt") as "pt" | "en" | "fr";
+    const locale = (params.locale in META ? params.locale : "br") as "br" | "en" | "fr";
     const m = META[locale];
     return buildSeo({
       title: m.title,

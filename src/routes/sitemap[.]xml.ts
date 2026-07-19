@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
 const BASE_URL = "https://eye-charm-guardian.lovable.app";
-const LOCALES = ["pt", "en", "fr"] as const;
+const LOCALES = ["br", "en", "fr"] as const;
 
 // Locale-prefixed routes (translated pages)
 const LOCALIZED_PATHS: { path: string; changefreq: string; priority: string }[] = [

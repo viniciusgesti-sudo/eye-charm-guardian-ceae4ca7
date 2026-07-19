@@ -13,7 +13,7 @@ import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 const COPY = {
-  pt: {
+  br: {
     eyebrow: "Coleção · Kids & Teens",
     title: (
       <>
@@ -62,7 +62,7 @@ const COPY = {
 
 export const Route = createFileRoute("/$locale/kids")({
   head: ({ params }) => {
-    const locale = (params.locale in COPY ? params.locale : "pt") as "pt" | "en" | "fr";
+    const locale = (params.locale in COPY ? params.locale : "br") as "br" | "en" | "fr";
     const c = COPY[locale];
     return buildSeo({
       title: c.metaTitle,
@@ -79,7 +79,7 @@ export const Route = createFileRoute("/$locale/kids")({
 
 function KidsPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.pt;
+  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
   return (
     <>
       <PageHero

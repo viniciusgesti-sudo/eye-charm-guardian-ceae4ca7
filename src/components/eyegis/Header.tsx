@@ -14,17 +14,18 @@ import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import { Logo } from "./Logo";
-import { HighContrastToggle } from "./HighContrastToggle";
 
-const LOCALES: Lang[] = ["PT", "EN", "FR"];
+type LocaleSeg = "br" | "en" | "fr";
+const LOCALES: LocaleSeg[] = ["br", "en", "fr"];
+const segToLang = (s: LocaleSeg): Lang => (s === "br" ? "PT" : (s.toUpperCase() as Lang));
 
 export function Header({ variant = "default" }: { variant?: "default" | "compact" } = {}) {
   const compact = variant === "compact";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
-  const locale = (params.locale ?? "pt").toLowerCase();
-  const localeUp = locale.toUpperCase() as Lang;
+  const locale = (params.locale ?? "br").toLowerCase();
+  const currentSeg = (LOCALES as string[]).includes(locale) ? (locale as LocaleSeg) : "br";
   const location = useLocation();
   const navigate = useNavigate();
   const { t, setLang } = useI18n();
@@ -49,13 +50,10 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
     { key: "about", label: t("nav.about"), to: "/$locale/about" as const },
   ];
 
-  const switchLocale = (target: Lang) => {
-    setLang(target);
-    const next = location.pathname.replace(
-      /^\/(pt|en|fr)(?=\/|$)/i,
-      `/${target.toLowerCase()}`,
-    );
-    navigate({ to: next.startsWith(`/${target.toLowerCase()}`) ? next : `/${target.toLowerCase()}` });
+  const switchLocale = (seg: LocaleSeg) => {
+    setLang(segToLang(seg));
+    const next = location.pathname.replace(/^\/(br|pt|en|fr)(?=\/|$)/i, `/${seg}`);
+    navigate({ to: next.startsWith(`/${seg}`) ? next : `/${seg}` });
   };
 
   return (
@@ -120,18 +118,17 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                 {i > 0 && <span className="opacity-25">·</span>}
                 <button
                   onClick={() => switchLocale(l)}
-                  className={`transition-opacity ${
-                    localeUp === l ? "opacity-100" : "opacity-70 hover:opacity-100"
+                  className={`uppercase transition-opacity ${
+                    currentSeg === l ? "opacity-100" : "opacity-70 hover:opacity-100"
                   }`}
-                  aria-label={`Language: ${l}`}
-                  aria-current={localeUp === l ? "true" : undefined}
+                  aria-label={`Language: ${l.toUpperCase()}`}
+                  aria-current={currentSeg === l ? "true" : undefined}
                 >
                   {l}
                 </button>
               </div>
             ))}
           </div>
-          <HighContrastToggle tone={useInk ? "light" : "dark"} />
           <a
             data-testid="header-cta"
             href={DEFAULT_AMAZON_URL}
@@ -199,19 +196,15 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                         switchLocale(l);
                         setMobileOpen(false);
                       }}
-                      className={`transition-opacity ${
-                        localeUp === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
+                      className={`uppercase transition-opacity ${
+                        currentSeg === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
                       }`}
-                      aria-current={localeUp === l ? "true" : undefined}
+                      aria-current={currentSeg === l ? "true" : undefined}
                     >
                       {l}
                     </button>
                   </div>
                 ))}
-              </div>
-              <div className="flex items-center gap-3 border-t border-ink/10 pt-6">
-                <HighContrastToggle tone="light" />
-                <span className="font-eyebrow text-[11px] text-ink/60">Honest Science mode</span>
               </div>
               <div className="mt-auto">
                 <a

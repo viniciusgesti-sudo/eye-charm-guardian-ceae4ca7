@@ -7,9 +7,9 @@
  */
 
 export const SITE = "https://eye-charm-guardian.lovable.app";
-export const LOCALES = ["pt", "en", "fr"] as const;
+export const LOCALES = ["br", "en", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = "pt";
+export const DEFAULT_LOCALE: Locale = "br";
 
 type Meta = { title?: string; name?: string; property?: string; content?: string };
 type Link = { rel: string; href: string; hrefLang?: string };
@@ -87,7 +87,7 @@ export function buildSeo(input: SeoInput): SeoOutput {
 
 function localeToOg(l: Locale): string {
   switch (l) {
-    case "pt": return "pt_BR";
+    case "br": return "pt_BR";
     case "en": return "en_US";
     case "fr": return "fr_FR";
   }
