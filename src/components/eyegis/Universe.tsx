@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import universePortrait from "@/assets/universe-portrait.jpg";
+import universePortraitSrc from "@/assets/universe-portrait.jpg?w=480;768;1024&format=avif;webp;jpg&as=picture";
 import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeScience from "@/assets/universe-science.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
@@ -467,15 +467,13 @@ export function Universe() {
             <Reveal delay={40}>
               <figure className="relative">
                 <div className="relative overflow-hidden rounded-[6px] aspect-[4/5] bg-[var(--paper-warm)]">
-                  <img
-                    src={universePortrait}
+                  <Picture
+                    source={universePortraitSrc}
                     alt="An Eyegis wearer resting by a window in a minimal concrete and oak interior, Paris"
-                    loading="lazy"
-                    width={1024}
-                    height={1280}
+                    sizes="(min-width: 1024px) 40vw, 100vw"
                     className="h-full w-full object-cover"
-            decoding="async"
-          />
+                  />
+
                 </div>
                 <figcaption className="mt-5 flex items-center justify-between font-eyebrow text-ink/55">
                   <span>{copy.portraitCaption1}</span>
