@@ -64,7 +64,7 @@ export function Header() {
           />
           <span
             className={`small-caps hidden text-[9px] sm:inline transition-colors duration-500 ${
-              scrolled ? "text-muted-foreground" : "text-paper/60"
+              scrolled ? "text-muted-foreground" : "text-paper/85"
             }`}
           >
             {t("nav.opticalScience")}
