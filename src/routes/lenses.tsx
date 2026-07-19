@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/contact-concierge.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";

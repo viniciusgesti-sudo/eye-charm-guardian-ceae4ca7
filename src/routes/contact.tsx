@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 

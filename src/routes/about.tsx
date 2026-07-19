@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 import heroImgSrc from "@/assets/lifestyle-architecture.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
