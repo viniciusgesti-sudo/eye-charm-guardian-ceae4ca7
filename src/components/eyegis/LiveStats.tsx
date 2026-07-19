@@ -52,7 +52,7 @@ function StatCell({ stat, active }: { stat: Stat; active: boolean }) {
 export function LiveStats() {
   const { lang } = useI18n();
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   useEffect(() => {
     if (!ref.current) return;

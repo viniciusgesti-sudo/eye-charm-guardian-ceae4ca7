@@ -208,7 +208,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
    ------------------------------------------------------------------ */
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;

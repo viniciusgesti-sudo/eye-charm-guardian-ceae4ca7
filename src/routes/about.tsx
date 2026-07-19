@@ -385,7 +385,7 @@ const CONTENT: Record<Lang, Copy> = {
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(true);
   useEffect(() => {
     if (!ref.current) return;
     const io = new IntersectionObserver(
