@@ -29,4 +29,34 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    // Modern target -> smaller output, no legacy transforms.
+    build: {
+      target: "es2022",
+      cssMinify: "lightningcss",
+      // Inline small assets (<=4 KB) to save requests, but let Vite chunk the rest.
+      assetsInlineLimit: 4096,
+      reportCompressedSize: false,
+      rollupOptions: {
+        // Aggressive tree-shaking: assume no side-effects outside explicit imports.
+        treeshake: {
+          preset: "smallest",
+          moduleSideEffects: (id) =>
+            id.endsWith(".css") || id.includes("styles.css"),
+          propertyReadSideEffects: false,
+          tryCatchDeoptimization: false,
+        },
+      },
+    },
+    // esbuild handles JS/TS minify; drop dev-only noise from prod bundles.
+    esbuild: {
+      legalComments: "none",
+      drop: ["debugger"],
+      pure: ["console.log", "console.debug", "console.trace"],
+    },
+    // Keep dependency pre-bundle lean.
+    optimizeDeps: {
+      esbuildOptions: { target: "es2022", legalComments: "none" },
+    },
+  },
 });
