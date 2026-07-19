@@ -87,8 +87,8 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[45%_30%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_20%,rgba(255,220,170,0.22),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,235,205,0.05)_0%,rgba(226,209,195,0.35)_65%,rgba(226,209,195,0.85)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_20%,rgba(255,220,170,0.18),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,235,205,0.03)_0%,rgba(226,209,195,0.22)_65%,rgba(226,209,195,0.50)_100%)]" />
           <div data-testid="hero-hud" data-hud="right" className="absolute right-6 top-24 md:right-10 md:top-28 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
             <span>Golden Hour · Paris</span>
             <span className="h-2 w-2 rounded-full bg-[#B4956B]" />
@@ -97,7 +97,10 @@ export function Hero({ locale }: Props) {
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-teal-deep/80">
               {t("nav.women")} · Clarity Universe
             </span>
-            <h2 className="mt-4 font-editorial text-[13vw] leading-[0.88] text-ink sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]">
+            <h2
+              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-ink sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]"
+              style={{ textShadow: "0 2px 20px rgba(255,255,255,0.35)" }}
+            >
               CLARITY<br />
               <span className="italic text-teal-deep">LENS</span>
             </h2>
