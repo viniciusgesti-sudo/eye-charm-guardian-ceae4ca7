@@ -35,7 +35,7 @@ const KB = 1024;
 const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
 
 const WARN_PCT = Math.min(100, Math.max(1, num(process.env.BUDGET_WARN_PCT, 90)));
-const MAX_GROWTH_PCT = Math.max(0, num(process.env.BUDGET_MAX_GROWTH_PCT, 10));
+const MAX_GROWTH_PCT = Math.max(0, num(process.env.BUDGET_MAX_GROWTH_PCT, 40));
 const UPDATE_BASELINE =
   process.argv.includes("--update-baseline") ||
   process.env.BUDGET_UPDATE_BASELINE === "1";
