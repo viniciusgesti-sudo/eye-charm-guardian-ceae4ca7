@@ -263,6 +263,29 @@
   transform: translateY(0);
 }
 
+/* -------- Layout rhythm --------
+   Standardized container + vertical section spacing used across marketing
+   pages so every section snaps to the same editorial grid. */
+@utility container-editorial {
+  width: 100%;
+  max-width: var(--container-editorial);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+@utility container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+@utility section-y {
+  padding-block: var(--spacing-section-y);
+}
+@utility section-y-sm {
+  padding-block: var(--spacing-section-y-sm);
+}
+
+
 /* Slow, meaningful image scale on hover */
 @utility img-hover {
   transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1), filter 1.4s ease;
