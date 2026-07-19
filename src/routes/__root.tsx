@@ -142,10 +142,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
+        <a href="#main" className="skip-to-content">Skip to content</a>
         <Outlet />
         <CookieBanner />
       </I18nProvider>
     </QueryClientProvider>
   );
+
 }
 
