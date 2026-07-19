@@ -16,7 +16,7 @@ function SectionLabel({ n, children }: { n: string; children: React.ReactNode })
       className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
       style={{ color: TEAL }}
     >
-      <span className="opacity-60">{n}</span>
+      <span style={{ color: "#4A5560" }}>{n}</span>
       <span className="h-px w-8" style={{ background: TEAL, opacity: 0.4 }} />
       <span>{children}</span>
     </div>
