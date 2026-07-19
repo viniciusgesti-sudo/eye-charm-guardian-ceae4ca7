@@ -20,6 +20,7 @@ const LOCALES: Lang[] = ["PT", "EN", "FR"];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = (params.locale ?? "pt").toLowerCase();
   const localeUp = locale.toUpperCase() as Lang;
