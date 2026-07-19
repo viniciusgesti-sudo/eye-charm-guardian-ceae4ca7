@@ -410,6 +410,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Porte B24 · 06:41",
       "portrait": "En pause",
     },
+    alts: {
+      "creative-studio": "Femme au travail dans un studio de design, portant les lunettes anti-lumière bleue Eyegis Solène en acétate champagne — lumière naturelle, sans retouche.",
+      "business-meeting": "Cadre entre deux réunions portant les lunettes anti-lumière bleue Eyegis Atelier à monture sombre — cadre professionnel.",
+      "architecture": "Intérieur architectural minimaliste en béton et verre, évoquant le quotidien des porteurs des lunettes Eyegis Meridian.",
+      "student": "Étudiant en longue session de lecture portant les lunettes anti-lumière bleue Eyegis Marais — monture ronde et légère, environnement de travail calme.",
+      "editing": "Photographe retouchant des images sur un écran calibré, portant Eyegis Solène — verres à tons naturels préservant une perception fidèle des couleurs.",
+      "travel": "Voyageur en train à grande vitesse européen portant Eyegis Meridian — verres anti-fatigue pour les longs trajets.",
+      "founder": "Fondatrice à un bureau debout portant Eyegis Atelier lors d'une session matinale de deep-work dans un home office moderne.",
+      "gaming-late": "Gamer en session nocturne portant Eyegis Meridian — filtre calibré pour de longues heures devant l'écran.",
+      "streamer": "Streameur en direct face caméra portant Eyegis — monture sombre discrète sous les lumières de studio.",
+      "kitchen": "Télétravailleuse concentrée dans un home office sur la table de cuisine, portant Eyegis Solène — lunettes du quotidien.",
+      "airport": "Cadre en déplacement à la porte d'embarquement portant Eyegis Atelier — monture légère en TR90 pour les vols long-courriers.",
+      "portrait": "Portrait éditorial d'une professionnelle parisienne portant Eyegis Solène — monture en acétate champagne à l'heure dorée.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Portrait client vérifié — ${name}, ${role} basée à ${country}, portant les lunettes anti-lumière bleue Eyegis au quotidien.`,
     lightbox: {
       body: (caption) =>
         `${caption} — un instant du quotidien capté sans retouche. Filtre optique EyegisGuard™, monture TR90, perception naturelle des couleurs.`,
