@@ -63,8 +63,8 @@ export const Route = createFileRoute("/$locale/")({
       ...seo,
       links: [
         ...seo.links,
-        { rel: "preload", as: "image", imagesrcset: heroZenith.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
-        { rel: "preload", as: "image", imagesrcset: heroClarity.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
+        { rel: "preload", as: "image", href: heroZenith.img.src, imagesrcset: heroZenith.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
+        { rel: "preload", as: "image", href: heroClarity.img.src, imagesrcset: heroClarity.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
       ],
     };
   },
