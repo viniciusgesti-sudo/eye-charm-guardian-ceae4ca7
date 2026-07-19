@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+
 
 import kidsHero from "@/assets/life-student.jpg?url";
 import kidsHeroSrc from "@/assets/life-student.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
