@@ -339,3 +339,52 @@
 #lovable-badge {
   display: none !important;
 }
+
+/* -------- High-contrast mode (toggle) --------
+ * Applied via `.hc` on <html>. Boosts secondary text, borders and
+ * decorative opacities so mid-tone content passes AA on any surface. */
+html.hc {
+  --muted-foreground: #2E3742;      /* was #5A6670 → ~11:1 on paper */
+  --border: rgba(29, 37, 45, 0.35);
+  --input: rgba(29, 37, 45, 0.45);
+}
+html.hc.dark {
+  --muted-foreground: #E6EAEE;
+  --border: rgba(249, 249, 249, 0.35);
+  --input: rgba(249, 249, 249, 0.45);
+}
+/* Raise low-opacity paper/ink text and borders used across marketing pages. */
+html.hc .text-paper\/60,
+html.hc .text-paper\/70,
+html.hc .text-paper\/80,
+html.hc .text-paper\/85,
+html.hc .text-paper\/90 { color: #FFFFFF !important; }
+html.hc .text-ink\/60,
+html.hc .text-ink\/70,
+html.hc .text-ink\/80 { color: #1D252D !important; }
+html.hc .text-white\/60,
+html.hc .text-white\/70,
+html.hc .text-white\/80 { color: #FFFFFF !important; }
+html.hc [class*="opacity-40"],
+html.hc [class*="opacity-50"],
+html.hc [class*="opacity-60"] { opacity: 0.9 !important; }
+html.hc a:focus-visible,
+html.hc button:focus-visible {
+  outline: 3px solid #FFB300 !important;
+  outline-offset: 3px !important;
+}
+/* Subtle badge so it's obvious the mode is on. */
+html.hc body::before {
+  content: "HIGH CONTRAST";
+  position: fixed;
+  bottom: 12px; left: 12px;
+  z-index: 9999;
+  font: 600 10px/1 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.18em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #1D252D;
+  color: #FFB300;
+  pointer-events: none;
+}
+
