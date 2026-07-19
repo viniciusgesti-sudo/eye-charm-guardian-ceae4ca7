@@ -35,7 +35,7 @@ const FAQ = lazy(() =>
 );
 
 const META = {
-  pt: {
+  br: {
     title: "Eyegis — Óculos de proteção digital com estilo",
     description:
       "Óculos premium com filtro de luz azul, engenharia científica e design atemporal para a geração digital.",
