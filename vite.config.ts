@@ -43,7 +43,6 @@ export default defineConfig({
           moduleSideEffects: (id: string) =>
             id.endsWith(".css") || id.includes("styles.css"),
           propertyReadSideEffects: false,
-          tryCatchDeoptimization: false,
         },
       },
     },
