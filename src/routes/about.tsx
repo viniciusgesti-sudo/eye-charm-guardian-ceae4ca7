@@ -432,10 +432,13 @@ function Reveal({
   );
 }
 
-const OFFWHITE = "#F6F3EE";
-const CHAMPAGNE = "#E9DFCC";
-const INK = "#0E1613";
-const TEAL = "#0C3B39";
+// Brand palette tokens (mirror of --paper / --champagne / --ink / --teal in src/styles.css).
+// Kept as local constants because this page uses inline style() heavily for
+// section-scoped backgrounds; values MUST match the design system.
+const OFFWHITE = "#F9F9F9";   // --paper
+const CHAMPAGNE = "#E2D1C3";  // --champagne
+const INK = "#1D252D";        // --ink
+const TEAL = "#004B57";       // --teal
 const MUTED = "#4A4438";
 
 function Rule({ label }: { label: string }) {
