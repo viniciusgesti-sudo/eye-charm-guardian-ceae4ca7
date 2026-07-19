@@ -26,8 +26,10 @@ import {
   existsSync,
   readFileSync,
   writeFileSync,
+  mkdirSync,
+  copyFileSync,
 } from "node:fs";
-import { join, extname } from "node:path";
+import { join, extname, basename } from "node:path";
 
 const KB = 1024;
 const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
