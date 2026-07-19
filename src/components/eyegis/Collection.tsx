@@ -599,6 +599,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "meridian", productKey: "meridian", filterKey: "Men",
     image: meridianHero, thumbImage: meridianHeroThumb,
     imageAlt: "Meridian frame — official Eyegis product photography",
+    pdpPath: "/product/meridian",
     gallery: [
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot on obsidian gradient", label: "Hero" },
       { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — dual angle pair", label: "Pair" },
