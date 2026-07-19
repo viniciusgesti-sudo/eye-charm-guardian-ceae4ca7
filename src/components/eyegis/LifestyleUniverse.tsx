@@ -343,30 +343,36 @@ const LIFESTYLE_COPY: Record<Lang, LifestyleCopy> = {
 
 /* Panel/Tone types are declared above near the copy dictionary. */
 
+export type LifestyleAudience = "men" | "women" | "kids";
+
 const PANEL_META = [
-  { image: lifeCreative, align: "right" as const, tone: "paper" as const, Icon: IconCreative },
-  { image: lifeBusiness, align: "left" as const, tone: "champagne" as const, Icon: IconBusiness },
-  { image: lifeGaming, align: "right" as const, tone: "teal" as const, Icon: IconGaming },
-  { image: lifeStudent, align: "left" as const, tone: "paper" as const, Icon: IconStudent },
-  { image: lifeTravel, align: "right" as const, tone: "champagne" as const, Icon: IconTravel },
+  { image: lifeCreative, align: "right" as const, tone: "paper" as const, Icon: IconCreative, audience: "women" as LifestyleAudience },
+  { image: lifeBusiness, align: "left" as const, tone: "champagne" as const, Icon: IconBusiness, audience: "men" as LifestyleAudience },
+  { image: lifeGaming, align: "right" as const, tone: "teal" as const, Icon: IconGaming, audience: "men" as LifestyleAudience },
+  { image: lifeStudent, align: "left" as const, tone: "paper" as const, Icon: IconStudent, audience: "kids" as LifestyleAudience },
+  { image: lifeTravel, align: "right" as const, tone: "champagne" as const, Icon: IconTravel, audience: "men" as LifestyleAudience },
 ];
 
-function buildPanels(copy: LifestyleCopy): Panel[] {
-  return copy.panels.map((p, i) => ({
-    index: String(i + 1).padStart(2, "0"),
-    eyebrow: p.eyebrow,
-    tags: p.tags,
-    title: p.title,
-    script: p.script,
-    body: p.body,
-    cta: p.cta,
-    image: PANEL_META[i].image,
-    imageAlt: p.imageAlt,
-    align: PANEL_META[i].align,
-    tone: PANEL_META[i].tone,
-    Icon: PANEL_META[i].Icon,
-  }));
+function buildPanels(copy: LifestyleCopy, audience?: LifestyleAudience): Panel[] {
+  return copy.panels
+    .map((p, i) => ({
+      index: String(i + 1).padStart(2, "0"),
+      eyebrow: p.eyebrow,
+      tags: p.tags,
+      title: p.title,
+      script: p.script,
+      body: p.body,
+      cta: p.cta,
+      image: PANEL_META[i].image,
+      imageAlt: p.imageAlt,
+      align: PANEL_META[i].align,
+      tone: PANEL_META[i].tone,
+      Icon: PANEL_META[i].Icon,
+      audience: PANEL_META[i].audience,
+    }))
+    .filter((p) => (audience ? p.audience === audience : true));
 }
+
 
 const TONE_STYLES: Record<Tone, { bg: string; text: string; muted: string; hairline: string; script: string; eyebrow: string; ctaBase: string; ctaHover: string; badge: string }> = {
   paper: {
