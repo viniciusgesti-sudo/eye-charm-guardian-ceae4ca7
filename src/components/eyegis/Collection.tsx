@@ -733,7 +733,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
         <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-ink/10 pt-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
             <span className="mr-2 font-eyebrow text-[10px] text-ink/50">{copy.preview.filterLabel}</span>
-            {FILTERS.map((f) => {
+            {availableFilters.map((f) => {
               const active = filter === f;
               return (
                 <button
