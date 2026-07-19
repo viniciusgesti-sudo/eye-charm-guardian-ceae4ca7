@@ -62,12 +62,15 @@ function TechnologyPage() {
   return (
     <>
       <OurTechnology />
-      <TechCore />
-      <HonestScience />
-      <ScienceInPractice />
-      <EyegisGuard />
-      <HowItWorks />
-      <ShopOnAmazon />
+      <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}>
+        <TechCore />
+        <HonestScience />
+        <ScienceInPractice />
+        <EyegisGuard />
+        <HowItWorks />
+        <ShopOnAmazon />
+      </Suspense>
     </>
   );
 }
+
