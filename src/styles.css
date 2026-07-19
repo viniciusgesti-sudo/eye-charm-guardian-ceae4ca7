@@ -657,3 +657,46 @@ select,
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------------------------------------------------------------
+   Section entrance motion DISABLED globally.
+   All sections render in their final, visible state on load.
+   --------------------------------------------------------------- */
+.reveal,
+.reveal-in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  filter: none !important;
+  clip-path: none !important;
+}
+.rise,
+.curtain,
+.kenburns-left,
+.kenburns-right {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  clip-path: none !important;
+  filter: none !important;
+}
+.animate-fade-in,
+.animate-fade-out,
+.animate-scale-in,
+.animate-scale-out,
+.animate-enter,
+.animate-exit,
+.animate-slide-in-right,
+.animate-slide-out-right {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+[data-reveal="hidden"],
+[data-reveal="shown"] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
