@@ -717,7 +717,8 @@ function FAQPage() {
             height={1400}
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.85) contrast(1.02)" }}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
           />
           <div
