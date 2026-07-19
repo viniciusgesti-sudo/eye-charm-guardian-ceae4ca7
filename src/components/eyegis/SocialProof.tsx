@@ -16,7 +16,7 @@ import guardBusiness from "@/assets/guard-life-business.jpg?w=480;768;1200&forma
 import guardCreative from "@/assets/guard-life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardStudent from "@/assets/guard-life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardGamer from "@/assets/guard-life-gamer.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import portrait from "@/assets/models-focus-eyegis.jpg?w=160;320;480&format=avif;webp;jpg&as=picture";
+
 
 import { Picture, type PictureSource } from "./Picture";
 
