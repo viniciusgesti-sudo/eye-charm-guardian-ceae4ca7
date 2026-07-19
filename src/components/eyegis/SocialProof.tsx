@@ -157,6 +157,8 @@ type Copy = {
     womenEveryday: string;
   };
   captions: Record<string, string>;
+  alts: Record<string, string>;
+  portraitAlt: (name: string, role: string, country: string) => string;
   lightbox: { body: (caption: string) => string; buyOnAmazon: string; details: string; close: string; open: (caption: string) => string };
   quote1Prefix: string;
   quote1Italic: string;
