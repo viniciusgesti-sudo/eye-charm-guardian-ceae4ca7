@@ -26,6 +26,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Rotas com hero claro precisam de tinta escura desde o topo (antes do scroll).
+  const path = location.pathname.replace(/^\/(pt|en|fr)/i, "");
+  const lightHeroRoute = path === "/women" || path === "/kids" || path.startsWith("/about") || path.startsWith("/faq") || path.startsWith("/shipping") || path.startsWith("/warranty") || path.startsWith("/contact") || path.startsWith("/lenses");
+  const useInk = scrolled || lightHeroRoute;
+
   const nav = [
     { key: "women", label: t("nav.women"), to: "/$locale/women" as const },
     { key: "men", label: t("nav.men"), to: "/$locale/men" as const },
@@ -47,8 +52,10 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ease-out ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border/50"
+          : lightHeroRoute
+            ? "bg-paper/70 backdrop-blur-md border-b border-border/30"
+            : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-3 items-center px-6 py-5 md:px-10 lg:px-14">
