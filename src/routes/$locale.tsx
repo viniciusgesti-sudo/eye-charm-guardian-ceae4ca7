@@ -36,7 +36,8 @@ function LocaleLayout() {
   const { setLang } = useI18n();
 
   useEffect(() => {
-    setLang(locale.toUpperCase() as Lang);
+    const lang: Lang = locale === "br" ? "PT" : (locale.toUpperCase() as Lang);
+    setLang(lang);
     if (typeof document !== "undefined") {
       document.documentElement.lang = locale;
     }
