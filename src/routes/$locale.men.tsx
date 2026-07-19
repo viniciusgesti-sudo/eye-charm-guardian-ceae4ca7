@@ -81,7 +81,7 @@ export const Route = createFileRoute("/$locale/men")({
 
 function MenPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.pt;
+  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
   return (
     <>
       <PageHero
