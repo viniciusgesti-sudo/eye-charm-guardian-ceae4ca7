@@ -13,7 +13,7 @@ import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 const COPY = {
-  pt: {
+  br: {
     eyebrow: "Coleção · Kids & Teens",
     title: (
       <>

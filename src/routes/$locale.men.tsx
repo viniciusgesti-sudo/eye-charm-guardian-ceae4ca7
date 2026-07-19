@@ -15,7 +15,7 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 const COPY = {
-  pt: {
+  br: {
     eyebrow: "Coleção · Homem",
     title: (
       <>

@@ -25,7 +25,7 @@ const ShopOnAmazon = lazy(() =>
 
 
 const META = {
-  pt: {
+  br: {
     title: "Tecnologia — Eyegis | E-Guard Retina™ & Circadian™",
     description:
       "Conheça a engenharia óptica Eyegis: E-Guard Retina™ para a fadiga digital diurna e E-Guard Circadian™ para o sono noturno.",
