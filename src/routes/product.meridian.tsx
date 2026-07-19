@@ -838,13 +838,10 @@ function Lifestyle() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[80vh] min-h-[560px] w-full">
-        <img
-          src={lifestyleImg}
+        <Picture
+          source={lifestyleImg}
           alt="Meridian eyewear worn during a long screen session in a modern architectural workspace"
-          width={2400}
-          height={1500}
-          loading="lazy"
-          decoding="async"
+          sizes="100vw"
           className="h-full w-full object-cover opacity-75"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
@@ -919,13 +916,10 @@ function TechnologyRecap() {
         <div className="lg:col-span-7">
           <Reveal>
             <div className="relative aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
-              <img
-                src={guardLens}
+              <Picture
+                source={guardLens}
                 alt="EyegisGuard optical filter lens macro — showing anti-reflective coating detail"
-                width={1500}
-                height={1200}
-                loading="lazy"
-                decoding="async"
+                sizes="(min-width:1024px) 55vw, 100vw"
                 className="h-full w-full object-cover float-slow"
               />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(134,217,209,0.14),transparent_65%)]" />
