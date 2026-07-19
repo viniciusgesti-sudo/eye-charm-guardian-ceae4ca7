@@ -1,5 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { BeforeAfter } from "@/components/qa/BeforeAfter";
+
+// Rotas renderizadas em iframes para validar breakpoints rapidamente
+const responsiveRoutes: { path: string; label: string }[] = [
+  { path: "/", label: "Home" },
+  { path: "/en/women", label: "Women" },
+  { path: "/en/men", label: "Men" },
+  { path: "/en/kids", label: "Kids" },
+  { path: "/en/technology", label: "Technology" },
+  { path: "/product/meridian", label: "PDP — Meridian" },
+  { path: "/product/solene", label: "PDP — Solène" },
+  { path: "/product/atelier", label: "PDP — Atelier" },
+  { path: "/product/marais", label: "PDP — Marais" },
+];
+
+const BREAKPOINTS = [
+  { key: "mobile", label: "Mobile · 375", width: 375, height: 720 },
+  { key: "tablet", label: "Tablet · 768", width: 768, height: 820 },
+  { key: "desktop", label: "Desktop · 1280", width: 1280, height: 820 },
+] as const;
 
 import heroSPBefore from "@/assets/hero-saopaulo.jpg";
 import heroSPAfter from "@/assets/hero-saopaulo-eyegis.jpg";
