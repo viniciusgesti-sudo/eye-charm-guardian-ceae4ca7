@@ -51,7 +51,10 @@ export function Hero({ locale }: Props) {
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-mint/90">
               {t("nav.men")} · Zenith Universe
             </span>
-            <h1 className="mt-4 font-editorial text-[13vw] leading-[0.88] text-paper sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]">
+            <h1
+              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-paper sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
+            >
               ZENITH<br />
               <span className="italic text-mint">LENS</span>
             </h1>
