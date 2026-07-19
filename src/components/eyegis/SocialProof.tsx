@@ -541,7 +541,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-ink">
             <Picture
               source={shot.src}
-              alt={shot.alt}
+              alt={copy.alts[shot.id] ?? shot.alt}
               sizes="(min-width:1024px) 60vw, 100vw"
               priority
               className="h-full max-h-[78vh] w-full object-cover animate-[zoomIn_800ms_cubic-bezier(0.22,1,0.36,1)_both]"
