@@ -35,7 +35,7 @@ export function Hero({ locale }: Props) {
         <div className="group relative w-full overflow-hidden lg:w-1/2">
           <Picture
             source={heroZenith}
-            alt="Eyegis Zenith — man wearing dark-frame glasses, São Paulo night"
+            alt={alts.zenith}
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover object-[60%_35%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
