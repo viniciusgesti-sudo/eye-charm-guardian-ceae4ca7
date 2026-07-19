@@ -112,7 +112,7 @@ const cols = [
   },
 ];
 
-const socials: { label: string; href: string; Icon: (p: React.SVGProps<SVGSVGElement>) => JSX.Element }[] = [];
+
 
 const topNav = [
   { label: "Shop",       href: AMZ, external: true },
@@ -181,30 +181,6 @@ export function Footer() {
                 </ul>
               </div>
             ))}
-
-            {/* Column 4 — social */}
-            <div>
-              <h4 className="small-caps text-[11px] text-mint">Follow Eyegis</h4>
-              <ul className="mt-5 flex items-center gap-4">
-                {socials.map(({ label, href, Icon }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-mint hover:text-mint"
-                    >
-                      <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 font-sans text-xs font-light leading-relaxed text-white/40">
-                Join the Eyegis community for launches, honest science, and
-                editorial stories.
-              </p>
-            </div>
           </div>
 
           {/* Bottom bar */}
