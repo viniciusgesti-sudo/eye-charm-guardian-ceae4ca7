@@ -417,6 +417,16 @@
 [style*="rgba(29, 37, 45, 0.6"] {
   color: #1D252D !important;
 }
+/* Same for near-white text on dark surfaces. */
+[style*="rgba(249,249,249,0.5"],
+[style*="rgba(249,249,249,0.6"],
+[style*="rgba(249, 249, 249, 0.5"],
+[style*="rgba(249, 249, 249, 0.6"],
+[style*="rgba(255,255,255,0.5"],
+[style*="rgba(255,255,255,0.6"] {
+  color: #F9F9F9 !important;
+}
+
 
 .text-white\/40,
 .text-white\/50,
