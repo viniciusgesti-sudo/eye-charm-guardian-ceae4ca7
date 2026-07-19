@@ -255,7 +255,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
         </div>
 
         <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-8 [scrollbar-width:none] md:mt-20 md:gap-7 [&::-webkit-scrollbar]:hidden" aria-label="Eyegis applied model runway">
-          {copy.looks.map((look, index) => (
+          {looks.map((look, index) => (
             <article
               key={look.code}
               className="group relative grid min-h-[720px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
