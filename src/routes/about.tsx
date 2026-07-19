@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 import heroImgSrc from "@/assets/lifestyle-architecture.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
@@ -21,24 +22,14 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Eyegis — Designed for the Way We Live Today" },
-      {
-        name: "description",
-        content:
-          "Eyegis is a premium eyewear brand built for the digital generation — pairing evidence-based optical engineering with timeless design.",
-      },
-      { property: "og:title", content: "About Eyegis — Designed for the Way We Live Today" },
-      {
-        property: "og:description",
-        content:
-          "A premium eyewear brand built for the digital generation. Honest science, timeless design, engineered comfort.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      title: "About Eyegis — Designed for the Way We Live Today",
+      description:
+        "Eyegis is a premium eyewear brand built for the digital generation — pairing evidence-based optical engineering with timeless design.",
+      path: "/about",
+    }),
+
   component: AboutPage,
 });
 

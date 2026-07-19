@@ -8,6 +8,7 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { SocialProof } from "@/components/eyegis/SocialProof";
 import { TrustStrip } from "@/components/eyegis/TrustStrip";
 import { Universe } from "@/components/eyegis/Universe";
+import { buildSeo, DEFAULT_LOCALE, type Locale } from "@/lib/seo";
 
 const META = {
   pt: {
@@ -29,24 +30,19 @@ const META = {
 
 export const Route = createFileRoute("/$locale/")({
   head: ({ params }) => {
-    const m = META[params.locale as keyof typeof META] ?? META.pt;
-    return {
-      meta: [
-        { title: m.title },
-        { name: "description", content: m.description },
-        { property: "og:title", content: m.title },
-        { property: "og:description", content: m.description },
-      ],
-      links: [
-        { rel: "alternate", hrefLang: "pt", href: "/pt" },
-        { rel: "alternate", hrefLang: "en", href: "/en" },
-        { rel: "alternate", hrefLang: "fr", href: "/fr" },
-        { rel: "alternate", hrefLang: "x-default", href: "/pt" },
-      ],
-    };
+    const locale = (params.locale in META ? params.locale : DEFAULT_LOCALE) as Locale;
+    const m = META[locale];
+    return buildSeo({
+      title: m.title,
+      description: m.description,
+      path: `/${locale}`,
+      locale,
+      localizedBasePath: "",
+    });
   },
   component: HomePage,
 });
+
 
 function HomePage() {
   const { locale } = Route.useParams();

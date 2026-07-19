@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/shipping-unboxing.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
@@ -409,24 +410,14 @@ const CONTENT: Record<Lang, ShippingCopy> = {
 
 
 export const Route = createFileRoute("/shipping")({
-  head: () => ({
-    meta: [
-      { title: "Shipping, Returns & Amazon Experience — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Every Eyegis purchase is fulfilled through Amazon — secure checkout, fast delivery, easy returns and trusted global support.",
-      },
-      { property: "og:title", content: "Shipping, Returns & Amazon Experience — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Simple. Fast. Trusted. Your Eyegis order, delivered by Amazon's global logistics network.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      title: "Shipping, Returns & Amazon Experience — Eyegis",
+      description:
+        "Every Eyegis purchase is fulfilled through Amazon — secure checkout, fast delivery, easy returns and trusted global support.",
+      path: "/shipping",
+    }),
+
   component: ShippingPage,
 });
 

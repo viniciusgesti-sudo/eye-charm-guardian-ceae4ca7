@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+
 
 import heroClarity from "@/assets/hero-clarity-woman.jpg?url";
 import heroClaritySrc from "@/assets/hero-clarity-woman.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
@@ -62,17 +64,18 @@ const COPY = {
 
 export const Route = createFileRoute("/$locale/women")({
   head: ({ params }) => {
-    const c = COPY[params.locale as keyof typeof COPY] ?? COPY.pt;
-    return {
-      meta: [
-        { title: c.metaTitle },
-        { name: "description", content: c.metaDesc },
-        { property: "og:title", content: c.metaTitle },
-        { property: "og:description", content: c.metaDesc },
-        { property: "og:image", content: heroClarity },
-      ],
-    };
+    const locale = (params.locale in COPY ? params.locale : "pt") as "pt" | "en" | "fr";
+    const c = COPY[locale];
+    return buildSeo({
+      title: c.metaTitle,
+      description: c.metaDesc,
+      path: `/${locale}/women`,
+      image: `https://eye-charm-guardian.lovable.app${heroClarity}`,
+      locale,
+      localizedBasePath: "/women",
+    });
   },
+
   component: WomenPage,
 });
 

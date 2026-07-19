@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 
@@ -10,24 +11,14 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — We're Here to Help — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Reach the Eyegis team for product questions, warranty, Amazon orders and business enquiries. Premium international customer care.",
-      },
-      { property: "og:title", content: "Contact Eyegis — We're Here to Help" },
-      {
-        property: "og:description",
-        content:
-          "Premium customer care for Eyegis. Product, warranty, orders and partnerships.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      title: "Contact — We're Here to Help — Eyegis",
+      description:
+        "Reach the Eyegis team for product questions, warranty, Amazon orders and business enquiries. Premium international customer care.",
+      path: "/contact",
+    }),
+
   component: ContactPage,
 });
 

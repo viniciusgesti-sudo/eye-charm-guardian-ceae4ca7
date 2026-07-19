@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+
 
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { HonestScience } from "@/components/eyegis/HonestScience";
@@ -28,16 +30,17 @@ const META = {
 
 export const Route = createFileRoute("/$locale/technology")({
   head: ({ params }) => {
-    const m = META[params.locale as keyof typeof META] ?? META.pt;
-    return {
-      meta: [
-        { title: m.title },
-        { name: "description", content: m.description },
-        { property: "og:title", content: m.title },
-        { property: "og:description", content: m.description },
-      ],
-    };
+    const locale = (params.locale in META ? params.locale : "pt") as "pt" | "en" | "fr";
+    const m = META[locale];
+    return buildSeo({
+      title: m.title,
+      description: m.description,
+      path: `/${locale}/technology`,
+      locale,
+      localizedBasePath: "/technology",
+    });
   },
+
   component: TechnologyPage,
 });
 

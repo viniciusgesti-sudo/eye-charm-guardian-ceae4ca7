@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/contact-concierge.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
@@ -14,22 +15,14 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 export const Route = createFileRoute("/lenses")({
-  head: () => ({
-    meta: [
-      { title: "Choose Your Lenses — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Find the perfect Eyegis lens for the way you live. A premium, interactive guide to visual comfort, color accuracy and screen exposure.",
-      },
-      { property: "og:title", content: "Choose Your Lenses — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "A premium interactive guide to choosing the right EyegisGuard™ lens for your digital lifestyle.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      title: "Choose Your Lenses — Eyegis",
+      description:
+        "Find the perfect Eyegis lens for the way you live. A premium, interactive guide to visual comfort, color accuracy and screen exposure.",
+      path: "/lenses",
+    }),
+
   component: LensesPage,
 });
 
