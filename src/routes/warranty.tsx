@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/product-hero.jpg";
-import qualityImg from "@/assets/science-lens-exploded.jpg";
-import promiseImg from "@/assets/universe-eyewear.jpg";
+import heroImg from "@/assets/product-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import qualityImg from "@/assets/science-lens-exploded.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import promiseImg from "@/assets/universe-eyewear.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -597,16 +598,13 @@ function WarrantyPage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
+          <Picture
+            source={heroImg}
             alt="Eyegis eyewear in soft studio light — hero image for warranty page"
-            width={2400}
-            height={1400}
+            sizes="100vw"
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.9) contrast(1.02)" }}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
+            priority
           />
           <div
             className="absolute inset-0"
@@ -835,14 +833,11 @@ function WarrantyPage() {
 
         <div className="mt-20 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-5">
-            <img
-              src={qualityImg}
+            <Picture
+              source={qualityImg}
               alt="Eyegis lens engineering detail — precision QC inspection close-up"
-              width={1400}
-              height={1750}
+              sizes="(min-width:768px) 42vw, 100vw"
               className="h-[70vh] w-full object-cover"
-              loading="lazy"
-              decoding="async"
             />
           </Reveal>
 
@@ -963,15 +958,12 @@ function WarrantyPage() {
       {/* FINAL CTA */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
-          <img
-            src={promiseImg}
+          <Picture
+            source={promiseImg}
             alt=""
             aria-hidden="true"
-            width={2400}
-            height={1400}
+            sizes="100vw"
             className="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
