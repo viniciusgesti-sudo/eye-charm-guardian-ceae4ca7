@@ -23,6 +23,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
 import { Route as ProductSoleneRouteImport } from './routes/product.solene'
 import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
+import { Route as ProductMaraisRouteImport } from './routes/product.marais'
 import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
@@ -101,6 +102,11 @@ const ProductMeridianRoute = ProductMeridianRouteImport.update({
   path: '/product/meridian',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductMaraisRoute = ProductMaraisRouteImport.update({
+  id: '/product/marais',
+  path: '/product/marais',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocaleWomenRoute = LocaleWomenRouteImport.update({
   id: '/women',
   path: '/women',
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
   '/$locale/': typeof LocaleIndexRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
   '/$locale': typeof LocaleIndexRoute
@@ -202,6 +210,7 @@ export interface FileRoutesById {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
   '/$locale/': typeof LocaleIndexRoute
@@ -227,6 +236,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
     | '/$locale/'
@@ -249,6 +259,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
     | '/$locale'
@@ -272,6 +283,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
     | '/$locale/'
@@ -289,6 +301,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
   WarrantyRoute: typeof WarrantyRoute
+  ProductMaraisRoute: typeof ProductMaraisRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
   ProductSoleneRoute: typeof ProductSoleneRoute
 }
@@ -393,6 +406,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductMeridianRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product/marais': {
+      id: '/product/marais'
+      path: '/product/marais'
+      fullPath: '/product/marais'
+      preLoaderRoute: typeof ProductMaraisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$locale/women': {
       id: '/$locale/women'
       path: '/women'
@@ -482,6 +502,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
   WarrantyRoute: WarrantyRoute,
+  ProductMaraisRoute: ProductMaraisRoute,
   ProductMeridianRoute: ProductMeridianRoute,
   ProductSoleneRoute: ProductSoleneRoute,
 }

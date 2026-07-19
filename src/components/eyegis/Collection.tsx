@@ -632,6 +632,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "marais", productKey: "marais", filterKey: "Women",
     image: maraisFront, thumbImage: maraisFrontThumb,
     imageAlt: "Marais frame — official Eyegis product photography",
+    pdpPath: "/product/marais",
     gallery: [
       { src: maraisFront, thumb: maraisFrontThumb, alt: "Marais — front three-quarter view", label: "Front" },
     ],
