@@ -102,6 +102,7 @@ const currentAssets: { section: string; items: { src: string; label: string; sku
 function QAPage() {
   const [bp, setBp] = useState<(typeof BREAKPOINTS)[number]["key"]>("mobile");
   const active = BREAKPOINTS.find((b) => b.key === bp) ?? BREAKPOINTS[0];
+  const [mode, setMode] = useState<"slider" | "side">("slider");
 
   return (
     <main className="min-h-screen bg-[color:var(--surface,#F9F9F9)] text-[color:var(--text,#1D252D)]">
@@ -112,21 +113,44 @@ function QAPage() {
             Visual Review — Before vs After
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-black/70">
-            Arraste o divisor para comparar assets antigos e novos, e use o seletor de breakpoint
-            abaixo para inspecionar o layout em mobile, tablet e desktop.
+            Arraste o divisor para comparar assets antigos e novos, alterne para o modo lado a lado
+            com zoom em hover, e use o seletor de breakpoint para inspecionar o layout em mobile,
+            tablet e desktop.
           </p>
         </div>
       </header>
 
       <section className="mx-auto max-w-6xl px-6 py-12">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-[color:var(--primary)] mb-6">
-          Comparações interativas — Heroes
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {beforeAfterPairs.map((p) => (
-            <BeforeAfter key={p.label} {...p} />
-          ))}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-xs uppercase tracking-[0.2em] text-[color:var(--primary)]">
+            Comparações interativas — Heroes
+          </h2>
+          <div className="flex gap-2">
+            {(["slider", "side"] as const).map((m) => (
+              <button
+                key={m}
+                onClick={() => setMode(m)}
+                className={`rounded-full border px-3 py-1 text-[11px] uppercase tracking-widest transition ${
+                  mode === m
+                    ? "border-[color:var(--primary)] bg-[color:var(--primary)] text-white"
+                    : "border-black/15 bg-white text-black/70 hover:bg-black/5"
+                }`}
+              >
+                {m === "slider" ? "Slider" : "Lado a lado · zoom"}
+              </button>
+            ))}
+          </div>
         </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {beforeAfterPairs.map((p) =>
+            mode === "slider" ? (
+              <BeforeAfter key={p.label} {...p} />
+            ) : (
+              <SideBySide key={p.label} {...p} />
+            )
+          )}
+        </div>
+
 
         <h3 className="mt-12 text-xs uppercase tracking-[0.2em] text-black/60 mb-4">
           Mesmos pares · larguras fixas (mobile 375 vs desktop 1280)
