@@ -610,7 +610,7 @@ function ProductHero() {
 /*  Gallery                                                         */
 /* ---------------------------------------------------------------- */
 
-const GALLERY_SRC = [heroImg, pairImg, lensMacro, pouchImg, packageImg, portrait];
+const GALLERY_SRC = [heroImgSrc, pairImgSrc, lensMacroSrc, pouchImgSrc, packageImgSrc, portraitSrc];
 
 function Gallery() {
   const c = useContent();
