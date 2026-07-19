@@ -27,7 +27,7 @@ export function Hero({ locale }: Props) {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(0,180,255,0.18),transparent_60%)]" />
           <div className="pointer-events-none absolute inset-0 mix-blend-multiply bg-[linear-gradient(180deg,rgba(2,12,20,0.35)_0%,rgba(2,12,20,0.55)_60%,rgba(2,12,20,0.9)_100%)]" />
           <div className="pointer-events-none absolute inset-0 bg-teal-deep/25 mix-blend-color" />
-          <div className="absolute left-6 top-6 md:left-10 md:top-10 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-cyan-200/80">
+          <div className="absolute left-6 top-24 md:left-10 md:top-28 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-cyan-200/80">
             <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-300" />
             <span>SP · 23:47 · Night Grid</span>
           </div>
@@ -70,7 +70,7 @@ export function Hero({ locale }: Props) {
           />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_20%,rgba(255,220,170,0.22),transparent_60%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,235,205,0.05)_0%,rgba(226,209,195,0.35)_65%,rgba(226,209,195,0.85)_100%)]" />
-          <div className="absolute right-6 top-6 md:right-10 md:top-10 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
+          <div className="absolute right-6 top-24 md:right-10 md:top-28 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
             <span>Golden Hour · Paris</span>
             <span className="h-2 w-2 rounded-full bg-[#B4956B]" />
           </div>

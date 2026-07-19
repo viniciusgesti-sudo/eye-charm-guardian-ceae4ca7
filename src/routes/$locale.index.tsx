@@ -37,10 +37,10 @@ export const Route = createFileRoute("/$locale/")({
         { property: "og:description", content: m.description },
       ],
       links: [
-        { rel: "alternate", hreflang: "pt", href: "/pt" },
-        { rel: "alternate", hreflang: "en", href: "/en" },
-        { rel: "alternate", hreflang: "fr", href: "/fr" },
-        { rel: "alternate", hreflang: "x-default", href: "/pt" },
+        { rel: "alternate", hrefLang: "pt", href: "/pt" },
+        { rel: "alternate", hrefLang: "en", href: "/en" },
+        { rel: "alternate", hrefLang: "fr", href: "/fr" },
+        { rel: "alternate", hrefLang: "x-default", href: "/pt" },
       ],
     };
   },
