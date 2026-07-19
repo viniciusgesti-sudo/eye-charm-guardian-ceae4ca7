@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/lifestyle-work.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
+import heroImg from "@/assets/persona-executive.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
 import compareImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
-import lifeBusiness from "@/assets/life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifeCreative from "@/assets/life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifeGaming from "@/assets/life-gaming.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/persona-executive.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeCreative from "@/assets/persona-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/persona-gamer.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import atelierFront from "@/assets/products/atelier-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
