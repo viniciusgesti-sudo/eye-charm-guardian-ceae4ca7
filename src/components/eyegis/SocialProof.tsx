@@ -80,18 +80,18 @@ type ShotMeta = {
 };
 
 const SHOTS: ShotMeta[] = [
-  { id: "creative-studio", src: lifeCreative, alt: "Creative studio", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-6 md:row-span-2 aspect-[4/5]" },
-  { id: "business-meeting", src: lifeBusiness, alt: "Business meeting", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
+  { id: "creative-studio", src: modelsCreative, alt: "Creative in studio wearing Eyegis Solène", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-6 md:row-span-2 aspect-[4/5]" },
+  { id: "business-meeting", src: modelsBusiness, alt: "Executive wearing Eyegis Atelier", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
   { id: "architecture", src: lifestyleArch, alt: "Architectural interior", collectionKey: "menEveryday", product: "Meridian", span: "md:col-span-3 aspect-square" },
-  { id: "student", src: lifeStudent, alt: "Student reading", collectionKey: "kids", product: "Marais", span: "md:col-span-3 aspect-square" },
+  { id: "student", src: guardStudent, alt: "Student reading with Eyegis Marais", collectionKey: "kids", product: "Marais", span: "md:col-span-3 aspect-square" },
   { id: "editing", src: guardCreative, alt: "Photographer editing", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
   { id: "travel", src: lifeTravel, alt: "Traveler on a train", collectionKey: "menEveryday", product: "Meridian", span: "md:col-span-6 md:row-span-2 aspect-[16/11]" },
   { id: "founder", src: guardBusiness, alt: "Founder at standing desk", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
   { id: "gaming-late", src: guardGamer, alt: "Late-night gaming", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
-  { id: "streamer", src: lifeGaming, alt: "Streamer setup", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
-  { id: "kitchen", src: lifestyleWork, alt: "Remote worker in kitchen", collectionKey: "womenEveryday", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
+  { id: "streamer", src: heroSaoPauloEyegis, alt: "Streamer wearing Eyegis", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
+  { id: "kitchen", src: modelsFocus, alt: "Remote worker in focus", collectionKey: "womenEveryday", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
   { id: "airport", src: lifestyleTravel, alt: "Airport terminal", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
-  { id: "portrait", src: portrait, alt: "Portrait", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
+  { id: "portrait", src: heroParisEyegis, alt: "Portrait with Eyegis eyewear", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
 ];
 
 type TestimonialMeta = {
@@ -103,12 +103,12 @@ type TestimonialMeta = {
 };
 
 const TESTIMONIALS: TestimonialMeta[] = [
-  { id: "camille", name: "Camille", country: "Paris, France", rating: 5, portrait: lifeCreative },
-  { id: "andres", name: "Andrés", country: "São Paulo, Brazil", rating: 5, portrait: guardBusiness },
-  { id: "naomi", name: "Naomi", country: "Tokyo, Japan", rating: 5, portrait: guardCreative },
+  { id: "camille", name: "Camille", country: "Paris, France", rating: 5, portrait: heroParisEyegis },
+  { id: "andres", name: "Andrés", country: "São Paulo, Brazil", rating: 5, portrait: heroSaoPauloEyegis },
+  { id: "naomi", name: "Naomi", country: "Tokyo, Japan", rating: 5, portrait: modelsCreative },
   { id: "lea", name: "Léa", country: "Zurich, Switzerland", rating: 5, portrait: lifestyleTravel },
   { id: "miguel", name: "Miguel", country: "Lisbon, Portugal", rating: 5, portrait: guardStudent },
-  { id: "priya", name: "Priya", country: "London, United Kingdom", rating: 5, portrait: portrait },
+  { id: "priya", name: "Priya", country: "London, United Kingdom", rating: 5, portrait: modelsBusiness },
 ];
 
 /* ------------------------------------------------------------------ */
