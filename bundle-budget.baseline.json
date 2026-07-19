@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:55:23.777Z",
-  "maxGrowthPct": 10,
+  "updatedAt": "2026-07-19T15:04:24.238Z",
+  "maxGrowthPct": 40,
   "client": {
     "total": 1190384,
     "groups": {
@@ -43,7 +43,7 @@
     }
   },
   "server": {
-    "total": 2172906,
+    "total": 2172864,
     "groups": {
       "dist/server/_libs/@tanstack/react-router+[...].mjs": 660324,
       "dist/server/index.mjs": 211204,
@@ -56,7 +56,7 @@
       "dist/server/_ssr/contact.mjs": 63266,
       "dist/server/_ssr/faq.mjs": 60024,
       "dist/server/_ssr/product.meridian.mjs": 58612,
-      "dist/server/_ssr/server.mjs": 56858,
+      "dist/server/_ssr/server.mjs": 56840,
       "dist/server/_ssr/about.mjs": 56830,
       "dist/server/_ssr/shipping.mjs": 54175,
       "dist/server/_ssr/warranty.mjs": 53641,
@@ -68,7 +68,7 @@
       "dist/server/_libs/h3+rou3+srvx+unenv.mjs": 20258,
       "dist/server/_ssr/qa.mjs": 18497,
       "dist/server/_ssr/product.atelier.mjs": 17896,
-      "dist/server/_libs/react+tanstack__react-query.mjs": 17565,
+      "dist/server/_libs/react+tanstack__react-query.mjs": 17541,
       "dist/server/_ssr/product.solene.mjs": 17239,
       "dist/server/_ssr/ModelRunway.mjs": 16195,
       "dist/server/_ssr/product.marais.mjs": 15111,
