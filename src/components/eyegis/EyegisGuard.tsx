@@ -753,15 +753,12 @@ export function EyegisGuard() {
                 <Reveal key={l.title} delay={i * 120}>
                   <article className="group">
                     <div className="relative overflow-hidden bg-ink/5 aspect-[4/5]">
-                      <img
-                        src={meta.img}
+                      <Picture
+                        source={meta.img}
                         alt={`${l.title} — Eyegis`}
-                        width={1400}
-                        height={1750}
-                        loading="lazy"
+                        sizes="(min-width:768px) 50vw, 100vw"
                         className="h-full w-full object-cover img-hover group-hover:img-hover-in"
-            decoding="async"
-          />
+                      />
                     </div>
                     <div className="mt-6 flex items-start gap-6">
                       <div className="mt-1 text-teal">
