@@ -70,10 +70,14 @@
   --teal: #004B57;               /* primary */
   --sand: #E2D1C3;               /* secondary */
   --sand-warm: #EFE5D9;
+  --champagne: #E2D1C3;          /* alias — editorial usage */
+  --copper: #B4956B;             /* editorial accent (eyebrows, hairlines) */
+  --copper-deep: #8A6E4A;
   --mint: #86D9D1;               /* accent */
   --ink: #1D252D;                /* text */
   --paper: #F9F9F9;              /* background */
   --paper-warm: #F3EFE9;
+
 
   /* Semantic mapping (light — the site is essentially "light editorial") */
   --background: #F9F9F9;
