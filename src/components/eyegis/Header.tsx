@@ -1,6 +1,14 @@
 import { Link, useLocation, useNavigate, useParams } from "@tanstack/react-router";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -12,6 +20,7 @@ const LOCALES: Lang[] = ["PT", "EN", "FR"];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = (params.locale ?? "pt").toLowerCase();
   const localeUp = locale.toUpperCase() as Lang;
@@ -142,6 +151,81 @@ export function Header() {
               →
             </span>
           </a>
+
+          {/* Mobile hamburger */}
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                aria-label="Open menu"
+                className={`lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-500 ${
+                  useInk
+                    ? "border-ink/25 text-ink hover:bg-ink/5"
+                    : "border-paper/40 text-paper hover:bg-paper/10"
+                }`}
+              >
+                <Menu className="h-5 w-5" aria-hidden />
+              </button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="w-[86%] max-w-sm bg-paper text-ink flex flex-col gap-8 p-8"
+            >
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <div className="flex items-center justify-between">
+                <Logo className="h-6 w-auto text-ink" />
+              </div>
+              <nav className="flex flex-col gap-1 font-editorial text-2xl leading-tight">
+                {nav.map((item) => (
+                  <SheetClose asChild key={item.key}>
+                    <Link
+                      to={item.to}
+                      params={{ locale }}
+                      onClick={() => setMobileOpen(false)}
+                      className="py-3 border-b border-ink/10 hover:text-teal transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </SheetClose>
+                ))}
+              </nav>
+              <div className="flex items-center gap-3 font-eyebrow text-xs">
+                {LOCALES.map((l, i) => (
+                  <div key={l} className="flex items-center gap-3">
+                    {i > 0 && <span className="opacity-25">·</span>}
+                    <button
+                      onClick={() => {
+                        switchLocale(l);
+                        setMobileOpen(false);
+                      }}
+                      className={`transition-opacity ${
+                        localeUp === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
+                      }`}
+                      aria-current={localeUp === l ? "true" : undefined}
+                    >
+                      {l}
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-3 border-t border-ink/10 pt-6">
+                <HighContrastToggle tone="light" />
+                <span className="font-eyebrow text-[11px] text-ink/60">Honest Science mode</span>
+              </div>
+              <div className="mt-auto">
+                <a
+                  href={DEFAULT_AMAZON_URL}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all"
+                >
+                  <span>{t("nav.shopAmazon")}</span>
+                  <span aria-hidden>→</span>
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

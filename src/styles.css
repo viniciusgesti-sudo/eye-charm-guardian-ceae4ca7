@@ -426,3 +426,13 @@ html.hc body::before {
   pointer-events: none;
 }
 
+
+/* Reveal accessibility fallback */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

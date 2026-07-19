@@ -425,6 +425,10 @@ function useReveal<T extends HTMLElement>() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShown(true);
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -437,7 +441,11 @@ function useReveal<T extends HTMLElement>() {
       { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+    const fallback = window.setTimeout(() => setShown(true), 500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
   return { ref, shown };
 }
@@ -458,6 +466,7 @@ function Reveal({
   return (
     <Component
       ref={ref}
+      data-reveal={shown ? "shown" : "hidden"}
       style={{
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
@@ -527,74 +536,62 @@ function ProductHero() {
     <section className="relative bg-paper pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 px-6 md:px-10 lg:px-14 items-center">
         <div className="lg:col-span-5 order-2 lg:order-1">
-          <Reveal>
-            <span className="font-eyebrow text-teal">{c.chapter}</span>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[96px]">
-              Meridian
-              <span className="block italic text-teal">{c.by}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-8 max-w-md font-light text-lg leading-relaxed text-ink/75">
-              {c.intro}
-            </p>
-          </Reveal>
+          <span className="font-eyebrow text-teal">{c.chapter}</span>
+          <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[96px]">
+            Meridian
+            <span className="block italic text-teal">{c.by}</span>
+          </h1>
+          <p className="mt-8 max-w-md font-light text-lg leading-relaxed text-ink/75">
+            {c.intro}
+          </p>
 
-          <Reveal delay={340}>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {c.badges.map((b) => (
-                <li
-                  key={b}
-                  className="rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 font-eyebrow text-[10px] text-ink/75"
-                >
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          <ul className="mt-10 flex flex-wrap gap-2">
+            {c.badges.map((b) => (
+              <li
+                key={b}
+                className="rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 font-eyebrow text-[10px] text-ink/75"
+              >
+                {b}
+              </li>
+            ))}
+          </ul>
 
-          <Reveal delay={440}>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a
-                href={AMAZON_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-8 py-5 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(0,56,66,0.85)] transition-all duration-500"
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href={AMAZON_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-8 py-5 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(0,56,66,0.85)] transition-all duration-500"
+            >
+              <span className="font-eyebrow">{c.buyAmazon}</span>
+              <span
+                aria-hidden="true"
+                className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform duration-500 group-hover:translate-x-1"
               >
-                <span className="font-eyebrow">{c.buyAmazon}</span>
-                <span
-                  aria-hidden="true"
-                  className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform duration-500 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
-              <a
-                href="#gallery"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-ink/20 px-8 py-5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors duration-500"
-              >
-                {c.viewGallery}
-              </a>
-            </div>
-          </Reveal>
+                →
+              </span>
+            </a>
+            <a
+              href="#gallery"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-ink/20 px-8 py-5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors duration-500"
+            >
+              {c.viewGallery}
+            </a>
+          </div>
         </div>
 
         <div className="lg:col-span-7 order-1 lg:order-2 relative">
-          <Reveal delay={100}>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-paper-warm">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
-              <Picture
-                source={heroImgSrc}
-                alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
-                priority
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                className="h-full w-full object-cover object-center float-slow"
-              />
-              <div className="pointer-events-none absolute inset-x-[20%] bottom-6 h-6 rounded-[50%] bg-ink/15 blur-2xl" />
-            </div>
-          </Reveal>
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md bg-paper-warm">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
+            <Picture
+              source={heroImgSrc}
+              alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
+              priority
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="h-full w-full object-cover object-center float-slow"
+            />
+            <div className="pointer-events-none absolute inset-x-[20%] bottom-6 h-6 rounded-[50%] bg-ink/15 blur-2xl" />
+          </div>
         </div>
       </div>
 
