@@ -754,7 +754,7 @@ export function SocialProof() {
                 >
                   <Picture
                     source={s.src}
-                    alt={s.alt}
+                    alt={copy.alts[s.id] ?? s.alt}
                     sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
                     className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
                   />
