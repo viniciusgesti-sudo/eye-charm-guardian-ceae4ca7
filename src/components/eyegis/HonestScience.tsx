@@ -662,7 +662,7 @@ function References() {
               key={r}
               className="flex items-start gap-3 text-xs leading-relaxed"
             >
-              <span className="font-mono opacity-50">
+              <span className="font-mono opacity-90">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span>{r}</span>
