@@ -38,10 +38,9 @@ export default defineConfig({
       assetsInlineLimit: 4096,
       reportCompressedSize: false,
       rollupOptions: {
-        // Aggressive tree-shaking: assume no side-effects outside explicit imports.
+        // Aggressive tree-shaking: assume most modules are side-effect free.
         treeshake: {
-          preset: "smallest",
-          moduleSideEffects: (id) =>
+          moduleSideEffects: (id: string) =>
             id.endsWith(".css") || id.includes("styles.css"),
           propertyReadSideEffects: false,
           tryCatchDeoptimization: false,
