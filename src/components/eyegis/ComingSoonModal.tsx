@@ -262,7 +262,9 @@ export function ComingSoonModal() {
                 </label>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <input
+                    ref={emailRef}
                     id="coming-soon-email"
+
                     type="email"
                     autoComplete="email"
                     maxLength={254}
