@@ -93,9 +93,10 @@ function WomenPage() {
         tone="light"
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
-      <Collection />
-      <LifestyleUniverse />
-      <ModelRunway />
+      <Collection audience="women" />
+      <LifestyleUniverse audience="women" />
+      <ModelRunway audience="women" />
+
       <EyegisGuard />
       <ShopOnAmazon />
       <FAQ />
