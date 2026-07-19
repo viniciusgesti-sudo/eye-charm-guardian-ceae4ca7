@@ -368,10 +368,12 @@ function buildPanels(copy: LifestyleCopy, audience?: LifestyleAudience): Panel[]
       align: PANEL_META[i].align,
       tone: PANEL_META[i].tone,
       Icon: PANEL_META[i].Icon,
-      audience: PANEL_META[i].audience,
+      _audience: PANEL_META[i].audience,
     }))
-    .filter((p) => (audience ? p.audience === audience : true));
+    .filter((p) => (audience ? p._audience === audience : true))
+    .map(({ _audience: _a, ...rest }) => rest);
 }
+
 
 
 const TONE_STYLES: Record<Tone, { bg: string; text: string; muted: string; hairline: string; script: string; eyebrow: string; ctaBase: string; ctaHover: string; badge: string }> = {
