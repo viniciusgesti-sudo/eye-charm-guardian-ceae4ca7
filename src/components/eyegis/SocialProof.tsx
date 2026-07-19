@@ -697,7 +697,7 @@ export function SocialProof() {
     <article className="h-full rounded-lg border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <div className="h-14 w-14 overflow-hidden rounded-full bg-ink/10">
-          <Picture source={t.portrait} alt={`${t.name}, ${copy.roles[t.id]}`} sizes="56px" className="h-full w-full object-cover" />
+          <Picture source={t.portrait} alt={copy.portraitAlt(t.name, copy.roles[t.id], t.country)} sizes="56px" className="h-full w-full object-cover" />
         </div>
         <div>
           <div className="font-editorial text-ink text-lg leading-tight">{t.name}</div>
