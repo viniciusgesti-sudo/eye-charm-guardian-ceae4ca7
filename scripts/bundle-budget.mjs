@@ -2,20 +2,21 @@
 /**
  * Bundle size budget check.
  *
- * Runs after `vite build` and fails (exit 1) when any budget is exceeded.
- * Budgets are expressed in KB (1 KB = 1024 bytes) and cover the shipped
- * artifacts under `dist/client` (browser bundle) and `dist/server` (Worker
- * SSR bundle). Images / fonts / other static assets are excluded — this
- * budget guards JavaScript and CSS payloads only.
+ * Runs after `vite build`. Emits WARN when a file/total crosses the warning
+ * threshold (default 90% of the limit) and FAILS (exit 1) only when it
+ * exceeds 100%. Budgets are KB (1 KB = 1024 bytes) and cover shipped
+ * JS/CSS under `dist/client` and MJS under `dist/server`.
  *
- * Override any budget via env var, e.g.
- *   BUDGET_CLIENT_TOTAL_KB=1600 bun run build
+ * Overrides via env vars, e.g.
+ *   BUDGET_CLIENT_TOTAL_KB=1600 BUDGET_WARN_PCT=85 bun run build
  */
 import { readdirSync, statSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
 
 const KB = 1024;
 const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
+
+const WARN_PCT = Math.min(100, Math.max(1, num(process.env.BUDGET_WARN_PCT, 90)));
 
 // --- Budgets (KB) --------------------------------------------------------
 const BUDGETS = {
@@ -47,6 +48,7 @@ function walk(dir) {
 
 const fmt = (bytes) => `${(bytes / KB).toFixed(1)} KB`;
 const rel = (p) => p.replace(ROOT + "/", "");
+const pct = (bytes, limitKb) => (bytes / (limitKb * KB)) * 100;
 
 function collect(dir, exts) {
   return walk(dir)
@@ -56,7 +58,16 @@ function collect(dir, exts) {
 }
 
 const violations = [];
+const warnings = [];
 const summary = [];
+
+/** Check a single measurement against its limit. */
+function check(label, bytes, limitKb) {
+  const p = pct(bytes, limitKb);
+  const msg = `${label} = ${fmt(bytes)} (${p.toFixed(1)}% of ${limitKb} KB)`;
+  if (p > 100) violations.push(msg);
+  else if (p >= WARN_PCT) warnings.push(msg);
+}
 
 // --- Client --------------------------------------------------------------
 const clientFiles = collect(CLIENT_DIR, [".js", ".css"]);
@@ -65,19 +76,11 @@ const clientTotal = clientFiles.reduce((s, f) => s + f.size, 0);
 for (const f of clientFiles) {
   const ext = extname(f.path);
   const limitKb = ext === ".css" ? BUDGETS.client.fileCss : BUDGETS.client.fileJs;
-  if (f.size > limitKb * KB) {
-    violations.push(
-      `client file ${rel(f.path)} = ${fmt(f.size)} exceeds ${limitKb} KB`,
-    );
-  }
+  check(`client file ${rel(f.path)}`, f.size, limitKb);
 }
-if (clientTotal > BUDGETS.client.total * KB) {
-  violations.push(
-    `client total = ${fmt(clientTotal)} exceeds ${BUDGETS.client.total} KB`,
-  );
-}
+check("client total", clientTotal, BUDGETS.client.total);
 summary.push(
-  `client: ${clientFiles.length} files, total ${fmt(clientTotal)} / ${BUDGETS.client.total} KB`,
+  `client: ${clientFiles.length} files, total ${fmt(clientTotal)} / ${BUDGETS.client.total} KB (${pct(clientTotal, BUDGETS.client.total).toFixed(1)}%)`,
 );
 
 // --- Server --------------------------------------------------------------
@@ -85,34 +88,35 @@ const serverFiles = collect(SERVER_DIR, [".mjs", ".js"]);
 const serverTotal = serverFiles.reduce((s, f) => s + f.size, 0);
 
 for (const f of serverFiles) {
-  if (f.size > BUDGETS.server.file * KB) {
-    violations.push(
-      `server file ${rel(f.path)} = ${fmt(f.size)} exceeds ${BUDGETS.server.file} KB`,
-    );
-  }
+  check(`server file ${rel(f.path)}`, f.size, BUDGETS.server.file);
 }
-if (serverTotal > BUDGETS.server.total * KB) {
-  violations.push(
-    `server total = ${fmt(serverTotal)} exceeds ${BUDGETS.server.total} KB`,
-  );
-}
+check("server total", serverTotal, BUDGETS.server.total);
 summary.push(
-  `server: ${serverFiles.length} files, total ${fmt(serverTotal)} / ${BUDGETS.server.total} KB`,
+  `server: ${serverFiles.length} files, total ${fmt(serverTotal)} / ${BUDGETS.server.total} KB (${pct(serverTotal, BUDGETS.server.total).toFixed(1)}%)`,
 );
 
 // --- Report --------------------------------------------------------------
-console.log("\n[bundle-budget]");
+console.log(`\n[bundle-budget] warn threshold: ${WARN_PCT}% · fail threshold: 100%`);
 for (const line of summary) console.log("  " + line);
 
 console.log("\n  top 5 client:");
 for (const f of clientFiles.slice(0, 5))
-  console.log(`    ${fmt(f.size).padStart(10)}  ${rel(f.path)}`);
+  console.log(
+    `    ${fmt(f.size).padStart(10)}  (${pct(f.size, extname(f.path) === ".css" ? BUDGETS.client.fileCss : BUDGETS.client.fileJs).toFixed(0)}%)  ${rel(f.path)}`,
+  );
 console.log("  top 5 server:");
 for (const f of serverFiles.slice(0, 5))
-  console.log(`    ${fmt(f.size).padStart(10)}  ${rel(f.path)}`);
+  console.log(
+    `    ${fmt(f.size).padStart(10)}  (${pct(f.size, BUDGETS.server.file).toFixed(0)}%)  ${rel(f.path)}`,
+  );
+
+if (warnings.length) {
+  console.warn(`\n[bundle-budget] ⚠ ${warnings.length} at or above ${WARN_PCT}%:`);
+  for (const w of warnings) console.warn("  ⚠ " + w);
+}
 
 if (violations.length) {
-  console.error("\n[bundle-budget] BUDGET EXCEEDED:");
+  console.error("\n[bundle-budget] ✗ BUDGET EXCEEDED:");
   for (const v of violations) console.error("  ✗ " + v);
   console.error(
     "\nRaise the limit via BUDGET_* env vars only after confirming the growth is justified.",
@@ -120,4 +124,8 @@ if (violations.length) {
   process.exit(1);
 }
 
-console.log("\n[bundle-budget] ✓ all budgets within limits\n");
+console.log(
+  warnings.length
+    ? "\n[bundle-budget] ✓ within hard limits (see warnings above)\n"
+    : "\n[bundle-budget] ✓ all budgets within limits\n",
+);
