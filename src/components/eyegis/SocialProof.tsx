@@ -313,6 +313,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Portão B24 · 06:41",
       "portrait": "Fora do expediente",
     },
+    alts: {
+      "creative-studio": "Mulher trabalhando em estúdio de design usando os óculos com filtro de luz azul Eyegis Solène de acetato champanhe — luz natural, sem retoque.",
+      "business-meeting": "Executivo entre reuniões usando os óculos com filtro de luz azul Eyegis Atelier de armação escura — ambiente corporativo.",
+      "architecture": "Interior arquitetônico minimalista de concreto e vidro, referência ao dia a dia de quem usa os óculos Eyegis Meridian.",
+      "student": "Estudante em longa sessão de leitura usando os óculos com filtro de luz azul Eyegis Marais — armação redonda e leve, ambiente silencioso de estudo.",
+      "editing": "Fotógrafa editando imagens em monitor calibrado usando Eyegis Solène — lentes de tons reais que preservam a percepção fiel de cor.",
+      "travel": "Viajante em trem de alta velocidade europeu usando Eyegis Meridian — lentes anti-fadiga em longos deslocamentos.",
+      "founder": "Fundadora em mesa de trabalho em pé usando Eyegis Atelier em sessão matinal de foco profundo em home office moderno.",
+      "gaming-late": "Gamer em sessão noturna usando Eyegis Meridian — filtro calibrado para horas de exposição à tela.",
+      "streamer": "Streamer ao vivo em frente à câmera usando Eyegis — armação escura discreta sob luz de estúdio.",
+      "kitchen": "Profissional remoto focado em home office na mesa da cozinha usando Eyegis Solène — óculos do cotidiano.",
+      "airport": "Executivo em viagem aguardando no portão do aeroporto usando Eyegis Atelier — armação leve em TR90 para voos longos.",
+      "portrait": "Retrato editorial de profissional em Paris usando Eyegis Solène — armação de acetato champanhe na hora dourada.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Retrato de cliente verificada — ${name}, ${role} de ${country}, usando os óculos com filtro de luz azul Eyegis no dia a dia.`,
     lightbox: {
       body: (caption) =>
         `${caption} — um instante cotidiano capturado sem retoque. Filtro óptico EyegisGuard™, armação TR90, percepção natural de cor.`,
