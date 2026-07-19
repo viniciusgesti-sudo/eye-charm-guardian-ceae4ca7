@@ -1,14 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { buildSeo } from "@/lib/seo";
 
-
-import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
-import { HonestScience } from "@/components/eyegis/HonestScience";
-import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { OurTechnology } from "@/components/eyegis/OurTechnology";
-import { ScienceInPractice } from "@/components/eyegis/ScienceInPractice";
-import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
-import { TechCore } from "@/components/eyegis/TechCore";
+
+const TechCore = lazy(() =>
+  import("@/components/eyegis/TechCore").then((m) => ({ default: m.TechCore })),
+);
+const HonestScience = lazy(() =>
+  import("@/components/eyegis/HonestScience").then((m) => ({ default: m.HonestScience })),
+);
+const ScienceInPractice = lazy(() =>
+  import("@/components/eyegis/ScienceInPractice").then((m) => ({ default: m.ScienceInPractice })),
+);
+const EyegisGuard = lazy(() =>
+  import("@/components/eyegis/EyegisGuard").then((m) => ({ default: m.EyegisGuard })),
+);
+const HowItWorks = lazy(() =>
+  import("@/components/eyegis/HowItWorks").then((m) => ({ default: m.HowItWorks })),
+);
+const ShopOnAmazon = lazy(() =>
+  import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
+);
+
 
 const META = {
   pt: {
@@ -48,12 +62,15 @@ function TechnologyPage() {
   return (
     <>
       <OurTechnology />
-      <TechCore />
-      <HonestScience />
-      <ScienceInPractice />
-      <EyegisGuard />
-      <HowItWorks />
-      <ShopOnAmazon />
+      <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}>
+        <TechCore />
+        <HonestScience />
+        <ScienceInPractice />
+        <EyegisGuard />
+        <HowItWorks />
+        <ShopOnAmazon />
+      </Suspense>
     </>
   );
 }
+
