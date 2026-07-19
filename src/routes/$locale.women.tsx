@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+
 
 import heroClarity from "@/assets/hero-clarity-woman.jpg?url";
 import heroClaritySrc from "@/assets/hero-clarity-woman.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
