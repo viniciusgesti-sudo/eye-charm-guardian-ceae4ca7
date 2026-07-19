@@ -661,14 +661,12 @@ function AboutPage() {
               <Reveal key={p.idx} delay={i * 120}>
                 <article className="group flex h-full flex-col">
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
-                    <img
-                      src={imgs[i]}
+                    <Picture
+                      source={imgs[i]}
                       alt={`${p.title} — Eyegis philosophy portrait`}
-                      width={1024}
-                      height={1280}
+                      sizes="(min-width:768px) 33vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
-            loading="lazy" decoding="async"
-          />
+                    />
                   </div>
                   <div className="mt-8">
                     <span
@@ -854,15 +852,12 @@ function AboutPage() {
               <Reveal key={label} delay={(i % 4) * 100}>
                 <figure className="group relative overflow-hidden">
                   <div className="aspect-[3/4] w-full overflow-hidden">
-                    <img
-                      src={PEOPLE_IMAGES[i]}
+                    <Picture
+                      source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}
-                      width={900}
-                      height={1200}
-                      loading="lazy"
+                      sizes="(min-width:768px) 25vw, 50vw"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-            decoding="async"
-          />
+                    />
                   </div>
                   <figcaption
                     className="mt-3 text-[11px] uppercase tracking-[0.3em]"
