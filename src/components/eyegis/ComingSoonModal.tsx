@@ -182,11 +182,14 @@ export function ComingSoonModal() {
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="coming-soon-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
+      tabIndex={-1}
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 outline-none"
     >
+
       <button
         type="button"
         aria-label={c.close}
