@@ -105,6 +105,59 @@ export function ComingSoonModal() {
     };
   }, []);
 
+  // Initial focus + focus trap + restore focus on close.
+  useEffect(() => {
+    if (!open) {
+      // Restore focus to the element that opened the modal (if still in the DOM).
+      const el = restoreFocusRef.current;
+      if (el && document.contains(el)) {
+        // Defer so React finishes unmounting the dialog subtree first.
+        requestAnimationFrame(() => el.focus({ preventScroll: true }));
+      }
+      restoreFocusRef.current = null;
+      return;
+    }
+
+    // Lock body scroll while open.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    // Move initial focus to the primary interactive control.
+    const initial = emailRef.current ?? successBtnRef.current ?? dialogRef.current;
+    requestAnimationFrame(() => initial?.focus({ preventScroll: true }));
+
+    const onTrap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const root = dialogRef.current;
+      if (!root) return;
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      ).filter((n) => !n.hasAttribute("data-focus-guard") && n.offsetParent !== null);
+      if (focusables.length === 0) {
+        e.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || !root.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onTrap);
+    return () => {
+      document.removeEventListener("keydown", onTrap);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [open, status]);
+
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = email.trim();
