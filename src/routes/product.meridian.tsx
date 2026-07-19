@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-import heroImg from "@/assets/products/meridian-hero.jpg";
+
 import heroImgSrc from "@/assets/products/meridian-hero.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import pairImgSrc from "@/assets/products/meridian-pair.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import packageImgSrc from "@/assets/products/meridian-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
