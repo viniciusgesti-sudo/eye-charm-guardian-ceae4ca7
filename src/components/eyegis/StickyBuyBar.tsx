@@ -11,7 +11,9 @@ export function StickyBuyBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 700);
+    // Mobile: visible from load. Desktop: after user scrolls past the hero.
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const onScroll = () => setVisible(isMobile || window.scrollY > 700);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
