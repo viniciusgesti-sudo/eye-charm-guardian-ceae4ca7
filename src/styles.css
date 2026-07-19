@@ -518,6 +518,106 @@ a:focus-visible {
   color: #FFB4B4 !important;
 }
 
+/* ==========================================================================
+   Unified keyboard focus system (WCAG 2.4.7 / 2.4.11)
+   One consistent ring across native and ARIA-role interactive elements.
+   ========================================================================== */
+
+:root {
+  --focus-ring-color: #FFB300;
+  --focus-ring-color-on-dark: #FFD24D;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+/* Kill any component-level `outline: none` on keyboard focus so the ring
+   below always wins. Mouse clicks (`:focus` without `:focus-visible`) are
+   untouched — no ring flash on click. */
+*:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color) !important;
+  outline-offset: var(--focus-ring-offset) !important;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px #1D252D !important; /* halo for amber on light bg */
+  transition: none !important;
+}
+
+/* On dark surfaces (teal/ink) swap halo to white so the ring stays visible. */
+.dark *:focus-visible,
+[class*="bg-ink"] *:focus-visible,
+[class*="bg-teal"] *:focus-visible,
+[class*="bg-black"] *:focus-visible,
+[data-surface="dark"] *:focus-visible {
+  outline-color: var(--focus-ring-color-on-dark) !important;
+  box-shadow: 0 0 0 1px #F9F9F9 !important;
+}
+
+/* Ensure every semantically-interactive element participates. */
+a[href],
+button,
+input,
+select,
+textarea,
+summary,
+[tabindex]:not([tabindex="-1"]),
+[role="button"],
+[role="link"],
+[role="menuitem"],
+[role="menuitemcheckbox"],
+[role="menuitemradio"],
+[role="tab"],
+[role="option"],
+[role="switch"],
+[role="checkbox"],
+[role="radio"],
+[role="combobox"],
+[role="slider"],
+[contenteditable="true"] {
+  cursor: pointer;
+}
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* Never trap the eye — non-interactive tabIndex is a smell. Neutralize
+   the outline for wrapper elements that only receive focus programmatically. */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Skip-to-content link — visible only on keyboard focus. */
+.skip-to-content {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 9999;
+  background: #1D252D;
+  color: #F9F9F9;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0 0 6px 6px;
+  transition: transform 0.2s ease;
+}
+.skip-to-content:focus,
+.skip-to-content:focus-visible {
+  transform: translate(-50%, 0);
+  outline: 3px solid var(--focus-ring-color) !important;
+  outline-offset: 2px !important;
+}
+
+
+
+
 /* Reveal accessibility fallback */
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
@@ -525,6 +625,10 @@ a:focus-visible {
     transform: none !important;
     transition: none !important;
   }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-
