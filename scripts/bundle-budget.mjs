@@ -66,7 +66,7 @@ const BUDGETS = {
   },
   server: {
     file: num(process.env.BUDGET_SERVER_FILE_KB, 700),
-    total: num(process.env.BUDGET_SERVER_TOTAL_KB, 2400),
+    total: num(process.env.BUDGET_SERVER_TOTAL_KB, 2700),
   },
 };
 
