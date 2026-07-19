@@ -1,6 +1,16 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { X, CheckCircle2, ShieldCheck } from "lucide-react";
 import { useI18n } from "@/i18n/context";
+
+const FOCUSABLE_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled]):not([type='hidden'])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  "[tabindex]:not([tabindex='-1'])",
+].join(",");
+
 
 const COPY = {
   EN: {
@@ -48,6 +58,11 @@ export function ComingSoonModal() {
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const successBtnRef = useRef<HTMLButtonElement | null>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
+
   const close = useCallback(() => {
     setOpen(false);
     setTimeout(() => {
@@ -57,8 +72,13 @@ export function ComingSoonModal() {
     }, 250);
   }, []);
 
+  // Save the currently focused element BEFORE the dialog opens so we can restore it later.
   useEffect(() => {
-    const openModal = () => setOpen(true);
+    const openModal = () => {
+      restoreFocusRef.current = (document.activeElement as HTMLElement) ?? null;
+      setOpen(true);
+    };
+
 
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
@@ -85,6 +105,59 @@ export function ComingSoonModal() {
     };
   }, []);
 
+  // Initial focus + focus trap + restore focus on close.
+  useEffect(() => {
+    if (!open) {
+      // Restore focus to the element that opened the modal (if still in the DOM).
+      const el = restoreFocusRef.current;
+      if (el && document.contains(el)) {
+        // Defer so React finishes unmounting the dialog subtree first.
+        requestAnimationFrame(() => el.focus({ preventScroll: true }));
+      }
+      restoreFocusRef.current = null;
+      return;
+    }
+
+    // Lock body scroll while open.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    // Move initial focus to the primary interactive control.
+    const initial = emailRef.current ?? successBtnRef.current ?? dialogRef.current;
+    requestAnimationFrame(() => initial?.focus({ preventScroll: true }));
+
+    const onTrap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const root = dialogRef.current;
+      if (!root) return;
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      ).filter((n) => !n.hasAttribute("data-focus-guard") && n.offsetParent !== null);
+      if (focusables.length === 0) {
+        e.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || !root.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onTrap);
+    return () => {
+      document.removeEventListener("keydown", onTrap);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [open, status]);
+
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = email.trim();
@@ -109,11 +182,14 @@ export function ComingSoonModal() {
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="coming-soon-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
+      tabIndex={-1}
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 outline-none"
     >
+
       <button
         type="button"
         aria-label={c.close}
@@ -159,6 +235,7 @@ export function ComingSoonModal() {
               </h2>
               <p className="mt-3 text-ink/70">{c.successBody}</p>
               <button
+                ref={successBtnRef}
                 type="button"
                 onClick={close}
                 className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-paper transition hover:-translate-y-0.5"
@@ -166,6 +243,7 @@ export function ComingSoonModal() {
               >
                 {c.close}
               </button>
+
             </div>
           ) : (
             <>
@@ -184,7 +262,9 @@ export function ComingSoonModal() {
                 </label>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <input
+                    ref={emailRef}
                     id="coming-soon-email"
+
                     type="email"
                     autoComplete="email"
                     maxLength={254}
