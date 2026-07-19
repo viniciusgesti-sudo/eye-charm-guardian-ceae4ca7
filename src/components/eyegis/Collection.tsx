@@ -689,10 +689,14 @@ function matches(p: ProductMeta, f: Filter) {
   return p.filterKey === f;
 }
 
-function ProductPreview({ copy }: { copy: Copy }) {
-  const [filter, setFilter] = useState<Filter>("All");
+function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "women" | "kids" }) {
+  const audienceFilter: Filter | null = audience === "men" ? "Men" : audience === "women" ? "Women" : audience === "kids" ? "Kids" : null;
+  const [filter, setFilter] = useState<Filter>(audienceFilter ?? "All");
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const visible = PRODUCTS.filter((p) => matches(p, filter));
+  const pool = audience ? PRODUCTS.filter((p) => matches(p, audienceFilter as Filter)) : PRODUCTS;
+  const visible = pool.filter((p) => matches(p, filter));
+  const availableFilters = audience ? FILTERS.filter((f) => f === audienceFilter || f === "Newest" || f === "Best") : FILTERS;
+
 
   const scrollBy = (dir: 1 | -1) => {
     const el = scrollerRef.current;
