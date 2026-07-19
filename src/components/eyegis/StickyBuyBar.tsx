@@ -28,6 +28,7 @@ export function StickyBuyBar() {
 
   return (
     <div
+      data-testid="sticky-buy-bar"
       className={`fixed inset-x-0 bottom-0 z-[55] transition-all duration-500 md:inset-auto md:bottom-6 md:right-6 ${
         visible
           ? "translate-y-0 opacity-100"
