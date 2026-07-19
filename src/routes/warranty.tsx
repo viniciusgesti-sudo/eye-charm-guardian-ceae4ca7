@@ -10,24 +10,14 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 export const Route = createFileRoute("/warranty")({
-  head: () => ({
-    meta: [
-      { title: "Warranty & 60-Day Comfort Guarantee — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Every pair of Eyegis is backed by a 2-Year Manufacturing Warranty and an exclusive 60-Day Comfort Guarantee. Designed to last, backed with confidence.",
-      },
-      { property: "og:title", content: "Warranty & 60-Day Comfort Guarantee — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Premium engineering. 2-Year Warranty. 60-Day Comfort Guarantee. Buy Eyegis with complete confidence.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      title: "Warranty & 60-Day Comfort Guarantee — Eyegis",
+      description:
+        "Every pair of Eyegis is backed by a 2-Year Manufacturing Warranty and an exclusive 60-Day Comfort Guarantee. Designed to last, backed with confidence.",
+      path: "/warranty",
+    }),
+
   component: WarrantyPage,
 });
 
