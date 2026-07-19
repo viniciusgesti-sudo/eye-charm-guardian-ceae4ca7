@@ -1,6 +1,14 @@
 import { Link, useLocation, useNavigate, useParams } from "@tanstack/react-router";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
