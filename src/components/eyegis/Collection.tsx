@@ -591,6 +591,7 @@ type ProductMeta = {
   gallery: GalleryShot[];
   bestSeller?: boolean;
   newest?: boolean;
+  pdpPath?: string;
 };
 
 const PRODUCTS: ProductMeta[] = [
