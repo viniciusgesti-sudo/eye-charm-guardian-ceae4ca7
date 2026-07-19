@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-import { AMAZON_RATING } from "@/lib/amazon";
+
 
 import modelsBusiness from "@/assets/models-business-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import modelsCreative from "@/assets/models-creative-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
