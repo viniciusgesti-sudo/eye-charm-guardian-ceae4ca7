@@ -223,12 +223,18 @@ const COPY: Record<Lang, Copy> = {
   },
 };
 
-export function ModelRunway() {
+export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
+  const looks = audience
+    ? copy.looks.filter((_, i) => LOOK_AUDIENCE[i] === audience)
+    : copy.looks;
+
+  if (looks.length === 0) return null;
 
   return (
     <section id="models" className="relative overflow-hidden bg-paper-warm py-24 text-ink md:py-32" aria-labelledby="model-runway-title">
+
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.06)_1px,transparent_1px),linear-gradient(180deg,rgba(29,37,45,0.05)_1px,transparent_1px)] bg-[size:120px_120px]" />
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
