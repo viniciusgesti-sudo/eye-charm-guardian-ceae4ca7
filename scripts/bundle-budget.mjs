@@ -40,6 +40,23 @@ const UPDATE_BASELINE =
   process.argv.includes("--update-baseline") ||
   process.env.BUDGET_UPDATE_BASELINE === "1";
 
+// --- Baseline environment ------------------------------------------------
+// Pick a baseline slot via `BUDGET_BASELINE_ENV` (e.g. `dev`, `prod`, `ci`)
+// or `--baseline=<env>`. Each env keeps its own file:
+//   bundle-budget.baseline.<env>.json
+// The legacy `bundle-budget.baseline.json` is still used as fallback for
+// backward compatibility when no env is selected.
+const cliBaselineArg = process.argv.find((a) => a.startsWith("--baseline="));
+const BASELINE_ENV = (
+  cliBaselineArg?.split("=")[1] ||
+  process.env.BUDGET_BASELINE_ENV ||
+  process.env.NODE_ENV ||
+  ""
+)
+  .trim()
+  .toLowerCase()
+  .replace(/[^a-z0-9_-]/g, "");
+
 // --- Budgets (KB) --------------------------------------------------------
 const BUDGETS = {
   client: {
@@ -56,7 +73,17 @@ const BUDGETS = {
 const ROOT = process.cwd();
 const CLIENT_DIR = join(ROOT, "dist", "client");
 const SERVER_DIR = join(ROOT, "dist", "server");
-const BASELINE_PATH = join(ROOT, "bundle-budget.baseline.json");
+const LEGACY_BASELINE_PATH = join(ROOT, "bundle-budget.baseline.json");
+const ENV_BASELINE_PATH = BASELINE_ENV
+  ? join(ROOT, `bundle-budget.baseline.${BASELINE_ENV}.json`)
+  : LEGACY_BASELINE_PATH;
+// Write always goes to the env-scoped file (or legacy when no env set).
+// Read prefers env file, then falls back to legacy so existing setups keep working.
+const BASELINE_WRITE_PATH = ENV_BASELINE_PATH;
+const BASELINE_READ_PATH = existsSync(ENV_BASELINE_PATH)
+  ? ENV_BASELINE_PATH
+  : LEGACY_BASELINE_PATH;
+
 
 function walk(dir) {
   if (!existsSync(dir)) return [];
@@ -142,18 +169,24 @@ const currentSnapshot = {
 };
 
 if (UPDATE_BASELINE) {
-  writeFileSync(BASELINE_PATH, JSON.stringify(currentSnapshot, null, 2) + "\n");
-  console.log(`\n[bundle-budget] baseline written → ${rel(BASELINE_PATH)}`);
+  const snap = { ...currentSnapshot, env: BASELINE_ENV || null };
+  writeFileSync(BASELINE_WRITE_PATH, JSON.stringify(snap, null, 2) + "\n");
+  console.log(
+    `\n[bundle-budget] baseline written → ${rel(BASELINE_WRITE_PATH)}${BASELINE_ENV ? ` (env: ${BASELINE_ENV})` : ""}`,
+  );
   console.log(
     `  client total ${fmt(clientTotal)} · server total ${fmt(serverTotal)} · max growth ${MAX_GROWTH_PCT}%\n`,
   );
   process.exit(0);
 }
 
-const baselineExists = existsSync(BASELINE_PATH);
+const baselineExists = existsSync(BASELINE_READ_PATH);
 const baseline = baselineExists
-  ? JSON.parse(readFileSync(BASELINE_PATH, "utf8"))
+  ? JSON.parse(readFileSync(BASELINE_READ_PATH, "utf8"))
   : null;
+const baselineSource = baselineExists
+  ? `${rel(BASELINE_READ_PATH)}${BASELINE_ENV && BASELINE_READ_PATH === LEGACY_BASELINE_PATH ? " (legacy fallback)" : ""}`
+  : "missing";
 
 const baselineReport = [];
 const newChunks = [];
