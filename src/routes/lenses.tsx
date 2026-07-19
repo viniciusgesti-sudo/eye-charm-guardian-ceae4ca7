@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/lifestyle-work.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import compareImg from "@/assets/guard-comparison.jpg";
-import lifeBusiness from "@/assets/life-business.jpg";
-import lifeCreative from "@/assets/life-creative.jpg";
-import lifeGaming from "@/assets/life-gaming.jpg";
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
-import soleneFront from "@/assets/products/solene-front.jpg";
+import compareImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeCreative from "@/assets/life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/life-gaming.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -643,13 +643,15 @@ const LENS_SCORES: Record<"clear" | "shield" | "pro", number[]> = {
   pro:    [5, 4, 5, 4, 4, 5, 4, 5],
 };
 
-const PERSONA_IMAGES: Record<PersonaId, string> = {
+import type { PictureSource } from "@/components/eyegis/Picture";
+
+const PERSONA_IMAGES: Record<PersonaId, PictureSource> = {
   everyday: lifeBusiness,
   creative: lifeCreative,
   max: lifeGaming,
 };
 
-const PERSONA_PRODUCT_IMAGES: Record<PersonaId, string> = {
+const PERSONA_PRODUCT_IMAGES: Record<PersonaId, PictureSource> = {
   everyday: meridianHero,
   creative: soleneFront,
   max: atelierFront,
