@@ -169,18 +169,24 @@ const currentSnapshot = {
 };
 
 if (UPDATE_BASELINE) {
-  writeFileSync(BASELINE_PATH, JSON.stringify(currentSnapshot, null, 2) + "\n");
-  console.log(`\n[bundle-budget] baseline written → ${rel(BASELINE_PATH)}`);
+  const snap = { ...currentSnapshot, env: BASELINE_ENV || null };
+  writeFileSync(BASELINE_WRITE_PATH, JSON.stringify(snap, null, 2) + "\n");
+  console.log(
+    `\n[bundle-budget] baseline written → ${rel(BASELINE_WRITE_PATH)}${BASELINE_ENV ? ` (env: ${BASELINE_ENV})` : ""}`,
+  );
   console.log(
     `  client total ${fmt(clientTotal)} · server total ${fmt(serverTotal)} · max growth ${MAX_GROWTH_PCT}%\n`,
   );
   process.exit(0);
 }
 
-const baselineExists = existsSync(BASELINE_PATH);
+const baselineExists = existsSync(BASELINE_READ_PATH);
 const baseline = baselineExists
-  ? JSON.parse(readFileSync(BASELINE_PATH, "utf8"))
+  ? JSON.parse(readFileSync(BASELINE_READ_PATH, "utf8"))
   : null;
+const baselineSource = baselineExists
+  ? `${rel(BASELINE_READ_PATH)}${BASELINE_ENV && BASELINE_READ_PATH === LEGACY_BASELINE_PATH ? " (legacy fallback)" : ""}`
+  : "missing";
 
 const baselineReport = [];
 const newChunks = [];
