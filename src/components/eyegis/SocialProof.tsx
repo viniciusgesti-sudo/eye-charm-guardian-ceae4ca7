@@ -4,19 +4,19 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { AMAZON_RATING } from "@/lib/amazon";
 
-import lifeBusiness from "@/assets/life-business.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import lifeCreative from "@/assets/life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import lifeGaming from "@/assets/life-gaming.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import lifeStudent from "@/assets/life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import modelsBusiness from "@/assets/models-business-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import modelsCreative from "@/assets/models-creative-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import modelsFocus from "@/assets/models-focus-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import heroParisEyegis from "@/assets/hero-paris-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import heroSaoPauloEyegis from "@/assets/hero-saopaulo-eyegis.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import lifeTravel from "@/assets/life-travel.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import lifestyleArch from "@/assets/lifestyle-architecture.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import lifestyleWork from "@/assets/lifestyle-work.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import lifestyleTravel from "@/assets/lifestyle-travel.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
-import portrait from "@/assets/universe-portrait.jpg?w=160;320;480&format=avif;webp;jpg&as=picture";
 import guardBusiness from "@/assets/guard-life-business.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardCreative from "@/assets/guard-life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardStudent from "@/assets/guard-life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardGamer from "@/assets/guard-life-gamer.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import portrait from "@/assets/models-focus-eyegis.jpg?w=160;320;480&format=avif;webp;jpg&as=picture";
 
 import { Picture, type PictureSource } from "./Picture";
 
