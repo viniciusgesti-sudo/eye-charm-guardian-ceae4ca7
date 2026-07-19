@@ -91,7 +91,7 @@ function KidsPage() {
         tone="dark"
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
-      <Collection />
+      <Collection audience="kids" />
       <WhatsInTheBox />
       <VsGenerics />
       <ShopOnAmazon />
