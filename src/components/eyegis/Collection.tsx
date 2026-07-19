@@ -1159,9 +1159,12 @@ function FinalTransition({ copy }: { copy: Copy }) {
   );
 }
 
-export function Collection() {
+export type CollectionAudience = "men" | "women" | "kids";
+
+export function Collection({ audience }: { audience?: CollectionAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
+  const collections = audience ? COLLECTIONS.filter((c) => c.id === audience) : COLLECTIONS;
 
   return (
     <section id="collections" className="relative">
@@ -1195,13 +1198,14 @@ export function Collection() {
         </div>
       </div>
 
-      {COLLECTIONS.map((meta, i) => (
+      {collections.map((meta, i) => (
         <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} />
       ))}
 
-      <ProductPreview copy={copy} />
+      <ProductPreview copy={copy} audience={audience} />
 
       <FinalTransition copy={copy} />
     </section>
   );
 }
+
