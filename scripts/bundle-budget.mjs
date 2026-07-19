@@ -188,6 +188,30 @@ const baselineSource = baselineExists
   ? `${rel(BASELINE_READ_PATH)}${BASELINE_ENV && BASELINE_READ_PATH === LEGACY_BASELINE_PATH ? " (legacy fallback)" : ""}`
   : "missing";
 
+// --- Baseline ignore list -----------------------------------------------
+// Regex patterns (comma or newline separated) matched against `<side>/<key>`,
+// e.g. "client/assets/index.js" or "server/_locale.technology.mjs".
+// Configure via:
+//   BUDGET_BASELINE_IGNORE="client/assets/index\\.js,server/_locale\\..*"
+//   or a JSON file: bundle-budget.ignore.json  (array of strings)
+// Ignored chunks are skipped ONLY in baseline growth comparison — hard budgets
+// still apply, and per-file warnings still appear in the report.
+const IGNORE_FILE = join(ROOT, "bundle-budget.ignore.json");
+const rawIgnore = [
+  ...(process.env.BUDGET_BASELINE_IGNORE?.split(/[,\n]/) ?? []),
+  ...(existsSync(IGNORE_FILE) ? JSON.parse(readFileSync(IGNORE_FILE, "utf8")) : []),
+]
+  .map((s) => String(s).trim())
+  .filter(Boolean);
+const ignorePatterns = rawIgnore
+  .map((src) => {
+    try { return { src, re: new RegExp(src) }; }
+    catch (e) { warnings.push(`baseline ignore · invalid regex "${src}": ${e.message}`); return null; }
+  })
+  .filter(Boolean);
+const isIgnored = (side, key) => ignorePatterns.some((p) => p.re.test(`${side}/${key}`));
+const ignoredHits = [];
+
 const baselineReport = [];
 const newChunks = [];
 const removedChunks = [];
@@ -213,6 +237,10 @@ if (baseline) {
     const currGroups = currentSnapshot[side].groups;
     const prevGroups = baseline[side]?.groups ?? {};
     for (const [key, curr] of Object.entries(currGroups)) {
+      if (isIgnored(side, key)) {
+        ignoredHits.push(`${side}/${key} = ${fmt(curr)}`);
+        continue;
+      }
       if (!(key in prevGroups)) {
         newChunks.push(`${side}/${key} = ${fmt(curr)} (new)`);
         continue;
@@ -227,11 +255,17 @@ if (baseline) {
       }
     }
     for (const key of Object.keys(prevGroups)) {
+      if (isIgnored(side, key)) continue;
       if (!(key in currGroups)) removedChunks.push(`${side}/${key} = ${fmt(prevGroups[key])} (removed)`);
     }
   }
 
   baselineReport.push(...bumps.map((b) => `  ${b.line}`));
+  if (ignorePatterns.length) {
+    baselineReport.push(`  ignore patterns (${ignorePatterns.length}): ${ignorePatterns.map((p) => p.src).join(", ")}`);
+    baselineReport.push(`  ignored chunks: ${ignoredHits.length}`);
+  }
+
 } else {
   baselineReport.push(
     `  no baseline yet — run \`node scripts/bundle-budget.mjs --update-baseline\` to record one.`,
