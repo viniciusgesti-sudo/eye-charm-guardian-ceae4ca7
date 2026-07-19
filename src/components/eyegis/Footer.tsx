@@ -168,7 +168,7 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
             {cols.map((col) => (
               <div key={col.title}>
-                <h4 className="small-caps text-[11px] text-[#86D9D1]">{col.title}</h4>
+                <h4 className="small-caps text-[11px] text-mint">{col.title}</h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((link) => (
                     <li key={link.label}>
@@ -189,7 +189,7 @@ export function Footer() {
 
             {/* Column 4 — social */}
             <div>
-              <h4 className="small-caps text-[11px] text-[#86D9D1]">Follow Eyegis</h4>
+              <h4 className="small-caps text-[11px] text-mint">Follow Eyegis</h4>
               <ul className="mt-5 flex items-center gap-4">
                 {socials.map(({ label, href, Icon }) => (
                   <li key={label}>
@@ -198,7 +198,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-[#86D9D1] hover:text-[#86D9D1]"
+                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-mint hover:text-mint"
                     >
                       <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" />
                     </a>
