@@ -101,7 +101,7 @@ export function Header() {
                 <button
                   onClick={() => switchLocale(l)}
                   className={`transition-opacity ${
-                    localeUp === l ? "opacity-100" : "opacity-40 hover:opacity-70"
+                    localeUp === l ? "opacity-100" : "opacity-70 hover:opacity-100"
                   }`}
                   aria-label={`Language: ${l}`}
                   aria-current={localeUp === l ? "true" : undefined}
