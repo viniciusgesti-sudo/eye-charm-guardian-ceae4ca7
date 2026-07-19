@@ -425,6 +425,10 @@ function useReveal<T extends HTMLElement>() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShown(true);
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -437,7 +441,11 @@ function useReveal<T extends HTMLElement>() {
       { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+    const fallback = window.setTimeout(() => setShown(true), 500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
   return { ref, shown };
 }
@@ -458,6 +466,7 @@ function Reveal({
   return (
     <Component
       ref={ref}
+      data-reveal={shown ? "shown" : "hidden"}
       style={{
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
