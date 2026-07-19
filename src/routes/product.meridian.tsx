@@ -12,7 +12,7 @@ import pouchImgSrc from "@/assets/products/meridian-pouch.jpg?w=480;800;1200;160
 import { Picture } from "@/components/eyegis/Picture";
 import lensMacroSrc from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import portraitSrc from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifestyleImg from "@/assets/life-business.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import lifestyleImg from "@/assets/persona-executive.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import guardLens from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 
 import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";

@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 
-import heroImg from "@/assets/hero-paris.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import heroImg from "@/assets/about-founders.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import supportImg from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import supportImg from "@/assets/contact-concierge.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import storeImg from "@/assets/product-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
