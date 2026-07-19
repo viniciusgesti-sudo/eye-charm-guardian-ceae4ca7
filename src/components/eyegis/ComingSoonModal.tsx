@@ -58,6 +58,11 @@ export function ComingSoonModal() {
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const successBtnRef = useRef<HTMLButtonElement | null>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
+
   const close = useCallback(() => {
     setOpen(false);
     setTimeout(() => {
@@ -67,8 +72,13 @@ export function ComingSoonModal() {
     }, 250);
   }, []);
 
+  // Save the currently focused element BEFORE the dialog opens so we can restore it later.
   useEffect(() => {
-    const openModal = () => setOpen(true);
+    const openModal = () => {
+      restoreFocusRef.current = (document.activeElement as HTMLElement) ?? null;
+      setOpen(true);
+    };
+
 
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
