@@ -847,18 +847,18 @@ export function SocialProof() {
           </h3>
         </Reveal>
         <Reveal delay={180}>
-          <a
-            href={AMAZON_RATING.url}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className="mt-8 inline-flex items-center gap-4 rounded-full border border-ink/15 bg-paper/60 px-5 py-3 hover:border-teal/60 hover:bg-paper transition-all duration-500 group"
-          >
-            <span className="text-teal text-lg tracking-widest" aria-hidden="true">★★★★★</span>
-            <span className="font-eyebrow text-[11px] text-ink/75">
-              {AMAZON_RATING.stars} · {AMAZON_RATING.count.toLocaleString()} reviews · Amazon
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-ink/15 bg-paper/60 px-5 py-3">
+            <span
+              aria-hidden
+              className="inline-grid h-5 w-5 place-items-center rounded-full text-[11px] font-bold"
+              style={{ backgroundColor: "#86D9D1", color: "#004B57" }}
+            >
+              ✓
             </span>
-            <span className="text-ink/50 transition-transform duration-500 group-hover:translate-x-0.5" aria-hidden="true">→</span>
-          </a>
+            <span className="font-eyebrow text-[11px] text-ink/75">
+              ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1 · Independent optical lab
+            </span>
+          </div>
         </Reveal>
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
           {STATS.map((s) => (

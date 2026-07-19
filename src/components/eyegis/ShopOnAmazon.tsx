@@ -114,9 +114,7 @@ export function ShopOnAmazon() {
             return m.active ? (
               <a
                 key={m.code}
-                href={amazonUrl(m.domain)}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+                href={COMING_SOON_HREF}
                 className={`${commonClass} border-paper/15 bg-paper/[0.04] hover:bg-paper/[0.09] hover:border-paper/30`}
               >
                 {inner}
