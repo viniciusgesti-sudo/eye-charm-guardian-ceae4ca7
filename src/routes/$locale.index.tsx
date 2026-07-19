@@ -15,8 +15,14 @@ const HowItWorks = lazy(() =>
 const Universe = lazy(() =>
   import("@/components/eyegis/Universe").then((m) => ({ default: m.Universe })),
 );
+const OurTechnology = lazy(() =>
+  import("@/components/eyegis/OurTechnology").then((m) => ({ default: m.OurTechnology })),
+);
 const LifestyleUniverse = lazy(() =>
   import("@/components/eyegis/LifestyleUniverse").then((m) => ({ default: m.LifestyleUniverse })),
+);
+const HonestScienceTeaser = lazy(() =>
+  import("@/components/eyegis/HonestScienceTeaser").then((m) => ({ default: m.HonestScienceTeaser })),
 );
 const SocialProof = lazy(() =>
   import("@/components/eyegis/SocialProof").then((m) => ({ default: m.SocialProof })),
@@ -83,7 +89,9 @@ function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <HowItWorks />
         <Universe />
+        <OurTechnology />
         <LifestyleUniverse />
+        <HonestScienceTeaser />
         <SocialProof />
         <ShopOnAmazon />
         <FAQ />
