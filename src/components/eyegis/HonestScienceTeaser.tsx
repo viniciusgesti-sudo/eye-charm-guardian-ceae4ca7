@@ -59,7 +59,7 @@ export function HonestScienceTeaser() {
           <div className="lg:col-span-6">
             <span
               className="small-caps text-[11px] font-semibold"
-              style={{ color: "#86D9D1", letterSpacing: "0.15em" }}
+              style={{ color: "#004B57", letterSpacing: "0.15em" }}
             >
               {c.eyebrow}
             </span>

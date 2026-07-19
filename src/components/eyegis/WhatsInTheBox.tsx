@@ -80,7 +80,7 @@ export function WhatsInTheBox() {
                 i >= 3 ? "md:border-t md:border-ink/10" : ""
               }`}
             >
-              <span className="font-editorial text-3xl text-teal/40 tabular-nums shrink-0 w-10">
+              <span className="font-editorial text-3xl text-teal/80 tabular-nums shrink-0 w-10">
                 0{i + 1}
               </span>
               <div>

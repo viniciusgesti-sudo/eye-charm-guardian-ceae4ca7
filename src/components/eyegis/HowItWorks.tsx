@@ -60,7 +60,7 @@ export function HowItWorks() {
           {c.steps.map((s) => (
             <article key={s.n} className="group relative flex flex-col gap-5 border-t border-ink/15 pt-8">
               <div className="flex items-baseline justify-between">
-                <span className="font-editorial text-6xl text-ink/20 tabular-nums">{s.n}</span>
+                <span className="font-editorial text-6xl text-ink/55 tabular-nums">{s.n}</span>
                 <span className="h-2 w-2 rounded-full bg-teal transition-transform duration-500 group-hover:scale-150" aria-hidden="true" />
               </div>
               <h3 className="font-editorial text-2xl md:text-3xl leading-tight text-ink">{s.title}</h3>

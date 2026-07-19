@@ -16,7 +16,7 @@ function SectionLabel({ n, children }: { n: string; children: React.ReactNode })
       className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
       style={{ color: TEAL }}
     >
-      <span className="opacity-60">{n}</span>
+      <span style={{ color: "#4A5560" }}>{n}</span>
       <span className="h-px w-8" style={{ background: TEAL, opacity: 0.4 }} />
       <span>{children}</span>
     </div>
@@ -220,7 +220,8 @@ function SpectrumSection() {
 
           <div
             className="mt-14 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{ color: "rgba(29,37,45,0.55)" }}
+            style={{ color: "#3A4450" }}
+
           >
             <span>380 nm</span>
             <span>400</span>
@@ -349,7 +350,7 @@ function SelectiveFiltering() {
               className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
               style={{ color: MINT }}
             >
-              <span className="opacity-60">§ 03</span>
+              <span>§ 03</span>
               <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
               <span>Selective filtering</span>
             </div>
@@ -661,7 +662,7 @@ function References() {
               key={r}
               className="flex items-start gap-3 text-xs leading-relaxed"
             >
-              <span className="font-mono opacity-50">
+              <span className="font-mono opacity-90">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span>{r}</span>

@@ -399,12 +399,35 @@
 .text-paper\/80,
 .text-paper\/85,
 .text-paper\/90 { color: #FFFFFF !important; }
+.text-ink\/25,
+.text-ink\/30,
 .text-ink\/40,
+.text-ink\/45,
 .text-ink\/50,
+.text-ink\/55,
 .text-ink\/60,
+.text-ink\/65,
 .text-ink\/70,
 .text-ink\/80,
 .text-ink\/90 { color: #1D252D !important; }
+/* Common inline low-opacity ink patterns hardcoded across marketing sections. */
+[style*="rgba(29,37,45,0.5"],
+[style*="rgba(29,37,45,0.6"],
+[style*="rgba(29, 37, 45, 0.5"],
+[style*="rgba(29, 37, 45, 0.6"] {
+  color: #1D252D !important;
+}
+/* Same for near-white text on dark surfaces. */
+[style*="rgba(249,249,249,0.5"],
+[style*="rgba(249,249,249,0.6"],
+[style*="rgba(249, 249, 249, 0.5"],
+[style*="rgba(249, 249, 249, 0.6"],
+[style*="rgba(255,255,255,0.5"],
+[style*="rgba(255,255,255,0.6"] {
+  color: #F9F9F9 !important;
+}
+
+
 .text-white\/40,
 .text-white\/50,
 .text-white\/60,
@@ -484,21 +507,23 @@ button:focus-visible {
   outline-offset: 3px !important;
 }
 
-/* Links: never rely on color alone — underline + strong ink/mint colors. */
-a {
+/* Links: high-contrast default color ONLY when the component hasn't set one
+   (Tailwind `text-*`, inline `style="color:..."`, or shadcn tokens win). */
+a:not([class*="text-"]):not([style*="color"]) {
   color: #004B57;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-a:hover {
+a:not([class*="text-"]):not([style*="color"]):hover {
   color: #003842;
 }
-.dark a {
+.dark a:not([class*="text-"]):not([style*="color"]) {
   color: #86D9D1;
 }
-.dark a:hover {
+.dark a:not([class*="text-"]):not([style*="color"]):hover {
   color: #B8ECE7;
 }
+
 /* Nav/CTA links opt out of underline via utility classes; keep focus ring. */
 a:focus-visible {
   outline: 3px solid #FFB300 !important;

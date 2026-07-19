@@ -40,7 +40,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   // Rotas com hero claro precisam de tinta escura desde o topo (antes do scroll).
   const path = location.pathname.replace(/^\/(pt|en|fr)/i, "");
   const lightHeroRoute = path === "/women" || path === "/kids" || path.startsWith("/about") || path.startsWith("/faq") || path.startsWith("/shipping") || path.startsWith("/warranty") || path.startsWith("/contact") || path.startsWith("/lenses");
-  const useInk = scrolled || lightHeroRoute;
+  const useInk = compact || scrolled || lightHeroRoute;
 
   const nav = [
     { key: "women", label: t("nav.women"), to: "/$locale/women" as const },
