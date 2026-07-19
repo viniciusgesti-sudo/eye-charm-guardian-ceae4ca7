@@ -620,6 +620,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "solene", productKey: "solene", filterKey: "Women",
     image: soleneFront, thumbImage: soleneFrontThumb,
     imageAlt: "Solène frame — official Eyegis product photography",
+    pdpPath: "/product/solene",
     gallery: [
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — floating hero in champagne light", label: "Hero" },
       { src: soleneMacro, thumb: soleneMacroThumb, alt: "Solène — hinge and coating macro", label: "Macro" },
