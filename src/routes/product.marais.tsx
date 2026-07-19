@@ -270,6 +270,7 @@ function MaraisProduct() {
           </ul>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

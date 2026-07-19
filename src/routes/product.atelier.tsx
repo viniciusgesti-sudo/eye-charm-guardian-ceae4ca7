@@ -296,6 +296,7 @@ function AtelierProduct() {
           </ul>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

@@ -296,6 +296,7 @@ function SoleneProduct() {
           </ul>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
