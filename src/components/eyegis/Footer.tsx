@@ -132,7 +132,7 @@ export function Footer() {
     <>
       <TrustBar />
 
-      <footer className="relative bg-[#1D252D] text-[#F9F9F9]">
+      <footer className="relative bg-ink text-paper">
         {/* Hairline top */}
         <div
           aria-hidden
@@ -140,12 +140,13 @@ export function Footer() {
           style={{ background: "linear-gradient(90deg, transparent, rgba(134,217,209,0.35), transparent)" }}
         />
 
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+        <div className="container-editorial py-16 md:py-20">
           {/* Top row — logo + top nav */}
           <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center">
-            <a href="/" aria-label="Eyegis home" className="text-[#F9F9F9]">
-              <Logo className="h-7 w-auto text-[#F9F9F9]" />
+            <a href="/" aria-label="Eyegis home" className="text-paper">
+              <Logo className="h-7 w-auto text-paper" />
             </a>
+
 
             <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 md:gap-x-8">
               {topNav.map((l, i) => (
