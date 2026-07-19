@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
-import { AMAZON_RATING } from "@/lib/amazon";
 
 type Stat = {
   label: string;
@@ -71,7 +70,7 @@ export function LiveStats() {
       title: "Numbers that back the science.",
       sub: "Independent lab measurements and verified Amazon customer data.",
       stats: [
-        { label: "Amazon Rating", value: AMAZON_RATING.stars, decimals: 1, suffix: "★", hint: `${AMAZON_RATING.count.toLocaleString("en")} verified reviews` },
+        { label: "Optical Standards Passed", value: 3, decimals: 0, suffix: "", hint: "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1" },
         { label: "Blue Light Filtered", value: 92, suffix: "%", hint: "400–455 nm range · tested" },
         { label: "Pairs Delivered", value: 104000, suffix: "+", hint: "since 2024 · 8 marketplaces" },
         { label: "Frame Weight", value: 18, suffix: "g", hint: "TR90 · virtually weightless" },
@@ -82,7 +81,7 @@ export function LiveStats() {
       title: "Números que sustentam a ciência.",
       sub: "Medições de laboratório independentes e dados verificados da Amazon.",
       stats: [
-        { label: "Avaliação Amazon", value: AMAZON_RATING.stars, decimals: 1, suffix: "★", hint: `${AMAZON_RATING.count.toLocaleString("pt-BR")} avaliações verificadas` },
+        { label: "Normas Ópticas Aprovadas", value: 3, decimals: 0, suffix: "", hint: "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1" },
         { label: "Luz Azul Filtrada", value: 92, suffix: "%", hint: "faixa 400–455 nm · testado" },
         { label: "Pares Entregues", value: 104000, suffix: "+", hint: "desde 2024 · 8 marketplaces" },
         { label: "Peso da Armação", value: 18, suffix: "g", hint: "TR90 · praticamente sem peso" },
@@ -93,7 +92,7 @@ export function LiveStats() {
       title: "Des chiffres qui prouvent la science.",
       sub: "Mesures de laboratoire indépendantes et données Amazon vérifiées.",
       stats: [
-        { label: "Note Amazon", value: AMAZON_RATING.stars, decimals: 1, suffix: "★", hint: `${AMAZON_RATING.count.toLocaleString("fr-FR")} avis vérifiés` },
+        { label: "Normes Optiques Réussies", value: 3, decimals: 0, suffix: "", hint: "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1" },
         { label: "Lumière Bleue Filtrée", value: 92, suffix: "%", hint: "plage 400–455 nm · testé" },
         { label: "Paires Livrées", value: 104000, suffix: "+", hint: "depuis 2024 · 8 marketplaces" },
         { label: "Poids de la Monture", value: 18, suffix: "g", hint: "TR90 · quasi impondérable" },
