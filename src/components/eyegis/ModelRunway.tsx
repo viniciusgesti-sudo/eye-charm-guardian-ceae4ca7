@@ -9,6 +9,8 @@ import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import { Picture, type PictureSource } from "./Picture";
 
+export type RunwayAudience = "men" | "women" | "kids";
+
 type RunwayLook = {
   code: string;
   city: string;
@@ -18,7 +20,9 @@ type RunwayLook = {
   alt: string;
   title: string;
   body: string;
+  audience: RunwayAudience;
 };
+
 
 type Copy = {
   eyebrow: string;
