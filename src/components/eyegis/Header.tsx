@@ -196,19 +196,15 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                         switchLocale(l);
                         setMobileOpen(false);
                       }}
-                      className={`transition-opacity ${
-                        localeUp === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
+                      className={`uppercase transition-opacity ${
+                        currentSeg === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
                       }`}
-                      aria-current={localeUp === l ? "true" : undefined}
+                      aria-current={currentSeg === l ? "true" : undefined}
                     >
                       {l}
                     </button>
                   </div>
                 ))}
-              </div>
-              <div className="flex items-center gap-3 border-t border-ink/10 pt-6">
-                <HighContrastToggle tone="light" />
-                <span className="font-eyebrow text-[11px] text-ink/60">Honest Science mode</span>
               </div>
               <div className="mt-auto">
                 <a
