@@ -20,31 +20,18 @@ export const Route = createFileRoute("/faq")({
         })),
       ),
     };
+    const seo = buildSeo({
+      title: "FAQ & Knowledge Center — Eyegis",
+      description:
+        "Answers about Eyegis lenses, EyegisGuard™ technology, shipping, warranty, returns and lens care. The Eyegis Knowledge Center.",
+      path: "/faq",
+    });
     return {
-      meta: [
-        { title: "FAQ & Knowledge Center — Eyegis" },
-        {
-          name: "description",
-          content:
-            "Answers about Eyegis lenses, EyegisGuard™ technology, shipping, warranty, returns and lens care. The Eyegis Knowledge Center.",
-        },
-        { property: "og:title", content: "FAQ & Knowledge Center — Eyegis" },
-        {
-          property: "og:description",
-          content:
-            "Everything about Eyegis: technology, blue-light research, orders, shipping, warranty and lens care.",
-        },
-        { property: "og:type", content: "website" },
-        { name: "twitter:card", content: "summary_large_image" },
-      ],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify(jsonLd),
-        },
-      ],
+      ...seo,
+      scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
     };
   },
+
   component: FAQPage,
 });
 
