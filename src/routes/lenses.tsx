@@ -1057,9 +1057,9 @@ function Comparison({ c }: { c: Copy }) {
                       href={AMAZON_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`mt-8 inline-flex items-center gap-4 rounded-full px-6 py-3.5 font-eyebrow transition-all duration-500 ${
+                      className={`mt-8 inline-flex items-center gap-4 rounded-full px-6 py-3.5 font-eyebrow font-semibold tracking-[0.15em] shadow-sm transition-all duration-500 ${
                         l.key === "shield"
-                          ? "bg-mint text-teal-deep hover:-translate-y-0.5"
+                          ? "bg-teal-deep text-mint ring-1 ring-teal-deep/20 hover:bg-ink hover:-translate-y-0.5"
                           : "bg-ink text-paper hover:-translate-y-0.5"
                       }`}
                     >
