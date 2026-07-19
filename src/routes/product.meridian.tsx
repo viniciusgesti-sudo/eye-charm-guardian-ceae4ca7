@@ -18,6 +18,8 @@ import guardLens from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { VsGenerics } from "@/components/eyegis/VsGenerics";
+import { Header } from "@/components/eyegis/Header";
+import { Footer } from "@/components/eyegis/Footer";
 
 export const Route = createFileRoute("/product/meridian")({
   head: () => ({
@@ -476,50 +478,9 @@ function Reveal({
 }
 
 /* ---------------------------------------------------------------- */
-/*  Mini header                                                     */
+/*  (MiniHeader removed — unified with global <Header />)           */
 /* ---------------------------------------------------------------- */
 
-function MiniHeader() {
-  const c = useContent();
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 8);
-    on();
-    window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
-  }, []);
-  return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/60"
-          : "bg-background/40 backdrop-blur-md border-b border-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10 lg:px-14">
-        <Link to="/" className="flex items-baseline gap-2 text-ink">
-          <span className="font-editorial text-2xl tracking-tight">Eyegis</span>
-          <span className="font-eyebrow hidden text-[9px] text-muted-foreground sm:inline">
-            ® Optical Science
-          </span>
-        </Link>
-        <nav className="hidden md:flex items-center gap-8 font-eyebrow text-ink/70">
-          <Link to="/" className="hover:text-ink transition-colors">
-            {c.backAll}
-          </Link>
-        </nav>
-        <a
-          href={AMAZON_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-teal px-5 py-2.5 font-eyebrow text-paper hover:bg-teal-deep transition-colors"
-        >
-          {c.buyAmazon}
-        </a>
-      </div>
-    </header>
-  );
-}
 
 /* ---------------------------------------------------------------- */
 /*  Hero                                                            */
@@ -1109,7 +1070,7 @@ function StickyBuy() {
 function MeridianProduct() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
-      <MiniHeader />
+      <Header variant="compact" />
       <ProductHero />
       <Gallery />
       <WhyLove />
@@ -1123,6 +1084,7 @@ function MeridianProduct() {
       <Faq />
       <FinalCta />
       <StickyBuy />
+      <Footer />
     </main>
   );
 }

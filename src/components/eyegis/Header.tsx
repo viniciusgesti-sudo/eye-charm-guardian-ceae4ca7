@@ -18,7 +18,8 @@ import { HighContrastToggle } from "./HighContrastToggle";
 
 const LOCALES: Lang[] = ["PT", "EN", "FR"];
 
-export function Header() {
+export function Header({ variant = "default" }: { variant?: "default" | "compact" } = {}) {
+  const compact = variant === "compact";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
@@ -68,7 +69,7 @@ export function Header() {
             : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 md:px-8 md:py-5 lg:px-12">
+      <div className={`mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 md:px-8 lg:px-12 ${compact ? "py-3 md:py-3.5" : "py-4 md:py-5"}`}>
 
         <Link
           to="/$locale"

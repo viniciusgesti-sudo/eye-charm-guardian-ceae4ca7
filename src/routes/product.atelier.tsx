@@ -1,5 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Picture } from "@/components/eyegis/Picture";
+import { Header } from "@/components/eyegis/Header";
+import { Footer } from "@/components/eyegis/Footer";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import heroImg from "@/assets/products/atelier-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -78,26 +80,9 @@ const FEATURES = [
 function AtelierProduct() {
   return (
     <main className="bg-[#F9F6F1] text-[#1D252D]">
-      {/* Top nav */}
-      <div className="border-b border-black/10 bg-white/60 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link
-            to="/"
-            hash="preview"
-            className="font-eyebrow text-xs tracking-[0.2em] text-[#004B57] hover:opacity-70"
-          >
-            ← All Collections
-          </Link>
-          <a
-            href={DEFAULT_AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#004B57] px-5 py-2 text-xs uppercase tracking-[0.15em] text-white hover:bg-[#003942]"
-          >
-            Buy on Amazon
-          </a>
-        </div>
-      </div>
+      <Header variant="compact" />
+
+
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
@@ -311,6 +296,7 @@ function AtelierProduct() {
           </ul>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

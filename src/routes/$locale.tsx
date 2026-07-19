@@ -1,12 +1,15 @@
 import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 
-import { ComingSoonModal } from "@/components/eyegis/ComingSoonModal";
 import { Footer } from "@/components/eyegis/Footer";
 import { Header } from "@/components/eyegis/Header";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+
+const ComingSoonModal = lazy(() =>
+  import("@/components/eyegis/ComingSoonModal").then((m) => ({ default: m.ComingSoonModal })),
+);
 
 const VALID = ["pt", "en", "fr"] as const;
 type ValidLocale = (typeof VALID)[number];
@@ -45,7 +48,9 @@ function LocaleLayout() {
       <Outlet />
       <Footer />
       <StickyBuyBar />
-      <ComingSoonModal />
+      <Suspense fallback={null}>
+        <ComingSoonModal />
+      </Suspense>
     </main>
   );
 }
