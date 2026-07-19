@@ -99,6 +99,9 @@ const currentAssets: { section: string; items: { src: string; label: string; sku
 ];
 
 function QAPage() {
+  const [bp, setBp] = useState<(typeof BREAKPOINTS)[number]["key"]>("mobile");
+  const active = BREAKPOINTS.find((b) => b.key === bp) ?? BREAKPOINTS[0];
+
   return (
     <main className="min-h-screen bg-[color:var(--surface,#F9F9F9)] text-[color:var(--text,#1D252D)]">
       <header className="border-b border-black/10 bg-white">
@@ -108,22 +111,97 @@ function QAPage() {
             Visual Review — Before vs After
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-black/70">
-            Arraste o divisor para comparar assets antigos e novos. Abaixo, um grid do estado atual
-            por SKU e seção para validação rápida.
+            Arraste o divisor para comparar assets antigos e novos, e use o seletor de breakpoint
+            abaixo para inspecionar o layout em mobile, tablet e desktop.
           </p>
         </div>
       </header>
 
       <section className="mx-auto max-w-6xl px-6 py-12">
         <h2 className="text-xs uppercase tracking-[0.2em] text-[color:var(--primary)] mb-6">
-          Comparações interativas
+          Comparações interativas — Heroes
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {beforeAfterPairs.map((p) => (
             <BeforeAfter key={p.label} {...p} />
           ))}
         </div>
+
+        <h3 className="mt-12 text-xs uppercase tracking-[0.2em] text-black/60 mb-4">
+          Mesmos pares · larguras fixas (mobile 375 vs desktop 1280)
+        </h3>
+        <div className="space-y-8">
+          {beforeAfterPairs.map((p) => (
+            <div key={`bp-${p.label}`} className="rounded-lg border border-black/10 bg-white p-4">
+              <div className="mb-3 text-sm font-medium">{p.label}</div>
+              <div className="flex flex-wrap gap-6">
+                <div>
+                  <div className="mb-1 text-[10px] uppercase tracking-widest text-black/50">Mobile · 375</div>
+                  <div style={{ width: 375 }}>
+                    <BeforeAfter {...p} />
+                  </div>
+                </div>
+                <div className="flex-1 min-w-[320px]">
+                  <div className="mb-1 text-[10px] uppercase tracking-widest text-black/50">Desktop · fluid ≥1024</div>
+                  <BeforeAfter {...p} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-12">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <h2 className="text-xs uppercase tracking-[0.2em] text-[color:var(--primary)]">
+            Prévia responsiva das páginas
+          </h2>
+          <div className="flex gap-2">
+            {BREAKPOINTS.map((b) => (
+              <button
+                key={b.key}
+                onClick={() => setBp(b.key)}
+                className={`rounded-full border px-3 py-1 text-[11px] uppercase tracking-widest transition ${
+                  bp === b.key
+                    ? "border-[color:var(--primary)] bg-[color:var(--primary)] text-white"
+                    : "border-black/15 bg-white text-black/70 hover:bg-black/5"
+                }`}
+              >
+                {b.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {responsiveRoutes.map((r) => (
+            <figure key={r.path} className="overflow-hidden rounded-lg border border-black/10 bg-white">
+              <figcaption className="flex items-center justify-between border-b border-black/10 px-3 py-2 text-xs">
+                <span className="font-medium">{r.label}</span>
+                <a
+                  href={r.path}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[10px] uppercase tracking-widest text-[color:var(--primary)] hover:underline"
+                >
+                  Open ↗
+                </a>
+              </figcaption>
+              <div className="flex justify-center overflow-auto bg-black/5 p-3">
+                <iframe
+                  key={`${r.path}-${active.key}`}
+                  src={r.path}
+                  title={`${r.label} — ${active.label}`}
+                  loading="lazy"
+                  style={{ width: active.width, height: active.height }}
+                  className="rounded border border-black/10 bg-white"
+                />
+              </div>
+            </figure>
+          ))}
+        </div>
+      </section>
+
 
       {currentAssets.map((group) => (
         <section key={group.section} className="mx-auto max-w-6xl px-6 pb-12">
