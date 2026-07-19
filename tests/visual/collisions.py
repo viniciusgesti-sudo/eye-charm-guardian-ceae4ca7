@@ -24,7 +24,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # Rotas críticas: hero escuro (home) + hero claro (about/lenses) + PDP.
 ROUTES = [
     "/pt", "/en", "/pt/about", "/en/women", "/pt/technology",
-    "/lenses", "/faq", "/product/meridian",
+    "/pt/faq", "/lenses", "/product/meridian",
 ]
 VIEWPORTS = [
     {"name": "mobile-sm", "w": 360, "h": 780},
