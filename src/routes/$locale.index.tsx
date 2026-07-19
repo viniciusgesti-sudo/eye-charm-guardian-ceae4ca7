@@ -1,14 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 
-import { FAQ } from "@/components/eyegis/FAQ";
 import { Hero } from "@/components/eyegis/Hero";
-import { HowItWorks } from "@/components/eyegis/HowItWorks";
-import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
-import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
-import { SocialProof } from "@/components/eyegis/SocialProof";
 import { TrustStrip } from "@/components/eyegis/TrustStrip";
-import { Universe } from "@/components/eyegis/Universe";
 import { buildSeo, DEFAULT_LOCALE, type Locale } from "@/lib/seo";
+
+// Below-the-fold sections are lazy-loaded to shrink the initial home chunk.
+const HowItWorks = lazy(() =>
+  import("@/components/eyegis/HowItWorks").then((m) => ({ default: m.HowItWorks })),
+);
+const Universe = lazy(() =>
+  import("@/components/eyegis/Universe").then((m) => ({ default: m.Universe })),
+);
+const LifestyleUniverse = lazy(() =>
+  import("@/components/eyegis/LifestyleUniverse").then((m) => ({ default: m.LifestyleUniverse })),
+);
+const SocialProof = lazy(() =>
+  import("@/components/eyegis/SocialProof").then((m) => ({ default: m.SocialProof })),
+);
+const ShopOnAmazon = lazy(() =>
+  import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
+);
+const FAQ = lazy(() =>
+  import("@/components/eyegis/FAQ").then((m) => ({ default: m.FAQ })),
+);
 
 const META = {
   pt: {
@@ -43,6 +58,7 @@ export const Route = createFileRoute("/$locale/")({
   component: HomePage,
 });
 
+const SectionFallback = () => <div style={{ minHeight: 400 }} aria-hidden />;
 
 function HomePage() {
   const { locale } = Route.useParams();
@@ -50,12 +66,14 @@ function HomePage() {
     <>
       <Hero locale={locale} />
       <TrustStrip />
-      <HowItWorks />
-      <Universe />
-      <LifestyleUniverse />
-      <SocialProof />
-      <ShopOnAmazon />
-      <FAQ />
+      <Suspense fallback={<SectionFallback />}>
+        <HowItWorks />
+        <Universe />
+        <LifestyleUniverse />
+        <SocialProof />
+        <ShopOnAmazon />
+        <FAQ />
+      </Suspense>
     </>
   );
 }
