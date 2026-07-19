@@ -64,7 +64,7 @@ const COPY = {
 
 export const Route = createFileRoute("/$locale/women")({
   head: ({ params }) => {
-    const locale = (params.locale in COPY ? params.locale : "pt") as "pt" | "en" | "fr";
+    const locale = (params.locale in COPY ? params.locale : "br") as "br" | "en" | "fr";
     const c = COPY[locale];
     return buildSeo({
       title: c.metaTitle,

@@ -4,7 +4,7 @@ export const Route = createFileRoute("/technology")({
   beforeLoad: () => {
     throw redirect({
       to: "/$locale/technology",
-      params: { locale: "pt" },
+      params: { locale: "br" },
       replace: true,
     });
   },

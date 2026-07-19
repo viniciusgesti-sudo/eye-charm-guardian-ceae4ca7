@@ -11,7 +11,7 @@ const ComingSoonModal = lazy(() =>
   import("@/components/eyegis/ComingSoonModal").then((m) => ({ default: m.ComingSoonModal })),
 );
 
-const VALID = ["pt", "en", "fr"] as const;
+const VALID = ["br", "en", "fr"] as const;
 type ValidLocale = (typeof VALID)[number];
 
 function isValid(v: string): v is ValidLocale {
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/$locale")({
     if (!isValid(params.locale)) {
       throw redirect({
         to: "/$locale",
-        params: { locale: "pt" },
+        params: { locale: "br" },
         replace: true,
       });
     }

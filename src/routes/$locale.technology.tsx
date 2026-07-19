@@ -44,7 +44,7 @@ const META = {
 
 export const Route = createFileRoute("/$locale/technology")({
   head: ({ params }) => {
-    const locale = (params.locale in META ? params.locale : "pt") as "pt" | "en" | "fr";
+    const locale = (params.locale in META ? params.locale : "br") as "br" | "en" | "fr";
     const m = META[locale];
     return buildSeo({
       title: m.title,
