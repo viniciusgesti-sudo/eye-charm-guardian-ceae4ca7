@@ -112,6 +112,7 @@ export function Header() {
               </div>
             ))}
           </div>
+          <HighContrastToggle tone={scrolled ? "light" : "dark"} />
           <a
             href={DEFAULT_AMAZON_URL}
             target="_blank"
