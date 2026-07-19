@@ -6,6 +6,7 @@ import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import { Logo } from "./Logo";
+import { HighContrastToggle } from "./HighContrastToggle";
 
 const LOCALES: Lang[] = ["PT", "EN", "FR"];
 
@@ -111,6 +112,7 @@ export function Header() {
               </div>
             ))}
           </div>
+          <HighContrastToggle tone={scrolled ? "light" : "dark"} />
           <a
             href={DEFAULT_AMAZON_URL}
             target="_blank"
