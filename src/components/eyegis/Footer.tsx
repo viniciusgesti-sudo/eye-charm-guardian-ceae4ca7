@@ -112,12 +112,7 @@ const cols = [
   },
 ];
 
-const socials = [
-  { label: "Instagram", href: "https://instagram.com/eyegis",   Icon: Ic.Instagram },
-  { label: "TikTok",    href: "https://tiktok.com/@eyegis",     Icon: Ic.TikTok },
-  { label: "Facebook",  href: "https://facebook.com/eyegis",    Icon: Ic.Facebook },
-  { label: "YouTube",   href: "https://youtube.com/@eyegis",    Icon: Ic.YouTube },
-];
+const socials: { label: string; href: string; Icon: (p: React.SVGProps<SVGSVGElement>) => JSX.Element }[] = [];
 
 const topNav = [
   { label: "Shop",       href: AMZ, external: true },
