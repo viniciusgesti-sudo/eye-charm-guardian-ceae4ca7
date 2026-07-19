@@ -11,7 +11,7 @@ import packageImgSrc from "@/assets/products/meridian-package.jpg?w=480;800;1200
 import pouchImgSrc from "@/assets/products/meridian-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
 import lensMacroSrc from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import portraitSrc from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import portraitSrc from "@/assets/models-focus-eyegis.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifestyleImg from "@/assets/persona-executive.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import guardLens from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 
