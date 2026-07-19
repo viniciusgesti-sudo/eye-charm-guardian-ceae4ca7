@@ -505,12 +505,13 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
 }
 
 /* ---------- Main ---------- */
-export function LifestyleUniverse() {
+export function LifestyleUniverse({ audience }: { audience?: LifestyleAudience } = {}) {
   const { lang } = useI18n();
   const copy = LIFESTYLE_COPY[lang];
-  const panels = buildPanels(copy);
+  const panels = buildPanels(copy, audience);
   return (
     <section id="lifestyles" className="relative">
+
       {/* ============ INTRO ============ */}
       <div className="bg-paper text-ink">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-16 md:pb-24 border-t border-ink/10">
