@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
-import { AMAZON_RATING, DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import { LAB_CERTIFICATIONS } from "@/lib/amazon";
 
 import { Logo } from "./Logo";
 import { Picture } from "./Picture";
@@ -181,20 +181,13 @@ export function Hero({ locale }: Props) {
               </span>
             </Link>
           </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">
-            <a
-              href={DEFAULT_AMAZON_URL}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="inline-flex items-center gap-2 transition-colors hover:text-teal-deep"
-            >
-              <span className="text-[#FF9900]">★ {AMAZON_RATING.stars}</span>
-              <span>{AMAZON_RATING.count.toLocaleString("en")} Amazon reviews</span>
-            </a>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#004B57]/25 bg-mint/15 px-3 py-1.5 text-teal-deep">
+              <span aria-hidden className="inline-grid h-3.5 w-3.5 place-items-center rounded-full bg-mint text-[9px] font-bold text-teal-deep">✓</span>
+              {LAB_CERTIFICATIONS.short}
+            </span>
             <span className="opacity-30">/</span>
-            <span>Amazon's Choice</span>
-            <span className="opacity-30">/</span>
-            <span>Prime · 24h ship</span>
+            <span>Independent optical lab tested</span>
             <span className="opacity-30">/</span>
             <span>60-day guarantee</span>
           </div>

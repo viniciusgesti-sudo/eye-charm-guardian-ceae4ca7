@@ -1,6 +1,6 @@
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-import { MARKETPLACES, amazonUrl, DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+import { MARKETPLACES, COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon";
 
 type Copy = {
   eyebrow: string;
@@ -69,27 +69,24 @@ export function ShopOnAmazon() {
 
           <div className="lg:col-span-5 lg:justify-self-end w-full">
             <a
-              href={DEFAULT_AMAZON_URL}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
+              href={COMING_SOON_HREF}
               className="group inline-flex w-full sm:w-auto items-center justify-between gap-6 rounded-full bg-mint px-8 py-5 text-ink shadow-[0_20px_60px_-20px_rgba(200,222,220,0.6)] hover:-translate-y-0.5 hover:bg-paper transition-all duration-500"
             >
-              <span className="font-eyebrow">{c.primary}</span>
+              <span className="font-eyebrow">{c.comingSoon} · Amazon</span>
               <span className="grid h-9 w-9 place-items-center rounded-full bg-ink/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden="true">→</span>
             </a>
 
-            {/* Amazon rating */}
-            <a
-              href={AMAZON_RATING.url}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="mt-6 inline-flex items-center gap-3 text-paper/75 hover:text-paper transition-colors"
-            >
-              <span className="text-mint text-lg tracking-widest" aria-hidden="true">★★★★★</span>
-              <span className="font-eyebrow text-xs">
-                {AMAZON_RATING.stars} · {AMAZON_RATING.count.toLocaleString()} {c.reviews} →
+            {/* Verifiable lab certification (in place of fabricated reviews) */}
+            <div className="mt-6 inline-flex items-center gap-3 text-paper/80">
+              <span
+                aria-hidden
+                className="inline-grid h-5 w-5 place-items-center rounded-full text-[11px] font-bold"
+                style={{ backgroundColor: "#86D9D1", color: "#004B57" }}
+              >
+                ✓
               </span>
-            </a>
+              <span className="font-eyebrow text-xs">{LAB_CERTIFICATIONS.short}</span>
+            </div>
           </div>
         </div>
 
@@ -117,9 +114,7 @@ export function ShopOnAmazon() {
             return m.active ? (
               <a
                 key={m.code}
-                href={amazonUrl(m.domain)}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
+                href={COMING_SOON_HREF}
                 className={`${commonClass} border-paper/15 bg-paper/[0.04] hover:bg-paper/[0.09] hover:border-paper/30`}
               >
                 {inner}

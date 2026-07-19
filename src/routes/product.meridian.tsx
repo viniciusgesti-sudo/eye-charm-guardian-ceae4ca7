@@ -15,7 +15,7 @@ import portraitSrc from "@/assets/models-focus-eyegis.jpg?w=480;800;1200;1600&fo
 import lifestyleImg from "@/assets/persona-executive.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import guardLens from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 
-import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { VsGenerics } from "@/components/eyegis/VsGenerics";
 
@@ -55,15 +55,10 @@ export const Route = createFileRoute("/product/meridian")({
           offers: {
             "@type": "Offer",
             url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/InStock",
+            availability: "https://schema.org/PreOrder",
             priceCurrency: "USD",
             price: "89.00",
-            seller: { "@type": "Organization", name: "Amazon" },
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: AMAZON_RATING.stars,
-            reviewCount: AMAZON_RATING.count,
+            seller: { "@type": "Organization", name: "Eyegis" },
           },
         }),
       },
@@ -113,7 +108,7 @@ type Content = {
 const CONTENT: Record<Lang, Content> = {
   EN: {
     backAll: "← All Collections",
-    buyAmazon: "Buy on Amazon",
+    buyAmazon: "Coming soon on Amazon",
     viewGallery: "View Gallery",
     chapter: "Chapter I · Meridian",
     by: "by Eyegis",

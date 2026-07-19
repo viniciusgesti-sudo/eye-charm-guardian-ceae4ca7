@@ -1,12 +1,14 @@
 // Central Amazon configuration.
-// Replace ASIN and associate tag once available.
+// The Amazon store is not live yet — we do NOT link to a real /dp/ or
+// display invented ratings. All CTAs route through `#coming-soon`, which
+// the global ComingSoonModal intercepts to capture email leads.
 
-export const AMAZON_ASSOCIATE_TAG = "eyegis-20"; // TODO: replace with real associate tag
-export const AMAZON_ASIN = "B0XXXXXXXX"; // TODO: replace with real Meridian ASIN
+export const AMAZON_ASSOCIATE_TAG = ""; // set once the real tag is issued
+export const AMAZON_ASIN = ""; // set once the real ASIN is issued
 
-// Safety flag — when the ASIN is still a placeholder we send users to an
-// Amazon storefront search for "Eyegis" instead of a broken /dp/ URL.
-export const ASIN_IS_PLACEHOLDER = /^B0X+$/i.test(AMAZON_ASIN);
+export const ASIN_IS_PLACEHOLDER = !AMAZON_ASIN;
+
+export const COMING_SOON_HREF = "#coming-soon";
 
 type Marketplace = {
   code: string;
@@ -17,30 +19,35 @@ type Marketplace = {
 };
 
 export const MARKETPLACES: Marketplace[] = [
-  { code: "US", label: "United States",  flag: "🇺🇸", domain: "amazon.com",    active: true  },
-  { code: "UK", label: "United Kingdom", flag: "🇬🇧", domain: "amazon.co.uk",  active: true  },
-  { code: "DE", label: "Deutschland",    flag: "🇩🇪", domain: "amazon.de",     active: true  },
-  { code: "FR", label: "France",         flag: "🇫🇷", domain: "amazon.fr",     active: true  },
-  { code: "IT", label: "Italia",         flag: "🇮🇹", domain: "amazon.it",     active: true  },
-  { code: "ES", label: "España",         flag: "🇪🇸", domain: "amazon.es",     active: true  },
-  { code: "CA", label: "Canada",         flag: "🇨🇦", domain: "amazon.ca",     active: true  },
+  { code: "US", label: "United States",  flag: "🇺🇸", domain: "amazon.com",    active: false },
+  { code: "UK", label: "United Kingdom", flag: "🇬🇧", domain: "amazon.co.uk",  active: false },
+  { code: "DE", label: "Deutschland",    flag: "🇩🇪", domain: "amazon.de",     active: false },
+  { code: "FR", label: "France",         flag: "🇫🇷", domain: "amazon.fr",     active: false },
+  { code: "IT", label: "Italia",         flag: "🇮🇹", domain: "amazon.it",     active: false },
+  { code: "ES", label: "España",         flag: "🇪🇸", domain: "amazon.es",     active: false },
+  { code: "CA", label: "Canada",         flag: "🇨🇦", domain: "amazon.ca",     active: false },
   { code: "BR", label: "Brasil",         flag: "🇧🇷", domain: "amazon.com.br", active: false },
 ];
 
-export function amazonUrl(domain = "amazon.com", asin = AMAZON_ASIN) {
-  if (ASIN_IS_PLACEHOLDER) {
-    return `https://www.${domain}/s?k=eyegis&tag=${AMAZON_ASSOCIATE_TAG}`;
-  }
-  return `https://www.${domain}/dp/${asin}?tag=${AMAZON_ASSOCIATE_TAG}`;
+// While the ASIN + associate tag are placeholders, every Amazon CTA routes
+// through the ComingSoonModal instead of a broken /dp/ URL.
+export function amazonUrl(_domain = "amazon.com", _asin = AMAZON_ASIN) {
+  return COMING_SOON_HREF;
 }
 
-export const DEFAULT_AMAZON_URL = amazonUrl();
+export const DEFAULT_AMAZON_URL = COMING_SOON_HREF;
 
-// Amazon-rating aggregate (update as reviews scale)
-export const AMAZON_RATING = {
-  stars: 4.7,
-  count: 2341,
-  url: ASIN_IS_PLACEHOLDER
-    ? `https://www.amazon.com/s?k=eyegis&tag=${AMAZON_ASSOCIATE_TAG}`
-    : `https://www.amazon.com/product-reviews/${AMAZON_ASIN}?tag=${AMAZON_ASSOCIATE_TAG}`,
-};
+// Honest social proof only — no fabricated reviews.
+// When real Amazon reviews exist, set this to
+// `{ stars: <n>, count: <n>, url: <string> }`.
+export const AMAZON_RATING: { stars: number; count: number; url: string } | null = null;
+
+// Verifiable certifications shown in place of fake reviews.
+export const LAB_CERTIFICATIONS = {
+  short: "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+  long: {
+    en: "Tested in an independent optical lab — ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+    pt: "Testado em laboratório óptico independente — ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+    fr: "Testé en laboratoire optique indépendant — ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+  },
+} as const;

@@ -1,6 +1,7 @@
 import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
 
+import { ComingSoonModal } from "@/components/eyegis/ComingSoonModal";
 import { Footer } from "@/components/eyegis/Footer";
 import { Header } from "@/components/eyegis/Header";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
@@ -44,6 +45,7 @@ function LocaleLayout() {
       <Outlet />
       <Footer />
       <StickyBuyBar />
+      <ComingSoonModal />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Picture } from "@/components/eyegis/Picture";
-import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
+import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import heroImg from "@/assets/products/marais-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/marais-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -45,15 +45,10 @@ export const Route = createFileRoute("/product/marais")({
           offers: {
             "@type": "Offer",
             url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/InStock",
+            availability: "https://schema.org/PreOrder",
             priceCurrency: "USD",
             price: "89.00",
-            seller: { "@type": "Organization", name: "Amazon" },
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: AMAZON_RATING.stars,
-            reviewCount: AMAZON_RATING.count,
+            seller: { "@type": "Organization", name: "Eyegis" },
           },
         }),
       },
@@ -122,15 +117,20 @@ function MaraisProduct() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={DEFAULT_AMAZON_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-[#004B57] px-6 py-3 text-white transition hover:-translate-y-0.5 hover:bg-[#003942]"
             >
-              <span className="font-eyebrow text-xs tracking-[0.2em]">Buy on Amazon</span>
+              <span className="font-eyebrow text-xs tracking-[0.2em]">Coming soon on Amazon</span>
               <span aria-hidden>→</span>
             </a>
-            <span className="text-xs text-black/60">
-              ★ {AMAZON_RATING.stars} · {AMAZON_RATING.count.toLocaleString()} reviews
+            <span className="inline-flex items-center gap-2 text-xs text-black/60">
+              <span
+                aria-hidden
+                className="inline-grid h-4 w-4 place-items-center rounded-full text-[10px] font-bold"
+                style={{ backgroundColor: "#86D9D1", color: "#004B57" }}
+              >
+                ✓
+              </span>
+              Independent lab tested
             </span>
           </div>
 
