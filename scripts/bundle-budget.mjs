@@ -20,13 +20,13 @@ const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
 // --- Budgets (KB) --------------------------------------------------------
 const BUDGETS = {
   client: {
-    fileJs: num(process.env.BUDGET_CLIENT_FILE_JS_KB, 400),
-    fileCss: num(process.env.BUDGET_CLIENT_FILE_CSS_KB, 200),
-    total: num(process.env.BUDGET_CLIENT_TOTAL_KB, 1400),
+    fileJs: num(process.env.BUDGET_CLIENT_FILE_JS_KB, 380),
+    fileCss: num(process.env.BUDGET_CLIENT_FILE_CSS_KB, 180),
+    total: num(process.env.BUDGET_CLIENT_TOTAL_KB, 1200),
   },
   server: {
-    file: num(process.env.BUDGET_SERVER_FILE_KB, 800),
-    total: num(process.env.BUDGET_SERVER_TOTAL_KB, 2600),
+    file: num(process.env.BUDGET_SERVER_FILE_KB, 700),
+    total: num(process.env.BUDGET_SERVER_TOTAL_KB, 2400),
   },
 };
 
