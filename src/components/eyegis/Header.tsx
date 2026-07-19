@@ -50,13 +50,10 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
     { key: "about", label: t("nav.about"), to: "/$locale/about" as const },
   ];
 
-  const switchLocale = (target: Lang) => {
-    setLang(target);
-    const next = location.pathname.replace(
-      /^\/(pt|en|fr)(?=\/|$)/i,
-      `/${target.toLowerCase()}`,
-    );
-    navigate({ to: next.startsWith(`/${target.toLowerCase()}`) ? next : `/${target.toLowerCase()}` });
+  const switchLocale = (seg: LocaleSeg) => {
+    setLang(segToLang(seg));
+    const next = location.pathname.replace(/^\/(br|pt|en|fr)(?=\/|$)/i, `/${seg}`);
+    navigate({ to: next.startsWith(`/${seg}`) ? next : `/${seg}` });
   };
 
   return (
