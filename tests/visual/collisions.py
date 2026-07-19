@@ -106,7 +106,7 @@ async def run():
                 url = BASE_URL.rstrip("/") + route
                 try:
                     await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-                    await page.wait_for_selector('[data-testid="site-header"]', timeout=8000)
+                    await page.wait_for_selector('[data-testid="site-header"]', state="attached", timeout=8000)
                 except Exception as e:
                     failures.append({"route": route, "viewport": vp["name"],
                                      "issue": "goto-failed", "detail": str(e)})
