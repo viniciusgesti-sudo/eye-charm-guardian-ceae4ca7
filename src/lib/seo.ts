@@ -7,9 +7,9 @@
  */
 
 export const SITE = "https://eye-charm-guardian.lovable.app";
-export const LOCALES = ["pt", "en", "fr"] as const;
+export const LOCALES = ["br", "en", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = "pt";
+export const DEFAULT_LOCALE: Locale = "br";
 
 type Meta = { title?: string; name?: string; property?: string; content?: string };
 type Link = { rel: string; href: string; hrefLang?: string };
