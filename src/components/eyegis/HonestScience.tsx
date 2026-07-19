@@ -220,7 +220,8 @@ function SpectrumSection() {
 
           <div
             className="mt-14 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{ color: "rgba(29,37,45,0.55)" }}
+            style={{ color: "#3A4450" }}
+
           >
             <span>380 nm</span>
             <span>400</span>
