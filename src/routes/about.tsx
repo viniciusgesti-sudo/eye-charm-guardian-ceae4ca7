@@ -4,20 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/lifestyle-architecture.jpg";
 import heroImgSrc from "@/assets/lifestyle-architecture.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import beliefImg from "@/assets/universe-portrait.jpg";
-import whyImg1 from "@/assets/science-devices.jpg";
-import whyImg2 from "@/assets/universe-lens-macro.jpg";
-import philo1 from "@/assets/science-lens-exploded.jpg";
-import philo2 from "@/assets/universe-eyewear.jpg";
-import philo3 from "@/assets/guard-lens-float.jpg";
-import life1 from "@/assets/life-creative.jpg";
-import life2 from "@/assets/life-business.jpg";
-import life3 from "@/assets/life-student.jpg";
-import life4 from "@/assets/life-travel.jpg";
-import life5 from "@/assets/life-gaming.jpg";
-import life6 from "@/assets/lifestyle-work.jpg";
-import life7 from "@/assets/lifestyle-travel.jpg";
-import life8 from "@/assets/hero-paris.jpg";
+import beliefImg from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import whyImg1 from "@/assets/science-devices.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import whyImg2 from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import philo1 from "@/assets/science-lens-exploded.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
+import philo2 from "@/assets/universe-eyewear.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
+import philo3 from "@/assets/guard-lens-float.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
+import life1 from "@/assets/life-creative.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life2 from "@/assets/life-business.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life3 from "@/assets/life-student.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life4 from "@/assets/life-travel.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life5 from "@/assets/life-gaming.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life6 from "@/assets/lifestyle-work.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life7 from "@/assets/lifestyle-travel.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life8 from "@/assets/hero-paris.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import peopleHeroImg from "@/assets/lifestyle-architecture.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -462,7 +463,7 @@ function Rule({ label }: { label: string }) {
   );
 }
 
-const PEOPLE_IMAGES = [life1, life2, life3, life6, heroImg, life4, life8, life7, life5, beliefImg, whyImg2, whyImg1];
+const PEOPLE_IMAGES = [life1, life2, life3, life6, peopleHeroImg, life4, life8, life7, life5, beliefImg, whyImg2, whyImg1];
 
 function AboutPage() {
   const { lang } = useI18n();
@@ -583,14 +584,12 @@ function AboutPage() {
 
           <div className="mt-20 grid items-center gap-16 md:grid-cols-12">
             <Reveal className="md:col-span-6">
-              <img
-                src={whyImg1}
+              <Picture
+                source={whyImg1}
                 alt={c.why.alt1}
-                width={1400}
-                height={1750}
+                sizes="(min-width:768px) 50vw, 100vw"
                 className="h-[70vh] w-full object-cover"
-            loading="lazy" decoding="async"
-          />
+              />
             </Reveal>
             <div className="md:col-span-5 md:col-start-8">
               <Reveal delay={120}>
@@ -628,14 +627,12 @@ function AboutPage() {
               </Reveal>
             </div>
             <Reveal className="md:col-span-6 md:col-start-7 md:order-2 order-1">
-              <img
-                src={whyImg2}
+              <Picture
+                source={whyImg2}
                 alt={c.why.alt2}
-                width={1400}
-                height={1750}
+                sizes="(min-width:768px) 50vw, 100vw"
                 className="h-[70vh] w-full object-cover"
-            loading="lazy" decoding="async"
-          />
+              />
             </Reveal>
           </div>
         </div>
@@ -664,14 +661,12 @@ function AboutPage() {
               <Reveal key={p.idx} delay={i * 120}>
                 <article className="group flex h-full flex-col">
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
-                    <img
-                      src={imgs[i]}
+                    <Picture
+                      source={imgs[i]}
                       alt={`${p.title} — Eyegis philosophy portrait`}
-                      width={1024}
-                      height={1280}
+                      sizes="(min-width:768px) 33vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
-            loading="lazy" decoding="async"
-          />
+                    />
                   </div>
                   <div className="mt-8">
                     <span
@@ -857,15 +852,12 @@ function AboutPage() {
               <Reveal key={label} delay={(i % 4) * 100}>
                 <figure className="group relative overflow-hidden">
                   <div className="aspect-[3/4] w-full overflow-hidden">
-                    <img
-                      src={PEOPLE_IMAGES[i]}
+                    <Picture
+                      source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}
-                      width={900}
-                      height={1200}
-                      loading="lazy"
+                      sizes="(min-width:768px) 25vw, 50vw"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
-            decoding="async"
-          />
+                    />
                   </div>
                   <figcaption
                     className="mt-3 text-[11px] uppercase tracking-[0.3em]"

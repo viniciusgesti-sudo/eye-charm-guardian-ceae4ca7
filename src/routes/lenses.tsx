@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/lifestyle-work.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import compareImg from "@/assets/guard-comparison.jpg";
-import lifeBusiness from "@/assets/life-business.jpg";
-import lifeCreative from "@/assets/life-creative.jpg";
-import lifeGaming from "@/assets/life-gaming.jpg";
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
-import soleneFront from "@/assets/products/solene-front.jpg";
+import compareImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeCreative from "@/assets/life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGaming from "@/assets/life-gaming.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -643,13 +643,15 @@ const LENS_SCORES: Record<"clear" | "shield" | "pro", number[]> = {
   pro:    [5, 4, 5, 4, 4, 5, 4, 5],
 };
 
-const PERSONA_IMAGES: Record<PersonaId, string> = {
+import type { PictureSource } from "@/components/eyegis/Picture";
+
+const PERSONA_IMAGES: Record<PersonaId, PictureSource> = {
   everyday: lifeBusiness,
   creative: lifeCreative,
   max: lifeGaming,
 };
 
-const PERSONA_PRODUCT_IMAGES: Record<PersonaId, string> = {
+const PERSONA_PRODUCT_IMAGES: Record<PersonaId, PictureSource> = {
   everyday: meridianHero,
   creative: soleneFront,
   max: atelierFront,
@@ -875,13 +877,10 @@ function HowToChoose({
                   }`}
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
-                      src={PERSONA_IMAGES[p.id]}
+                    <Picture
+                      source={PERSONA_IMAGES[p.id]}
                       alt={`${p.label} — persona wearing Eyegis eyewear during ${p.hours}`}
-                      width={1600}
-                      height={1000}
-                      loading="lazy"
-                      decoding="async"
+                      sizes="(min-width:1024px) 33vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
@@ -1137,28 +1136,22 @@ function BeforeAfter({ c }: { c: Copy }) {
             ref={wrapRef}
             className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-ink select-none"
           >
-            <img
-              src={compareImg}
+            <Picture
+              source={compareImg}
               alt={c.demo.with}
-              width={1920}
-              height={1080}
+              sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
             />
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
             >
-              <img
-                src={compareImg}
+              <Picture
+                source={compareImg}
                 alt={c.demo.without}
-                width={1920}
-                height={1080}
+                sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
-                loading="lazy"
-                decoding="async"
               />
               <div
                 aria-hidden="true"
@@ -1337,13 +1330,10 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
           className="mt-14 grid grid-cols-1 md:grid-cols-5 gap-10 rounded-2xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 md:p-10 animate-[fadeUp_700ms_cubic-bezier(0.22,1,0.36,1)_both]"
         >
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
-            <img
-              src={PERSONA_PRODUCT_IMAGES[persona.id]}
+            <Picture
+              source={PERSONA_PRODUCT_IMAGES[persona.id]}
               alt={`${persona.product.name} — recommended Eyegis eyewear for ${c.reco.eyebrow}`}
-              width={1200}
-              height={1500}
-              loading="lazy"
-              decoding="async"
+              sizes="(min-width:768px) 40vw, 100vw"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
             />

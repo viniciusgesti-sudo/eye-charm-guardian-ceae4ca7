@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/lifestyle-work.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import deliveryImg from "@/assets/lifestyle-travel.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import storeImg from "@/assets/product-hero.jpg";
+import storeImg from "@/assets/product-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -882,15 +882,12 @@ function ShippingPage() {
       {/* 08 — OFFICIAL AMAZON STORE */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-30">
-          <img
-            src={storeImg}
+          <Picture
+            source={storeImg}
             alt=""
             aria-hidden="true"
-            width={2400}
-            height={1400}
+            sizes="100vw"
             className="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">

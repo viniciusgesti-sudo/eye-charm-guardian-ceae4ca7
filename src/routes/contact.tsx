@@ -4,8 +4,8 @@ import { z } from "zod";
 
 import heroImg from "@/assets/hero-paris.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import supportImg from "@/assets/universe-portrait.jpg";
-import storeImg from "@/assets/product-hero.jpg";
+import supportImg from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import storeImg from "@/assets/product-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -813,7 +813,7 @@ function ContactPage() {
         </Reveal>
         <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
-            <img src={supportImg} alt="Eyegis client-care specialist ready to guide the perfect frame selection" width={1400} height={1750} className="h-[70vh] w-full object-cover"
+            <Picture source={supportImg} alt="Eyegis client-care specialist ready to guide the perfect frame selection" sizes="(min-width:768px) 50vw, 100vw" className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
           />
           </Reveal>
@@ -845,7 +845,7 @@ function ContactPage() {
       {/* 04 — OFFICIAL AMAZON STORE */}
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
-          <img src={storeImg} alt="Eyegis flagship product display — signature acetate frames in warm studio light" width={1600} height={1000} className="h-full w-full object-cover"
+          <Picture source={storeImg} alt="Eyegis flagship product display — signature acetate frames in warm studio light" sizes="100vw" className="h-full w-full object-cover"
             loading="lazy" decoding="async"
           />
         </div>

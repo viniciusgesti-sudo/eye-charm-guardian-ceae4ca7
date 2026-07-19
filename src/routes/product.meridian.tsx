@@ -6,15 +6,14 @@ import type { Lang } from "@/i18n/translations";
 
 import heroImg from "@/assets/products/meridian-hero.jpg";
 import heroImgSrc from "@/assets/products/meridian-hero.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import pairImg from "@/assets/products/meridian-pair.jpg";
 import pairImgSrc from "@/assets/products/meridian-pair.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import packageImg from "@/assets/products/meridian-package.jpg";
-import pouchImg from "@/assets/products/meridian-pouch.jpg";
+import packageImgSrc from "@/assets/products/meridian-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import pouchImgSrc from "@/assets/products/meridian-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import lensMacro from "@/assets/universe-lens-macro.jpg";
-import portrait from "@/assets/universe-portrait.jpg";
-import lifestyleImg from "@/assets/life-business.jpg";
-import guardLens from "@/assets/guard-lens-float.jpg";
+import lensMacroSrc from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import portraitSrc from "@/assets/universe-portrait.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifestyleImg from "@/assets/life-business.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import guardLens from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 
 import { DEFAULT_AMAZON_URL, AMAZON_RATING } from "@/lib/amazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
@@ -611,7 +610,7 @@ function ProductHero() {
 /*  Gallery                                                         */
 /* ---------------------------------------------------------------- */
 
-const GALLERY_SRC = [heroImg, pairImg, lensMacro, pouchImg, packageImg, portrait];
+const GALLERY_SRC = [heroImgSrc, pairImgSrc, lensMacroSrc, pouchImgSrc, packageImgSrc, portraitSrc];
 
 function Gallery() {
   const c = useContent();
@@ -643,13 +642,10 @@ function Gallery() {
                 className="group relative block w-full aspect-[16/11] overflow-hidden rounded-md bg-paper"
                 aria-label="Zoom image"
               >
-                <img
-                  src={GALLERY_SRC[active]}
+                <Picture
+                  source={GALLERY_SRC[active]}
                   alt={`Meridian eyewear — ${c.gallery.labels[active]} view for detailed inspection`}
-                  width={1600}
-                  height={1100}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="(min-width:1024px) 60vw, 100vw"
                   className={`h-full w-full object-cover transition-transform duration-[1400ms] ease-out ${
                     zoom ? "scale-[1.35]" : "scale-100 group-hover:scale-[1.04]"
                   }`}
@@ -672,13 +668,10 @@ function Gallery() {
                   }`}
                   aria-label={`View ${c.gallery.labels[i]}`}
                 >
-                  <img
-                    src={src}
+                  <Picture
+                    source={src}
                     alt={`Meridian gallery thumbnail — ${c.gallery.labels[i]}`}
-                    width={600}
-                    height={600}
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(min-width:1024px) 18vw, 33vw"
                     className="h-full w-full object-cover"
                   />
                 </button>
@@ -845,13 +838,10 @@ function Lifestyle() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[80vh] min-h-[560px] w-full">
-        <img
-          src={lifestyleImg}
+        <Picture
+          source={lifestyleImg}
           alt="Meridian eyewear worn during a long screen session in a modern architectural workspace"
-          width={2400}
-          height={1500}
-          loading="lazy"
-          decoding="async"
+          sizes="100vw"
           className="h-full w-full object-cover opacity-75"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
@@ -926,13 +916,10 @@ function TechnologyRecap() {
         <div className="lg:col-span-7">
           <Reveal>
             <div className="relative aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
-              <img
-                src={guardLens}
+              <Picture
+                source={guardLens}
                 alt="EyegisGuard optical filter lens macro — showing anti-reflective coating detail"
-                width={1500}
-                height={1200}
-                loading="lazy"
-                decoding="async"
+                sizes="(min-width:1024px) 55vw, 100vw"
                 className="h-full w-full object-cover float-slow"
               />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(134,217,209,0.14),transparent_65%)]" />

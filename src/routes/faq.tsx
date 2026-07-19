@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import heroImg from "@/assets/universe-lens-macro.jpg";
+import heroImg from "@/assets/universe-lens-macro.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -709,17 +710,14 @@ function FAQPage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
+          <Picture
+            source={heroImg}
             alt=""
             aria-hidden="true"
-            width={2400}
-            height={1400}
+            sizes="100vw"
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.85) contrast(1.02)" }}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
+            priority
           />
           <div
             className="absolute inset-0"
