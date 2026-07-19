@@ -432,7 +432,91 @@ button:focus-visible {
   outline-offset: 3px !important;
 }
 
+/* -------- High-contrast form controls, buttons, links, errors -------- */
 
+/* Inputs / textareas / selects: solid ink border, dark text, high-contrast
+   placeholder, and visible focus ring on any surface. */
+input,
+textarea,
+select {
+  color: #1D252D !important;
+  background-color: #FFFFFF !important;
+  border: 1.5px solid #1D252D !important;
+  border-radius: var(--radius);
+}
+input::placeholder,
+textarea::placeholder {
+  color: #4A5560 !important;
+  opacity: 1 !important;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #FFB300 !important;
+  outline-offset: 2px !important;
+  border-color: #004B57 !important;
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #8B2E2E !important;
+  background-color: #FFF5F5 !important;
+}
+.dark input,
+.dark textarea,
+.dark select {
+  color: #F9F9F9 !important;
+  background-color: #1D252D !important;
+  border-color: #F9F9F9 !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #D0D6DC !important;
+}
+
+/* Native buttons keep readable min contrast. shadcn variants override
+   with their own tokens; these are floor rules for un-tokenized buttons. */
+button:not([class*="bg-"]):not([class*="variant-"]) {
+  color: inherit;
+}
+button:focus-visible {
+  outline: 3px solid #FFB300 !important;
+  outline-offset: 3px !important;
+}
+
+/* Links: never rely on color alone — underline + strong ink/mint colors. */
+a {
+  color: #004B57;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: #003842;
+}
+.dark a {
+  color: #86D9D1;
+}
+.dark a:hover {
+  color: #B8ECE7;
+}
+/* Nav/CTA links opt out of underline via utility classes; keep focus ring. */
+a:focus-visible {
+  outline: 3px solid #FFB300 !important;
+  outline-offset: 3px !important;
+}
+
+/* Error messages: destructive token on solid surfaces — 7:1 on paper. */
+[role="alert"],
+.text-destructive,
+[data-slot="form-message"] {
+  color: #7A1F1F !important;
+  font-weight: 500;
+}
+.dark [role="alert"],
+.dark .text-destructive,
+.dark [data-slot="form-message"] {
+  color: #FFB4B4 !important;
+}
 
 /* Reveal accessibility fallback */
 @media (prefers-reduced-motion: reduce) {
@@ -442,4 +526,5 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
 
