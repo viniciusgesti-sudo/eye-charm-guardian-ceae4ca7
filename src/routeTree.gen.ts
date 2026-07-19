@@ -24,6 +24,7 @@ import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
 import { Route as ProductSoleneRouteImport } from './routes/product.solene'
 import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 import { Route as ProductMaraisRouteImport } from './routes/product.marais'
+import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
 import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
@@ -107,6 +108,11 @@ const ProductMaraisRoute = ProductMaraisRouteImport.update({
   path: '/product/marais',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductAtelierRoute = ProductAtelierRouteImport.update({
+  id: '/product/atelier',
+  path: '/product/atelier',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocaleWomenRoute = LocaleWomenRouteImport.update({
   id: '/women',
   path: '/women',
@@ -162,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
+  '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
   '/product/meridian': typeof ProductMeridianRoute
   '/product/solene': typeof ProductSoleneRoute
@@ -236,6 +245,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/atelier'
     | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/atelier'
     | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
+    | '/product/atelier'
     | '/product/marais'
     | '/product/meridian'
     | '/product/solene'
@@ -301,6 +313,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
   WarrantyRoute: typeof WarrantyRoute
+  ProductAtelierRoute: typeof ProductAtelierRoute
   ProductMaraisRoute: typeof ProductMaraisRoute
   ProductMeridianRoute: typeof ProductMeridianRoute
   ProductSoleneRoute: typeof ProductSoleneRoute
@@ -413,6 +426,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductMaraisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product/atelier': {
+      id: '/product/atelier'
+      path: '/product/atelier'
+      fullPath: '/product/atelier'
+      preLoaderRoute: typeof ProductAtelierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$locale/women': {
       id: '/$locale/women'
       path: '/women'
@@ -502,6 +522,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
   WarrantyRoute: WarrantyRoute,
+  ProductAtelierRoute: ProductAtelierRoute,
   ProductMaraisRoute: ProductMaraisRoute,
   ProductMeridianRoute: ProductMeridianRoute,
   ProductSoleneRoute: ProductSoleneRoute,

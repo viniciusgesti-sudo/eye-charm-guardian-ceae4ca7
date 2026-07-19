@@ -611,6 +611,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "atelier", productKey: "atelier", filterKey: "Men",
     image: atelierFront, thumbImage: atelierFrontThumb,
     imageAlt: "Atelier frame — official Eyegis product photography",
+    pdpPath: "/product/atelier",
     gallery: [
       { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier — front three-quarter view", label: "Front" },
       { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier — studied side profile", label: "Profile" },
