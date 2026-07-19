@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/eyegis/HowItWorks";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { SocialProof } from "@/components/eyegis/SocialProof";
+import { TrustStrip } from "@/components/eyegis/TrustStrip";
 import { Universe } from "@/components/eyegis/Universe";
 
 const META = {
@@ -52,6 +53,7 @@ function HomePage() {
   return (
     <>
       <Hero locale={locale} />
+      <TrustStrip />
       <HowItWorks />
       <Universe />
       <LifestyleUniverse />
