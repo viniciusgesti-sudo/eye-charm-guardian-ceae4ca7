@@ -160,7 +160,7 @@ export function Footer() {
           </div>
 
           {/* 4 columns */}
-          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
             {cols.map((col) => (
               <div key={col.title}>
                 <h4 className="small-caps text-[11px] text-mint">{col.title}</h4>
