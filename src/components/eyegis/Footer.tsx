@@ -112,12 +112,7 @@ const cols = [
   },
 ];
 
-const socials = [
-  { label: "Instagram", href: "https://instagram.com/eyegis",   Icon: Ic.Instagram },
-  { label: "TikTok",    href: "https://tiktok.com/@eyegis",     Icon: Ic.TikTok },
-  { label: "Facebook",  href: "https://facebook.com/eyegis",    Icon: Ic.Facebook },
-  { label: "YouTube",   href: "https://youtube.com/@eyegis",    Icon: Ic.YouTube },
-];
+
 
 const topNav = [
   { label: "Shop",       href: AMZ, external: true },
@@ -165,7 +160,7 @@ export function Footer() {
           </div>
 
           {/* 4 columns */}
-          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
             {cols.map((col) => (
               <div key={col.title}>
                 <h4 className="small-caps text-[11px] text-mint">{col.title}</h4>
@@ -186,30 +181,6 @@ export function Footer() {
                 </ul>
               </div>
             ))}
-
-            {/* Column 4 — social */}
-            <div>
-              <h4 className="small-caps text-[11px] text-mint">Follow Eyegis</h4>
-              <ul className="mt-5 flex items-center gap-4">
-                {socials.map(({ label, href, Icon }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-mint hover:text-mint"
-                    >
-                      <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 font-sans text-xs font-light leading-relaxed text-white/40">
-                Join the Eyegis community for launches, honest science, and
-                editorial stories.
-              </p>
-            </div>
           </div>
 
           {/* Bottom bar */}
