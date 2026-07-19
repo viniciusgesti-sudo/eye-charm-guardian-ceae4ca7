@@ -378,77 +378,60 @@
   display: none !important;
 }
 
-/* -------- High-contrast mode (toggle) --------
- * Applied via `.hc` on <html>. Boosts secondary text, borders and
- * decorative opacities so mid-tone content passes AA on any surface. */
-html.hc {
+/* -------- High-contrast mode (always on) --------
+ * Boosts secondary text, borders and decorative opacities so
+ * mid-tone content passes AA on any surface. Applied globally. */
+:root {
   --muted-foreground: #2E3742;      /* was #5A6670 → ~11:1 on paper */
   --border: rgba(29, 37, 45, 0.35);
   --input: rgba(29, 37, 45, 0.45);
 }
-html.hc.dark {
+.dark {
   --muted-foreground: #E6EAEE;
   --border: rgba(249, 249, 249, 0.35);
   --input: rgba(249, 249, 249, 0.45);
 }
 /* Raise low-opacity paper/ink/white text and borders used across marketing pages. */
-html.hc .text-paper\/40,
-html.hc .text-paper\/50,
-html.hc .text-paper\/60,
-html.hc .text-paper\/70,
-html.hc .text-paper\/80,
-html.hc .text-paper\/85,
-html.hc .text-paper\/90 { color: #FFFFFF !important; }
-html.hc .text-ink\/40,
-html.hc .text-ink\/50,
-html.hc .text-ink\/60,
-html.hc .text-ink\/70,
-html.hc .text-ink\/80,
-html.hc .text-ink\/90 { color: #1D252D !important; }
-html.hc .text-white\/40,
-html.hc .text-white\/50,
-html.hc .text-white\/60,
-html.hc .text-white\/70,
-html.hc .text-white\/80,
-html.hc .text-white\/90 { color: #FFFFFF !important; }
-html.hc .text-muted-foreground,
-html.hc .text-foreground\/60,
-html.hc .text-foreground\/70,
-html.hc .text-foreground\/80 { color: #1D252D !important; }
-html.hc .text-mint\/70,
-html.hc .text-mint\/80,
-html.hc .text-mint\/90 { color: #86D9D1 !important; }
-html.hc .border-white\/10,
-html.hc .border-white\/15,
-html.hc .border-white\/20,
-html.hc .border-white\/25 { border-color: rgba(255,255,255,0.55) !important; }
-html.hc .border-ink\/10,
-html.hc .border-ink\/15,
-html.hc .border-ink\/20,
-html.hc .border-ink\/25 { border-color: rgba(29,37,45,0.55) !important; }
-html.hc [class*="opacity-30"],
-html.hc [class*="opacity-40"],
-html.hc [class*="opacity-50"],
-html.hc [class*="opacity-60"] { opacity: 0.95 !important; }
-html.hc a:focus-visible,
-html.hc button:focus-visible {
+.text-paper\/40,
+.text-paper\/50,
+.text-paper\/60,
+.text-paper\/70,
+.text-paper\/80,
+.text-paper\/85,
+.text-paper\/90 { color: #FFFFFF !important; }
+.text-ink\/40,
+.text-ink\/50,
+.text-ink\/60,
+.text-ink\/70,
+.text-ink\/80,
+.text-ink\/90 { color: #1D252D !important; }
+.text-white\/40,
+.text-white\/50,
+.text-white\/60,
+.text-white\/70,
+.text-white\/80,
+.text-white\/90 { color: #FFFFFF !important; }
+.text-muted-foreground,
+.text-foreground\/60,
+.text-foreground\/70,
+.text-foreground\/80 { color: #1D252D !important; }
+.text-mint\/70,
+.text-mint\/80,
+.text-mint\/90 { color: #86D9D1 !important; }
+.border-white\/10,
+.border-white\/15,
+.border-white\/20,
+.border-white\/25 { border-color: rgba(255,255,255,0.55) !important; }
+.border-ink\/10,
+.border-ink\/15,
+.border-ink\/20,
+.border-ink\/25 { border-color: rgba(29,37,45,0.55) !important; }
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid #FFB300 !important;
   outline-offset: 3px !important;
 }
-/* Subtle badge so it's obvious the mode is on. */
-html.hc body::before {
-  content: "HIGH CONTRAST";
-  position: fixed;
-  bottom: 12px; left: 12px;
-  z-index: 9999;
-  font: 600 10px/1 ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: 0.18em;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #1D252D;
-  color: #FFB300;
-  pointer-events: none;
-}
+
 
 
 /* Reveal accessibility fallback */
