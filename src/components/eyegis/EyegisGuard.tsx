@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
-import lensFloat from "@/assets/guard-lens-float.jpg";
+import lensFloat from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lensMacro from "@/assets/products/solene-macro.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
-import { Picture } from "./Picture";
-import comparisonImg from "@/assets/guard-comparison.jpg";
-import lifeCreative from "@/assets/guard-life-creative.jpg";
-import lifeBusiness from "@/assets/guard-life-business.jpg";
-import lifeStudent from "@/assets/guard-life-student.jpg";
-import lifeGamer from "@/assets/guard-life-gamer.jpg";
+import { Picture, type PictureSource } from "./Picture";
+import comparisonImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+import lifeCreative from "@/assets/guard-life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/guard-life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeStudent from "@/assets/guard-life-student.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGamer from "@/assets/guard-life-gamer.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -373,19 +373,16 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
         }}
       />
       <div className="relative aspect-square w-full">
-        <img
-          src={lensFloat}
+        <Picture
+          source={lensFloat}
           alt="EyegisGuard™ optical lens — floating study"
-          width={1600}
-          height={1600}
-          loading="lazy"
+          sizes="(min-width:1024px) 45vw, 100vw"
           className="h-full w-full object-contain will-change-transform"
           style={{
             transform: `rotate(${rot.toFixed(2)}deg)`,
             transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
-            decoding="async"
-          />
+        />
         {callouts.map((c, i) => {
           const pos = CALLOUT_POS[i];
           return <CalloutBadge key={c.n} c={c} pos={pos} delay={200 + i * 120} />;
@@ -536,24 +533,19 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
         setFromClientX(e.touches[0].clientX);
       }}
     >
-      <img src={comparisonImg} alt={withLabel} width={1800} height={1200} loading="lazy" className="absolute inset-0 h-full w-full object-cover"
-            decoding="async"
-          />
+      <Picture source={comparisonImg} alt={withLabel} sizes="100vw" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img
-          src={comparisonImg}
+        <Picture
+          source={comparisonImg}
           alt={withoutLabel}
-          width={1800}
-          height={1200}
-          loading="lazy"
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
           style={{
             filter: "hue-rotate(-6deg) saturate(1.25) contrast(1.12) brightness(1.06)",
             width: `${(100 / pos) * 100}%`,
             maxWidth: "none",
           }}
-            decoding="async"
-          />
+        />
         <div
           className="absolute inset-0"
           style={{
@@ -623,7 +615,7 @@ function IconTarget() {
   );
 }
 
-const LIFE_META = [
+const LIFE_META: { img: PictureSource; Icon: ElementType }[] = [
   { img: lifeCreative, Icon: IconAperture },
   { img: lifeBusiness, Icon: IconBriefcase },
   { img: lifeStudent, Icon: IconBook },
