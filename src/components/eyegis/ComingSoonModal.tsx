@@ -235,6 +235,7 @@ export function ComingSoonModal() {
               </h2>
               <p className="mt-3 text-ink/70">{c.successBody}</p>
               <button
+                ref={successBtnRef}
                 type="button"
                 onClick={close}
                 className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-paper transition hover:-translate-y-0.5"
@@ -242,6 +243,7 @@ export function ComingSoonModal() {
               >
                 {c.close}
               </button>
+
             </div>
           ) : (
             <>
