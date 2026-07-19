@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ElementType, type MouseEvent as ReactMouseEvent } from "react";
+import { Link } from "@tanstack/react-router";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
@@ -591,6 +592,7 @@ type ProductMeta = {
   gallery: GalleryShot[];
   bestSeller?: boolean;
   newest?: boolean;
+  pdpPath?: string;
 };
 
 const PRODUCTS: ProductMeta[] = [
@@ -598,6 +600,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "meridian", productKey: "meridian", filterKey: "Men",
     image: meridianHero, thumbImage: meridianHeroThumb,
     imageAlt: "Meridian frame — official Eyegis product photography",
+    pdpPath: "/product/meridian",
     gallery: [
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot on obsidian gradient", label: "Hero" },
       { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — dual angle pair", label: "Pair" },
@@ -618,6 +621,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "solene", productKey: "solene", filterKey: "Women",
     image: soleneFront, thumbImage: soleneFrontThumb,
     imageAlt: "Solène frame — official Eyegis product photography",
+    pdpPath: "/product/solene",
     gallery: [
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — floating hero in champagne light", label: "Hero" },
       { src: soleneMacro, thumb: soleneMacroThumb, alt: "Solène — hinge and coating macro", label: "Macro" },
@@ -1057,13 +1061,23 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
             <span className="font-eyebrow">{copy.buyOnAmazon}</span>
             <IconExternal className="opacity-80" />
           </a>
-          <a
-            href={`#${p.id}`}
-            className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
-          >
-            <span>{copy.preview.learnMore}</span>
-            <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
-          </a>
+          {p.pdpPath ? (
+            <Link
+              to={p.pdpPath}
+              className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
+            >
+              <span>{copy.preview.learnMore}</span>
+              <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
+            </Link>
+          ) : (
+            <a
+              href={`#${p.id}`}
+              className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
+            >
+              <span>{copy.preview.learnMore}</span>
+              <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
+            </a>
+          )}
         </div>
       </div>
       {open && (
