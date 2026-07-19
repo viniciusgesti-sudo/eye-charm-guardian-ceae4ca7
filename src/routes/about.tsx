@@ -998,11 +998,23 @@ function AboutPage() {
           >
             {c.cta.footer}
           </span>
-          <div className="flex gap-8 text-[10px] uppercase tracking-[0.4em]" style={{ color: MUTED }}>
-            <Link to="/">{c.cta.home}</Link>
-            <Link to="/lenses">{c.cta.lenses}</Link>
-            <Link to="/product/meridian">{c.cta.meridian}</Link>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.4em]">
+            {[
+              { to: "/", label: c.cta.home },
+              { to: "/lenses", label: c.cta.lenses },
+              { to: "/product/meridian", label: c.cta.meridian },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="underline decoration-[rgba(14,22,19,0.3)] decoration-1 underline-offset-[6px] transition-colors hover:decoration-[color:var(--ink,#0E1613)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
+                style={{ color: INK }}
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
+
         </div>
       </section>
     </main>
