@@ -118,18 +118,17 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                 {i > 0 && <span className="opacity-25">·</span>}
                 <button
                   onClick={() => switchLocale(l)}
-                  className={`transition-opacity ${
-                    localeUp === l ? "opacity-100" : "opacity-70 hover:opacity-100"
+                  className={`uppercase transition-opacity ${
+                    currentSeg === l ? "opacity-100" : "opacity-70 hover:opacity-100"
                   }`}
-                  aria-label={`Language: ${l}`}
-                  aria-current={localeUp === l ? "true" : undefined}
+                  aria-label={`Language: ${l.toUpperCase()}`}
+                  aria-current={currentSeg === l ? "true" : undefined}
                 >
                   {l}
                 </button>
               </div>
             ))}
           </div>
-          <HighContrastToggle tone={useInk ? "light" : "dark"} />
           <a
             data-testid="header-cta"
             href={DEFAULT_AMAZON_URL}
