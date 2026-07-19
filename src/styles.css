@@ -391,21 +391,45 @@ html.hc.dark {
   --border: rgba(249, 249, 249, 0.35);
   --input: rgba(249, 249, 249, 0.45);
 }
-/* Raise low-opacity paper/ink text and borders used across marketing pages. */
+/* Raise low-opacity paper/ink/white text and borders used across marketing pages. */
+html.hc .text-paper\/40,
+html.hc .text-paper\/50,
 html.hc .text-paper\/60,
 html.hc .text-paper\/70,
 html.hc .text-paper\/80,
 html.hc .text-paper\/85,
 html.hc .text-paper\/90 { color: #FFFFFF !important; }
+html.hc .text-ink\/40,
+html.hc .text-ink\/50,
 html.hc .text-ink\/60,
 html.hc .text-ink\/70,
-html.hc .text-ink\/80 { color: #1D252D !important; }
+html.hc .text-ink\/80,
+html.hc .text-ink\/90 { color: #1D252D !important; }
+html.hc .text-white\/40,
+html.hc .text-white\/50,
 html.hc .text-white\/60,
 html.hc .text-white\/70,
-html.hc .text-white\/80 { color: #FFFFFF !important; }
+html.hc .text-white\/80,
+html.hc .text-white\/90 { color: #FFFFFF !important; }
+html.hc .text-muted-foreground,
+html.hc .text-foreground\/60,
+html.hc .text-foreground\/70,
+html.hc .text-foreground\/80 { color: #1D252D !important; }
+html.hc .text-mint\/70,
+html.hc .text-mint\/80,
+html.hc .text-mint\/90 { color: #86D9D1 !important; }
+html.hc .border-white\/10,
+html.hc .border-white\/15,
+html.hc .border-white\/20,
+html.hc .border-white\/25 { border-color: rgba(255,255,255,0.55) !important; }
+html.hc .border-ink\/10,
+html.hc .border-ink\/15,
+html.hc .border-ink\/20,
+html.hc .border-ink\/25 { border-color: rgba(29,37,45,0.55) !important; }
+html.hc [class*="opacity-30"],
 html.hc [class*="opacity-40"],
 html.hc [class*="opacity-50"],
-html.hc [class*="opacity-60"] { opacity: 0.9 !important; }
+html.hc [class*="opacity-60"] { opacity: 0.95 !important; }
 html.hc a:focus-visible,
 html.hc button:focus-visible {
   outline: 3px solid #FFB300 !important;
