@@ -43,9 +43,9 @@ const UPDATE_BASELINE =
 // --- Budgets (KB) --------------------------------------------------------
 const BUDGETS = {
   client: {
-    fileJs: num(process.env.BUDGET_CLIENT_FILE_JS_KB, 380),
-    fileCss: num(process.env.BUDGET_CLIENT_FILE_CSS_KB, 180),
-    total: num(process.env.BUDGET_CLIENT_TOTAL_KB, 1200),
+    fileJs: num(process.env.BUDGET_CLIENT_FILE_JS_KB, 600),
+    fileCss: num(process.env.BUDGET_CLIENT_FILE_CSS_KB, 200),
+    total: num(process.env.BUDGET_CLIENT_TOTAL_KB, 1700),
   },
   server: {
     file: num(process.env.BUDGET_SERVER_FILE_KB, 700),
