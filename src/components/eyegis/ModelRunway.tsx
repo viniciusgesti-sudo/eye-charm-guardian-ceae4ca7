@@ -9,6 +9,8 @@ import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import { Picture, type PictureSource } from "./Picture";
 
+export type RunwayAudience = "men" | "women" | "kids";
+
 type RunwayLook = {
   code: string;
   city: string;
@@ -19,6 +21,11 @@ type RunwayLook = {
   title: string;
   body: string;
 };
+
+/* Per-look audience mapping, aligned by index across all languages */
+const LOOK_AUDIENCE: RunwayAudience[] = ["men", "women", "women", "women", "men"];
+
+
 
 type Copy = {
   eyebrow: string;
@@ -216,12 +223,18 @@ const COPY: Record<Lang, Copy> = {
   },
 };
 
-export function ModelRunway() {
+export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
+  const looks = audience
+    ? copy.looks.filter((_, i) => LOOK_AUDIENCE[i] === audience)
+    : copy.looks;
+
+  if (looks.length === 0) return null;
 
   return (
     <section id="models" className="relative overflow-hidden bg-paper-warm py-24 text-ink md:py-32" aria-labelledby="model-runway-title">
+
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.06)_1px,transparent_1px),linear-gradient(180deg,rgba(29,37,45,0.05)_1px,transparent_1px)] bg-[size:120px_120px]" />
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -242,7 +255,7 @@ export function ModelRunway() {
         </div>
 
         <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-8 [scrollbar-width:none] md:mt-20 md:gap-7 [&::-webkit-scrollbar]:hidden" aria-label="Eyegis applied model runway">
-          {copy.looks.map((look, index) => (
+          {looks.map((look, index) => (
             <article
               key={look.code}
               className="group relative grid min-h-[720px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"

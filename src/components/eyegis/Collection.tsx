@@ -689,10 +689,14 @@ function matches(p: ProductMeta, f: Filter) {
   return p.filterKey === f;
 }
 
-function ProductPreview({ copy }: { copy: Copy }) {
-  const [filter, setFilter] = useState<Filter>("All");
+function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "women" | "kids" }) {
+  const audienceFilter: Filter | null = audience === "men" ? "Men" : audience === "women" ? "Women" : audience === "kids" ? "Kids" : null;
+  const [filter, setFilter] = useState<Filter>(audienceFilter ?? "All");
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const visible = PRODUCTS.filter((p) => matches(p, filter));
+  const pool = audience ? PRODUCTS.filter((p) => matches(p, audienceFilter as Filter)) : PRODUCTS;
+  const visible = pool.filter((p) => matches(p, filter));
+  const availableFilters = audience ? FILTERS.filter((f) => f === audienceFilter || f === "Newest" || f === "Best") : FILTERS;
+
 
   const scrollBy = (dir: 1 | -1) => {
     const el = scrollerRef.current;
@@ -729,7 +733,7 @@ function ProductPreview({ copy }: { copy: Copy }) {
         <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-ink/10 pt-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
             <span className="mr-2 font-eyebrow text-[10px] text-ink/50">{copy.preview.filterLabel}</span>
-            {FILTERS.map((f) => {
+            {availableFilters.map((f) => {
               const active = filter === f;
               return (
                 <button
@@ -1159,9 +1163,12 @@ function FinalTransition({ copy }: { copy: Copy }) {
   );
 }
 
-export function Collection() {
+export type CollectionAudience = "men" | "women" | "kids";
+
+export function Collection({ audience }: { audience?: CollectionAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
+  const collections = audience ? COLLECTIONS.filter((c) => c.id === audience) : COLLECTIONS;
 
   return (
     <section id="collections" className="relative">
@@ -1195,13 +1202,14 @@ export function Collection() {
         </div>
       </div>
 
-      {COLLECTIONS.map((meta, i) => (
+      {collections.map((meta, i) => (
         <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} />
       ))}
 
-      <ProductPreview copy={copy} />
+      <ProductPreview copy={copy} audience={audience} />
 
       <FinalTransition copy={copy} />
     </section>
   );
 }
+
