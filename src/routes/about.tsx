@@ -960,29 +960,30 @@ function AboutPage() {
                 href="https://www.amazon.com/eyegis"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors"
+                className="inline-flex items-center justify-between px-8 py-5 text-[12px] font-medium uppercase tracking-[0.3em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300] hover:bg-[#1F2A26]"
                 style={{ background: INK, color: OFFWHITE }}
               >
                 <span>{c.cta.buy}</span>
-                <span>↗</span>
+                <span aria-hidden>↗</span>
               </a>
               <Link
                 to="/"
                 hash="collections"
-                className="inline-flex items-center justify-between border px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors hover:bg-[rgba(14,22,19,0.04)]"
+                className="inline-flex items-center justify-between border-2 px-8 py-5 text-[12px] font-medium uppercase tracking-[0.3em] transition-colors hover:bg-[rgba(14,22,19,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
                 style={{ borderColor: INK, color: INK }}
               >
                 <span>{c.cta.collections}</span>
-                <span>→</span>
+                <span aria-hidden>→</span>
               </Link>
               <Link
                 to="/lenses"
-                className="inline-flex items-center justify-between border px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors hover:bg-[rgba(14,22,19,0.04)]"
-                style={{ borderColor: "rgba(14,22,19,0.35)", color: INK }}
+                className="inline-flex items-center justify-between border-2 px-8 py-5 text-[12px] font-medium uppercase tracking-[0.3em] transition-colors hover:bg-[rgba(14,22,19,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
+                style={{ borderColor: "rgba(14,22,19,0.6)", color: INK }}
               >
                 <span>{c.cta.tech}</span>
-                <span>→</span>
+                <span aria-hidden>→</span>
               </Link>
+
             </div>
           </Reveal>
         </div>
@@ -997,11 +998,23 @@ function AboutPage() {
           >
             {c.cta.footer}
           </span>
-          <div className="flex gap-8 text-[10px] uppercase tracking-[0.4em]" style={{ color: MUTED }}>
-            <Link to="/">{c.cta.home}</Link>
-            <Link to="/lenses">{c.cta.lenses}</Link>
-            <Link to="/product/meridian">{c.cta.meridian}</Link>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.4em]">
+            {[
+              { to: "/", label: c.cta.home },
+              { to: "/lenses", label: c.cta.lenses },
+              { to: "/product/meridian", label: c.cta.meridian },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="underline decoration-[rgba(14,22,19,0.3)] decoration-1 underline-offset-[6px] transition-colors hover:decoration-[color:var(--ink,#0E1613)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
+                style={{ color: INK }}
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
+
         </div>
       </section>
     </main>
