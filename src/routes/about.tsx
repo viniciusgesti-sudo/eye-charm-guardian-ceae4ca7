@@ -16,9 +16,10 @@ import life3 from "@/assets/life-student.jpg?w=320;480;800&format=avif;webp;jpg&
 import life4 from "@/assets/life-travel.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import life5 from "@/assets/persona-gamer.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import life6 from "@/assets/shipping-unboxing.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
-import life7 from "@/assets/lifestyle-travel.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import life7 from "@/assets/collection-women.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import life8 from "@/assets/models-focus-eyegis.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
-import peopleHeroImg from "@/assets/lifestyle-architecture.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import peopleHeroImg from "@/assets/collection-men.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lifeConcierge from "@/assets/contact-concierge.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -463,7 +464,7 @@ function Rule({ label }: { label: string }) {
   );
 }
 
-const PEOPLE_IMAGES = [life1, life2, life3, life6, peopleHeroImg, life4, life8, life7, life5, beliefImg, whyImg2, whyImg1];
+const PEOPLE_IMAGES = [life1, life2, life3, life6, peopleHeroImg, life4, life8, life7, life5, lifeConcierge, whyImg2, whyImg1];
 
 function AboutPage() {
   const { lang } = useI18n();
