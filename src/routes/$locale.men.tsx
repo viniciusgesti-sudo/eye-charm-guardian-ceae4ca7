@@ -18,7 +18,7 @@ const COPY = {
     title: (
       <>
         Zenith<br />
-        <span className="italic text-cyan-200">para a rotina 24/7.</span>
+        <span className="italic text-mint">para a rotina 24/7.</span>
       </>
     ),
     subtitle:
@@ -33,7 +33,7 @@ const COPY = {
     title: (
       <>
         Zenith<br />
-        <span className="italic text-cyan-200">for the 24/7 hustle.</span>
+        <span className="italic text-mint">for the 24/7 hustle.</span>
       </>
     ),
     subtitle:
@@ -48,7 +48,7 @@ const COPY = {
     title: (
       <>
         Zenith<br />
-        <span className="italic text-cyan-200">pour le rythme 24/7.</span>
+        <span className="italic text-mint">pour le rythme 24/7.</span>
       </>
     ),
     subtitle:
