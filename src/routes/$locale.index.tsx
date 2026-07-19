@@ -4,6 +4,9 @@ import { lazy, Suspense } from "react";
 import { Hero } from "@/components/eyegis/Hero";
 import { TrustStrip } from "@/components/eyegis/TrustStrip";
 import { buildSeo, DEFAULT_LOCALE, type Locale } from "@/lib/seo";
+import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+
 
 // Below-the-fold sections are lazy-loaded to shrink the initial home chunk.
 const HowItWorks = lazy(() =>
@@ -47,16 +50,27 @@ export const Route = createFileRoute("/$locale/")({
   head: ({ params }) => {
     const locale = (params.locale in META ? params.locale : DEFAULT_LOCALE) as Locale;
     const m = META[locale];
-    return buildSeo({
+    const seo = buildSeo({
       title: m.title,
       description: m.description,
       path: `/${locale}`,
       locale,
       localizedBasePath: "",
     });
+    // Preload LCP hero images (split-screen — both are candidates above the fold).
+    const heroSizes = "(min-width: 1024px) 50vw, 100vw";
+    return {
+      ...seo,
+      links: [
+        ...seo.links,
+        { rel: "preload", as: "image", href: heroZenith.img.src, imagesrcset: heroZenith.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
+        { rel: "preload", as: "image", href: heroClarity.img.src, imagesrcset: heroClarity.sources.avif, imagesizes: heroSizes, type: "image/avif", fetchpriority: "high" } as unknown as { rel: string; href: string },
+      ],
+    };
   },
   component: HomePage,
 });
+
 
 const SectionFallback = () => <div style={{ minHeight: 400 }} aria-hidden />;
 
