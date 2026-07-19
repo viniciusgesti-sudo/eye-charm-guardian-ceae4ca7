@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import universePortrait from "@/assets/universe-portrait.jpg";
+import universePortraitSrc from "@/assets/universe-portrait.jpg?w=480;768;1024&format=avif;webp;jpg&as=picture";
 import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeScience from "@/assets/universe-science.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
