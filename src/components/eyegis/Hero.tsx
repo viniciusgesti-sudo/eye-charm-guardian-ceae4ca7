@@ -10,8 +10,24 @@ import { Picture } from "./Picture";
 
 type Props = { locale: string };
 
+const HERO_ALTS = {
+  EN: {
+    zenith: "Eyegis Zenith men's blue-light glasses — dark TR90 frame photographed on a São Paulo skyline at night, showing anti-glare coating and neutral color fidelity.",
+    clarity: "Eyegis Clarity women's blue-light glasses — champagne acetate frame photographed in Paris at golden hour, showing lightweight design and true-tone lenses.",
+  },
+  PT: {
+    zenith: "Óculos com filtro de luz azul Eyegis Zenith masculino — armação TR90 escura fotografada em frente ao skyline de São Paulo à noite, destacando o revestimento antirreflexo e a fidelidade natural das cores.",
+    clarity: "Óculos com filtro de luz azul Eyegis Clarity feminino — armação de acetato champanhe fotografada em Paris na hora dourada, destacando o design leve e as lentes de tons reais.",
+  },
+  FR: {
+    zenith: "Lunettes anti-lumière bleue Eyegis Zenith pour homme — monture TR90 sombre photographiée devant le skyline de São Paulo la nuit, mettant en avant le traitement antireflet et la fidélité chromatique.",
+    clarity: "Lunettes anti-lumière bleue Eyegis Clarity pour femme — monture en acétate champagne photographiée à Paris à l'heure dorée, mettant en avant le design léger et les verres à tons naturels.",
+  },
+} as const;
+
 export function Hero({ locale }: Props) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const alts = HERO_ALTS[lang] ?? HERO_ALTS.EN;
   return (
     <section className="relative w-full bg-ink text-paper">
       <div className="relative flex min-h-[720px] w-full flex-col lg:h-[92vh] lg:min-h-[760px] lg:flex-row">
