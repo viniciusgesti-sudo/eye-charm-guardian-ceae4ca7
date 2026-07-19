@@ -16,6 +16,9 @@ const LOCALIZED_PATHS: { path: string; changefreq: string; priority: string }[] 
 // Locale-agnostic support pages (single canonical URL for now)
 const GLOBAL_PATHS: { path: string; changefreq: string; priority: string }[] = [
   { path: "/product/meridian", changefreq: "weekly",  priority: "0.9" },
+  { path: "/product/solene",   changefreq: "weekly",  priority: "0.9" },
+  { path: "/product/marais",   changefreq: "weekly",  priority: "0.9" },
+  { path: "/product/atelier",  changefreq: "weekly",  priority: "0.9" },
   { path: "/lenses",           changefreq: "monthly", priority: "0.7" },
   { path: "/about",            changefreq: "monthly", priority: "0.6" },
   { path: "/warranty",         changefreq: "monthly", priority: "0.5" },
