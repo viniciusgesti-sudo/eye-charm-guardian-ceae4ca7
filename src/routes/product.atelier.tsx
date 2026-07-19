@@ -118,15 +118,20 @@ function AtelierProduct() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={DEFAULT_AMAZON_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-[#004B57] px-6 py-3 text-white transition hover:-translate-y-0.5 hover:bg-[#003942]"
             >
-              <span className="font-eyebrow text-xs tracking-[0.2em]">Buy on Amazon</span>
+              <span className="font-eyebrow text-xs tracking-[0.2em]">Coming soon on Amazon</span>
               <span aria-hidden>→</span>
             </a>
-            <span className="text-xs text-black/60">
-              ★ {AMAZON_RATING.stars} · {AMAZON_RATING.count.toLocaleString()} reviews
+            <span className="inline-flex items-center gap-2 text-xs text-black/60">
+              <span
+                aria-hidden
+                className="inline-grid h-4 w-4 place-items-center rounded-full text-[10px] font-bold"
+                style={{ backgroundColor: "#86D9D1", color: "#004B57" }}
+              >
+                ✓
+              </span>
+              Independent lab tested
             </span>
           </div>
 
