@@ -65,12 +65,12 @@ const trust = [
 
 function TrustBar() {
   return (
-    <section className="bg-[#F9F9F9] border-t border-b border-ink/10">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-8 px-6 py-10 md:grid-cols-4 md:px-10 md:py-12">
+    <section className="bg-paper border-t border-b border-ink/10">
+      <div className="container-editorial grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
         {trust.map(({ icon: Icon, title, sub }) => (
           <div key={title} className="flex flex-col items-center text-center">
-            <Icon className="h-7 w-7 text-[#004B57]" />
-            <div className="mt-4 small-caps text-[11px] text-[#1D252D]">{title}</div>
+            <Icon className="h-7 w-7 text-teal" />
+            <div className="mt-4 small-caps text-[11px] text-ink">{title}</div>
             <div className="mt-1 font-sans text-[13px] font-light text-ink/60">{sub}</div>
           </div>
         ))}
@@ -78,6 +78,7 @@ function TrustBar() {
     </section>
   );
 }
+
 
 /* ---------- Footer ---------- */
 
