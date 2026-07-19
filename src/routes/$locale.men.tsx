@@ -64,17 +64,18 @@ const COPY = {
 
 export const Route = createFileRoute("/$locale/men")({
   head: ({ params }) => {
-    const c = COPY[params.locale as keyof typeof COPY] ?? COPY.pt;
-    return {
-      meta: [
-        { title: c.metaTitle },
-        { name: "description", content: c.metaDesc },
-        { property: "og:title", content: c.metaTitle },
-        { property: "og:description", content: c.metaDesc },
-        { property: "og:image", content: heroZenith },
-      ],
-    };
+    const locale = (params.locale in COPY ? params.locale : "pt") as "pt" | "en" | "fr";
+    const c = COPY[locale];
+    return buildSeo({
+      title: c.metaTitle,
+      description: c.metaDesc,
+      path: `/${locale}/men`,
+      image: `https://eye-charm-guardian.lovable.app${heroZenith}`,
+      locale,
+      localizedBasePath: "/men",
+    });
   },
+
   component: MenPage,
 });
 
