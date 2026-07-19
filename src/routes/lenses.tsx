@@ -656,7 +656,7 @@ const PERSONA_PRODUCT_IMAGES: Record<PersonaId, PictureSource> = {
 
 function useReveal<T extends HTMLElement>(threshold = 0.15) {
   const ref = useRef<T | null>(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(true);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
