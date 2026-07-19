@@ -20,8 +20,11 @@ type RunwayLook = {
   alt: string;
   title: string;
   body: string;
-  audience: RunwayAudience;
 };
+
+/* Per-look audience mapping, aligned by index across all languages */
+const LOOK_AUDIENCE: RunwayAudience[] = ["men", "women", "women", "women", "men"];
+
 
 
 type Copy = {
