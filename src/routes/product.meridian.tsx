@@ -642,13 +642,10 @@ function Gallery() {
                 className="group relative block w-full aspect-[16/11] overflow-hidden rounded-md bg-paper"
                 aria-label="Zoom image"
               >
-                <img
-                  src={GALLERY_SRC[active]}
+                <Picture
+                  source={GALLERY_SRC[active]}
                   alt={`Meridian eyewear — ${c.gallery.labels[active]} view for detailed inspection`}
-                  width={1600}
-                  height={1100}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="(min-width:1024px) 60vw, 100vw"
                   className={`h-full w-full object-cover transition-transform duration-[1400ms] ease-out ${
                     zoom ? "scale-[1.35]" : "scale-100 group-hover:scale-[1.04]"
                   }`}
@@ -671,13 +668,10 @@ function Gallery() {
                   }`}
                   aria-label={`View ${c.gallery.labels[i]}`}
                 >
-                  <img
-                    src={src}
+                  <Picture
+                    source={src}
                     alt={`Meridian gallery thumbnail — ${c.gallery.labels[i]}`}
-                    width={600}
-                    height={600}
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(min-width:1024px) 18vw, 33vw"
                     className="h-full w-full object-cover"
                   />
                 </button>
