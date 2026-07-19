@@ -58,7 +58,7 @@ export function Header() {
             : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto grid max-w-[1600px] grid-cols-3 items-center px-6 py-5 md:px-10 lg:px-14">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 md:px-8 md:py-5 lg:px-12">
         <Link
           to="/$locale"
           params={{ locale }}
@@ -67,12 +67,12 @@ export function Header() {
         >
           <Logo
             className={`h-6 w-auto transition-colors duration-500 ${
-              scrolled ? "text-ink" : "text-paper"
+              useInk ? "text-ink" : "text-paper"
             }`}
           />
           <span
-            className={`small-caps hidden text-[9px] sm:inline transition-colors duration-500 ${
-              scrolled ? "text-muted-foreground" : "text-paper/85"
+            className={`small-caps hidden text-[9px] xl:inline transition-colors duration-500 ${
+              useInk ? "text-muted-foreground" : "text-paper/85"
             }`}
           >
             {t("nav.opticalScience")}
@@ -80,8 +80,8 @@ export function Header() {
         </Link>
 
         <nav
-          className={`hidden md:flex items-center gap-8 justify-self-center font-eyebrow transition-colors duration-500 ${
-            scrolled ? "text-ink/80" : "text-paper/90"
+          className={`hidden lg:flex items-center gap-6 justify-self-center font-eyebrow transition-colors duration-500 ${
+            useInk ? "text-ink/80" : "text-paper/90"
           }`}
         >
           {nav.map((item) => (
@@ -98,11 +98,11 @@ export function Header() {
         </nav>
 
         <div
-          className={`flex items-center gap-6 justify-self-end font-eyebrow transition-colors duration-500 ${
-            scrolled ? "text-ink/80" : "text-paper/90"
+          className={`flex items-center gap-3 md:gap-5 justify-self-end font-eyebrow transition-colors duration-500 ${
+            useInk ? "text-ink/80" : "text-paper/90"
           }`}
         >
-          <div className="hidden sm:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-2">
             {LOCALES.map((l, i) => (
               <div key={l} className="flex items-center gap-2">
                 {i > 0 && <span className="opacity-25">·</span>}
@@ -119,13 +119,13 @@ export function Header() {
               </div>
             ))}
           </div>
-          <HighContrastToggle tone={scrolled ? "light" : "dark"} />
+          <HighContrastToggle tone={useInk ? "light" : "dark"} />
           <a
             href={DEFAULT_AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer sponsored"
-            className={`group inline-flex items-center gap-2 rounded-full border px-4 py-2 transition-all duration-500 ${
-              scrolled
+            className={`group inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs transition-all duration-500 ${
+              useInk
                 ? "border-teal/40 text-teal hover:bg-teal hover:text-paper"
                 : "border-paper/40 text-paper hover:bg-paper hover:text-ink"
             }`}
