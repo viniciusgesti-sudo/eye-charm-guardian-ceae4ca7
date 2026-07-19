@@ -1060,13 +1060,23 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
             <span className="font-eyebrow">{copy.buyOnAmazon}</span>
             <IconExternal className="opacity-80" />
           </a>
-          <a
-            href={`#${p.id}`}
-            className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
-          >
-            <span>{copy.preview.learnMore}</span>
-            <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
-          </a>
+          {p.pdpPath ? (
+            <Link
+              to={p.pdpPath}
+              className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
+            >
+              <span>{copy.preview.learnMore}</span>
+              <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
+            </Link>
+          ) : (
+            <a
+              href={`#${p.id}`}
+              className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
+            >
+              <span>{copy.preview.learnMore}</span>
+              <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
+            </a>
+          )}
         </div>
       </div>
       {open && (
