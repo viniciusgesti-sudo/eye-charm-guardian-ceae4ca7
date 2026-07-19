@@ -114,7 +114,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             useInk ? "text-ink/80" : "text-paper/90"
           }`}
         >
-          <div className="hidden xl:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             {LOCALES.map((l, i) => (
               <div key={l} className="flex items-center gap-2">
                 {i > 0 && <span className="opacity-25">·</span>}
