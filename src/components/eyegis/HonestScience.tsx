@@ -350,7 +350,7 @@ function SelectiveFiltering() {
               className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
               style={{ color: MINT }}
             >
-              <span className="opacity-60">§ 03</span>
+              <span>§ 03</span>
               <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
               <span>Selective filtering</span>
             </div>
