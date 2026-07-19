@@ -100,7 +100,7 @@ export const translations: Record<Lang, Dict> = {
 export function detectBrowserLang(): Lang {
   if (typeof navigator === "undefined") return "EN";
   const raw = (navigator.language || "en").slice(0, 2).toLowerCase();
-  if (raw === "pt") return "PT";
+  if (raw === "pt" || raw === "br") return "PT";
   if (raw === "fr") return "FR";
   return "EN";
 }
