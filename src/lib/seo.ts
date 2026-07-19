@@ -87,7 +87,7 @@ export function buildSeo(input: SeoInput): SeoOutput {
 
 function localeToOg(l: Locale): string {
   switch (l) {
-    case "pt": return "pt_BR";
+    case "br": return "pt_BR";
     case "en": return "en_US";
     case "fr": return "fr_FR";
   }
