@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { BeforeAfter } from "@/components/qa/BeforeAfter";
+import { SideBySide } from "@/components/qa/SideBySide";
 
 // Rotas renderizadas em iframes para validar breakpoints rapidamente
 const responsiveRoutes: { path: string; label: string }[] = [
