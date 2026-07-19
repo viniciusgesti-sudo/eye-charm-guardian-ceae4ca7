@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+
 
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { HonestScience } from "@/components/eyegis/HonestScience";
