@@ -877,13 +877,10 @@ function HowToChoose({
                   }`}
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
-                      src={PERSONA_IMAGES[p.id]}
+                    <Picture
+                      source={PERSONA_IMAGES[p.id]}
                       alt={`${p.label} — persona wearing Eyegis eyewear during ${p.hours}`}
-                      width={1600}
-                      height={1000}
-                      loading="lazy"
-                      decoding="async"
+                      sizes="(min-width:1024px) 33vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
@@ -1139,28 +1136,22 @@ function BeforeAfter({ c }: { c: Copy }) {
             ref={wrapRef}
             className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-ink select-none"
           >
-            <img
-              src={compareImg}
+            <Picture
+              source={compareImg}
               alt={c.demo.with}
-              width={1920}
-              height={1080}
+              sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
             />
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${pos}%` }}
             >
-              <img
-                src={compareImg}
+              <Picture
+                source={compareImg}
                 alt={c.demo.without}
-                width={1920}
-                height={1080}
+                sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
-                loading="lazy"
-                decoding="async"
               />
               <div
                 aria-hidden="true"
