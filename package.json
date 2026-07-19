@@ -11,6 +11,7 @@
     "budget:baseline": "node scripts/bundle-budget.mjs --update-baseline",
     "preview": "vite preview",
     "lint": "eslint .",
+    "test:collisions": "python tests/visual/collisions.py",
     "format": "prettier --write ."
   },
   "dependencies": {

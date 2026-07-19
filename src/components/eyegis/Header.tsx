@@ -50,6 +50,7 @@ export function Header() {
 
   return (
     <header
+      data-testid="site-header"
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ease-out ${
         scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border/50"
@@ -59,6 +60,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 md:px-8 md:py-5 lg:px-12">
+
         <Link
           to="/$locale"
           params={{ locale }}
@@ -121,6 +123,7 @@ export function Header() {
           </div>
           <HighContrastToggle tone={useInk ? "light" : "dark"} />
           <a
+            data-testid="header-cta"
             href={DEFAULT_AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer sponsored"
