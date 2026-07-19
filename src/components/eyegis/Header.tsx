@@ -14,17 +14,18 @@ import type { Lang } from "@/i18n/translations";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import { Logo } from "./Logo";
-import { HighContrastToggle } from "./HighContrastToggle";
 
-const LOCALES: Lang[] = ["PT", "EN", "FR"];
+type LocaleSeg = "br" | "en" | "fr";
+const LOCALES: LocaleSeg[] = ["br", "en", "fr"];
+const segToLang = (s: LocaleSeg): Lang => (s === "br" ? "PT" : (s.toUpperCase() as Lang));
 
 export function Header({ variant = "default" }: { variant?: "default" | "compact" } = {}) {
   const compact = variant === "compact";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
-  const locale = (params.locale ?? "pt").toLowerCase();
-  const localeUp = locale.toUpperCase() as Lang;
+  const locale = (params.locale ?? "br").toLowerCase();
+  const currentSeg = (LOCALES as string[]).includes(locale) ? (locale as LocaleSeg) : "br";
   const location = useLocation();
   const navigate = useNavigate();
   const { t, setLang } = useI18n();
