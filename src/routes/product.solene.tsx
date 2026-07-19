@@ -1,5 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Picture } from "@/components/eyegis/Picture";
+import { Header } from "@/components/eyegis/Header";
+import { Footer } from "@/components/eyegis/Footer";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 
 import heroImg from "@/assets/products/solene-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
