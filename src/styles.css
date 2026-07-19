@@ -45,11 +45,22 @@
   --color-teal-deep: var(--teal-deep);
   --color-sand: var(--sand);
   --color-sand-warm: var(--sand-warm);
+  --color-champagne: var(--champagne);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
   --color-mint: var(--mint);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-paper-warm: var(--paper-warm);
+
+  /* Spacing rhythm — consistent editorial cadence */
+  --spacing-section-y: clamp(4rem, 7vw, 8rem);
+  --spacing-section-y-sm: clamp(2.5rem, 4vw, 4.5rem);
+  --spacing-gutter: clamp(1.25rem, 3vw, 2.5rem);
+  --container-editorial: 1400px;
+  --container-narrow: 960px;
 }
+
 
 :root {
   --radius: 4px;
