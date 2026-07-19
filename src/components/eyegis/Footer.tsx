@@ -65,12 +65,12 @@ const trust = [
 
 function TrustBar() {
   return (
-    <section className="bg-[#F9F9F9] border-t border-b border-ink/10">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-8 px-6 py-10 md:grid-cols-4 md:px-10 md:py-12">
+    <section className="bg-paper border-t border-b border-ink/10">
+      <div className="container-editorial grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
         {trust.map(({ icon: Icon, title, sub }) => (
           <div key={title} className="flex flex-col items-center text-center">
-            <Icon className="h-7 w-7 text-[#004B57]" />
-            <div className="mt-4 small-caps text-[11px] text-[#1D252D]">{title}</div>
+            <Icon className="h-7 w-7 text-teal" />
+            <div className="mt-4 small-caps text-[11px] text-ink">{title}</div>
             <div className="mt-1 font-sans text-[13px] font-light text-ink/60">{sub}</div>
           </div>
         ))}
@@ -78,6 +78,7 @@ function TrustBar() {
     </section>
   );
 }
+
 
 /* ---------- Footer ---------- */
 
@@ -131,7 +132,7 @@ export function Footer() {
     <>
       <TrustBar />
 
-      <footer className="relative bg-[#1D252D] text-[#F9F9F9]">
+      <footer className="relative bg-ink text-paper">
         {/* Hairline top */}
         <div
           aria-hidden
@@ -139,12 +140,13 @@ export function Footer() {
           style={{ background: "linear-gradient(90deg, transparent, rgba(134,217,209,0.35), transparent)" }}
         />
 
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+        <div className="container-editorial py-16 md:py-20">
           {/* Top row — logo + top nav */}
           <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center">
-            <a href="/" aria-label="Eyegis home" className="text-[#F9F9F9]">
-              <Logo className="h-7 w-auto text-[#F9F9F9]" />
+            <a href="/" aria-label="Eyegis home" className="text-paper">
+              <Logo className="h-7 w-auto text-paper" />
             </a>
+
 
             <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 md:gap-x-8">
               {topNav.map((l, i) => (
@@ -166,7 +168,7 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
             {cols.map((col) => (
               <div key={col.title}>
-                <h4 className="small-caps text-[11px] text-[#86D9D1]">{col.title}</h4>
+                <h4 className="small-caps text-[11px] text-mint">{col.title}</h4>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((link) => (
                     <li key={link.label}>
@@ -187,7 +189,7 @@ export function Footer() {
 
             {/* Column 4 — social */}
             <div>
-              <h4 className="small-caps text-[11px] text-[#86D9D1]">Follow Eyegis</h4>
+              <h4 className="small-caps text-[11px] text-mint">Follow Eyegis</h4>
               <ul className="mt-5 flex items-center gap-4">
                 {socials.map(({ label, href, Icon }) => (
                   <li key={label}>
@@ -196,7 +198,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-[#86D9D1] hover:text-[#86D9D1]"
+                      className="group grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-all hover:border-mint hover:text-mint"
                     >
                       <Icon className="h-4.5 w-4.5 h-[18px] w-[18px]" />
                     </a>

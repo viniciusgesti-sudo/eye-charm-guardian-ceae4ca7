@@ -45,11 +45,22 @@
   --color-teal-deep: var(--teal-deep);
   --color-sand: var(--sand);
   --color-sand-warm: var(--sand-warm);
+  --color-champagne: var(--champagne);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
   --color-mint: var(--mint);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-paper-warm: var(--paper-warm);
+
+  /* Spacing rhythm — consistent editorial cadence */
+  --spacing-section-y: clamp(4rem, 7vw, 8rem);
+  --spacing-section-y-sm: clamp(2.5rem, 4vw, 4.5rem);
+  --spacing-gutter: clamp(1.25rem, 3vw, 2.5rem);
+  --container-editorial: 1400px;
+  --container-narrow: 960px;
 }
+
 
 :root {
   --radius: 4px;
@@ -59,10 +70,14 @@
   --teal: #004B57;               /* primary */
   --sand: #E2D1C3;               /* secondary */
   --sand-warm: #EFE5D9;
+  --champagne: #E2D1C3;          /* alias — editorial usage */
+  --copper: #B4956B;             /* editorial accent (eyebrows, hairlines) */
+  --copper-deep: #8A6E4A;
   --mint: #86D9D1;               /* accent */
   --ink: #1D252D;                /* text */
   --paper: #F9F9F9;              /* background */
   --paper-warm: #F3EFE9;
+
 
   /* Semantic mapping (light — the site is essentially "light editorial") */
   --background: #F9F9F9;
@@ -247,6 +262,29 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* -------- Layout rhythm --------
+   Standardized container + vertical section spacing used across marketing
+   pages so every section snaps to the same editorial grid. */
+@utility container-editorial {
+  width: 100%;
+  max-width: var(--container-editorial);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+@utility container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+@utility section-y {
+  padding-block: var(--spacing-section-y);
+}
+@utility section-y-sm {
+  padding-block: var(--spacing-section-y-sm);
+}
+
 
 /* Slow, meaningful image scale on hover */
 @utility img-hover {
