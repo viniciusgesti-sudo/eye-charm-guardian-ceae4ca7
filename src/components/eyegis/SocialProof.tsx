@@ -216,6 +216,22 @@ const COPY: Record<Lang, Copy> = {
       "airport": "Gate B24 · 06:41",
       "portrait": "Off-duty",
     },
+    alts: {
+      "creative-studio": "Woman working in a design studio wearing Eyegis Solène blue-light glasses with champagne acetate frame — natural daylight, unretouched.",
+      "business-meeting": "Executive between meetings wearing Eyegis Atelier blue-light glasses with dark tortoise frame — corporate office setting.",
+      "architecture": "Minimalist architectural interior of concrete and glass, referencing the everyday environment where Eyegis Meridian glasses are worn.",
+      "student": "Student reading long-form text wearing Eyegis Marais blue-light glasses — round lightweight frame, quiet study environment.",
+      "editing": "Photographer editing images on a calibrated monitor wearing Eyegis Solène — true-tone lenses preserving accurate color perception.",
+      "travel": "Traveler on a European high-speed train wearing Eyegis Meridian — anti-fatigue lenses during a long journey.",
+      "founder": "Founder at a standing desk wearing Eyegis Atelier during a morning deep-work session in a modern home office.",
+      "gaming-late": "Gamer during a late-night session wearing Eyegis Meridian — filter tuned for hours of screen exposure.",
+      "streamer": "Live streamer on camera wearing Eyegis — dark frame that stays discreet under stage lighting.",
+      "kitchen": "Remote worker focused at a kitchen-table home office wearing Eyegis Solène — everyday-life eyewear.",
+      "airport": "Business traveler waiting at an airport gate wearing Eyegis Atelier — lightweight TR90 frame for long-haul flights.",
+      "portrait": "Editorial portrait of a Paris-based professional wearing Eyegis Solène — champagne acetate frame in golden-hour light.",
+    },
+    portraitAlt: (name, role, country) =>
+      `Verified customer portrait — ${name}, ${role} based in ${country}, wearing Eyegis blue-light glasses in everyday life.`,
     lightbox: {
       body: (caption) =>
         `${caption} — captured in an unretouched moment of everyday wear. EyegisGuard™ optical filter, TR90 frame, natural color perception.`,
