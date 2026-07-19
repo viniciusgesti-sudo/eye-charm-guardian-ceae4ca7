@@ -1330,13 +1330,10 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
           className="mt-14 grid grid-cols-1 md:grid-cols-5 gap-10 rounded-2xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 md:p-10 animate-[fadeUp_700ms_cubic-bezier(0.22,1,0.36,1)_both]"
         >
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
-            <img
-              src={PERSONA_PRODUCT_IMAGES[persona.id]}
+            <Picture
+              source={PERSONA_PRODUCT_IMAGES[persona.id]}
               alt={`${persona.product.name} — recommended Eyegis eyewear for ${c.reco.eyebrow}`}
-              width={1200}
-              height={1500}
-              loading="lazy"
-              decoding="async"
+              sizes="(min-width:768px) 40vw, 100vw"
               className="h-full w-full object-cover"
               style={{ animation: "floaty 6s ease-in-out infinite" }}
             />
