@@ -21,17 +21,6 @@ import lifeConcierge from "@/assets/contact-concierge.jpg?w=320;480;800&format=a
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-export const Route = createFileRoute("/about")({
-  head: () =>
-    buildSeo({
-      title: "About Eyegis — Designed for the Way We Live Today",
-      description:
-        "Eyegis is a premium eyewear brand built for the digital generation — pairing evidence-based optical engineering with timeless design.",
-      path: "/about",
-    }),
-
-  component: AboutPage,
-});
 
 
 
