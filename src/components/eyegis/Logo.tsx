@@ -3,6 +3,28 @@ import shieldMonoImg from "@/assets/brand/eyegis-shield-mono.png";
 import shieldColorImg from "@/assets/brand/eyegis-shield-color.jpg";
 
 /**
+ * Inline SVG fallback for the Eyegis shield. Rendered when the raster
+ * mask asset fails to load so the mark is never invisible. Uses
+ * `currentColor` so tone detection still applies.
+ */
+function ShieldFallback({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      className={className}
+      style={{ display: "block" }}
+    >
+      <path
+        fill="currentColor"
+        d="M32 3 8 12v20c0 13.6 9.9 24.6 24 29 14.1-4.4 24-15.4 24-29V12L32 3Zm0 18a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"
+      />
+    </svg>
+  );
+}
+
+
+/**
  * Eyegis brand mark + wordmark.
  *
  * The mark is the OFFICIAL Eyegis shield from the brand kit, rendered via
