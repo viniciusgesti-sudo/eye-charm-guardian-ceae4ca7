@@ -31,7 +31,9 @@ import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
 import { Route as ProductMaraisRouteImport } from './routes/product.marais'
 import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
 import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
+import { Route as LocaleWarrantyRouteImport } from './routes/$locale.warranty'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
+import { Route as LocaleShippingRouteImport } from './routes/$locale.shipping'
 import { Route as LocalePrivacyRouteImport } from './routes/$locale.privacy'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
 import { Route as LocaleLensesRouteImport } from './routes/$locale.lenses'
@@ -152,9 +154,19 @@ const LocaleWomenRoute = LocaleWomenRouteImport.update({
   path: '/women',
   getParentRoute: () => LocaleRoute,
 } as any)
+const LocaleWarrantyRoute = LocaleWarrantyRouteImport.update({
+  id: '/warranty',
+  path: '/warranty',
+  getParentRoute: () => LocaleRoute,
+} as any)
 const LocaleTechnologyRoute = LocaleTechnologyRouteImport.update({
   id: '/technology',
   path: '/technology',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleShippingRoute = LocaleShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
   getParentRoute: () => LocaleRoute,
 } as any)
 const LocalePrivacyRoute = LocalePrivacyRouteImport.update({
@@ -229,7 +241,9 @@ export interface FileRoutesByFullPath {
   '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
+  '/$locale/shipping': typeof LocaleShippingRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/warranty': typeof LocaleWarrantyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
@@ -262,7 +276,9 @@ export interface FileRoutesByTo {
   '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
+  '/$locale/shipping': typeof LocaleShippingRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/warranty': typeof LocaleWarrantyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
@@ -297,7 +313,9 @@ export interface FileRoutesById {
   '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
+  '/$locale/shipping': typeof LocaleShippingRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
+  '/$locale/warranty': typeof LocaleWarrantyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
   '/product/marais': typeof ProductMaraisRoute
@@ -333,7 +351,9 @@ export interface FileRouteTypes {
     | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
+    | '/$locale/shipping'
     | '/$locale/technology'
+    | '/$locale/warranty'
     | '/$locale/women'
     | '/product/atelier'
     | '/product/marais'
@@ -366,7 +386,9 @@ export interface FileRouteTypes {
     | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
+    | '/$locale/shipping'
     | '/$locale/technology'
+    | '/$locale/warranty'
     | '/$locale/women'
     | '/product/atelier'
     | '/product/marais'
@@ -400,7 +422,9 @@ export interface FileRouteTypes {
     | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
+    | '/$locale/shipping'
     | '/$locale/technology'
+    | '/$locale/warranty'
     | '/$locale/women'
     | '/product/atelier'
     | '/product/marais'
@@ -588,11 +612,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleWomenRouteImport
       parentRoute: typeof LocaleRoute
     }
+    '/$locale/warranty': {
+      id: '/$locale/warranty'
+      path: '/warranty'
+      fullPath: '/$locale/warranty'
+      preLoaderRoute: typeof LocaleWarrantyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/technology': {
       id: '/$locale/technology'
       path: '/technology'
       fullPath: '/$locale/technology'
       preLoaderRoute: typeof LocaleTechnologyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/shipping': {
+      id: '/$locale/shipping'
+      path: '/shipping'
+      fullPath: '/$locale/shipping'
+      preLoaderRoute: typeof LocaleShippingRouteImport
       parentRoute: typeof LocaleRoute
     }
     '/$locale/privacy': {
@@ -671,7 +709,9 @@ interface LocaleRouteChildren {
   LocaleLensesRoute: typeof LocaleLensesRoute
   LocaleMenRoute: typeof LocaleMenRoute
   LocalePrivacyRoute: typeof LocalePrivacyRoute
+  LocaleShippingRoute: typeof LocaleShippingRoute
   LocaleTechnologyRoute: typeof LocaleTechnologyRoute
+  LocaleWarrantyRoute: typeof LocaleWarrantyRoute
   LocaleWomenRoute: typeof LocaleWomenRoute
   LocaleIndexRoute: typeof LocaleIndexRoute
 }
@@ -686,7 +726,9 @@ const LocaleRouteChildren: LocaleRouteChildren = {
   LocaleLensesRoute: LocaleLensesRoute,
   LocaleMenRoute: LocaleMenRoute,
   LocalePrivacyRoute: LocalePrivacyRoute,
+  LocaleShippingRoute: LocaleShippingRoute,
   LocaleTechnologyRoute: LocaleTechnologyRoute,
+  LocaleWarrantyRoute: LocaleWarrantyRoute,
   LocaleWomenRoute: LocaleWomenRoute,
   LocaleIndexRoute: LocaleIndexRoute,
 }
