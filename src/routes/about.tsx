@@ -460,7 +460,7 @@ function Rule({ label }: { label: string }) {
 
 const PEOPLE_IMAGES = [life1, life2, life3, life6, peopleHeroImg, life4, life8, life7, life5, lifeConcierge, whyImg2, whyImg1];
 
-function AboutPage() {
+export function AboutPage() {
   const { lang } = useI18n();
   const c = CONTENT[lang];
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";
