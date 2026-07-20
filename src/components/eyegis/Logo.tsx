@@ -68,6 +68,15 @@ function parseRgb(input: string): [number, number, number, number] | null {
   return [r, g, b, a];
 }
 
+function contrastRatio(l1: number, l2: number) {
+  const hi = Math.max(l1, l2);
+  const lo = Math.min(l1, l2);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+const INK_LUM = relativeLuminance(0x1d, 0x25, 0x2d);
+const PAPER_LUM = relativeLuminance(0xf9, 0xf9, 0xf9);
+
 function detectBackgroundTone(el: HTMLElement | null): "light" | "dark" | null {
   if (!el || typeof window === "undefined") return null;
   let node: HTMLElement | null = el.parentElement;
@@ -76,11 +85,16 @@ function detectBackgroundTone(el: HTMLElement | null): "light" | "dark" | null {
     const rgba = parseRgb(bg);
     if (rgba && rgba[3] > 0.5) {
       const lum = relativeLuminance(rgba[0], rgba[1], rgba[2]);
-      return lum > 0.55 ? "light" : "dark";
+      // Pick the tone (ink vs paper) that yields the higher contrast
+      // ratio against the actual background. This handles mid-tone
+      // surfaces like copper (#B4956B) where a fixed luminance cutoff
+      // would otherwise misclassify and drop below WCAG AA.
+      const inkContrast = contrastRatio(lum, INK_LUM);
+      const paperContrast = contrastRatio(lum, PAPER_LUM);
+      return paperContrast > inkContrast ? "dark" : "light";
     }
     node = node.parentElement;
   }
-  // Fallback: body / prefers-color-scheme
   if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) return "dark";
   return "light";
 }
