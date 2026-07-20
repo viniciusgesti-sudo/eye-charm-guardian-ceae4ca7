@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { useEffect, useRef, useState } from "react";
-import heroImgSrc from "@/assets/lifestyle-architecture.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import heroImgSrc from "@/assets/about-hero-eyegis.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
 import whyImg1 from "@/assets/science-devices.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import whyImg2 from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -112,7 +112,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Designed for the",
       h1b: "way we live today.",
       sub: "Eyegis was created for a generation that spends more time looking at screens than ever before. Our mission is to make digital life more comfortable — without sacrificing timeless design.",
-      alt: "Modern architecture bathed in natural light",
+      alt: "Eyegis campaign — couple wearing Meridian and Solène frames",
     },
     belief: {
       rule: "01 — Our Belief",
@@ -205,7 +205,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Feito para o",
       h1b: "modo como vivemos hoje.",
       sub: "A Eyegis foi criada para uma geração que passa mais tempo diante de telas do que nunca. Nossa missão é tornar a vida digital mais confortável — sem abrir mão de um design atemporal.",
-      alt: "Arquitetura moderna banhada de luz natural",
+      alt: "Campanha Eyegis — casal usando modelos Meridian e Solène",
     },
     belief: {
       rule: "01 — Nossa Crença",
@@ -298,7 +298,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Pensée pour la",
       h1b: "vie que nous vivons aujourd'hui.",
       sub: "Eyegis a été créée pour une génération qui passe plus de temps devant les écrans que jamais. Notre mission : rendre la vie numérique plus confortable, sans jamais sacrifier un design intemporel.",
-      alt: "Architecture moderne baignée de lumière naturelle",
+      alt: "Campagne Eyegis — couple portant les modèles Meridian et Solène",
     },
     belief: {
       rule: "01 — Notre Conviction",
@@ -475,7 +475,7 @@ function AboutPage() {
       }}
     >
       {/* HERO */}
-      <section className="relative min-h-[92vh] w-full overflow-hidden">
+      <section className="relative min-h-[78vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImgSrc}
@@ -493,7 +493,7 @@ function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
           <div className="flex items-center justify-between">
             <Link
               to="/"
