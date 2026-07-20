@@ -58,73 +58,73 @@ type CategoryId =
 
 const Icon = {
   Cpu: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="8" y="8" width="16" height="16" />
       <rect x="12" y="12" width="8" height="8" />
       <path d="M4 12 h4 M4 16 h4 M4 20 h4 M24 12 h4 M24 16 h4 M24 20 h4 M12 4 v4 M16 4 v4 M20 4 v4 M12 24 v4 M16 24 v4 M20 24 v4" />
     </svg>
   ),
   Frame: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="10" cy="18" r="5" />
       <circle cx="22" cy="18" r="5" />
       <path d="M15 18 h2" />
     </svg>
   ),
   Wave: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M2 20 Q8 12 14 20 T26 20 T30 18" />
     </svg>
   ),
   Bag: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 10 h20 l-2 18 H8 Z" />
       <path d="M12 10 v-2 a4 4 0 0 1 8 0 v2" />
     </svg>
   ),
   Truck: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M3 10 h15 v12 H3 z M18 14 h6 l4 5 v3 h-10" />
       <circle cx="9" cy="24" r="2.5" />
       <circle cx="22" cy="24" r="2.5" />
     </svg>
   ),
   Shield: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M16 3 L28 8 V17 C28 24 22 28 16 30 C10 28 4 24 4 17 V8 Z" />
     </svg>
   ),
   Return: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 16 A10 10 0 1 1 16 26" />
       <path d="M6 8 v8 h8" />
     </svg>
   ),
   Cloth: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 8 Q16 4 28 8 L26 26 Q16 30 6 26 Z" />
       <path d="M8 14 Q16 11 24 14 M9 20 Q16 17 23 20" />
     </svg>
   ),
   Info: () => (
-    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="16" cy="16" r="12" />
       <path d="M16 14 v8 M16 10 v0.01" />
     </svg>
   ),
   Search: () => (
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.4">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="11" cy="11" r="7" />
       <path d="M16 16 L21 21" />
     </svg>
   ),
   Plus: () => (
-    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 10 h12 M10 4 v12" />
     </svg>
   ),
   Minus: () => (
-    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 10 h12" />
     </svg>
   ),

@@ -811,24 +811,24 @@ function PersonaIcon({ id }: { id: PersonaId }) {
   if (id === "everyday") {
     return (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="8" cy="12" r="3" stroke="currentColor" strokeWidth="1" />
-        <circle cx="16" cy="12" r="3" stroke="currentColor" strokeWidth="1" />
-        <path d="M11 12h2" stroke="currentColor" strokeWidth="1" />
+        <circle cx="8" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="16" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M11 12h2" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     );
   }
   if (id === "creative") {
     return (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 18l6-10 4 6 3-4 3 8H4Z" stroke="currentColor" strokeWidth="1" />
+        <path d="M4 18l6-10 4 6 3-4 3 8H4Z" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     );
   }
   return (
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="6" width="8" height="6" stroke="currentColor" strokeWidth="1" />
-      <rect x="13" y="6" width="8" height="6" stroke="currentColor" strokeWidth="1" />
-      <path d="M7 12v3 M17 12v3 M5 18h14" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <rect x="3" y="6" width="8" height="6" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="13" y="6" width="8" height="6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 12v3 M17 12v3 M5 18h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }

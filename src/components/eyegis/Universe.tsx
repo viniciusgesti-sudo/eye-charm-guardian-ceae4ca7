@@ -260,23 +260,23 @@ function Reveal({
 function IconShield() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-.6-8-4.5-8-9V6l8-3z" stroke="currentColor" strokeWidth="1" />
+      <path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-.6-8-4.5-8-9V6l8-3z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconFlask() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3" stroke="currentColor" strokeWidth="1" />
+      <path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconLens() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="8" cy="14" r="4" stroke="currentColor" strokeWidth="1" />
-      <circle cx="16" cy="14" r="4" stroke="currentColor" strokeWidth="1" />
-      <path d="M12 14h.01M4 10l2-3h12l2 3" stroke="currentColor" strokeWidth="1" />
+      <circle cx="8" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 14h.01M4 10l2-3h12l2 3" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }

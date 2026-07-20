@@ -569,59 +569,59 @@ function Rule({ label, light = false }: { label: string; light?: boolean }) {
 
 const Icon = {
   Chat: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 10 h28 v18 H14 l-8 6 V10 Z" />
     </svg>
   ),
   Lens: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="18" cy="18" r="10" />
       <path d="M26 26 L34 34" />
     </svg>
   ),
   Shield: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M20 4 L34 10 V21 C34 29 27 34 20 36 C13 34 6 29 6 21 V10 Z" />
     </svg>
   ),
   Handshake: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 22 L12 14 L20 20 L28 14 L36 22" />
       <path d="M12 24 L20 30 L28 24" />
     </svg>
   ),
   Instagram: () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="3" width="18" height="18" rx="4" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17" cy="7" r="0.8" fill="currentColor" />
     </svg>
   ),
   TikTok: () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M14 4 v10.5 a3.5 3.5 0 1 1 -3.5 -3.5" />
       <path d="M14 4 c0 2.5 2 4.5 4.5 4.5" />
     </svg>
   ),
   Facebook: () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M15 3 h-2.5 A3.5 3.5 0 0 0 9 6.5 V10 H6 v3 h3 v8 h3 v-8 h3 l0.5 -3 H12 V7 a1 1 0 0 1 1 -1 h2 Z" />
     </svg>
   ),
   Linkedin: () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="3" width="18" height="18" rx="2" />
       <path d="M7 10 v7 M7 7 v0.01 M11 17 v-7 M15 17 v-4 a2 2 0 0 1 4 0 v4" />
     </svg>
   ),
   Youtube: () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="2.5" y="6" width="19" height="12" rx="3" />
       <path d="M10 9.5 L15 12 L10 14.5 Z" fill="currentColor" />
     </svg>
   ),
   Check: () => (
-    <svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="24" cy="24" r="22" />
       <path d="M14 24 L21 31 L34 17" />
     </svg>
