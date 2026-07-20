@@ -6,14 +6,36 @@ on:
   push:
     branches: [main]
 
+# Two profiles share the same script but different env vars + baseline slot.
+#
+#   PR    → strict growth gate (early warning). Uses the `pr` baseline slot,
+#           blocks any chunk that grew >BUDGET_MAX_GROWTH_PCT (default 10%)
+#           vs the last approved PR baseline. Hard caps are the standard prod
+#           limits so a PR can never sneak past them.
+#
+#   main  → looser growth gate but same hard caps. Uses the `main` baseline
+#           slot and auto-updates it after a successful push so the next PR
+#           diffs against the latest shipped size.
+#
+# Override any budget locally with the matching BUDGET_* env var — see
+# scripts/bundle-budget.mjs for the full list.
+
 jobs:
   bundle-budget:
-    name: Build & check bundle budget
+    name: Build & check bundle budget (${{ github.event_name == 'pull_request' && 'PR' || 'main' }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
+    env:
+      # Shared hard caps (identical for PR + main so nothing ships over budget).
+      BUDGET_CLIENT_FILE_JS_KB: "600"
+      BUDGET_CLIENT_FILE_CSS_KB: "200"
+      BUDGET_CLIENT_TOTAL_KB: "1700"
+      BUDGET_SERVER_FILE_KB: "700"
+      BUDGET_SERVER_TOTAL_KB: "2700"
+      BUDGET_WARN_PCT: "90"
 
     steps:
       - name: Checkout
@@ -27,18 +49,45 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      # Uses the baseline in bundle-budget.baseline.json and the hard caps
-      # defined in scripts/bundle-budget.mjs. Fails the job when any client
-      # or server chunk exceeds its cap OR grows more than
-      # BUDGET_MAX_GROWTH_PCT (default 40%) versus the baseline.
-      - name: Build & bundle-budget check
+      # --- PR profile: strict growth, no baseline write ---------------------
+      - name: Build & bundle-budget check (PR profile)
+        if: github.event_name == 'pull_request'
+        env:
+          BUDGET_BASELINE_ENV: pr
+          # Any single chunk / total that grows >10% vs the PR baseline fails.
+          BUDGET_MAX_GROWTH_PCT: "10"
         run: bun run build
+
+      # --- main profile: looser growth, auto-update baseline after success --
+      - name: Build & bundle-budget check (main profile)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          BUDGET_BASELINE_ENV: main
+          # main allows larger, intentional jumps (e.g. new page shipped).
+          BUDGET_MAX_GROWTH_PCT: "25"
+        run: bun run build
+
+      - name: Refresh main baseline
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && success()
+        env:
+          BUDGET_BASELINE_ENV: main
+        run: |
+          node scripts/bundle-budget.mjs --update-baseline
+          if git diff --quiet -- bundle-budget.baseline.main.json; then
+            echo "Baseline unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bundle-budget.baseline.main.json
+          git commit -m "chore(budget): refresh main baseline [skip ci]"
+          git push
 
       - name: Upload bundle report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: bundle-report
+          name: bundle-report-${{ github.event_name }}
           path: |
             dist/reports/bundle-report.html
             dist/reports/bundle-report.json
@@ -83,7 +132,7 @@ jobs:
             const status = violations.length ? '❌ **FAIL**' : (warnings.length ? '⚠️ warnings' : '✅ pass');
 
             const body = [
-              '### 📦 Bundle Budget Report',
+              '### 📦 Bundle Budget Report — PR profile (growth cap 10%)',
               '',
               `Status: ${status}`,
               '',
