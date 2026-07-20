@@ -381,7 +381,7 @@ const CONTENT: Record<Lang, Content> = {
       items: [
         { name: "Camille R.", role: "Designer produit · Paris", text: "Je les porte dix heures par jour. Le soir, je les avais oubliées — c'est le plus beau compliment pour une paire de lunettes." },
         { name: "Andrés L.", role: "Ingénieur logiciel · São Paulo", text: "Les couleurs à l'écran restent justes et mes yeux sont vraiment moins fatigués. La fabrication est premium." },
-        { name: "Sophie M.", role: "Architecte · Lisbonne", text: "La finition est impeccable et la monture se fait oublier. Élégante pour les rendez-vous, discrète pour l'atelier." },
+        { name: "Sophie M.", role: "Architecte · Lisbonne", text: "La finition est impeccable et la monture se fait oublier. Élégante pour les rendez-vous, discrète au studio." },
       ],
     },
     faq: {
