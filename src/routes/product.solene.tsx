@@ -8,7 +8,7 @@ import heroImg from "@/assets/products/solene-front.jpg?w=480;800;1200;1600&form
 import macroImg from "@/assets/products/solene-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/solene-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import pouchImg from "@/assets/products/solene-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifestyleImg from "@/assets/collection-women.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
+import lifestyleImg from "@/assets/products/solene-macro.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
 import { buildSeo, SITE } from "@/lib/seo";
 

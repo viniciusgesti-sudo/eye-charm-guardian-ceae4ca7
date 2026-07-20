@@ -7,7 +7,7 @@ import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import heroImg from "@/assets/products/marais-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/marais-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import pouchImg from "@/assets/products/marais-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifestyleImg from "@/assets/collection-women.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
+import lifestyleImg from "@/assets/products/marais-package.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
 import { buildSeo, SITE } from "@/lib/seo";
 

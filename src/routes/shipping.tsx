@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/shipping-unboxing.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import deliveryImg from "@/assets/lifestyle-travel.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
-import storeImg from "@/assets/product-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import storeImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
