@@ -42,7 +42,8 @@ const ROUTES = [
 
 // Header/footer link expectations. We check the *href pattern*, not the label,
 // so translations don't break the test. Each entry is a regex tested against
-// the raw HTML `href="…"` values.
+// the raw HTML `href="…"` values. Locale prefix is optional so non-localized
+// pages (e.g. `/about`) that link to the canonical `/en/*` still pass.
 const HEADER_LINKS = [
   { name: "men", re: /href="\/(?:br|en|fr)\/men"/ },
   { name: "women", re: /href="\/(?:br|en|fr)\/women"/ },
@@ -56,6 +57,7 @@ const FOOTER_LINKS = [
   { name: "privacy", re: /href="\/(?:br|en|fr)\/privacy"/ },
   { name: "compliance", re: /href="\/(?:br|en|fr)\/compliance"/ },
 ];
+
 
 const BAD_TITLES = new Set(["Lovable App", "Lovable Generated Project", ""]);
 
