@@ -507,10 +507,10 @@ const CONTENT: Record<Lang, PageContent> = {
         id: "blue-light",
         label: "Lumière Bleue",
         items: [
-          { q: "Les lunettes anti-lumière bleue fonctionnent-elles ?", a: "Des données de laboratoires indépendants confirment que les verres Eyegis atténuent la lumière visible à haute énergie entre 400 et 450nm. L'amélioration ressentie varie selon chacun — d'où notre garantie confort de 60 jours.", related: ["technology", "warranty"] },
-          { q: "Que dit la recherche actuelle ?", a: "Les études évaluées par les pairs sur le soulagement des symptômes restent mitigées. Nous publions ce que nos verres font optiquement et vous laissons décider, avec notre garantie confort.", related: ["technology"] },
+          { q: "Les lunettes anti-lumière bleue fonctionnent-elles ?", a: "Cela dépend entièrement de la façon dont le verre est conçu. Beaucoup de produits filtrent soit trop peu pour être significatifs, soit de façon si large qu'ils déforment les couleurs. Eyegis utilise un filtrage sélectif — le verre n'agit que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée. Nous décrivons ce que fait le verre optiquement et vous laissons juger du confort — c'est pourquoi chaque paire est couverte par 60 jours de garantie confort.", related: ["technology", "warranty"] },
+          { q: "Que dit la recherche actuelle ?", a: "Les études évaluées par les pairs sur le soulagement des symptômes restent mitigées. C'est précisément pour cela qu'existe Honest Science™ : nous décrivons comment le verre filtre la lumière — de manière sélective, sur une bande étroite du spectre — plutôt que de promettre un résultat spécifique.", related: ["technology"] },
           { q: "Eyegis fait-elle des allégations médicales ?", a: "Non. Eyegis est une marque de lunettes lifestyle. Nous ne diagnostiquons, ne traitons ni ne guérissons aucune condition. Consultez un ophtalmologiste qualifié pour un avis médical.", related: ["technology"] },
-          { q: "Pourquoi Honest Science™ est important ?", a: "La catégorie anti-lumière bleue regorge de promesses invérifiables. Honest Science™ signifie que chaque affirmation optique est mesurable et vérifiée par des tiers.", related: ["technology"] },
+          { q: "Pourquoi Honest Science™ est important ?", a: "La catégorie anti-lumière bleue regorge de promesses invérifiables. Honest Science™ signifie que nous décrivons uniquement ce que nos verres font réellement — un filtrage sélectif sur des longueurs d'onde spécifiques, sans teinte sur votre vision — et que nous ne vendons jamais une sensation ni un pourcentage de soulagement.", related: ["technology"] },
         ],
       },
       {
