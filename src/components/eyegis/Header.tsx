@@ -50,9 +50,10 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   const useInk = compact || scrolled || lightHeroRoute;
 
   const nav = [
-    { key: "women", label: t("nav.women"), to: "/$locale/women" as const },
     { key: "men", label: t("nav.men"), to: "/$locale/men" as const },
+    { key: "women", label: t("nav.women"), to: "/$locale/women" as const },
     { key: "kids", label: t("nav.kids"), to: "/$locale/kids" as const },
+    { key: "lenses", label: t("nav.lenses"), to: "/$locale/lenses" as const },
     { key: "tech", label: t("nav.technology"), to: "/$locale/technology" as const },
     { key: "about", label: t("nav.about"), to: "/$locale/about" as const },
   ];
