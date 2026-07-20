@@ -16,6 +16,8 @@
     "test:icons-logo:baseline": "python tests/visual/icons_and_logo.py baseline",
     "test:icons": "python tests/visual/icons_and_logo.py icons",
     "validate:images": "python scripts/validate-images.py",
+    "preview:check": "node scripts/preview-check.mjs",
+    "preview:check:full": "node scripts/preview-check.mjs --build",
     "format": "prettier --write ."
   },
   "dependencies": {
