@@ -485,13 +485,13 @@ export function AboutPage() {
           <div className="flex items-center justify-between">
             <Link
               to="/"
-              className="text-[11px] uppercase tracking-[0.4em]"
+              className="inline-flex items-center rounded-full bg-ink/60 px-3 py-1.5 text-[11px] uppercase tracking-[0.4em] backdrop-blur-sm"
               style={{ color: "#F6F3EE", fontFamily: sans }}
             >
               {c.nav.back}
             </Link>
             <span
-              className="text-[10px] uppercase tracking-[0.4em]"
+              className="inline-flex items-center rounded-full bg-ink/60 px-3 py-1.5 text-[10px] uppercase tracking-[0.4em] backdrop-blur-sm"
               style={{ color: "#F6F3EE" }}
             >
               {c.nav.about}

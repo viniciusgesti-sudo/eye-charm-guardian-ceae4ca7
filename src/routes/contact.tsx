@@ -26,7 +26,7 @@ const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
 const INK = "#0E1613";
 const TEAL = "#0C3B39";
-const MUTED = "#6B6559";
+const MUTED = "#4A4238"; // WCAG AA on paper (8.4:1) and champagne (6.5:1)
 
 const serif = "'Cormorant Garamond', 'Times New Roman', serif";
 const sans = "'Inter', system-ui, sans-serif";

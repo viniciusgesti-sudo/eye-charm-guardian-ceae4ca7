@@ -118,17 +118,19 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
 
         <div
           className={`flex items-center gap-3 md:gap-5 justify-self-end font-eyebrow transition-colors duration-500 ${
-            useInk ? "text-ink/80" : "text-paper/90"
+            useInk ? "text-ink" : "text-paper"
           }`}
         >
           <div className="hidden md:flex items-center gap-2">
             {LOCALES.map((l, i) => (
               <div key={l} className="flex items-center gap-2">
-                {i > 0 && <span className="opacity-25">·</span>}
+                {i > 0 && <span aria-hidden className={useInk ? "text-ink/60" : "text-paper/70"}>·</span>}
                 <button
                   onClick={() => switchLocale(l)}
-                  className={`uppercase transition-opacity ${
-                    currentSeg === l ? "opacity-100" : "opacity-70 hover:opacity-100"
+                  className={`uppercase transition-colors ${
+                    currentSeg === l
+                      ? "font-semibold underline underline-offset-4"
+                      : "hover:opacity-80"
                   }`}
                   aria-label={`Language: ${l.toUpperCase()}`}
                   aria-current={currentSeg === l ? "true" : undefined}
