@@ -1,186 +1,205 @@
 import { Link } from "@tanstack/react-router";
 
-import heroZenith from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import heroClarity from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroSaoPaulo from "@/assets/hero-saopaulo-eyegis.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
+import heroParis from "@/assets/hero-paris-eyegis.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
-import { LAB_CERTIFICATIONS } from "@/lib/amazon";
 
-import { Logo } from "./Logo";
 import { Picture } from "./Picture";
 
 type Props = { locale: string };
 
 const ALTS = {
   EN: {
-    men: "Eyegis Zenith — a man at night in São Paulo, cyan neon reflections on his square acetate frame, Octávio Frias bridge behind him.",
-    women: "Eyegis Clarity — a chic woman in Paris in a champagne cat-eye frame, the Eiffel Tower rising in the background.",
+    men: "Eyegis — a man at night in São Paulo, deep teal reflections, Octávio Frias bridge behind him.",
+    women: "Eyegis — a woman in Paris at golden hour, Eiffel Tower silhouette in the background.",
   },
   PT: {
-    men: "Eyegis Zenith — homem à noite em São Paulo, reflexos neon ciano na armação quadrada, ponte Octávio Frias ao fundo.",
-    women: "Eyegis Clarity — mulher chique em Paris com armação gatinho champanhe, Torre Eiffel ao fundo.",
+    men: "Eyegis — homem à noite em São Paulo, reflexos teal profundos, ponte Octávio Frias ao fundo.",
+    women: "Eyegis — mulher em Paris na hora dourada, silhueta da Torre Eiffel ao fundo.",
   },
   FR: {
-    men: "Eyegis Zenith — un homme la nuit à São Paulo, reflets néon cyan sur sa monture carrée, pont Octávio Frias en arrière-plan.",
-    women: "Eyegis Clarity — une femme chic à Paris avec une monture œil-de-chat champagne, la Tour Eiffel en arrière-plan.",
+    men: "Eyegis — un homme la nuit à São Paulo, reflets teal profonds, pont Octávio Frias en arrière-plan.",
+    women: "Eyegis — une femme à Paris à l'heure dorée, silhouette de la Tour Eiffel en arrière-plan.",
   },
 } as const;
+
+// Diagonal seam — top-left to bottom-right split between the two universes.
+const CLIP_LEFT = "polygon(0 0, 62% 0, 38% 100%, 0 100%)";
+const CLIP_RIGHT = "polygon(62% 0, 100% 0, 100% 100%, 38% 100%)";
 
 export function Hero({ locale }: Props) {
   const { t, lang } = useI18n();
   const alts = ALTS[lang] ?? ALTS.EN;
 
   return (
-    <section className="relative w-full bg-ink text-paper">
-      {/* Split-screen editorial hero: Zenith (Men, blue nocturnal) × Clarity (Women, champagne tower) */}
-      <div className="relative grid w-full grid-cols-1 lg:grid-cols-2">
-        {/* LEFT — Zenith / Men */}
-        <Link
-          to="/$locale/men"
-          params={{ locale }}
-          aria-label={t("hero.cta.men")}
-          className="group relative block overflow-hidden bg-[#0A1420]"
-        >
-          <div className="relative aspect-[4/5] w-full min-h-[560px] lg:aspect-auto lg:h-[92vh] lg:min-h-[720px]">
+    <section className="relative w-full overflow-hidden bg-ink text-paper">
+      {/* Full viewport diagonal split */}
+      <div className="relative h-[100svh] min-h-[640px] w-full">
+        {/* Desktop diagonal panels */}
+        <div className="absolute inset-0 hidden lg:block">
+          {/* LEFT — São Paulo (teal / night) */}
+          <div className="absolute inset-0" style={{ clipPath: CLIP_LEFT }}>
             <Picture
-              source={heroZenith}
+              source={heroSaoPaulo}
               alt={alts.men}
               priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_30%] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+              sizes="100vw"
+              className="kenburns-left absolute inset-0 h-full w-full object-cover object-[50%_35%]"
             />
-            {/* Blue nocturnal wash */}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(6,20,40,0.15) 0%, rgba(4,16,32,0.55) 60%, rgba(2,10,22,0.95) 100%)",
+                  "linear-gradient(180deg, rgba(6,20,36,0.15) 0%, rgba(3,14,26,0.55) 60%, rgba(2,10,20,0.9) 100%)",
               }}
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 mix-blend-overlay"
-              style={{ background: "radial-gradient(120% 80% at 50% 30%, rgba(0,120,200,0.25), transparent 70%)" }}
+              className="pointer-events-none absolute inset-0 mix-blend-multiply"
+              style={{ background: "linear-gradient(135deg, rgba(0,30,36,0.35), transparent 55%)" }}
             />
-            {/* HUD tag */}
-            <div className="absolute left-6 top-6 z-10 inline-flex items-center gap-2 rounded-full bg-ink/50 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/90 backdrop-blur-sm md:left-10 md:top-8">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-mint" />
-              <span>Zenith · Men</span>
-            </div>
-            {/* Copy block */}
-            <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-14 md:px-10 md:pb-16">
-              <span className="font-mono text-[11px] uppercase tracking-[0.36em] text-mint/90">
-                {t("nav.men")}
+          </div>
+
+          {/* RIGHT — Paris (champagne / golden) */}
+          <div className="absolute inset-0" style={{ clipPath: CLIP_RIGHT }}>
+            <Picture
+              source={heroParis}
+              alt={alts.women}
+              priority
+              sizes="100vw"
+              className="kenburns-right absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(255,240,220,0.1) 0%, rgba(226,209,195,0.35) 55%, rgba(80,55,35,0.55) 100%)",
+              }}
+            />
+          </div>
+
+          {/* Diagonal seam highlight */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(105deg, transparent calc(50% - 1px), rgba(255,255,255,0.35) 50%, transparent calc(50% + 1px))",
+              mixBlendMode: "screen",
+            }}
+          />
+        </div>
+
+        {/* Mobile stack — São Paulo first, Paris second */}
+        <div className="absolute inset-0 grid grid-rows-2 lg:hidden">
+          <div className="relative overflow-hidden">
+            <Picture
+              source={heroSaoPaulo}
+              alt={alts.men}
+              priority
+              sizes="100vw"
+              className="kenburns-left absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(180deg, rgba(2,10,20,0.1), rgba(2,10,20,0.85))" }}
+            />
+          </div>
+          <div className="relative overflow-hidden">
+            <Picture
+              source={heroParis}
+              alt={alts.women}
+              priority
+              sizes="100vw"
+              className="kenburns-right absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(180deg, rgba(226,209,195,0.2), rgba(80,55,35,0.75))" }}
+            />
+          </div>
+        </div>
+
+        {/* Editorial sliced typography */}
+        <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 md:px-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-0">
+            {/* LEFT stanza */}
+            <div className="rise lg:pr-16">
+              <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-mint/90">
+                São Paulo · {t("nav.men")}
               </span>
-              <h2
-                className="mt-4 font-editorial text-[13vw] leading-[0.9] text-paper sm:text-[9vw] lg:text-[5.5vw] xl:text-[76px]"
-                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
+              <h1
+                className="mt-5 font-editorial text-[13vw] leading-[0.9] text-paper sm:text-[9vw] lg:text-[6.4vw] xl:text-[92px]"
+                style={{ textShadow: "0 2px 28px rgba(0,0,0,0.55)" }}
               >
-                ZENITH
-              </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-paper/85 md:text-base">
+                Engineered
+                <br />
+                <span className="italic text-mint">for Vision.</span>
+              </h1>
+            </div>
+
+            {/* RIGHT stanza */}
+            <div className="rise lg:pl-16 lg:text-right" style={{ animationDelay: "220ms" }}>
+              <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-paper/80 lg:text-teal-deep">
+                Paris · {t("nav.women")}
+              </span>
+              <h1
+                className="mt-5 font-editorial text-[13vw] leading-[0.9] text-paper sm:text-[9vw] lg:text-[6.4vw] xl:text-[92px] lg:text-ink"
+                style={{ textShadow: "0 2px 28px rgba(0,0,0,0.35)" }}
+              >
+                Designed
+                <br />
+                <span className="italic lg:text-teal-deep">for Style.</span>
+              </h1>
+            </div>
+          </div>
+
+          {/* Supporting copy + CTAs */}
+          <div className="rise mt-10 grid gap-8 lg:mt-14 lg:grid-cols-2" style={{ animationDelay: "440ms" }}>
+            <div className="pointer-events-auto lg:pr-16">
+              <p className="max-w-md text-sm leading-relaxed text-paper/85 md:text-base">
                 {t("hero.zenith.tag")}
               </p>
-              <span className="mt-6 inline-flex w-fit items-center gap-4 rounded-full bg-teal-deep px-6 py-3.5 text-paper shadow-[0_20px_60px_-20px_rgba(0,180,255,0.55)] transition-all group-hover:-translate-y-0.5 group-hover:bg-teal">
+              <Link
+                to="/$locale/men"
+                params={{ locale }}
+                className="mt-6 inline-flex items-center gap-5 rounded-full bg-teal-deep px-7 py-4 text-paper shadow-[0_20px_60px_-20px_rgba(0,180,255,0.55)] transition-all hover:-translate-y-0.5 hover:bg-teal"
+              >
                 <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
                   {t("hero.cta.men")}
                 </span>
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-paper/10 transition-transform group-hover:translate-x-1">→</span>
-              </span>
+              </Link>
             </div>
-          </div>
-        </Link>
-
-        {/* RIGHT — Clarity / Women */}
-        <Link
-          to="/$locale/women"
-          params={{ locale }}
-          aria-label={t("hero.cta.women")}
-          className="group relative block overflow-hidden bg-[#E2D1C3]"
-        >
-          <div className="relative aspect-[4/5] w-full min-h-[560px] lg:aspect-auto lg:h-[92vh] lg:min-h-[720px]">
-            <Picture
-              source={heroClarity}
-              alt={alts.women}
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_30%] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
-            />
-            {/* Champagne warm wash */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,240,220,0.05) 0%, rgba(180,149,107,0.25) 55%, rgba(60,40,25,0.85) 100%)",
-              }}
-            />
-            {/* HUD tag */}
-            <div className="absolute right-6 top-6 z-10 inline-flex items-center gap-2 rounded-full bg-paper/75 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/80 backdrop-blur-sm md:right-10 md:top-8">
-              <span>Clarity · Women</span>
-              <span className="h-2 w-2 rounded-full bg-[#B4956B]" />
-            </div>
-            {/* Copy block */}
-            <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-14 text-paper md:px-10 md:pb-16">
-              <span className="font-mono text-[11px] uppercase tracking-[0.36em]" style={{ color: "#F2E6D6" }}>
-                {t("nav.women")}
-              </span>
-              <h2
-                className="mt-4 font-editorial italic text-[13vw] leading-[0.9] sm:text-[9vw] lg:text-[5.5vw] xl:text-[76px]"
-                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.5)" }}
-              >
-                Clarity
-              </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-paper/90 md:text-base">
+            <div className="pointer-events-auto lg:pl-16 lg:text-right">
+              <p className="ml-auto max-w-md text-sm leading-relaxed text-paper/90 md:text-base lg:text-ink/75">
                 {t("hero.clarity.tag")}
               </p>
-              <span
-                className="mt-6 inline-flex w-fit items-center gap-4 rounded-full px-6 py-3.5 text-ink shadow-[0_20px_60px_-20px_rgba(180,149,107,0.6)] transition-all group-hover:-translate-y-0.5"
+              <Link
+                to="/$locale/women"
+                params={{ locale }}
+                className="mt-6 inline-flex items-center gap-5 rounded-full px-7 py-4 text-ink shadow-[0_20px_60px_-20px_rgba(180,149,107,0.55)] transition-all hover:-translate-y-0.5"
                 style={{ backgroundColor: "#E2D1C3" }}
               >
                 <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
                   {t("hero.cta.women")}
                 </span>
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-ink/10 transition-transform group-hover:translate-x-1">→</span>
-              </span>
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-ink/10 transition-transform">→</span>
+              </Link>
             </div>
           </div>
-        </Link>
+        </div>
 
-        {/* Center divider line on desktop */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 lg:block"
-          style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.25), transparent)" }}
-        />
-      </div>
-
-      {/* Brand strip */}
-      <div className="relative overflow-hidden bg-paper text-ink">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(0,75,87,0.35), transparent)" }}
-        />
-        <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center md:py-20">
-          <Logo className="h-10 w-auto text-[#004B57] md:h-12" />
-          <div className="mt-4 h-px w-16" style={{ background: "rgba(0,75,87,0.35)" }} />
-          <h1 className="mt-6 font-editorial text-3xl leading-[1.05] text-ink md:text-4xl">
-            ZENITH <span className="italic text-teal-deep">×</span> CLARITY
-          </h1>
-          <p className="mt-4 max-w-2xl font-editorial text-lg leading-relaxed text-ink/80 md:text-xl">
-            {t("hero.subcopy.line1")} {t("hero.subcopy.line2")}
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/70">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#004B57]/25 bg-mint/15 px-3 py-1.5 text-teal-deep">
-              <span aria-hidden className="inline-grid h-3.5 w-3.5 place-items-center rounded-full bg-mint text-[9px] font-bold text-teal-deep">✓</span>
-              {LAB_CERTIFICATIONS.short}
-            </span>
-            <span className="opacity-30">/</span>
-            <span>Independent optical lab tested</span>
-            <span className="opacity-30">/</span>
-            <span>60-day guarantee</span>
-          </div>
+        {/* Minimal scroll indicator */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-paper/70">Scroll</span>
+          <span className="relative block h-10 w-px overflow-hidden bg-paper/25">
+            <span className="scroll-line absolute inset-x-0 top-0 h-1/2 bg-paper" />
+          </span>
         </div>
       </div>
     </section>
