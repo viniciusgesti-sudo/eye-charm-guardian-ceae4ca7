@@ -35,7 +35,6 @@ export const Route = createFileRoute("/about")({
 
 export { AboutPage };
 
-});
 
 /* ------------------------------------------------------------------ */
 /*  Localized copy                                                    */
