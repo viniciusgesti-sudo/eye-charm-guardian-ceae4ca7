@@ -320,11 +320,12 @@ function Reveal({
   );
 }
 
-function IndexMark({ n, label }: { n: string; label: string }) {
+function IndexMark({ n, label, tone = "light" }: { n: string; label: string; tone?: "light" | "dark" }) {
+  const dark = tone === "dark";
   return (
-    <div className="flex items-center gap-4 text-ink/60">
-      <span className="font-eyebrow text-teal">{n}</span>
-      <span className="h-px w-8 bg-ink/25" />
+    <div className={`flex items-center gap-4 ${dark ? "text-paper/85" : "text-ink/60"}`}>
+      <span className={`font-eyebrow ${dark ? "text-mint" : "text-teal"}`}>{n}</span>
+      <span className={`h-px w-8 ${dark ? "bg-paper/40" : "bg-ink/25"}`} />
       <span className="font-eyebrow">{label}</span>
     </div>
   );
@@ -823,7 +824,7 @@ export function EyegisGuard() {
       <div className="relative bg-teal-deep text-paper">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-48">
           <Reveal>
-            <IndexMark n="06" label={copy.s06.label} />
+            <IndexMark n="06" label={copy.s06.label} tone="dark" />
           </Reveal>
           <Reveal delay={180}>
             <blockquote className="mt-12 max-w-5xl font-editorial text-paper text-fluid-display leading-[1.02] text-balance-tight">

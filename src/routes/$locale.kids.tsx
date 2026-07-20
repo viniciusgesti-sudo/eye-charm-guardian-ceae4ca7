@@ -18,7 +18,7 @@ const COPY = {
     title: (
       <>
         Proteção<br />
-        <span className="italic text-teal-deep">para a geração das telas.</span>
+        <span className="italic text-mint">para a geração das telas.</span>
       </>
     ),
     subtitle:
@@ -33,7 +33,7 @@ const COPY = {
     title: (
       <>
         Protection<br />
-        <span className="italic text-teal-deep">for the screen generation.</span>
+        <span className="italic text-mint">for the screen generation.</span>
       </>
     ),
     subtitle:
@@ -48,7 +48,7 @@ const COPY = {
     title: (
       <>
         Protection<br />
-        <span className="italic text-teal-deep">pour la génération des écrans.</span>
+        <span className="italic text-mint">pour la génération des écrans.</span>
       </>
     ),
     subtitle:

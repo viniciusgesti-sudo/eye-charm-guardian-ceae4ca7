@@ -508,7 +508,8 @@ button:focus-visible {
 }
 
 /* Links: high-contrast default color ONLY when the component hasn't set one
-   (Tailwind `text-*`, inline `style="color:..."`, or shadcn tokens win). */
+   (Tailwind `text-*`, inline `style="color:..."`, or shadcn tokens win).
+   Header/footer control their own colors — inherit there. */
 a:not([class*="text-"]):not([style*="color"]) {
   color: #004B57;
   text-decoration-thickness: 1px;
@@ -516,6 +517,11 @@ a:not([class*="text-"]):not([style*="color"]) {
 }
 a:not([class*="text-"]):not([style*="color"]):hover {
   color: #003842;
+}
+header a:not([class*="text-"]):not([style*="color"]),
+footer a:not([class*="text-"]):not([style*="color"]),
+nav a:not([class*="text-"]):not([style*="color"]) {
+  color: inherit;
 }
 .dark a:not([class*="text-"]):not([style*="color"]) {
   color: #86D9D1;
