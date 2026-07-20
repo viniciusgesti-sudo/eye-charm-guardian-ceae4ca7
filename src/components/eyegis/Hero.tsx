@@ -92,6 +92,9 @@ export function Hero({ locale }: Props) {
       aria-label="Eyegis manifesto hero"
       className="relative isolate w-full overflow-hidden bg-ink"
     >
+      {/* Single, page-level H1 for SEO / a11y; visually hidden — the split panels
+          use H2s for the men/women collections. */}
+      <h1 className="sr-only">{t.manifesto}</h1>
       {/*
         Mobile: two stacked panels, each ~70svh so both faces and glasses stay
         in frame without forcing a 200svh scroll.
