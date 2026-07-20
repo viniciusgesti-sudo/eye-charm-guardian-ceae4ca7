@@ -1,7 +1,7 @@
 """Visual-regression + WCAG contrast check for the Eyegis logo.
 
 Loads the internal harness at /dev-a11y-logo, iterates every brand surface
-(paper, champagne, mint, copper, copper-deep, teal, teal-deep, ink, black)
+(paper, champagne, mint, teal, teal-deep, ink, black)
 at three breakpoints (mobile 375, tablet 768, desktop 1440), screenshots
 each swatch, samples the rendered logo pixels (mark + wordmark), and
 computes the WCAG contrast ratio against the actual background color.
