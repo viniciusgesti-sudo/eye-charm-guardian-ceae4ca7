@@ -223,7 +223,7 @@ function MoonGlyph({ className = "" }: { className?: string }) {
 }
 
 /* Brand-tinted progress-bar accent (Deep Teal → Mint) */
-function CopperAccent() {
+function TealAccent() {
   return (
     <div className="mt-4 h-[3px] w-24 overflow-hidden rounded-full bg-champagne">
       <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-teal-deep via-teal to-mint" />
@@ -295,7 +295,7 @@ export function OurTechnology() {
                 <span className="mx-2 text-ink/30">·</span>
                 Protect visual comfort during long screen sessions
               </p>
-              <CopperAccent />
+              <TealAccent />
             </div>
 
             <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
@@ -337,7 +337,7 @@ export function OurTechnology() {
                 <span className="mx-2 text-ink/30">·</span>
                 Sunset Mode &amp; Sleep Protection
               </p>
-              <CopperAccent />
+              <TealAccent />
             </div>
 
             <p className="mt-8 text-[15px] leading-relaxed text-ink/80">

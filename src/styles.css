@@ -46,8 +46,6 @@
   --color-sand: var(--sand);
   --color-sand-warm: var(--sand-warm);
   --color-champagne: var(--champagne);
-  --color-copper: var(--copper);
-  --color-copper-deep: var(--copper-deep);
   --color-mint: var(--mint);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
@@ -71,8 +69,6 @@
   --sand: #E2D1C3;               /* secondary */
   --sand-warm: #EFE5D9;
   --champagne: #E2D1C3;          /* alias — editorial usage */
-  --copper: #004B57;             /* legacy alias → Deep Teal (brand accent) */
-  --copper-deep: #003842;        /* legacy alias → Deep Teal shade */
   --mint: #86D9D1;               /* accent */
   --ink: #1D252D;                /* text */
   --paper: #F9F9F9;              /* background */

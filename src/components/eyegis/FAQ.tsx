@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 const TEAL = "#004B57";
-const COPPER = "#003842"; // Deep Teal shade — replaces legacy copper accent
+const TEAL_DEEP = "#003842"; // Deep Teal shade
 const INK = "#1D252D";
 
 type FaqItem = {
@@ -132,8 +132,8 @@ function FaqCard({
         <span
           className="grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors"
           style={{
-            background: open ? `${COPPER}22` : `${COPPER}15`,
-            color: open ? TEAL : COPPER,
+            background: open ? `${TEAL_DEEP}22` : `${TEAL_DEEP}15`,
+            color: open ? TEAL : TEAL_DEEP,
           }}
         >
           {item.icon}
@@ -203,7 +203,7 @@ export function FAQ() {
         <div className="text-center">
           <span
             className="font-mono text-[11px] uppercase tracking-[0.32em]"
-            style={{ color: COPPER }}
+            style={{ color: TEAL_DEEP }}
           >
             Frequently Asked Questions
           </span>
@@ -218,7 +218,7 @@ export function FAQ() {
           </h2>
           <div
             className="mx-auto mt-6 h-px w-16"
-            style={{ background: `${COPPER}66` }}
+            style={{ background: `${TEAL_DEEP}66` }}
           />
         </div>
 
