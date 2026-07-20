@@ -38,6 +38,25 @@ export default defineConfig({
       assetsInlineLimit: 4096,
       reportCompressedSize: false,
       rollupOptions: {
+        output: {
+          // Split heavy vendors out of the client entry chunk so the initial
+          // JS stays small. Each group becomes its own long-cacheable chunk.
+          manualChunks(id: string) {
+            if (!id.includes("node_modules")) return;
+            if (/[\\/]node_modules[\\/](react|react-dom|scheduler|use-sync-external-store)[\\/]/.test(id)) {
+              return "react";
+            }
+            if (id.includes("node_modules/@tanstack/")) return "tanstack";
+            if (id.includes("node_modules/@radix-ui/")) return "radix";
+            if (
+              id.includes("node_modules/lucide-react") ||
+              id.includes("node_modules/framer-motion") ||
+              id.includes("node_modules/motion")
+            ) {
+              return "motion-icons";
+            }
+          },
+        },
         // Aggressive tree-shaking: assume most modules are side-effect free.
         treeshake: {
           moduleSideEffects: (id: string) =>
