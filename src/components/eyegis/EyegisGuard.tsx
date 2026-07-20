@@ -166,10 +166,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " discretamente declarado.",
     },
     s06: {
-      label: "Por Que se Sente Diferente",
-      quoteA: "Conforto não se conquista bloqueando o máximo possível de luz azul. Conquista-se na",
-      quoteMid: " conversa silenciosa entre ergonomia da armação, ",
-      quoteB: "qualidade óptica, filtragem seletiva e design pensado.",
+      label: "Por Que a Diferença se Sente",
+      quoteA: "Conforto não se mede pela quantidade de luz azul bloqueada.",
+      quoteMid: " Mede-se pelo que seus olhos deixam de notar —",
+      quoteB: " o reflexo, o cansaço, a própria tela.",
       footer: "Eyegis Optical Studio · Carta de Design",
     },
     callouts: [
