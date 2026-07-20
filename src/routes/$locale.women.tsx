@@ -91,7 +91,9 @@ function WomenPage() {
         bgImage={heroClarity}
         bgSource={heroClaritySrc}
         tone="light"
+        accent="champagne"
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
+
       />
       <Collection audience="women" />
       <LifestyleUniverse audience="women" />
