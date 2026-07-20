@@ -188,14 +188,6 @@ export function Hero({ locale }: Props) {
         aria-hidden
         className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/25 to-transparent md:block"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block"
-      >
-        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-paper/25 bg-ink/60 font-editorial text-lg italic text-paper backdrop-blur-md">
-          <span className="tracking-tight">E</span>
-        </div>
-      </div>
 
       {/* Bottom manifesto strip */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-2 px-6 pb-6 text-center md:pb-8">
