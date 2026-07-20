@@ -33,6 +33,7 @@ import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
 import { Route as LocalePrivacyRouteImport } from './routes/$locale.privacy'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
+import { Route as LocaleLensesRouteImport } from './routes/$locale.lenses'
 import { Route as LocaleLegalRouteImport } from './routes/$locale.legal'
 import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
 import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
@@ -160,6 +161,11 @@ const LocaleMenRoute = LocaleMenRouteImport.update({
   path: '/men',
   getParentRoute: () => LocaleRoute,
 } as any)
+const LocaleLensesRoute = LocaleLensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => LocaleRoute,
+} as any)
 const LocaleLegalRoute = LocaleLegalRouteImport.update({
   id: '/legal',
   path: '/legal',
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
   '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
@@ -244,6 +251,7 @@ export interface FileRoutesByTo {
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
   '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
@@ -277,6 +285,7 @@ export interface FileRoutesById {
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
   '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
@@ -311,6 +320,7 @@ export interface FileRouteTypes {
     | '/$locale/faq'
     | '/$locale/kids'
     | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
     | '/$locale/technology'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/$locale/faq'
     | '/$locale/kids'
     | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
     | '/$locale/technology'
@@ -374,6 +385,7 @@ export interface FileRouteTypes {
     | '/$locale/faq'
     | '/$locale/kids'
     | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
     | '/$locale/privacy'
     | '/$locale/technology'
@@ -577,6 +589,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleMenRouteImport
       parentRoute: typeof LocaleRoute
     }
+    '/$locale/lenses': {
+      id: '/$locale/lenses'
+      path: '/lenses'
+      fullPath: '/$locale/lenses'
+      preLoaderRoute: typeof LocaleLensesRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/legal': {
       id: '/$locale/legal'
       path: '/legal'
@@ -629,6 +648,7 @@ interface LocaleRouteChildren {
   LocaleFaqRoute: typeof LocaleFaqRoute
   LocaleKidsRoute: typeof LocaleKidsRoute
   LocaleLegalRoute: typeof LocaleLegalRoute
+  LocaleLensesRoute: typeof LocaleLensesRoute
   LocaleMenRoute: typeof LocaleMenRoute
   LocalePrivacyRoute: typeof LocalePrivacyRoute
   LocaleTechnologyRoute: typeof LocaleTechnologyRoute
@@ -643,6 +663,7 @@ const LocaleRouteChildren: LocaleRouteChildren = {
   LocaleFaqRoute: LocaleFaqRoute,
   LocaleKidsRoute: LocaleKidsRoute,
   LocaleLegalRoute: LocaleLegalRoute,
+  LocaleLensesRoute: LocaleLensesRoute,
   LocaleMenRoute: LocaleMenRoute,
   LocalePrivacyRoute: LocalePrivacyRoute,
   LocaleTechnologyRoute: LocaleTechnologyRoute,
