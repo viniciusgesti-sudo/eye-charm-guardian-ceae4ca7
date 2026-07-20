@@ -90,10 +90,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " quietly stated.",
     },
     s06: {
-      label: "Why It Feels Different",
-      quoteA: "Comfort is not achieved by blocking as much blue light as possible. It is achieved by the quiet",
-      quoteMid: " conversation between frame ergonomics, ",
-      quoteB: "optical quality, selective filtering and thoughtful design.",
+      label: "Why the Difference Is Felt",
+      quoteA: "Comfort is not measured by how much blue light you block.",
+      quoteMid: " It is measured by what your eyes stop noticing —",
+      quoteB: " glare, fatigue, the screen itself.",
       footer: "Eyegis Optical Studio · Design Charter",
     },
     callouts: [
@@ -166,10 +166,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " discretamente declarado.",
     },
     s06: {
-      label: "Por Que se Sente Diferente",
-      quoteA: "Conforto não se conquista bloqueando o máximo possível de luz azul. Conquista-se na",
-      quoteMid: " conversa silenciosa entre ergonomia da armação, ",
-      quoteB: "qualidade óptica, filtragem seletiva e design pensado.",
+      label: "Por Que a Diferença se Sente",
+      quoteA: "Conforto não se mede pela quantidade de luz azul bloqueada.",
+      quoteMid: " Mede-se pelo que seus olhos deixam de notar —",
+      quoteB: " o reflexo, o cansaço, a própria tela.",
       footer: "Eyegis Optical Studio · Carta de Design",
     },
     callouts: [
@@ -242,10 +242,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " énoncé sobrement.",
     },
     s06: {
-      label: "Pourquoi la Sensation Change",
-      quoteA: "Le confort ne s'obtient pas en bloquant un maximum de lumière bleue. Il naît de la",
-      quoteMid: " conversation silencieuse entre l'ergonomie de la monture, ",
-      quoteB: "la qualité optique, le filtrage sélectif et un design réfléchi.",
+      label: "Pourquoi la Différence se Ressent",
+      quoteA: "Le confort ne se mesure pas à la quantité de lumière bleue bloquée.",
+      quoteMid: " Il se mesure à ce que vos yeux cessent de remarquer —",
+      quoteB: " le reflet, la fatigue, l'écran lui-même.",
       footer: "Eyegis Optical Studio · Charte de Design",
     },
     callouts: [
