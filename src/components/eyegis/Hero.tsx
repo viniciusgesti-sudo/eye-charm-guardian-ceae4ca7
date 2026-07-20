@@ -47,7 +47,7 @@ const COPY = {
 } as const;
 
 export function Hero({ locale }: Props) {
-  const { language } = useI18n();
+  const { lang: language } = useI18n();
   const lang = (language as keyof typeof COPY) ?? "EN";
   const t = COPY[lang];
   const alt = ALT[lang];
@@ -59,17 +59,15 @@ export function Hero({ locale }: Props) {
     >
       {/* Full-bleed editorial image */}
       <Picture
-        {...heroParis}
+        source={heroParis}
         alt={alt}
+        priority
+        sizes="100vw"
+        width={1536}
+        height={1920}
         className="absolute inset-0 h-full w-full object-cover object-[65%_center] motion-safe:animate-[kenburns-right_24s_ease-in-out_infinite_alternate]"
-        imgProps={{
-          fetchPriority: "high",
-          loading: "eager",
-          decoding: "async",
-          width: 1536,
-          height: 1920,
-        }}
       />
+
 
       {/* Cinematic warm-to-dark gradient anchoring copy on the left */}
       <div
