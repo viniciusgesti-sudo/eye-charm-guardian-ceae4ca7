@@ -17,9 +17,9 @@ const SOLENE_OG = `${SITE}/og-solene.jpg`;
 export const Route = createFileRoute("/product/solene")({
   head: () => {
     const seo = buildSeo({
-      title: "Solène by Eyegis — Cat-Eye Blue-Light Glasses",
+      title: "Women's Collection by Eyegis — Cat-Eye Blue-Light Glasses",
       description:
-        "Solène by Eyegis — cat-eye acetate frame in warm tortoise with EyegisGuard™ blue-light filtering. Softened geometry, everyday elegance for long screen hours.",
+        "Women's Collection by Eyegis — cat-eye acetate frame in warm tortoise with EyegisGuard™ blue-light filtering. Softened geometry, everyday elegance for long screen hours.",
       path: "/product/solene",
       image: SOLENE_OG,
       ogType: "product",
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/product/solene")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Solène by Eyegis",
+            name: "Women's Collection by Eyegis",
             brand: { "@type": "Brand", name: "Eyegis" },
             description:
               "Cat-eye acetate blue-light glasses with EyegisGuard™ optical filter (400–455 nm HEV). Warm tortoise finish, gold hinge, feather-light on face.",
@@ -83,7 +83,7 @@ function SoleneProduct() {
       <section className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
         <div className="order-2 md:order-1">
           <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-            Chapter II · Solène
+            Chapter II · Women's Collection
           </p>
           <h1 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95] tracking-tight">
             Softened geometry,
@@ -130,7 +130,7 @@ function SoleneProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Solène acetate frame with polished gold temple engraved “EYEGIS · LVR-T-CL” — front view"
+            alt="Women's Collection acetate frame with polished gold temple engraved “EYEGIS · LVR-T-CL” — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -158,7 +158,7 @@ function SoleneProduct() {
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
           <Picture
             source={macroImg}
-            alt="Solène macro detail — gold temple engraving reading “EYEGIS · LVR-T-CL” with CE marking, anti-reflective lens coating in warm light"
+            alt="Women's Collection macro detail — gold temple engraving reading “EYEGIS · LVR-T-CL” with CE marking, anti-reflective lens coating in warm light"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/3] object-cover object-center rounded-lg"
           />
@@ -188,7 +188,7 @@ function SoleneProduct() {
               In the box
             </p>
             <h2 className="mt-2 font-editorial text-3xl md:text-4xl">
-              Solène, carefully packed.
+              Women's Collection, carefully packed.
             </h2>
           </div>
         </div>
@@ -196,7 +196,7 @@ function SoleneProduct() {
           <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
             <Picture
               source={packageImg}
-              alt="Solène packaging — recycled paperboard box with debossed logo"
+              alt="Women's Collection packaging — recycled paperboard box with debossed logo"
               sizes="(min-width:768px) 48vw, 92vw"
               className="w-full aspect-[4/3] object-center object-cover"
             />
@@ -207,7 +207,7 @@ function SoleneProduct() {
           <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
             <Picture
               source={pouchImg}
-              alt="Solène soft microfibre pouch"
+              alt="Women's Collection soft microfibre pouch"
               sizes="(min-width:768px) 48vw, 92vw"
               className="w-full aspect-[4/3] object-center object-cover"
             />
@@ -247,7 +247,7 @@ function SoleneProduct() {
       <section className="relative">
         <Picture
           source={lifestyleImg}
-          alt="Woman wearing Solène — Parisian afternoon"
+          alt="Woman wearing Women's Collection — Parisian afternoon"
           sizes="100vw"
           className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
@@ -255,7 +255,7 @@ function SoleneProduct() {
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-16 text-white">
             <p className="text-[11px] uppercase tracking-[0.25em] opacity-80">
-              Where Solène belongs
+              Where Women's Collection belongs
             </p>
             <h2 className="mt-3 font-editorial text-3xl md:text-5xl max-w-xl leading-tight">
               Long meetings, quiet afternoons, golden light.
@@ -268,7 +268,7 @@ function SoleneProduct() {
       <section className="bg-[#004B57] text-white">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] opacity-70">
-            Solène · by Eyegis
+            Women's Collection · by Eyegis
           </p>
           <h2 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95]">
             Ready to see the day

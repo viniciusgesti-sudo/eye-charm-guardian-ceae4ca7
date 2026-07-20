@@ -52,7 +52,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteBody2:
       "We combine optical engineering, honest science and thoughtful design to create products that help you work, create and play more comfortably — without compromising your style.",
     stats: [],
-    portraitCaption1: "Eyegis — Le Marais, Paris",
+    portraitCaption1: "Eyegis — Le Women's Collection, Paris",
     portraitCaption2: "Portrait N°04",
     principlesEyebrow: "Three Principles",
     principlesLine: "Technology, science and style — quietly held in balance.",
@@ -102,7 +102,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteBody2:
       "Combinamos engenharia óptica, ciência honesta e design pensado para criar produtos que ajudam você a trabalhar, criar e viver com mais conforto — sem abrir mão do estilo.",
     stats: [],
-    portraitCaption1: "Eyegis — Le Marais, Paris",
+    portraitCaption1: "Eyegis — Le Women's Collection, Paris",
     portraitCaption2: "Retrato N°04",
     principlesEyebrow: "Três Princípios",
     principlesLine: "Tecnologia, ciência e estilo — em silencioso equilíbrio.",
@@ -152,7 +152,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteBody2:
       "Nous conjuguons ingénierie optique, science honnête et design réfléchi pour créer des produits qui aident à travailler, créer et vivre plus confortablement — sans compromis sur le style.",
     stats: [],
-    portraitCaption1: "Eyegis — Le Marais, Paris",
+    portraitCaption1: "Eyegis — Le Women's Collection, Paris",
     portraitCaption2: "Portrait N°04",
     principlesEyebrow: "Trois Principes",
     principlesLine: "Technologie, science et style — en équilibre silencieux.",

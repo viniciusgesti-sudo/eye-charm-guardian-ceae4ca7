@@ -101,7 +101,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Designed for the",
       h1b: "way we live today.",
       sub: "Eyegis was created for a generation that spends more time looking at screens than ever before. Our mission is to make digital life more comfortable — without sacrificing timeless design.",
-      alt: "Eyegis campaign — couple wearing Meridian and Solène frames",
+      alt: "Eyegis campaign — couple wearing Men's Collection and Women's Collection frames",
     },
     belief: {
       rule: "01 — Our Belief",
@@ -184,7 +184,7 @@ const CONTENT: Record<Lang, Copy> = {
       footer: "Eyegis © 2026 — Designed for the digital generation.",
       home: "Home",
       lenses: "Lenses",
-      meridian: "Meridian",
+      meridian: "Men's Collection",
     },
   },
   PT: {
@@ -194,7 +194,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Feito para o",
       h1b: "modo como vivemos hoje.",
       sub: "A Eyegis foi criada para uma geração que passa mais tempo diante de telas do que nunca. Nossa missão é tornar a vida digital mais confortável — sem abrir mão de um design atemporal.",
-      alt: "Campanha Eyegis — casal usando modelos Meridian e Solène",
+      alt: "Campanha Eyegis — casal usando modelos Men's Collection e Women's Collection",
     },
     belief: {
       rule: "01 — Nossa Crença",
@@ -277,7 +277,7 @@ const CONTENT: Record<Lang, Copy> = {
       footer: "Eyegis © 2026 — Feita para a geração digital.",
       home: "Início",
       lenses: "Lentes",
-      meridian: "Meridian",
+      meridian: "Men's Collection",
     },
   },
   FR: {
@@ -287,7 +287,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Pensée pour la",
       h1b: "vie que nous vivons aujourd'hui.",
       sub: "Eyegis a été créée pour une génération qui passe plus de temps devant les écrans que jamais. Notre mission : rendre la vie numérique plus confortable, sans jamais sacrifier un design intemporel.",
-      alt: "Campagne Eyegis — couple portant les modèles Meridian et Solène",
+      alt: "Campagne Eyegis — couple portant les modèles Men's Collection et Women's Collection",
     },
     belief: {
       rule: "01 — Notre Conviction",
@@ -370,7 +370,7 @@ const CONTENT: Record<Lang, Copy> = {
       footer: "Eyegis © 2026 — Pensée pour la génération numérique.",
       home: "Accueil",
       lenses: "Verres",
-      meridian: "Meridian",
+      meridian: "Men's Collection",
     },
   },
 };
