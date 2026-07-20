@@ -35,10 +35,6 @@ export const Route = createFileRoute("/about")({
 
 export { AboutPage };
 
-const _AboutRouteEnd = ({}) => null;
-void _AboutRouteEnd;
-
-const __unused = () => ({
 });
 
 /* ------------------------------------------------------------------ */
