@@ -883,9 +883,7 @@ function Results({
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href="https://www.amazon.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#coming-soon"
               className="group inline-flex items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
             >
               <span className="font-eyebrow">{copy.buyOnAmazon}</span>
