@@ -648,7 +648,7 @@ function ContactPage() {
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
-            alt="Eyegis atelier — Parisian golden hour interior with premium eyewear on display"
+            alt="Eyegis studio — Parisian golden hour interior with premium eyewear on display"
             sizes="100vw"
             className="h-full w-full object-cover"
             style={{ filter: "saturate(0.92) contrast(1.02)" }}
