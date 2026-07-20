@@ -883,7 +883,7 @@ function Results({
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href="#coming-soon"
+              href="https://www.amazon.com.br/" target="_blank" rel="noopener noreferrer"
               className="group inline-flex items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
             >
               <span className="font-eyebrow">{copy.buyOnAmazon}</span>
@@ -927,7 +927,7 @@ function Results({
         </h4>
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
           <a
-            href="#coming-soon"
+            href="https://www.amazon.com.br/" target="_blank" rel="noopener noreferrer"
             className="rounded-full bg-mint px-7 py-4 font-eyebrow text-teal-deep hover:-translate-y-0.5 transition-transform duration-500"
           >
             {copy.ctaShop}
