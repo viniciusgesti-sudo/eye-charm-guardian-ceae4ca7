@@ -8,6 +8,10 @@ import lifeCreative from "@/assets/guard-life-creative.jpg?w=480;800;1200;1600&f
 import lifeBusiness from "@/assets/guard-life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifeStudent from "@/assets/guard-life-student.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifeGamer from "@/assets/guard-life-gamer.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeCreativeMan from "@/assets/guard-life-creative-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeBusinessMan from "@/assets/guard-life-business-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeStudentKid from "@/assets/guard-life-student-kid.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGamerMan from "@/assets/guard-life-gamer-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
