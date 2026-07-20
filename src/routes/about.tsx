@@ -475,7 +475,7 @@ function AboutPage() {
       }}
     >
       {/* HERO */}
-      <section className="relative min-h-[92vh] w-full overflow-hidden">
+      <section className="relative min-h-[78vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImgSrc}
@@ -493,7 +493,7 @@ function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
           <div className="flex items-center justify-between">
             <Link
               to="/"

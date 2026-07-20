@@ -486,7 +486,7 @@ function Reveal({
 function ProductHero() {
   const c = useContent();
   return (
-    <section className="relative bg-paper pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
+    <section className="relative bg-paper pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 px-6 md:px-10 lg:px-14 items-center">
         <div className="lg:col-span-5 order-2 lg:order-1">
           <span className="font-eyebrow text-teal">{c.chapter}</span>
@@ -650,7 +650,7 @@ function FeatureIcon({ i }: { i: number }) {
 function WhyLove() {
   const c = useContent();
   return (
-    <section className="bg-paper py-28 md:py-36">
+    <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal><span className="font-eyebrow text-teal">{c.section("03")}</span></Reveal>
         <Reveal delay={120}>
@@ -693,7 +693,7 @@ const PART_POS = [
 function FrameDetails() {
   const c = useContent();
   return (
-    <section className="bg-ink py-28 md:py-36 text-paper overflow-hidden">
+    <section className="bg-ink py-20 md:py-28 text-paper overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
           <div className="lg:col-span-4">
@@ -755,7 +755,7 @@ function FrameDetails() {
 function Specifications() {
   const c = useContent();
   return (
-    <section className="bg-paper-warm py-28 md:py-36">
+    <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal><span className="font-eyebrow text-teal">{c.section("05")}</span></Reveal>
         <Reveal delay={100}>
@@ -827,7 +827,7 @@ function Lifestyle() {
 function TechnologyRecap() {
   const c = useContent();
   return (
-    <section className="bg-paper py-28 md:py-36">
+    <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-14 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-5">
           <Reveal><span className="font-eyebrow text-teal">{c.section("07", "Technology")}</span></Reveal>
@@ -896,7 +896,7 @@ function Star() {
 function Reviews() {
   const c = useContent();
   return (
-    <section className="bg-paper-warm py-28 md:py-36">
+    <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14">
           <div className="lg:col-span-7">
@@ -971,7 +971,7 @@ function FaqItem({ q, a, defaultOpen }: { q: string; a: string; defaultOpen?: bo
 function Faq() {
   const c = useContent();
   return (
-    <section className="bg-paper py-28 md:py-36">
+    <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <Reveal><span className="font-eyebrow text-teal">{c.section("09", "FAQ")}</span></Reveal>
         <Reveal delay={100}>
@@ -999,7 +999,7 @@ function Faq() {
 function FinalCta() {
   const c = useContent();
   return (
-    <section className="relative bg-teal-deep py-28 md:py-40 text-paper overflow-hidden">
+    <section className="relative bg-teal-deep py-20 md:py-28 text-paper overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(134,217,209,0.25),transparent_60%)]" />
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14 text-center">
         <Reveal><span className="font-eyebrow text-mint">{c.cta.eyebrow}</span></Reveal>

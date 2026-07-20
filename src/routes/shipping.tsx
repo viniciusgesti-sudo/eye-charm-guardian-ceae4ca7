@@ -560,7 +560,7 @@ function ShippingPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[88vh] w-full overflow-hidden">
+      <section className="relative min-h-[74vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -571,7 +571,7 @@ function ShippingPage() {
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
             <Link to="/" className="min-w-0 truncate text-[11px] uppercase tracking-[0.4em]" style={{ color: INK }}>
               {c.nav.back}
