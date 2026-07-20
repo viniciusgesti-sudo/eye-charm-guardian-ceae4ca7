@@ -541,7 +541,7 @@ function ProductHero() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
             <Picture
               source={heroImgSrc}
-              alt="Meridian eyewear — front three-quarter view in luxury studio lighting"
+              alt="Meridian eyewear — slim black acetate with polished gold temples and gold shield-G emblem, front three-quarter view in luxury studio lighting"
               priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="h-full w-full object-cover object-center float-slow"

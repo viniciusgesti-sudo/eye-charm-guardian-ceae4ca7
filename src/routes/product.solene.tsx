@@ -135,7 +135,7 @@ function SoleneProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Solène cat-eye acetate frame in warm tortoise — front view"
+            alt="Solène acetate frame with polished gold temple engraved “EYEGIS · LVR-T-CL” — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -163,7 +163,7 @@ function SoleneProduct() {
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
           <Picture
             source={macroImg}
-            alt="Solène lens macro — anti-reflective coating in warm light"
+            alt="Solène macro detail — gold temple engraving reading “EYEGIS · LVR-T-CL” with CE marking, anti-reflective lens coating in warm light"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/3] object-cover object-center rounded-lg"
           />
