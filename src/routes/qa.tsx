@@ -24,7 +24,7 @@ const BREAKPOINTS = [
 
 import heroSPBefore from "@/assets/hero-saopaulo.jpg";
 import heroSPAfter from "@/assets/hero-saopaulo-eyegis.jpg";
-import heroParisBefore from "@/assets/hero-paris.jpg";
+import heroParisBefore from "@/assets/hero-paris-eyegis.jpg";
 import heroParisAfter from "@/assets/hero-paris-eyegis.jpg";
 
 import personaExecutive from "@/assets/persona-executive.jpg";
