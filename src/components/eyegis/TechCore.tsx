@@ -203,7 +203,7 @@ function Spectrum({ filterLabel, passLabel }: { filterLabel: string; passLabel: 
           d="M 40 190 Q 200 60 400 60 Q 600 60 760 190"
           fill="none"
           stroke="rgba(249,249,249,0.35)"
-          strokeWidth="1"
+          strokeWidth="1.5"
           strokeDasharray="3 4"
         />
         {/* filtered curve — draws in */}
@@ -419,7 +419,7 @@ function LensStack({ layers }: { layers: Copy["stack"]["layers"] }) {
             r="40"
             fill="none"
             stroke="#86D9D1"
-            strokeWidth="1"
+            strokeWidth="1.5"
             opacity="0.8"
             style={{
               transformOrigin: "200px 200px",

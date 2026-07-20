@@ -573,7 +573,7 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
           }}
         >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-            <path d="M6 4 2 9l4 5M12 4l4 5-4 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M6 4 2 9l4 5M12 4l4 5-4 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       </div>
@@ -585,32 +585,32 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
 function IconAperture() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1" />
-      <path d="M10 2 6 10l4 8M10 2l4 8-4 8M2 10h16" stroke="currentColor" strokeWidth="1" />
+      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M10 2 6 10l4 8M10 2l4 8-4 8M2 10h16" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconBriefcase() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-      <rect x="2.5" y="6" width="15" height="10" stroke="currentColor" strokeWidth="1" />
-      <path d="M7 6V4h6v2M2.5 11h15" stroke="currentColor" strokeWidth="1" />
+      <rect x="2.5" y="6" width="15" height="10" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 6V4h6v2M2.5 11h15" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconBook() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-      <path d="M3 4h6a2 2 0 0 1 2 2v10H5a2 2 0 0 1-2-2V4Z" stroke="currentColor" strokeWidth="1" />
-      <path d="M17 4h-6a2 2 0 0 0-2 2v10h6a2 2 0 0 0 2-2V4Z" stroke="currentColor" strokeWidth="1" />
+      <path d="M3 4h6a2 2 0 0 1 2 2v10H5a2 2 0 0 1-2-2V4Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M17 4h-6a2 2 0 0 0-2 2v10h6a2 2 0 0 0 2-2V4Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconTarget() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1" />
-      <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1" />
+      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="10" cy="10" r="1" fill="currentColor" />
     </svg>
   );

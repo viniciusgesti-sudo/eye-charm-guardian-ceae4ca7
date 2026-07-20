@@ -642,7 +642,7 @@ function FeatureIcon({ i }: { i: number }) {
   const paths = ["M4 12h16 M12 4v16", "M4 12c4-4 12-4 16 0", "M4 6h16 M4 12h16 M4 18h16", "M6 20V6h12v14"];
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d={paths[i]} stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d={paths[i]} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
