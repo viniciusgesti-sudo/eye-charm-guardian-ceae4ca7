@@ -362,8 +362,8 @@ export function Footer() {
 
           {/* Bottom bar */}
           <div className="flex flex-col items-center gap-3 border-t border-white/10 pt-8 text-center md:flex-row md:justify-between md:text-left">
-            <p className="font-sans text-xs font-light text-white/40">{c.copyright}</p>
-            <p className="font-sans text-[11px] font-light text-white/35">
+            <p className="font-sans text-xs font-light text-white/70">{c.copyright}</p>
+            <p className="font-sans text-[11px] font-light text-white/70">
               EyegisGuard™ · E-Guard Retina™ · E-Guard Circadian™
             </p>
           </div>
