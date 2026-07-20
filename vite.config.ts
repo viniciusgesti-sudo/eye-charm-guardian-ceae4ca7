@@ -13,6 +13,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Nitro (server bundler) options. Minifying the SSR/Worker output cuts the
+  // heaviest vendor chunk (@tanstack/react-router) roughly in half without
+  // changing runtime behavior.
+  nitro: {
+    minify: true,
+  },
+
   plugins: [
     imagetools({
       // Enable ?url and ?picture etc. Defaults are fine; we opt-in per import.
