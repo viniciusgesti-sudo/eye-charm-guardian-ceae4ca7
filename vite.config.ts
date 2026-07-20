@@ -40,6 +40,12 @@ export default defineConfig({
     // Modern target -> smaller output, no legacy transforms.
     build: {
       target: "es2022",
+      // Force esbuild minify regardless of Vite `--mode`. Without this, running
+      // `vite build --mode development` (used by `build:dev` in CI) disables
+      // client minify, so tree-shaking + dead-code elimination + drop of
+      // `debugger`/`console.*` all silently regress and the CI bundle no longer
+      // matches production. Explicit "esbuild" keeps CI and prod byte-consistent.
+      minify: "esbuild",
       cssMinify: "lightningcss",
       // Inline small assets (<=4 KB) to save requests, but let Vite chunk the rest.
       assetsInlineLimit: 4096,
