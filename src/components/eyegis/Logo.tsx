@@ -3,6 +3,28 @@ import shieldMonoImg from "@/assets/brand/eyegis-shield-mono.png";
 import shieldColorImg from "@/assets/brand/eyegis-shield-color.jpg";
 
 /**
+ * Inline SVG fallback for the Eyegis shield. Rendered when the raster
+ * mask asset fails to load so the mark is never invisible. Uses
+ * `currentColor` so tone detection still applies.
+ */
+function ShieldFallback({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      className={className}
+      style={{ display: "block" }}
+    >
+      <path
+        fill="currentColor"
+        d="M32 3 8 12v20c0 13.6 9.9 24.6 24 29 14.1-4.4 24-15.4 24-29V12L32 3Zm0 18a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"
+      />
+    </svg>
+  );
+}
+
+
+/**
  * Eyegis brand mark + wordmark.
  *
  * The mark is the OFFICIAL Eyegis shield from the brand kit, rendered via
@@ -74,19 +96,16 @@ export function Logo({
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [detected, setDetected] = useState<"light" | "dark" | null>(null);
+  const [markStatus, setMarkStatus] = useState<"loading" | "loaded" | "error">("loading");
 
   useEffect(() => {
     if (tone !== "auto") return;
     const update = () => setDetected(detectBackgroundTone(ref.current));
     update();
-
-    // Re-check when the page scrolls (header often changes bg on scroll)
-    // or when the viewport resizes.
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     const mq = window.matchMedia?.("(prefers-color-scheme: dark)");
     mq?.addEventListener?.("change", update);
-
     return () => {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
@@ -94,15 +113,88 @@ export function Logo({
     };
   }, [tone]);
 
+  // Preload the mono mask asset so we can detect failure (mask-image has no
+  // error hook) and provide the inline SVG fallback instead of a blank square.
+  useEffect(() => {
+    if (!showMark || variant !== "mono") return;
+    const img = new Image();
+    let cancelled = false;
+    img.onload = () => { if (!cancelled) setMarkStatus("loaded"); };
+    img.onerror = () => { if (!cancelled) setMarkStatus("error"); };
+    img.src = shieldMonoImg;
+    if (img.complete && img.naturalWidth > 0) setMarkStatus("loaded");
+    return () => { cancelled = true; };
+  }, [showMark, variant]);
+
   const resolvedColor = (() => {
     if (tone === "inherit") return undefined;
     if (tone === "light") return PAPER;
     if (tone === "dark") return INK;
-    // auto
     if (detected === "dark") return PAPER;
     if (detected === "light") return INK;
-    return undefined; // pre-hydration → currentColor
+    return undefined;
   })();
+
+  const renderMark = () => {
+    if (!showMark) return null;
+
+    if (variant === "color") {
+      return (
+        <span
+          aria-hidden="true"
+          className="relative inline-block h-full aspect-square overflow-hidden"
+        >
+          {markStatus !== "error" ? (
+            <img
+              src={shieldColorImg}
+              alt=""
+              aria-hidden="true"
+              width={64}
+              height={64}
+              className={
+                "h-full w-full object-contain transition-opacity duration-200 " +
+                (markStatus === "loaded" ? "opacity-100" : "opacity-0")
+              }
+              draggable={false}
+              onLoad={() => setMarkStatus("loaded")}
+              onError={() => setMarkStatus("error")}
+            />
+          ) : (
+            <ShieldFallback className="h-full w-full" />
+          )}
+          {markStatus === "loading" && (
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 animate-pulse rounded-sm"
+              style={{ backgroundColor: "currentColor", opacity: 0.12 }}
+            />
+          )}
+        </span>
+      );
+    }
+
+    // mono
+    if (markStatus === "error") {
+      return <ShieldFallback className="h-full aspect-square" />;
+    }
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-block h-full aspect-square transition-[background-color] duration-200"
+        style={{
+          backgroundColor: "currentColor",
+          WebkitMaskImage: `url(${shieldMonoImg})`,
+          maskImage: `url(${shieldMonoImg})`,
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+        }}
+      />
+    );
+  };
 
   return (
     <span
@@ -112,32 +204,7 @@ export function Logo({
       className={"inline-flex items-center gap-2 " + (className ?? "")}
       style={{ color: resolvedColor ?? "currentColor" }}
     >
-      {showMark &&
-        (variant === "color" ? (
-          <img
-            src={shieldColorImg}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-auto object-contain"
-            draggable={false}
-          />
-        ) : (
-          <span
-            aria-hidden="true"
-            className="inline-block h-full aspect-square transition-[background-color] duration-200"
-            style={{
-              backgroundColor: "currentColor",
-              WebkitMaskImage: `url(${shieldMonoImg})`,
-              maskImage: `url(${shieldMonoImg})`,
-              WebkitMaskRepeat: "no-repeat",
-              maskRepeat: "no-repeat",
-              WebkitMaskPosition: "center",
-              maskPosition: "center",
-              WebkitMaskSize: "contain",
-              maskSize: "contain",
-            }}
-          />
-        ))}
+      {renderMark()}
 
       {showWordmark && (
         <span
@@ -158,3 +225,4 @@ export function Logo({
 }
 
 export default Logo;
+
