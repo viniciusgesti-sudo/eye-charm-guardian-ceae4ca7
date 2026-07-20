@@ -30,7 +30,7 @@ export function Hero({ locale }: Props) {
   const alts = HERO_ALTS[lang] ?? HERO_ALTS.EN;
   return (
     <section className="relative w-full bg-ink text-paper">
-      <div className="relative flex min-h-[720px] w-full flex-col lg:h-[92vh] lg:min-h-[760px] lg:flex-row">
+      <div className="relative flex min-h-[760px] w-full flex-col lg:h-[94vh] lg:min-h-[820px] lg:flex-row">
         {/* Zenith · Men */}
         <div className="group relative w-full overflow-hidden lg:w-1/2">
           <Picture
@@ -38,12 +38,11 @@ export function Hero({ locale }: Props) {
             alt={alts.zenith}
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="absolute inset-0 h-full w-full object-cover object-[60%_35%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-[52%_28%] transition-transform duration-[1600ms] ease-out group-hover:scale-[1.03]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(0,180,255,0.12),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,12,20,0.15)_0%,rgba(2,12,20,0.35)_55%,rgba(2,12,20,0.95)_100%)]" />
-          <div className="pointer-events-none absolute inset-0 mix-blend-overlay bg-teal-deep/15" />
-          <div data-testid="hero-hud" data-hud="left" className="absolute left-6 top-24 md:left-10 md:top-28 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/80">
+          {/* Bottom-anchored gradient — keeps face fully visible, only fades where copy sits */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(180deg,rgba(2,12,20,0)_0%,rgba(2,12,20,0.55)_45%,rgba(2,12,20,0.92)_100%)]" />
+          <div data-testid="hero-hud" data-hud="left" className="absolute left-6 top-24 md:left-10 md:top-28 z-10 flex items-center gap-3 rounded-full bg-ink/35 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/90 backdrop-blur-sm">
             <span className="h-2 w-2 animate-pulse rounded-full bg-mint" />
             <span>SP · 23:47 · Night Grid</span>
           </div>
@@ -52,13 +51,13 @@ export function Hero({ locale }: Props) {
               {t("nav.men")} · Zenith Universe
             </span>
             <h1
-              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-paper sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]"
-              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
+              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-paper sm:text-[9vw] lg:text-[4.6vw] xl:text-[72px]"
+              style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
             >
               ZENITH<br />
               <span className="italic text-mint">LENS</span>
             </h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-paper/80 md:text-lg">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-paper/85 md:text-lg">
               {t("hero.zenith.tag")}
             </p>
             <div className="mt-8">
@@ -85,11 +84,11 @@ export function Hero({ locale }: Props) {
             alt={alts.clarity}
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="absolute inset-0 h-full w-full object-cover object-[45%_30%] transition-transform duration-[1600ms] ease-out group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_32%] transition-transform duration-[1600ms] ease-out group-hover:scale-[1.03]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_20%,rgba(255,220,170,0.18),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,235,205,0.03)_0%,rgba(226,209,195,0.22)_65%,rgba(226,209,195,0.50)_100%)]" />
-          <div data-testid="hero-hud" data-hud="right" className="absolute right-6 top-24 md:right-10 md:top-28 z-10 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/70">
+          {/* Bottom-anchored warm fade — image reads clean up top */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(180deg,rgba(226,209,195,0)_0%,rgba(226,209,195,0.55)_50%,rgba(226,209,195,0.92)_100%)]" />
+          <div data-testid="hero-hud" data-hud="right" className="absolute right-6 top-24 md:right-10 md:top-28 z-10 flex items-center gap-3 rounded-full bg-paper/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.32em] text-ink/75 backdrop-blur-sm">
             <span>Golden Hour · Paris</span>
             <span className="h-2 w-2 rounded-full bg-[#B4956B]" />
           </div>
@@ -98,13 +97,13 @@ export function Hero({ locale }: Props) {
               {t("nav.women")} · Clarity Universe
             </span>
             <h2
-              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-ink sm:text-[9vw] lg:text-[5.2vw] xl:text-[80px]"
-              style={{ textShadow: "0 2px 20px rgba(255,255,255,0.35)" }}
+              className="mt-4 font-editorial text-[13vw] leading-[0.88] text-ink sm:text-[9vw] lg:text-[4.6vw] xl:text-[72px]"
+              style={{ textShadow: "0 2px 24px rgba(255,255,255,0.45)" }}
             >
               CLARITY<br />
               <span className="italic text-teal-deep">LENS</span>
             </h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink/80 md:text-lg">
               {t("hero.clarity.tag")}
             </p>
             <div className="mt-8">
@@ -125,18 +124,10 @@ export function Hero({ locale }: Props) {
           </div>
         </div>
 
+        {/* Thin vertical divider only — no heavy diagonal wash covering the images */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-32 -translate-x-1/2 lg:block"
-          style={{
-            background:
-              "linear-gradient(100deg, rgba(2,12,20,0.85) 0%, rgba(2,12,20,0.35) 40%, rgba(226,209,195,0.35) 60%, rgba(226,209,195,0.85) 100%)",
-            clipPath: "polygon(45% 0, 100% 0, 55% 100%, 0 100%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/40 to-transparent lg:block"
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/50 to-transparent lg:block"
         />
       </div>
 
