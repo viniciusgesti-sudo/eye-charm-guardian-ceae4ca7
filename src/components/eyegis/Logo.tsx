@@ -1,56 +1,65 @@
+import shieldMono from "@/assets/brand/eyegis-shield-mono.png";
+import shieldColor from "@/assets/brand/eyegis-shield-color.jpg";
+
 /**
- * Eyegis Wordmark — mono, recreated as an inline SVG.
- * Uses currentColor so it inherits from parent (works on light + dark).
- * A minimal eye mark sits before the wordmark, echoing the brand's
- * "engineered for vision" language.
+ * Eyegis brand mark + wordmark.
+ * Uses the OFFICIAL shield-E crest supplied in the brand kit.
+ * - `variant="mono"` (default): black shield, inherits currentColor for wordmark.
+ * - `variant="color"`: cyan gradient shield (original brand color version).
+ * The wordmark uses Montserrat with brand tracking.
  */
 export function Logo({
   className,
   showMark = true,
+  showWordmark = true,
+  variant = "mono",
   title = "Eyegis",
 }: {
   className?: string;
   showMark?: boolean;
+  showWordmark?: boolean;
+  variant?: "mono" | "color";
   title?: string;
 }) {
+  const src = variant === "color" ? shieldColor : shieldMono;
+
   return (
-    <svg
-      viewBox="0 0 260 44"
+    <span
       role="img"
       aria-label={title}
-      className={className}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      className={
+        "inline-flex items-center gap-2 " + (className ?? "")
+      }
     >
-      <title>{title}</title>
-
       {showMark && (
-        <g stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          {/* almond eye */}
-          <path d="M4 22 C 12 10, 30 10, 38 22 C 30 34, 12 34, 4 22 Z" />
-          {/* iris */}
-          <circle cx="21" cy="22" r="5.2" fill="currentColor" stroke="none" />
-          {/* highlight */}
-          <circle cx="23.2" cy="20.2" r="1.1" fill="var(--color-background, #F9F9F9)" stroke="none" />
-        </g>
+        <img
+          src={src}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-auto object-contain"
+          style={{
+            // mono variant uses PNG with black artwork on white — blend so
+            // it inherits currentColor cleanly on any background.
+            mixBlendMode: variant === "mono" ? "multiply" : "normal",
+          }}
+          draggable={false}
+        />
       )}
 
-      {/* Wordmark — Montserrat, wide tracking, letters as text for crisp rendering */}
-      <text
-        x={showMark ? 54 : 0}
-        y="29"
-        fill="currentColor"
-        style={{
-          fontFamily:
-            "Montserrat, ui-sans-serif, system-ui, sans-serif",
-          fontWeight: 600,
-          fontSize: 22,
-          letterSpacing: "0.32em",
-        }}
-      >
-        EYEGIS
-      </text>
-    </svg>
+      {showWordmark && (
+        <span
+          style={{
+            fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif",
+            fontWeight: 600,
+            letterSpacing: "0.32em",
+            color: "currentColor",
+            lineHeight: 1,
+          }}
+        >
+          EYEGIS
+        </span>
+      )}
+    </span>
   );
 }
 
