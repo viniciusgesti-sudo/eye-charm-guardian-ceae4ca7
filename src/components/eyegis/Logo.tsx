@@ -106,6 +106,7 @@ export function Logo({
   variant = "mono",
   tone = "auto",
   title = "Eyegis",
+  priority = false,
 }: {
   className?: string;
   showMark?: boolean;
@@ -113,6 +114,8 @@ export function Logo({
   variant?: "mono" | "color";
   tone?: "auto" | "light" | "dark" | "inherit";
   title?: string;
+  /** true for above-the-fold usage (header). Defaults to lazy for footer/inline. */
+  priority?: boolean;
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [detected, setDetected] = useState<"light" | "dark" | null>(null);
@@ -171,6 +174,9 @@ export function Logo({
               aria-hidden="true"
               width={64}
               height={64}
+              loading={priority ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={priority ? "high" : "low"}
               className={
                 "h-full w-full object-contain transition-opacity duration-200 " +
                 (markStatus === "loaded" ? "opacity-100" : "opacity-0")

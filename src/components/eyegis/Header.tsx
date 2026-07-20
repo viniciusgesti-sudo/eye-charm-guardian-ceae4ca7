@@ -84,6 +84,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
           aria-label="Eyegis home"
         >
           <Logo
+            priority
             className={`h-6 w-auto transition-colors duration-500 ${
               useInk ? "text-ink" : "text-paper"
             }`}
