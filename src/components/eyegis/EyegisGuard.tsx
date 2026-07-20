@@ -80,9 +80,9 @@ const COPY: Record<Lang, GuardCopy> = {
       pills: ["Natural Colors", "Contrast Preservation", "Reduced Harsh Reflections", "Visual Comfort"],
     },
     s04: {
-      label: "Designed For Everyday Digital Life",
+      label: "For Every Digital Life",
       title1: "One lens.",
-      titleAccent: " Many quiet lives.",
+      titleAccent: " Every kind of day.",
     },
     s05: {
       label: "Technical Specifications",
@@ -156,9 +156,9 @@ const COPY: Record<Lang, GuardCopy> = {
       pills: ["Cores Naturais", "Preservação de Contraste", "Menos Reflexos Duros", "Conforto Visual"],
     },
     s04: {
-      label: "Feito para o Cotidiano Digital",
+      label: "Para Toda Vida Digital",
       title1: "Uma lente.",
-      titleAccent: " Muitas vidas silenciosas.",
+      titleAccent: " Cada tipo de dia.",
     },
     s05: {
       label: "Especificações Técnicas",
@@ -232,9 +232,9 @@ const COPY: Record<Lang, GuardCopy> = {
       pills: ["Couleurs Naturelles", "Contraste Préservé", "Moins de Reflets Durs", "Confort Visuel"],
     },
     s04: {
-      label: "Pensé pour la vie numérique quotidienne",
+      label: "Pour Chaque Vie Numérique",
       title1: "Un seul verre.",
-      titleAccent: " Beaucoup de vies discrètes.",
+      titleAccent: " Chaque type de journée.",
     },
     s05: {
       label: "Spécifications Techniques",
