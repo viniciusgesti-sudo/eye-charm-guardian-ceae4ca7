@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as QaRouteImport } from './routes/qa'
 import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -62,6 +63,11 @@ const QaRoute = QaRouteImport.update({
 const LensesRoute = LensesRouteImport.update({
   id: '/lenses',
   path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -162,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
@@ -214,6 +222,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
@@ -242,6 +251,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
     | '/qa'
     | '/shipping'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
     | '/qa'
     | '/shipping'
@@ -293,6 +304,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
     | '/qa'
     | '/shipping'
@@ -320,6 +332,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DevA11yLogoRoute: typeof DevA11yLogoRoute
   FaqRoute: typeof FaqRoute
+  LegalRoute: typeof LegalRoute
   LensesRoute: typeof LensesRoute
   QaRoute: typeof QaRoute
   ShippingRoute: typeof ShippingRoute
@@ -374,6 +387,13 @@ declare module '@tanstack/react-router' {
       path: '/lenses'
       fullPath: '/lenses'
       preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -537,6 +557,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DevA11yLogoRoute: DevA11yLogoRoute,
   FaqRoute: FaqRoute,
+  LegalRoute: LegalRoute,
   LensesRoute: LensesRoute,
   QaRoute: QaRoute,
   ShippingRoute: ShippingRoute,
