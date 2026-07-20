@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
+import { useParams } from "@tanstack/react-router";
 
 import lifeCreative from "@/assets/life-creative.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import lifeBusiness from "@/assets/life-business.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
