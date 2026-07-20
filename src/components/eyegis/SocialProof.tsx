@@ -16,6 +16,7 @@ import guardBusiness from "@/assets/guard-life-business.jpg?w=480;768;1200&forma
 import guardCreative from "@/assets/guard-life-creative.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardStudent from "@/assets/guard-life-student.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import guardGamer from "@/assets/guard-life-gamer.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import personaGamer from "@/assets/persona-gamer.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 
 
 import { Picture, type PictureSource } from "./Picture";
@@ -88,8 +89,8 @@ const SHOTS: ShotMeta[] = [
   { id: "travel", src: lifeTravel, alt: "Traveler on a train", collectionKey: "menEveryday", product: "Meridian", span: "md:col-span-6 md:row-span-2 aspect-[16/11]" },
   { id: "founder", src: guardBusiness, alt: "Founder at standing desk", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
   { id: "gaming-late", src: guardGamer, alt: "Late-night gaming", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
-  { id: "streamer", src: heroSaoPauloEyegis, alt: "Streamer wearing Eyegis", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
-  { id: "kitchen", src: modelsFocus, alt: "Remote worker in focus", collectionKey: "womenEveryday", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
+  { id: "streamer", src: personaGamer, alt: "Streamer wearing Eyegis Meridian at a curved monitor", collectionKey: "menGaming", product: "Meridian", span: "md:col-span-3 aspect-square" },
+  { id: "kitchen", src: modelsFocus, alt: "Late-night focus session on a monitor with Eyegis Marais", collectionKey: "menEveryday", product: "Marais", span: "md:col-span-3 aspect-[4/5]" },
   { id: "airport", src: lifestyleTravel, alt: "Airport terminal", collectionKey: "menBusiness", product: "Atelier", span: "md:col-span-3 aspect-[4/5]" },
   { id: "portrait", src: heroParisEyegis, alt: "Portrait with Eyegis eyewear", collectionKey: "womenCreative", product: "Solène", span: "md:col-span-3 aspect-[4/5]" },
 ];
