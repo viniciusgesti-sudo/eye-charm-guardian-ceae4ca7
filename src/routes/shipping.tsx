@@ -490,14 +490,14 @@ function Rule({ label, light = false }: { label: string; light?: boolean }) {
 
 const Icon = {
   Lock: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="8" y="18" width="24" height="16" rx="1.5" />
       <path d="M13 18 v-4 a7 7 0 0 1 14 0 v4" />
       <circle cx="20" cy="26" r="1.5" />
     </svg>
   ),
   Truck: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 12 h18 v14 H4 z" />
       <path d="M22 16 h8 l4 6 v4 h-12" />
       <circle cx="12" cy="28" r="3" />
@@ -505,24 +505,24 @@ const Icon = {
     </svg>
   ),
   Return: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M8 20 A12 12 0 1 1 20 32" />
       <path d="M8 12 v8 h8" />
     </svg>
   ),
   Star: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M20 5 L24 15 L35 16 L27 24 L29 35 L20 30 L11 35 L13 24 L5 16 L16 15 Z" />
     </svg>
   ),
   Plus: () => (
-    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 10 h12" />
       <path d="M10 4 v12" />
     </svg>
   ),
   Minus: () => (
-    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 10 h12" />
     </svg>
   ),

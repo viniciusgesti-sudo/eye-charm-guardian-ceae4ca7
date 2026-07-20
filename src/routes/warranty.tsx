@@ -468,13 +468,13 @@ function Rule({ label, light = false }: { label: string; light?: boolean }) {
 // Minimal line icons
 const Icon = {
   Shield: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M20 4 L34 10 V21 C34 29 27 34 20 36 C13 34 6 29 6 21 V10 Z" />
       <path d="M14 20 L18 24 L26 15" />
     </svg>
   ),
   Frame: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="12" cy="22" r="6" />
       <circle cx="28" cy="22" r="6" />
       <path d="M18 22 h4" />
@@ -482,91 +482,91 @@ const Icon = {
     </svg>
   ),
   Hinge: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="6" y="16" width="12" height="8" />
       <rect x="22" y="16" width="12" height="8" />
       <circle cx="20" cy="20" r="2" />
     </svg>
   ),
   Lens: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="20" cy="20" r="12" />
       <path d="M14 16 c2 -2 6 -2 8 0" />
     </svg>
   ),
   Craft: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M20 4 L24 16 L36 16 L26 24 L30 36 L20 28 L10 36 L14 24 L4 16 L16 16 Z" />
     </svg>
   ),
   Material: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 12 L20 6 L34 12 L20 18 Z" />
       <path d="M6 12 V26 L20 32 V18" />
       <path d="M34 12 V26 L20 32" />
     </svg>
   ),
   Drop: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M20 6 C20 6 10 18 10 26 A10 10 0 0 0 30 26 C30 18 20 6 20 6 Z" />
     </svg>
   ),
   Crush: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 20 L36 20" />
       <path d="M8 12 L32 12" />
       <path d="M12 28 L28 28" />
     </svg>
   ),
   Scratch: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="20" cy="20" r="14" />
       <path d="M10 14 L28 22 M14 26 L24 12" />
     </svg>
   ),
   Clean: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M8 8 L32 32 M8 32 L32 8" />
     </svg>
   ),
   Heat: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M14 34 C10 28 18 24 16 16 C22 20 26 12 22 6 C28 12 30 22 26 30" />
     </svg>
   ),
   Mod: () => (
-    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 30 L24 12 L28 16 L10 34 Z" />
       <path d="M22 14 L30 6 L34 10 L26 18" />
     </svg>
   ),
   Cloth: () => (
-    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M6 10 Q24 4 42 10 L38 40 Q24 46 10 40 Z" />
       <path d="M12 18 Q24 14 36 18" />
       <path d="M14 26 Q24 22 34 26" />
     </svg>
   ),
   Case: () => (
-    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="6" y="14" width="36" height="24" rx="12" />
       <path d="M6 24 h36" />
     </svg>
   ),
   Plane: () => (
-    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 26 L44 12 L38 24 L44 36 Z" />
       <path d="M18 22 L22 32" />
     </svg>
   ),
   Sun: () => (
-    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="24" cy="24" r="8" />
       <path d="M24 6 v6 M24 36 v6 M6 24 h6 M36 24 h6 M11 11 l4 4 M33 33 l4 4 M11 37 l4 -4 M33 15 l4 -4" />
     </svg>
   ),
   Headset: () => (
-    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M8 26 A16 16 0 0 1 40 26" />
       <rect x="6" y="26" width="8" height="14" rx="2" />
       <rect x="34" y="26" width="8" height="14" rx="2" />

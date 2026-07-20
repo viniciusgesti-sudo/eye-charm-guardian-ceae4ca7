@@ -27,7 +27,7 @@ function SectionLabel({ n, children }: { n: string; children: React.ReactNode })
 function PictoSpectrum() {
   return (
     <svg viewBox="0 0 64 64" className="h-10 w-10" fill="none" aria-hidden="true">
-      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.2" opacity="0.4" />
+      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.5" opacity="0.4" />
       {[16, 22, 28, 34, 40, 46].map((x, i) => (
         <line
           key={i}
@@ -46,7 +46,7 @@ function PictoSpectrum() {
 function PictoEye() {
   return (
     <svg viewBox="0 0 64 64" className="h-10 w-10" fill="none" aria-hidden="true">
-      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.2" opacity="0.4" />
+      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.5" opacity="0.4" />
       <path
         d="M12 32 C20 20 26 18 32 18 C38 18 44 20 52 32 C44 44 38 46 32 46 C26 46 20 44 12 32 Z"
         stroke={TEAL}
@@ -60,7 +60,7 @@ function PictoEye() {
 function PictoMoon() {
   return (
     <svg viewBox="0 0 64 64" className="h-10 w-10" fill="none" aria-hidden="true">
-      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.2" opacity="0.4" />
+      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.5" opacity="0.4" />
       <path
         d="M42 18 A16 16 0 1 0 50 44 A13 13 0 0 1 42 18 Z"
         stroke={TEAL}
@@ -74,7 +74,7 @@ function PictoMoon() {
 function PictoShield() {
   return (
     <svg viewBox="0 0 64 64" className="h-10 w-10" fill="none" aria-hidden="true">
-      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.2" opacity="0.4" />
+      <circle cx="32" cy="32" r="28" stroke={TEAL} strokeWidth="1.5" opacity="0.4" />
       <path
         d="M32 12 L48 18 V34 C48 42 41 50 32 53 C23 50 16 42 16 34 V18 Z"
         stroke={TEAL}
