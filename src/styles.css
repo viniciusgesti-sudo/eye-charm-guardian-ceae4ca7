@@ -469,7 +469,7 @@ select {
 }
 input::placeholder,
 textarea::placeholder {
-  color: #4A5560 !important;
+  color: #2E3742 !important;
   opacity: 1 !important;
 }
 input:focus-visible,
