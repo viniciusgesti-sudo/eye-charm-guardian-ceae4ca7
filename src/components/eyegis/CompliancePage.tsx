@@ -1,5 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -66,7 +64,3 @@ export function CompliancePage() {
   );
 }
 
-export const Route = createFileRoute("/compliance")({
-  head: () => buildSeo({ title: "Declaration of Compliance — Eyegis", description: "The optical standards Eyegis lenses are engineered and independently tested against: ANSI Z80.3, EN ISO 12312-1, AS/NZS 1067.1.", path: "/compliance" }),
-  component: CompliancePage,
-});

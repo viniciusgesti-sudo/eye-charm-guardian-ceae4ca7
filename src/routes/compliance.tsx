@@ -39,7 +39,7 @@ const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; 
   },
 };
 
-export function CompliancePage() {
+function CompliancePage() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (

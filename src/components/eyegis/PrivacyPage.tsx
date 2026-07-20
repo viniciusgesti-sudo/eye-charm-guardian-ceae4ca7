@@ -1,5 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -61,7 +59,3 @@ export function PrivacyPage() {
   );
 }
 
-export const Route = createFileRoute("/privacy")({
-  head: () => buildSeo({ title: "Privacy Policy — Eyegis", description: "How Eyegis collects and processes personal data on this website.", path: "/privacy" }),
-  component: PrivacyPage,
-});

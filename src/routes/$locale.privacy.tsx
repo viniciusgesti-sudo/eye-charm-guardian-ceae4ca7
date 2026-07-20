@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PrivacyPage } from "./privacy";
+import { PrivacyPage } from "@/components/eyegis/PrivacyPage";
 import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/$locale/privacy")({

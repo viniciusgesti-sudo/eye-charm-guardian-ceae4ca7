@@ -1,5 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/contact-concierge.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
@@ -13,18 +12,6 @@ import atelierFront from "@/assets/products/atelier-front.jpg?w=480;800;1200&for
 import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-
-export const Route = createFileRoute("/lenses")({
-  head: () =>
-    buildSeo({
-      title: "Choose Your Lenses — Eyegis",
-      description:
-        "Find the perfect Eyegis lens for the way you live. A premium, interactive guide to visual comfort, color accuracy and screen exposure.",
-      path: "/lenses",
-    }),
-
-  component: LensesPage,
-});
 
 const AMAZON_URL = "https://www.amazon.com.br/";
 

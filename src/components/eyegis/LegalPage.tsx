@@ -1,5 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -64,7 +62,3 @@ export function LegalPage() {
   );
 }
 
-export const Route = createFileRoute("/legal")({
-  head: () => buildSeo({ title: "Legal Notice — Eyegis", description: "Legal notice, website terms of use and publisher information for Eyegis.", path: "/legal" }),
-  component: LegalPage,
-});

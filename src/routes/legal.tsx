@@ -39,7 +39,7 @@ const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; 
   },
 };
 
-export function LegalPage() {
+function LegalPage() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (

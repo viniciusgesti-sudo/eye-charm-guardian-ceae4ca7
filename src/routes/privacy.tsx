@@ -36,7 +36,7 @@ const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; 
   },
 };
 
-export function PrivacyPage() {
+function PrivacyPage() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (
