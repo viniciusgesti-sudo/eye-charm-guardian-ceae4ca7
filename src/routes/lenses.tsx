@@ -26,7 +26,7 @@ export const Route = createFileRoute("/lenses")({
   component: LensesPage,
 });
 
-const AMAZON_URL = "https://www.amazon.com/";
+const AMAZON_URL = "https://www.amazon.com.br/";
 
 /* ------------------------------------------------------------------ */
 /*  Localized copy                                                    */

@@ -164,7 +164,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
       lead: "For product, comfort or warranty questions — write to us. For shipping or refunds, open your Amazon order directly.",
       tiles: [
         { k: "Contact Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Visit Amazon Store", d: "Shop the full collection", href: "https://www.amazon.com/eyegis" },
+        { k: "Visit Amazon Store", d: "Shop the full collection", href: "https://www.amazon.com.br/" },
         { k: "Warranty", d: "2 years + 60-day comfort", href: "/warranty" },
         { k: "FAQ", d: "Lenses, fit & care", href: "/lenses" },
       ],
@@ -275,7 +275,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
       lead: "Para dúvidas de produto, conforto ou garantia — escreva-nos. Para envio ou reembolsos, abra seu pedido Amazon diretamente.",
       tiles: [
         { k: "Contato Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Visitar Loja Amazon", d: "Compre a coleção completa", href: "https://www.amazon.com/eyegis" },
+        { k: "Visitar Loja Amazon", d: "Compre a coleção completa", href: "https://www.amazon.com.br/" },
         { k: "Garantia", d: "2 anos + 60 dias de conforto", href: "/warranty" },
         { k: "FAQ", d: "Lentes, ajuste e cuidados", href: "/lenses" },
       ],
@@ -386,7 +386,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
       lead: "Pour les questions produit, confort ou garantie — écrivez-nous. Pour la livraison ou les remboursements, ouvrez directement votre commande Amazon.",
       tiles: [
         { k: "Contact Eyegis", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Visiter la Boutique Amazon", d: "Voir toute la collection", href: "https://www.amazon.com/eyegis" },
+        { k: "Visiter la Boutique Amazon", d: "Voir toute la collection", href: "https://www.amazon.com.br/" },
         { k: "Garantie", d: "2 ans + confort 60 jours", href: "/warranty" },
         { k: "FAQ", d: "Verres, ajustement et entretien", href: "/lenses" },
       ],
@@ -905,7 +905,7 @@ function ShippingPage() {
 
             <Reveal delay={240} className="md:col-span-5">
               <a
-                href="https://www.amazon.com/eyegis"
+                href="https://www.amazon.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-between px-8 py-6 text-[12px] uppercase tracking-[0.3em] transition-colors"

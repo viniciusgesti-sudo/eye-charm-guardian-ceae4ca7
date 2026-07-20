@@ -82,7 +82,7 @@ function TrustBar() {
 
 /* ---------- Footer ---------- */
 
-const AMZ = "https://www.amazon.com/stores/Eyegis/page/?tag=eyegis-20";
+const AMZ = "https://www.amazon.com.br/";
 
 const cols = [
   {

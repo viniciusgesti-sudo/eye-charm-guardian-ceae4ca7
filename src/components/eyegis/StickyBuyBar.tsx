@@ -60,7 +60,7 @@ export function StickyBuyBar() {
             href={COMING_SOON_HREF}
             className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper shadow-lg active:scale-95 transition-transform"
             style={{ backgroundColor: "#004B57", boxShadow: "0 12px 30px -12px rgba(0,75,87,0.55)" }}
-          >
+           target="_blank" rel="noopener noreferrer">
             {c.label}
             <span aria-hidden="true">→</span>
           </a>
@@ -72,7 +72,7 @@ export function StickyBuyBar() {
         href={COMING_SOON_HREF}
         className="hidden md:inline-flex group items-center gap-4 rounded-full py-3 pl-3 pr-5 shadow-2xl backdrop-blur-xl ring-1 ring-paper/10 transition-all hover:brightness-110"
         style={{ backgroundColor: "#004B57" }}
-      >
+       target="_blank" rel="noopener noreferrer">
         <span
           aria-hidden
           className="grid h-10 w-10 place-items-center rounded-full text-[13px] font-bold"
