@@ -22,25 +22,32 @@ const BREAKPOINTS = [
   { key: "desktop", label: "Desktop · 1280", width: 1280, height: 820 },
 ] as const;
 
-import heroSPBefore from "@/assets/hero-saopaulo-eyegis.jpg";
-import heroSPAfter from "@/assets/hero-saopaulo-eyegis.jpg";
-import heroParisBefore from "@/assets/hero-paris-eyegis.jpg";
-import heroParisAfter from "@/assets/hero-paris-eyegis.jpg";
+// QA is a noindex internal audit route. Import a small preview variant
+// (webp, 640px) of each asset so the 5.6MB source images never ship to
+// the client bundle — the raw form was inflating dist/client/assets by
+// several MB per source jpg.
+const QA_QS = "?w=640&format=webp&quality=70&url" as const;
+import heroSPBefore from "@/assets/hero-saopaulo-eyegis.jpg?w=640&format=webp&quality=70&url";
+import heroSPAfter from "@/assets/hero-saopaulo-eyegis.jpg?w=640&format=webp&quality=70&url";
+import heroParisBefore from "@/assets/hero-paris-eyegis.jpg?w=640&format=webp&quality=70&url";
+import heroParisAfter from "@/assets/hero-paris-eyegis.jpg?w=640&format=webp&quality=70&url";
 
-import personaExecutive from "@/assets/persona-executive.jpg";
-import personaCreative from "@/assets/persona-creative.jpg";
-import personaGamer from "@/assets/persona-gamer.jpg";
-import shippingUnboxing from "@/assets/shipping-unboxing.jpg";
-import contactConcierge from "@/assets/contact-concierge.jpg";
-import aboutFounders from "@/assets/about-founders.jpg";
-import collectionMen from "@/assets/collection-men.jpg";
-import collectionWomen from "@/assets/collection-women.jpg";
-import collectionKidsHero from "@/assets/collection-hero-kids.jpg";
+import personaExecutive from "@/assets/persona-executive.jpg?w=640&format=webp&quality=70&url";
+import personaCreative from "@/assets/persona-creative.jpg?w=640&format=webp&quality=70&url";
+import personaGamer from "@/assets/persona-gamer.jpg?w=640&format=webp&quality=70&url";
+import shippingUnboxing from "@/assets/shipping-unboxing.jpg?w=640&format=webp&quality=70&url";
+import contactConcierge from "@/assets/contact-concierge.jpg?w=640&format=webp&quality=70&url";
+import aboutFounders from "@/assets/about-founders.jpg?w=640&format=webp&quality=70&url";
+import collectionMen from "@/assets/collection-men.jpg?w=640&format=webp&quality=70&url";
+import collectionWomen from "@/assets/collection-women.jpg?w=640&format=webp&quality=70&url";
+import collectionKidsHero from "@/assets/collection-hero-kids.jpg?w=640&format=webp&quality=70&url";
 
-import meridianHero from "@/assets/products/meridian-hero.jpg";
-import soleneFront from "@/assets/products/solene-front.jpg";
-import atelierFront from "@/assets/products/atelier-front.jpg";
-import maraisFront from "@/assets/products/marais-front.jpg";
+import meridianHero from "@/assets/products/meridian-hero.jpg?w=640&format=webp&quality=70&url";
+import soleneFront from "@/assets/products/solene-front.jpg?w=640&format=webp&quality=70&url";
+import atelierFront from "@/assets/products/atelier-front.jpg?w=640&format=webp&quality=70&url";
+import maraisFront from "@/assets/products/marais-front.jpg?w=640&format=webp&quality=70&url";
+void QA_QS;
+
 
 export const Route = createFileRoute("/qa")({
   head: () => ({

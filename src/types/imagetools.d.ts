@@ -25,6 +25,13 @@ declare module "*?url" {
   const src: string;
   export default src;
 }
+// Same behavior when `url` sits at the end of a compound query
+// (e.g. `?w=640&format=webp&url`).
+declare module "*&url" {
+  const src: string;
+  export default src;
+}
+
 
 // `?w=...` / `?format=...` without `as=picture` returns a plain URL string.
 // (imagetools default output when no `as` directive is present.)
