@@ -411,7 +411,7 @@ export function Universe() {
 
       {/* --------- Editorial intro : two-column asymmetric --------- */}
       <div className="mx-auto mt-24 md:mt-32 lg:mt-40 max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-12 gap-6 md:gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 lg:gap-16 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
             <Reveal delay={80} className="flex items-center gap-4">
