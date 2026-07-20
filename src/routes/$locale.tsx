@@ -47,7 +47,7 @@ function LocaleLayout() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <Outlet />
-      <Footer />
+      <Suspense fallback={null}><Footer /></Suspense>
       <StickyBuyBar />
       <Suspense fallback={null}>
         <ComingSoonModal />
