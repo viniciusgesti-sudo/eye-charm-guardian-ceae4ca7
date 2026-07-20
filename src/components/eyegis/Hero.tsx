@@ -117,9 +117,15 @@ export function Hero({ locale }: Props) {
           {/* Contrast wash — stronger at the bottom where copy sits */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.28),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.20)_0%,rgba(10,18,24,0.55)_55%,rgba(10,18,24,0.92)_92%,rgba(10,18,24,0.98)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.30),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.28)_0%,rgba(10,18,24,0.65)_55%,rgba(10,18,24,0.95)_92%,rgba(10,18,24,1)_100%)]"
+          />
+          {/* Readability scrim behind copy */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[rgba(6,12,18,0.8)] via-[rgba(6,12,18,0.4)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
           <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:p-12 md:pb-16">
+
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-mint sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-mint/70 sm:w-10" />
               <span className="truncate">{t.men.tag}</span>
@@ -162,9 +168,15 @@ export function Hero({ locale }: Props) {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.22),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.18)_0%,rgba(28,20,14,0.55)_55%,rgba(28,20,14,0.92)_92%,rgba(28,20,14,0.98)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.20),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.25)_0%,rgba(28,20,14,0.65)_55%,rgba(28,20,14,0.94)_92%,rgba(28,20,14,1)_100%)]"
+          />
+          {/* Readability scrim behind copy — blurred backdrop for AA contrast on bright imagery */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
           <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:items-end md:p-12 md:pb-16 md:text-right">
+
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-champagne sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-champagne/70 sm:w-10" />
               <span className="truncate">{t.women.tag}</span>
