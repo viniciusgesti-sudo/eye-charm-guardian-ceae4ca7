@@ -453,6 +453,131 @@ if (flagged.length) {
   }
 }
 
+// --- GitHub Actions PR annotations --------------------------------------
+// Emit `::warning` / `::error` workflow commands so violations show up as
+// inline annotations on the PR "Files Changed" tab, right on the source
+// file (or the config line) responsible for the overage.
+function ghEscape(s) {
+  return String(s).replace(/%/g, "%25").replace(/\r/g, "%0D").replace(/\n/g, "%0A");
+}
+
+/** Map a chunk (side + normalized key) to a source file + line for annotations. */
+function locateSource(side, key) {
+  const base = basename(key).replace(/\.(mjs|js|css)$/i, "");
+
+  // Client vendor chunks come from manualChunks() in vite.config.ts.
+  if (side === "client") {
+    const vendorLines = {
+      react: 54,
+      tanstack: 56,
+      radix: 57,
+      "motion-icons": 63,
+    };
+    if (base in vendorLines) return { file: "vite.config.ts", line: vendorLines[base], reason: `manualChunks group "${base}"` };
+    if (/\.css$/i.test(key)) return { file: "src/styles.css", line: 1, reason: "CSS bundle (Tailwind + tokens)" };
+    // Entry / route chunks — map back to the route source file when possible.
+    const routeGuess = mapRouteKey(base);
+    if (routeGuess) return routeGuess;
+    return { file: "vite.config.ts", line: 47, reason: `client chunk "${base}" (rollupOptions)` };
+  }
+
+  // Server side: nitro emits per-route .mjs files matching src/routes/*.tsx.
+  const routeGuess = mapRouteKey(base);
+  if (routeGuess) return routeGuess;
+  if (base === "index" || base === "server") return { file: "src/server.ts", line: 1, reason: `server entry chunk "${base}"` };
+  return { file: "scripts/bundle-budget.mjs", line: 61, reason: `unmapped server chunk "${base}"` };
+}
+
+/** `_locale.technology` -> `src/routes/$locale.technology.tsx`, etc. */
+function mapRouteKey(base) {
+  const candidate = "src/routes/" + base.replace(/^_/, "$") + ".tsx";
+  if (existsSync(join(ROOT, candidate))) return { file: candidate, line: 1, reason: `route chunk "${base}"` };
+  const withoutLocale = base.replace(/^_?locale\./, "$locale.");
+  const alt = "src/routes/" + withoutLocale + ".tsx";
+  if (existsSync(join(ROOT, alt))) return { file: alt, line: 1, reason: `route chunk "${base}"` };
+  return null;
+}
+
+/** Parse the human-readable violation/warning strings back into (side, key). */
+function parseIssue(msg) {
+  let m = msg.match(/^baseline growth · (client|server) ([^:]+):/);
+  if (m) return { side: m[1], key: m[2].trim() };
+  m = msg.match(/^(client|server) file (\S+)/);
+  if (m) return { side: m[1], key: normalizeKey(m[2]) };
+  m = msg.match(/^(client|server) total/);
+  if (m) return { side: m[1], key: null };
+  return null;
+}
+
+function emitGithubAnnotations() {
+  if (process.env.GITHUB_ACTIONS !== "true") return;
+  const seen = new Set();
+  const emit = (level, target, title, message) => {
+    const dedupe = `${target.file}:${target.line}:${title}`;
+    if (seen.has(dedupe)) return;
+    seen.add(dedupe);
+    const props = [`file=${target.file}`, `line=${target.line}`, `title=${ghEscape(title)}`].join(",");
+    process.stdout.write(`::${level} ${props}::${ghEscape(message)}\n`);
+  };
+
+  // 1) Per-asset warn/fail (hard budget).
+  for (const a of assetsReport) {
+    if (a.status === "ok") continue;
+    const parsed = { side: a.side, key: a.key };
+    const target = locateSource(parsed.side, parsed.key);
+    const title = a.status === "fail" ? "Bundle budget exceeded" : "Bundle budget warning";
+    const suggestions = a.suggestions.length ? `  Suggestion: ${a.suggestions.join(" | ")}` : "";
+    const msg =
+      `${a.side} ${a.path} = ${a.sizeKB.toFixed(1)} KB (${a.pctOfLimit.toFixed(1)}% of ${a.limitKB} KB limit).` +
+      ` Chunk source: ${target.reason}.${suggestions}`;
+    emit(a.status === "fail" ? "error" : "warning", target, title, msg);
+  }
+
+  // 2) Baseline-growth and total-limit issues that don't tie to a single asset.
+  for (const list of [
+    { level: "error", items: violations },
+    { level: "warning", items: warnings },
+  ]) {
+    for (const msg of list.items) {
+      const parsed = parseIssue(msg);
+      if (!parsed) continue;
+      // Totals: annotate vite config (chunking) + baseline file.
+      const target = parsed.key
+        ? locateSource(parsed.side, parsed.key)
+        : { file: "vite.config.ts", line: 47, reason: `${parsed.side} total budget` };
+      const title = list.level === "error" ? "Bundle budget FAIL" : "Bundle budget WARN";
+      emit(list.level, target, title, msg);
+    }
+  }
+
+  // 3) Job summary — full report is uploaded as an artifact; this gives a quick
+  //    glance right at the top of the workflow run page.
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const lines = [
+      `## Bundle Budget — ${violations.length ? "❌ FAIL" : warnings.length ? "⚠️ warnings" : "✅ pass"}`,
+      "",
+      `- Client total: **${fmt(clientTotal)}** / ${BUDGETS.client.total} KB (${pct(clientTotal, BUDGETS.client.total).toFixed(1)}%)`,
+      `- Server total: **${fmt(serverTotal)}** / ${BUDGETS.server.total} KB (${pct(serverTotal, BUDGETS.server.total).toFixed(1)}%)`,
+      `- Baseline: \`${baselineSource}\` · max growth ${MAX_GROWTH_PCT}%`,
+      "",
+      violations.length ? "### Violations\n" + violations.map((v) => `- ❌ ${v}`).join("\n") : "",
+      warnings.length ? "### Warnings\n" + warnings.map((w) => `- ⚠️ ${w}`).join("\n") : "",
+      "",
+      "> Inline annotations point to the source file responsible for each overage (route file, `vite.config.ts` manualChunks group, or `src/styles.css`).",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    try {
+      const { appendFileSync } = require("node:fs");
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines + "\n");
+    } catch {
+      /* summary write is best-effort */
+    }
+  }
+}
+
+emitGithubAnnotations();
+
 if (warnings.length) {
   console.warn(`\n[bundle-budget] ⚠ ${warnings.length} warning(s):`);
   for (const w of warnings) console.warn("  ⚠ " + w);
@@ -465,7 +590,8 @@ if (violations.length) {
     "\nFix the regression, or accept it explicitly:\n" +
       "  • raise a hard limit via BUDGET_*_KB env var, or\n" +
       "  • re-baseline with `node scripts/bundle-budget.mjs --update-baseline` after review.\n" +
-      `  • see full report: dist/reports/bundle-report.html\n`,
+      `  • see full report: dist/reports/bundle-report.html\n` +
+      `  • PR annotations point at the source file responsible for each overage.\n`,
   );
   process.exit(1);
 }
