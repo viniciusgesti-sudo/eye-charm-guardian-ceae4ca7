@@ -100,7 +100,7 @@ function WomenPage() {
       <LifestyleUniverse audience="women" />
       <ModelRunway audience="women" />
 
-      <EyegisGuard />
+      <EyegisGuard audience="women" />
       <ShopOnAmazon />
       <FAQ />
     </>
