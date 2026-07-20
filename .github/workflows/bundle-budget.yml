@@ -57,35 +57,51 @@ jobs:
               return;
             }
             const report = JSON.parse(fs.readFileSync(path, 'utf8'));
-            const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
-            const top = (files, n = 5) =>
-              [...files]
-                .sort((a, b) => b.size - a.size)
-                .slice(0, n)
-                .map((f) => `- \`${f.path}\` — **${kb(f.size)}**`)
-                .join('\n');
+            const fmt = (kb) => `${Number(kb).toFixed(1)} KB`;
+            const totals = report.totals ?? {};
+            const assets = report.assets ?? [];
+            const violations = report.violations ?? [];
+            const warnings = report.warnings ?? [];
 
-            const client = report.client ?? { files: [], totalBytes: 0 };
-            const server = report.server ?? { files: [], totalBytes: 0 };
-            const warnings = (report.warnings ?? [])
-              .map((w) => `- ⚠️ ${w}`)
-              .join('\n') || '_none_';
+            const topBySide = (side, n = 5) =>
+              assets
+                .filter((a) => a.side === side)
+                .sort((a, b) => b.bytes - a.bytes)
+                .slice(0, n)
+                .map((a) => `- \`${a.path}\` — **${fmt(a.sizeKB)}** (${a.pctOfLimit}% of limit)`)
+                .join('\n') || '_none_';
+
+            const line = (t) => (t && t.sizeKB != null
+              ? `${fmt(t.sizeKB)} / ${t.limitKB} KB (${t.pctOfLimit}%)`
+              : '_n/a_');
+
+            const flagged = assets.filter((a) => a.status && a.status !== 'ok');
+            const flaggedList = flagged.length
+              ? flagged.map((a) => `- ${a.status === 'fail' ? '❌' : '⚠️'} \`${a.path}\` — ${fmt(a.sizeKB)} (${a.pctOfLimit}%)`).join('\n')
+              : '_none_';
+
+            const status = violations.length ? '❌ **FAIL**' : (warnings.length ? '⚠️ warnings' : '✅ pass');
 
             const body = [
               '### 📦 Bundle Budget Report',
               '',
-              `**Client total:** ${kb(client.totalBytes)}  `,
-              `**Server total:** ${kb(server.totalBytes)}`,
+              `Status: ${status}`,
+              '',
+              `**Client total:** ${line(totals.client)}  `,
+              `**Server total:** ${line(totals.server)}`,
               '',
               '**Top client chunks**',
-              top(client.files),
+              topBySide('client'),
               '',
               '**Top server chunks**',
-              top(server.files),
+              topBySide('server'),
               '',
-              '**Warnings**',
-              warnings,
-            ].join('\n');
+              '**Flagged files**',
+              flaggedList,
+              '',
+              violations.length ? '**Violations**\n' + violations.map((v) => `- ❌ ${typeof v === 'string' ? v : JSON.stringify(v)}`).join('\n') : '',
+              warnings.length ? '**Warnings**\n' + warnings.map((w) => `- ⚠️ ${typeof w === 'string' ? w : JSON.stringify(w)}`).join('\n') : '',
+            ].filter(Boolean).join('\n');
 
             const { owner, repo } = context.repo;
             const issue_number = context.payload.pull_request.number;
