@@ -298,7 +298,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Pensée pour la",
       h1b: "vie que nous vivons aujourd'hui.",
       sub: "Eyegis a été créée pour une génération qui passe plus de temps devant les écrans que jamais. Notre mission : rendre la vie numérique plus confortable, sans jamais sacrifier un design intemporel.",
-      alt: "Architecture moderne baignée de lumière naturelle",
+      alt: "Campagne Eyegis — couple portant les modèles Meridian et Solène",
     },
     belief: {
       rule: "01 — Notre Conviction",
