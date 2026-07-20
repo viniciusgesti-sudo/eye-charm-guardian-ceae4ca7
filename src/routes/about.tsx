@@ -33,6 +33,14 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
+export { AboutPage };
+
+const _AboutRouteEnd = ({}) => null;
+void _AboutRouteEnd;
+
+const __unused = () => ({
+});
+
 /* ------------------------------------------------------------------ */
 /*  Localized copy                                                    */
 /* ------------------------------------------------------------------ */
