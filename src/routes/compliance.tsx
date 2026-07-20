@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
-import { Header } from "@/components/eyegis/Header";
-import { Footer } from "@/components/eyegis/Footer";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -46,7 +44,7 @@ export function CompliancePage() {
   const c = COPY[lang];
   return (
     <>
-      <Header variant="compact" />
+      
       <main className="bg-paper pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="mx-auto max-w-3xl px-6">
           <span className="font-eyebrow text-teal">Honest Science™</span>
@@ -63,7 +61,7 @@ export function CompliancePage() {
           <p className="mt-14 border-t border-ink/15 pt-6 text-sm text-ink/55 leading-relaxed">{c.note}</p>
         </div>
       </main>
-      <Footer />
+      
     </>
   );
 }

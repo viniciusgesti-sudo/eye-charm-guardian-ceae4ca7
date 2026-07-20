@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
-import { Header } from "@/components/eyegis/Header";
-import { Footer } from "@/components/eyegis/Footer";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -43,7 +41,7 @@ export function PrivacyPage() {
   const c = COPY[lang];
   return (
     <>
-      <Header variant="compact" />
+      
       <main className="bg-paper pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="font-editorial text-4xl md:text-5xl leading-[1.05] text-ink">{c.title}</h1>
@@ -58,7 +56,7 @@ export function PrivacyPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      
     </>
   );
 }
