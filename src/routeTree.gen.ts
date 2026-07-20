@@ -30,6 +30,7 @@ import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
 import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
+import { Route as LocaleLegalRouteImport } from './routes/$locale.legal'
 import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
 import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
 import { Route as LocaleContactRouteImport } from './routes/$locale.contact'
@@ -140,6 +141,11 @@ const LocaleMenRoute = LocaleMenRouteImport.update({
   path: '/men',
   getParentRoute: () => LocaleRoute,
 } as any)
+const LocaleLegalRoute = LocaleLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => LocaleRoute,
+} as any)
 const LocaleKidsRoute = LocaleKidsRouteImport.update({
   id: '/kids',
   path: '/kids',
@@ -179,6 +185,7 @@ export interface FileRoutesByFullPath {
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
@@ -205,6 +212,7 @@ export interface FileRoutesByTo {
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
@@ -233,6 +241,7 @@ export interface FileRoutesById {
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
   '/$locale/men': typeof LocaleMenRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
@@ -262,6 +271,7 @@ export interface FileRouteTypes {
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
@@ -288,6 +298,7 @@ export interface FileRouteTypes {
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
@@ -315,6 +326,7 @@ export interface FileRouteTypes {
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
     | '/$locale/men'
     | '/$locale/technology'
     | '/$locale/women'
@@ -494,6 +506,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleMenRouteImport
       parentRoute: typeof LocaleRoute
     }
+    '/$locale/legal': {
+      id: '/$locale/legal'
+      path: '/legal'
+      fullPath: '/$locale/legal'
+      preLoaderRoute: typeof LocaleLegalRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/kids': {
       id: '/$locale/kids'
       path: '/kids'
@@ -530,6 +549,7 @@ interface LocaleRouteChildren {
   LocaleContactRoute: typeof LocaleContactRoute
   LocaleFaqRoute: typeof LocaleFaqRoute
   LocaleKidsRoute: typeof LocaleKidsRoute
+  LocaleLegalRoute: typeof LocaleLegalRoute
   LocaleMenRoute: typeof LocaleMenRoute
   LocaleTechnologyRoute: typeof LocaleTechnologyRoute
   LocaleWomenRoute: typeof LocaleWomenRoute
@@ -541,6 +561,7 @@ const LocaleRouteChildren: LocaleRouteChildren = {
   LocaleContactRoute: LocaleContactRoute,
   LocaleFaqRoute: LocaleFaqRoute,
   LocaleKidsRoute: LocaleKidsRoute,
+  LocaleLegalRoute: LocaleLegalRoute,
   LocaleMenRoute: LocaleMenRoute,
   LocaleTechnologyRoute: LocaleTechnologyRoute,
   LocaleWomenRoute: LocaleWomenRoute,
