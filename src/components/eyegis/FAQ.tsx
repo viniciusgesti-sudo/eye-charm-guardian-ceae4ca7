@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 const TEAL = "#004B57";
-const COPPER = "#6A5330";
+const COPPER = "#5A4520";
 const INK = "#1D252D";
 
 type FaqItem = {
