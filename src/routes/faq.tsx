@@ -376,10 +376,10 @@ const CONTENT: Record<Lang, PageContent> = {
         id: "blue-light",
         label: "Luz Azul",
         items: [
-          { q: "Óculos anti-luz azul realmente funcionam?", a: "Dados de laboratórios independentes confirmam que as lentes Eyegis atenuam a luz visível de alta energia entre 400–450nm. Se isso melhora seu conforto pessoal varia caso a caso — por isso oferecemos a garantia de conforto de 60 dias.", related: ["technology", "warranty"] },
-          { q: "O que a pesquisa atual diz?", a: "As evidências científicas sobre alívio de sintomas ainda são mistas. Publicamos o que nossas lentes fazem opticamente e deixamos você decidir, com a segurança da nossa garantia de conforto.", related: ["technology"] },
+          { q: "Óculos anti-luz azul realmente funcionam?", a: "Depende inteiramente de como a lente é projetada. Muitos produtos no mercado filtram tão pouco que não é relevante, ou filtram de forma tão ampla que distorcem as cores. A Eyegis usa filtragem seletiva — a lente atua apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna. Descrevemos o que a lente faz opticamente e deixamos você julgar o conforto — por isso cada par é respaldado por 60 dias de garantia de conforto.", related: ["technology", "warranty"] },
+          { q: "O que a pesquisa atual diz?", a: "As evidências científicas sobre alívio de sintomas ainda são mistas. É exatamente por isso que existe a Honest Science™: descrevemos como a lente filtra a luz — de forma seletiva, sobre uma faixa estreita do espectro — em vez de prometer um resultado específico.", related: ["technology"] },
           { q: "A Eyegis faz alegações médicas?", a: "Não. A Eyegis é uma marca de eyewear lifestyle. Não diagnosticamos, tratamos ou curamos condições. Consulte um oftalmologista qualificado para orientação médica.", related: ["technology"] },
-          { q: "Por que a Honest Science™ importa?", a: "A categoria de luz azul é cheia de promessas não verificáveis. Honest Science™ significa que cada afirmação óptica é mensurável e verificada por terceiros.", related: ["technology"] },
+          { q: "Por que a Honest Science™ importa?", a: "A categoria de luz azul é cheia de promessas não verificáveis. Honest Science™ significa que só descrevemos o que as lentes de fato fazem — filtragem seletiva sobre comprimentos de onda específicos, sem tom sobre a sua visão — e nunca vendemos uma sensação ou um percentual de alívio.", related: ["technology"] },
         ],
       },
       {
