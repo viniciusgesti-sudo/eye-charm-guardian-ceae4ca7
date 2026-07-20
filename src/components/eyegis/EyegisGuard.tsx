@@ -90,10 +90,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " quietly stated.",
     },
     s06: {
-      label: "Why It Feels Different",
-      quoteA: "Comfort is not achieved by blocking as much blue light as possible. It is achieved by the quiet",
-      quoteMid: " conversation between frame ergonomics, ",
-      quoteB: "optical quality, selective filtering and thoughtful design.",
+      label: "Why the Difference Is Felt",
+      quoteA: "Comfort is not measured by how much blue light you block.",
+      quoteMid: " It is measured by what your eyes stop noticing —",
+      quoteB: " glare, fatigue, the screen itself.",
       footer: "Eyegis Optical Studio · Design Charter",
     },
     callouts: [
