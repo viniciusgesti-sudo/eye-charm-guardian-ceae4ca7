@@ -136,7 +136,7 @@ function MaraisProduct() {
             source={heroImg}
             alt="Marais round acetate frame — front view"
             sizes="(min-width:768px) 48vw, 92vw"
-            className="w-full aspect-[4/5] object-cover rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
+            className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
         </div>
       </section>
@@ -176,7 +176,7 @@ function MaraisProduct() {
                 source={packageImg}
                 alt="Marais packaging — recycled paperboard box with debossed logo"
                 sizes="(min-width:768px) 48vw, 92vw"
-                className="w-full aspect-[4/3] object-cover"
+                className="w-full aspect-[4/3] object-center object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-black/60">
                 Recyclable paperboard box · debossed Eyegis mark
@@ -187,7 +187,7 @@ function MaraisProduct() {
                 source={pouchImg}
                 alt="Marais soft microfibre pouch"
                 sizes="(min-width:768px) 48vw, 92vw"
-                className="w-full aspect-[4/3] object-cover"
+                className="w-full aspect-[4/3] object-center object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-black/60">
                 Microfibre pouch · doubles as a lens cloth
@@ -228,7 +228,7 @@ function MaraisProduct() {
           source={lifestyleImg}
           alt="Woman wearing Marais — Parisian afternoon"
           sizes="100vw"
-          className="w-full aspect-[16/9] md:aspect-[21/9] object-cover"
+          className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex items-end">

@@ -137,7 +137,7 @@ function SoleneProduct() {
             source={heroImg}
             alt="Solène cat-eye acetate frame in warm tortoise — front view"
             sizes="(min-width:768px) 48vw, 92vw"
-            className="w-full aspect-[4/5] object-cover rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
+            className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
         </div>
       </section>
@@ -165,7 +165,7 @@ function SoleneProduct() {
             source={macroImg}
             alt="Solène lens macro — anti-reflective coating in warm light"
             sizes="(min-width:768px) 48vw, 92vw"
-            className="w-full aspect-[4/3] object-cover rounded-lg"
+            className="w-full aspect-[4/3] object-cover object-center rounded-lg"
           />
           <div>
             <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
@@ -203,7 +203,7 @@ function SoleneProduct() {
               source={packageImg}
               alt="Solène packaging — recycled paperboard box with debossed logo"
               sizes="(min-width:768px) 48vw, 92vw"
-              className="w-full aspect-[4/3] object-cover"
+              className="w-full aspect-[4/3] object-center object-cover"
             />
             <figcaption className="px-4 py-3 text-xs text-black/60">
               Recyclable paperboard box · debossed Eyegis mark
@@ -214,7 +214,7 @@ function SoleneProduct() {
               source={pouchImg}
               alt="Solène soft microfibre pouch"
               sizes="(min-width:768px) 48vw, 92vw"
-              className="w-full aspect-[4/3] object-cover"
+              className="w-full aspect-[4/3] object-center object-cover"
             />
             <figcaption className="px-4 py-3 text-xs text-black/60">
               Microfibre pouch · doubles as a lens cloth
@@ -254,7 +254,7 @@ function SoleneProduct() {
           source={lifestyleImg}
           alt="Woman wearing Solène — Parisian afternoon"
           sizes="100vw"
-          className="w-full aspect-[16/9] md:aspect-[21/9] object-cover"
+          className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex items-end">
