@@ -665,7 +665,7 @@ function WorldMap() {
 
 function StarRow({ n, aria }: { n: number; aria: string }) {
   return (
-    <div className="flex items-center gap-0.5 text-teal" aria-label={aria}>
+    <div className="flex items-center gap-0.5 text-teal" role="img" aria-label={aria}>
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
