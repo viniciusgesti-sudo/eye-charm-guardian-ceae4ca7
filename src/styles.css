@@ -666,14 +666,14 @@ select,
    round the focus ring to match the button silhouette. */
 header button[aria-label="Open menu"]:focus-visible,
 header a[href*="amazon"]:focus-visible,
-[data-radix-dialog-content] a[href*="amazon"]:focus-visible {
+[role="dialog"] a[href*="amazon"]:focus-visible {
   border-radius: 9999px !important;
   outline-offset: 3px !important;
 }
 
 /* Mobile sheet nav links: full-width bordered rows — use inset ring so
    the amber never bleeds past the row edge. */
-[data-radix-dialog-content] nav a:focus-visible {
+[role="dialog"] nav a:focus-visible {
   outline: none !important;
   box-shadow:
     inset 3px 0 0 0 var(--focus-ring-color),
@@ -683,8 +683,8 @@ header a[href*="amazon"]:focus-visible,
 
 /* Mobile locale switcher buttons — small inline targets, need a tight
    halo that doesn't overlap sibling separators. */
-[data-radix-dialog-content] button[aria-current]:focus-visible,
-[data-radix-dialog-content] .font-eyebrow button:focus-visible {
+[role="dialog"] button[aria-current]:focus-visible,
+[role="dialog"] .font-eyebrow button:focus-visible {
   outline: 3px solid var(--focus-ring-color) !important;
   outline-offset: 4px !important;
   border-radius: 4px;
