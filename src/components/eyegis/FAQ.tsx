@@ -70,32 +70,32 @@ const ITEMS: FaqItem[] = [
   {
     icon: <IconMicroscope />,
     q: "Do blue light glasses really work?",
-    a: "That's a great question, and the answer is more nuanced than many marketing claims suggest. Yes, blue light filtering lenses can provide real benefits — but not all lenses are designed the same, and many claims you'll find online are exaggerated or oversimplified. At Eyegis, we believe in Honest Science™: our lenses are engineered using evidence-based optical principles, with selective blue-light filtering designed to improve visual comfort while preserving natural color accuracy and contrast.",
+    a: "This is a fair question — and the honest answer is nuanced. Not every blue-light lens on the market is engineered the same way, and many claims online are exaggerated. At Eyegis we follow Honest Science™: our E-Guard Retina™ and E-Guard Circadian™ lenses use selective filtering — they act on the specific wavelengths involved in digital eye strain and evening light exposure, while letting through the light your eyes need to see colors as they are. No orange tint, no filter over reality, no miracle promises.",
   },
   {
     icon: <IconPeople />,
     q: "Who are Eyegis glasses designed for?",
-    a: "Whether you're working, studying, creating, gaming or simply spending hours in front of digital screens, Eyegis lenses are designed to match different lifestyles and levels of digital exposure.",
+    a: "Anyone who spends meaningful time in front of screens — working, studying, creating, gaming, streaming or scrolling. Eyegis is built around different lifestyles and levels of digital exposure, from focused daytime hours (E-Guard Retina™) to late-evening use before sleep (E-Guard Circadian™).",
   },
   {
     icon: <IconGlassesHeadset />,
     q: "Are your glasses compatible with headphones and gaming headsets?",
-    a: "Yes. Our lightweight TR90 frames are designed for long-lasting comfort and are compatible with most headphones and gaming headsets.",
+    a: "Yes. Our TR90 frames are lightweight and slim at the temples, designed for long sessions and comfortable use with most over-ear headphones and gaming headsets.",
   },
   {
     icon: <IconGlassesHeadset />,
     q: "Do you make prescription (corrective) glasses?",
-    a: "Not yet — we don't offer prescription lenses at this time. You can wear your Eyegis glasses together with your contact lenses.",
+    a: "Not yet — we don't offer prescription lenses at this time. You can wear your Eyegis frames together with your contact lenses.",
   },
   {
     icon: <IconBox />,
     q: "What are your shipping and return policies?",
-    a: "Shipping times and return conditions vary by marketplace and country. In the EU/France, the standard return window is 30 days. For the most up-to-date information, please refer to your local Amazon marketplace.",
+    a: "Shipping times and return conditions are handled directly by your local Amazon marketplace and follow its standard policies. Please refer to your marketplace order page for the most up-to-date information.",
   },
   {
     icon: <IconShield />,
     q: "Do Eyegis glasses come with a warranty?",
-    a: "Absolutely. Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. What's not covered: accidental damage (drops, crushing, impact), normal wear and tear including scratches from everyday use, and damage from misuse, excessive heat or product modifications. In addition, we offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't provide the visual comfort you expected, contact us and we'll work with you to find the best solution, even if your marketplace's standard return window has expired.",
+    a: "Yes. Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. Not covered: accidental damage (drops, impact, crushing), normal wear such as everyday scratches, and damage from misuse, excessive heat or modifications. On top of that, we offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't deliver the visual comfort you expected, reach out and we'll work with you to find the best solution.",
   },
 ];
 
