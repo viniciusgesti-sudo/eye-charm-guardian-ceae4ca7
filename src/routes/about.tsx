@@ -112,7 +112,7 @@ const CONTENT: Record<Lang, Copy> = {
       h1a: "Designed for the",
       h1b: "way we live today.",
       sub: "Eyegis was created for a generation that spends more time looking at screens than ever before. Our mission is to make digital life more comfortable — without sacrificing timeless design.",
-      alt: "Modern architecture bathed in natural light",
+      alt: "Eyegis campaign — couple wearing Meridian and Solène frames",
     },
     belief: {
       rule: "01 — Our Belief",
