@@ -8,7 +8,7 @@ import heroImg from "@/assets/products/atelier-front.jpg?w=480;800;1200;1600&for
 import profileImg from "@/assets/products/atelier-profile.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/atelier-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import pouchImg from "@/assets/products/atelier-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lifestyleImg from "@/assets/collection-men.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
+import lifestyleImg from "@/assets/products/atelier-package.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
 import { buildSeo, SITE } from "@/lib/seo";
 

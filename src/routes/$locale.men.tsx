@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 
 
-import heroZenith from "@/assets/product-meridian-hero.jpg?url";
-import heroZenithSrc from "@/assets/product-meridian-hero.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+import heroZenith from "@/assets/products/meridian-hero.jpg?url";
+import heroZenithSrc from "@/assets/products/meridian-hero.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";

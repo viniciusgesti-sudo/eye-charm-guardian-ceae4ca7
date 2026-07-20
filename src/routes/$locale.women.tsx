@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 
 
-import heroClarity from "@/assets/product-solene-hero.jpg?url";
-import heroClaritySrc from "@/assets/product-solene-hero.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/products/solene-front.jpg?url";
+import heroClaritySrc from "@/assets/products/solene-front.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
 import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
