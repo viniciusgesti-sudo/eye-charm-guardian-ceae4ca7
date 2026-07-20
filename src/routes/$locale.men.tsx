@@ -19,48 +19,49 @@ const COPY = {
     eyebrow: "Coleção · Homem",
     title: (
       <>
-        Zenith<br />
-        <span className="italic text-mint">para a rotina 24/7.</span>
+        Meridian<br />
+        <span className="italic text-mint">para quem vive em telas.</span>
       </>
     ),
     subtitle:
-      "Proteção de alta intensidade contra luz azul e reflexos. Armações discretas, acabamento matte e engenharia italiana para quem passa o dia entre telas.",
-    ctaLabel: "Ver coleção Zenith",
-    metaTitle: "Coleção Homem — Eyegis Zenith",
+      "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
+    ctaLabel: "Ver na Amazon",
+    metaTitle: "Coleção Homem — Eyegis Meridian",
     metaDesc:
-      "Óculos masculinos Eyegis Zenith: proteção contra luz azul, armações discretas e engenharia premium para o dia digital.",
+      "Eyegis Meridian: acetato preto, hastes douradas e proteção laboratorial contra luz azul. A eyewear masculina para o dia digital.",
   },
   en: {
     eyebrow: "Collection · Men",
     title: (
       <>
-        Zenith<br />
-        <span className="italic text-mint">for the 24/7 hustle.</span>
+        Meridian<br />
+        <span className="italic text-mint">for the screen-bound day.</span>
       </>
     ),
     subtitle:
-      "High-intensity blue light and glare protection. Discreet frames, matte finishes, and Italian engineering for anyone living between screens.",
-    ctaLabel: "Shop the Zenith collection",
-    metaTitle: "Men's Collection — Eyegis Zenith",
+      "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
+    ctaLabel: "Shop on Amazon",
+    metaTitle: "Men's Collection — Eyegis Meridian",
     metaDesc:
-      "Eyegis Zenith men's eyewear: high-intensity blue light protection, discreet frames, and premium engineering for the digital day.",
+      "Eyegis Meridian: black acetate, gold temples and lab-tested blue-light protection. The men's eyewear for the digital day.",
   },
   fr: {
     eyebrow: "Collection · Homme",
     title: (
       <>
-        Zenith<br />
-        <span className="italic text-mint">pour le rythme 24/7.</span>
+        Meridian<br />
+        <span className="italic text-mint">pour la journée sur écran.</span>
       </>
     ),
     subtitle:
-      "Protection haute intensité contre la lumière bleue et les reflets. Montures discrètes, finitions mates et ingénierie italienne pour ceux qui vivent entre les écrans.",
-    ctaLabel: "Voir la collection Zenith",
-    metaTitle: "Collection Homme — Eyegis Zenith",
+      "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
+    ctaLabel: "Voir sur Amazon",
+    metaTitle: "Collection Homme — Eyegis Meridian",
     metaDesc:
-      "Lunettes homme Eyegis Zenith : protection haute intensité contre la lumière bleue, montures discrètes et ingénierie premium.",
+      "Eyegis Meridian : acétate noir, branches dorées et protection testée en laboratoire contre la lumière bleue.",
   },
 } as const;
+
 
 export const Route = createFileRoute("/$locale/men")({
   head: ({ params }) => {

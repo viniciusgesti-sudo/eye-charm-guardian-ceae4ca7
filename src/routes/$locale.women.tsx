@@ -19,48 +19,49 @@ const COPY = {
     eyebrow: "Coleção · Mulher",
     title: (
       <>
-        Clarity<br />
-        <span className="italic text-teal-deep">para a visionária.</span>
+        Solène<br />
+        <span className="italic text-teal-deep">para quem cria e escreve.</span>
       </>
     ),
     subtitle:
-      "Alta fidelidade de cor, leveza de acetato champagne e proteção contra fadiga digital — pensados para quem cria, escreve e olha o mundo com estilo.",
-    ctaLabel: "Ver coleção Clarity",
-    metaTitle: "Coleção Mulher — Eyegis Clarity",
+      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
+    ctaLabel: "Ver na Amazon",
+    metaTitle: "Coleção Mulher — Eyegis Solène",
     metaDesc:
-      "Óculos femininos Eyegis Clarity: alta precisão de cor, acetato premium e proteção contra a fadiga digital.",
+      "Eyegis Solène: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz quente à noite.",
   },
   en: {
     eyebrow: "Collection · Women",
     title: (
       <>
-        Clarity<br />
-        <span className="italic text-teal-deep">for the visionary.</span>
+        Solène<br />
+        <span className="italic text-teal-deep">for those who create.</span>
       </>
     ),
     subtitle:
-      "High-fidelity color, lightweight champagne acetate, and digital-eye protection — for those who create, write, and see the world in style.",
-    ctaLabel: "Shop the Clarity collection",
-    metaTitle: "Women's Collection — Eyegis Clarity",
+      "A cat-eye in tortoise acetate, discreet gold shield-G on the temple, and an E-Guard Circadian™ lens — true color by day, warmer light at dusk.",
+    ctaLabel: "Shop on Amazon",
+    metaTitle: "Women's Collection — Eyegis Solène",
     metaDesc:
-      "Eyegis Clarity women's eyewear: high-fidelity color, premium acetate, and digital eye strain protection.",
+      "Eyegis Solène: tortoise cat-eye with E-Guard Circadian™ lens. True color by day, warmer light at dusk.",
   },
   fr: {
     eyebrow: "Collection · Femme",
     title: (
       <>
-        Clarity<br />
-        <span className="italic text-teal-deep">pour la visionnaire.</span>
+        Solène<br />
+        <span className="italic text-teal-deep">pour celles qui créent.</span>
       </>
     ),
     subtitle:
-      "Haute fidélité chromatique, acétate champagne léger et protection contre la fatigue numérique — pour celles qui créent, écrivent et regardent le monde avec style.",
-    ctaLabel: "Voir la collection Clarity",
-    metaTitle: "Collection Femme — Eyegis Clarity",
+      "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
+    ctaLabel: "Voir sur Amazon",
+    metaTitle: "Collection Femme — Eyegis Solène",
     metaDesc:
-      "Lunettes femme Eyegis Clarity : haute fidélité des couleurs, acétate premium et protection contre la fatigue oculaire numérique.",
+      "Eyegis Solène : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière chaude au crépuscule.",
   },
 } as const;
+
 
 export const Route = createFileRoute("/$locale/women")({
   head: ({ params }) => {
