@@ -396,7 +396,7 @@ export function OurTechnology() {
                 {/* Daytime */}
                 <div className="rounded-2xl bg-white/70 p-10 ring-1 ring-white/60 backdrop-blur-sm">
                   <div className="flex items-center gap-4">
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-[#F5B841]/20 text-[#C25E2C]">
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-champagne text-teal-deep">
                       <SunGlyph className="h-6 w-6" />
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/60">
