@@ -21,10 +21,9 @@ import { readFile, writeFile } from "node:fs/promises";
 import { setTimeout as sleep } from "node:timers/promises";
 
 const BASE = process.env.PREVIEW_BASE ?? "http://localhost:8080";
-const FILES = [
-  "src/routes/about.tsx",
-  "src/components/eyegis/AboutPage.tsx",
-];
+// AboutPage.tsx is the shared component lazy-loaded by both /about and
+// /$locale/about routes — patching it exercises HMR for every locale.
+const FILES = ["src/components/eyegis/AboutPage.tsx"];
 const ROUTES = ["/about", "/br/about", "/en/about", "/fr/about"];
 const BAD_TITLES = new Set(["Lovable App", "Lovable Generated Project", ""]);
 const MARKER = `hmr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
