@@ -475,7 +475,7 @@ export function Universe() {
 
       {/* --------- Section transition rule --------- */}
       <div className="mx-auto mt-32 md:mt-40 lg:mt-48 max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end [&>*]:min-w-0">
           <Reveal className="col-span-12 md:col-span-6 flex items-center gap-4">
             <span className="font-eyebrow text-ink/50">{copy.principlesEyebrow}</span>
             <span className="h-px w-16 bg-ink/25" />
