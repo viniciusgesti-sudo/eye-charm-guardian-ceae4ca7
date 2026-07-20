@@ -1,5 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
@@ -8,18 +7,6 @@ import promiseImg from "@/assets/universe-eyewear.jpg?w=768;1200;1920;2400&forma
 import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-
-export const Route = createFileRoute("/warranty")({
-  head: () =>
-    buildSeo({
-      title: "Warranty & 60-Day Comfort Guarantee — Eyegis",
-      description:
-        "Every pair of Eyegis is backed by a 2-Year Manufacturing Warranty and an exclusive 60-Day Comfort Guarantee. Designed to last, backed with confidence.",
-      path: "/warranty",
-    }),
-
-  component: WarrantyPage,
-});
 
 const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
