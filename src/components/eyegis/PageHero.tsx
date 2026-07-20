@@ -11,7 +11,12 @@ type Props = {
   bgSource?: PictureSource;
   tone?: "dark" | "light";
   align?: "center" | "left";
-  cta?: { label: string; to: "/$locale/men" | "/$locale/women" | "/$locale/kids" | "/$locale/technology"; locale: string };
+  accent?: "mint" | "champagne";
+  cta?: {
+    label: string;
+    to: "/$locale/men" | "/$locale/women" | "/$locale/kids" | "/$locale/technology";
+    locale: string;
+  };
   externalCta?: { label: string; href: string };
 };
 
@@ -23,13 +28,23 @@ export function PageHero({
   bgSource,
   tone = "dark",
   align = "center",
+  accent = "mint",
   cta,
   externalCta,
 }: Props) {
   const isDark = tone === "dark";
+  const accentText = accent === "mint" ? "text-mint" : "text-champagne";
+  const accentBar = accent === "mint" ? "bg-mint/70" : "bg-champagne/70";
+  const accentGlow =
+    accent === "mint"
+      ? "shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)]"
+      : "shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)]";
+  const accentHoverBg = accent === "mint" ? "hover:bg-mint" : "hover:bg-champagne";
+
   return (
     <section
-      className={`relative isolate flex min-h-[72vh] w-full items-end overflow-hidden ${
+      aria-label={typeof title === "string" ? title : eyebrow}
+      className={`relative isolate flex min-h-[86svh] w-full items-end overflow-hidden ${
         isDark ? "bg-ink text-paper" : "bg-paper text-ink"
       }`}
     >
@@ -40,7 +55,7 @@ export function PageHero({
           aria-hidden="true"
           priority
           sizes="100vw"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 -z-10 h-full w-full object-cover motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
         />
       ) : (
         <img
@@ -51,7 +66,7 @@ export function PageHero({
           height={1600}
           loading="eager"
           decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 -z-10 h-full w-full object-cover motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
         />
       )}
 
@@ -59,48 +74,53 @@ export function PageHero({
         aria-hidden
         className={`absolute inset-0 -z-10 ${
           isDark
-            ? "bg-[linear-gradient(180deg,rgba(10,15,20,0.15)_0%,rgba(10,15,20,0.55)_55%,rgba(10,15,20,0.92)_100%)]"
-            : "bg-[linear-gradient(180deg,rgba(255,250,240,0.1)_0%,rgba(226,209,195,0.35)_60%,rgba(226,209,195,0.85)_100%)]"
+            ? "bg-[radial-gradient(120%_80%_at_30%_40%,rgba(0,75,87,0.22),transparent_62%),linear-gradient(180deg,rgba(10,15,20,0.15)_0%,rgba(10,15,20,0.72)_70%,rgba(10,15,20,0.95)_100%)]"
+            : "bg-[radial-gradient(120%_80%_at_70%_40%,rgba(226,209,195,0.28),transparent_62%),linear-gradient(180deg,rgba(255,250,240,0.10)_0%,rgba(226,209,195,0.45)_65%,rgba(226,209,195,0.85)_100%)]"
         }`}
       />
+
       <div
-        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-20 md:px-10 md:pt-52 md:pb-28 ${
+        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-24 md:px-10 md:pt-56 md:pb-32 ${
           align === "center" ? "text-center" : "text-left"
         }`}
       >
-        <span
-          className={`font-mono text-[11px] uppercase tracking-[0.32em] ${
-            isDark ? "text-paper/70" : "text-teal-deep/70"
-          }`}
+        <div
+          className={`flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.36em] ${
+            isDark ? "text-paper/80" : "text-ink/70"
+          } ${accentText} ${align === "center" ? "justify-center" : ""}`}
         >
+          <span className={`inline-block h-px w-10 ${accentBar}`} />
           {eyebrow}
-        </span>
-        <h1 className="mt-6 font-editorial text-fluid-hero leading-[0.9]">{title}</h1>
+        </div>
+
+        <h1 className="mt-6 font-editorial text-fluid-hero leading-[0.9] tracking-[-0.02em]">
+          {title}
+        </h1>
+
         {subtitle && (
           <p
-            className={`mx-auto mt-6 max-w-2xl text-fluid-lead ${
+            className={`mt-6 max-w-2xl font-sans text-fluid-lead leading-relaxed ${
               isDark ? "text-paper/80" : "text-ink/75"
             } ${align === "center" ? "mx-auto" : ""}`}
           >
             {subtitle}
           </p>
         )}
+
         {(cta || externalCta) && (
-          <div className={`mt-10 flex flex-wrap gap-4 ${align === "center" ? "justify-center" : ""}`}>
+          <div
+            className={`mt-10 flex flex-wrap items-center gap-3 ${
+              align === "center" ? "justify-center" : ""
+            }`}
+          >
             {cta && (
               <Link
                 to={cta.to}
                 params={{ locale: cta.locale }}
-                className={`inline-flex items-center gap-4 rounded-full px-7 py-4 transition-all hover:-translate-y-0.5 ${
-                  isDark
-                    ? "bg-paper text-ink hover:bg-paper/90"
-                    : "bg-teal-deep text-paper hover:bg-teal"
-                }`}
+                className={`group inline-flex items-center gap-3 rounded-full bg-paper px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ink transition ${accentGlow} ${accentHoverBg}`}
               >
-                <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
-                  {cta.label}
-                </span>
-                <span aria-hidden>→</span>
+                {cta.label}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
             )}
             {externalCta && (
@@ -108,15 +128,13 @@ export function PageHero({
                 href={externalCta.href}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className={`inline-flex items-center gap-4 rounded-full border px-7 py-4 transition-all hover:-translate-y-0.5 ${
+                className={`inline-flex items-center gap-3 rounded-full border px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] transition ${
                   isDark
                     ? "border-paper/40 text-paper hover:bg-paper hover:text-ink"
                     : "border-ink/30 text-ink hover:bg-ink hover:text-paper"
                 }`}
               >
-                <span className="font-mono text-[11px] uppercase tracking-[0.28em]">
-                  {externalCta.label}
-                </span>
+                {externalCta.label}
                 <span aria-hidden>→</span>
               </a>
             )}

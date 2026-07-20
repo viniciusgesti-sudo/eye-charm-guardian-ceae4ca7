@@ -26,21 +26,57 @@ const ALTS = {
 const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
-    men: { tag: "Zenith · São Paulo · Nocturne", title: "Engineered", em: "for Vision.", cta: "Shop Men" },
-    women: { tag: "Clarity · Paris · Golden Hour", title: "Designed", em: "for Style.", cta: "Shop Women" },
-    sub: "Premium eyewear that filters the light of modern life — without ever asking you to compromise the way you look.",
+    manifesto: "Two cities. Two lights. One promise: eyewear engineered for vision, designed for style.",
+    men: {
+      tag: "Zenith · São Paulo · Nocturne",
+      titleA: "Engineered",
+      titleB: "for Vision.",
+      product: "Zenith — titanium 6.8g · E-Guard Retina™",
+      cta: "Shop Men",
+    },
+    women: {
+      tag: "Clarity · Paris · Golden Hour",
+      titleA: "Designed",
+      titleB: "for Style.",
+      product: "Clarity — gold-tone acetate · E-Guard Circadian™",
+      cta: "Shop Women",
+    },
   },
   PT: {
     eyebrow: "O Manifesto Eyegis",
-    men: { tag: "Zenith · São Paulo · Noite", title: "Engenharia", em: "para a Visão.", cta: "Ver Masculino" },
-    women: { tag: "Clarity · Paris · Hora Dourada", title: "Design", em: "para o Estilo.", cta: "Ver Feminino" },
-    sub: "Eyewear premium que filtra a luz da vida moderna — sem nunca pedir que você abra mão do seu estilo.",
+    manifesto: "Duas cidades. Duas luzes. Uma promessa: eyewear com engenharia para a visão e design para o estilo.",
+    men: {
+      tag: "Zenith · São Paulo · Noite",
+      titleA: "Engenharia",
+      titleB: "para a Visão.",
+      product: "Zenith — titânio 6,8g · E-Guard Retina™",
+      cta: "Ver Masculino",
+    },
+    women: {
+      tag: "Clarity · Paris · Hora Dourada",
+      titleA: "Design",
+      titleB: "para o Estilo.",
+      product: "Clarity — acetato dourado · E-Guard Circadian™",
+      cta: "Ver Feminino",
+    },
   },
   FR: {
     eyebrow: "Le Manifeste Eyegis",
-    men: { tag: "Zenith · São Paulo · Nocturne", title: "L'ingénierie", em: "de la vision.", cta: "Homme" },
-    women: { tag: "Clarity · Paris · Heure Dorée", title: "Le design", em: "du style.", cta: "Femme" },
-    sub: "Une lunetterie premium qui filtre la lumière de la vie moderne — sans compromis sur votre style.",
+    manifesto: "Deux villes. Deux lumières. Une promesse : une lunetterie d'ingénierie et de style.",
+    men: {
+      tag: "Zenith · São Paulo · Nocturne",
+      titleA: "L'ingénierie",
+      titleB: "de la vision.",
+      product: "Zenith — titane 6,8g · E-Guard Retina™",
+      cta: "Homme",
+    },
+    women: {
+      tag: "Clarity · Paris · Heure Dorée",
+      titleA: "Le design",
+      titleB: "du style.",
+      product: "Clarity — acétate doré · E-Guard Circadian™",
+      cta: "Femme",
+    },
   },
 } as const;
 
@@ -53,16 +89,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate w-full overflow-hidden bg-[#0e1418]"
+      className="relative isolate w-full overflow-hidden bg-ink"
     >
-      {/* Split 50/50 — Men (São Paulo nocturne) × Women (Paris golden hour) */}
-      <div className="grid h-[100svh] min-h-[720px] w-full grid-cols-1 md:grid-cols-2">
+      <div className="grid h-[100svh] min-h-[760px] w-full grid-cols-1 md:grid-cols-2">
         {/* LEFT — MEN / ZENITH */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-full w-full overflow-hidden bg-[#0b1620]"
+          className="group relative block h-full w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint"
         >
           <Picture
             source={heroSaoPaulo}
@@ -73,25 +108,31 @@ export function Hero({ locale }: Props) {
             height={1920}
             className="absolute inset-0 h-full w-full object-cover object-[42%_35%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
           />
-          {/* Teal nocturne wash for cohesion + copy legibility */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_40%,rgba(0,75,87,0.25),transparent_60%),linear-gradient(180deg,rgba(10,18,24,0.15)_0%,rgba(10,18,24,0.75)_75%,rgba(10,18,24,0.92)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.28),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.15)_0%,rgba(10,18,24,0.78)_78%,rgba(10,18,24,0.95)_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-10">
-            <div className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#86D9D1]">
-              <span className="inline-block h-px w-8 bg-[#86D9D1]/70" />
+          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-12">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.36em] text-mint">
+              <span className="inline-block h-px w-10 bg-mint/70" />
               {t.men.tag}
             </div>
-            <div>
-              <h2 className="font-[Montserrat] text-[clamp(2.25rem,5.5vw,5rem)] font-light leading-[0.95] tracking-[-0.02em] text-white">
-                <span className="block">{t.men.title}</span>
-                <span className="block italic text-[#86D9D1]">{t.men.em}</span>
+
+            <div className="max-w-[520px]">
+              <h2 className="font-editorial text-[clamp(2.75rem,6vw,5.75rem)] font-light leading-[0.92] tracking-[-0.02em] text-paper">
+                <span className="block">{t.men.titleA}</span>
+                <span className="block italic text-mint">{t.men.titleB}</span>
               </h2>
-              <span className="mt-6 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors group-hover:border-[#86D9D1] group-hover:text-[#86D9D1]">
+
+              <div className="mt-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-paper/70">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-mint" />
+                {t.men.product}
+              </div>
+
+              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-paper px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ink shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)] transition group-hover:bg-mint group-hover:text-ink">
                 {t.men.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-              </span>
+              </div>
             </div>
           </div>
         </Link>
@@ -101,7 +142,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block h-full w-full overflow-hidden bg-[#231a13]"
+          className="group relative block h-full w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne"
         >
           <Picture
             source={heroParis}
@@ -112,42 +153,57 @@ export function Hero({ locale }: Props) {
             height={1920}
             className="absolute inset-0 h-full w-full object-cover object-[58%_35%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
           />
-          {/* Champagne golden-hour wash */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_70%_40%,rgba(226,209,195,0.22),transparent_60%),linear-gradient(180deg,rgba(28,20,14,0.10)_0%,rgba(28,20,14,0.70)_75%,rgba(28,20,14,0.92)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.24),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.10)_0%,rgba(28,20,14,0.75)_78%,rgba(28,20,14,0.95)_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:items-end md:p-10 md:text-right">
-            <div className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.32em] text-[#E2D1C3]">
-              <span className="inline-block h-px w-8 bg-[#E2D1C3]/70" />
+          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:items-end md:p-12 md:text-right">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.36em] text-champagne">
+              <span className="inline-block h-px w-10 bg-champagne/70" />
               {t.women.tag}
             </div>
-            <div>
-              <h2 className="font-[Montserrat] text-[clamp(2.25rem,5.5vw,5rem)] font-light leading-[0.95] tracking-[-0.02em] text-white">
-                <span className="block">{t.women.title}</span>
-                <span className="block italic text-[#E2D1C3]">{t.women.em}</span>
+
+            <div className="max-w-[520px]">
+              <h2 className="font-editorial text-[clamp(2.75rem,6vw,5.75rem)] font-light leading-[0.92] tracking-[-0.02em] text-paper">
+                <span className="block">{t.women.titleA}</span>
+                <span className="block italic text-champagne">{t.women.titleB}</span>
               </h2>
-              <span className="mt-6 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors group-hover:border-[#E2D1C3] group-hover:text-[#E2D1C3]">
+
+              <div className="mt-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-paper/70 md:justify-end">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-champagne" />
+                {t.women.product}
+              </div>
+
+              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-paper px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)] transition group-hover:bg-champagne group-hover:text-ink">
                 {t.women.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-              </span>
+              </div>
             </div>
           </div>
         </Link>
       </div>
 
-      {/* Center brand seam + shared subtitle */}
+      {/* Center seam with monogram medallion */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/25 to-transparent md:block"
+        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/25 to-transparent md:block"
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block"
+      >
+        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-paper/25 bg-ink/60 font-editorial text-lg italic text-paper backdrop-blur-md">
+          <span className="tracking-tight">E</span>
+        </div>
+      </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-3 px-6 pb-6 text-center md:pb-8">
-        <div className="text-[10px] font-medium uppercase tracking-[0.4em] text-white/70">
+      {/* Bottom manifesto strip */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-2 px-6 pb-6 text-center md:pb-8">
+        <div className="font-mono text-[10px] uppercase tracking-[0.42em] text-paper/70">
           {t.eyebrow}
         </div>
-        <p className="max-w-xl font-[Lato] text-sm leading-relaxed text-white/75 md:text-[15px]">
-          {t.sub}
+        <p className="max-w-xl font-sans text-sm leading-relaxed text-paper/75 md:text-[15px]">
+          {t.manifesto}
         </p>
       </div>
     </section>
