@@ -38,7 +38,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   }, []);
 
   // Rotas com hero claro precisam de tinta escura desde o topo (antes do scroll).
-  const path = location.pathname.replace(/^\/(pt|en|fr)/i, "");
+  const path = location.pathname.replace(/^\/(br|pt|en|fr)/i, "");
   const lightHeroRoute = path === "/women" || path.startsWith("/technology") || path.startsWith("/about") || path.startsWith("/faq") || path.startsWith("/shipping") || path.startsWith("/warranty") || path.startsWith("/contact") || path.startsWith("/lenses");
   const useInk = compact || scrolled || lightHeroRoute;
 
