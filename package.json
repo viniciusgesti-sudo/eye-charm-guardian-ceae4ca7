@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "test:collisions": "python tests/visual/collisions.py",
+    "validate:images": "python scripts/validate-images.py",
     "format": "prettier --write ."
   },
   "dependencies": {
