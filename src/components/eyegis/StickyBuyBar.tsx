@@ -32,9 +32,11 @@ export function StickyBuyBar() {
       className={`fixed inset-x-0 bottom-0 z-[55] transition-all duration-500 md:inset-auto md:bottom-6 md:right-6 ${
         visible
           ? "translate-y-0 opacity-100"
-          : "translate-y-full opacity-0 md:translate-y-4"
+          : "translate-y-full opacity-0 md:translate-y-4 pointer-events-none"
       }`}
-      aria-hidden={!visible}
+      // Use `inert` instead of aria-hidden so focusable descendants are
+      // fully removed from the tab order while the bar is off-screen.
+      {...(!visible ? { inert: "" as unknown as boolean } : {})}
     >
       {/* Mobile bar */}
       <div className="md:hidden border-t border-ink/10 bg-paper/95 px-4 py-3 backdrop-blur-xl">
