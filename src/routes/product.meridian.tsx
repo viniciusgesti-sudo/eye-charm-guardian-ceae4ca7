@@ -46,7 +46,7 @@ export const Route = createFileRoute("/product/meridian")({
             name: "Men's Collection by Eyegis",
             brand: { "@type": "Brand", name: "Eyegis" },
             description:
-              "Premium blue-light filtering eyewear. TR90 lightweight frame with EyegisGuard™ lenses that block up to 45% of harmful blue light (400–455 nm) without distorting color.",
+              "Premium blue-light filtering eyewear. Lightweight TR90 frame with EyegisGuard™ lenses that selectively filter high-energy visible light (400–455 nm) without distorting color. Honest Science™.",
             image: [MERIDIAN_OG],
             sku: "EYG-MRD-01",
             category: "Eyewear > Blue Light Glasses",
