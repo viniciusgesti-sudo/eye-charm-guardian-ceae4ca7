@@ -10,33 +10,33 @@ type Copy = {
 
 const COPY: Record<Lang, Copy> = {
   EN: {
-    eyebrow: "Why Eyegis makes a difference",
-    title1: "Three things",
-    title2: "that make the difference.",
+    eyebrow: "Honest Science™ · Engineered for vision",
+    title1: "Three principles,",
+    title2: "no marketing myths.",
     steps: [
-      { n: "01", title: "EyegisGuard™ Technology",  body: "Selective blue-light filtering lenses designed to protect your eyes while preserving true colors and natural contrast." },
-      { n: "02", title: "Comfort & Style",           body: "Thoughtfully designed frames combining premium aesthetics with all-day comfort in lightweight TR90." },
-      { n: "03", title: "Focus & Performance",       body: "Helps reduce digital eye strain and headaches while supporting healthier sleep." },
+      { n: "01", title: "Selective filtering, not tinted glass", body: "E-Guard Retina™ and E-Guard Circadian™ lenses target the specific wavelengths involved in digital eye strain — while letting through the light your eyes need to see colors as they are." },
+      { n: "02", title: "Designed to be worn all day",           body: "Lightweight TR90 frames, balanced hinges and clean silhouettes — made to disappear on your face and belong in your wardrobe." },
+      { n: "03", title: "Comfort you can feel",                  body: "Less visual fatigue during screen time, softer transitions into the evening — supported by peer-reviewed optical principles, not overpromises." },
     ],
   },
   PT: {
-    eyebrow: "Por que a Eyegis faz diferença",
-    title1: "Três coisas",
-    title2: "que fazem a diferença.",
+    eyebrow: "Honest Science™ · Engenharia para a visão",
+    title1: "Três princípios,",
+    title2: "sem mitos de marketing.",
     steps: [
-      { n: "01", title: "Tecnologia EyegisGuard™",   body: "Lentes com filtragem seletiva de luz azul, desenhadas para proteger os olhos preservando cores verdadeiras e contraste natural." },
-      { n: "02", title: "Conforto & Estilo",         body: "Armações pensadas para unir estética premium e conforto o dia todo, em TR90 ultraleve." },
-      { n: "03", title: "Foco & Performance",        body: "Ajuda a reduzir fadiga visual digital e dores de cabeça, favorecendo um sono mais saudável." },
+      { n: "01", title: "Filtragem seletiva, não lente colorida", body: "As lentes E-Guard Retina™ e E-Guard Circadian™ atuam sobre os comprimentos de onda envolvidos na fadiga visual digital — deixando passar a luz que seus olhos precisam para ver as cores como elas são." },
+      { n: "02", title: "Feitas para o dia inteiro",              body: "Armações TR90 leves, charneiras equilibradas e silhuetas limpas — pensadas para desaparecer no rosto e pertencer ao seu guarda-roupa." },
+      { n: "03", title: "Um conforto que você sente",             body: "Menos fadiga visual nas horas de tela, transições mais suaves para a noite — apoiado em princípios ópticos revisados por pares, sem promessas exageradas." },
     ],
   },
   FR: {
-    eyebrow: "Pourquoi Eyegis fait la différence",
-    title1: "Trois choses",
-    title2: "qui font la différence.",
+    eyebrow: "Honest Science™ · Pensé pour la vision",
+    title1: "Trois principes,",
+    title2: "aucun mythe marketing.",
     steps: [
-      { n: "01", title: "Technologie EyegisGuard™",  body: "Verres à filtrage sélectif de lumière bleue, conçus pour protéger les yeux tout en préservant les vraies couleurs et le contraste naturel." },
-      { n: "02", title: "Confort & Style",           body: "Des montures pensées pour allier esthétique premium et confort toute la journée, en TR90 léger." },
-      { n: "03", title: "Focus & Performance",       body: "Aide à réduire la fatigue visuelle numérique et les maux de tête, en soutenant un sommeil plus sain." },
+      { n: "01", title: "Filtrage sélectif, pas un verre teinté", body: "Les verres E-Guard Retina™ et E-Guard Circadian™ ciblent les longueurs d'onde impliquées dans la fatigue visuelle numérique — tout en laissant passer la lumière dont vos yeux ont besoin pour voir les couleurs telles qu'elles sont." },
+      { n: "02", title: "Conçues pour être portées toute la journée", body: "Montures TR90 légères, charnières équilibrées et silhouettes épurées — pensées pour s'oublier sur le visage et trouver leur place dans votre vestiaire." },
+      { n: "03", title: "Un confort qui se ressent",              body: "Moins de fatigue visuelle face aux écrans, une transition plus douce vers le soir — soutenu par des principes optiques évalués par les pairs, sans promesses exagérées." },
     ],
   },
 };
