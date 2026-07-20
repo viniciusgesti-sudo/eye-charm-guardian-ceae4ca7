@@ -58,6 +58,111 @@ const FOOTER_LINKS = [
   { name: "compliance", re: /href="\/(?:br|en|fr)\/compliance"/ },
 ];
 
+// Stricter contract for /about — the page is the most link-shared entry point
+// after the home hero, so a regression here (missing nav item, mistranslated
+// label, broken href) is the fastest way to notice a visual/nav regression.
+// We assert BOTH the exact href AND the exact translated label per locale.
+// Labels come from src/i18n/translations.ts (header) and
+// src/components/eyegis/Footer.tsx (footer). Update alongside those files.
+const ABOUT_CONTRACT = {
+  br: {
+    header: [
+      { label: "Homem",             href: "/br/men" },
+      { label: "Mulher",            href: "/br/women" },
+      { label: "Kids & Teens",      href: "/br/kids" },
+      { label: "Escolha suas lentes", href: "/br/lenses" },
+      { label: "Nossa Tecnologia",  href: "/br/technology" },
+      { label: "Sobre a Eyegis",    href: "/br/about" },
+    ],
+    footer: [
+      { label: "Termos de Uso",              href: "/br/legal" },
+      { label: "Política de Privacidade",    href: "/br/privacy" },
+      { label: "Declaração de Conformidade", href: "/br/compliance" },
+    ],
+  },
+  en: {
+    header: [
+      { label: "Men",               href: "/en/men" },
+      { label: "Women",             href: "/en/women" },
+      { label: "Kids & Teens",      href: "/en/kids" },
+      { label: "Choose your lenses", href: "/en/lenses" },
+      { label: "Our Technology",    href: "/en/technology" },
+      { label: "About Eyegis",      href: "/en/about" },
+    ],
+    footer: [
+      { label: "Website Terms of Use",       href: "/en/legal" },
+      { label: "Privacy Policy",             href: "/en/privacy" },
+      { label: "Declaration of Compliance",  href: "/en/compliance" },
+    ],
+  },
+  fr: {
+    header: [
+      { label: "Homme",             href: "/fr/men" },
+      { label: "Femme",             href: "/fr/women" },
+      { label: "Enfants & Ados",    href: "/fr/kids" },
+      { label: "Choisir ses verres", href: "/fr/lenses" },
+      { label: "Notre Technologie", href: "/fr/technology" },
+      { label: "À propos d'Eyegis", href: "/fr/about" },
+    ],
+    footer: [
+      { label: "Mentions légales",              href: "/fr/legal" },
+      { label: "Politique de confidentialité",  href: "/fr/privacy" },
+      { label: "Déclaration de conformité",     href: "/fr/compliance" },
+    ],
+  },
+};
+
+function decodeEntities(s) {
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&#x27;|&#39;|&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&nbsp;/g, " ");
+}
+
+// Extract every <a href="…">…</a> pair as { href, label } after stripping
+// nested tags and decoding basic HTML entities. Case-insensitive, tolerant
+// of attribute order (href may appear before or after other attributes).
+function extractAnchors(html) {
+  const out = [];
+  const re = /<a\b([^>]*?)>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = re.exec(html))) {
+    const attrs = m[1];
+    const hrefMatch = attrs.match(/\shref="([^"]*)"/i) ?? attrs.match(/^href="([^"]*)"/i);
+    if (!hrefMatch) continue;
+    const label = decodeEntities(m[2].replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+    out.push({ href: hrefMatch[1], label });
+  }
+  return out;
+}
+
+function checkAboutContract(html, locale) {
+  const problems = [];
+  const contract = ABOUT_CONTRACT[locale];
+  if (!contract) return problems;
+  const anchors = extractAnchors(html);
+  for (const expected of [...contract.header, ...contract.footer]) {
+    const hit = anchors.find(
+      (a) => a.href === expected.href && a.label === expected.label,
+    );
+    if (hit) continue;
+    // Distinguish "href missing" from "href present but label drifted".
+    const hrefHit = anchors.find((a) => a.href === expected.href);
+    if (!hrefHit) {
+      problems.push(`about: missing link href="${expected.href}" (label "${expected.label}")`);
+    } else {
+      problems.push(
+        `about: label drift for href="${expected.href}" — expected "${expected.label}", got "${hrefHit.label}"`,
+      );
+    }
+  }
+  return problems;
+}
+
+
 
 const BAD_TITLES = new Set(["Lovable App", "Lovable Generated Project", ""]);
 
