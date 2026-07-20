@@ -190,16 +190,16 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               <div className="flex items-center gap-3 font-eyebrow text-xs">
                 {LOCALES.map((l, i) => (
                   <div key={l} className="flex items-center gap-3">
-                    {i > 0 && <span className="opacity-25">·</span>}
+                    {i > 0 && <span className="text-ink/50" aria-hidden="true">·</span>}
                     <button
                       onClick={() => {
                         switchLocale(l);
                         setMobileOpen(false);
                       }}
-                      className={`uppercase transition-opacity ${
+                      className={`uppercase transition-colors ${
                         currentSeg === l
-                          ? "opacity-100 text-teal font-semibold"
-                          : "text-ink hover:opacity-100"
+                          ? "text-teal font-semibold underline underline-offset-4"
+                          : "text-ink hover:text-teal"
                       }`}
                       aria-current={currentSeg === l ? "true" : undefined}
                     >
