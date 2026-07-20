@@ -569,7 +569,6 @@ function emitGithubAnnotations() {
       .filter(Boolean)
       .join("\n");
     try {
-      const { appendFileSync } = require("node:fs");
       appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines + "\n");
     } catch {
       /* summary write is best-effort */
