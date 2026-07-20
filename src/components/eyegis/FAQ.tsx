@@ -167,7 +167,7 @@ function FaqCard({
         <div className="overflow-hidden">
           <div
             className="px-6 pb-7 pl-[76px] pr-16 text-[15px] leading-relaxed md:px-8 md:pl-[92px]"
-            style={{ color: "rgba(29,37,45,0.75)" }}
+            style={{ color: "rgba(29,37,45,0.88)" }}
           >
             <div
               className="mb-5 h-px w-full"
