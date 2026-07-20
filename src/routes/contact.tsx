@@ -679,8 +679,8 @@ function ContactPage() {
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-6 text-[52px] leading-[0.98] tracking-[-0.02em] md:text-[112px] lg:text-[140px]"
-                style={{ fontFamily: serif, fontWeight: 400 }}
+                className="mt-6 leading-[0.98] tracking-[-0.02em]"
+                style={{ fontFamily: serif, fontWeight: 400, fontSize: "clamp(44px, 11vw, 140px)" }}
               >
                 {c.hero.title[0]}
                 <br />
