@@ -2,7 +2,29 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* ==========================================================================
+   Metric-matched fallback fonts — cut CLS while Google Fonts swap in.
+   Values derived from Fontsource/next-font adjust-font-fallback for Arial.
+   ========================================================================== */
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  ascent-override: 93.11%;
+  descent-override: 24.14%;
+  line-gap-override: 0%;
+  size-adjust: 100.53%;
+}
+@font-face {
+  font-family: "Lato Fallback";
+  src: local("Arial");
+  ascent-override: 101.34%;
+  descent-override: 21.9%;
+  line-gap-override: 0%;
+  size-adjust: 97.4%;
+}
+
 @custom-variant dark (&:is(.dark *));
+
 
 /* ==========================================================================
    EYEGIS — Luxury Technology Design System
@@ -15,9 +37,9 @@
   --radius-lg: 6px;
   --radius-xl: 10px;
 
-  --font-serif: "Montserrat", ui-serif, Georgia, serif;
-  --font-sans: "Lato", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Montserrat", "Montserrat Fallback", ui-serif, Georgia, serif;
+  --font-sans: "Lato", "Lato Fallback", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
 
