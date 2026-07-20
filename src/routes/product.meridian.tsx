@@ -21,51 +21,48 @@ import { VsGenerics } from "@/components/eyegis/VsGenerics";
 import { Header } from "@/components/eyegis/Header";
 import { Footer } from "@/components/eyegis/Footer";
 
+import { buildSeo, SITE } from "@/lib/seo";
+
+const MERIDIAN_OG = `${SITE}/og-meridian.jpg`;
+
 export const Route = createFileRoute("/product/meridian")({
-  head: () => ({
-    meta: [
-      { title: "Meridian — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Meridian by Eyegis — TR90 lightweight frame with EyegisGuard™ blue-light filtering. Engineered for long screen hours, designed for everyday elegance.",
-      },
-      { property: "og:title", content: "Meridian — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Premium blue-light filtering eyewear. TR90 frame, anti-reflective coating, 60-day comfort guarantee.",
-      },
-      { property: "og:type", content: "product" },
-      { property: "og:image", content: "https://eye-charm-guardian.lovable.app/og-meridian.jpg" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "https://eye-charm-guardian.lovable.app/product/meridian" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: "Meridian by Eyegis",
-          brand: { "@type": "Brand", name: "Eyegis" },
-          description:
-            "Premium blue-light filtering eyewear. TR90 lightweight frame with EyegisGuard™ lenses that block up to 45% of harmful blue light (400–455 nm) without distorting color.",
-          image: ["https://eye-charm-guardian.lovable.app/og-meridian.jpg"],
-          sku: "EYG-MRD-01",
-          category: "Eyewear > Blue Light Glasses",
-          offers: {
-            "@type": "Offer",
-            url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/PreOrder",
-            priceCurrency: "USD",
-            price: "89.00",
-            seller: { "@type": "Organization", name: "Eyegis" },
-          },
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const seo = buildSeo({
+      title: "Meridian by Eyegis — TR90 Blue-Light Glasses",
+      description:
+        "Meridian by Eyegis — TR90 lightweight frame with EyegisGuard™ blue-light filtering. Engineered for long screen hours, designed for everyday elegance.",
+      path: "/product/meridian",
+      image: MERIDIAN_OG,
+      ogType: "product",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Meridian by Eyegis",
+            brand: { "@type": "Brand", name: "Eyegis" },
+            description:
+              "Premium blue-light filtering eyewear. TR90 lightweight frame with EyegisGuard™ lenses that block up to 45% of harmful blue light (400–455 nm) without distorting color.",
+            image: [MERIDIAN_OG],
+            sku: "EYG-MRD-01",
+            category: "Eyewear > Blue Light Glasses",
+            offers: {
+              "@type": "Offer",
+              url: DEFAULT_AMAZON_URL,
+              availability: "https://schema.org/PreOrder",
+              priceCurrency: "USD",
+              price: "89.00",
+              seller: { "@type": "Organization", name: "Eyegis" },
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: MeridianProduct,
 });
 
