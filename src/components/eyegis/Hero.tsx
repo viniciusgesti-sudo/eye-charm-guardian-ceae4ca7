@@ -26,59 +26,60 @@ const ALTS = {
 const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
-    manifesto: "Two cities. Two lights. One promise — eyewear engineered for vision, designed for style.",
+    manifesto: "Two cities. Two lights. Eyewear engineered for vision.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "Engineered",
       titleB: "for Vision.",
-      product: "Meridian · black acetate · E-Guard Retina™",
-      cta: "Shop Men",
+      product: "Meridian · black acetate",
+      cta: "Men",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Designed",
       titleB: "for Style.",
-      product: "Solène · tortoise acetate · E-Guard Circadian™",
-      cta: "Shop Women",
+      product: "Solène · tortoise acetate",
+      cta: "Women",
     },
   },
   PT: {
-    eyebrow: "O Manifesto Eyegis",
-    manifesto: "Duas cidades. Duas luzes. Uma promessa — eyewear com engenharia para a visão e design para o estilo.",
+    eyebrow: "Manifesto Eyegis",
+    manifesto: "Duas cidades. Duas luzes. Eyewear com engenharia para a visão.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "Engenharia",
       titleB: "para a Visão.",
-      product: "Meridian · acetato preto · E-Guard Retina™",
-      cta: "Ver Masculino",
+      product: "Meridian · acetato preto",
+      cta: "Masculino",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Design",
       titleB: "para o Estilo.",
-      product: "Solène · acetato tartaruga · E-Guard Circadian™",
-      cta: "Ver Feminino",
+      product: "Solène · acetato tartaruga",
+      cta: "Feminino",
     },
   },
   FR: {
-    eyebrow: "Le Manifeste Eyegis",
-    manifesto: "Deux villes. Deux lumières. Une promesse — une lunetterie d'ingénierie et de style.",
+    eyebrow: "Manifeste Eyegis",
+    manifesto: "Deux villes. Deux lumières. Une lunetterie d'ingénierie.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "L'ingénierie",
       titleB: "de la vision.",
-      product: "Meridian · acétate noir · E-Guard Retina™",
+      product: "Meridian · acétate noir",
       cta: "Homme",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Le design",
       titleB: "du style.",
-      product: "Solène · acétate écaille · E-Guard Circadian™",
+      product: "Solène · acétate écaille",
       cta: "Femme",
     },
   },
 } as const;
+
 
 export function Hero({ locale }: Props) {
   const { lang: language } = useI18n();
