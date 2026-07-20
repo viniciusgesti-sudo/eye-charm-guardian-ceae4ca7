@@ -26,59 +26,60 @@ const ALTS = {
 const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
-    manifesto: "Two cities. Two lights. One promise — eyewear engineered for vision, designed for style.",
+    manifesto: "Two cities. Two lights. Eyewear engineered for vision.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "Engineered",
       titleB: "for Vision.",
-      product: "Meridian · black acetate · E-Guard Retina™",
-      cta: "Shop Men",
+      product: "Meridian · black acetate",
+      cta: "Men",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Designed",
       titleB: "for Style.",
-      product: "Solène · tortoise acetate · E-Guard Circadian™",
-      cta: "Shop Women",
+      product: "Solène · tortoise acetate",
+      cta: "Women",
     },
   },
   PT: {
-    eyebrow: "O Manifesto Eyegis",
-    manifesto: "Duas cidades. Duas luzes. Uma promessa — eyewear com engenharia para a visão e design para o estilo.",
+    eyebrow: "Manifesto Eyegis",
+    manifesto: "Duas cidades. Duas luzes. Eyewear com engenharia para a visão.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "Engenharia",
       titleB: "para a Visão.",
-      product: "Meridian · acetato preto · E-Guard Retina™",
-      cta: "Ver Masculino",
+      product: "Meridian · acetato preto",
+      cta: "Masculino",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Design",
       titleB: "para o Estilo.",
-      product: "Solène · acetato tartaruga · E-Guard Circadian™",
-      cta: "Ver Feminino",
+      product: "Solène · acetato tartaruga",
+      cta: "Feminino",
     },
   },
   FR: {
-    eyebrow: "Le Manifeste Eyegis",
-    manifesto: "Deux villes. Deux lumières. Une promesse — une lunetterie d'ingénierie et de style.",
+    eyebrow: "Manifeste Eyegis",
+    manifesto: "Deux villes. Deux lumières. Une lunetterie d'ingénierie.",
     men: {
       tag: "Meridian · São Paulo",
       titleA: "L'ingénierie",
       titleB: "de la vision.",
-      product: "Meridian · acétate noir · E-Guard Retina™",
+      product: "Meridian · acétate noir",
       cta: "Homme",
     },
     women: {
       tag: "Solène · Paris",
       titleA: "Le design",
       titleB: "du style.",
-      product: "Solène · acétate écaille · E-Guard Circadian™",
+      product: "Solène · acétate écaille",
       cta: "Femme",
     },
   },
 } as const;
+
 
 export function Hero({ locale }: Props) {
   const { lang: language } = useI18n();
@@ -122,7 +123,7 @@ export function Hero({ locale }: Props) {
           {/* Readability scrim behind copy */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[rgba(6,12,18,0.8)] via-[rgba(6,12,18,0.4)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(6,12,18,0.8)] via-[rgba(6,12,18,0.4)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
           <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:p-12 md:pb-16">
 
@@ -132,17 +133,17 @@ export function Hero({ locale }: Props) {
             </div>
 
             <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2.5rem,7.5vw,5.75rem)] font-light leading-[0.94] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
+              <h2 className="font-editorial text-[clamp(2rem,5.2vw,4rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
                 <span className="block">{t.men.titleA}</span>
                 <span className="block italic text-mint">{t.men.titleB}</span>
               </h2>
 
-              <div className="mt-5 flex items-start gap-2 font-mono text-[11px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
+              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
                 <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
                 <span className="min-w-0">{t.men.product}</span>
               </div>
 
-              <div className="mt-7 inline-flex items-center gap-3 rounded-full bg-paper px-6 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)] transition group-hover:bg-mint group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
+              <div className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-paper px-5 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)] transition group-hover:bg-mint group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
                 {t.men.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
@@ -173,7 +174,7 @@ export function Hero({ locale }: Props) {
           {/* Readability scrim behind copy — blurred backdrop for AA contrast on bright imagery */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
           <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:items-end md:p-12 md:pb-16 md:text-right">
 
@@ -183,17 +184,17 @@ export function Hero({ locale }: Props) {
             </div>
 
             <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2.5rem,7.5vw,5.75rem)] font-light leading-[0.94] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
+              <h2 className="font-editorial text-[clamp(2rem,5.2vw,4rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
                 <span className="block">{t.women.titleA}</span>
                 <span className="block italic text-champagne">{t.women.titleB}</span>
               </h2>
 
-              <div className="mt-5 flex items-start gap-2 font-mono text-[11px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
+              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
                 <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
                 <span className="min-w-0">{t.women.product}</span>
               </div>
 
-              <div className="mt-7 inline-flex items-center gap-3 rounded-full bg-paper px-6 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)] transition group-hover:bg-champagne group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
+              <div className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-paper px-5 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)] transition group-hover:bg-champagne group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
                 {t.women.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
