@@ -420,7 +420,7 @@ export function Universe() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.02] tracking-[-0.02em] text-[36px] md:text-[46px] lg:text-[54px] max-w-[18ch]">
+              <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.05] tracking-[-0.02em] text-[28px] sm:text-[36px] md:text-[46px] lg:text-[54px] md:max-w-[18ch]">
                 {copy.noteHeadline1}
                 <span className="italic text-teal">{copy.noteHeadlineAccent}</span>
                 {copy.noteHeadline2}
