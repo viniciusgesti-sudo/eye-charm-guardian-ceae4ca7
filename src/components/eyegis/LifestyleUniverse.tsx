@@ -59,39 +59,39 @@ function Reveal({
 function IconCreative() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <path d="M3 19 13 5l4 3-10 14H3v-3Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
-      <path d="M13 5l2-2 4 3-2 2" stroke="currentColor" strokeWidth="1" />
+      <path d="M3 19 13 5l4 3-10 14H3v-3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M13 5l2-2 4 3-2 2" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconBusiness() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="3" y="7" width="16" height="11" stroke="currentColor" strokeWidth="1" />
-      <path d="M8 7V4h6v3M3 12h16" stroke="currentColor" strokeWidth="1" />
+      <rect x="3" y="7" width="16" height="11" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 7V4h6v3M3 12h16" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconGaming() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <rect x="3" y="6" width="16" height="10" rx="5" stroke="currentColor" strokeWidth="1" />
-      <path d="M7 11h3M8.5 9.5v3M14 10.5h.01M16 12.5h.01" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <rect x="3" y="6" width="16" height="10" rx="5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 11h3M8.5 9.5v3M14 10.5h.01M16 12.5h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 function IconStudent() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <path d="M2 8l9-4 9 4-9 4-9-4Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
-      <path d="M6 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5M19 8v6" stroke="currentColor" strokeWidth="1" />
+      <path d="M2 8l9-4 9 4-9 4-9-4Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M6 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5M19 8v6" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 function IconTravel() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-      <path d="M3 14l16-8-4 12-4-4-4 3-1-2-3-1Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+      <path d="M3 14l16-8-4 12-4-4-4 3-1-2-3-1Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
     </svg>
   );
 }
