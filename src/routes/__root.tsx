@@ -7,12 +7,17 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "../i18n/context";
-import { CookieBanner } from "../components/eyegis/CookieBanner";
+
+// Cookie banner is non-critical and shown after hydration — lazy-load to keep
+// it out of the client entry chunk.
+const CookieBanner = lazy(() =>
+  import("../components/eyegis/CookieBanner").then((m) => ({ default: m.CookieBanner })),
+);
 
 function NotFoundComponent() {
   return (
