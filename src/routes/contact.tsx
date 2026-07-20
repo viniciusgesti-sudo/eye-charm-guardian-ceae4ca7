@@ -858,7 +858,7 @@ function ContactPage() {
             </Reveal>
             <Reveal delay={240} className="md:col-span-5">
               <a
-                href="https://www.amazon.com/eyegis"
+                href="https://www.amazon.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-between px-8 py-6 text-[12px] uppercase tracking-[0.3em] transition-colors"
@@ -1060,7 +1060,7 @@ function ContactPage() {
           <Reveal delay={120} className="md:col-span-5">
             <div className="flex flex-col gap-3">
               <a
-                href="https://www.amazon.com/eyegis"
+                href="https://www.amazon.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-between px-8 py-5 text-[12px] uppercase tracking-[0.3em]"

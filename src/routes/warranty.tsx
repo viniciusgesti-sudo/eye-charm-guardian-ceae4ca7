@@ -177,8 +177,8 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
       lead: "Real people, responding within one business day. Choose the channel that suits you.",
       tiles: [
         { k: "Contact Support", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Shipping & Returns", d: "Managed by Amazon", href: "https://www.amazon.com/gp/help/customer/display.html" },
-        { k: "Amazon Orders", d: "Track & return orders", href: "https://www.amazon.com/gp/your-account/order-history" },
+        { k: "Shipping & Returns", d: "Managed by Amazon", href: "https://www.amazon.com.br/" },
+        { k: "Amazon Orders", d: "Track & return orders", href: "https://www.amazon.com.br/" },
         { k: "FAQ", d: "Answers on lenses, fit & care", href: "/lenses" },
       ],
       openLabel: "Open →",
@@ -279,8 +279,8 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
       lead: "Pessoas reais, respondendo em até um dia útil. Escolha o canal que preferir.",
       tiles: [
         { k: "Contato Suporte", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Envio & Devoluções", d: "Gerenciado pela Amazon", href: "https://www.amazon.com/gp/help/customer/display.html" },
-        { k: "Pedidos na Amazon", d: "Rastrear e devolver pedidos", href: "https://www.amazon.com/gp/your-account/order-history" },
+        { k: "Envio & Devoluções", d: "Gerenciado pela Amazon", href: "https://www.amazon.com.br/" },
+        { k: "Pedidos na Amazon", d: "Rastrear e devolver pedidos", href: "https://www.amazon.com.br/" },
         { k: "FAQ", d: "Respostas sobre lentes, ajuste e cuidados", href: "/lenses" },
       ],
       openLabel: "Abrir →",
@@ -381,8 +381,8 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
       lead: "De vraies personnes, répondant sous un jour ouvré. Choisissez le canal qui vous convient.",
       tiles: [
         { k: "Contact Support", d: "care@eyegis.com", href: "mailto:care@eyegis.com" },
-        { k: "Livraison & Retours", d: "Géré par Amazon", href: "https://www.amazon.com/gp/help/customer/display.html" },
-        { k: "Commandes Amazon", d: "Suivre et retourner les commandes", href: "https://www.amazon.com/gp/your-account/order-history" },
+        { k: "Livraison & Retours", d: "Géré par Amazon", href: "https://www.amazon.com.br/" },
+        { k: "Commandes Amazon", d: "Suivre et retourner les commandes", href: "https://www.amazon.com.br/" },
         { k: "FAQ", d: "Réponses sur verres, ajustement et entretien", href: "/lenses" },
       ],
       openLabel: "Ouvrir →",
@@ -975,7 +975,7 @@ function WarrantyPage() {
             <Reveal delay={120} className="md:col-span-5">
               <div className="flex flex-col gap-3">
                 <a
-                  href="https://www.amazon.com/eyegis"
+                  href="https://www.amazon.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors"
