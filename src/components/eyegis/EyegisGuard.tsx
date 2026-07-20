@@ -80,9 +80,9 @@ const COPY: Record<Lang, GuardCopy> = {
       pills: ["Natural Colors", "Contrast Preservation", "Reduced Harsh Reflections", "Visual Comfort"],
     },
     s04: {
-      label: "Designed For Everyday Digital Life",
+      label: "For Every Digital Life",
       title1: "One lens.",
-      titleAccent: " Many quiet lives.",
+      titleAccent: " Every kind of day.",
     },
     s05: {
       label: "Technical Specifications",
