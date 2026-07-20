@@ -121,7 +121,7 @@ type FooterCopy = {
     { title: string; links: { label: string; to?: string; href?: string; external?: boolean }[] },
     { title: string; links: { label: string; to?: string; href?: string; hash?: string }[] },
     { title: string; links: { label: string; to?: string; href?: string }[] },
-    { title: string; social: { label: string; href: string; icon: (p: React.SVGProps<SVGSVGElement>) => JSX.Element }[] },
+    { title: string; social: { label: string; href: string; icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactElement }[] },
   ];
   copyright: string;
   langLabel: string;
