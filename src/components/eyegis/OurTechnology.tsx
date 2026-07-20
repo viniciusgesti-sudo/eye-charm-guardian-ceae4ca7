@@ -222,11 +222,11 @@ function MoonGlyph({ className = "" }: { className?: string }) {
   );
 }
 
-/* Small orange/copper progress-bar accent */
+/* Brand-tinted progress-bar accent (Deep Teal → Mint) */
 function CopperAccent() {
   return (
-    <div className="mt-4 h-[3px] w-24 overflow-hidden rounded-full bg-[#F3E4D2]">
-      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#F5B841] via-[#E08A3C] to-[#C25E2C]" />
+    <div className="mt-4 h-[3px] w-24 overflow-hidden rounded-full bg-champagne">
+      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-teal-deep via-teal to-mint" />
     </div>
   );
 }
