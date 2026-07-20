@@ -98,7 +98,7 @@ function MenPage() {
       <LifestyleUniverse audience="men" />
       <ModelRunway audience="men" />
 
-      <EyegisGuard />
+      <EyegisGuard audience="men" />
       <ShopOnAmazon />
       <FAQ />
     </>
