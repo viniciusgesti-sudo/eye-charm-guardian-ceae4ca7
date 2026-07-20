@@ -44,6 +44,10 @@ export default defineConfig({
       // Inline small assets (<=4 KB) to save requests, but let Vite chunk the rest.
       assetsInlineLimit: 4096,
       reportCompressedSize: false,
+      // Emit sourcemaps only when generating a bundle diff report.
+      // `BUNDLE_STATS=1 bun run build` enables per-module attribution used
+      // by scripts/bundle-diff.mjs. Normal builds stay sourcemap-free.
+      sourcemap: process.env.BUNDLE_STATS === "1" ? "hidden" : false,
       rollupOptions: {
         output: {
           // Split heavy vendors out of the client entry chunk so the initial
