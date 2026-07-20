@@ -8,7 +8,7 @@ export const AMAZON_ASIN = ""; // set once the real ASIN is issued
 
 export const ASIN_IS_PLACEHOLDER = !AMAZON_ASIN;
 
-export const COMING_SOON_HREF = "#coming-soon";
+export const COMING_SOON_HREF = "https://www.amazon.com.br/";
 
 type Marketplace = {
   code: string;
@@ -26,16 +26,15 @@ export const MARKETPLACES: Marketplace[] = [
   { code: "IT", label: "Italia",         flag: "🇮🇹", domain: "amazon.it",     active: false },
   { code: "ES", label: "España",         flag: "🇪🇸", domain: "amazon.es",     active: false },
   { code: "CA", label: "Canada",         flag: "🇨🇦", domain: "amazon.ca",     active: false },
-  { code: "BR", label: "Brasil",         flag: "🇧🇷", domain: "amazon.com.br", active: false },
+  { code: "BR", label: "Brasil",         flag: "🇧🇷", domain: "amazon.com.br", active: true  },
 ];
 
-// While the ASIN + associate tag are placeholders, every Amazon CTA routes
-// through the ComingSoonModal instead of a broken /dp/ URL.
-export function amazonUrl(_domain = "amazon.com", _asin = AMAZON_ASIN) {
-  return COMING_SOON_HREF;
+// Amazon store lives on amazon.com.br for now; CTAs deep-link there directly.
+export function amazonUrl(_domain = "amazon.com.br", _asin = AMAZON_ASIN) {
+  return "https://www.amazon.com.br/";
 }
 
-export const DEFAULT_AMAZON_URL = COMING_SOON_HREF;
+export const DEFAULT_AMAZON_URL = "https://www.amazon.com.br/";
 
 // Honest social proof only — no fabricated reviews.
 // When real Amazon reviews exist, set this to
