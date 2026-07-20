@@ -143,7 +143,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             href={DEFAULT_AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer sponsored"
-            className={`group inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs transition-all duration-500 ${
+            className={`group hidden md:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs transition-all duration-500 ${
               useInk
                 ? "border-teal/40 text-teal hover:bg-teal hover:text-paper"
                 : "border-paper/40 text-paper hover:bg-paper hover:text-ink"

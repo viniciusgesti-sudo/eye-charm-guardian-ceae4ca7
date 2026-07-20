@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "@tanstack/react-router";
 
 import universePortraitSrc from "@/assets/universe-portrait.jpg?w=480;768;1024&format=avif;webp;jpg&as=picture";
 import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
@@ -360,11 +361,13 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
    ------------------------------------------------------------------ */
 export function Universe() {
   const { lang } = useI18n();
+  const params = useParams({ strict: false }) as { locale?: string };
+  const locale = params.locale ?? "br";
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
-    { href: "#eyegisguard", image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
-    { href: "/#honest-science", image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
-    { href: "#lenses", image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
     index: p.index,
@@ -411,7 +414,7 @@ export function Universe() {
 
       {/* --------- Editorial intro : two-column asymmetric --------- */}
       <div className="mx-auto mt-24 md:mt-32 lg:mt-40 max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 lg:gap-16 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
             <Reveal delay={80} className="flex items-center gap-4">
@@ -420,7 +423,7 @@ export function Universe() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.02] tracking-[-0.02em] text-[36px] md:text-[46px] lg:text-[54px] max-w-[18ch]">
+              <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.05] tracking-[-0.02em] text-[28px] sm:text-[36px] md:text-[46px] lg:text-[54px] md:max-w-[18ch]">
                 {copy.noteHeadline1}
                 <span className="italic text-teal">{copy.noteHeadlineAccent}</span>
                 {copy.noteHeadline2}
@@ -475,7 +478,7 @@ export function Universe() {
 
       {/* --------- Section transition rule --------- */}
       <div className="mx-auto mt-32 md:mt-40 lg:mt-48 max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-12 gap-10 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end [&>*]:min-w-0">
           <Reveal className="col-span-12 md:col-span-6 flex items-center gap-4">
             <span className="font-eyebrow text-ink/50">{copy.principlesEyebrow}</span>
             <span className="h-px w-16 bg-ink/25" />

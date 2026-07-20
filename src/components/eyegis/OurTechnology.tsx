@@ -267,10 +267,10 @@ export function OurTechnology() {
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-teal">
             § Core Technology
           </span>
-          <h2 className="mt-5 font-editorial text-4xl leading-[1.05] text-[#004B57] md:text-6xl">
+          <h1 className="mt-5 font-editorial text-4xl leading-[1.05] text-[#004B57] md:text-6xl">
             Our Technology —{" "}
             <span className="italic">Engineered for Vision</span>
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
             Two dedicated optical systems. Two distinct challenges of modern
             digital life. One uncompromising standard of visual protection.

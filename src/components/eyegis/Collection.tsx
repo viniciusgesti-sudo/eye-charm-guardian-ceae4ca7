@@ -550,7 +550,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
           <Reveal delay={560}>
             <div className="mt-12 flex flex-col md:flex-row items-start md:items-center gap-5">
               <a
-                href={`#${meta.id}-preview`}
+                href="#preview"
                 className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[240px] max-w-full transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
               >
                 <span className="font-eyebrow">{c.primaryCta}</span>
@@ -1136,7 +1136,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         <Reveal delay={480}>
           <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="/#technology"
+              href="#preview"
               className="cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-paper px-8 py-5 min-w-[280px] text-teal-deep shadow-[0_20px_50px_-20px_rgba(249,249,249,0.35)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-sand-warm"
             >
               <span className="font-eyebrow">{copy.closing.ctaTech}</span>
