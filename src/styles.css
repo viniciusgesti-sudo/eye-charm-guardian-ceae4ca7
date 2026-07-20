@@ -2,7 +2,29 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* ==========================================================================
+   Metric-matched fallback fonts — cut CLS while Google Fonts swap in.
+   Values derived from Fontsource/next-font adjust-font-fallback for Arial.
+   ========================================================================== */
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  ascent-override: 93.11%;
+  descent-override: 24.14%;
+  line-gap-override: 0%;
+  size-adjust: 100.53%;
+}
+@font-face {
+  font-family: "Lato Fallback";
+  src: local("Arial");
+  ascent-override: 101.34%;
+  descent-override: 21.9%;
+  line-gap-override: 0%;
+  size-adjust: 97.4%;
+}
+
 @custom-variant dark (&:is(.dark *));
+
 
 /* ==========================================================================
    EYEGIS — Luxury Technology Design System
