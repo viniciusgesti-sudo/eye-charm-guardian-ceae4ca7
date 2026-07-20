@@ -18,7 +18,6 @@ import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteImport } from './routes/$locale'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
@@ -77,11 +76,6 @@ const DevA11yLogoRoute = DevA11yLogoRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocaleRoute = LocaleRouteImport.update({
@@ -158,7 +152,6 @@ const LocaleAboutRoute = LocaleAboutRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
@@ -183,7 +176,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
@@ -210,7 +202,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
@@ -238,7 +229,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$locale'
-    | '/about'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
@@ -263,7 +253,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
@@ -289,7 +278,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/$locale'
-    | '/about'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
@@ -316,7 +304,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LocaleRoute: typeof LocaleRouteWithChildren
-  AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DevA11yLogoRoute: typeof DevA11yLogoRoute
   FaqRoute: typeof FaqRoute
@@ -395,13 +382,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$locale': {
@@ -533,7 +513,6 @@ const LocaleRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LocaleRoute: LocaleRouteWithChildren,
-  AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DevA11yLogoRoute: DevA11yLogoRoute,
   FaqRoute: FaqRoute,
