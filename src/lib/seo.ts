@@ -40,6 +40,10 @@ export interface SeoOutput {
 export function buildSeo(input: SeoInput): SeoOutput {
   const url = `${SITE}${input.path}`;
   const ogType = input.ogType ?? "website";
+  // Default share image is the brand shield preview shipped in /public.
+  // Leaf routes SHOULD pass their own `image` (product hero, campaign shot)
+  // to override this fallback — never a placeholder generic image.
+  const image = input.image ?? `${SITE}/og-image.jpg`;
 
   const meta: Meta[] = [
     { title: input.title },
@@ -49,17 +53,18 @@ export function buildSeo(input: SeoInput): SeoOutput {
     { property: "og:type", content: ogType },
     { property: "og:url", content: url },
     { property: "og:site_name", content: "Eyegis" },
+    { property: "og:image", content: image },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: `${input.title} — Eyegis` },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: input.title },
     { name: "twitter:description", content: input.description },
+    { name: "twitter:image", content: image },
   ];
 
   if (input.locale) {
     meta.push({ property: "og:locale", content: localeToOg(input.locale) });
-  }
-  if (input.image) {
-    meta.push({ property: "og:image", content: input.image });
-    meta.push({ name: "twitter:image", content: input.image });
   }
   if (input.robots) {
     meta.push({ name: "robots", content: input.robots });
