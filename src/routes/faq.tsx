@@ -245,10 +245,10 @@ const CONTENT: Record<Lang, PageContent> = {
         id: "blue-light",
         label: "Blue Light",
         items: [
-          { q: "Do blue-light glasses really work?", a: "Independent lab data confirms that Eyegis lenses attenuate high-energy visible light in the 400–450nm band. Whether that improves personal comfort varies by individual — which is why we offer a 60-day comfort guarantee.", related: ["technology", "warranty"] },
-          { q: "What does current research say?", a: "Peer-reviewed research on symptomatic relief remains mixed. We publish what our lenses do optically and let you decide, backed by our comfort guarantee.", related: ["technology"] },
+          { q: "Do blue-light glasses really work?", a: "It depends entirely on how the lens is engineered. Many products on the market either filter too little to be meaningful, or filter so broadly that they distort color. Eyegis uses selective filtering — the lens acts only on the specific wavelengths of visible light involved in digital eye strain and evening exposure. We describe what the lens does optically and let you judge the comfort — that is why every pair is backed by a 60-day comfort guarantee.", related: ["technology", "warranty"] },
+          { q: "What does current research say?", a: "Peer-reviewed research on symptomatic relief remains mixed. That is precisely why Honest Science™ exists: we describe how the lens filters light — selectively, on a narrow portion of the spectrum — rather than promising a specific outcome.", related: ["technology"] },
           { q: "Does Eyegis make medical claims?", a: "No. Eyegis is a lifestyle eyewear brand. We do not diagnose, treat or cure any condition. Consult a qualified optometrist for medical advice.", related: ["technology"] },
-          { q: "Why is Honest Science™ important?", a: "The blue-light category is full of unverifiable claims. Honest Science™ means every optical statement we make is measurable and independently verified.", related: ["technology"] },
+          { q: "Why does Honest Science™ matter?", a: "The blue-light category is full of unverifiable promises. Honest Science™ means we only describe what our lenses actually do — selective filtering on specific wavelengths, without a tint over your vision — and never sell a feeling or a percentage of relief.", related: ["technology"] },
         ],
       },
       {
