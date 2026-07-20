@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useI18n } from "@/i18n/context";
+import type { Lang } from "@/i18n/translations";
 
 const TEAL = "#004B57";
-const TEAL_DEEP = "#003842"; // Deep Teal shade
+const TEAL_DEEP = "#003842";
 const INK = "#1D252D";
 
 type FaqItem = {
@@ -10,6 +12,15 @@ type FaqItem = {
   a: string;
   icon: React.ReactNode;
 };
+
+type Copy = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  items: { q: string; a: string; iconKey: IconKey }[];
+};
+
+type IconKey = "microscope" | "people" | "headset" | "glasses" | "box" | "shield";
 
 const iconProps = {
   width: 28,
@@ -66,38 +77,56 @@ const IconShield = () => (
   </svg>
 );
 
-const ITEMS: FaqItem[] = [
-  {
-    icon: <IconMicroscope />,
-    q: "How does selective filtering actually work?",
-    a: "Honest Science™, in plain words: our E-Guard Retina™ and E-Guard Circadian™ lenses act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure — while letting the rest of the spectrum pass through, so you keep seeing colors as they are. It is not a tinted lens and not a filter over reality. We describe what the lens does optically, not how you should feel wearing it.",
+const ICONS: Record<IconKey, React.ReactNode> = {
+  microscope: <IconMicroscope />,
+  people: <IconPeople />,
+  headset: <IconGlassesHeadset />,
+  glasses: <IconGlassesHeadset />,
+  box: <IconBox />,
+  shield: <IconShield />,
+};
+
+const COPY: Record<Lang, Copy> = {
+  EN: {
+    eyebrow: "Frequently Asked Questions",
+    titleLead: "Still have questions?",
+    titleAccent: "We've got you covered.",
+    items: [
+      { iconKey: "microscope", q: "How does selective filtering actually work?", a: "Honest Science™, in plain words: our E-Guard Retina™ and E-Guard Circadian™ lenses act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure — while letting the rest of the spectrum pass through, so you keep seeing colors as they are. It is not a tinted lens and not a filter over reality. We describe what the lens does optically, not how you should feel wearing it." },
+      { iconKey: "people",     q: "Who are Eyegis glasses designed for?",         a: "Anyone who spends meaningful time in front of screens — working, studying, creating, gaming, streaming or scrolling. Eyegis is built around different lifestyles and levels of digital exposure, from focused daytime hours (E-Guard Retina™) to late-evening use before sleep (E-Guard Circadian™)." },
+      { iconKey: "headset",    q: "Are your glasses compatible with headphones and gaming headsets?", a: "Yes. Our TR90 frames are lightweight and slim at the temples, designed for long sessions and comfortable use with most over-ear headphones and gaming headsets." },
+      { iconKey: "glasses",    q: "Do you make prescription (corrective) glasses?", a: "Not yet — we don't offer prescription lenses at this time. You can wear your Eyegis frames together with your contact lenses." },
+      { iconKey: "box",        q: "What are your shipping and return policies?",    a: "Shipping times and return conditions are handled directly by your local Amazon marketplace and follow its standard policies. Please refer to your marketplace order page for the most up-to-date information." },
+      { iconKey: "shield",     q: "Do Eyegis glasses come with a warranty?",        a: "Yes. Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. Not covered: accidental damage (drops, impact, crushing), normal wear such as everyday scratches, and damage from misuse, excessive heat or modifications. On top of that, we offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't deliver the visual comfort you expected, reach out and we'll work with you to find the best solution." },
+    ],
   },
-  {
-    icon: <IconPeople />,
-    q: "Who are Eyegis glasses designed for?",
-    a: "Anyone who spends meaningful time in front of screens — working, studying, creating, gaming, streaming or scrolling. Eyegis is built around different lifestyles and levels of digital exposure, from focused daytime hours (E-Guard Retina™) to late-evening use before sleep (E-Guard Circadian™).",
+  PT: {
+    eyebrow: "Perguntas Frequentes",
+    titleLead: "Ainda tem dúvidas?",
+    titleAccent: "Estamos aqui para responder.",
+    items: [
+      { iconKey: "microscope", q: "Como funciona a filtragem seletiva, na prática?", a: "Honest Science™, em palavras simples: as lentes E-Guard Retina™ e E-Guard Circadian™ atuam apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna — deixando o restante do espectro passar, para que você continue vendo as cores como elas são. Não é uma lente tingida nem um filtro sobre a realidade. Descrevemos o que a lente faz opticamente, não como você deve se sentir ao usá-la." },
+      { iconKey: "people",     q: "Para quem os óculos Eyegis foram pensados?",     a: "Para qualquer pessoa que passa horas significativas diante de telas — trabalhando, estudando, criando, jogando, transmitindo ou navegando. A Eyegis foi desenhada em torno de diferentes estilos de vida e níveis de exposição digital, das horas focadas do dia (E-Guard Retina™) ao uso noturno antes de dormir (E-Guard Circadian™)." },
+      { iconKey: "headset",    q: "Os óculos são compatíveis com fones e headsets gamers?", a: "Sim. Nossas armações em TR90 são leves e finas nas hastes, pensadas para longas sessões e uso confortável com a maioria dos fones over-ear e headsets gamers." },
+      { iconKey: "glasses",    q: "Vocês fazem óculos de grau?",                    a: "Ainda não — não oferecemos lentes de grau no momento. Você pode usar suas armações Eyegis junto com suas lentes de contato." },
+      { iconKey: "box",        q: "Como funcionam envio e devolução?",              a: "Prazos de envio e condições de devolução são conduzidos diretamente pela Amazon local e seguem as políticas padrão do marketplace. Consulte a página do seu pedido para as informações mais atualizadas." },
+      { iconKey: "shield",     q: "Os óculos Eyegis têm garantia?",                 a: "Sim. Cada par Eyegis é coberto por uma garantia de dois anos contra defeitos de fabricação. Não são cobertos: danos acidentais (quedas, impacto, esmagamento), desgaste normal como arranhões do dia a dia, e danos por uso inadequado, calor excessivo ou modificações. Além disso, oferecemos uma Garantia de Conforto de 60 Dias — se seus Eyegis não entregarem o conforto visual esperado, fale conosco e buscamos a melhor solução com você." },
+    ],
   },
-  {
-    icon: <IconGlassesHeadset />,
-    q: "Are your glasses compatible with headphones and gaming headsets?",
-    a: "Yes. Our TR90 frames are lightweight and slim at the temples, designed for long sessions and comfortable use with most over-ear headphones and gaming headsets.",
+  FR: {
+    eyebrow: "Questions Fréquentes",
+    titleLead: "Encore des questions ?",
+    titleAccent: "Nous avons vos réponses.",
+    items: [
+      { iconKey: "microscope", q: "Comment fonctionne concrètement le filtrage sélectif ?", a: "Honest Science™, en clair : nos verres E-Guard Retina™ et E-Guard Circadian™ n'agissent que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée — tout en laissant passer le reste du spectre, pour que vous continuiez à voir les couleurs telles qu'elles sont. Ce n'est ni un verre teinté, ni un filtre posé sur la réalité. Nous décrivons ce que fait le verre optiquement, pas ce que vous devez ressentir en le portant." },
+      { iconKey: "people",     q: "À qui s'adressent les lunettes Eyegis ?",        a: "À toute personne qui passe un temps significatif devant les écrans — pour travailler, étudier, créer, jouer, streamer ou naviguer. Eyegis est pensée autour de modes de vie et de niveaux d'exposition différents, des heures concentrées de la journée (E-Guard Retina™) à l'usage tardif avant le coucher (E-Guard Circadian™)." },
+      { iconKey: "headset",    q: "Vos lunettes sont-elles compatibles avec les casques audio et gaming ?", a: "Oui. Nos montures TR90 sont légères et fines au niveau des branches, pensées pour de longues sessions et un port confortable sous la plupart des casques audio et gaming." },
+      { iconKey: "glasses",    q: "Proposez-vous des verres correcteurs ?",         a: "Pas encore — nous ne proposons pas de verres correcteurs pour le moment. Vous pouvez porter vos montures Eyegis avec vos lentilles de contact." },
+      { iconKey: "box",        q: "Quelles sont vos conditions d'expédition et de retour ?", a: "Les délais d'expédition et les conditions de retour sont gérés directement par votre marché Amazon local et suivent ses politiques standard. Consultez la page de votre commande pour l'information la plus à jour." },
+      { iconKey: "shield",     q: "Les lunettes Eyegis sont-elles garanties ?",     a: "Oui. Chaque paire Eyegis est couverte par une garantie de deux ans contre les défauts de fabrication. Non couverts : dommages accidentels (chutes, impacts, écrasement), usure normale comme les rayures du quotidien, et dommages liés à un mauvais usage, à une chaleur excessive ou à des modifications. En plus de cela, nous offrons une Garantie Confort de 60 Jours — si vos Eyegis ne délivrent pas le confort visuel attendu, écrivez-nous et nous cherchons la meilleure solution avec vous." },
+    ],
   },
-  {
-    icon: <IconGlassesHeadset />,
-    q: "Do you make prescription (corrective) glasses?",
-    a: "Not yet — we don't offer prescription lenses at this time. You can wear your Eyegis frames together with your contact lenses.",
-  },
-  {
-    icon: <IconBox />,
-    q: "What are your shipping and return policies?",
-    a: "Shipping times and return conditions are handled directly by your local Amazon marketplace and follow its standard policies. Please refer to your marketplace order page for the most up-to-date information.",
-  },
-  {
-    icon: <IconShield />,
-    q: "Do Eyegis glasses come with a warranty?",
-    a: "Yes. Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. Not covered: accidental damage (drops, impact, crushing), normal wear such as everyday scratches, and damage from misuse, excessive heat or modifications. On top of that, we offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't deliver the visual comfort you expected, reach out and we'll work with you to find the best solution.",
-  },
-];
+};
 
 function FaqCard({
   item,
@@ -190,12 +219,19 @@ function FaqCard({
 }
 
 export function FAQ() {
+  const { lang } = useI18n();
+  const c = COPY[lang] ?? COPY.EN;
+  const items: FaqItem[] = c.items.map((it) => ({
+    q: it.q,
+    a: it.a,
+    icon: ICONS[it.iconKey],
+  }));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section
       id="faq"
-      aria-label="Frequently asked questions"
+      aria-label={c.eyebrow}
       className="relative"
       style={{ background: "#F9F9F9" }}
     >
@@ -205,15 +241,15 @@ export function FAQ() {
             className="font-mono text-[11px] uppercase tracking-[0.32em]"
             style={{ color: TEAL_DEEP }}
           >
-            Frequently Asked Questions
+            {c.eyebrow}
           </span>
           <h2
             className="mt-5 font-editorial text-3xl leading-[1.1] md:text-5xl"
             style={{ color: INK }}
           >
-            Still have questions?{" "}
+            {c.titleLead}{" "}
             <span className="italic" style={{ color: TEAL }}>
-              We've got you covered.
+              {c.titleAccent}
             </span>
           </h2>
           <div
@@ -223,7 +259,7 @@ export function FAQ() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 md:mt-16">
-          {ITEMS.map((item, i) => (
+          {items.map((item, i) => (
             <FaqCard
               key={item.q}
               item={item}
