@@ -19,6 +19,7 @@
     "preview:check": "node scripts/preview-check.mjs",
     "preview:check:full": "node scripts/preview-check.mjs --build",
     "smoke:routes": "node scripts/smoke-routes.mjs",
+    "smoke:about": "node scripts/smoke-about.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {
