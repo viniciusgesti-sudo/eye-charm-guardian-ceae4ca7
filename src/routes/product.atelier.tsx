@@ -10,53 +10,48 @@ import packageImg from "@/assets/products/atelier-package.jpg?w=480;800;1200;160
 import pouchImg from "@/assets/products/atelier-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifestyleImg from "@/assets/collection-men.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
-const SITE = "https://eye-charm-guardian.lovable.app";
+import { buildSeo, SITE } from "@/lib/seo";
+
+const ATELIER_OG = `${SITE}/og-atelier.jpg`;
 
 export const Route = createFileRoute("/product/atelier")({
-  head: () => ({
-    meta: [
-      { title: "Atelier — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Atelier by Eyegis — a quieter men's silhouette with studied proportion, thin temples, and EyegisGuard™ blue-light filtering. Weightless on the bridge.",
-      },
-      { property: "og:title", content: "Atelier — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Refined men's acetate blue-light glasses. Studied proportion, honest hinges, EyegisGuard™ optical filter. 2-year warranty, 60-day comfort guarantee.",
-      },
-      { property: "og:type", content: "product" },
-      { property: "og:image", content: `${SITE}/og-meridian.jpg` },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE}/product/atelier` }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: "Atelier by Eyegis",
-          brand: { "@type": "Brand", name: "Eyegis" },
-          description:
-            "A quieter men's acetate frame with EyegisGuard™ optical filter (400–455 nm HEV). Thin temples, honest hinges, studied proportion.",
-          image: [`${SITE}/og-meridian.jpg`],
-          sku: "EYG-ATL-01",
-          category: "Eyewear > Blue Light Glasses",
-          offers: {
-            "@type": "Offer",
-            url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/PreOrder",
-            priceCurrency: "USD",
-            price: "89.00",
-            seller: { "@type": "Organization", name: "Eyegis" },
-          },
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const seo = buildSeo({
+      title: "Atelier by Eyegis — Men's Blue-Light Glasses",
+      description:
+        "Atelier by Eyegis — a quieter men's silhouette with studied proportion, thin temples, and EyegisGuard™ blue-light filtering. Weightless on the bridge.",
+      path: "/product/atelier",
+      image: ATELIER_OG,
+      ogType: "product",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Atelier by Eyegis",
+            brand: { "@type": "Brand", name: "Eyegis" },
+            description:
+              "A quieter men's acetate frame with EyegisGuard™ optical filter (400–455 nm HEV). Thin temples, honest hinges, studied proportion.",
+            image: [ATELIER_OG],
+            sku: "EYG-ATL-01",
+            category: "Eyewear > Blue Light Glasses",
+            offers: {
+              "@type": "Offer",
+              url: DEFAULT_AMAZON_URL,
+              availability: "https://schema.org/PreOrder",
+              priceCurrency: "USD",
+              price: "89.00",
+              seller: { "@type": "Organization", name: "Eyegis" },
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: AtelierProduct,
 });
 
