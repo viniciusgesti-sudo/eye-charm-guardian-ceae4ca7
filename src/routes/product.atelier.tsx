@@ -99,7 +99,7 @@ function AtelierProduct() {
             <a
               href={DEFAULT_AMAZON_URL}
               className="inline-flex items-center gap-3 rounded-full bg-[#004B57] px-6 py-3 text-white transition hover:-translate-y-0.5 hover:bg-[#003942]"
-            >
+             target="_blank" rel="noopener noreferrer">
               <span className="font-eyebrow text-xs tracking-[0.2em]">Coming soon on Amazon</span>
               <span aria-hidden>→</span>
             </a>

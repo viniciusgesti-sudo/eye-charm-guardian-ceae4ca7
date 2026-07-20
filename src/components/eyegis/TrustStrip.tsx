@@ -52,7 +52,7 @@ export function TrustStrip() {
           href={COMING_SOON_HREF}
           className="inline-flex items-center gap-3 rounded-full px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper shadow-md transition-transform hover:-translate-y-0.5"
           style={{ backgroundColor: "#004B57", boxShadow: "0 12px 30px -12px rgba(0,75,87,0.55)" }}
-        >
+         target="_blank" rel="noopener noreferrer">
           {c.cta}
           <span aria-hidden>→</span>
         </a>
