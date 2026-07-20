@@ -8,6 +8,10 @@ import lifeCreative from "@/assets/guard-life-creative.jpg?w=480;800;1200;1600&f
 import lifeBusiness from "@/assets/guard-life-business.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifeStudent from "@/assets/guard-life-student.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifeGamer from "@/assets/guard-life-gamer.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeCreativeMan from "@/assets/guard-life-creative-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeBusinessMan from "@/assets/guard-life-business-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeStudentKid from "@/assets/guard-life-student-kid.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import lifeGamerMan from "@/assets/guard-life-gamer-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -616,16 +620,25 @@ function IconTarget() {
   );
 }
 
-const LIFE_META: { img: PictureSource; Icon: ElementType }[] = [
+export type GuardAudience = "men" | "women" | "kids";
+
+const LIFE_META_WOMEN: { img: PictureSource; Icon: ElementType }[] = [
   { img: lifeCreative, Icon: IconAperture },
   { img: lifeBusiness, Icon: IconBriefcase },
   { img: lifeStudent, Icon: IconBook },
   { img: lifeGamer, Icon: IconTarget },
 ];
+const LIFE_META_MEN: { img: PictureSource; Icon: ElementType }[] = [
+  { img: lifeCreativeMan, Icon: IconAperture },
+  { img: lifeBusinessMan, Icon: IconBriefcase },
+  { img: lifeStudentKid, Icon: IconBook },
+  { img: lifeGamerMan, Icon: IconTarget },
+];
 
-export function EyegisGuard() {
+export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
+  const LIFE_META = audience === "men" ? LIFE_META_MEN : LIFE_META_WOMEN;
   return (
     <section id="technology" className="relative bg-paper text-ink">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">

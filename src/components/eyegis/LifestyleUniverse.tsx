@@ -2,10 +2,10 @@ import { useEffect, useRef, useState, type ElementType } from "react";
 import { useParams } from "@tanstack/react-router";
 
 import lifeCreative from "@/assets/life-creative.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import lifeBusiness from "@/assets/life-business.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeBusiness from "@/assets/life-business-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import lifeGaming from "@/assets/life-gaming.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import lifeStudent from "@/assets/life-student.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import lifeTravel from "@/assets/life-travel.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeStudent from "@/assets/life-student-kid.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import lifeTravel from "@/assets/life-travel-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
