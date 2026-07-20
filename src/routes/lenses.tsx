@@ -1449,7 +1449,7 @@ function FinalCta({ c }: { c: Copy }) {
 /*  Page                                                              */
 /* ------------------------------------------------------------------ */
 
-function LensesPage() {
+export function LensesPage() {
   const { lang } = useI18n();
   const c = CONTENT[lang];
   const [active, setActive] = useState<PersonaId>("creative");
