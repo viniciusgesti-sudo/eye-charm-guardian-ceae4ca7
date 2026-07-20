@@ -124,7 +124,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // Preload the fonts stylesheet so the CSS request starts in the
       // preload scanner phase (parallel to HTML parse) instead of waiting
       // for the <link rel=stylesheet> to be discovered. Trimmed weight set
-      // (Montserrat 400/500/600/700, Lato 400/700) reduces byte cost and
+      // (Montserrat 300/400/500/600/700, Lato 400/700) reduces byte cost —
       // number of font files fetched — improving LCP.
       {
         rel: "preload",
