@@ -12,16 +12,16 @@ type Props = { locale: string };
 
 const ALTS = {
   EN: {
-    men: "Eyegis Zenith — a man in a dark navy square acetate frame, photographed in a nocturnal blue-lit setting.",
-    women: "Eyegis Clarity — a chic woman in a champagne cat-eye frame, photographed against an architectural tower.",
+    men: "Eyegis Zenith — a man at night in São Paulo, cyan neon reflections on his square acetate frame, Octávio Frias bridge behind him.",
+    women: "Eyegis Clarity — a chic woman in Paris in a champagne cat-eye frame, the Eiffel Tower rising in the background.",
   },
   PT: {
-    men: "Eyegis Zenith — homem com armação quadrada azul-marinho em cenário noturno azul.",
-    women: "Eyegis Clarity — mulher chique com armação gatinho champanhe diante de uma torre arquitetônica.",
+    men: "Eyegis Zenith — homem à noite em São Paulo, reflexos neon ciano na armação quadrada, ponte Octávio Frias ao fundo.",
+    women: "Eyegis Clarity — mulher chique em Paris com armação gatinho champanhe, Torre Eiffel ao fundo.",
   },
   FR: {
-    men: "Eyegis Zenith — un homme avec une monture carrée bleu marine dans un décor nocturne bleu.",
-    women: "Eyegis Clarity — une femme chic avec une monture œil-de-chat champagne devant une tour architecturale.",
+    men: "Eyegis Zenith — un homme la nuit à São Paulo, reflets néon cyan sur sa monture carrée, pont Octávio Frias en arrière-plan.",
+    women: "Eyegis Clarity — une femme chic à Paris avec une monture œil-de-chat champagne, la Tour Eiffel en arrière-plan.",
   },
 } as const;
 
