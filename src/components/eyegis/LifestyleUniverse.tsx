@@ -581,9 +581,9 @@ export function LifestyleUniverse({ audience }: { audience?: LifestyleAudience }
           <Reveal delay={520}>
             <div className="mt-14 flex flex-col md:flex-row flex-wrap items-stretch md:items-center justify-center gap-4">
               {[
-                { label: copy.btnMen, href: "#men", variant: "teal" as const },
-                { label: copy.btnWomen, href: "#women", variant: "sand" as const },
-                { label: copy.btnKids, href: "#kids", variant: "outline" as const },
+                { label: copy.btnMen, href: `/${locale}/men`, variant: "teal" as const },
+                { label: copy.btnWomen, href: `/${locale}/women`, variant: "sand" as const },
+                { label: copy.btnKids, href: `/${locale}/kids`, variant: "outline" as const },
               ].map((b) => (
                 <a
                   key={b.label}
