@@ -236,7 +236,7 @@ const CONTENT: Record<Lang, PageContent> = {
         items: [
           { q: "Which collection is right for me?", a: "Use the Choose Your Lens experience — a short guided flow that recommends the best Eyegis collection based on how you actually use screens.", related: ["lenses", "collections"] },
           { q: "Can I wear Eyegis every day?", a: "Yes. Every frame is designed for all-day comfort and timeless style — not a technical accessory you take off between meetings.", related: ["collections"] },
-          { q: "Are the frames lightweight?", a: "Most Eyegis frames weigh under 22g thanks to TR90 and β-titanium construction. You'll forget you're wearing them.", related: ["collections"] },
+          { q: "Are the frames lightweight?", a: "Eyegis frames are engineered with TR90 and β-titanium for an ultralight feel — designed to disappear on your face during long wear.", related: ["collections"] },
           { q: "What materials are used?", a: "Ultralight TR90, hypoallergenic β-titanium, Italian acetate and stainless spring hinges — chosen for longevity, comfort and repairability.", related: ["collections", "warranty"] },
           { q: "Can I wear them with headphones?", a: "Yes. Slim TR90 temples are designed to sit comfortably under most audio and gaming headsets.", related: ["collections"] },
         ],
@@ -367,7 +367,7 @@ const CONTENT: Record<Lang, PageContent> = {
         items: [
           { q: "Qual coleção é ideal para mim?", a: "Use a experiência Escolha sua Lente — um guia curto que recomenda a melhor coleção Eyegis com base no seu uso real de telas.", related: ["lenses", "collections"] },
           { q: "Posso usar Eyegis todos os dias?", a: "Sim. Cada armação é desenhada para conforto o dia inteiro e estilo atemporal — não um acessório técnico que se tira entre reuniões.", related: ["collections"] },
-          { q: "As armações são leves?", a: "A maioria das armações Eyegis pesa menos de 22g, graças à construção em TR90 e β-titânio. Você esquece que está usando.", related: ["collections"] },
+          { q: "As armações são leves?", a: "As armações Eyegis são construídas em TR90 e β-titânio para uma sensação ultraleve — pensadas para desaparecer no rosto durante o uso prolongado.", related: ["collections"] },
           { q: "Quais materiais são utilizados?", a: "TR90 ultraleve, β-titânio hipoalergênico, acetato italiano e dobradiças de mola em aço inox — escolhidos por durabilidade, conforto e possibilidade de reparo.", related: ["collections", "warranty"] },
           { q: "Posso usar com fones de ouvido?", a: "Sim. As hastes finas em TR90 foram desenhadas para acomodar a maioria dos fones e headsets gamers.", related: ["collections"] },
         ],
@@ -498,7 +498,7 @@ const CONTENT: Record<Lang, PageContent> = {
         items: [
           { q: "Quelle collection est faite pour moi ?", a: "Utilisez l'expérience Choisir vos Verres — un parcours guidé qui recommande la meilleure collection Eyegis selon votre usage réel des écrans.", related: ["lenses", "collections"] },
           { q: "Puis-je porter Eyegis tous les jours ?", a: "Oui. Chaque monture est pensée pour un confort toute la journée et un style intemporel — pas un accessoire technique à retirer entre deux réunions.", related: ["collections"] },
-          { q: "Les montures sont-elles légères ?", a: "La plupart des montures Eyegis pèsent moins de 22g grâce au TR90 et au β-titane. Vous les oubliez sur votre nez.", related: ["collections"] },
+          { q: "Les montures sont-elles légères ?", a: "Les montures Eyegis sont conçues en TR90 et β-titane pour une sensation ultra-légère — pensées pour se faire oublier lors d'un port prolongé.", related: ["collections"] },
           { q: "Quels matériaux sont utilisés ?", a: "TR90 ultraléger, β-titane hypoallergénique, acétate italien et charnières à ressort en acier inoxydable — choisis pour la longévité, le confort et la réparabilité.", related: ["collections", "warranty"] },
           { q: "Puis-je les porter avec un casque ?", a: "Oui. Les branches fines en TR90 s'adaptent confortablement sous la plupart des casques audio et gaming.", related: ["collections"] },
         ],
