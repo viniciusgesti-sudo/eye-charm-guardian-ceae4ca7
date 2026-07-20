@@ -176,7 +176,9 @@ function RootComponent() {
       <I18nProvider>
         <a href="#main" className="skip-to-content">Skip to content</a>
         <Outlet />
-        <CookieBanner />
+        <Suspense fallback={null}>
+          <CookieBanner />
+        </Suspense>
       </I18nProvider>
     </QueryClientProvider>
   );
