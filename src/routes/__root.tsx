@@ -77,7 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed.",
       },
       { name: "author", content: "Eyegis" },
-      { name: "theme-color", content: "#004B57" },
+      { name: "theme-color", content: "#F9F9F9", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#004B57", media: "(prefers-color-scheme: dark)" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "Eyegis" },
+      { name: "mobile-web-app-capable", content: "yes" },
       { property: "og:title", content: "Eyegis — Engineered for Vision. Designed for Style." },
       {
         property: "og:description",
