@@ -1,0 +1,750 @@
+{
+  "version": 1,
+  "capturedAt": "2026-07-20T22:08:45.617Z",
+  "hasSourcemaps": false,
+  "client": {
+    "total": 1425169,
+    "byPath": {
+      "dist/client/assets/ComingSoonModal-C08GIM6n.js": {
+        "path": "dist/client/assets/ComingSoonModal-C08GIM6n.js",
+        "size": 7100,
+        "modules": null
+      },
+      "dist/client/assets/CookieBanner-CW3nyQ8R.js": {
+        "path": "dist/client/assets/CookieBanner-CW3nyQ8R.js",
+        "size": 2070,
+        "modules": null
+      },
+      "dist/client/assets/EyegisGuard-DITGu8-M.js": {
+        "path": "dist/client/assets/EyegisGuard-DITGu8-M.js",
+        "size": 32381,
+        "modules": null
+      },
+      "dist/client/assets/FAQ-i4vgMYdB.js": {
+        "path": "dist/client/assets/FAQ-i4vgMYdB.js",
+        "size": 11429,
+        "modules": null
+      },
+      "dist/client/assets/Footer-CDQuRT4c.js": {
+        "path": "dist/client/assets/Footer-CDQuRT4c.js",
+        "size": 10164,
+        "modules": null
+      },
+      "dist/client/assets/Header-DqbGe34B.js": {
+        "path": "dist/client/assets/Header-DqbGe34B.js",
+        "size": 35534,
+        "modules": null
+      },
+      "dist/client/assets/HonestScience-C_zMw2Yp.js": {
+        "path": "dist/client/assets/HonestScience-C_zMw2Yp.js",
+        "size": 17797,
+        "modules": null
+      },
+      "dist/client/assets/HonestScienceTeaser-BvhQTdiq.js": {
+        "path": "dist/client/assets/HonestScienceTeaser-BvhQTdiq.js",
+        "size": 3023,
+        "modules": null
+      },
+      "dist/client/assets/HowItWorks-CU70Yvr9.js": {
+        "path": "dist/client/assets/HowItWorks-CU70Yvr9.js",
+        "size": 3799,
+        "modules": null
+      },
+      "dist/client/assets/LifestyleUniverse-JOqwrn4b.js": {
+        "path": "dist/client/assets/LifestyleUniverse-JOqwrn4b.js",
+        "size": 21206,
+        "modules": null
+      },
+      "dist/client/assets/Logo-CwkPa1SB.js": {
+        "path": "dist/client/assets/Logo-CwkPa1SB.js",
+        "size": 3808,
+        "modules": null
+      },
+      "dist/client/assets/ModelRunway-DJ-f7OoR.js": {
+        "path": "dist/client/assets/ModelRunway-DJ-f7OoR.js",
+        "size": 11617,
+        "modules": null
+      },
+      "dist/client/assets/OurTechnology-BVCGBJKv.js": {
+        "path": "dist/client/assets/OurTechnology-BVCGBJKv.js",
+        "size": 13899,
+        "modules": null
+      },
+      "dist/client/assets/PageHero-C-mOTBgN.js": {
+        "path": "dist/client/assets/PageHero-C-mOTBgN.js",
+        "size": 48900,
+        "modules": null
+      },
+      "dist/client/assets/Picture-B2aq-ihA.js": {
+        "path": "dist/client/assets/Picture-B2aq-ihA.js",
+        "size": 1026,
+        "modules": null
+      },
+      "dist/client/assets/ScienceInPractice-CG3EHkJ8.js": {
+        "path": "dist/client/assets/ScienceInPractice-CG3EHkJ8.js",
+        "size": 6953,
+        "modules": null
+      },
+      "dist/client/assets/ShopOnAmazon-CSf05FJV.js": {
+        "path": "dist/client/assets/ShopOnAmazon-CSf05FJV.js",
+        "size": 5058,
+        "modules": null
+      },
+      "dist/client/assets/SocialProof-Bg1tpzpm.js": {
+        "path": "dist/client/assets/SocialProof-Bg1tpzpm.js",
+        "size": 40290,
+        "modules": null
+      },
+      "dist/client/assets/TechCore-CNrifgDK.js": {
+        "path": "dist/client/assets/TechCore-CNrifgDK.js",
+        "size": 21014,
+        "modules": null
+      },
+      "dist/client/assets/Universe-4Wtch2yC.js": {
+        "path": "dist/client/assets/Universe-4Wtch2yC.js",
+        "size": 18100,
+        "modules": null
+      },
+      "dist/client/assets/WhatsInTheBox-ul1d8jhB.js": {
+        "path": "dist/client/assets/WhatsInTheBox-ul1d8jhB.js",
+        "size": 9247,
+        "modules": null
+      },
+      "dist/client/assets/_locale-BH-sm-NI.js": {
+        "path": "dist/client/assets/_locale-BH-sm-NI.js",
+        "size": 4234,
+        "modules": null
+      },
+      "dist/client/assets/_locale.about-CA3PYIP7.js": {
+        "path": "dist/client/assets/_locale.about-CA3PYIP7.js",
+        "size": 30794,
+        "modules": null
+      },
+      "dist/client/assets/_locale.compliance-DO7xVN1X.js": {
+        "path": "dist/client/assets/_locale.compliance-DO7xVN1X.js",
+        "size": 6004,
+        "modules": null
+      },
+      "dist/client/assets/_locale.index-D_Ub78X5.js": {
+        "path": "dist/client/assets/_locale.index-D_Ub78X5.js",
+        "size": 13282,
+        "modules": null
+      },
+      "dist/client/assets/_locale.kids-kjHyPC-a.js": {
+        "path": "dist/client/assets/_locale.kids-kjHyPC-a.js",
+        "size": 1204,
+        "modules": null
+      },
+      "dist/client/assets/_locale.legal-Di-rDKIW.js": {
+        "path": "dist/client/assets/_locale.legal-Di-rDKIW.js",
+        "size": 4262,
+        "modules": null
+      },
+      "dist/client/assets/_locale.lenses-Bh0KizLe.js": {
+        "path": "dist/client/assets/_locale.lenses-Bh0KizLe.js",
+        "size": 39746,
+        "modules": null
+      },
+      "dist/client/assets/_locale.men-yNBeBEfG.js": {
+        "path": "dist/client/assets/_locale.men-yNBeBEfG.js",
+        "size": 1322,
+        "modules": null
+      },
+      "dist/client/assets/_locale.privacy-UN2WbXNw.js": {
+        "path": "dist/client/assets/_locale.privacy-UN2WbXNw.js",
+        "size": 3705,
+        "modules": null
+      },
+      "dist/client/assets/_locale.technology-CFUeoc6T.js": {
+        "path": "dist/client/assets/_locale.technology-CFUeoc6T.js",
+        "size": 1863,
+        "modules": null
+      },
+      "dist/client/assets/_locale.women-COgeyneq.js": {
+        "path": "dist/client/assets/_locale.women-COgeyneq.js",
+        "size": 1318,
+        "modules": null
+      },
+      "dist/client/assets/about-D-YtdgrL.js": {
+        "path": "dist/client/assets/about-D-YtdgrL.js",
+        "size": 30784,
+        "modules": null
+      },
+      "dist/client/assets/compliance-CMb_N5XS.js": {
+        "path": "dist/client/assets/compliance-CMb_N5XS.js",
+        "size": 5996,
+        "modules": null
+      },
+      "dist/client/assets/contact-Fc9trURY.js": {
+        "path": "dist/client/assets/contact-Fc9trURY.js",
+        "size": 90794,
+        "modules": null
+      },
+      "dist/client/assets/contact-concierge-CPxdjEt_.js": {
+        "path": "dist/client/assets/contact-concierge-CPxdjEt_.js",
+        "size": 8034,
+        "modules": null
+      },
+      "dist/client/assets/dev-a11y-logo-DQio1W7L.js": {
+        "path": "dist/client/assets/dev-a11y-logo-DQio1W7L.js",
+        "size": 1560,
+        "modules": null
+      },
+      "dist/client/assets/dev-tokens-DN26RFai.js": {
+        "path": "dist/client/assets/dev-tokens-DN26RFai.js",
+        "size": 10382,
+        "modules": null
+      },
+      "dist/client/assets/faq-FfWUQbgo.js": {
+        "path": "dist/client/assets/faq-FfWUQbgo.js",
+        "size": 15783,
+        "modules": null
+      },
+      "dist/client/assets/guard-comparison-DXWaXBbY.js": {
+        "path": "dist/client/assets/guard-comparison-DXWaXBbY.js",
+        "size": 527,
+        "modules": null
+      },
+      "dist/client/assets/guard-lens-float-BSSbCOaq.js": {
+        "path": "dist/client/assets/guard-lens-float-BSSbCOaq.js",
+        "size": 662,
+        "modules": null
+      },
+      "dist/client/assets/index-DzeR9C76.js": {
+        "path": "dist/client/assets/index-DzeR9C76.js",
+        "size": 213860,
+        "modules": null
+      },
+      "dist/client/assets/legal-Dd0drWJU.js": {
+        "path": "dist/client/assets/legal-Dd0drWJU.js",
+        "size": 4254,
+        "modules": null
+      },
+      "dist/client/assets/lenses-_ylHTnSJ.js": {
+        "path": "dist/client/assets/lenses-_ylHTnSJ.js",
+        "size": 39736,
+        "modules": null
+      },
+      "dist/client/assets/meridian-hero-6Fw3K812.js": {
+        "path": "dist/client/assets/meridian-hero-6Fw3K812.js",
+        "size": 626,
+        "modules": null
+      },
+      "dist/client/assets/motion-icons-C4nY0fwW.js": {
+        "path": "dist/client/assets/motion-icons-C4nY0fwW.js",
+        "size": 9501,
+        "modules": null
+      },
+      "dist/client/assets/privacy-DqcdjPPs.js": {
+        "path": "dist/client/assets/privacy-DqcdjPPs.js",
+        "size": 3697,
+        "modules": null
+      },
+      "dist/client/assets/product.atelier-BKSkfkQ1.js": {
+        "path": "dist/client/assets/product.atelier-BKSkfkQ1.js",
+        "size": 12025,
+        "modules": null
+      },
+      "dist/client/assets/product.marais-zB6zJAgM.js": {
+        "path": "dist/client/assets/product.marais-zB6zJAgM.js",
+        "size": 10433,
+        "modules": null
+      },
+      "dist/client/assets/product.meridian-CnZgFQ_U.js": {
+        "path": "dist/client/assets/product.meridian-CnZgFQ_U.js",
+        "size": 38359,
+        "modules": null
+      },
+      "dist/client/assets/product.solene-Bpm0dCYj.js": {
+        "path": "dist/client/assets/product.solene-Bpm0dCYj.js",
+        "size": 11842,
+        "modules": null
+      },
+      "dist/client/assets/qa-rfO29tuN.js": {
+        "path": "dist/client/assets/qa-rfO29tuN.js",
+        "size": 11340,
+        "modules": null
+      },
+      "dist/client/assets/radix-6ObyC_cw.js": {
+        "path": "dist/client/assets/radix-6ObyC_cw.js",
+        "size": 36651,
+        "modules": null
+      },
+      "dist/client/assets/react-BrfSq-MQ.js": {
+        "path": "dist/client/assets/react-BrfSq-MQ.js",
+        "size": 179991,
+        "modules": null
+      },
+      "dist/client/assets/rolldown-runtime-Bh1tDfsg.js": {
+        "path": "dist/client/assets/rolldown-runtime-Bh1tDfsg.js",
+        "size": 567,
+        "modules": null
+      },
+      "dist/client/assets/shipping-DENR9Qnp.js": {
+        "path": "dist/client/assets/shipping-DENR9Qnp.js",
+        "size": 34970,
+        "modules": null
+      },
+      "dist/client/assets/solene-front-wp3rzZR2.js": {
+        "path": "dist/client/assets/solene-front-wp3rzZR2.js",
+        "size": 3905,
+        "modules": null
+      },
+      "dist/client/assets/styles-B6-8GZWz.css": {
+        "path": "dist/client/assets/styles-B6-8GZWz.css",
+        "size": 182107,
+        "modules": null
+      },
+      "dist/client/assets/universe-lens-macro-DaSJjurL.js": {
+        "path": "dist/client/assets/universe-lens-macro-DaSJjurL.js",
+        "size": 554,
+        "modules": null
+      },
+      "dist/client/assets/warranty-I90pDAKg.js": {
+        "path": "dist/client/assets/warranty-I90pDAKg.js",
+        "size": 34080,
+        "modules": null
+      }
+    }
+  },
+  "server": {
+    "total": 1512794,
+    "byPath": {
+      "dist/server/_chunks/ssr-renderer.mjs": {
+        "path": "dist/server/_chunks/ssr-renderer.mjs",
+        "size": 248,
+        "modules": null
+      },
+      "dist/server/_libs/@radix-ui/react-compose-refs+[...].mjs": {
+        "path": "dist/server/_libs/@radix-ui/react-compose-refs+[...].mjs",
+        "size": 7874,
+        "modules": null
+      },
+      "dist/server/_libs/@radix-ui/react-dialog+[...].mjs": {
+        "path": "dist/server/_libs/@radix-ui/react-dialog+[...].mjs",
+        "size": 34690,
+        "modules": null
+      },
+      "dist/server/_libs/@tanstack/react-router+[...].mjs": {
+        "path": "dist/server/_libs/@tanstack/react-router+[...].mjs",
+        "size": 287312,
+        "modules": null
+      },
+      "dist/server/_libs/@tanstack/router-core+[...].mjs": {
+        "path": "dist/server/_libs/@tanstack/router-core+[...].mjs",
+        "size": 48835,
+        "modules": null
+      },
+      "dist/server/_libs/class-variance-authority+clsx.mjs": {
+        "path": "dist/server/_libs/class-variance-authority+clsx.mjs",
+        "size": 966,
+        "modules": null
+      },
+      "dist/server/_libs/h3+rou3+srvx+unenv.mjs": {
+        "path": "dist/server/_libs/h3+rou3+srvx+unenv.mjs",
+        "size": 11015,
+        "modules": null
+      },
+      "dist/server/_libs/h3-v2+srvx.mjs": {
+        "path": "dist/server/_libs/h3-v2+srvx.mjs",
+        "size": 5308,
+        "modules": null
+      },
+      "dist/server/_libs/hookable.mjs": {
+        "path": "dist/server/_libs/hookable.mjs",
+        "size": 616,
+        "modules": null
+      },
+      "dist/server/_libs/lucide-react.mjs": {
+        "path": "dist/server/_libs/lucide-react.mjs",
+        "size": 2084,
+        "modules": null
+      },
+      "dist/server/_libs/radix-ui__primitive.mjs": {
+        "path": "dist/server/_libs/radix-ui__primitive.mjs",
+        "size": 138,
+        "modules": null
+      },
+      "dist/server/_libs/radix-ui__react-context+react.mjs": {
+        "path": "dist/server/_libs/radix-ui__react-context+react.mjs",
+        "size": 1755,
+        "modules": null
+      },
+      "dist/server/_libs/tailwind-merge.mjs": {
+        "path": "dist/server/_libs/tailwind-merge.mjs",
+        "size": 25998,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__history.mjs": {
+        "path": "dist/server/_libs/tanstack__history.mjs",
+        "size": 4723,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__query-core.mjs": {
+        "path": "dist/server/_libs/tanstack__query-core.mjs",
+        "size": 24083,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__react-query.mjs": {
+        "path": "dist/server/_libs/tanstack__react-query.mjs",
+        "size": 338,
+        "modules": null
+      },
+      "dist/server/_libs/zod.mjs": {
+        "path": "dist/server/_libs/zod.mjs",
+        "size": 52313,
+        "modules": null
+      },
+      "dist/server/_locale-B0l8mojF.mjs": {
+        "path": "dist/server/_locale-B0l8mojF.mjs",
+        "size": 337,
+        "modules": null
+      },
+      "dist/server/_locale-BowP_VEX.mjs": {
+        "path": "dist/server/_locale-BowP_VEX.mjs",
+        "size": 4007,
+        "modules": null
+      },
+      "dist/server/_locale.about-BglvZBa1.mjs": {
+        "path": "dist/server/_locale.about-BglvZBa1.mjs",
+        "size": 30898,
+        "modules": null
+      },
+      "dist/server/_locale.compliance-C02zK3aI.mjs": {
+        "path": "dist/server/_locale.compliance-C02zK3aI.mjs",
+        "size": 6034,
+        "modules": null
+      },
+      "dist/server/_locale.index-C2i3qnBW.mjs": {
+        "path": "dist/server/_locale.index-C2i3qnBW.mjs",
+        "size": 1301,
+        "modules": null
+      },
+      "dist/server/_locale.index-DD6OUMXO.mjs": {
+        "path": "dist/server/_locale.index-DD6OUMXO.mjs",
+        "size": 12656,
+        "modules": null
+      },
+      "dist/server/_locale.kids-CRHq1xwu.mjs": {
+        "path": "dist/server/_locale.kids-CRHq1xwu.mjs",
+        "size": 2363,
+        "modules": null
+      },
+      "dist/server/_locale.kids-DGj3ozwe.mjs": {
+        "path": "dist/server/_locale.kids-DGj3ozwe.mjs",
+        "size": 1303,
+        "modules": null
+      },
+      "dist/server/_locale.legal-B7wBgUKB.mjs": {
+        "path": "dist/server/_locale.legal-B7wBgUKB.mjs",
+        "size": 4292,
+        "modules": null
+      },
+      "dist/server/_locale.lenses-BZSBzZGB.mjs": {
+        "path": "dist/server/_locale.lenses-BZSBzZGB.mjs",
+        "size": 39850,
+        "modules": null
+      },
+      "dist/server/_locale.men-Bgt1KQYN.mjs": {
+        "path": "dist/server/_locale.men-Bgt1KQYN.mjs",
+        "size": 1427,
+        "modules": null
+      },
+      "dist/server/_locale.men-DW1r4UP-.mjs": {
+        "path": "dist/server/_locale.men-DW1r4UP-.mjs",
+        "size": 2421,
+        "modules": null
+      },
+      "dist/server/_locale.privacy-DYJAPlIt.mjs": {
+        "path": "dist/server/_locale.privacy-DYJAPlIt.mjs",
+        "size": 3735,
+        "modules": null
+      },
+      "dist/server/_locale.technology-zDl7sv5S.mjs": {
+        "path": "dist/server/_locale.technology-zDl7sv5S.mjs",
+        "size": 1122,
+        "modules": null
+      },
+      "dist/server/_locale.women-Cm6_swld.mjs": {
+        "path": "dist/server/_locale.women-Cm6_swld.mjs",
+        "size": 2347,
+        "modules": null
+      },
+      "dist/server/_locale.women-DlHoaJu_.mjs": {
+        "path": "dist/server/_locale.women-DlHoaJu_.mjs",
+        "size": 1425,
+        "modules": null
+      },
+      "dist/server/_runtime.mjs": {
+        "path": "dist/server/_runtime.mjs",
+        "size": 567,
+        "modules": null
+      },
+      "dist/server/_ssr/ComingSoonModal-C_AVa7cX.mjs": {
+        "path": "dist/server/_ssr/ComingSoonModal-C_AVa7cX.mjs",
+        "size": 7164,
+        "modules": null
+      },
+      "dist/server/_ssr/CookieBanner-CHeBHvz-.mjs": {
+        "path": "dist/server/_ssr/CookieBanner-CHeBHvz-.mjs",
+        "size": 2100,
+        "modules": null
+      },
+      "dist/server/_ssr/EyegisGuard-B-dE6iVq.mjs": {
+        "path": "dist/server/_ssr/EyegisGuard-B-dE6iVq.mjs",
+        "size": 32414,
+        "modules": null
+      },
+      "dist/server/_ssr/FAQ-C4F-dINT.mjs": {
+        "path": "dist/server/_ssr/FAQ-C4F-dINT.mjs",
+        "size": 11498,
+        "modules": null
+      },
+      "dist/server/_ssr/Footer-BKIpbCz2.mjs": {
+        "path": "dist/server/_ssr/Footer-BKIpbCz2.mjs",
+        "size": 10246,
+        "modules": null
+      },
+      "dist/server/_ssr/Header-BpLYqm6C.mjs": {
+        "path": "dist/server/_ssr/Header-BpLYqm6C.mjs",
+        "size": 8824,
+        "modules": null
+      },
+      "dist/server/_ssr/HonestScience-DTEbCt24.mjs": {
+        "path": "dist/server/_ssr/HonestScience-DTEbCt24.mjs",
+        "size": 17819,
+        "modules": null
+      },
+      "dist/server/_ssr/HonestScienceTeaser-B6O8lnFF.mjs": {
+        "path": "dist/server/_ssr/HonestScienceTeaser-B6O8lnFF.mjs",
+        "size": 3104,
+        "modules": null
+      },
+      "dist/server/_ssr/HowItWorks-DZMNWyS4.mjs": {
+        "path": "dist/server/_ssr/HowItWorks-DZMNWyS4.mjs",
+        "size": 3825,
+        "modules": null
+      },
+      "dist/server/_ssr/LifestyleUniverse-Bf9kzjEi.mjs": {
+        "path": "dist/server/_ssr/LifestyleUniverse-Bf9kzjEi.mjs",
+        "size": 21237,
+        "modules": null
+      },
+      "dist/server/_ssr/Logo-Cov53W2s.mjs": {
+        "path": "dist/server/_ssr/Logo-Cov53W2s.mjs",
+        "size": 3835,
+        "modules": null
+      },
+      "dist/server/_ssr/ModelRunway-Db_lmlnz.mjs": {
+        "path": "dist/server/_ssr/ModelRunway-Db_lmlnz.mjs",
+        "size": 11725,
+        "modules": null
+      },
+      "dist/server/_ssr/OurTechnology-DE4yjsp5.mjs": {
+        "path": "dist/server/_ssr/OurTechnology-DE4yjsp5.mjs",
+        "size": 13943,
+        "modules": null
+      },
+      "dist/server/_ssr/PageHero-C1lqrFmM.mjs": {
+        "path": "dist/server/_ssr/PageHero-C1lqrFmM.mjs",
+        "size": 49032,
+        "modules": null
+      },
+      "dist/server/_ssr/Picture-BApSMyIt.mjs": {
+        "path": "dist/server/_ssr/Picture-BApSMyIt.mjs",
+        "size": 1053,
+        "modules": null
+      },
+      "dist/server/_ssr/ScienceInPractice-Be0nRPdm.mjs": {
+        "path": "dist/server/_ssr/ScienceInPractice-Be0nRPdm.mjs",
+        "size": 6975,
+        "modules": null
+      },
+      "dist/server/_ssr/ShopOnAmazon-CtGs-rIH.mjs": {
+        "path": "dist/server/_ssr/ShopOnAmazon-CtGs-rIH.mjs",
+        "size": 5114,
+        "modules": null
+      },
+      "dist/server/_ssr/SocialProof-OH8dK7Ji.mjs": {
+        "path": "dist/server/_ssr/SocialProof-OH8dK7Ji.mjs",
+        "size": 40358,
+        "modules": null
+      },
+      "dist/server/_ssr/TechCore-C0WlOcZh.mjs": {
+        "path": "dist/server/_ssr/TechCore-C0WlOcZh.mjs",
+        "size": 21044,
+        "modules": null
+      },
+      "dist/server/_ssr/Universe-BCUDLUQK.mjs": {
+        "path": "dist/server/_ssr/Universe-BCUDLUQK.mjs",
+        "size": 18131,
+        "modules": null
+      },
+      "dist/server/_ssr/WhatsInTheBox-BiAfpBCj.mjs": {
+        "path": "dist/server/_ssr/WhatsInTheBox-BiAfpBCj.mjs",
+        "size": 9273,
+        "modules": null
+      },
+      "dist/server/_ssr/about-CH9hoK9Y.mjs": {
+        "path": "dist/server/_ssr/about-CH9hoK9Y.mjs",
+        "size": 30874,
+        "modules": null
+      },
+      "dist/server/_ssr/amazon-UxuT4FWm.mjs": {
+        "path": "dist/server/_ssr/amazon-UxuT4FWm.mjs",
+        "size": 1056,
+        "modules": null
+      },
+      "dist/server/_ssr/compliance-Dznh3A6g.mjs": {
+        "path": "dist/server/_ssr/compliance-Dznh3A6g.mjs",
+        "size": 6022,
+        "modules": null
+      },
+      "dist/server/_ssr/contact-Bh2HxvHV.mjs": {
+        "path": "dist/server/_ssr/contact-Bh2HxvHV.mjs",
+        "size": 38562,
+        "modules": null
+      },
+      "dist/server/_ssr/contact-concierge-CPxdjEt_.mjs": {
+        "path": "dist/server/_ssr/contact-concierge-CPxdjEt_.mjs",
+        "size": 8034,
+        "modules": null
+      },
+      "dist/server/_ssr/context-DaSlKkGi.mjs": {
+        "path": "dist/server/_ssr/context-DaSlKkGi.mjs",
+        "size": 4579,
+        "modules": null
+      },
+      "dist/server/_ssr/dev-a11y-logo-BT82GaCq.mjs": {
+        "path": "dist/server/_ssr/dev-a11y-logo-BT82GaCq.mjs",
+        "size": 1584,
+        "modules": null
+      },
+      "dist/server/_ssr/dev-tokens-Bj4QXWgN.mjs": {
+        "path": "dist/server/_ssr/dev-tokens-Bj4QXWgN.mjs",
+        "size": 10405,
+        "modules": null
+      },
+      "dist/server/_ssr/faq-DwjOLM8k.mjs": {
+        "path": "dist/server/_ssr/faq-DwjOLM8k.mjs",
+        "size": 28943,
+        "modules": null
+      },
+      "dist/server/_ssr/faq-KQzPhFiO.mjs": {
+        "path": "dist/server/_ssr/faq-KQzPhFiO.mjs",
+        "size": 15903,
+        "modules": null
+      },
+      "dist/server/_ssr/guard-comparison-DXWaXBbY.mjs": {
+        "path": "dist/server/_ssr/guard-comparison-DXWaXBbY.mjs",
+        "size": 527,
+        "modules": null
+      },
+      "dist/server/_ssr/guard-lens-float-BSSbCOaq.mjs": {
+        "path": "dist/server/_ssr/guard-lens-float-BSSbCOaq.mjs",
+        "size": 662,
+        "modules": null
+      },
+      "dist/server/_ssr/hero-paris-eyegis-DvzDZdFn.mjs": {
+        "path": "dist/server/_ssr/hero-paris-eyegis-DvzDZdFn.mjs",
+        "size": 2371,
+        "modules": null
+      },
+      "dist/server/_ssr/legal-BxeE4kvM.mjs": {
+        "path": "dist/server/_ssr/legal-BxeE4kvM.mjs",
+        "size": 4280,
+        "modules": null
+      },
+      "dist/server/_ssr/lenses-CwiH3t3H.mjs": {
+        "path": "dist/server/_ssr/lenses-CwiH3t3H.mjs",
+        "size": 39826,
+        "modules": null
+      },
+      "dist/server/_ssr/meridian-hero-6Fw3K812.mjs": {
+        "path": "dist/server/_ssr/meridian-hero-6Fw3K812.mjs",
+        "size": 626,
+        "modules": null
+      },
+      "dist/server/_ssr/privacy-BH9vjNhF.mjs": {
+        "path": "dist/server/_ssr/privacy-BH9vjNhF.mjs",
+        "size": 3723,
+        "modules": null
+      },
+      "dist/server/_ssr/product.atelier-DpZJYP-x.mjs": {
+        "path": "dist/server/_ssr/product.atelier-DpZJYP-x.mjs",
+        "size": 12048,
+        "modules": null
+      },
+      "dist/server/_ssr/product.marais-BvSg0vEQ.mjs": {
+        "path": "dist/server/_ssr/product.marais-BvSg0vEQ.mjs",
+        "size": 10456,
+        "modules": null
+      },
+      "dist/server/_ssr/product.meridian-DTBXVLiq.mjs": {
+        "path": "dist/server/_ssr/product.meridian-DTBXVLiq.mjs",
+        "size": 38432,
+        "modules": null
+      },
+      "dist/server/_ssr/product.solene-DFUM3B6N.mjs": {
+        "path": "dist/server/_ssr/product.solene-DFUM3B6N.mjs",
+        "size": 11865,
+        "modules": null
+      },
+      "dist/server/_ssr/qa-ERZDtvhr.mjs": {
+        "path": "dist/server/_ssr/qa-ERZDtvhr.mjs",
+        "size": 11367,
+        "modules": null
+      },
+      "dist/server/_ssr/router-BACx76qn.mjs": {
+        "path": "dist/server/_ssr/router-BACx76qn.mjs",
+        "size": 20915,
+        "modules": null
+      },
+      "dist/server/_ssr/shipping-DgTjNuKd.mjs": {
+        "path": "dist/server/_ssr/shipping-DgTjNuKd.mjs",
+        "size": 35059,
+        "modules": null
+      },
+      "dist/server/_ssr/solene-front-wp3rzZR2.mjs": {
+        "path": "dist/server/_ssr/solene-front-wp3rzZR2.mjs",
+        "size": 3905,
+        "modules": null
+      },
+      "dist/server/_ssr/ssr.mjs": {
+        "path": "dist/server/_ssr/ssr.mjs",
+        "size": 2383,
+        "modules": null
+      },
+      "dist/server/_ssr/start-DUQcVlUe.mjs": {
+        "path": "dist/server/_ssr/start-DUQcVlUe.mjs",
+        "size": 369,
+        "modules": null
+      },
+      "dist/server/_ssr/tanstack-4Izvp5Tp.mjs": {
+        "path": "dist/server/_ssr/tanstack-4Izvp5Tp.mjs",
+        "size": 26779,
+        "modules": null
+      },
+      "dist/server/_ssr/universe-lens-macro-DaSJjurL.mjs": {
+        "path": "dist/server/_ssr/universe-lens-macro-DaSJjurL.mjs",
+        "size": 554,
+        "modules": null
+      },
+      "dist/server/_ssr/warranty-1ydPF6iD.mjs": {
+        "path": "dist/server/_ssr/warranty-1ydPF6iD.mjs",
+        "size": 34169,
+        "modules": null
+      },
+      "dist/server/_tanstack-start-manifest_v-Bnh0XmvS.mjs": {
+        "path": "dist/server/_tanstack-start-manifest_v-Bnh0XmvS.mjs",
+        "size": 6028,
+        "modules": null
+      },
+      "dist/server/index.mjs": {
+        "path": "dist/server/index.mjs",
+        "size": 177393,
+        "modules": null
+      }
+    }
+  }
+}
