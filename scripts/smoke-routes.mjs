@@ -81,9 +81,12 @@ async function checkRoute(path) {
   const problems = [];
   let status = 0;
   let html = "";
+  let finalUrl = path;
   try {
-    const res = await fetch(`${BASE}${path}`, { redirect: "manual" });
+    // Follow redirects — the app 307s bare paths like `/` to `/en`.
+    const res = await fetch(`${BASE}${path}`, { redirect: "follow" });
     status = res.status;
+    finalUrl = new URL(res.url).pathname;
     html = await res.text();
   } catch (err) {
     return { path, status: 0, problems: [`network: ${err.message}`] };
@@ -97,15 +100,22 @@ async function checkRoute(path) {
   const h1s = extractH1s(html);
   if (h1s.length === 0) problems.push("missing <h1>");
 
-  for (const link of HEADER_LINKS) {
-    if (!link.re.test(html)) problems.push(`header link missing: ${link.name}`);
-  }
-  for (const link of FOOTER_LINKS) {
-    if (!link.re.test(html)) problems.push(`footer link missing: ${link.name}`);
+  // Header/footer chrome only exists inside the localized shell (`/br|en|fr/*`).
+  // Legacy non-localized routes render a stripped layout — skip nav checks
+  // there so the smoke test surfaces real regressions, not architecture noise.
+  const isLocalized = /^\/(?:br|en|fr)(?:\/|$)/.test(finalUrl);
+  if (isLocalized) {
+    for (const link of HEADER_LINKS) {
+      if (!link.re.test(html)) problems.push(`header link missing: ${link.name}`);
+    }
+    for (const link of FOOTER_LINKS) {
+      if (!link.re.test(html)) problems.push(`footer link missing: ${link.name}`);
+    }
   }
 
   return { path, status, title, h1: h1s[0] ?? null, problems };
 }
+
 
 console.log(`Route smoke test against ${BASE}\n`);
 const results = await Promise.all(ROUTES.map(checkRoute));
