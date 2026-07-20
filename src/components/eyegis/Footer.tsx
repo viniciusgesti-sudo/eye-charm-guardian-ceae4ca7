@@ -345,12 +345,14 @@ export function Footer() {
                             {link.label}
                           </a>
                         ) : (
-                          <a
-                            href={`${localized(link.to!)}${link.hash ?? ""}`}
+                          <Link
+                            to={`/$locale${link.to!}`}
+                            params={{ locale }}
+                            hash={link.hash ? link.hash.replace(/^#/, "") : undefined}
                             className="font-sans text-sm font-light text-white/60 transition-colors hover:text-white"
                           >
                             {link.label}
-                          </a>
+                          </Link>
                         )}
                       </li>
                     ))}
