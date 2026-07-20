@@ -494,13 +494,9 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
             />
-            <div
-              className={`absolute left-5 top-5 flex items-center gap-3 font-eyebrow text-[10px] ${
-                meta.tone === "champagne" ? "text-paper/95" : "text-paper/90"
-              } drop-shadow`}
-            >
+            <div className="absolute left-5 top-5 inline-flex items-center gap-3 rounded-full bg-ink/70 px-3 py-1.5 font-eyebrow text-[10px] text-paper backdrop-blur-sm">
               <span>N° {meta.index}</span>
-              <span className="h-px w-8 bg-current opacity-60" />
+              <span className="h-px w-8 bg-paper/80" />
               <span>{c.city}</span>
             </div>
           </div>
