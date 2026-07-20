@@ -560,9 +560,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href="https://www.amazon.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#coming-soon"
               className="inline-flex items-center justify-between gap-6 rounded-full bg-mint px-6 py-4 text-teal-deep hover:-translate-y-0.5 transition-all duration-500"
             >
               <span className="font-eyebrow">{copy.lightbox.buyOnAmazon}</span>
