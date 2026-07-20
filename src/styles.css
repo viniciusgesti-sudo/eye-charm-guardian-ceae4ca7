@@ -174,6 +174,52 @@
     background: var(--color-teal);
     color: var(--color-paper);
   }
+
+  /* ---- Global interactive baseline ----
+     Guarantees every <button> and role="button"/link-cta on the site has
+     a visible focus ring, honors reduced motion, and respects a 44px tap
+     target on touch devices — even for ad-hoc CTAs that don't use the
+     shadcn <Button/> component. Individual variants can still override. */
+  button,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-mint);
+    outline-offset: 3px;
+    border-radius: 6px;
+    transition: outline-offset 120ms ease-out;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  /* Coarse-pointer devices → enforce WCAG 2.5.5 target size (44×44). */
+  @media (pointer: coarse) {
+    button,
+    a[role="button"],
+    [data-cta],
+    .inline-flex[class*="rounded-full"] {
+      min-height: 44px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 /* ==========================================================================
