@@ -10,18 +10,24 @@ import shieldColorImg from "@/assets/brand/eyegis-shield-color.jpg";
 function ShieldFallback({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 64 64"
+      viewBox="0 0 100 104"
       aria-hidden="true"
       className={className}
       style={{ display: "block" }}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="8"
+      strokeLinejoin="round"
     >
-      <path
-        fill="currentColor"
-        d="M32 3 8 12v20c0 13.6 9.9 24.6 24 29 14.1-4.4 24-15.4 24-29V12L32 3Zm0 18a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"
-      />
+      {/* Shield silhouette */}
+      <path d="M50 4 6 14v34c0 26 20 44 44 52 24-8 44-26 44-52V14L50 4Z" />
+      {/* G crossbar */}
+      <path d="M52 44h34" strokeWidth="10" strokeLinecap="butt" />
+      <path d="M52 60h26" strokeWidth="10" strokeLinecap="butt" />
     </svg>
   );
 }
+
 
 
 /**
