@@ -197,7 +197,9 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                         setMobileOpen(false);
                       }}
                       className={`uppercase transition-opacity ${
-                        currentSeg === l ? "opacity-100 text-teal" : "opacity-70 hover:opacity-100"
+                        currentSeg === l
+                          ? "opacity-100 text-teal font-semibold"
+                          : "text-ink hover:opacity-100"
                       }`}
                       aria-current={currentSeg === l ? "true" : undefined}
                     >
