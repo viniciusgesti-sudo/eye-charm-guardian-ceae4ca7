@@ -15,6 +15,8 @@ import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;768;1200&for
 import meridianPair from "@/assets/products/meridian-pair.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import atelierFront from "@/assets/products/atelier-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
 import atelierProfile from "@/assets/products/atelier-profile.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierKids from "@/assets/products/atelier-kids.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
+import atelierKidsThumb from "@/assets/products/atelier-kids.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
 
 /* Standardized list/collection thumbnails — smaller widths, same source */
 import soleneFrontThumb from "@/assets/products/solene-front.jpg?w=320;480;640&format=avif;webp;jpg&as=picture";
@@ -673,11 +675,10 @@ const PRODUCTS: ProductMeta[] = [
   },
   {
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
-    image: atelierFront, thumbImage: atelierFrontThumb,
-    imageAlt: "Atelier frame — teen edition",
+    image: atelierKids, thumbImage: atelierKidsThumb,
+    imageAlt: "Atelier Young — teen wearing honey champagne frames at study desk",
     gallery: [
-      { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier Young — front", label: "Front" },
-      { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier Young — profile", label: "Profile" },
+      { src: atelierKids, thumb: atelierKidsThumb, alt: "Atelier Young — teen study portrait", label: "Front" },
     ],
     newest: true,
   },
