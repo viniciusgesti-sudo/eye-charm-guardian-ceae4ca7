@@ -26,9 +26,9 @@ const COPY = {
     subtitle:
       "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
     ctaLabel: "Ver na Amazon",
-    metaTitle: "Coleção Homem — Eyegis Men's Collection",
+    metaTitle: "Men's Collection — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection: acetato preto, hastes douradas e proteção laboratorial contra luz azul. A eyewear masculina para o dia digital.",
+      "Eyegis Men's Collection: acetato preto brilhante, hastes douradas e lente E-Guard Retina™. Filtragem seletiva de luz azul para o dia digital.",
   },
   en: {
     eyebrow: "Collection · Men",
@@ -41,9 +41,9 @@ const COPY = {
     subtitle:
       "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
     ctaLabel: "Shop on Amazon",
-    metaTitle: "Men's Collection — Eyegis Men's Collection",
+    metaTitle: "Men's Collection — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection: black acetate, gold temples and lab-tested blue-light protection. The men's eyewear for the digital day.",
+      "Eyegis Men's Collection: glossy black acetate, gold temples and E-Guard Retina™ lenses. Selective blue-light filtering for the digital day.",
   },
   fr: {
     eyebrow: "Collection · Homme",
@@ -56,9 +56,9 @@ const COPY = {
     subtitle:
       "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
-    metaTitle: "Collection Homme — Eyegis Men's Collection",
+    metaTitle: "Men's Collection — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection : acétate noir, branches dorées et protection testée en laboratoire contre la lumière bleue.",
+      "Eyegis Men's Collection : acétate noir brillant, branches dorées et verres E-Guard Retina™. Filtrage sélectif de la lumière bleue pour la journée numérique.",
   },
 } as const;
 

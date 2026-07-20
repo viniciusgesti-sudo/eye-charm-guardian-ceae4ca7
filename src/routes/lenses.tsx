@@ -17,9 +17,9 @@ import type { Lang } from "@/i18n/translations";
 export const Route = createFileRoute("/lenses")({
   head: () =>
     buildSeo({
-      title: "Choose Your Lenses — Eyegis",
+      title: "Choose Your Lenses — Men's, Women's & Kids & Teens | Eyegis",
       description:
-        "Find the perfect Eyegis lens for the way you live. A premium, interactive guide to visual comfort, color accuracy and screen exposure.",
+        "Pick the right Eyegis lens across Men's Collection, Women's Collection and Kids & Teens — E-Guard Retina™ and E-Guard Circadian™ for every screen day.",
       path: "/lenses",
     }),
 
