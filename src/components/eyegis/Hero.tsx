@@ -44,7 +44,7 @@ export function Hero({ locale }: Props) {
               alt={alts.men}
               priority
               sizes="100vw"
-              className="hero-kenburns absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+              className="kenburns-left absolute inset-0 h-full w-full object-cover object-[50%_35%]"
             />
             <div
               aria-hidden
@@ -68,7 +68,7 @@ export function Hero({ locale }: Props) {
               alt={alts.women}
               priority
               sizes="100vw"
-              className="hero-kenburns absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+              className="kenburns-right absolute inset-0 h-full w-full object-cover object-[50%_35%]"
             />
             <div
               aria-hidden
@@ -100,7 +100,7 @@ export function Hero({ locale }: Props) {
               alt={alts.men}
               priority
               sizes="100vw"
-              className="hero-kenburns absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+              className="kenburns-left absolute inset-0 h-full w-full object-cover object-[50%_30%]"
             />
             <div
               aria-hidden
@@ -114,7 +114,7 @@ export function Hero({ locale }: Props) {
               alt={alts.women}
               priority
               sizes="100vw"
-              className="hero-kenburns absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+              className="kenburns-right absolute inset-0 h-full w-full object-cover object-[50%_35%]"
             />
             <div
               aria-hidden
@@ -128,7 +128,7 @@ export function Hero({ locale }: Props) {
         <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 md:px-12">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-0">
             {/* LEFT stanza */}
-            <div className="hero-rise lg:pr-16">
+            <div className="rise lg:pr-16">
               <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-mint/90">
                 São Paulo · {t("nav.men")}
               </span>
@@ -143,7 +143,7 @@ export function Hero({ locale }: Props) {
             </div>
 
             {/* RIGHT stanza */}
-            <div className="hero-rise lg:pl-16 lg:text-right" style={{ animationDelay: "220ms" }}>
+            <div className="rise lg:pl-16 lg:text-right" style={{ animationDelay: "220ms" }}>
               <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-paper/80 lg:text-teal-deep">
                 Paris · {t("nav.women")}
               </span>
@@ -159,7 +159,7 @@ export function Hero({ locale }: Props) {
           </div>
 
           {/* Supporting copy + CTAs */}
-          <div className="hero-rise mt-10 grid gap-8 lg:mt-14 lg:grid-cols-2" style={{ animationDelay: "440ms" }}>
+          <div className="rise mt-10 grid gap-8 lg:mt-14 lg:grid-cols-2" style={{ animationDelay: "440ms" }}>
             <div className="pointer-events-auto lg:pr-16">
               <p className="max-w-md text-sm leading-relaxed text-paper/85 md:text-base">
                 {t("hero.zenith.tag")}
@@ -198,7 +198,7 @@ export function Hero({ locale }: Props) {
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-paper/70">Scroll</span>
           <span className="relative block h-10 w-px overflow-hidden bg-paper/25">
-            <span className="hero-scroll-line absolute inset-x-0 top-0 h-1/2 bg-paper" />
+            <span className="scroll-line absolute inset-x-0 top-0 h-1/2 bg-paper" />
           </span>
         </div>
       </div>
