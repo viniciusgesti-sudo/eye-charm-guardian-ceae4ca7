@@ -1,0 +1,1295 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-20T22:09:05.478Z",
+  "baselineCapturedAt": "2026-07-20T22:09:05.341Z",
+  "hasSourcemaps": false,
+  "client": {
+    "totals": {
+      "current": 1425169,
+      "baseline": 1425169,
+      "delta": 0,
+      "deltaPct": 0
+    },
+    "chunks": [
+      {
+        "chunk": "dist/client/assets/ComingSoonModal.js",
+        "current": 7100,
+        "baseline": 7100,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/CookieBanner.js",
+        "current": 2070,
+        "baseline": 2070,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/EyegisGuard.js",
+        "current": 32381,
+        "baseline": 32381,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/FAQ.js",
+        "current": 11429,
+        "baseline": 11429,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/Footer.js",
+        "current": 10164,
+        "baseline": 10164,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/Header.js",
+        "current": 35534,
+        "baseline": 35534,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/HonestScience.js",
+        "current": 17797,
+        "baseline": 17797,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/HonestScienceTeaser.js",
+        "current": 3023,
+        "baseline": 3023,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/HowItWorks.js",
+        "current": 3799,
+        "baseline": 3799,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/LifestyleUniverse.js",
+        "current": 21206,
+        "baseline": 21206,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/Logo.js",
+        "current": 3808,
+        "baseline": 3808,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/ModelRunway.js",
+        "current": 11617,
+        "baseline": 11617,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/OurTechnology.js",
+        "current": 13899,
+        "baseline": 13899,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/PageHero.js",
+        "current": 48900,
+        "baseline": 48900,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/Picture.js",
+        "current": 1026,
+        "baseline": 1026,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/ScienceInPractice.js",
+        "current": 6953,
+        "baseline": 6953,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/ShopOnAmazon.js",
+        "current": 5058,
+        "baseline": 5058,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/SocialProof.js",
+        "current": 40290,
+        "baseline": 40290,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/TechCore.js",
+        "current": 21014,
+        "baseline": 21014,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/Universe.js",
+        "current": 18100,
+        "baseline": 18100,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/WhatsInTheBox.js",
+        "current": 9247,
+        "baseline": 9247,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.js",
+        "current": 4234,
+        "baseline": 4234,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.about.js",
+        "current": 30794,
+        "baseline": 30794,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.compliance.js",
+        "current": 6004,
+        "baseline": 6004,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.index.js",
+        "current": 13282,
+        "baseline": 13282,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.kids.js",
+        "current": 1204,
+        "baseline": 1204,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.legal.js",
+        "current": 4262,
+        "baseline": 4262,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.lenses.js",
+        "current": 39746,
+        "baseline": 39746,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.men.js",
+        "current": 1322,
+        "baseline": 1322,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.privacy.js",
+        "current": 3705,
+        "baseline": 3705,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.technology.js",
+        "current": 1863,
+        "baseline": 1863,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/_locale.women.js",
+        "current": 1318,
+        "baseline": 1318,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/about.js",
+        "current": 30784,
+        "baseline": 30784,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/compliance.js",
+        "current": 5996,
+        "baseline": 5996,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/contact.js",
+        "current": 90794,
+        "baseline": 90794,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/contact-concierge.js",
+        "current": 8034,
+        "baseline": 8034,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/dev-a11y-logo.js",
+        "current": 1560,
+        "baseline": 1560,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/dev-tokens.js",
+        "current": 10382,
+        "baseline": 10382,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/faq.js",
+        "current": 15783,
+        "baseline": 15783,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/guard-comparison.js",
+        "current": 527,
+        "baseline": 527,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/guard-lens-float.js",
+        "current": 662,
+        "baseline": 662,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/index.js",
+        "current": 213860,
+        "baseline": 213860,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/legal.js",
+        "current": 4254,
+        "baseline": 4254,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/lenses.js",
+        "current": 39736,
+        "baseline": 39736,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/meridian-hero.js",
+        "current": 626,
+        "baseline": 626,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/motion-icons.js",
+        "current": 9501,
+        "baseline": 9501,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/privacy.js",
+        "current": 3697,
+        "baseline": 3697,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/product.atelier.js",
+        "current": 12025,
+        "baseline": 12025,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/product.marais.js",
+        "current": 10433,
+        "baseline": 10433,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/product.meridian.js",
+        "current": 38359,
+        "baseline": 38359,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/product.solene.js",
+        "current": 11842,
+        "baseline": 11842,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/qa.js",
+        "current": 11340,
+        "baseline": 11340,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/radix.js",
+        "current": 36651,
+        "baseline": 36651,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/react.js",
+        "current": 179991,
+        "baseline": 179991,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/rolldown-runtime.js",
+        "current": 567,
+        "baseline": 567,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/shipping.js",
+        "current": 34970,
+        "baseline": 34970,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/solene-front.js",
+        "current": 3905,
+        "baseline": 3905,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/styles.css",
+        "current": 182107,
+        "baseline": 182107,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/universe-lens-macro.js",
+        "current": 554,
+        "baseline": 554,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/client/assets/warranty.js",
+        "current": 34080,
+        "baseline": 34080,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      }
+    ]
+  },
+  "server": {
+    "totals": {
+      "current": 1512794,
+      "baseline": 1512794,
+      "delta": 0,
+      "deltaPct": 0
+    },
+    "chunks": [
+      {
+        "chunk": "dist/server/_chunks/ssr.mjs",
+        "current": 248,
+        "baseline": 248,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/@radix-ui/react-compose-refs+[...].mjs",
+        "current": 7874,
+        "baseline": 7874,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/@radix-ui/react-dialog+[...].mjs",
+        "current": 34690,
+        "baseline": 34690,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/@tanstack/react-router+[...].mjs",
+        "current": 287312,
+        "baseline": 287312,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/@tanstack/router-core+[...].mjs",
+        "current": 48835,
+        "baseline": 48835,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/class-variance-authority+clsx.mjs",
+        "current": 966,
+        "baseline": 966,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/h3+rou3+srvx+unenv.mjs",
+        "current": 11015,
+        "baseline": 11015,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/h3-v2+srvx.mjs",
+        "current": 5308,
+        "baseline": 5308,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/hookable.mjs",
+        "current": 616,
+        "baseline": 616,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/lucide-react.mjs",
+        "current": 2084,
+        "baseline": 2084,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/radix-ui__primitive.mjs",
+        "current": 138,
+        "baseline": 138,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/radix-ui__react-context+react.mjs",
+        "current": 1755,
+        "baseline": 1755,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/tailwind-merge.mjs",
+        "current": 25998,
+        "baseline": 25998,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/tanstack__history.mjs",
+        "current": 4723,
+        "baseline": 4723,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/tanstack__query-core.mjs",
+        "current": 24083,
+        "baseline": 24083,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/tanstack__react-query.mjs",
+        "current": 338,
+        "baseline": 338,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_libs/zod.mjs",
+        "current": 52313,
+        "baseline": 52313,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.mjs",
+        "current": 4344,
+        "baseline": 4344,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.about.mjs",
+        "current": 30898,
+        "baseline": 30898,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.compliance.mjs",
+        "current": 6034,
+        "baseline": 6034,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.index.mjs",
+        "current": 13957,
+        "baseline": 13957,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.kids.mjs",
+        "current": 3666,
+        "baseline": 3666,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.legal.mjs",
+        "current": 4292,
+        "baseline": 4292,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.lenses.mjs",
+        "current": 39850,
+        "baseline": 39850,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.men.mjs",
+        "current": 3848,
+        "baseline": 3848,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.privacy.mjs",
+        "current": 3735,
+        "baseline": 3735,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.technology.mjs",
+        "current": 1122,
+        "baseline": 1122,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_locale.women.mjs",
+        "current": 3772,
+        "baseline": 3772,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_runtime.mjs",
+        "current": 567,
+        "baseline": 567,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/ComingSoonModal.mjs",
+        "current": 7164,
+        "baseline": 7164,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/CookieBanner.mjs",
+        "current": 2100,
+        "baseline": 2100,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/EyegisGuard.mjs",
+        "current": 32414,
+        "baseline": 32414,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/FAQ.mjs",
+        "current": 11498,
+        "baseline": 11498,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/Footer.mjs",
+        "current": 10246,
+        "baseline": 10246,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/Header.mjs",
+        "current": 8824,
+        "baseline": 8824,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/HonestScience.mjs",
+        "current": 17819,
+        "baseline": 17819,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/HonestScienceTeaser.mjs",
+        "current": 3104,
+        "baseline": 3104,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/HowItWorks.mjs",
+        "current": 3825,
+        "baseline": 3825,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/LifestyleUniverse.mjs",
+        "current": 21237,
+        "baseline": 21237,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/Logo.mjs",
+        "current": 3835,
+        "baseline": 3835,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/ModelRunway.mjs",
+        "current": 11725,
+        "baseline": 11725,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/OurTechnology.mjs",
+        "current": 13943,
+        "baseline": 13943,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/PageHero.mjs",
+        "current": 49032,
+        "baseline": 49032,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/Picture.mjs",
+        "current": 1053,
+        "baseline": 1053,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/ScienceInPractice.mjs",
+        "current": 6975,
+        "baseline": 6975,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/ShopOnAmazon.mjs",
+        "current": 5114,
+        "baseline": 5114,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/SocialProof.mjs",
+        "current": 40358,
+        "baseline": 40358,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/TechCore.mjs",
+        "current": 21044,
+        "baseline": 21044,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/Universe.mjs",
+        "current": 18131,
+        "baseline": 18131,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/WhatsInTheBox.mjs",
+        "current": 9273,
+        "baseline": 9273,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/about.mjs",
+        "current": 30874,
+        "baseline": 30874,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/amazon.mjs",
+        "current": 1056,
+        "baseline": 1056,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/compliance.mjs",
+        "current": 6022,
+        "baseline": 6022,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/contact.mjs",
+        "current": 38562,
+        "baseline": 38562,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/contact-concierge.mjs",
+        "current": 8034,
+        "baseline": 8034,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/context.mjs",
+        "current": 4579,
+        "baseline": 4579,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/dev-a11y-logo.mjs",
+        "current": 1584,
+        "baseline": 1584,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/dev-tokens.mjs",
+        "current": 10405,
+        "baseline": 10405,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/faq.mjs",
+        "current": 44846,
+        "baseline": 44846,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/guard-comparison.mjs",
+        "current": 527,
+        "baseline": 527,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/guard-lens-float.mjs",
+        "current": 662,
+        "baseline": 662,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/hero-paris-eyegis.mjs",
+        "current": 2371,
+        "baseline": 2371,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/legal.mjs",
+        "current": 4280,
+        "baseline": 4280,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/lenses.mjs",
+        "current": 39826,
+        "baseline": 39826,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/meridian-hero.mjs",
+        "current": 626,
+        "baseline": 626,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/privacy.mjs",
+        "current": 3723,
+        "baseline": 3723,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/product.atelier.mjs",
+        "current": 12048,
+        "baseline": 12048,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/product.marais.mjs",
+        "current": 10456,
+        "baseline": 10456,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/product.meridian.mjs",
+        "current": 38432,
+        "baseline": 38432,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/product.solene.mjs",
+        "current": 11865,
+        "baseline": 11865,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/qa.mjs",
+        "current": 11367,
+        "baseline": 11367,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/router.mjs",
+        "current": 20915,
+        "baseline": 20915,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/shipping.mjs",
+        "current": 35059,
+        "baseline": 35059,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/solene-front.mjs",
+        "current": 3905,
+        "baseline": 3905,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/ssr.mjs",
+        "current": 2383,
+        "baseline": 2383,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/start.mjs",
+        "current": 369,
+        "baseline": 369,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/tanstack.mjs",
+        "current": 26779,
+        "baseline": 26779,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/universe-lens-macro.mjs",
+        "current": 554,
+        "baseline": 554,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_ssr/warranty.mjs",
+        "current": 34169,
+        "baseline": 34169,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/_tanstack-start-manifest_v.mjs",
+        "current": 6028,
+        "baseline": 6028,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      },
+      {
+        "chunk": "dist/server/index.mjs",
+        "current": 177393,
+        "baseline": 177393,
+        "delta": 0,
+        "deltaPct": 0,
+        "status": "same",
+        "moduleDiff": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "capturedAt": "2026-07-20T22:09:05.341Z",
+  "hasSourcemaps": false,
+  "client": {
+    "total": 1425169,
+    "byPath": {
+      "dist/client/assets/ComingSoonModal.js": {
+        "path": "dist/client/assets/ComingSoonModal.js",
+        "size": 7100,
+        "modules": null
+      },
+      "dist/client/assets/CookieBanner.js": {
+        "path": "dist/client/assets/CookieBanner.js",
+        "size": 2070,
+        "modules": null
+      },
+      "dist/client/assets/EyegisGuard.js": {
+        "path": "dist/client/assets/EyegisGuard.js",
+        "size": 32381,
+        "modules": null
+      },
+      "dist/client/assets/FAQ.js": {
+        "path": "dist/client/assets/FAQ.js",
+        "size": 11429,
+        "modules": null
+      },
+      "dist/client/assets/Footer.js": {
+        "path": "dist/client/assets/Footer.js",
+        "size": 10164,
+        "modules": null
+      },
+      "dist/client/assets/Header.js": {
+        "path": "dist/client/assets/Header.js",
+        "size": 35534,
+        "modules": null
+      },
+      "dist/client/assets/HonestScience.js": {
+        "path": "dist/client/assets/HonestScience.js",
+        "size": 17797,
+        "modules": null
+      },
+      "dist/client/assets/HonestScienceTeaser.js": {
+        "path": "dist/client/assets/HonestScienceTeaser.js",
+        "size": 3023,
+        "modules": null
+      },
+      "dist/client/assets/HowItWorks.js": {
+        "path": "dist/client/assets/HowItWorks.js",
+        "size": 3799,
+        "modules": null
+      },
+      "dist/client/assets/LifestyleUniverse.js": {
+        "path": "dist/client/assets/LifestyleUniverse.js",
+        "size": 21206,
+        "modules": null
+      },
+      "dist/client/assets/Logo.js": {
+        "path": "dist/client/assets/Logo.js",
+        "size": 3808,
+        "modules": null
+      },
+      "dist/client/assets/ModelRunway.js": {
+        "path": "dist/client/assets/ModelRunway.js",
+        "size": 11617,
+        "modules": null
+      },
+      "dist/client/assets/OurTechnology.js": {
+        "path": "dist/client/assets/OurTechnology.js",
+        "size": 13899,
+        "modules": null
+      },
+      "dist/client/assets/PageHero.js": {
+        "path": "dist/client/assets/PageHero.js",
+        "size": 48900,
+        "modules": null
+      },
+      "dist/client/assets/Picture.js": {
+        "path": "dist/client/assets/Picture.js",
+        "size": 1026,
+        "modules": null
+      },
+      "dist/client/assets/ScienceInPractice.js": {
+        "path": "dist/client/assets/ScienceInPractice.js",
+        "size": 6953,
+        "modules": null
+      },
+      "dist/client/assets/ShopOnAmazon.js": {
+        "path": "dist/client/assets/ShopOnAmazon.js",
+        "size": 5058,
+        "modules": null
+      },
+      "dist/client/assets/SocialProof.js": {
+        "path": "dist/client/assets/SocialProof.js",
+        "size": 40290,
+        "modules": null
+      },
+      "dist/client/assets/TechCore.js": {
+        "path": "dist/client/assets/TechCore.js",
+        "size": 21014,
+        "modules": null
+      },
+      "dist/client/assets/Universe.js": {
+        "path": "dist/client/assets/Universe.js",
+        "size": 18100,
+        "modules": null
+      },
+      "dist/client/assets/WhatsInTheBox.js": {
+        "path": "dist/client/assets/WhatsInTheBox.js",
+        "size": 9247,
+        "modules": null
+      },
+      "dist/client/assets/_locale.js": {
+        "path": "dist/client/assets/_locale.js",
+        "size": 4234,
+        "modules": null
+      },
+      "dist/client/assets/_locale.about.js": {
+        "path": "dist/client/assets/_locale.about.js",
+        "size": 30794,
+        "modules": null
+      },
+      "dist/client/assets/_locale.compliance.js": {
+        "path": "dist/client/assets/_locale.compliance.js",
+        "size": 6004,
+        "modules": null
+      },
+      "dist/client/assets/_locale.index.js": {
+        "path": "dist/client/assets/_locale.index.js",
+        "size": 13282,
+        "modules": null
+      },
+      "dist/client/assets/_locale.kids.js": {
+        "path": "dist/client/assets/_locale.kids.js",
+        "size": 1204,
+        "modules": null
+      },
+      "dist/client/assets/_locale.legal.js": {
+        "path": "dist/client/assets/_locale.legal.js",
+        "size": 4262,
+        "modules": null
+      },
+      "dist/client/assets/_locale.lenses.js": {
+        "path": "dist/client/assets/_locale.lenses.js",
+        "size": 39746,
+        "modules": null
+      },
+      "dist/client/assets/_locale.men.js": {
+        "path": "dist/client/assets/_locale.men.js",
+        "size": 1322,
+        "modules": null
+      },
+      "dist/client/assets/_locale.privacy.js": {
+        "path": "dist/client/assets/_locale.privacy.js",
+        "size": 3705,
+        "modules": null
+      },
+      "dist/client/assets/_locale.technology.js": {
+        "path": "dist/client/assets/_locale.technology.js",
+        "size": 1863,
+        "modules": null
+      },
+      "dist/client/assets/_locale.women.js": {
+        "path": "dist/client/assets/_locale.women.js",
+        "size": 1318,
+        "modules": null
+      },
+      "dist/client/assets/about.js": {
+        "path": "dist/client/assets/about.js",
+        "size": 30784,
+        "modules": null
+      },
+      "dist/client/assets/compliance.js": {
+        "path": "dist/client/assets/compliance.js",
+        "size": 5996,
+        "modules": null
+      },
+      "dist/client/assets/contact.js": {
+        "path": "dist/client/assets/contact.js",
+        "size": 90794,
+        "modules": null
+      },
+      "dist/client/assets/contact-concierge.js": {
+        "path": "dist/client/assets/contact-concierge.js",
+        "size": 8034,
+        "modules": null
+      },
+      "dist/client/assets/dev-a11y-logo.js": {
+        "path": "dist/client/assets/dev-a11y-logo.js",
+        "size": 1560,
+        "modules": null
+      },
+      "dist/client/assets/dev-tokens.js": {
+        "path": "dist/client/assets/dev-tokens.js",
+        "size": 10382,
+        "modules": null
+      },
+      "dist/client/assets/faq.js": {
+        "path": "dist/client/assets/faq.js",
+        "size": 15783,
+        "modules": null
+      },
+      "dist/client/assets/guard-comparison.js": {
+        "path": "dist/client/assets/guard-comparison.js",
+        "size": 527,
+        "modules": null
+      },
+      "dist/client/assets/guard-lens-float.js": {
+        "path": "dist/client/assets/guard-lens-float.js",
+        "size": 662,
+        "modules": null
+      },
+      "dist/client/assets/index.js": {
+        "path": "dist/client/assets/index.js",
+        "size": 213860,
+        "modules": null
+      },
+      "dist/client/assets/legal.js": {
+        "path": "dist/client/assets/legal.js",
+        "size": 4254,
+        "modules": null
+      },
+      "dist/client/assets/lenses.js": {
+        "path": "dist/client/assets/lenses.js",
+        "size": 39736,
+        "modules": null
+      },
+      "dist/client/assets/meridian-hero.js": {
+        "path": "dist/client/assets/meridian-hero.js",
+        "size": 626,
+        "modules": null
+      },
+      "dist/client/assets/motion-icons.js": {
+        "path": "dist/client/assets/motion-icons.js",
+        "size": 9501,
+        "modules": null
+      },
+      "dist/client/assets/privacy.js": {
+        "path": "dist/client/assets/privacy.js",
+        "size": 3697,
+        "modules": null
+      },
+      "dist/client/assets/product.atelier.js": {
+        "path": "dist/client/assets/product.atelier.js",
+        "size": 12025,
+        "modules": null
+      },
+      "dist/client/assets/product.marais.js": {
+        "path": "dist/client/assets/product.marais.js",
+        "size": 10433,
+        "modules": null
+      },
+      "dist/client/assets/product.meridian.js": {
+        "path": "dist/client/assets/product.meridian.js",
+        "size": 38359,
+        "modules": null
+      },
+      "dist/client/assets/product.solene.js": {
+        "path": "dist/client/assets/product.solene.js",
+        "size": 11842,
+        "modules": null
+      },
+      "dist/client/assets/qa.js": {
+        "path": "dist/client/assets/qa.js",
+        "size": 11340,
+        "modules": null
+      },
+      "dist/client/assets/radix.js": {
+        "path": "dist/client/assets/radix.js",
+        "size": 36651,
+        "modules": null
+      },
+      "dist/client/assets/react.js": {
+        "path": "dist/client/assets/react.js",
+        "size": 179991,
+        "modules": null
+      },
+      "dist/client/assets/rolldown-runtime.js": {
+        "path": "dist/client/assets/rolldown-runtime.js",
+        "size": 567,
+        "modules": null
+      },
+      "dist/client/assets/shipping.js": {
+        "path": "dist/client/assets/shipping.js",
+        "size": 34970,
+        "modules": null
+      },
+      "dist/client/assets/solene-front.js": {
+        "path": "dist/client/assets/solene-front.js",
+        "size": 3905,
+        "modules": null
+      },
+      "dist/client/assets/styles.css": {
+        "path": "dist/client/assets/styles.css",
+        "size": 182107,
+        "modules": null
+      },
+      "dist/client/assets/universe-lens-macro.js": {
+        "path": "dist/client/assets/universe-lens-macro.js",
+        "size": 554,
+        "modules": null
+      },
+      "dist/client/assets/warranty.js": {
+        "path": "dist/client/assets/warranty.js",
+        "size": 34080,
+        "modules": null
+      }
+    }
+  },
+  "server": {
+    "total": 1512794,
+    "byPath": {
+      "dist/server/_chunks/ssr.mjs": {
+        "path": "dist/server/_chunks/ssr.mjs",
+        "size": 248,
+        "modules": null
+      },
+      "dist/server/_libs/@radix-ui/react-compose-refs+[...].mjs": {
+        "path": "dist/server/_libs/@radix-ui/react-compose-refs+[...].mjs",
+        "size": 7874,
+        "modules": null
+      },
+      "dist/server/_libs/@radix-ui/react-dialog+[...].mjs": {
+        "path": "dist/server/_libs/@radix-ui/react-dialog+[...].mjs",
+        "size": 34690,
+        "modules": null
+      },
+      "dist/server/_libs/@tanstack/react-router+[...].mjs": {
+        "path": "dist/server/_libs/@tanstack/react-router+[...].mjs",
+        "size": 287312,
+        "modules": null
+      },
+      "dist/server/_libs/@tanstack/router-core+[...].mjs": {
+        "path": "dist/server/_libs/@tanstack/router-core+[...].mjs",
+        "size": 48835,
+        "modules": null
+      },
+      "dist/server/_libs/class-variance-authority+clsx.mjs": {
+        "path": "dist/server/_libs/class-variance-authority+clsx.mjs",
+        "size": 966,
+        "modules": null
+      },
+      "dist/server/_libs/h3+rou3+srvx+unenv.mjs": {
+        "path": "dist/server/_libs/h3+rou3+srvx+unenv.mjs",
+        "size": 11015,
+        "modules": null
+      },
+      "dist/server/_libs/h3-v2+srvx.mjs": {
+        "path": "dist/server/_libs/h3-v2+srvx.mjs",
+        "size": 5308,
+        "modules": null
+      },
+      "dist/server/_libs/hookable.mjs": {
+        "path": "dist/server/_libs/hookable.mjs",
+        "size": 616,
+        "modules": null
+      },
+      "dist/server/_libs/lucide-react.mjs": {
+        "path": "dist/server/_libs/lucide-react.mjs",
+        "size": 2084,
+        "modules": null
+      },
+      "dist/server/_libs/radix-ui__primitive.mjs": {
+        "path": "dist/server/_libs/radix-ui__primitive.mjs",
+        "size": 138,
+        "modules": null
+      },
+      "dist/server/_libs/radix-ui__react-context+react.mjs": {
+        "path": "dist/server/_libs/radix-ui__react-context+react.mjs",
+        "size": 1755,
+        "modules": null
+      },
+      "dist/server/_libs/tailwind-merge.mjs": {
+        "path": "dist/server/_libs/tailwind-merge.mjs",
+        "size": 25998,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__history.mjs": {
+        "path": "dist/server/_libs/tanstack__history.mjs",
+        "size": 4723,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__query-core.mjs": {
+        "path": "dist/server/_libs/tanstack__query-core.mjs",
+        "size": 24083,
+        "modules": null
+      },
+      "dist/server/_libs/tanstack__react-query.mjs": {
+        "path": "dist/server/_libs/tanstack__react-query.mjs",
+        "size": 338,
+        "modules": null
+      },
+      "dist/server/_libs/zod.mjs": {
+        "path": "dist/server/_libs/zod.mjs",
+        "size": 52313,
+        "modules": null
+      },
+      "dist/server/_locale.mjs": {
+        "path": "dist/server/_locale.mjs",
+        "size": 4344,
+        "modules": null
+      },
+      "dist/server/_locale.about.mjs": {
+        "path": "dist/server/_locale.about.mjs",
+        "size": 30898,
+        "modules": null
+      },
+      "dist/server/_locale.compliance.mjs": {
+        "path": "dist/server/_locale.compliance.mjs",
+        "size": 6034,
+        "modules": null
+      },
+      "dist/server/_locale.index.mjs": {
+        "path": "dist/server/_locale.index.mjs",
+        "size": 13957,
+        "modules": null
+      },
+      "dist/server/_locale.kids.mjs": {
+        "path": "dist/server/_locale.kids.mjs",
+        "size": 3666,
+        "modules": null
+      },
+      "dist/server/_locale.legal.mjs": {
+        "path": "dist/server/_locale.legal.mjs",
+        "size": 4292,
+        "modules": null
+      },
+      "dist/server/_locale.lenses.mjs": {
+        "path": "dist/server/_locale.lenses.mjs",
+        "size": 39850,
+        "modules": null
+      },
+      "dist/server/_locale.men.mjs": {
+        "path": "dist/server/_locale.men.mjs",
+        "size": 3848,
+        "modules": null
+      },
+      "dist/server/_locale.privacy.mjs": {
+        "path": "dist/server/_locale.privacy.mjs",
+        "size": 3735,
+        "modules": null
+      },
+      "dist/server/_locale.technology.mjs": {
+        "path": "dist/server/_locale.technology.mjs",
+        "size": 1122,
+        "modules": null
+      },
+      "dist/server/_locale.women.mjs": {
+        "path": "dist/server/_locale.women.mjs",
+        "size": 3772,
+        "modules": null
+      },
+      "dist/server/_runtime.mjs": {
+        "path": "dist/server/_runtime.mjs",
+        "size": 567,
+        "modules": null
+      },
+      "dist/server/_ssr/ComingSoonModal.mjs": {
+        "path": "dist/server/_ssr/ComingSoonModal.mjs",
+        "size": 7164,
+        "modules": null
+      },
+      "dist/server/_ssr/CookieBanner.mjs": {
+        "path": "dist/server/_ssr/CookieBanner.mjs",
+        "size": 2100,
+        "modules": null
+      },
+      "dist/server/_ssr/EyegisGuard.mjs": {
+        "path": "dist/server/_ssr/EyegisGuard.mjs",
+        "size": 32414,
+        "modules": null
+      },
+      "dist/server/_ssr/FAQ.mjs": {
+        "path": "dist/server/_ssr/FAQ.mjs",
+        "size": 11498,
+        "modules": null
+      },
+      "dist/server/_ssr/Footer.mjs": {
+        "path": "dist/server/_ssr/Footer.mjs",
+        "size": 10246,
+        "modules": null
+      },
+      "dist/server/_ssr/Header.mjs": {
+        "path": "dist/server/_ssr/Header.mjs",
+        "size": 8824,
+        "modules": null
+      },
+      "dist/server/_ssr/HonestScience.mjs": {
+        "path": "dist/server/_ssr/HonestScience.mjs",
+        "size": 17819,
+        "modules": null
+      },
+      "dist/server/_ssr/HonestScienceTeaser.mjs": {
+        "path": "dist/server/_ssr/HonestScienceTeaser.mjs",
+        "size": 3104,
+        "modules": null
+      },
+      "dist/server/_ssr/HowItWorks.mjs": {
+        "path": "dist/server/_ssr/HowItWorks.mjs",
+        "size": 3825,
+        "modules": null
+      },
+      "dist/server/_ssr/LifestyleUniverse.mjs": {
+        "path": "dist/server/_ssr/LifestyleUniverse.mjs",
+        "size": 21237,
+        "modules": null
+      },
+      "dist/server/_ssr/Logo.mjs": {
+        "path": "dist/server/_ssr/Logo.mjs",
+        "size": 3835,
+        "modules": null
+      },
+      "dist/server/_ssr/ModelRunway.mjs": {
+        "path": "dist/server/_ssr/ModelRunway.mjs",
+        "size": 11725,
+        "modules": null
+      },
+      "dist/server/_ssr/OurTechnology.mjs": {
+        "path": "dist/server/_ssr/OurTechnology.mjs",
+        "size": 13943,
+        "modules": null
+      },
+      "dist/server/_ssr/PageHero.mjs": {
+        "path": "dist/server/_ssr/PageHero.mjs",
+        "size": 49032,
+        "modules": null
+      },
+      "dist/server/_ssr/Picture.mjs": {
+        "path": "dist/server/_ssr/Picture.mjs",
+        "size": 1053,
+        "modules": null
+      },
+      "dist/server/_ssr/ScienceInPractice.mjs": {
+        "path": "dist/server/_ssr/ScienceInPractice.mjs",
+        "size": 6975,
+        "modules": null
+      },
+      "dist/server/_ssr/ShopOnAmazon.mjs": {
+        "path": "dist/server/_ssr/ShopOnAmazon.mjs",
+        "size": 5114,
+        "modules": null
+      },
+      "dist/server/_ssr/SocialProof.mjs": {
+        "path": "dist/server/_ssr/SocialProof.mjs",
+        "size": 40358,
+        "modules": null
+      },
+      "dist/server/_ssr/TechCore.mjs": {
+        "path": "dist/server/_ssr/TechCore.mjs",
+        "size": 21044,
+        "modules": null
+      },
+      "dist/server/_ssr/Universe.mjs": {
+        "path": "dist/server/_ssr/Universe.mjs",
+        "size": 18131,
+        "modules": null
+      },
+      "dist/server/_ssr/WhatsInTheBox.mjs": {
+        "path": "dist/server/_ssr/WhatsInTheBox.mjs",
+        "size": 9273,
+        "modules": null
+      },
+      "dist/server/_ssr/about.mjs": {
+        "path": "dist/server/_ssr/about.mjs",
+        "size": 30874,
+        "modules": null
+      },
+      "dist/server/_ssr/amazon.mjs": {
+        "path": "dist/server/_ssr/amazon.mjs",
+        "size": 1056,
+        "modules": null
+      },
+      "dist/server/_ssr/compliance.mjs": {
+        "path": "dist/server/_ssr/compliance.mjs",
+        "size": 6022,
+        "modules": null
+      },
+      "dist/server/_ssr/contact.mjs": {
+        "path": "dist/server/_ssr/contact.mjs",
+        "size": 38562,
+        "modules": null
+      },
+      "dist/server/_ssr/contact-concierge.mjs": {
+        "path": "dist/server/_ssr/contact-concierge.mjs",
+        "size": 8034,
+        "modules": null
+      },
+      "dist/server/_ssr/context.mjs": {
+        "path": "dist/server/_ssr/context.mjs",
+        "size": 4579,
+        "modules": null
+      },
+      "dist/server/_ssr/dev-a11y-logo.mjs": {
+        "path": "dist/server/_ssr/dev-a11y-logo.mjs",
+        "size": 1584,
+        "modules": null
+      },
+      "dist/server/_ssr/dev-tokens.mjs": {
+        "path": "dist/server/_ssr/dev-tokens.mjs",
+        "size": 10405,
+        "modules": null
+      },
+      "dist/server/_ssr/faq.mjs": {
+        "path": "dist/server/_ssr/faq.mjs",
+        "size": 44846,
+        "modules": null
+      },
+      "dist/server/_ssr/guard-comparison.mjs": {
+        "path": "dist/server/_ssr/guard-comparison.mjs",
+        "size": 527,
+        "modules": null
+      },
+      "dist/server/_ssr/guard-lens-float.mjs": {
+        "path": "dist/server/_ssr/guard-lens-float.mjs",
+        "size": 662,
+        "modules": null
+      },
+      "dist/server/_ssr/hero-paris-eyegis.mjs": {
+        "path": "dist/server/_ssr/hero-paris-eyegis.mjs",
+        "size": 2371,
+        "modules": null
+      },
+      "dist/server/_ssr/legal.mjs": {
+        "path": "dist/server/_ssr/legal.mjs",
+        "size": 4280,
+        "modules": null
+      },
+      "dist/server/_ssr/lenses.mjs": {
+        "path": "dist/server/_ssr/lenses.mjs",
+        "size": 39826,
+        "modules": null
+      },
+      "dist/server/_ssr/meridian-hero.mjs": {
+        "path": "dist/server/_ssr/meridian-hero.mjs",
+        "size": 626,
+        "modules": null
+      },
+      "dist/server/_ssr/privacy.mjs": {
+        "path": "dist/server/_ssr/privacy.mjs",
+        "size": 3723,
+        "modules": null
+      },
+      "dist/server/_ssr/product.atelier.mjs": {
+        "path": "dist/server/_ssr/product.atelier.mjs",
+        "size": 12048,
+        "modules": null
+      },
+      "dist/server/_ssr/product.marais.mjs": {
+        "path": "dist/server/_ssr/product.marais.mjs",
+        "size": 10456,
+        "modules": null
+      },
+      "dist/server/_ssr/product.meridian.mjs": {
+        "path": "dist/server/_ssr/product.meridian.mjs",
+        "size": 38432,
+        "modules": null
+      },
+      "dist/server/_ssr/product.solene.mjs": {
+        "path": "dist/server/_ssr/product.solene.mjs",
+        "size": 11865,
+        "modules": null
+      },
+      "dist/server/_ssr/qa.mjs": {
+        "path": "dist/server/_ssr/qa.mjs",
+        "size": 11367,
+        "modules": null
+      },
+      "dist/server/_ssr/router.mjs": {
+        "path": "dist/server/_ssr/router.mjs",
+        "size": 20915,
+        "modules": null
+      },
+      "dist/server/_ssr/shipping.mjs": {
+        "path": "dist/server/_ssr/shipping.mjs",
+        "size": 35059,
+        "modules": null
+      },
+      "dist/server/_ssr/solene-front.mjs": {
+        "path": "dist/server/_ssr/solene-front.mjs",
+        "size": 3905,
+        "modules": null
+      },
+      "dist/server/_ssr/ssr.mjs": {
+        "path": "dist/server/_ssr/ssr.mjs",
+        "size": 2383,
+        "modules": null
+      },
+      "dist/server/_ssr/start.mjs": {
+        "path": "dist/server/_ssr/start.mjs",
+        "size": 369,
+        "modules": null
+      },
+      "dist/server/_ssr/tanstack.mjs": {
+        "path": "dist/server/_ssr/tanstack.mjs",
+        "size": 26779,
+        "modules": null
+      },
+      "dist/server/_ssr/universe-lens-macro.mjs": {
+        "path": "dist/server/_ssr/universe-lens-macro.mjs",
+        "size": 554,
+        "modules": null
+      },
+      "dist/server/_ssr/warranty.mjs": {
+        "path": "dist/server/_ssr/warranty.mjs",
+        "size": 34169,
+        "modules": null
+      },
+      "dist/server/_tanstack-start-manifest_v.mjs": {
+        "path": "dist/server/_tanstack-start-manifest_v.mjs",
+        "size": 6028,
+        "modules": null
+      },
+      "dist/server/index.mjs": {
+        "path": "dist/server/index.mjs",
+        "size": 177393,
+        "modules": null
+      }
+    }
+  }
+}
