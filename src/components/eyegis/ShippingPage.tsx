@@ -532,7 +532,7 @@ const COUNTRY_COORDS: Record<string, { x: number; y: number; live: boolean }> = 
 
 const WHY_ICONS = [<Icon.Lock />, <Icon.Truck />, <Icon.Return />, <Icon.Star />];
 
-function ShippingPage() {
+export function ShippingPage() {
   const { lang } = useI18n();
   const c = CONTENT[lang];
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";

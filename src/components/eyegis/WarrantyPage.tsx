@@ -565,7 +565,7 @@ const COVERED_ICONS = [<Icon.Shield />, <Icon.Frame />, <Icon.Hinge />, <Icon.Ma
 const NOT_COVERED_ICONS = [<Icon.Drop />, <Icon.Drop />, <Icon.Crush />, <Icon.Scratch />, <Icon.Clean />, <Icon.Heat />, <Icon.Mod />];
 const CARE_ICONS = [<Icon.Cloth />, <Icon.Case />, <Icon.Plane />, <Icon.Sun />, <Icon.Headset />];
 
-function WarrantyPage() {
+export function WarrantyPage() {
   const { lang } = useI18n();
   const c = CONTENT[lang];
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";
