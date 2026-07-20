@@ -15,10 +15,10 @@ export default defineConfig({
   },
   // Nitro (server bundler) options. Minifying the SSR/Worker output cuts the
   // heaviest vendor chunk (@tanstack/react-router) roughly in half without
-  // changing runtime behavior.
-  nitro: {
-    minify: true,
-  },
+  // changing runtime behavior. The template's public type omits `minify`, but
+  // user nitro options are spread straight into `nitro()`, so a cast is safe.
+  nitro: { minify: true } as any,
+
 
   plugins: [
     imagetools({
