@@ -560,7 +560,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href="#coming-soon"
+              href="https://www.amazon.com.br/" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-between gap-6 rounded-full bg-mint px-6 py-4 text-teal-deep hover:-translate-y-0.5 transition-all duration-500"
             >
               <span className="font-eyebrow">{copy.lightbox.buyOnAmazon}</span>
@@ -914,7 +914,7 @@ export function SocialProof() {
           <Reveal delay={220}>
             <div className="mt-14 flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="#coming-soon"
+                href="https://www.amazon.com.br/" target="_blank" rel="noopener noreferrer"
                 className="group inline-flex items-center gap-6 rounded-full bg-mint px-9 py-5 text-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
                 <span className="font-eyebrow">{copy.ctaBuy}</span>
