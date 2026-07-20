@@ -10,10 +10,10 @@ const responsiveRoutes: { path: string; label: string }[] = [
   { path: "/en/men", label: "Men" },
   { path: "/en/kids", label: "Kids" },
   { path: "/en/technology", label: "Technology" },
-  { path: "/product/meridian", label: "PDP — Meridian" },
-  { path: "/product/solene", label: "PDP — Solène" },
-  { path: "/product/atelier", label: "PDP — Atelier" },
-  { path: "/product/marais", label: "PDP — Marais" },
+  { path: "/product/meridian", label: "PDP — Men's Collection" },
+  { path: "/product/solene", label: "PDP — Women's Collection" },
+  { path: "/product/atelier", label: "PDP — Men's Collection (Atelier route)" },
+  { path: "/product/marais", label: "PDP — Women's Collection (Marais route)" },
 ];
 
 const BREAKPOINTS = [
