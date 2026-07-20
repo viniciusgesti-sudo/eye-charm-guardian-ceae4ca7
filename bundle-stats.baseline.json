@@ -1,307 +1,307 @@
 {
   "version": 1,
-  "capturedAt": "2026-07-20T22:08:45.617Z",
+  "capturedAt": "2026-07-20T22:09:05.341Z",
   "hasSourcemaps": false,
   "client": {
     "total": 1425169,
     "byPath": {
-      "dist/client/assets/ComingSoonModal-C08GIM6n.js": {
-        "path": "dist/client/assets/ComingSoonModal-C08GIM6n.js",
+      "dist/client/assets/ComingSoonModal.js": {
+        "path": "dist/client/assets/ComingSoonModal.js",
         "size": 7100,
         "modules": null
       },
-      "dist/client/assets/CookieBanner-CW3nyQ8R.js": {
-        "path": "dist/client/assets/CookieBanner-CW3nyQ8R.js",
+      "dist/client/assets/CookieBanner.js": {
+        "path": "dist/client/assets/CookieBanner.js",
         "size": 2070,
         "modules": null
       },
-      "dist/client/assets/EyegisGuard-DITGu8-M.js": {
-        "path": "dist/client/assets/EyegisGuard-DITGu8-M.js",
+      "dist/client/assets/EyegisGuard.js": {
+        "path": "dist/client/assets/EyegisGuard.js",
         "size": 32381,
         "modules": null
       },
-      "dist/client/assets/FAQ-i4vgMYdB.js": {
-        "path": "dist/client/assets/FAQ-i4vgMYdB.js",
+      "dist/client/assets/FAQ.js": {
+        "path": "dist/client/assets/FAQ.js",
         "size": 11429,
         "modules": null
       },
-      "dist/client/assets/Footer-CDQuRT4c.js": {
-        "path": "dist/client/assets/Footer-CDQuRT4c.js",
+      "dist/client/assets/Footer.js": {
+        "path": "dist/client/assets/Footer.js",
         "size": 10164,
         "modules": null
       },
-      "dist/client/assets/Header-DqbGe34B.js": {
-        "path": "dist/client/assets/Header-DqbGe34B.js",
+      "dist/client/assets/Header.js": {
+        "path": "dist/client/assets/Header.js",
         "size": 35534,
         "modules": null
       },
-      "dist/client/assets/HonestScience-C_zMw2Yp.js": {
-        "path": "dist/client/assets/HonestScience-C_zMw2Yp.js",
+      "dist/client/assets/HonestScience.js": {
+        "path": "dist/client/assets/HonestScience.js",
         "size": 17797,
         "modules": null
       },
-      "dist/client/assets/HonestScienceTeaser-BvhQTdiq.js": {
-        "path": "dist/client/assets/HonestScienceTeaser-BvhQTdiq.js",
+      "dist/client/assets/HonestScienceTeaser.js": {
+        "path": "dist/client/assets/HonestScienceTeaser.js",
         "size": 3023,
         "modules": null
       },
-      "dist/client/assets/HowItWorks-CU70Yvr9.js": {
-        "path": "dist/client/assets/HowItWorks-CU70Yvr9.js",
+      "dist/client/assets/HowItWorks.js": {
+        "path": "dist/client/assets/HowItWorks.js",
         "size": 3799,
         "modules": null
       },
-      "dist/client/assets/LifestyleUniverse-JOqwrn4b.js": {
-        "path": "dist/client/assets/LifestyleUniverse-JOqwrn4b.js",
+      "dist/client/assets/LifestyleUniverse.js": {
+        "path": "dist/client/assets/LifestyleUniverse.js",
         "size": 21206,
         "modules": null
       },
-      "dist/client/assets/Logo-CwkPa1SB.js": {
-        "path": "dist/client/assets/Logo-CwkPa1SB.js",
+      "dist/client/assets/Logo.js": {
+        "path": "dist/client/assets/Logo.js",
         "size": 3808,
         "modules": null
       },
-      "dist/client/assets/ModelRunway-DJ-f7OoR.js": {
-        "path": "dist/client/assets/ModelRunway-DJ-f7OoR.js",
+      "dist/client/assets/ModelRunway.js": {
+        "path": "dist/client/assets/ModelRunway.js",
         "size": 11617,
         "modules": null
       },
-      "dist/client/assets/OurTechnology-BVCGBJKv.js": {
-        "path": "dist/client/assets/OurTechnology-BVCGBJKv.js",
+      "dist/client/assets/OurTechnology.js": {
+        "path": "dist/client/assets/OurTechnology.js",
         "size": 13899,
         "modules": null
       },
-      "dist/client/assets/PageHero-C-mOTBgN.js": {
-        "path": "dist/client/assets/PageHero-C-mOTBgN.js",
+      "dist/client/assets/PageHero.js": {
+        "path": "dist/client/assets/PageHero.js",
         "size": 48900,
         "modules": null
       },
-      "dist/client/assets/Picture-B2aq-ihA.js": {
-        "path": "dist/client/assets/Picture-B2aq-ihA.js",
+      "dist/client/assets/Picture.js": {
+        "path": "dist/client/assets/Picture.js",
         "size": 1026,
         "modules": null
       },
-      "dist/client/assets/ScienceInPractice-CG3EHkJ8.js": {
-        "path": "dist/client/assets/ScienceInPractice-CG3EHkJ8.js",
+      "dist/client/assets/ScienceInPractice.js": {
+        "path": "dist/client/assets/ScienceInPractice.js",
         "size": 6953,
         "modules": null
       },
-      "dist/client/assets/ShopOnAmazon-CSf05FJV.js": {
-        "path": "dist/client/assets/ShopOnAmazon-CSf05FJV.js",
+      "dist/client/assets/ShopOnAmazon.js": {
+        "path": "dist/client/assets/ShopOnAmazon.js",
         "size": 5058,
         "modules": null
       },
-      "dist/client/assets/SocialProof-Bg1tpzpm.js": {
-        "path": "dist/client/assets/SocialProof-Bg1tpzpm.js",
+      "dist/client/assets/SocialProof.js": {
+        "path": "dist/client/assets/SocialProof.js",
         "size": 40290,
         "modules": null
       },
-      "dist/client/assets/TechCore-CNrifgDK.js": {
-        "path": "dist/client/assets/TechCore-CNrifgDK.js",
+      "dist/client/assets/TechCore.js": {
+        "path": "dist/client/assets/TechCore.js",
         "size": 21014,
         "modules": null
       },
-      "dist/client/assets/Universe-4Wtch2yC.js": {
-        "path": "dist/client/assets/Universe-4Wtch2yC.js",
+      "dist/client/assets/Universe.js": {
+        "path": "dist/client/assets/Universe.js",
         "size": 18100,
         "modules": null
       },
-      "dist/client/assets/WhatsInTheBox-ul1d8jhB.js": {
-        "path": "dist/client/assets/WhatsInTheBox-ul1d8jhB.js",
+      "dist/client/assets/WhatsInTheBox.js": {
+        "path": "dist/client/assets/WhatsInTheBox.js",
         "size": 9247,
         "modules": null
       },
-      "dist/client/assets/_locale-BH-sm-NI.js": {
-        "path": "dist/client/assets/_locale-BH-sm-NI.js",
+      "dist/client/assets/_locale.js": {
+        "path": "dist/client/assets/_locale.js",
         "size": 4234,
         "modules": null
       },
-      "dist/client/assets/_locale.about-CA3PYIP7.js": {
-        "path": "dist/client/assets/_locale.about-CA3PYIP7.js",
+      "dist/client/assets/_locale.about.js": {
+        "path": "dist/client/assets/_locale.about.js",
         "size": 30794,
         "modules": null
       },
-      "dist/client/assets/_locale.compliance-DO7xVN1X.js": {
-        "path": "dist/client/assets/_locale.compliance-DO7xVN1X.js",
+      "dist/client/assets/_locale.compliance.js": {
+        "path": "dist/client/assets/_locale.compliance.js",
         "size": 6004,
         "modules": null
       },
-      "dist/client/assets/_locale.index-D_Ub78X5.js": {
-        "path": "dist/client/assets/_locale.index-D_Ub78X5.js",
+      "dist/client/assets/_locale.index.js": {
+        "path": "dist/client/assets/_locale.index.js",
         "size": 13282,
         "modules": null
       },
-      "dist/client/assets/_locale.kids-kjHyPC-a.js": {
-        "path": "dist/client/assets/_locale.kids-kjHyPC-a.js",
+      "dist/client/assets/_locale.kids.js": {
+        "path": "dist/client/assets/_locale.kids.js",
         "size": 1204,
         "modules": null
       },
-      "dist/client/assets/_locale.legal-Di-rDKIW.js": {
-        "path": "dist/client/assets/_locale.legal-Di-rDKIW.js",
+      "dist/client/assets/_locale.legal.js": {
+        "path": "dist/client/assets/_locale.legal.js",
         "size": 4262,
         "modules": null
       },
-      "dist/client/assets/_locale.lenses-Bh0KizLe.js": {
-        "path": "dist/client/assets/_locale.lenses-Bh0KizLe.js",
+      "dist/client/assets/_locale.lenses.js": {
+        "path": "dist/client/assets/_locale.lenses.js",
         "size": 39746,
         "modules": null
       },
-      "dist/client/assets/_locale.men-yNBeBEfG.js": {
-        "path": "dist/client/assets/_locale.men-yNBeBEfG.js",
+      "dist/client/assets/_locale.men.js": {
+        "path": "dist/client/assets/_locale.men.js",
         "size": 1322,
         "modules": null
       },
-      "dist/client/assets/_locale.privacy-UN2WbXNw.js": {
-        "path": "dist/client/assets/_locale.privacy-UN2WbXNw.js",
+      "dist/client/assets/_locale.privacy.js": {
+        "path": "dist/client/assets/_locale.privacy.js",
         "size": 3705,
         "modules": null
       },
-      "dist/client/assets/_locale.technology-CFUeoc6T.js": {
-        "path": "dist/client/assets/_locale.technology-CFUeoc6T.js",
+      "dist/client/assets/_locale.technology.js": {
+        "path": "dist/client/assets/_locale.technology.js",
         "size": 1863,
         "modules": null
       },
-      "dist/client/assets/_locale.women-COgeyneq.js": {
-        "path": "dist/client/assets/_locale.women-COgeyneq.js",
+      "dist/client/assets/_locale.women.js": {
+        "path": "dist/client/assets/_locale.women.js",
         "size": 1318,
         "modules": null
       },
-      "dist/client/assets/about-D-YtdgrL.js": {
-        "path": "dist/client/assets/about-D-YtdgrL.js",
+      "dist/client/assets/about.js": {
+        "path": "dist/client/assets/about.js",
         "size": 30784,
         "modules": null
       },
-      "dist/client/assets/compliance-CMb_N5XS.js": {
-        "path": "dist/client/assets/compliance-CMb_N5XS.js",
+      "dist/client/assets/compliance.js": {
+        "path": "dist/client/assets/compliance.js",
         "size": 5996,
         "modules": null
       },
-      "dist/client/assets/contact-Fc9trURY.js": {
-        "path": "dist/client/assets/contact-Fc9trURY.js",
+      "dist/client/assets/contact.js": {
+        "path": "dist/client/assets/contact.js",
         "size": 90794,
         "modules": null
       },
-      "dist/client/assets/contact-concierge-CPxdjEt_.js": {
-        "path": "dist/client/assets/contact-concierge-CPxdjEt_.js",
+      "dist/client/assets/contact-concierge.js": {
+        "path": "dist/client/assets/contact-concierge.js",
         "size": 8034,
         "modules": null
       },
-      "dist/client/assets/dev-a11y-logo-DQio1W7L.js": {
-        "path": "dist/client/assets/dev-a11y-logo-DQio1W7L.js",
+      "dist/client/assets/dev-a11y-logo.js": {
+        "path": "dist/client/assets/dev-a11y-logo.js",
         "size": 1560,
         "modules": null
       },
-      "dist/client/assets/dev-tokens-DN26RFai.js": {
-        "path": "dist/client/assets/dev-tokens-DN26RFai.js",
+      "dist/client/assets/dev-tokens.js": {
+        "path": "dist/client/assets/dev-tokens.js",
         "size": 10382,
         "modules": null
       },
-      "dist/client/assets/faq-FfWUQbgo.js": {
-        "path": "dist/client/assets/faq-FfWUQbgo.js",
+      "dist/client/assets/faq.js": {
+        "path": "dist/client/assets/faq.js",
         "size": 15783,
         "modules": null
       },
-      "dist/client/assets/guard-comparison-DXWaXBbY.js": {
-        "path": "dist/client/assets/guard-comparison-DXWaXBbY.js",
+      "dist/client/assets/guard-comparison.js": {
+        "path": "dist/client/assets/guard-comparison.js",
         "size": 527,
         "modules": null
       },
-      "dist/client/assets/guard-lens-float-BSSbCOaq.js": {
-        "path": "dist/client/assets/guard-lens-float-BSSbCOaq.js",
+      "dist/client/assets/guard-lens-float.js": {
+        "path": "dist/client/assets/guard-lens-float.js",
         "size": 662,
         "modules": null
       },
-      "dist/client/assets/index-DzeR9C76.js": {
-        "path": "dist/client/assets/index-DzeR9C76.js",
+      "dist/client/assets/index.js": {
+        "path": "dist/client/assets/index.js",
         "size": 213860,
         "modules": null
       },
-      "dist/client/assets/legal-Dd0drWJU.js": {
-        "path": "dist/client/assets/legal-Dd0drWJU.js",
+      "dist/client/assets/legal.js": {
+        "path": "dist/client/assets/legal.js",
         "size": 4254,
         "modules": null
       },
-      "dist/client/assets/lenses-_ylHTnSJ.js": {
-        "path": "dist/client/assets/lenses-_ylHTnSJ.js",
+      "dist/client/assets/lenses.js": {
+        "path": "dist/client/assets/lenses.js",
         "size": 39736,
         "modules": null
       },
-      "dist/client/assets/meridian-hero-6Fw3K812.js": {
-        "path": "dist/client/assets/meridian-hero-6Fw3K812.js",
+      "dist/client/assets/meridian-hero.js": {
+        "path": "dist/client/assets/meridian-hero.js",
         "size": 626,
         "modules": null
       },
-      "dist/client/assets/motion-icons-C4nY0fwW.js": {
-        "path": "dist/client/assets/motion-icons-C4nY0fwW.js",
+      "dist/client/assets/motion-icons.js": {
+        "path": "dist/client/assets/motion-icons.js",
         "size": 9501,
         "modules": null
       },
-      "dist/client/assets/privacy-DqcdjPPs.js": {
-        "path": "dist/client/assets/privacy-DqcdjPPs.js",
+      "dist/client/assets/privacy.js": {
+        "path": "dist/client/assets/privacy.js",
         "size": 3697,
         "modules": null
       },
-      "dist/client/assets/product.atelier-BKSkfkQ1.js": {
-        "path": "dist/client/assets/product.atelier-BKSkfkQ1.js",
+      "dist/client/assets/product.atelier.js": {
+        "path": "dist/client/assets/product.atelier.js",
         "size": 12025,
         "modules": null
       },
-      "dist/client/assets/product.marais-zB6zJAgM.js": {
-        "path": "dist/client/assets/product.marais-zB6zJAgM.js",
+      "dist/client/assets/product.marais.js": {
+        "path": "dist/client/assets/product.marais.js",
         "size": 10433,
         "modules": null
       },
-      "dist/client/assets/product.meridian-CnZgFQ_U.js": {
-        "path": "dist/client/assets/product.meridian-CnZgFQ_U.js",
+      "dist/client/assets/product.meridian.js": {
+        "path": "dist/client/assets/product.meridian.js",
         "size": 38359,
         "modules": null
       },
-      "dist/client/assets/product.solene-Bpm0dCYj.js": {
-        "path": "dist/client/assets/product.solene-Bpm0dCYj.js",
+      "dist/client/assets/product.solene.js": {
+        "path": "dist/client/assets/product.solene.js",
         "size": 11842,
         "modules": null
       },
-      "dist/client/assets/qa-rfO29tuN.js": {
-        "path": "dist/client/assets/qa-rfO29tuN.js",
+      "dist/client/assets/qa.js": {
+        "path": "dist/client/assets/qa.js",
         "size": 11340,
         "modules": null
       },
-      "dist/client/assets/radix-6ObyC_cw.js": {
-        "path": "dist/client/assets/radix-6ObyC_cw.js",
+      "dist/client/assets/radix.js": {
+        "path": "dist/client/assets/radix.js",
         "size": 36651,
         "modules": null
       },
-      "dist/client/assets/react-BrfSq-MQ.js": {
-        "path": "dist/client/assets/react-BrfSq-MQ.js",
+      "dist/client/assets/react.js": {
+        "path": "dist/client/assets/react.js",
         "size": 179991,
         "modules": null
       },
-      "dist/client/assets/rolldown-runtime-Bh1tDfsg.js": {
-        "path": "dist/client/assets/rolldown-runtime-Bh1tDfsg.js",
+      "dist/client/assets/rolldown-runtime.js": {
+        "path": "dist/client/assets/rolldown-runtime.js",
         "size": 567,
         "modules": null
       },
-      "dist/client/assets/shipping-DENR9Qnp.js": {
-        "path": "dist/client/assets/shipping-DENR9Qnp.js",
+      "dist/client/assets/shipping.js": {
+        "path": "dist/client/assets/shipping.js",
         "size": 34970,
         "modules": null
       },
-      "dist/client/assets/solene-front-wp3rzZR2.js": {
-        "path": "dist/client/assets/solene-front-wp3rzZR2.js",
+      "dist/client/assets/solene-front.js": {
+        "path": "dist/client/assets/solene-front.js",
         "size": 3905,
         "modules": null
       },
-      "dist/client/assets/styles-B6-8GZWz.css": {
-        "path": "dist/client/assets/styles-B6-8GZWz.css",
+      "dist/client/assets/styles.css": {
+        "path": "dist/client/assets/styles.css",
         "size": 182107,
         "modules": null
       },
-      "dist/client/assets/universe-lens-macro-DaSJjurL.js": {
-        "path": "dist/client/assets/universe-lens-macro-DaSJjurL.js",
+      "dist/client/assets/universe-lens-macro.js": {
+        "path": "dist/client/assets/universe-lens-macro.js",
         "size": 554,
         "modules": null
       },
-      "dist/client/assets/warranty-I90pDAKg.js": {
-        "path": "dist/client/assets/warranty-I90pDAKg.js",
+      "dist/client/assets/warranty.js": {
+        "path": "dist/client/assets/warranty.js",
         "size": 34080,
         "modules": null
       }
@@ -310,8 +310,8 @@
   "server": {
     "total": 1512794,
     "byPath": {
-      "dist/server/_chunks/ssr-renderer.mjs": {
-        "path": "dist/server/_chunks/ssr-renderer.mjs",
+      "dist/server/_chunks/ssr.mjs": {
+        "path": "dist/server/_chunks/ssr.mjs",
         "size": 248,
         "modules": null
       },
@@ -395,84 +395,59 @@
         "size": 52313,
         "modules": null
       },
-      "dist/server/_locale-B0l8mojF.mjs": {
-        "path": "dist/server/_locale-B0l8mojF.mjs",
-        "size": 337,
+      "dist/server/_locale.mjs": {
+        "path": "dist/server/_locale.mjs",
+        "size": 4344,
         "modules": null
       },
-      "dist/server/_locale-BowP_VEX.mjs": {
-        "path": "dist/server/_locale-BowP_VEX.mjs",
-        "size": 4007,
-        "modules": null
-      },
-      "dist/server/_locale.about-BglvZBa1.mjs": {
-        "path": "dist/server/_locale.about-BglvZBa1.mjs",
+      "dist/server/_locale.about.mjs": {
+        "path": "dist/server/_locale.about.mjs",
         "size": 30898,
         "modules": null
       },
-      "dist/server/_locale.compliance-C02zK3aI.mjs": {
-        "path": "dist/server/_locale.compliance-C02zK3aI.mjs",
+      "dist/server/_locale.compliance.mjs": {
+        "path": "dist/server/_locale.compliance.mjs",
         "size": 6034,
         "modules": null
       },
-      "dist/server/_locale.index-C2i3qnBW.mjs": {
-        "path": "dist/server/_locale.index-C2i3qnBW.mjs",
-        "size": 1301,
+      "dist/server/_locale.index.mjs": {
+        "path": "dist/server/_locale.index.mjs",
+        "size": 13957,
         "modules": null
       },
-      "dist/server/_locale.index-DD6OUMXO.mjs": {
-        "path": "dist/server/_locale.index-DD6OUMXO.mjs",
-        "size": 12656,
+      "dist/server/_locale.kids.mjs": {
+        "path": "dist/server/_locale.kids.mjs",
+        "size": 3666,
         "modules": null
       },
-      "dist/server/_locale.kids-CRHq1xwu.mjs": {
-        "path": "dist/server/_locale.kids-CRHq1xwu.mjs",
-        "size": 2363,
-        "modules": null
-      },
-      "dist/server/_locale.kids-DGj3ozwe.mjs": {
-        "path": "dist/server/_locale.kids-DGj3ozwe.mjs",
-        "size": 1303,
-        "modules": null
-      },
-      "dist/server/_locale.legal-B7wBgUKB.mjs": {
-        "path": "dist/server/_locale.legal-B7wBgUKB.mjs",
+      "dist/server/_locale.legal.mjs": {
+        "path": "dist/server/_locale.legal.mjs",
         "size": 4292,
         "modules": null
       },
-      "dist/server/_locale.lenses-BZSBzZGB.mjs": {
-        "path": "dist/server/_locale.lenses-BZSBzZGB.mjs",
+      "dist/server/_locale.lenses.mjs": {
+        "path": "dist/server/_locale.lenses.mjs",
         "size": 39850,
         "modules": null
       },
-      "dist/server/_locale.men-Bgt1KQYN.mjs": {
-        "path": "dist/server/_locale.men-Bgt1KQYN.mjs",
-        "size": 1427,
+      "dist/server/_locale.men.mjs": {
+        "path": "dist/server/_locale.men.mjs",
+        "size": 3848,
         "modules": null
       },
-      "dist/server/_locale.men-DW1r4UP-.mjs": {
-        "path": "dist/server/_locale.men-DW1r4UP-.mjs",
-        "size": 2421,
-        "modules": null
-      },
-      "dist/server/_locale.privacy-DYJAPlIt.mjs": {
-        "path": "dist/server/_locale.privacy-DYJAPlIt.mjs",
+      "dist/server/_locale.privacy.mjs": {
+        "path": "dist/server/_locale.privacy.mjs",
         "size": 3735,
         "modules": null
       },
-      "dist/server/_locale.technology-zDl7sv5S.mjs": {
-        "path": "dist/server/_locale.technology-zDl7sv5S.mjs",
+      "dist/server/_locale.technology.mjs": {
+        "path": "dist/server/_locale.technology.mjs",
         "size": 1122,
         "modules": null
       },
-      "dist/server/_locale.women-Cm6_swld.mjs": {
-        "path": "dist/server/_locale.women-Cm6_swld.mjs",
-        "size": 2347,
-        "modules": null
-      },
-      "dist/server/_locale.women-DlHoaJu_.mjs": {
-        "path": "dist/server/_locale.women-DlHoaJu_.mjs",
-        "size": 1425,
+      "dist/server/_locale.women.mjs": {
+        "path": "dist/server/_locale.women.mjs",
+        "size": 3772,
         "modules": null
       },
       "dist/server/_runtime.mjs": {
@@ -480,233 +455,228 @@
         "size": 567,
         "modules": null
       },
-      "dist/server/_ssr/ComingSoonModal-C_AVa7cX.mjs": {
-        "path": "dist/server/_ssr/ComingSoonModal-C_AVa7cX.mjs",
+      "dist/server/_ssr/ComingSoonModal.mjs": {
+        "path": "dist/server/_ssr/ComingSoonModal.mjs",
         "size": 7164,
         "modules": null
       },
-      "dist/server/_ssr/CookieBanner-CHeBHvz-.mjs": {
-        "path": "dist/server/_ssr/CookieBanner-CHeBHvz-.mjs",
+      "dist/server/_ssr/CookieBanner.mjs": {
+        "path": "dist/server/_ssr/CookieBanner.mjs",
         "size": 2100,
         "modules": null
       },
-      "dist/server/_ssr/EyegisGuard-B-dE6iVq.mjs": {
-        "path": "dist/server/_ssr/EyegisGuard-B-dE6iVq.mjs",
+      "dist/server/_ssr/EyegisGuard.mjs": {
+        "path": "dist/server/_ssr/EyegisGuard.mjs",
         "size": 32414,
         "modules": null
       },
-      "dist/server/_ssr/FAQ-C4F-dINT.mjs": {
-        "path": "dist/server/_ssr/FAQ-C4F-dINT.mjs",
+      "dist/server/_ssr/FAQ.mjs": {
+        "path": "dist/server/_ssr/FAQ.mjs",
         "size": 11498,
         "modules": null
       },
-      "dist/server/_ssr/Footer-BKIpbCz2.mjs": {
-        "path": "dist/server/_ssr/Footer-BKIpbCz2.mjs",
+      "dist/server/_ssr/Footer.mjs": {
+        "path": "dist/server/_ssr/Footer.mjs",
         "size": 10246,
         "modules": null
       },
-      "dist/server/_ssr/Header-BpLYqm6C.mjs": {
-        "path": "dist/server/_ssr/Header-BpLYqm6C.mjs",
+      "dist/server/_ssr/Header.mjs": {
+        "path": "dist/server/_ssr/Header.mjs",
         "size": 8824,
         "modules": null
       },
-      "dist/server/_ssr/HonestScience-DTEbCt24.mjs": {
-        "path": "dist/server/_ssr/HonestScience-DTEbCt24.mjs",
+      "dist/server/_ssr/HonestScience.mjs": {
+        "path": "dist/server/_ssr/HonestScience.mjs",
         "size": 17819,
         "modules": null
       },
-      "dist/server/_ssr/HonestScienceTeaser-B6O8lnFF.mjs": {
-        "path": "dist/server/_ssr/HonestScienceTeaser-B6O8lnFF.mjs",
+      "dist/server/_ssr/HonestScienceTeaser.mjs": {
+        "path": "dist/server/_ssr/HonestScienceTeaser.mjs",
         "size": 3104,
         "modules": null
       },
-      "dist/server/_ssr/HowItWorks-DZMNWyS4.mjs": {
-        "path": "dist/server/_ssr/HowItWorks-DZMNWyS4.mjs",
+      "dist/server/_ssr/HowItWorks.mjs": {
+        "path": "dist/server/_ssr/HowItWorks.mjs",
         "size": 3825,
         "modules": null
       },
-      "dist/server/_ssr/LifestyleUniverse-Bf9kzjEi.mjs": {
-        "path": "dist/server/_ssr/LifestyleUniverse-Bf9kzjEi.mjs",
+      "dist/server/_ssr/LifestyleUniverse.mjs": {
+        "path": "dist/server/_ssr/LifestyleUniverse.mjs",
         "size": 21237,
         "modules": null
       },
-      "dist/server/_ssr/Logo-Cov53W2s.mjs": {
-        "path": "dist/server/_ssr/Logo-Cov53W2s.mjs",
+      "dist/server/_ssr/Logo.mjs": {
+        "path": "dist/server/_ssr/Logo.mjs",
         "size": 3835,
         "modules": null
       },
-      "dist/server/_ssr/ModelRunway-Db_lmlnz.mjs": {
-        "path": "dist/server/_ssr/ModelRunway-Db_lmlnz.mjs",
+      "dist/server/_ssr/ModelRunway.mjs": {
+        "path": "dist/server/_ssr/ModelRunway.mjs",
         "size": 11725,
         "modules": null
       },
-      "dist/server/_ssr/OurTechnology-DE4yjsp5.mjs": {
-        "path": "dist/server/_ssr/OurTechnology-DE4yjsp5.mjs",
+      "dist/server/_ssr/OurTechnology.mjs": {
+        "path": "dist/server/_ssr/OurTechnology.mjs",
         "size": 13943,
         "modules": null
       },
-      "dist/server/_ssr/PageHero-C1lqrFmM.mjs": {
-        "path": "dist/server/_ssr/PageHero-C1lqrFmM.mjs",
+      "dist/server/_ssr/PageHero.mjs": {
+        "path": "dist/server/_ssr/PageHero.mjs",
         "size": 49032,
         "modules": null
       },
-      "dist/server/_ssr/Picture-BApSMyIt.mjs": {
-        "path": "dist/server/_ssr/Picture-BApSMyIt.mjs",
+      "dist/server/_ssr/Picture.mjs": {
+        "path": "dist/server/_ssr/Picture.mjs",
         "size": 1053,
         "modules": null
       },
-      "dist/server/_ssr/ScienceInPractice-Be0nRPdm.mjs": {
-        "path": "dist/server/_ssr/ScienceInPractice-Be0nRPdm.mjs",
+      "dist/server/_ssr/ScienceInPractice.mjs": {
+        "path": "dist/server/_ssr/ScienceInPractice.mjs",
         "size": 6975,
         "modules": null
       },
-      "dist/server/_ssr/ShopOnAmazon-CtGs-rIH.mjs": {
-        "path": "dist/server/_ssr/ShopOnAmazon-CtGs-rIH.mjs",
+      "dist/server/_ssr/ShopOnAmazon.mjs": {
+        "path": "dist/server/_ssr/ShopOnAmazon.mjs",
         "size": 5114,
         "modules": null
       },
-      "dist/server/_ssr/SocialProof-OH8dK7Ji.mjs": {
-        "path": "dist/server/_ssr/SocialProof-OH8dK7Ji.mjs",
+      "dist/server/_ssr/SocialProof.mjs": {
+        "path": "dist/server/_ssr/SocialProof.mjs",
         "size": 40358,
         "modules": null
       },
-      "dist/server/_ssr/TechCore-C0WlOcZh.mjs": {
-        "path": "dist/server/_ssr/TechCore-C0WlOcZh.mjs",
+      "dist/server/_ssr/TechCore.mjs": {
+        "path": "dist/server/_ssr/TechCore.mjs",
         "size": 21044,
         "modules": null
       },
-      "dist/server/_ssr/Universe-BCUDLUQK.mjs": {
-        "path": "dist/server/_ssr/Universe-BCUDLUQK.mjs",
+      "dist/server/_ssr/Universe.mjs": {
+        "path": "dist/server/_ssr/Universe.mjs",
         "size": 18131,
         "modules": null
       },
-      "dist/server/_ssr/WhatsInTheBox-BiAfpBCj.mjs": {
-        "path": "dist/server/_ssr/WhatsInTheBox-BiAfpBCj.mjs",
+      "dist/server/_ssr/WhatsInTheBox.mjs": {
+        "path": "dist/server/_ssr/WhatsInTheBox.mjs",
         "size": 9273,
         "modules": null
       },
-      "dist/server/_ssr/about-CH9hoK9Y.mjs": {
-        "path": "dist/server/_ssr/about-CH9hoK9Y.mjs",
+      "dist/server/_ssr/about.mjs": {
+        "path": "dist/server/_ssr/about.mjs",
         "size": 30874,
         "modules": null
       },
-      "dist/server/_ssr/amazon-UxuT4FWm.mjs": {
-        "path": "dist/server/_ssr/amazon-UxuT4FWm.mjs",
+      "dist/server/_ssr/amazon.mjs": {
+        "path": "dist/server/_ssr/amazon.mjs",
         "size": 1056,
         "modules": null
       },
-      "dist/server/_ssr/compliance-Dznh3A6g.mjs": {
-        "path": "dist/server/_ssr/compliance-Dznh3A6g.mjs",
+      "dist/server/_ssr/compliance.mjs": {
+        "path": "dist/server/_ssr/compliance.mjs",
         "size": 6022,
         "modules": null
       },
-      "dist/server/_ssr/contact-Bh2HxvHV.mjs": {
-        "path": "dist/server/_ssr/contact-Bh2HxvHV.mjs",
+      "dist/server/_ssr/contact.mjs": {
+        "path": "dist/server/_ssr/contact.mjs",
         "size": 38562,
         "modules": null
       },
-      "dist/server/_ssr/contact-concierge-CPxdjEt_.mjs": {
-        "path": "dist/server/_ssr/contact-concierge-CPxdjEt_.mjs",
+      "dist/server/_ssr/contact-concierge.mjs": {
+        "path": "dist/server/_ssr/contact-concierge.mjs",
         "size": 8034,
         "modules": null
       },
-      "dist/server/_ssr/context-DaSlKkGi.mjs": {
-        "path": "dist/server/_ssr/context-DaSlKkGi.mjs",
+      "dist/server/_ssr/context.mjs": {
+        "path": "dist/server/_ssr/context.mjs",
         "size": 4579,
         "modules": null
       },
-      "dist/server/_ssr/dev-a11y-logo-BT82GaCq.mjs": {
-        "path": "dist/server/_ssr/dev-a11y-logo-BT82GaCq.mjs",
+      "dist/server/_ssr/dev-a11y-logo.mjs": {
+        "path": "dist/server/_ssr/dev-a11y-logo.mjs",
         "size": 1584,
         "modules": null
       },
-      "dist/server/_ssr/dev-tokens-Bj4QXWgN.mjs": {
-        "path": "dist/server/_ssr/dev-tokens-Bj4QXWgN.mjs",
+      "dist/server/_ssr/dev-tokens.mjs": {
+        "path": "dist/server/_ssr/dev-tokens.mjs",
         "size": 10405,
         "modules": null
       },
-      "dist/server/_ssr/faq-DwjOLM8k.mjs": {
-        "path": "dist/server/_ssr/faq-DwjOLM8k.mjs",
-        "size": 28943,
+      "dist/server/_ssr/faq.mjs": {
+        "path": "dist/server/_ssr/faq.mjs",
+        "size": 44846,
         "modules": null
       },
-      "dist/server/_ssr/faq-KQzPhFiO.mjs": {
-        "path": "dist/server/_ssr/faq-KQzPhFiO.mjs",
-        "size": 15903,
-        "modules": null
-      },
-      "dist/server/_ssr/guard-comparison-DXWaXBbY.mjs": {
-        "path": "dist/server/_ssr/guard-comparison-DXWaXBbY.mjs",
+      "dist/server/_ssr/guard-comparison.mjs": {
+        "path": "dist/server/_ssr/guard-comparison.mjs",
         "size": 527,
         "modules": null
       },
-      "dist/server/_ssr/guard-lens-float-BSSbCOaq.mjs": {
-        "path": "dist/server/_ssr/guard-lens-float-BSSbCOaq.mjs",
+      "dist/server/_ssr/guard-lens-float.mjs": {
+        "path": "dist/server/_ssr/guard-lens-float.mjs",
         "size": 662,
         "modules": null
       },
-      "dist/server/_ssr/hero-paris-eyegis-DvzDZdFn.mjs": {
-        "path": "dist/server/_ssr/hero-paris-eyegis-DvzDZdFn.mjs",
+      "dist/server/_ssr/hero-paris-eyegis.mjs": {
+        "path": "dist/server/_ssr/hero-paris-eyegis.mjs",
         "size": 2371,
         "modules": null
       },
-      "dist/server/_ssr/legal-BxeE4kvM.mjs": {
-        "path": "dist/server/_ssr/legal-BxeE4kvM.mjs",
+      "dist/server/_ssr/legal.mjs": {
+        "path": "dist/server/_ssr/legal.mjs",
         "size": 4280,
         "modules": null
       },
-      "dist/server/_ssr/lenses-CwiH3t3H.mjs": {
-        "path": "dist/server/_ssr/lenses-CwiH3t3H.mjs",
+      "dist/server/_ssr/lenses.mjs": {
+        "path": "dist/server/_ssr/lenses.mjs",
         "size": 39826,
         "modules": null
       },
-      "dist/server/_ssr/meridian-hero-6Fw3K812.mjs": {
-        "path": "dist/server/_ssr/meridian-hero-6Fw3K812.mjs",
+      "dist/server/_ssr/meridian-hero.mjs": {
+        "path": "dist/server/_ssr/meridian-hero.mjs",
         "size": 626,
         "modules": null
       },
-      "dist/server/_ssr/privacy-BH9vjNhF.mjs": {
-        "path": "dist/server/_ssr/privacy-BH9vjNhF.mjs",
+      "dist/server/_ssr/privacy.mjs": {
+        "path": "dist/server/_ssr/privacy.mjs",
         "size": 3723,
         "modules": null
       },
-      "dist/server/_ssr/product.atelier-DpZJYP-x.mjs": {
-        "path": "dist/server/_ssr/product.atelier-DpZJYP-x.mjs",
+      "dist/server/_ssr/product.atelier.mjs": {
+        "path": "dist/server/_ssr/product.atelier.mjs",
         "size": 12048,
         "modules": null
       },
-      "dist/server/_ssr/product.marais-BvSg0vEQ.mjs": {
-        "path": "dist/server/_ssr/product.marais-BvSg0vEQ.mjs",
+      "dist/server/_ssr/product.marais.mjs": {
+        "path": "dist/server/_ssr/product.marais.mjs",
         "size": 10456,
         "modules": null
       },
-      "dist/server/_ssr/product.meridian-DTBXVLiq.mjs": {
-        "path": "dist/server/_ssr/product.meridian-DTBXVLiq.mjs",
+      "dist/server/_ssr/product.meridian.mjs": {
+        "path": "dist/server/_ssr/product.meridian.mjs",
         "size": 38432,
         "modules": null
       },
-      "dist/server/_ssr/product.solene-DFUM3B6N.mjs": {
-        "path": "dist/server/_ssr/product.solene-DFUM3B6N.mjs",
+      "dist/server/_ssr/product.solene.mjs": {
+        "path": "dist/server/_ssr/product.solene.mjs",
         "size": 11865,
         "modules": null
       },
-      "dist/server/_ssr/qa-ERZDtvhr.mjs": {
-        "path": "dist/server/_ssr/qa-ERZDtvhr.mjs",
+      "dist/server/_ssr/qa.mjs": {
+        "path": "dist/server/_ssr/qa.mjs",
         "size": 11367,
         "modules": null
       },
-      "dist/server/_ssr/router-BACx76qn.mjs": {
-        "path": "dist/server/_ssr/router-BACx76qn.mjs",
+      "dist/server/_ssr/router.mjs": {
+        "path": "dist/server/_ssr/router.mjs",
         "size": 20915,
         "modules": null
       },
-      "dist/server/_ssr/shipping-DgTjNuKd.mjs": {
-        "path": "dist/server/_ssr/shipping-DgTjNuKd.mjs",
+      "dist/server/_ssr/shipping.mjs": {
+        "path": "dist/server/_ssr/shipping.mjs",
         "size": 35059,
         "modules": null
       },
-      "dist/server/_ssr/solene-front-wp3rzZR2.mjs": {
-        "path": "dist/server/_ssr/solene-front-wp3rzZR2.mjs",
+      "dist/server/_ssr/solene-front.mjs": {
+        "path": "dist/server/_ssr/solene-front.mjs",
         "size": 3905,
         "modules": null
       },
@@ -715,28 +685,28 @@
         "size": 2383,
         "modules": null
       },
-      "dist/server/_ssr/start-DUQcVlUe.mjs": {
-        "path": "dist/server/_ssr/start-DUQcVlUe.mjs",
+      "dist/server/_ssr/start.mjs": {
+        "path": "dist/server/_ssr/start.mjs",
         "size": 369,
         "modules": null
       },
-      "dist/server/_ssr/tanstack-4Izvp5Tp.mjs": {
-        "path": "dist/server/_ssr/tanstack-4Izvp5Tp.mjs",
+      "dist/server/_ssr/tanstack.mjs": {
+        "path": "dist/server/_ssr/tanstack.mjs",
         "size": 26779,
         "modules": null
       },
-      "dist/server/_ssr/universe-lens-macro-DaSJjurL.mjs": {
-        "path": "dist/server/_ssr/universe-lens-macro-DaSJjurL.mjs",
+      "dist/server/_ssr/universe-lens-macro.mjs": {
+        "path": "dist/server/_ssr/universe-lens-macro.mjs",
         "size": 554,
         "modules": null
       },
-      "dist/server/_ssr/warranty-1ydPF6iD.mjs": {
-        "path": "dist/server/_ssr/warranty-1ydPF6iD.mjs",
+      "dist/server/_ssr/warranty.mjs": {
+        "path": "dist/server/_ssr/warranty.mjs",
         "size": 34169,
         "modules": null
       },
-      "dist/server/_tanstack-start-manifest_v-Bnh0XmvS.mjs": {
-        "path": "dist/server/_tanstack-start-manifest_v-Bnh0XmvS.mjs",
+      "dist/server/_tanstack-start-manifest_v.mjs": {
+        "path": "dist/server/_tanstack-start-manifest_v.mjs",
         "size": 6028,
         "modules": null
       },
