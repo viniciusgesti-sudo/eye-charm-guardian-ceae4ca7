@@ -361,11 +361,13 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
    ------------------------------------------------------------------ */
 export function Universe() {
   const { lang } = useI18n();
+  const params = useParams({ strict: false }) as { locale?: string };
+  const locale = params.locale ?? "br";
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
-    { href: "#eyegisguard", image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
-    { href: "/#honest-science", image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
-    { href: "#lenses", image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
     index: p.index,
