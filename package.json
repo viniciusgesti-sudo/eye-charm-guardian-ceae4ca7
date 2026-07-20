@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && node scripts/bundle-budget.mjs",
-    "build:dev": "vite build --mode development && BUDGET_CLIENT_FILE_JS_KB=750 BUDGET_CLIENT_TOTAL_KB=2000 BUDGET_SERVER_TOTAL_KB=3000 node scripts/bundle-budget.mjs",
+    "build:dev": "vite build --mode development && BUDGET_BASELINE_ENV=dev BUDGET_CLIENT_FILE_JS_KB=750 BUDGET_CLIENT_TOTAL_KB=2000 BUDGET_SERVER_TOTAL_KB=3000 node scripts/bundle-budget.mjs",
+    "build:dev:baseline": "vite build --mode development && BUDGET_BASELINE_ENV=dev node scripts/bundle-budget.mjs --update-baseline",
     "budget": "node scripts/bundle-budget.mjs",
     "budget:baseline": "node scripts/bundle-budget.mjs --update-baseline",
     "budget:pr": "BUDGET_BASELINE_ENV=pr BUDGET_MAX_GROWTH_PCT=10 node scripts/bundle-budget.mjs",
