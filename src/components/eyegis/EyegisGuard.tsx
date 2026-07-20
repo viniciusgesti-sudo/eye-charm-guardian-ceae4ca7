@@ -242,10 +242,10 @@ const COPY: Record<Lang, GuardCopy> = {
       titleAccent: " énoncé sobrement.",
     },
     s06: {
-      label: "Pourquoi la Sensation Change",
-      quoteA: "Le confort ne s'obtient pas en bloquant un maximum de lumière bleue. Il naît de la",
-      quoteMid: " conversation silencieuse entre l'ergonomie de la monture, ",
-      quoteB: "la qualité optique, le filtrage sélectif et un design réfléchi.",
+      label: "Pourquoi la Différence se Ressent",
+      quoteA: "Le confort ne se mesure pas à la quantité de lumière bleue bloquée.",
+      quoteMid: " Il se mesure à ce que vos yeux cessent de remarquer —",
+      quoteB: " le reflet, la fatigue, l'écran lui-même.",
       footer: "Eyegis Optical Studio · Charte de Design",
     },
     callouts: [
