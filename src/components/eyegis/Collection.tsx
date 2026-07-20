@@ -5,7 +5,7 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 /* Campaign / editorial imagery */
-import heroSaoPaulo from "@/assets/hero-saopaulo.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroSaoPaulo from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import heroParis from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import kidsHero from "@/assets/collection-hero-kids.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import soleneFront from "@/assets/products/solene-front.jpg?w=480;768;1200&format=avif;webp;jpg&as=picture";
