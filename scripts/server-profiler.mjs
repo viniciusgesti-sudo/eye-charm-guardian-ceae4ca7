@@ -72,9 +72,9 @@ function suggestionsFor(entry, source) {
       const strings = (src.match(/"[^"\n]{40,}"/g) ?? []).length;
       const svgs = (src.match(/<svg/gi) ?? []).length;
       if (svgs >= 3)
-        s.push(`Contains ${svgs} inline <svg>. Extract to shared `.svg?react` imports or a single icon module so SSR emits them once.`);
+        s.push(`Contains ${svgs} inline <svg>. Extract to shared .svg?react imports or a single icon module so SSR emits them once.`);
       if (strings >= 40)
-        s.push(`~${strings} long literal strings — likely marketing copy. Externalize copy into a JSON/`.ts` locale module shared across locales to dedupe.`);
+        s.push(`~${strings} long literal strings — likely marketing copy. Externalize copy into a JSON or .ts locale module shared across locales to dedupe.`);
       if (lines > 400)
         s.push(`Component is ${lines} lines. Split subsections into sibling files so route bundles only pull what they render.`);
       if (/from ["']lucide-react["']/.test(src)) {
