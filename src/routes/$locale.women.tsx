@@ -19,46 +19,46 @@ const COPY = {
     eyebrow: "Coleção · Mulher",
     title: (
       <>
-        Solène<br />
+        Women's Collection<br />
         <span className="italic text-teal-deep">para quem cria e escreve.</span>
       </>
     ),
     subtitle:
       "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
     ctaLabel: "Ver na Amazon",
-    metaTitle: "Coleção Mulher — Eyegis Solène",
+    metaTitle: "Coleção Mulher — Eyegis Women's Collection",
     metaDesc:
-      "Eyegis Solène: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz quente à noite.",
+      "Eyegis Women's Collection: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz quente à noite.",
   },
   en: {
     eyebrow: "Collection · Women",
     title: (
       <>
-        Solène<br />
+        Women's Collection<br />
         <span className="italic text-teal-deep">for those who create.</span>
       </>
     ),
     subtitle:
       "A cat-eye in tortoise acetate, discreet gold shield-G on the temple, and an E-Guard Circadian™ lens — true color by day, warmer light at dusk.",
     ctaLabel: "Shop on Amazon",
-    metaTitle: "Women's Collection — Eyegis Solène",
+    metaTitle: "Women's Collection — Eyegis Women's Collection",
     metaDesc:
-      "Eyegis Solène: tortoise cat-eye with E-Guard Circadian™ lens. True color by day, warmer light at dusk.",
+      "Eyegis Women's Collection: tortoise cat-eye with E-Guard Circadian™ lens. True color by day, warmer light at dusk.",
   },
   fr: {
     eyebrow: "Collection · Femme",
     title: (
       <>
-        Solène<br />
+        Women's Collection<br />
         <span className="italic text-teal-deep">pour celles qui créent.</span>
       </>
     ),
     subtitle:
       "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
     ctaLabel: "Voir sur Amazon",
-    metaTitle: "Collection Femme — Eyegis Solène",
+    metaTitle: "Collection Femme — Eyegis Women's Collection",
     metaDesc:
-      "Eyegis Solène : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière chaude au crépuscule.",
+      "Eyegis Women's Collection : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière chaude au crépuscule.",
   },
 } as const;
 

@@ -16,9 +16,9 @@ const MARAIS_OG = `${SITE}/og-marais.jpg`;
 export const Route = createFileRoute("/product/marais")({
   head: () => {
     const seo = buildSeo({
-      title: "Marais by Eyegis — Round Blue-Light Glasses",
+      title: "Women's Collection by Eyegis — Round Blue-Light Glasses",
       description:
-        "Marais by Eyegis — refined round acetate frame with subtle keyhole bridge and EyegisGuard™ blue-light filter. Parisian understatement for screen-heavy days.",
+        "Women's Collection by Eyegis — refined round acetate frame with subtle keyhole bridge and EyegisGuard™ blue-light filter. Parisian understatement for screen-heavy days.",
       path: "/product/marais",
       image: MARAIS_OG,
       ogType: "product",
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/product/marais")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Marais by Eyegis",
+            name: "Women's Collection by Eyegis",
             brand: { "@type": "Brand", name: "Eyegis" },
             description:
               "Refined round acetate blue-light glasses with keyhole bridge and EyegisGuard™ optical filter (400–455 nm HEV).",
@@ -82,7 +82,7 @@ function MaraisProduct() {
       <section className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
         <div className="order-2 md:order-1">
           <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-            Chapter III · Marais
+            Chapter III · Women's Collection
           </p>
           <h1 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95] tracking-tight">
             Round, quiet,
@@ -129,7 +129,7 @@ function MaraisProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Marais rectangular black acetate frame with polished gold temples and gold shield-G emblem — front view"
+            alt="Women's Collection rectangular black acetate frame with polished gold temples and gold shield-G emblem — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -161,7 +161,7 @@ function MaraisProduct() {
                 In the box
               </p>
               <h2 className="mt-2 font-editorial text-3xl md:text-4xl">
-                Marais, carefully packed.
+                Women's Collection, carefully packed.
               </h2>
             </div>
           </div>
@@ -169,7 +169,7 @@ function MaraisProduct() {
             <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
               <Picture
                 source={packageImg}
-                alt="Marais packaging — recycled paperboard box with debossed logo"
+                alt="Women's Collection packaging — recycled paperboard box with debossed logo"
                 sizes="(min-width:768px) 48vw, 92vw"
                 className="w-full aspect-[4/3] object-center object-cover"
               />
@@ -180,7 +180,7 @@ function MaraisProduct() {
             <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
               <Picture
                 source={pouchImg}
-                alt="Marais soft microfibre pouch"
+                alt="Women's Collection soft microfibre pouch"
                 sizes="(min-width:768px) 48vw, 92vw"
                 className="w-full aspect-[4/3] object-center object-cover"
               />
@@ -221,7 +221,7 @@ function MaraisProduct() {
       <section className="relative">
         <Picture
           source={lifestyleImg}
-          alt="Person wearing Marais Eyegis eyewear in soft afternoon light — rectangular black acetate with gold shield emblem"
+          alt="Person wearing Women's Collection Eyegis eyewear in soft afternoon light — rectangular black acetate with gold shield emblem"
           sizes="100vw"
           className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
@@ -229,7 +229,7 @@ function MaraisProduct() {
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-16 text-white">
             <p className="text-[11px] uppercase tracking-[0.25em] opacity-80">
-              Where Marais belongs
+              Where Women's Collection belongs
             </p>
             <h2 className="mt-3 font-editorial text-3xl md:text-5xl max-w-xl leading-tight">
               Quiet rooms, long reads, unhurried mornings.
@@ -242,7 +242,7 @@ function MaraisProduct() {
       <section className="bg-[#004B57] text-white">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] opacity-70">
-            Marais · by Eyegis
+            Women's Collection · by Eyegis
           </p>
           <h2 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95]">
             Ready to see the world

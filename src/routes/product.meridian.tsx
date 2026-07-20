@@ -28,9 +28,9 @@ const MERIDIAN_OG = `${SITE}/og-meridian.jpg`;
 export const Route = createFileRoute("/product/meridian")({
   head: () => {
     const seo = buildSeo({
-      title: "Meridian by Eyegis — TR90 Blue-Light Glasses",
+      title: "Men's Collection by Eyegis — TR90 Blue-Light Glasses",
       description:
-        "Meridian by Eyegis — TR90 lightweight frame with EyegisGuard™ blue-light filtering. Engineered for long screen hours, designed for everyday elegance.",
+        "Men's Collection by Eyegis — TR90 lightweight frame with EyegisGuard™ blue-light filtering. Engineered for long screen hours, designed for everyday elegance.",
       path: "/product/meridian",
       image: MERIDIAN_OG,
       ogType: "product",
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/product/meridian")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Meridian by Eyegis",
+            name: "Men's Collection by Eyegis",
             brand: { "@type": "Brand", name: "Eyegis" },
             description:
               "Premium blue-light filtering eyewear. TR90 lightweight frame with EyegisGuard™ lenses that block up to 45% of harmful blue light (400–455 nm) without distorting color.",
@@ -109,7 +109,7 @@ const CONTENT: Record<Lang, Content> = {
     backAll: "← All Collections",
     buyAmazon: "Coming soon on Amazon",
     viewGallery: "View Gallery",
-    chapter: "Chapter I · Meridian",
+    chapter: "Chapter I · Men's Collection",
     by: "by Eyegis",
     intro:
       "Designed for professionals who demand visual comfort without compromising style. A quiet architectural line, engineered for hours in front of the screen.",
@@ -140,7 +140,7 @@ const CONTENT: Record<Lang, Content> = {
     details: {
       title1: "Every part,",
       title2: "measured.",
-      body: "Meridian is drawn from five components chosen for balance, durability and quiet elegance. Hover any point to reveal.",
+      body: "Men's Collection is drawn from five components chosen for balance, durability and quiet elegance. Hover any point to reveal.",
       parts: [
         { label: "Frame Material", value: "TR90 polymer" },
         { label: "Lens", value: "EyegisGuard™ optical" },
@@ -163,7 +163,7 @@ const CONTENT: Record<Lang, Content> = {
       ],
     },
     lifestyle: {
-      title1: "Where Meridian",
+      title1: "Where Men's Collection",
       title2: "belongs.",
       contexts: ["Business", "Creative", "Travel", "Gaming", "Remote Work", "Architecture"],
     },
@@ -190,15 +190,15 @@ const CONTENT: Record<Lang, Content> = {
       title1: "Questions,",
       title2: " answered.",
       items: [
-        { q: "Are Meridian frames compatible with prescription lenses?", a: "Yes. Any optician can replace the demo lenses with your prescription. The EyegisGuard™ coating can also be added to prescription lenses on request." },
+        { q: "Are Men's Collection frames compatible with prescription lenses?", a: "Yes. Any optician can replace the demo lenses with your prescription. The EyegisGuard™ coating can also be added to prescription lenses on request." },
         { q: "How should I clean the frame and lenses?", a: "Use the microfibre cloth included in the box, with lukewarm water and a drop of neutral soap when needed. Avoid alcohol-based cleaners on the coating." },
         { q: "What does the 2-year warranty cover?", a: "Manufacturing defects on frame, hinges and coating. Accidental damage and normal wear are not covered." },
-        { q: "How fast is shipping?", a: "Meridian is fulfilled through Amazon. Standard delivery is 1–3 business days in most regions with Prime." },
-        { q: "Can I return them?", a: "Yes — through our 60-day comfort guarantee. If Meridian isn't right for you, return them for a full refund." },
+        { q: "How fast is shipping?", a: "Men's Collection is fulfilled through Amazon. Standard delivery is 1–3 business days in most regions with Prime." },
+        { q: "Can I return them?", a: "Yes — through our 60-day comfort guarantee. If Men's Collection isn't right for you, return them for a full refund." },
       ],
     },
     cta: {
-      eyebrow: "Meridian · by Eyegis",
+      eyebrow: "Men's Collection · by Eyegis",
       title1: "Ready to experience",
       title2: "digital comfort?",
       trust: ["Secure purchase through Amazon", "Fast shipping", "Trusted customer support"],
@@ -208,7 +208,7 @@ const CONTENT: Record<Lang, Content> = {
     backAll: "← Todas as coleções",
     buyAmazon: "Comprar na Amazon",
     viewGallery: "Ver galeria",
-    chapter: "Capítulo I · Meridian",
+    chapter: "Capítulo I · Men's Collection",
     by: "por Eyegis",
     intro:
       "Desenhado para profissionais que exigem conforto visual sem abrir mão do estilo. Uma linha arquitetônica silenciosa, feita para horas em frente à tela.",
@@ -239,7 +239,7 @@ const CONTENT: Record<Lang, Content> = {
     details: {
       title1: "Cada peça,",
       title2: "medida.",
-      body: "Meridian é composta por cinco elementos escolhidos por equilíbrio, durabilidade e elegância silenciosa. Passe o mouse em cada ponto.",
+      body: "Men's Collection é composta por cinco elementos escolhidos por equilíbrio, durabilidade e elegância silenciosa. Passe o mouse em cada ponto.",
       parts: [
         { label: "Material da armação", value: "Polímero TR90" },
         { label: "Lente", value: "Óptica EyegisGuard™" },
@@ -262,7 +262,7 @@ const CONTENT: Record<Lang, Content> = {
       ],
     },
     lifestyle: {
-      title1: "Onde Meridian",
+      title1: "Onde Men's Collection",
       title2: "pertence.",
       contexts: ["Negócios", "Criativo", "Viagem", "Games", "Trabalho remoto", "Arquitetura"],
     },
@@ -289,15 +289,15 @@ const CONTENT: Record<Lang, Content> = {
       title1: "Perguntas,",
       title2: " respondidas.",
       items: [
-        { q: "A Meridian aceita lentes de grau?", a: "Sim. Qualquer óptica pode substituir as lentes demonstração pelas suas de grau. O tratamento EyegisGuard™ também pode ser aplicado sob pedido." },
+        { q: "A Men's Collection aceita lentes de grau?", a: "Sim. Qualquer óptica pode substituir as lentes demonstração pelas suas de grau. O tratamento EyegisGuard™ também pode ser aplicado sob pedido." },
         { q: "Como limpar armação e lentes?", a: "Use o pano de microfibra que acompanha, com água morna e uma gota de sabão neutro quando necessário. Evite limpadores com álcool." },
         { q: "O que a garantia de 2 anos cobre?", a: "Defeitos de fabricação na armação, charneiras e tratamento. Danos acidentais e desgaste normal não são cobertos." },
-        { q: "Como funciona a entrega?", a: "A Meridian é vendida pela Amazon. Entrega padrão em 1–3 dias úteis na maioria das regiões com Prime." },
-        { q: "Posso devolver?", a: "Sim — pela nossa garantia de conforto de 60 dias. Se a Meridian não for para você, devolvemos o valor integral." },
+        { q: "Como funciona a entrega?", a: "A Men's Collection é vendida pela Amazon. Entrega padrão em 1–3 dias úteis na maioria das regiões com Prime." },
+        { q: "Posso devolver?", a: "Sim — pela nossa garantia de conforto de 60 dias. Se a Men's Collection não for para você, devolvemos o valor integral." },
       ],
     },
     cta: {
-      eyebrow: "Meridian · por Eyegis",
+      eyebrow: "Men's Collection · por Eyegis",
       title1: "Pronto para experimentar",
       title2: "o conforto digital?",
       trust: ["Compra segura pela Amazon", "Entrega rápida", "Suporte confiável"],
@@ -307,7 +307,7 @@ const CONTENT: Record<Lang, Content> = {
     backAll: "← Toutes les collections",
     buyAmazon: "Acheter sur Amazon",
     viewGallery: "Voir la galerie",
-    chapter: "Chapitre I · Meridian",
+    chapter: "Chapitre I · Men's Collection",
     by: "par Eyegis",
     intro:
       "Pensée pour les professionnels qui exigent un confort visuel sans compromis sur le style. Une ligne architecturale discrète, conçue pour les longues heures d'écran.",
@@ -338,7 +338,7 @@ const CONTENT: Record<Lang, Content> = {
     details: {
       title1: "Chaque pièce,",
       title2: "mesurée.",
-      body: "Meridian repose sur cinq composants choisis pour l'équilibre, la durabilité et l'élégance silencieuse. Survolez chaque point.",
+      body: "Men's Collection repose sur cinq composants choisis pour l'équilibre, la durabilité et l'élégance silencieuse. Survolez chaque point.",
       parts: [
         { label: "Matériau", value: "Polymère TR90" },
         { label: "Verre", value: "Optique EyegisGuard™" },
@@ -361,7 +361,7 @@ const CONTENT: Record<Lang, Content> = {
       ],
     },
     lifestyle: {
-      title1: "Où Meridian",
+      title1: "Où Men's Collection",
       title2: "s'inscrit.",
       contexts: ["Business", "Créatif", "Voyage", "Gaming", "Télétravail", "Architecture"],
     },
@@ -388,15 +388,15 @@ const CONTENT: Record<Lang, Content> = {
       title1: "Questions,",
       title2: " réponses.",
       items: [
-        { q: "Meridian accepte-t-elle des verres correcteurs ?", a: "Oui. N'importe quel opticien peut remplacer les verres démo par vos verres correcteurs. Le traitement EyegisGuard™ peut aussi être ajouté sur demande." },
+        { q: "Men's Collection accepte-t-elle des verres correcteurs ?", a: "Oui. N'importe quel opticien peut remplacer les verres démo par vos verres correcteurs. Le traitement EyegisGuard™ peut aussi être ajouté sur demande." },
         { q: "Comment nettoyer la monture et les verres ?", a: "Utilisez le chiffon microfibre fourni, avec de l'eau tiède et une goutte de savon neutre si besoin. Évitez les nettoyants alcoolisés." },
         { q: "Que couvre la garantie 2 ans ?", a: "Les défauts de fabrication sur la monture, les charnières et le traitement. Les dommages accidentels et l'usure normale ne sont pas couverts." },
-        { q: "Quels sont les délais de livraison ?", a: "Meridian est expédiée via Amazon. Livraison standard sous 1–3 jours ouvrés dans la plupart des régions avec Prime." },
-        { q: "Puis-je les retourner ?", a: "Oui — via notre garantie confort 60 jours. Si Meridian ne vous convient pas, remboursement intégral." },
+        { q: "Quels sont les délais de livraison ?", a: "Men's Collection est expédiée via Amazon. Livraison standard sous 1–3 jours ouvrés dans la plupart des régions avec Prime." },
+        { q: "Puis-je les retourner ?", a: "Oui — via notre garantie confort 60 jours. Si Men's Collection ne vous convient pas, remboursement intégral." },
       ],
     },
     cta: {
-      eyebrow: "Meridian · par Eyegis",
+      eyebrow: "Men's Collection · par Eyegis",
       title1: "Prêt à vivre",
       title2: "le confort numérique ?",
       trust: ["Achat sécurisé via Amazon", "Livraison rapide", "Service client de confiance"],
@@ -491,7 +491,7 @@ function ProductHero() {
         <div className="lg:col-span-5 order-2 lg:order-1">
           <span className="font-eyebrow text-teal">{c.chapter}</span>
           <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[96px]">
-            Meridian
+            Men's Collection
             <span className="block italic text-teal">{c.by}</span>
           </h1>
           <p className="mt-8 max-w-md font-light text-lg leading-relaxed text-ink/75">
@@ -538,7 +538,7 @@ function ProductHero() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(134,217,209,0.18),transparent_60%)]" />
             <Picture
               source={heroImgSrc}
-              alt="Meridian eyewear — slim black acetate with polished gold temples and gold shield-G emblem, front three-quarter view in luxury studio lighting"
+              alt="Men's Collection eyewear — slim black acetate with polished gold temples and gold shield-G emblem, front three-quarter view in luxury studio lighting"
               priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="h-full w-full object-cover object-center float-slow"
@@ -594,7 +594,7 @@ function Gallery() {
               >
                 <Picture
                   source={GALLERY_SRC[active]}
-                  alt={`Meridian eyewear — ${c.gallery.labels[active]} view for detailed inspection`}
+                  alt={`Men's Collection eyewear — ${c.gallery.labels[active]} view for detailed inspection`}
                   sizes="(min-width:1024px) 60vw, 100vw"
                   className={`h-full w-full object-cover transition-transform duration-[1400ms] ease-out ${
                     zoom ? "scale-[1.35]" : "scale-100 group-hover:scale-[1.04]"
@@ -620,7 +620,7 @@ function Gallery() {
                 >
                   <Picture
                     source={src}
-                    alt={`Meridian gallery thumbnail — ${c.gallery.labels[i]}`}
+                    alt={`Men's Collection gallery thumbnail — ${c.gallery.labels[i]}`}
                     sizes="(min-width:1024px) 18vw, 33vw"
                     className="h-full w-full object-cover"
                   />
@@ -714,7 +714,7 @@ function FrameDetails() {
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-[#0f1a1e]">
                 <Picture
                   source={pairImgSrc}
-                  alt="Meridian eyewear — dual-angle technical study showing front and profile pair"
+                  alt="Men's Collection eyewear — dual-angle technical study showing front and profile pair"
                   sizes="(min-width: 1024px) 66vw, 100vw"
                   className="h-full w-full object-cover opacity-90"
                 />
@@ -790,7 +790,7 @@ function Lifestyle() {
       <div className="relative h-[80vh] min-h-[560px] w-full">
         <Picture
           source={lifestyleImg}
-          alt="Meridian eyewear worn during a long screen session in a modern architectural workspace"
+          alt="Men's Collection eyewear worn during a long screen session in a modern architectural workspace"
           sizes="100vw"
           className="h-full w-full object-cover opacity-75"
         />
@@ -1049,7 +1049,7 @@ function StickyBuy() {
     <div className={`fixed inset-x-0 bottom-0 z-40 md:hidden transition-transform duration-500 ${show ? "translate-y-0" : "translate-y-full"}`}>
       <div className="border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 py-3 flex items-center gap-3">
         <div className="flex-1">
-          <div className="font-editorial text-ink text-base leading-tight">Meridian</div>
+          <div className="font-editorial text-ink text-base leading-tight">Men's Collection</div>
           <div className="font-eyebrow text-[9px] text-ink/60">{c.by}</div>
         </div>
         <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-teal px-5 py-3 font-eyebrow text-paper">

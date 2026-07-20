@@ -17,9 +17,9 @@ const ATELIER_OG = `${SITE}/og-atelier.jpg`;
 export const Route = createFileRoute("/product/atelier")({
   head: () => {
     const seo = buildSeo({
-      title: "Atelier by Eyegis — Men's Blue-Light Glasses",
+      title: "Men's Collection by Eyegis — Men's Blue-Light Glasses",
       description:
-        "Atelier by Eyegis — a quieter men's silhouette with studied proportion, thin temples, and EyegisGuard™ blue-light filtering. Weightless on the bridge.",
+        "Men's Collection by Eyegis — a quieter men's silhouette with studied proportion, thin temples, and EyegisGuard™ blue-light filtering. Weightless on the bridge.",
       path: "/product/atelier",
       image: ATELIER_OG,
       ogType: "product",
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/product/atelier")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Atelier by Eyegis",
+            name: "Men's Collection by Eyegis",
             brand: { "@type": "Brand", name: "Eyegis" },
             description:
               "A quieter men's acetate frame with EyegisGuard™ optical filter (400–455 nm HEV). Thin temples, honest hinges, studied proportion.",
@@ -83,7 +83,7 @@ function AtelierProduct() {
       <section className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
         <div className="order-2 md:order-1">
           <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-            Chapter IV · Atelier
+            Chapter IV · Men's Collection
           </p>
           <h1 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95] tracking-tight">
             A quieter
@@ -130,7 +130,7 @@ function AtelierProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Atelier acetate frame in matte graphite with gold shield-G emblem on temple — front view"
+            alt="Men's Collection acetate frame in matte graphite with gold shield-G emblem on temple — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -158,7 +158,7 @@ function AtelierProduct() {
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
           <Picture
             source={profileImg}
-            alt="Atelier — studied side profile, thin temple detail"
+            alt="Men's Collection — studied side profile, thin temple detail"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/3] object-cover object-center rounded-lg"
           />
@@ -188,7 +188,7 @@ function AtelierProduct() {
               In the box
             </p>
             <h2 className="mt-2 font-editorial text-3xl md:text-4xl">
-              Atelier, carefully packed.
+              Men's Collection, carefully packed.
             </h2>
           </div>
         </div>
@@ -196,7 +196,7 @@ function AtelierProduct() {
           <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
             <Picture
               source={packageImg}
-              alt="Atelier packaging — recycled paperboard box with debossed logo"
+              alt="Men's Collection packaging — recycled paperboard box with debossed logo"
               sizes="(min-width:768px) 48vw, 92vw"
               className="w-full aspect-[4/3] object-center object-cover"
             />
@@ -207,7 +207,7 @@ function AtelierProduct() {
           <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
             <Picture
               source={pouchImg}
-              alt="Atelier soft microfibre pouch"
+              alt="Men's Collection soft microfibre pouch"
               sizes="(min-width:768px) 48vw, 92vw"
               className="w-full aspect-[4/3] object-center object-cover"
             />
@@ -247,7 +247,7 @@ function AtelierProduct() {
       <section className="relative">
         <Picture
           source={lifestyleImg}
-          alt="Person wearing Atelier Eyegis eyewear in soft studio light — matte graphite acetate with gold shield emblem"
+          alt="Person wearing Men's Collection Eyegis eyewear in soft studio light — matte graphite acetate with gold shield emblem"
           sizes="100vw"
           className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
@@ -255,7 +255,7 @@ function AtelierProduct() {
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-16 text-white">
             <p className="text-[11px] uppercase tracking-[0.25em] opacity-80">
-              Where Atelier belongs
+              Where Men's Collection belongs
             </p>
             <h2 className="mt-3 font-editorial text-3xl md:text-5xl max-w-xl leading-tight">
               Studios, long deep work, unhurried thinking.
@@ -268,7 +268,7 @@ function AtelierProduct() {
       <section className="bg-[#004B57] text-white">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] opacity-70">
-            Atelier · by Eyegis
+            Men's Collection · by Eyegis
           </p>
           <h2 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95]">
             Ready to design

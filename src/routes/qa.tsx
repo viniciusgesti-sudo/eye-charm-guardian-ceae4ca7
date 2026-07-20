@@ -10,10 +10,10 @@ const responsiveRoutes: { path: string; label: string }[] = [
   { path: "/en/men", label: "Men" },
   { path: "/en/kids", label: "Kids" },
   { path: "/en/technology", label: "Technology" },
-  { path: "/product/meridian", label: "PDP — Meridian" },
-  { path: "/product/solene", label: "PDP — Solène" },
-  { path: "/product/atelier", label: "PDP — Atelier" },
-  { path: "/product/marais", label: "PDP — Marais" },
+  { path: "/product/meridian", label: "PDP — Men's Collection" },
+  { path: "/product/solene", label: "PDP — Women's Collection" },
+  { path: "/product/atelier", label: "PDP — Men's Collection (Atelier route)" },
+  { path: "/product/marais", label: "PDP — Women's Collection (Marais route)" },
 ];
 
 const BREAKPOINTS = [
@@ -72,17 +72,17 @@ const currentAssets: { section: string; items: { src: string; label: string; sku
   {
     section: "Produtos (SKUs)",
     items: [
-      { src: meridianHero, label: "Meridian", sku: "MERIDIAN" },
-      { src: soleneFront, label: "Solène", sku: "SOLENE" },
-      { src: atelierFront, label: "Atelier", sku: "ATELIER" },
-      { src: maraisFront, label: "Marais", sku: "MARAIS" },
+      { src: meridianHero, label: "Men's Collection", sku: "MERIDIAN" },
+      { src: soleneFront, label: "Women's Collection", sku: "SOLENE" },
+      { src: atelierFront, label: "Men's Collection", sku: "ATELIER" },
+      { src: maraisFront, label: "Women's Collection", sku: "MARAIS" },
     ],
   },
   {
     section: "Coleções",
     items: [
-      { src: collectionMen, label: "Men — Meridian" },
-      { src: collectionWomen, label: "Women — Solène" },
+      { src: collectionMen, label: "Men — Men's Collection" },
+      { src: collectionWomen, label: "Women — Women's Collection" },
       { src: collectionKidsHero, label: "Kids & Teens" },
     ],
   },
@@ -91,7 +91,7 @@ const currentAssets: { section: string; items: { src: string; label: string; sku
     items: [
       { src: personaExecutive, label: "Executive" },
       { src: personaCreative, label: "Creative" },
-      { src: personaGamer, label: "Gamer — Marais" },
+      { src: personaGamer, label: "Gamer — Women's Collection" },
       { src: shippingUnboxing, label: "Unboxing" },
       { src: contactConcierge, label: "Concierge" },
       { src: aboutFounders, label: "Founders" },

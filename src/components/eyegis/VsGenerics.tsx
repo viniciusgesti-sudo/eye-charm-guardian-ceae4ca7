@@ -19,7 +19,7 @@ const COPY: Record<Lang, Copy> = {
     title1: "Not every pair",
     title2: "on Amazon is equal.",
     lead: "The blue-light category is crowded. This is where the difference actually lives — the specs most listings never publish.",
-    colEyegis: "Eyegis Meridian",
+    colEyegis: "Eyegis Men's Collection",
     colGeneric: "Typical Amazon pair",
     rows: [
       { label: "Frame material",           eyegis: "TR90 aerospace polymer",              generic: "Basic TR/plastic blend" },
@@ -37,7 +37,7 @@ const COPY: Record<Lang, Copy> = {
     title1: "Nem todo par",
     title2: "na Amazon é igual.",
     lead: "A categoria de luz azul é lotada. É aqui que a diferença aparece — nas especificações que a maioria dos anúncios nunca publica.",
-    colEyegis: "Eyegis Meridian",
+    colEyegis: "Eyegis Men's Collection",
     colGeneric: "Par comum na Amazon",
     rows: [
       { label: "Material da armação",       eyegis: "Polímero aeroespacial TR90",           generic: "Mistura básica TR/plástico" },
@@ -55,7 +55,7 @@ const COPY: Record<Lang, Copy> = {
     title1: "Toutes les paires",
     title2: "sur Amazon ne se valent pas.",
     lead: "La catégorie lumière bleue est saturée. Voici où la différence se fait vraiment — les spécifications que la plupart des annonces ne publient jamais.",
-    colEyegis: "Eyegis Meridian",
+    colEyegis: "Eyegis Men's Collection",
     colGeneric: "Paire courante sur Amazon",
     rows: [
       { label: "Matériau de la monture",    eyegis: "Polymère aérospatial TR90",             generic: "Mélange TR/plastique basique" },

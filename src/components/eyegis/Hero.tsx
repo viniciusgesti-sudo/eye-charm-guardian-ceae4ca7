@@ -98,7 +98,7 @@ export function Hero({ locale }: Props) {
         Desktop: side-by-side 100svh split with a subtle seam.
       */}
       <div className="grid w-full grid-cols-1 md:grid-cols-2 md:h-[100svh] md:min-h-[720px]">
-        {/* LEFT — MEN / MERIDIAN */}
+        {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
@@ -151,7 +151,7 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
-        {/* RIGHT — WOMEN / SOLÈNE */}
+        {/* RIGHT — WOMEN */}
         <Link
           to="/$locale/women"
           params={{ locale }}

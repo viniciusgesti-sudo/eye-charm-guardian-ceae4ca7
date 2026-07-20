@@ -23,9 +23,9 @@ export const translations: Record<Lang, Dict> = {
     "nav.opticalScience": "® Optical Science",
 
     // Hero
-    "hero.chapter1": "Chapter I · Meridian",
+    "hero.chapter1": "Chapter I · Men's Collection",
     "hero.chapter1.location": "São Paulo · 22:41",
-    "hero.chapter2": "Chapter II · Solène",
+    "hero.chapter2": "Chapter II · Women's Collection",
     "hero.chapter2.location": "Paris · 17:12",
     "hero.headline1.line1": "Engineered",
     "hero.headline1.line2": "for Vision.",
@@ -54,9 +54,9 @@ export const translations: Record<Lang, Dict> = {
     "nav.opticalScience": "® Ciência Óptica",
 
     // Hero
-    "hero.chapter1": "Capítulo I · Meridian",
+    "hero.chapter1": "Capítulo I · Men's Collection",
     "hero.chapter1.location": "São Paulo · 22:41",
-    "hero.chapter2": "Capítulo II · Solène",
+    "hero.chapter2": "Capítulo II · Women's Collection",
     "hero.chapter2.location": "Paris · 17:12",
     "hero.headline1.line1": "Engenharia",
     "hero.headline1.line2": "para a visão.",
@@ -85,9 +85,9 @@ export const translations: Record<Lang, Dict> = {
     "nav.opticalScience": "® Science Optique",
 
     // Hero
-    "hero.chapter1": "Chapitre I · Meridian",
+    "hero.chapter1": "Chapitre I · Men's Collection",
     "hero.chapter1.location": "São Paulo · 22h41",
-    "hero.chapter2": "Chapitre II · Solène",
+    "hero.chapter2": "Chapitre II · Women's Collection",
     "hero.chapter2.location": "Paris · 17h12",
     "hero.headline1.line1": "Conçu",
     "hero.headline1.line2": "pour la vision.",

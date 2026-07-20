@@ -19,46 +19,46 @@ const COPY = {
     eyebrow: "Coleção · Homem",
     title: (
       <>
-        Meridian<br />
+        Men's Collection<br />
         <span className="italic text-mint">para quem vive em telas.</span>
       </>
     ),
     subtitle:
       "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
     ctaLabel: "Ver na Amazon",
-    metaTitle: "Coleção Homem — Eyegis Meridian",
+    metaTitle: "Coleção Homem — Eyegis Men's Collection",
     metaDesc:
-      "Eyegis Meridian: acetato preto, hastes douradas e proteção laboratorial contra luz azul. A eyewear masculina para o dia digital.",
+      "Eyegis Men's Collection: acetato preto, hastes douradas e proteção laboratorial contra luz azul. A eyewear masculina para o dia digital.",
   },
   en: {
     eyebrow: "Collection · Men",
     title: (
       <>
-        Meridian<br />
+        Men's Collection<br />
         <span className="italic text-mint">for the screen-bound day.</span>
       </>
     ),
     subtitle:
       "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
     ctaLabel: "Shop on Amazon",
-    metaTitle: "Men's Collection — Eyegis Meridian",
+    metaTitle: "Men's Collection — Eyegis Men's Collection",
     metaDesc:
-      "Eyegis Meridian: black acetate, gold temples and lab-tested blue-light protection. The men's eyewear for the digital day.",
+      "Eyegis Men's Collection: black acetate, gold temples and lab-tested blue-light protection. The men's eyewear for the digital day.",
   },
   fr: {
     eyebrow: "Collection · Homme",
     title: (
       <>
-        Meridian<br />
+        Men's Collection<br />
         <span className="italic text-mint">pour la journée sur écran.</span>
       </>
     ),
     subtitle:
       "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
-    metaTitle: "Collection Homme — Eyegis Meridian",
+    metaTitle: "Collection Homme — Eyegis Men's Collection",
     metaDesc:
-      "Eyegis Meridian : acétate noir, branches dorées et protection testée en laboratoire contre la lumière bleue.",
+      "Eyegis Men's Collection : acétate noir, branches dorées et protection testée en laboratoire contre la lumière bleue.",
   },
 } as const;
 
