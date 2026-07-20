@@ -703,7 +703,7 @@ function ContactPage() {
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
+            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[72px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s1.title[0]}
@@ -754,7 +754,7 @@ function ContactPage() {
               </Reveal>
               <Reveal delay={120}>
                 <h2
-                  className="mt-10 text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+                  className="mt-10 text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   {c.s2.title.map((line, idx) => (
@@ -811,7 +811,7 @@ function ContactPage() {
           <div className="md:col-span-5 md:col-start-8">
             <Reveal delay={120}>
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[60px]"
+                className="text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[60px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.s3.title[0]}
@@ -847,7 +847,7 @@ function ContactPage() {
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
               <h2
-                className="text-[36px] leading-[1.02] tracking-[-0.02em] md:text-[76px]"
+                className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[76px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.s4.title}
@@ -879,7 +879,7 @@ function ContactPage() {
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s5.title[0]}
@@ -926,7 +926,7 @@ function ContactPage() {
           <div className="mt-14 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-6">
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+                className="text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.s6.title[0]}
@@ -965,7 +965,7 @@ function ContactPage() {
           <div className="md:col-span-5">
             <Reveal delay={100}>
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[60px]"
+                className="text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[60px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.s7.title[0]}
@@ -1013,7 +1013,7 @@ function ContactPage() {
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+              className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.s8.title[0]}
@@ -1049,7 +1049,7 @@ function ContactPage() {
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
-              className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[88px]"
+              className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[88px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.cta.title[0]}
