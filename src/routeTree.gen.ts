@@ -14,10 +14,13 @@ import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as QaRouteImport } from './routes/qa'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as LegalRouteImport } from './routes/legal'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteImport } from './routes/$locale'
 import { Route as IndexRouteImport } from './routes/index'
@@ -28,10 +31,14 @@ import { Route as ProductMaraisRouteImport } from './routes/product.marais'
 import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
 import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
 import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
+import { Route as LocalePrivacyRouteImport } from './routes/$locale.privacy'
 import { Route as LocaleMenRouteImport } from './routes/$locale.men'
+import { Route as LocaleLensesRouteImport } from './routes/$locale.lenses'
+import { Route as LocaleLegalRouteImport } from './routes/$locale.legal'
 import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
 import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
 import { Route as LocaleContactRouteImport } from './routes/$locale.contact'
+import { Route as LocaleComplianceRouteImport } from './routes/$locale.compliance'
 import { Route as LocaleAboutRouteImport } from './routes/$locale.about'
 
 const WarrantyRoute = WarrantyRouteImport.update({
@@ -59,9 +66,19 @@ const QaRoute = QaRouteImport.update({
   path: '/qa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LensesRoute = LensesRouteImport.update({
   id: '/lenses',
   path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -77,6 +94,11 @@ const DevA11yLogoRoute = DevA11yLogoRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -129,9 +151,24 @@ const LocaleTechnologyRoute = LocaleTechnologyRouteImport.update({
   path: '/technology',
   getParentRoute: () => LocaleRoute,
 } as any)
+const LocalePrivacyRoute = LocalePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LocaleRoute,
+} as any)
 const LocaleMenRoute = LocaleMenRouteImport.update({
   id: '/men',
   path: '/men',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleLensesRoute = LocaleLensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleLegalRoute = LocaleLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
   getParentRoute: () => LocaleRoute,
 } as any)
 const LocaleKidsRoute = LocaleKidsRouteImport.update({
@@ -149,6 +186,11 @@ const LocaleContactRoute = LocaleContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => LocaleRoute,
 } as any)
+const LocaleComplianceRoute = LocaleComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => LocaleRoute,
+} as any)
 const LocaleAboutRoute = LocaleAboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -159,20 +201,27 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
+  '/privacy': typeof PrivacyRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compliance': typeof LocaleComplianceRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
@@ -184,20 +233,27 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
+  '/privacy': typeof PrivacyRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compliance': typeof LocaleComplianceRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
@@ -211,20 +267,27 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
+  '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
+  '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
+  '/privacy': typeof PrivacyRoute
   '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/warranty': typeof WarrantyRoute
   '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/compliance': typeof LocaleComplianceRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/faq': typeof LocaleFaqRoute
   '/$locale/kids': typeof LocaleKidsRoute
+  '/$locale/legal': typeof LocaleLegalRoute
+  '/$locale/lenses': typeof LocaleLensesRoute
   '/$locale/men': typeof LocaleMenRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/technology': typeof LocaleTechnologyRoute
   '/$locale/women': typeof LocaleWomenRoute
   '/product/atelier': typeof ProductAtelierRoute
@@ -239,20 +302,27 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale'
     | '/about'
+    | '/compliance'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
+    | '/privacy'
     | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
     | '/$locale/about'
+    | '/$locale/compliance'
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
+    | '/$locale/privacy'
     | '/$locale/technology'
     | '/$locale/women'
     | '/product/atelier'
@@ -264,20 +334,27 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/compliance'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
+    | '/privacy'
     | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
     | '/$locale/about'
+    | '/$locale/compliance'
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
+    | '/$locale/privacy'
     | '/$locale/technology'
     | '/$locale/women'
     | '/product/atelier'
@@ -290,20 +367,27 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale'
     | '/about'
+    | '/compliance'
     | '/contact'
     | '/dev-a11y-logo'
     | '/faq'
+    | '/legal'
     | '/lenses'
+    | '/privacy'
     | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
     | '/warranty'
     | '/$locale/about'
+    | '/$locale/compliance'
     | '/$locale/contact'
     | '/$locale/faq'
     | '/$locale/kids'
+    | '/$locale/legal'
+    | '/$locale/lenses'
     | '/$locale/men'
+    | '/$locale/privacy'
     | '/$locale/technology'
     | '/$locale/women'
     | '/product/atelier'
@@ -317,10 +401,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LocaleRoute: typeof LocaleRouteWithChildren
   AboutRoute: typeof AboutRoute
+  ComplianceRoute: typeof ComplianceRoute
   ContactRoute: typeof ContactRoute
   DevA11yLogoRoute: typeof DevA11yLogoRoute
   FaqRoute: typeof FaqRoute
+  LegalRoute: typeof LegalRoute
   LensesRoute: typeof LensesRoute
+  PrivacyRoute: typeof PrivacyRoute
   QaRoute: typeof QaRoute
   ShippingRoute: typeof ShippingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -369,11 +456,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lenses': {
       id: '/lenses'
       path: '/lenses'
       fullPath: '/lenses'
       preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -395,6 +496,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -467,11 +575,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleTechnologyRouteImport
       parentRoute: typeof LocaleRoute
     }
+    '/$locale/privacy': {
+      id: '/$locale/privacy'
+      path: '/privacy'
+      fullPath: '/$locale/privacy'
+      preLoaderRoute: typeof LocalePrivacyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/men': {
       id: '/$locale/men'
       path: '/men'
       fullPath: '/$locale/men'
       preLoaderRoute: typeof LocaleMenRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/lenses': {
+      id: '/$locale/lenses'
+      path: '/lenses'
+      fullPath: '/$locale/lenses'
+      preLoaderRoute: typeof LocaleLensesRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/legal': {
+      id: '/$locale/legal'
+      path: '/legal'
+      fullPath: '/$locale/legal'
+      preLoaderRoute: typeof LocaleLegalRouteImport
       parentRoute: typeof LocaleRoute
     }
     '/$locale/kids': {
@@ -495,6 +624,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleContactRouteImport
       parentRoute: typeof LocaleRoute
     }
+    '/$locale/compliance': {
+      id: '/$locale/compliance'
+      path: '/compliance'
+      fullPath: '/$locale/compliance'
+      preLoaderRoute: typeof LocaleComplianceRouteImport
+      parentRoute: typeof LocaleRoute
+    }
     '/$locale/about': {
       id: '/$locale/about'
       path: '/about'
@@ -507,10 +643,14 @@ declare module '@tanstack/react-router' {
 
 interface LocaleRouteChildren {
   LocaleAboutRoute: typeof LocaleAboutRoute
+  LocaleComplianceRoute: typeof LocaleComplianceRoute
   LocaleContactRoute: typeof LocaleContactRoute
   LocaleFaqRoute: typeof LocaleFaqRoute
   LocaleKidsRoute: typeof LocaleKidsRoute
+  LocaleLegalRoute: typeof LocaleLegalRoute
+  LocaleLensesRoute: typeof LocaleLensesRoute
   LocaleMenRoute: typeof LocaleMenRoute
+  LocalePrivacyRoute: typeof LocalePrivacyRoute
   LocaleTechnologyRoute: typeof LocaleTechnologyRoute
   LocaleWomenRoute: typeof LocaleWomenRoute
   LocaleIndexRoute: typeof LocaleIndexRoute
@@ -518,10 +658,14 @@ interface LocaleRouteChildren {
 
 const LocaleRouteChildren: LocaleRouteChildren = {
   LocaleAboutRoute: LocaleAboutRoute,
+  LocaleComplianceRoute: LocaleComplianceRoute,
   LocaleContactRoute: LocaleContactRoute,
   LocaleFaqRoute: LocaleFaqRoute,
   LocaleKidsRoute: LocaleKidsRoute,
+  LocaleLegalRoute: LocaleLegalRoute,
+  LocaleLensesRoute: LocaleLensesRoute,
   LocaleMenRoute: LocaleMenRoute,
+  LocalePrivacyRoute: LocalePrivacyRoute,
   LocaleTechnologyRoute: LocaleTechnologyRoute,
   LocaleWomenRoute: LocaleWomenRoute,
   LocaleIndexRoute: LocaleIndexRoute,
@@ -534,10 +678,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LocaleRoute: LocaleRouteWithChildren,
   AboutRoute: AboutRoute,
+  ComplianceRoute: ComplianceRoute,
   ContactRoute: ContactRoute,
   DevA11yLogoRoute: DevA11yLogoRoute,
   FaqRoute: FaqRoute,
+  LegalRoute: LegalRoute,
   LensesRoute: LensesRoute,
+  PrivacyRoute: PrivacyRoute,
   QaRoute: QaRoute,
   ShippingRoute: ShippingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
