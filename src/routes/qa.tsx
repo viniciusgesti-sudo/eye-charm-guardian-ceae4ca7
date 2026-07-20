@@ -22,7 +22,7 @@ const BREAKPOINTS = [
   { key: "desktop", label: "Desktop · 1280", width: 1280, height: 820 },
 ] as const;
 
-import heroSPBefore from "@/assets/hero-saopaulo.jpg";
+import heroSPBefore from "@/assets/hero-saopaulo-eyegis.jpg";
 import heroSPAfter from "@/assets/hero-saopaulo-eyegis.jpg";
 import heroParisBefore from "@/assets/hero-paris-eyegis.jpg";
 import heroParisAfter from "@/assets/hero-paris-eyegis.jpg";
