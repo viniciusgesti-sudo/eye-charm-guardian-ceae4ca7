@@ -648,6 +648,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — twin pair still life", label: "Pair" },
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot", label: "Hero" },
     ],
+    detailShot: true,
   },
   {
     id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
@@ -657,6 +658,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier — profile study", label: "Profile" },
       { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier — front view", label: "Front" },
     ],
+    detailShot: true,
   },
   {
     id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
@@ -667,6 +669,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — hero shot", label: "Hero" },
     ],
     bestSeller: true,
+    detailShot: true,
   },
   {
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
