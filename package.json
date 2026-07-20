@@ -12,6 +12,9 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "test:collisions": "python tests/visual/collisions.py",
+    "test:icons-logo": "python tests/visual/icons_and_logo.py compare",
+    "test:icons-logo:baseline": "python tests/visual/icons_and_logo.py baseline",
+    "test:icons": "python tests/visual/icons_and_logo.py icons",
     "validate:images": "python scripts/validate-images.py",
     "format": "prettier --write ."
   },
