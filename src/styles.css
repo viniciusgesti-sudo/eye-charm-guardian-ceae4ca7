@@ -700,3 +700,51 @@ select,
   transition: none !important;
 }
 
+/* ================================================================
+   GLOBAL MOTION KILL — Sheet / Dialog / Toast / Accordion / Nav
+   All entrance, exit, and route transitions are disabled.
+   Interactive affordances (hover color, focus ring) are preserved
+   via short color/border/background/opacity transitions only.
+   ================================================================ */
+*,
+*::before,
+*::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+}
+
+/* Neutralize Radix / shadcn state-driven animations
+   (Dialog, Sheet, Popover, Tooltip, Accordion, Toast, Sonner) */
+[data-state="open"],
+[data-state="closed"],
+[data-state="delayed-open"],
+[data-state="instant-open"],
+[data-side],
+[data-swipe],
+[data-motion],
+[data-radix-popper-content-wrapper] > * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Sonner toasts */
+[data-sonner-toaster] [data-sonner-toast],
+[data-sonner-toast] * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Route/page transitions */
+[data-route-transition],
+.page-transition,
+.route-enter,
+.route-exit {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
