@@ -16,6 +16,7 @@ import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as QaRouteImport } from './routes/qa'
 import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteImport } from './routes/$locale'
@@ -66,6 +67,11 @@ const LensesRoute = LensesRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevA11yLogoRoute = DevA11yLogoRouteImport.update({
+  id: '/dev-a11y-logo',
+  path: '/dev-a11y-logo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -154,6 +160,7 @@ export interface FileRoutesByFullPath {
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
@@ -204,6 +212,7 @@ export interface FileRoutesById {
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/faq': typeof FaqRoute
   '/lenses': typeof LensesRoute
   '/qa': typeof QaRoute
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/$locale'
     | '/about'
     | '/contact'
+    | '/dev-a11y-logo'
     | '/faq'
     | '/lenses'
     | '/qa'
@@ -255,6 +265,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/dev-a11y-logo'
     | '/faq'
     | '/lenses'
     | '/qa'
@@ -280,6 +291,7 @@ export interface FileRouteTypes {
     | '/$locale'
     | '/about'
     | '/contact'
+    | '/dev-a11y-logo'
     | '/faq'
     | '/lenses'
     | '/qa'
@@ -306,6 +318,7 @@ export interface RootRouteChildren {
   LocaleRoute: typeof LocaleRouteWithChildren
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DevA11yLogoRoute: typeof DevA11yLogoRoute
   FaqRoute: typeof FaqRoute
   LensesRoute: typeof LensesRoute
   QaRoute: typeof QaRoute
@@ -368,6 +381,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev-a11y-logo': {
+      id: '/dev-a11y-logo'
+      path: '/dev-a11y-logo'
+      fullPath: '/dev-a11y-logo'
+      preLoaderRoute: typeof DevA11yLogoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -515,6 +535,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleRoute: LocaleRouteWithChildren,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DevA11yLogoRoute: DevA11yLogoRoute,
   FaqRoute: FaqRoute,
   LensesRoute: LensesRoute,
   QaRoute: QaRoute,
