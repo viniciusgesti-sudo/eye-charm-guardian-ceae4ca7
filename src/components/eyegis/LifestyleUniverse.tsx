@@ -510,6 +510,8 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
 /* ---------- Main ---------- */
 export function LifestyleUniverse({ audience }: { audience?: LifestyleAudience } = {}) {
   const { lang } = useI18n();
+  const params = useParams({ strict: false }) as { locale?: string };
+  const locale = params.locale ?? "br";
   const copy = LIFESTYLE_COPY[lang];
   const panels = buildPanels(copy, audience);
   return (
