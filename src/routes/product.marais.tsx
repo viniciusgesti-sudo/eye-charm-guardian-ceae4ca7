@@ -134,7 +134,7 @@ function MaraisProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Marais round acetate frame — front view"
+            alt="Marais rectangular black acetate frame with polished gold temples and gold shield-G emblem — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -226,7 +226,7 @@ function MaraisProduct() {
       <section className="relative">
         <Picture
           source={lifestyleImg}
-          alt="Woman wearing Marais — Parisian afternoon"
+          alt="Person wearing Marais Eyegis eyewear in soft afternoon light — rectangular black acetate with gold shield emblem"
           sizes="100vw"
           className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />

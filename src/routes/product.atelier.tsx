@@ -135,7 +135,7 @@ function AtelierProduct() {
         <div className="order-1 md:order-2">
           <Picture
             source={heroImg}
-            alt="Atelier acetate frame in matte graphite — front view"
+            alt="Atelier acetate frame in matte graphite with gold shield-G emblem on temple — front view"
             sizes="(min-width:768px) 48vw, 92vw"
             className="w-full aspect-[4/5] object-cover object-center rounded-lg bg-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]"
           />
@@ -252,7 +252,7 @@ function AtelierProduct() {
       <section className="relative">
         <Picture
           source={lifestyleImg}
-          alt="Man wearing Atelier — studio light"
+          alt="Person wearing Atelier Eyegis eyewear in soft studio light — matte graphite acetate with gold shield emblem"
           sizes="100vw"
           className="w-full aspect-[16/9] md:aspect-[21/9] object-center object-cover"
         />
