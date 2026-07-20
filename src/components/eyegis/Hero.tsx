@@ -10,71 +10,71 @@ type Props = { locale: string };
 
 const ALTS = {
   EN: {
-    men: "Eyegis Zenith — polished titanium eyewear, champagne-tinted lenses catching São Paulo's teal bridge lights at night.",
-    women: "Eyegis Clarity — polished gold round eyewear, champagne-tinted lenses catching Parisian golden hour with the Eiffel Tower behind.",
+    men: "Eyegis Meridian — glossy black acetate with gold temples, champagne lens, worn in São Paulo's night skyline.",
+    women: "Eyegis Solène — tortoise cat-eye acetate with subtle gold shield-G on the temple, Paris golden hour.",
   },
   PT: {
-    men: "Eyegis Zenith — armação de titânio polido, lentes champanhe refletindo as luzes teal da ponte de São Paulo à noite.",
-    women: "Eyegis Clarity — armação redonda dourada, lentes champanhe refletindo a hora dourada de Paris com a Torre Eiffel ao fundo.",
+    men: "Eyegis Meridian — acetato preto brilhante com hastes douradas e lente champagne, à noite em São Paulo.",
+    women: "Eyegis Solène — acetato cat-eye tartaruga com discreto shield-G dourado na haste, hora dourada em Paris.",
   },
   FR: {
-    men: "Eyegis Zenith — lunettes en titane poli, verres teintés champagne captant les lumières teal du pont de São Paulo la nuit.",
-    women: "Eyegis Clarity — lunettes rondes dorées, verres teintés champagne captant l'heure dorée parisienne, Tour Eiffel en arrière-plan.",
+    men: "Eyegis Meridian — acétate noir brillant, branches dorées et verre champagne, nuit à São Paulo.",
+    women: "Eyegis Solène — acétate cat-eye écaille, discret shield-G doré sur la branche, heure dorée à Paris.",
   },
 } as const;
 
 const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
-    manifesto: "Two cities. Two lights. One promise: eyewear engineered for vision, designed for style.",
+    manifesto: "Two cities. Two lights. One promise — eyewear engineered for vision, designed for style.",
     men: {
-      tag: "Zenith · São Paulo · Nocturne",
+      tag: "Meridian · São Paulo",
       titleA: "Engineered",
       titleB: "for Vision.",
-      product: "Zenith — titanium 6.8g · E-Guard Retina™",
+      product: "Meridian · black acetate · E-Guard Retina™",
       cta: "Shop Men",
     },
     women: {
-      tag: "Clarity · Paris · Golden Hour",
+      tag: "Solène · Paris",
       titleA: "Designed",
       titleB: "for Style.",
-      product: "Clarity — gold-tone acetate · E-Guard Circadian™",
+      product: "Solène · tortoise acetate · E-Guard Circadian™",
       cta: "Shop Women",
     },
   },
   PT: {
     eyebrow: "O Manifesto Eyegis",
-    manifesto: "Duas cidades. Duas luzes. Uma promessa: eyewear com engenharia para a visão e design para o estilo.",
+    manifesto: "Duas cidades. Duas luzes. Uma promessa — eyewear com engenharia para a visão e design para o estilo.",
     men: {
-      tag: "Zenith · São Paulo · Noite",
+      tag: "Meridian · São Paulo",
       titleA: "Engenharia",
       titleB: "para a Visão.",
-      product: "Zenith — titânio 6,8g · E-Guard Retina™",
+      product: "Meridian · acetato preto · E-Guard Retina™",
       cta: "Ver Masculino",
     },
     women: {
-      tag: "Clarity · Paris · Hora Dourada",
+      tag: "Solène · Paris",
       titleA: "Design",
       titleB: "para o Estilo.",
-      product: "Clarity — acetato dourado · E-Guard Circadian™",
+      product: "Solène · acetato tartaruga · E-Guard Circadian™",
       cta: "Ver Feminino",
     },
   },
   FR: {
     eyebrow: "Le Manifeste Eyegis",
-    manifesto: "Deux villes. Deux lumières. Une promesse : une lunetterie d'ingénierie et de style.",
+    manifesto: "Deux villes. Deux lumières. Une promesse — une lunetterie d'ingénierie et de style.",
     men: {
-      tag: "Zenith · São Paulo · Nocturne",
+      tag: "Meridian · São Paulo",
       titleA: "L'ingénierie",
       titleB: "de la vision.",
-      product: "Zenith — titane 6,8g · E-Guard Retina™",
+      product: "Meridian · acétate noir · E-Guard Retina™",
       cta: "Homme",
     },
     women: {
-      tag: "Clarity · Paris · Heure Dorée",
+      tag: "Solène · Paris",
       titleA: "Le design",
       titleB: "du style.",
-      product: "Clarity — acétate doré · E-Guard Circadian™",
+      product: "Solène · acétate écaille · E-Guard Circadian™",
       cta: "Femme",
     },
   },
@@ -91,13 +91,18 @@ export function Hero({ locale }: Props) {
       aria-label="Eyegis manifesto hero"
       className="relative isolate w-full overflow-hidden bg-ink"
     >
-      <div className="grid h-[100svh] min-h-[760px] w-full grid-cols-1 md:grid-cols-2">
-        {/* LEFT — MEN / ZENITH */}
+      {/*
+        Mobile: two stacked panels, each ~70svh so both faces and glasses stay
+        in frame without forcing a 200svh scroll.
+        Desktop: side-by-side 100svh split with a subtle seam.
+      */}
+      <div className="grid w-full grid-cols-1 md:grid-cols-2 md:h-[100svh] md:min-h-[720px]">
+        {/* LEFT — MEN / MERIDIAN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-full w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint"
+          className="group relative block h-[72svh] min-h-[520px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
         >
           <Picture
             source={heroSaoPaulo}
@@ -106,30 +111,32 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
             height={1920}
-            className="absolute inset-0 h-full w-full object-cover object-[42%_35%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
+            /* keep the glasses/eyes area in view on both mobile and desktop */
+            className="absolute inset-0 h-full w-full object-cover object-[46%_32%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
           />
+          {/* Contrast wash — stronger at the bottom where copy sits */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.28),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.15)_0%,rgba(10,18,24,0.78)_78%,rgba(10,18,24,0.95)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.28),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.20)_0%,rgba(10,18,24,0.55)_55%,rgba(10,18,24,0.92)_92%,rgba(10,18,24,0.98)_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-12">
-            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.36em] text-mint">
-              <span className="inline-block h-px w-10 bg-mint/70" />
-              {t.men.tag}
+          <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:p-12 md:pb-16">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-mint sm:tracking-[0.36em]">
+              <span className="inline-block h-px w-8 bg-mint/70 sm:w-10" />
+              <span className="truncate">{t.men.tag}</span>
             </div>
 
             <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2.75rem,6vw,5.75rem)] font-light leading-[0.92] tracking-[-0.02em] text-paper">
+              <h2 className="font-editorial text-[clamp(2.5rem,7.5vw,5.75rem)] font-light leading-[0.94] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
                 <span className="block">{t.men.titleA}</span>
                 <span className="block italic text-mint">{t.men.titleB}</span>
               </h2>
 
-              <div className="mt-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-paper/70">
-                <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-mint" />
-                {t.men.product}
+              <div className="mt-5 flex items-start gap-2 font-mono text-[11px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
+                <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
+                <span className="min-w-0">{t.men.product}</span>
               </div>
 
-              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-paper px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ink shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)] transition group-hover:bg-mint group-hover:text-ink">
+              <div className="mt-7 inline-flex items-center gap-3 rounded-full bg-paper px-6 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(134,217,209,0.55)] transition group-hover:bg-mint group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
                 {t.men.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
@@ -137,12 +144,12 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
-        {/* RIGHT — WOMEN / CLARITY */}
+        {/* RIGHT — WOMEN / SOLÈNE */}
         <Link
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block h-full w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne"
+          className="group relative block h-[72svh] min-h-[520px] w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:h-full md:min-h-0"
         >
           <Picture
             source={heroParis}
@@ -151,30 +158,30 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
             height={1920}
-            className="absolute inset-0 h-full w-full object-cover object-[58%_35%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[54%_32%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.24),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.10)_0%,rgba(28,20,14,0.75)_78%,rgba(28,20,14,0.95)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.22),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.18)_0%,rgba(28,20,14,0.55)_55%,rgba(28,20,14,0.92)_92%,rgba(28,20,14,0.98)_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 md:items-end md:p-12 md:text-right">
-            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.36em] text-champagne">
-              <span className="inline-block h-px w-10 bg-champagne/70" />
-              {t.women.tag}
+          <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:items-end md:p-12 md:pb-16 md:text-right">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-champagne sm:tracking-[0.36em]">
+              <span className="inline-block h-px w-8 bg-champagne/70 sm:w-10" />
+              <span className="truncate">{t.women.tag}</span>
             </div>
 
             <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2.75rem,6vw,5.75rem)] font-light leading-[0.92] tracking-[-0.02em] text-paper">
+              <h2 className="font-editorial text-[clamp(2.5rem,7.5vw,5.75rem)] font-light leading-[0.94] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
                 <span className="block">{t.women.titleA}</span>
                 <span className="block italic text-champagne">{t.women.titleB}</span>
               </h2>
 
-              <div className="mt-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-paper/70 md:justify-end">
-                <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-champagne" />
-                {t.women.product}
+              <div className="mt-5 flex items-start gap-2 font-mono text-[11px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
+                <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+                <span className="min-w-0">{t.women.product}</span>
               </div>
 
-              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-paper px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)] transition group-hover:bg-champagne group-hover:text-ink">
+              <div className="mt-7 inline-flex items-center gap-3 rounded-full bg-paper px-6 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_20px_50px_-20px_rgba(226,209,195,0.6)] transition group-hover:bg-champagne group-hover:text-ink sm:px-7 sm:py-3.5 sm:tracking-[0.24em]">
                 {t.women.cta}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
@@ -183,18 +190,19 @@ export function Hero({ locale }: Props) {
         </Link>
       </div>
 
-      {/* Center seam with monogram medallion */}
+      {/* Center seam (desktop only) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/25 to-transparent md:block"
+        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/20 to-transparent md:block"
       />
 
-      {/* Bottom manifesto strip */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-2 px-6 pb-6 text-center md:pb-8">
+      {/* Bottom manifesto strip — only rendered on md+ so it never overlaps
+          the stacked-panel CTAs on mobile. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 hidden flex-col items-center gap-2 px-6 pb-6 text-center md:flex md:pb-8">
         <div className="font-mono text-[10px] uppercase tracking-[0.42em] text-paper/70">
           {t.eyebrow}
         </div>
-        <p className="max-w-xl font-sans text-sm leading-relaxed text-paper/75 md:text-[15px]">
+        <p className="max-w-xl font-sans text-sm leading-relaxed text-paper/80 md:text-[15px]">
           {t.manifesto}
         </p>
       </div>
