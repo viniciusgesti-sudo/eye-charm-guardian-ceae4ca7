@@ -914,9 +914,7 @@ export function SocialProof() {
           <Reveal delay={220}>
             <div className="mt-14 flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://www.amazon.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#coming-soon"
                 className="group inline-flex items-center gap-6 rounded-full bg-mint px-9 py-5 text-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
                 <span className="font-eyebrow">{copy.ctaBuy}</span>
@@ -928,7 +926,7 @@ export function SocialProof() {
                 </span>
               </a>
               <a
-                href="/#collections"
+                href="/lenses"
                 className="inline-flex items-center justify-center rounded-full border border-paper/25 px-9 py-5 font-eyebrow text-paper hover:bg-paper/10 transition-colors"
               >
                 {copy.ctaExplore}
