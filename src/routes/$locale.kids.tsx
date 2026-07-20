@@ -24,9 +24,9 @@ const COPY = {
     subtitle:
       "Armações leves, flexíveis e resistentes com o mesmo padrão óptico dos adultos. Feitos para estudo, jogos e videoaulas — sem fadiga visual.",
     ctaLabel: "Ver coleção Kids",
-    metaTitle: "Coleção Kids & Teens — Eyegis",
+    metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
-      "Óculos infantis Eyegis com filtro de luz azul: armações leves, flexíveis e resistentes para o dia escolar digital.",
+      "Kids & Teens da Eyegis: armações leves, flexíveis e resistentes com filtro de luz azul — feitas para estudo, jogos e videoaulas.",
   },
   en: {
     eyebrow: "Collection · Kids & Teens",
@@ -39,9 +39,9 @@ const COPY = {
     subtitle:
       "Lightweight, flexible, impact-resistant frames with the same optical grade as the adult lineup. Built for study, gaming, and remote learning.",
     ctaLabel: "Shop the Kids collection",
-    metaTitle: "Kids & Teens Collection — Eyegis",
+    metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
-      "Eyegis kids eyewear with blue-light filter: lightweight, flexible, and impact-resistant frames built for the digital school day.",
+      "Eyegis Kids & Teens: lightweight, flexible, impact-resistant frames with a blue-light filter — built for study, gaming, and remote learning.",
   },
   fr: {
     eyebrow: "Collection · Enfants & Ados",
@@ -54,9 +54,9 @@ const COPY = {
     subtitle:
       "Montures légères, flexibles et résistantes avec la même qualité optique que la gamme adulte. Pensées pour l'étude, le jeu et les cours à distance.",
     ctaLabel: "Voir la collection Enfants",
-    metaTitle: "Collection Enfants & Ados — Eyegis",
+    metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
-      "Lunettes enfants Eyegis avec filtre de lumière bleue : légères, flexibles et résistantes pour la journée d'école numérique.",
+      "Eyegis Kids & Teens : montures légères, flexibles et résistantes avec filtre de lumière bleue — pensées pour l'étude, le jeu et les cours à distance.",
   },
 } as const;
 
