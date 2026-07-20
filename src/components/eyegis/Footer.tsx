@@ -271,7 +271,7 @@ export function Footer() {
   const locale = ((params.locale ?? "br").toLowerCase()) as LocaleSeg;
   const c = FOOTER_COPY[lang];
 
-  const localized = (to: string) => `/${locale}${to}`;
+  
 
   return (
     <>
