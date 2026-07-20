@@ -19,6 +19,8 @@
     "bundle:diff": "node scripts/bundle-diff.mjs",
     "bundle:diff:baseline": "node scripts/bundle-diff.mjs --update-baseline",
     "bundle:stats": "BUNDLE_STATS=1 vite build && node scripts/bundle-diff.mjs",
+    "server:libs:diff": "node scripts/server-libs-diff.mjs",
+    "server:libs:diff:baseline": "node scripts/server-libs-diff.mjs --update-baseline",
     "preview": "vite preview",
     "lint": "eslint .",
     "test:collisions": "python tests/visual/collisions.py",

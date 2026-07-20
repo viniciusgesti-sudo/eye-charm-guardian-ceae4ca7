@@ -1,0 +1,153 @@
+{
+  "focus": "@tanstack/react-router",
+  "capturedAt": "2026-07-20T22:18:27.519Z",
+  "baselineCapturedAt": "2026-07-20T22:09:05.341Z",
+  "thresholds": {
+    "regressionPct": 3,
+    "regressionAbsBytes": 1024
+  },
+  "totals": {
+    "before": 508048,
+    "after": 508048,
+    "delta": 0
+  },
+  "focusRow": {
+    "key": "_libs/@tanstack/react-router+[...].mjs",
+    "before": 287312,
+    "after": 287312,
+    "delta": 0,
+    "pct": 0,
+    "status": "="
+  },
+  "regressions": [],
+  "rows": [
+    {
+      "key": "_libs/@tanstack/react-router+[...].mjs",
+      "before": 287312,
+      "after": 287312,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/zod.mjs",
+      "before": 52313,
+      "after": 52313,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/@tanstack/router-core+[...].mjs",
+      "before": 48835,
+      "after": 48835,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/@radix-ui/react-dialog+[...].mjs",
+      "before": 34690,
+      "after": 34690,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/tailwind-merge.mjs",
+      "before": 25998,
+      "after": 25998,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/tanstack__query-core.mjs",
+      "before": 24083,
+      "after": 24083,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/h3+rou3+srvx+unenv.mjs",
+      "before": 11015,
+      "after": 11015,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/@radix-ui/react-compose-refs+[...].mjs",
+      "before": 7874,
+      "after": 7874,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/h3-v2+srvx.mjs",
+      "before": 5308,
+      "after": 5308,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/tanstack__history.mjs",
+      "before": 4723,
+      "after": 4723,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/lucide-react.mjs",
+      "before": 2084,
+      "after": 2084,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/radix-ui__react-context+react.mjs",
+      "before": 1755,
+      "after": 1755,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/class-variance-authority+clsx.mjs",
+      "before": 966,
+      "after": 966,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/hookable.mjs",
+      "before": 616,
+      "after": 616,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/tanstack__react-query.mjs",
+      "before": 338,
+      "after": 338,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    },
+    {
+      "key": "_libs/radix-ui__primitive.mjs",
+      "before": 138,
+      "after": 138,
+      "delta": 0,
+      "pct": 0,
+      "status": "="
+    }
+  ]
+}
