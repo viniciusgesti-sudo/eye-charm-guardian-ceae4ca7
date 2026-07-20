@@ -87,7 +87,7 @@ function detectBackgroundTone(el: HTMLElement | null): "light" | "dark" | null {
       const lum = relativeLuminance(rgba[0], rgba[1], rgba[2]);
       // Pick the tone (ink vs paper) that yields the higher contrast
       // ratio against the actual background. This handles mid-tone
-      // surfaces like copper (#B4956B) where a fixed luminance cutoff
+      // surfaces like champagne (#E2D1C3) where a fixed luminance cutoff
       // would otherwise misclassify and drop below WCAG AA.
       const inkContrast = contrastRatio(lum, INK_LUM);
       const paperContrast = contrastRatio(lum, PAPER_LUM);

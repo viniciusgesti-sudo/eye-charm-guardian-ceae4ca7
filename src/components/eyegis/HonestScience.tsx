@@ -471,7 +471,7 @@ function OrangeDistortion() {
             >
               <span
                 className="h-1.5 w-1.5 rounded-full"
-                style={{ background: "#C25E2C" }}
+                style={{ background: TEAL }}
               />
               <span className="text-sm" style={{ color: "rgba(29,37,45,0.8)" }}>
                 {t}
