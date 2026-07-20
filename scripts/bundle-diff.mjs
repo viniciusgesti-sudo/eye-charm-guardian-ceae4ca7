@@ -152,10 +152,29 @@ function collectChunks(dir) {
   return chunks;
 }
 
+function normalizeChunkKey(relPath) {
+  // Strip Vite/Rollup content hash: `Foo-abcd1234.js` → `Foo.js`.
+  // Only strip 8-char hashes preceded by a dash right before the extension.
+  return relPath.replace(/-[A-Za-z0-9_-]{8,12}(\.[cm]?js|\.css|\.mjs)$/, "$1");
+}
+
 function summarize(chunks) {
   const total = chunks.reduce((n, c) => n + c.size, 0);
   const byPath = {};
-  for (const c of chunks) byPath[c.path] = c;
+  for (const c of chunks) {
+    const key = normalizeChunkKey(c.path);
+    if (byPath[key]) {
+      // Merge duplicates (rare, e.g. same-name chunk in different subdirs).
+      byPath[key].size += c.size;
+      if (c.modules) {
+        byPath[key].modules = byPath[key].modules ?? {};
+        for (const [k, v] of Object.entries(c.modules))
+          byPath[key].modules[k] = (byPath[key].modules[k] ?? 0) + v;
+      }
+    } else {
+      byPath[key] = { ...c, path: key };
+    }
+  }
   return { total, byPath };
 }
 
