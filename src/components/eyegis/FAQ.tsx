@@ -127,7 +127,7 @@ function FaqCard({
         aria-expanded={open}
         aria-controls={contentId}
         onClick={onToggle}
-        className="group flex w-full items-center gap-5 px-6 py-6 text-left md:px-8"
+        className="group flex w-full items-center gap-5 px-6 py-6 text-left md:px-8 rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--teal)] focus-visible:ring-offset-white"
       >
         <span
           className="grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors"
