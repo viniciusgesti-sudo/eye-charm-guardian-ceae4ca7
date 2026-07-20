@@ -1,0 +1,20 @@
+name: Route Export Guard
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  route-exports:
+    name: Check TanStack route exports
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # No dependencies needed — the guard is pure Node reading src/routes/.
+      - name: Route-export guard
+        run: node scripts/check-route-exports.mjs
