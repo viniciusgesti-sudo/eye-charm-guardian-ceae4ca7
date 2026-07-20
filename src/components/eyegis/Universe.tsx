@@ -48,15 +48,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteHeadlineAccent: "style",
     noteHeadline2: ".",
     noteBody1:
-      "Our mission is simple: protect the eyes of the digital generation through scientifically engineered lenses designed to be worn every day.",
+      "Our mission is simple: protect the eyes of the digital generation with scientifically engineered lenses and timeless eyewear designed to be worn every day.",
     noteBody2:
-      "We combine optical engineering, honest science and thoughtful design to create products that help people work, create and play more comfortably — without compromising style.",
-    stats: [
-      { k: "Est.", v: "MMXXIV" },
-      { k: "Ateliers", v: "SP · PAR" },
-      { k: "Lenses", v: "9 series" },
-    ],
-    portraitCaption1: "Solène — Le Marais, Paris",
+      "We combine optical engineering, honest science and thoughtful design to create products that help you work, create and play more comfortably — without compromising your style.",
+    stats: [],
+    portraitCaption1: "Eyegis — Le Marais, Paris",
     portraitCaption2: "Portrait N°04",
     principlesEyebrow: "Three Principles",
     principlesLine: "Technology, science and style — quietly held in balance.",
@@ -64,11 +60,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
       {
         index: "Panel 01",
         eyebrow: "EyegisGuard™",
-        headline: "Our proprietary technology.",
+        headline: "Two lenses. Two purposes.",
         description:
-          "Selective blue-light filtering designed to preserve natural colors while reducing unnecessary visual stress.",
-        cta: "Learn More",
-        imageAlt: "Eyegis Solène tortoise cat-eye frame in macro, showing the selective blue-light filtering lens",
+          "E-Guard Retina™ protects visual comfort during long screen sessions. E-Guard Circadian™ mitigates evening wavelengths to support healthier sleep. Different wavelengths. Different effects. Two dedicated solutions.",
+        cta: "Explore the Technology",
+        imageAlt: "Eyegis lens macro, showing the selective blue-light filtering coating",
       },
       {
         index: "Panel 02",
@@ -86,7 +82,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
         description:
           "Compare every Eyegis lens and discover the right balance between protection, comfort and style.",
         cta: "Choose Your Lens",
-        imageAlt: "The Eyegis collection — four premium acetate frames arranged with signature peach packaging",
+        imageAlt: "The Eyegis collection — premium acetate frames arranged with signature packaging",
       },
     ],
     closingLine: "Continue into the science that makes it possible.",
@@ -102,15 +98,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteHeadlineAccent: "estilo",
     noteHeadline2: ".",
     noteBody1:
-      "Nossa missão é simples: proteger os olhos da geração digital através de lentes cientificamente desenvolvidas para o uso diário.",
+      "Nossa missão é simples: proteger os olhos da geração digital com lentes desenvolvidas cientificamente e eyewear atemporal, feito para o uso diário.",
     noteBody2:
-      "Combinamos engenharia óptica, ciência honesta e design pensado para criar produtos que ajudam pessoas a trabalhar, criar e viver com mais conforto — sem abrir mão do estilo.",
-    stats: [
-      { k: "Fund.", v: "MMXXIV" },
-      { k: "Ateliês", v: "SP · PAR" },
-      { k: "Lentes", v: "9 séries" },
-    ],
-    portraitCaption1: "Solène — Le Marais, Paris",
+      "Combinamos engenharia óptica, ciência honesta e design pensado para criar produtos que ajudam você a trabalhar, criar e viver com mais conforto — sem abrir mão do estilo.",
+    stats: [],
+    portraitCaption1: "Eyegis — Le Marais, Paris",
     portraitCaption2: "Retrato N°04",
     principlesEyebrow: "Três Princípios",
     principlesLine: "Tecnologia, ciência e estilo — em silencioso equilíbrio.",
@@ -118,11 +110,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
       {
         index: "Painel 01",
         eyebrow: "EyegisGuard™",
-        headline: "Nossa tecnologia proprietária.",
+        headline: "Duas lentes. Dois propósitos.",
         description:
-          "Filtro seletivo de luz azul, desenhado para preservar cores naturais reduzindo o estresse visual desnecessário.",
-        cta: "Saiba Mais",
-        imageAlt: "Armação Eyegis Solène tortoise em macro, mostrando a lente com filtro seletivo",
+          "E-Guard Retina™ protege o conforto visual em longas sessões de tela. E-Guard Circadian™ atenua as ondas noturnas para favorecer um sono mais saudável. Comprimentos de onda diferentes. Efeitos diferentes. Duas soluções dedicadas.",
+        cta: "Conhecer a Tecnologia",
+        imageAlt: "Macro de uma lente Eyegis, mostrando o revestimento de filtragem seletiva",
       },
       {
         index: "Painel 02",
@@ -140,7 +132,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
         description:
           "Compare cada lente Eyegis e descubra o equilíbrio certo entre proteção, conforto e estilo.",
         cta: "Escolher Minha Lente",
-        imageAlt: "A coleção Eyegis — quatro armações premium em acetato com embalagem pêssego assinatura",
+        imageAlt: "A coleção Eyegis — armações premium em acetato com embalagem assinatura",
       },
     ],
     closingLine: "Continue pela ciência que torna tudo isso possível.",
@@ -156,15 +148,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
     noteHeadlineAccent: "style",
     noteHeadline2: ".",
     noteBody1:
-      "Notre mission est simple : protéger les yeux de la génération numérique grâce à des verres pensés scientifiquement pour un usage quotidien.",
+      "Notre mission est simple : protéger les yeux de la génération numérique grâce à des verres pensés scientifiquement et une lunetterie intemporelle, faite pour être portée chaque jour.",
     noteBody2:
       "Nous conjuguons ingénierie optique, science honnête et design réfléchi pour créer des produits qui aident à travailler, créer et vivre plus confortablement — sans compromis sur le style.",
-    stats: [
-      { k: "Fondée", v: "MMXXIV" },
-      { k: "Ateliers", v: "SP · PAR" },
-      { k: "Verres", v: "9 séries" },
-    ],
-    portraitCaption1: "Solène — Le Marais, Paris",
+    stats: [],
+    portraitCaption1: "Eyegis — Le Marais, Paris",
     portraitCaption2: "Portrait N°04",
     principlesEyebrow: "Trois Principes",
     principlesLine: "Technologie, science et style — en équilibre silencieux.",
@@ -172,11 +160,11 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
       {
         index: "Panneau 01",
         eyebrow: "EyegisGuard™",
-        headline: "Notre technologie propriétaire.",
+        headline: "Deux verres. Deux missions.",
         description:
-          "Un filtre sélectif de lumière bleue, conçu pour préserver les couleurs naturelles tout en réduisant la fatigue visuelle.",
-        cta: "En savoir plus",
-        imageAlt: "Monture Eyegis Solène écaille en macro, montrant le verre filtrant sélectif",
+          "E-Guard Retina™ protège le confort visuel lors des longues sessions d'écran. E-Guard Circadian™ atténue les longueurs d'onde du soir pour un sommeil plus sain. Longueurs d'onde différentes. Effets différents. Deux solutions dédiées.",
+        cta: "Découvrir la technologie",
+        imageAlt: "Macro d'un verre Eyegis, montrant le traitement filtrant sélectif",
       },
       {
         index: "Panneau 02",
@@ -194,7 +182,7 @@ const UNIVERSE_COPY: Record<Lang, UniverseCopy> = {
         description:
           "Comparez chaque verre Eyegis et découvrez le juste équilibre entre protection, confort et style.",
         cta: "Choisir mes verres",
-        imageAlt: "La collection Eyegis — quatre montures acétate premium avec l'étui pêche signature",
+        imageAlt: "La collection Eyegis — montures acétate premium avec l'étui signature",
       },
     ],
     closingLine: "Poursuivez avec la science qui rend tout cela possible.",

@@ -10,33 +10,33 @@ type Copy = {
 
 const COPY: Record<Lang, Copy> = {
   EN: {
-    eyebrow: "How Eyegis works",
+    eyebrow: "Why Eyegis makes a difference",
     title1: "Three things",
     title2: "that make the difference.",
     steps: [
-      { n: "01", title: "Filters the harmful spectrum",  body: "Blocks up to 45% of blue light between 400–455 nm — the range clinical studies link to digital eye fatigue." },
-      { n: "02", title: "Keeps colors natural",           body: "EyegisGuard™ preserves color accuracy. No yellow tint, no distortion — what you see is what you get." },
-      { n: "03", title: "Feels weightless all day",       body: "Aerospace-grade TR90 frame under 18g. You forget you're wearing them within the first hour." },
+      { n: "01", title: "EyegisGuard™ Technology",  body: "Selective blue-light filtering lenses designed to protect your eyes while preserving true colors and natural contrast." },
+      { n: "02", title: "Comfort & Style",           body: "Thoughtfully designed frames combining premium aesthetics with all-day comfort in lightweight TR90." },
+      { n: "03", title: "Focus & Performance",       body: "Helps reduce digital eye strain and headaches while supporting healthier sleep." },
     ],
   },
   PT: {
-    eyebrow: "Como funciona a Eyegis",
+    eyebrow: "Por que a Eyegis faz diferença",
     title1: "Três coisas",
     title2: "que fazem a diferença.",
     steps: [
-      { n: "01", title: "Filtra o espectro nocivo",       body: "Bloqueia até 45% da luz azul entre 400–455 nm — a faixa que estudos clínicos associam à fadiga visual digital." },
-      { n: "02", title: "Mantém as cores naturais",       body: "EyegisGuard™ preserva a fidelidade das cores. Sem tom amarelo, sem distorção — o que você vê é real." },
-      { n: "03", title: "Leve o dia inteiro",             body: "Armação TR90 de grau aeroespacial abaixo de 18g. Você esquece que está usando na primeira hora." },
+      { n: "01", title: "Tecnologia EyegisGuard™",   body: "Lentes com filtragem seletiva de luz azul, desenhadas para proteger os olhos preservando cores verdadeiras e contraste natural." },
+      { n: "02", title: "Conforto & Estilo",         body: "Armações pensadas para unir estética premium e conforto o dia todo, em TR90 ultraleve." },
+      { n: "03", title: "Foco & Performance",        body: "Ajuda a reduzir fadiga visual digital e dores de cabeça, favorecendo um sono mais saudável." },
     ],
   },
   FR: {
-    eyebrow: "Comment fonctionne Eyegis",
+    eyebrow: "Pourquoi Eyegis fait la différence",
     title1: "Trois choses",
     title2: "qui font la différence.",
     steps: [
-      { n: "01", title: "Filtre le spectre nocif",        body: "Bloque jusqu'à 45% de la lumière bleue entre 400–455 nm — la plage associée à la fatigue visuelle numérique." },
-      { n: "02", title: "Conserve les couleurs naturelles", body: "EyegisGuard™ préserve la fidélité des couleurs. Sans teinte jaune, sans distorsion." },
-      { n: "03", title: "Léger toute la journée",         body: "Monture TR90 de qualité aérospatiale, moins de 18g. Vous l'oubliez dès la première heure." },
+      { n: "01", title: "Technologie EyegisGuard™",  body: "Verres à filtrage sélectif de lumière bleue, conçus pour protéger les yeux tout en préservant les vraies couleurs et le contraste naturel." },
+      { n: "02", title: "Confort & Style",           body: "Des montures pensées pour allier esthétique premium et confort toute la journée, en TR90 léger." },
+      { n: "03", title: "Focus & Performance",       body: "Aide à réduire la fatigue visuelle numérique et les maux de tête, en soutenant un sommeil plus sain." },
     ],
   },
 };

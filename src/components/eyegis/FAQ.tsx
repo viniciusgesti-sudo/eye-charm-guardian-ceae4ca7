@@ -70,7 +70,7 @@ const ITEMS: FaqItem[] = [
   {
     icon: <IconMicroscope />,
     q: "Do blue light glasses really work?",
-    a: "That's a great question, and the answer is more nuanced than many marketing claims suggest. Yes, blue light filtering lenses can provide real benefits. But not all lenses are designed the same, and many claims you'll find online are exaggerated or oversimplified. At Eyegis, we believe in Honest Science™. Our lenses are engineered using evidence-based optical principles, with selective blue light filtering designed to improve visual comfort while preserving natural color accuracy and contrast.",
+    a: "That's a great question, and the answer is more nuanced than many marketing claims suggest. Yes, blue light filtering lenses can provide real benefits — but not all lenses are designed the same, and many claims you'll find online are exaggerated or oversimplified. At Eyegis, we believe in Honest Science™: our lenses are engineered using evidence-based optical principles, with selective blue-light filtering designed to improve visual comfort while preserving natural color accuracy and contrast.",
   },
   {
     icon: <IconPeople />,
@@ -83,14 +83,19 @@ const ITEMS: FaqItem[] = [
     a: "Yes. Our lightweight TR90 frames are designed for long-lasting comfort and are compatible with most headphones and gaming headsets.",
   },
   {
+    icon: <IconGlassesHeadset />,
+    q: "Do you make prescription (corrective) glasses?",
+    a: "Not yet — we don't offer prescription lenses at this time. You can wear your Eyegis glasses together with your contact lenses.",
+  },
+  {
     icon: <IconBox />,
     q: "What are your shipping and return policies?",
-    a: "Shipping times and return conditions vary by marketplace and country. Please refer to your local Amazon marketplace for the most up-to-date information.",
+    a: "Shipping times and return conditions vary by marketplace and country. In the EU/France, the standard return window is 30 days. For the most up-to-date information, please refer to your local Amazon marketplace.",
   },
   {
     icon: <IconShield />,
     q: "Do Eyegis glasses come with a warranty?",
-    a: "Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. We also offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't provide the visual comfort or experience you expected, simply contact us for assistance.",
+    a: "Absolutely. Every pair of Eyegis glasses is covered by a two-year warranty against manufacturing defects. What's not covered: accidental damage (drops, crushing, impact), normal wear and tear including scratches from everyday use, and damage from misuse, excessive heat or product modifications. In addition, we offer a 60-Day Comfort Guarantee — if your Eyegis glasses don't provide the visual comfort you expected, contact us and we'll work with you to find the best solution, even if your marketplace's standard return window has expired.",
   },
 ];
 
