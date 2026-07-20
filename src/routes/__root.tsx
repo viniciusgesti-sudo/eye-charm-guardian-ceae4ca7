@@ -86,15 +86,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Eyegis" },
-      { property: "og:image", content: "https://eye-charm-guardian.lovable.app/og-image.jpg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Eyegis — shield emblem" },
+      // og:image/twitter:image intentionally NOT set here — TanStack Router
+      // concatenates root meta into every route, so a root-level og:image
+      // overrides every leaf. Each route's buildSeo() provides its own image.
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@eyegis" },
-      { name: "twitter:title", content: "Eyegis — Engineered for Vision. Designed for Style." },
-      { name: "twitter:description", content: "Premium blue-light filtering eyewear for the digital generation. Scientifically engineered. Timelessly designed." },
-      { name: "twitter:image", content: "https://eye-charm-guardian.lovable.app/og-image.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
