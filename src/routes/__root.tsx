@@ -11,6 +11,7 @@ import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
@@ -38,11 +39,16 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  const url = typeof window !== "undefined" ? window.location.href : "(ssr)";
+  // Structured log so preview tooling can grep [PREVIEW-ERROR] and pick up
+  // the URL alongside the framework error (import/export/syntax issues, etc.).
+  // eslint-disable-next-line no-console
+  console.error(`[PREVIEW-ERROR] kind=ROUTE_RENDER url=${url} :: ${error.message}`);
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+    reportLovableError(error, { boundary: "tanstack_root_error_component", url });
+  }, [error, url]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
@@ -175,7 +181,13 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
         <a href="#main" className="skip-to-content">Skip to content</a>
-        <Outlet />
+        <PreviewErrorBoundary
+          fallback={(err, resetBoundary) => (
+            <ErrorComponent error={err} reset={resetBoundary} />
+          )}
+        >
+          <Outlet />
+        </PreviewErrorBoundary>
         <Suspense fallback={null}>
           <CookieBanner />
         </Suspense>
