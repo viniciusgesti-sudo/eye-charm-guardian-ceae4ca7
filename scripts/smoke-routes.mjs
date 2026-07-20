@@ -218,6 +218,13 @@ async function checkRoute(path) {
     }
   }
 
+  // Stricter per-locale contract for /about (label + href pairs).
+  const aboutMatch = finalUrl.match(/^\/(br|en|fr)\/about\/?$/);
+  if (aboutMatch) {
+    problems.push(...checkAboutContract(html, aboutMatch[1]));
+  }
+
+
   return { path, status, title, h1: h1s[0] ?? null, problems };
 }
 
