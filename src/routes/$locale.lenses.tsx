@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LensesPage } from "./lenses";
+import { LensesPage } from "@/components/eyegis/LensesPage";
 import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/$locale/lenses")({

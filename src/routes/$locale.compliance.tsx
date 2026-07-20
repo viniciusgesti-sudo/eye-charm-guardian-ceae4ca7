@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CompliancePage } from "./compliance";
+import { CompliancePage } from "@/components/eyegis/CompliancePage";
 import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/$locale/compliance")({
