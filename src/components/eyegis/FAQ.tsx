@@ -69,8 +69,8 @@ const IconShield = () => (
 const ITEMS: FaqItem[] = [
   {
     icon: <IconMicroscope />,
-    q: "Do blue light glasses really work?",
-    a: "This is a fair question — and the honest answer is nuanced. Not every blue-light lens on the market is engineered the same way, and many claims online are exaggerated. At Eyegis we follow Honest Science™: our E-Guard Retina™ and E-Guard Circadian™ lenses use selective filtering — they act on the specific wavelengths involved in digital eye strain and evening light exposure, while letting through the light your eyes need to see colors as they are. No orange tint, no filter over reality, no miracle promises.",
+    q: "How does selective filtering actually work?",
+    a: "Honest Science™, in plain words: our E-Guard Retina™ and E-Guard Circadian™ lenses act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure — while letting the rest of the spectrum pass through, so you keep seeing colors as they are. It is not a tinted lens and not a filter over reality. We describe what the lens does optically, not how you should feel wearing it.",
   },
   {
     icon: <IconPeople />,
