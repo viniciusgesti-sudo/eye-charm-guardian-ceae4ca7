@@ -9,15 +9,15 @@ export function TrustStrip() {
   const { lang } = useI18n();
   const copy = {
     en: {
-      chips: ["Independent optical lab", "60-day comfort guarantee", "2-year warranty"],
+      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "60-day comfort guarantee", "2-year warranty"],
       cta: "Coming soon on Amazon",
     },
     pt: {
-      chips: ["Laboratório óptico independente", "Garantia de conforto 60 dias", "Garantia de 2 anos"],
+      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantia de conforto 60 dias", "Garantia de 2 anos"],
       cta: "Em breve na Amazon",
     },
     fr: {
-      chips: ["Laboratoire optique indépendant", "Garantie confort 60 jours", "Garantie 2 ans"],
+      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantie confort 60 jours", "Garantie 2 ans"],
       cta: "Bientôt sur Amazon",
     },
   } as const;
