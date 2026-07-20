@@ -28,7 +28,14 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   const currentSeg = (LOCALES as string[]).includes(locale) ? (locale as LocaleSeg) : "br";
   const location = useLocation();
   const navigate = useNavigate();
-  const { t, setLang } = useI18n();
+  const { t, setLang, lang } = useI18n();
+
+  // Sincroniza o idioma com o segmento /$locale da URL para evitar
+  // que rotas /br/* renderizem textos EN (que estouram no mobile).
+  useEffect(() => {
+    const target = segToLang(currentSeg);
+    if (lang !== target) setLang(target);
+  }, [currentSeg, lang, setLang]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
