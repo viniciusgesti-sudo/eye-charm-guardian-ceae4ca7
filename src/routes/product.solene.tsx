@@ -10,53 +10,48 @@ import packageImg from "@/assets/products/solene-package.jpg?w=480;800;1200;1600
 import pouchImg from "@/assets/products/solene-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifestyleImg from "@/assets/collection-women.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
-const SITE = "https://eye-charm-guardian.lovable.app";
+import { buildSeo, SITE } from "@/lib/seo";
+
+const SOLENE_OG = `${SITE}/og-solene.jpg`;
 
 export const Route = createFileRoute("/product/solene")({
-  head: () => ({
-    meta: [
-      { title: "Solène — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Solène by Eyegis — cat-eye acetate frame in warm tortoise with EyegisGuard™ blue-light filtering. Softened geometry, everyday elegance for long screen hours.",
-      },
-      { property: "og:title", content: "Solène — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Cat-eye acetate blue-light glasses. Warm tortoise, gold hinge, EyegisGuard™ optical filter. 2-year warranty, 60-day comfort guarantee.",
-      },
-      { property: "og:type", content: "product" },
-      { property: "og:image", content: `${SITE}/og-meridian.jpg` },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE}/product/solene` }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: "Solène by Eyegis",
-          brand: { "@type": "Brand", name: "Eyegis" },
-          description:
-            "Cat-eye acetate blue-light glasses with EyegisGuard™ optical filter (400–455 nm HEV). Warm tortoise finish, gold hinge, feather-light on face.",
-          image: [`${SITE}/og-meridian.jpg`],
-          sku: "EYG-SOL-01",
-          category: "Eyewear > Blue Light Glasses",
-          offers: {
-            "@type": "Offer",
-            url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/PreOrder",
-            priceCurrency: "USD",
-            price: "89.00",
-            seller: { "@type": "Organization", name: "Eyegis" },
-          },
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const seo = buildSeo({
+      title: "Solène by Eyegis — Cat-Eye Blue-Light Glasses",
+      description:
+        "Solène by Eyegis — cat-eye acetate frame in warm tortoise with EyegisGuard™ blue-light filtering. Softened geometry, everyday elegance for long screen hours.",
+      path: "/product/solene",
+      image: SOLENE_OG,
+      ogType: "product",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Solène by Eyegis",
+            brand: { "@type": "Brand", name: "Eyegis" },
+            description:
+              "Cat-eye acetate blue-light glasses with EyegisGuard™ optical filter (400–455 nm HEV). Warm tortoise finish, gold hinge, feather-light on face.",
+            image: [SOLENE_OG],
+            sku: "EYG-SOL-01",
+            category: "Eyewear > Blue Light Glasses",
+            offers: {
+              "@type": "Offer",
+              url: DEFAULT_AMAZON_URL,
+              availability: "https://schema.org/PreOrder",
+              priceCurrency: "USD",
+              price: "89.00",
+              seller: { "@type": "Organization", name: "Eyegis" },
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: SoleneProduct,
 });
 

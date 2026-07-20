@@ -9,53 +9,48 @@ import packageImg from "@/assets/products/marais-package.jpg?w=480;800;1200;1600
 import pouchImg from "@/assets/products/marais-pouch.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import lifestyleImg from "@/assets/collection-women.jpg?w=768;1200;1600;2000&format=avif;webp;jpg&as=picture";
 
-const SITE = "https://eye-charm-guardian.lovable.app";
+import { buildSeo, SITE } from "@/lib/seo";
+
+const MARAIS_OG = `${SITE}/og-marais.jpg`;
 
 export const Route = createFileRoute("/product/marais")({
-  head: () => ({
-    meta: [
-      { title: "Marais — Eyegis" },
-      {
-        name: "description",
-        content:
-          "Marais by Eyegis — refined round acetate frame with subtle keyhole bridge and EyegisGuard™ blue-light filter. Parisian understatement for screen-heavy days.",
-      },
-      { property: "og:title", content: "Marais — Eyegis" },
-      {
-        property: "og:description",
-        content:
-          "Refined round blue-light glasses with keyhole bridge. EyegisGuard™ optical filter, 2-year warranty, 60-day comfort guarantee.",
-      },
-      { property: "og:type", content: "product" },
-      { property: "og:image", content: `${SITE}/og-meridian.jpg` },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE}/product/marais` }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: "Marais by Eyegis",
-          brand: { "@type": "Brand", name: "Eyegis" },
-          description:
-            "Refined round acetate blue-light glasses with keyhole bridge and EyegisGuard™ optical filter (400–455 nm HEV).",
-          image: [`${SITE}/og-meridian.jpg`],
-          sku: "EYG-MAR-01",
-          category: "Eyewear > Blue Light Glasses",
-          offers: {
-            "@type": "Offer",
-            url: DEFAULT_AMAZON_URL,
-            availability: "https://schema.org/PreOrder",
-            priceCurrency: "USD",
-            price: "89.00",
-            seller: { "@type": "Organization", name: "Eyegis" },
-          },
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const seo = buildSeo({
+      title: "Marais by Eyegis — Round Blue-Light Glasses",
+      description:
+        "Marais by Eyegis — refined round acetate frame with subtle keyhole bridge and EyegisGuard™ blue-light filter. Parisian understatement for screen-heavy days.",
+      path: "/product/marais",
+      image: MARAIS_OG,
+      ogType: "product",
+    });
+    return {
+      ...seo,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Marais by Eyegis",
+            brand: { "@type": "Brand", name: "Eyegis" },
+            description:
+              "Refined round acetate blue-light glasses with keyhole bridge and EyegisGuard™ optical filter (400–455 nm HEV).",
+            image: [MARAIS_OG],
+            sku: "EYG-MAR-01",
+            category: "Eyewear > Blue Light Glasses",
+            offers: {
+              "@type": "Offer",
+              url: DEFAULT_AMAZON_URL,
+              availability: "https://schema.org/PreOrder",
+              priceCurrency: "USD",
+              price: "89.00",
+              seller: { "@type": "Organization", name: "Eyegis" },
+            },
+          }),
+        },
+      ],
+    };
+  },
   component: MaraisProduct,
 });
 
