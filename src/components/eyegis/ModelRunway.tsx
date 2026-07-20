@@ -240,7 +240,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
-            <h2 id="model-runway-title" className="mt-5 max-w-3xl font-editorial text-[12vw] leading-[0.9] text-fluid-hero">
+            <h2 id="model-runway-title" className="mt-5 max-w-3xl font-editorial leading-[0.9] text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4.6vw] xl:text-[76px]">
               {copy.title}
               <span className="block italic text-teal">{copy.titleAccent}</span>
             </h2>
