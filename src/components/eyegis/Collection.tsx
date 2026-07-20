@@ -126,7 +126,7 @@ type Copy = {
     headline2: string;
     lead: string;
     filterLabel: string;
-    filters: { All: string; Men: string; Women: string; Kids: string; Newest: string; Best: string };
+    filters: { All: string; Men: string; Women: string; Kids: string; Newest: string; Best: string; Details: string };
     scrollLeft: string;
     scrollRight: string;
     empty: string;
@@ -199,7 +199,7 @@ const COPY: Record<Lang, Copy> = {
       headline2: "Not the full catalogue.",
       lead: "A small, considered selection from each collection. Every frame carries EyegisGuard™, a 2-year warranty and a 60-day comfort guarantee.",
       filterLabel: "Filter",
-      filters: { All: "All", Men: "Men", Women: "Women", Kids: "Kids", Newest: "Newest", Best: "Best Sellers" },
+      filters: { All: "All", Men: "Men", Women: "Women", Kids: "Kids", Newest: "Newest", Best: "Best Sellers", Details: "Frame Details" },
       scrollLeft: "Scroll left",
       scrollRight: "Scroll right",
       empty: "No frames match this filter.",
@@ -279,7 +279,7 @@ const COPY: Record<Lang, Copy> = {
       headline2: "Não é o catálogo completo.",
       lead: "Uma seleção pequena e criteriosa de cada coleção. Todas as armações trazem EyegisGuard™, 2 anos de garantia e 60 dias de garantia de conforto.",
       filterLabel: "Filtrar",
-      filters: { All: "Todos", Men: "Homem", Women: "Mulher", Kids: "Kids", Newest: "Novidades", Best: "Mais Vendidos" },
+      filters: { All: "Todos", Men: "Homem", Women: "Mulher", Kids: "Kids", Newest: "Novidades", Best: "Mais Vendidos", Details: "Detalhes" },
       scrollLeft: "Rolar para a esquerda",
       scrollRight: "Rolar para a direita",
       empty: "Nenhuma armação corresponde a este filtro.",
@@ -359,7 +359,7 @@ const COPY: Record<Lang, Copy> = {
       headline2: "Pas le catalogue complet.",
       lead: "Une petite sélection étudiée de chaque collection. Chaque monture est équipée d'EyegisGuard™, d'une garantie de 2 ans et d'un essai confort de 60 jours.",
       filterLabel: "Filtrer",
-      filters: { All: "Tout", Men: "Homme", Women: "Femme", Kids: "Enfants", Newest: "Nouveautés", Best: "Best-sellers" },
+      filters: { All: "Tout", Men: "Homme", Women: "Femme", Kids: "Enfants", Newest: "Nouveautés", Best: "Best-sellers", Details: "Détails" },
       scrollLeft: "Défiler à gauche",
       scrollRight: "Défiler à droite",
       empty: "Aucune monture ne correspond à ce filtre.",
@@ -592,6 +592,7 @@ type ProductMeta = {
   gallery: GalleryShot[];
   bestSeller?: boolean;
   newest?: boolean;
+  detailShot?: boolean;
   pdpPath?: string;
 };
 
@@ -647,6 +648,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: meridianPair, thumb: meridianPairThumb, alt: "Meridian — twin pair still life", label: "Pair" },
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Meridian — hero shot", label: "Hero" },
     ],
+    detailShot: true,
   },
   {
     id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
@@ -656,6 +658,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: atelierProfile, thumb: atelierProfileThumb, alt: "Atelier — profile study", label: "Profile" },
       { src: atelierFront, thumb: atelierFrontThumb, alt: "Atelier — front view", label: "Front" },
     ],
+    detailShot: true,
   },
   {
     id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
@@ -666,6 +669,7 @@ const PRODUCTS: ProductMeta[] = [
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Solène — hero shot", label: "Hero" },
     ],
     bestSeller: true,
+    detailShot: true,
   },
   {
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
@@ -679,13 +683,14 @@ const PRODUCTS: ProductMeta[] = [
   },
 ];
 
-type Filter = "All" | "Men" | "Women" | "Kids" | "Newest" | "Best";
-const FILTERS: Filter[] = ["All", "Men", "Women", "Kids", "Newest", "Best"];
+type Filter = "All" | "Men" | "Women" | "Kids" | "Newest" | "Best" | "Details";
+const FILTERS: Filter[] = ["All", "Men", "Women", "Kids", "Newest", "Best", "Details"];
 
 function matches(p: ProductMeta, f: Filter) {
   if (f === "All") return true;
   if (f === "Newest") return !!p.newest;
   if (f === "Best") return !!p.bestSeller;
+  if (f === "Details") return !!p.detailShot;
   return p.filterKey === f;
 }
 
