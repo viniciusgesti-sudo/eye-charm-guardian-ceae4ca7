@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
-import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroZenith from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import { LAB_CERTIFICATIONS } from "@/lib/amazon";
 

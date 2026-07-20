@@ -4,8 +4,8 @@ import { lazy, Suspense } from "react";
 import { Hero } from "@/components/eyegis/Hero";
 import { TrustStrip } from "@/components/eyegis/TrustStrip";
 import { buildSeo, DEFAULT_LOCALE, type Locale } from "@/lib/seo";
-import heroZenith from "@/assets/hero-zenith-man.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
-import heroClarity from "@/assets/hero-clarity-woman.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroZenith from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
+import heroClarity from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
 
 
 // Below-the-fold sections are lazy-loaded to shrink the initial home chunk.
