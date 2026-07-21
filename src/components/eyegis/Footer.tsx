@@ -310,10 +310,25 @@ export function Footer() {
             </div>
           </div>
 
-          {/* 4 columns */}
-          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
+          {/* Brand pillar + 4 columns — brand takes 2/6 on desktop for stronger hierarchy */}
+          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-10 lg:grid-cols-6">
+            {/* Brand pillar */}
+            <div className="sm:col-span-2 lg:col-span-2 lg:pr-10">
+              <Logo className="h-8 w-auto text-paper" />
+              <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/60">
+                {lang === "PT"
+                  ? "Óculos com engenharia para a visão. Design para o seu jeito de viver."
+                  : lang === "FR"
+                    ? "Des lunettes pensées pour la vision. Dessinées pour votre façon de vivre."
+                    : "Eyewear engineered for vision. Designed for the way you live."}
+              </p>
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/80">
+                Honest Science™ · λ 445nm
+              </p>
+            </div>
+
             {c.columns.map((col, idx) => (
-              <div key={col.title}>
+              <div key={col.title} className="lg:col-span-1 min-w-0">
                 <h4 className="small-caps text-[11px] text-mint">{col.title}</h4>
 
                 {idx === 3 && "social" in col ? (

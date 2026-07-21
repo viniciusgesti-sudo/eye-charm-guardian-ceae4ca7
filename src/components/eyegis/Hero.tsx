@@ -106,7 +106,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-[72svh] min-h-[520px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
+          className="group relative block h-[58svh] min-h-[460px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
         >
           <Picture
             source={heroSaoPaulo}
@@ -159,7 +159,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block h-[72svh] min-h-[520px] w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:h-full md:min-h-0"
+          className="group relative block h-[58svh] min-h-[460px] w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:h-full md:min-h-0"
         >
           <Picture
             source={heroParis}
@@ -206,11 +206,25 @@ export function Hero({ locale }: Props) {
         </Link>
       </div>
 
-      {/* Center seam (desktop only) */}
+      {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/20 to-transparent md:block"
+        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-champagne/25 to-transparent md:block"
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
+      />
+
+      {/* Mobile scroll cue — encourages exploration past the split hero */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex justify-center md:hidden"
+      >
+        <span className="font-mono text-[9px] uppercase tracking-[0.42em] text-paper/55 motion-safe:animate-bounce">
+          ↓
+        </span>
+      </div>
 
       {/* Bottom manifesto strip — only rendered on md+ so it never overlaps
           the stacked-panel CTAs on mobile. */}
