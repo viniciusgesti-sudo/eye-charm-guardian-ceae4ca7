@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-21T01:01:28.195Z",
+  "updatedAt": "2026-07-21T01:02:12.351Z",
   "maxGrowthPct": 40,
   "client": {
-    "total": 1458606,
+    "total": 1459445,
     "groups": {
       "dist/client/assets/index.js": 199204,
-      "dist/client/assets/styles.css": 188021,
+      "dist/client/assets/styles.css": 188214,
       "dist/client/assets/react.js": 181284,
       "dist/client/assets/_locale.contact.js": 91184,
       "dist/client/assets/radix.js": 89329,
@@ -32,8 +32,8 @@
       "dist/client/assets/FAQ.js": 11442,
       "dist/client/assets/product.solene.js": 11388,
       "dist/client/assets/qa.js": 11383,
+      "dist/client/assets/Footer.js": 10869,
       "dist/client/assets/product.marais.js": 10466,
-      "dist/client/assets/Footer.js": 10223,
       "dist/client/assets/motion.js": 9976,
       "dist/client/assets/WhatsInTheBox.js": 9541,
       "dist/client/assets/SpectrumSignature.js": 7827,
@@ -64,7 +64,7 @@
     }
   },
   "server": {
-    "total": 1554573,
+    "total": 1555224,
     "groups": {
       "dist/server/_libs/@tanstack/react-router+[...].mjs": 287258,
       "dist/server/index.mjs": 209302,
@@ -101,8 +101,8 @@
       "dist/server/_ssr/product.solene.mjs": 11377,
       "dist/server/_ssr/qa.mjs": 11359,
       "dist/server/_libs/h3+rou3+srvx+unenv.mjs": 11015,
+      "dist/server/_ssr/Footer.mjs": 10927,
       "dist/server/_ssr/product.marais.mjs": 10454,
-      "dist/server/_ssr/Footer.mjs": 10276,
       "dist/server/_ssr/WhatsInTheBox.mjs": 9561,
       "dist/server/_libs/@floating-ui/core+[...].mjs": 9434,
       "dist/server/_libs/@floating-ui/dom+[...].mjs": 9302,
