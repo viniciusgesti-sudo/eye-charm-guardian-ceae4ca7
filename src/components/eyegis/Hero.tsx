@@ -106,7 +106,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-[72svh] min-h-[520px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
+          className="group relative block h-[58svh] min-h-[460px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
         >
           <Picture
             source={heroSaoPaulo}
