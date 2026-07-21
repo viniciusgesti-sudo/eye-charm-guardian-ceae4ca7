@@ -17,7 +17,7 @@ import { SpectrumMark } from "./SpectrumMark";
  */
 
 const COPY = {
-  br: {
+  BR: {
     eyebrow: "Ritual da Marca",
     title: (
       <>
@@ -34,7 +34,7 @@ const COPY = {
     sweetLabel: "Ponto ideal E-Guard",
     footnote: "Referências ICNIRP · CIE S 026 · ANSI Z80.3",
   },
-  en: {
+  EN: {
     eyebrow: "Brand Ritual",
     title: (
       <>
@@ -51,7 +51,7 @@ const COPY = {
     sweetLabel: "E-Guard sweet spot",
     footnote: "Refs. ICNIRP · CIE S 026 · ANSI Z80.3",
   },
-  fr: {
+  FR: {
     eyebrow: "Rituel de Marque",
     title: (
       <>
