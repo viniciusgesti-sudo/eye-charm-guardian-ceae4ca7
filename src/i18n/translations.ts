@@ -12,14 +12,14 @@ export const translations: Record<Lang, Dict> = {
     // Navigation
     "nav.men": "Men",
     "nav.women": "Women",
-    "nav.kids": "Kids & Teens",
+    "nav.kids": "Kids",
     "nav.technology": "Technology",
     "nav.honestScience": "Honest Science™",
     "nav.about": "About",
-    "nav.lenses": "Choose your lenses",
+    "nav.lenses": "Lenses",
     "nav.social": "Social Networks",
     "nav.bag": "Bag",
-    "nav.shopAmazon": "Coming soon on Amazon",
+    "nav.shopAmazon": "Join the launch list",
     "nav.opticalScience": "® Optical Science",
 
     // Hero
@@ -43,14 +43,14 @@ export const translations: Record<Lang, Dict> = {
     // Navigation
     "nav.men": "Homem",
     "nav.women": "Mulher",
-    "nav.kids": "Kids & Teens",
+    "nav.kids": "Kids",
     "nav.technology": "Tecnologia",
     "nav.honestScience": "Honest Science™",
     "nav.about": "Sobre",
-    "nav.lenses": "Escolha suas lentes",
+    "nav.lenses": "Lentes",
     "nav.social": "Redes Sociais",
     "nav.bag": "Sacola",
-    "nav.shopAmazon": "Em breve na Amazon",
+    "nav.shopAmazon": "Entrar na lista",
     "nav.opticalScience": "® Ciência Óptica",
 
     // Hero
@@ -74,14 +74,14 @@ export const translations: Record<Lang, Dict> = {
     // Navigation
     "nav.men": "Homme",
     "nav.women": "Femme",
-    "nav.kids": "Enfants & Ados",
+    "nav.kids": "Enfants",
     "nav.technology": "Technologie",
     "nav.honestScience": "Honest Science™",
     "nav.about": "À propos",
-    "nav.lenses": "Choisir ses verres",
+    "nav.lenses": "Verres",
     "nav.social": "Réseaux sociaux",
     "nav.bag": "Panier",
-    "nav.shopAmazon": "Bientôt sur Amazon",
+    "nav.shopAmazon": "Rejoindre la liste",
     "nav.opticalScience": "® Science Optique",
 
     // Hero
