@@ -206,11 +206,25 @@ export function Hero({ locale }: Props) {
         </Link>
       </div>
 
-      {/* Center seam (desktop only) */}
+      {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-paper/20 to-transparent md:block"
+        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-champagne/25 to-transparent md:block"
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
+      />
+
+      {/* Mobile scroll cue — encourages exploration past the split hero */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex justify-center md:hidden"
+      >
+        <span className="font-mono text-[9px] uppercase tracking-[0.42em] text-paper/55 motion-safe:animate-bounce">
+          ↓
+        </span>
+      </div>
 
       {/* Bottom manifesto strip — only rendered on md+ so it never overlaps
           the stacked-panel CTAs on mobile. */}
