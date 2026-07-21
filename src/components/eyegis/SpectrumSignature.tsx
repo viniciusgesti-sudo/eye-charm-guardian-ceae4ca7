@@ -141,7 +141,7 @@ export function SpectrumSignature() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-24 md:pt-32 pb-20 md:pb-28">
+      <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-28 md:pb-40">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 mb-14 md:mb-20">
           <div className="lg:col-span-5">
