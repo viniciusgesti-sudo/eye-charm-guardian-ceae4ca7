@@ -642,6 +642,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
   const LIFE_META = audience === "men" ? LIFE_META_MEN : LIFE_META_WOMEN;
+  const lensMacro =
+    audience === "men" ? lensMacroMen : audience === "kids" ? lensMacroKids : lensMacroWomen;
   return (
     <section id="technology" className="relative bg-paper text-ink">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">
