@@ -19,6 +19,7 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 
+import { AmazonMark } from "./AmazonMark";
 import { Logo } from "./Logo";
 
 type LocaleSeg = "br" | "en" | "fr";
@@ -171,6 +172,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             }`}
             aria-label={t("nav.shopAmazon")}
           >
+            <AmazonMark className="h-4 w-4" />
             <span className="whitespace-nowrap uppercase tracking-[0.2em]">{t("nav.shopAmazon")}</span>
             <span
               className="transition-transform duration-500 group-hover:translate-x-0.5"
@@ -247,7 +249,10 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                   onClick={() => setMobileOpen(false)}
                   className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
                 >
-                  <span>{t("nav.shopAmazon")}</span>
+                  <span className="flex items-center gap-3">
+                    <AmazonMark className="h-5 w-5 [filter:brightness(0)_invert(1)]" />
+                    <span>{t("nav.shopAmazon")}</span>
+                  </span>
                   <span aria-hidden>→</span>
                 </a>
 
