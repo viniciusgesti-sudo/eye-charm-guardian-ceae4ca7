@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 
-import heroImg from "@/assets/about-founders.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import heroImg from "@/assets/hero-paris-glasses.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
 import supportImg from "@/assets/contact-concierge.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import storeImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";

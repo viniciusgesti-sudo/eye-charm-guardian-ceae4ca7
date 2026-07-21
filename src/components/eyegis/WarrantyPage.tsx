@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-import heroImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import heroImg from "@/assets/hero-zenith-man.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import qualityImg from "@/assets/science-lens-exploded.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import promiseImg from "@/assets/universe-eyewear.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";

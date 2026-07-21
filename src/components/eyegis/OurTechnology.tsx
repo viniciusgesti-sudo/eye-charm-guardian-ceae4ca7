@@ -1,5 +1,27 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useI18n } from "@/i18n/context";
+
+const TECH_HERO_COPY = {
+  br: {
+    kicker: "§ Tecnologia Central",
+    titleA: "Duas lentes.",
+    titleB: "Duas horas do dia.",
+    sub: "E-Guard Retina™ para o dia diante das telas. E-Guard Circadian™ para a chegada da noite. Dois sistemas ópticos dedicados, um único padrão honesto.",
+  },
+  en: {
+    kicker: "§ Core Technology",
+    titleA: "Two lenses.",
+    titleB: "Two hours of the day.",
+    sub: "E-Guard Retina™ for the screen-lit day. E-Guard Circadian™ for the fall of night. Two dedicated optical systems, one honest standard.",
+  },
+  fr: {
+    kicker: "§ Technologie Centrale",
+    titleA: "Deux verres.",
+    titleB: "Deux heures du jour.",
+    sub: "E-Guard Retina™ pour la journée devant les écrans. E-Guard Circadian™ pour la tombée de la nuit. Deux systèmes optiques dédiés, un seul standard honnête.",
+  },
+} as const;
 
 /* ————————————————————————————————————————————————
    Premium certification-style shield badge
@@ -245,6 +267,8 @@ function Benefit({ title, desc }: { title: string; desc: string }) {
 }
 
 export function OurTechnology() {
+  const { lang } = useI18n();
+  const h = TECH_HERO_COPY[(lang.toLowerCase() as "br" | "en" | "fr") in TECH_HERO_COPY ? (lang.toLowerCase() as "br" | "en" | "fr") : "en"];
   return (
     <section
       id="our-technology"
@@ -265,15 +289,14 @@ export function OurTechnology() {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-teal">
-            § Core Technology
+            {h.kicker}
           </span>
           <h1 className="mt-5 font-editorial text-4xl leading-[1.05] text-[#004B57] md:text-6xl">
-            Two lenses.{" "}
-            <span className="italic">Two hours of the day.</span>
+            {h.titleA}{" "}
+            <span className="italic">{h.titleB}</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
-            E-Guard Retina™ for the screen-lit day. E-Guard Circadian™ for the
-            fall of night. Two dedicated optical systems, one honest standard.
+            {h.sub}
           </p>
           <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-teal/60 to-transparent" />
         </div>
