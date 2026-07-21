@@ -134,6 +134,7 @@ export function PageHero({
                     : "border-ink/30 text-ink hover:bg-ink hover:text-paper"
                 }`}
               >
+                <AmazonMark className="h-5 w-5" />
                 {externalCta.label}
                 <span aria-hidden>→</span>
               </a>
