@@ -482,21 +482,6 @@ export function AboutPage() {
         </div>
 
         <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
-          <div className="flex items-center justify-between">
-            <Link
-              to="/"
-              className="inline-flex items-center rounded-full bg-ink/60 px-3 py-1.5 text-[11px] uppercase tracking-[0.4em] backdrop-blur-sm"
-              style={{ color: "#F6F3EE", fontFamily: sans }}
-            >
-              {c.nav.back}
-            </Link>
-            <span
-              className="inline-flex items-center rounded-full bg-ink/60 px-3 py-1.5 text-[10px] uppercase tracking-[0.4em] backdrop-blur-sm"
-              style={{ color: "#F6F3EE" }}
-            >
-              {c.nav.about}
-            </span>
-          </div>
 
           <div className="max-w-[1100px]">
             <Reveal>
