@@ -1453,7 +1453,7 @@ export function LensesPage() {
 
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
-      <MiniHeader c={c} />
+      {/* Global <Header /> is provided by the /$locale layout */}
       <Hero c={c} />
       <HowToChoose c={c} active={active} onPick={setActive} />
       <Comparison c={c} />
