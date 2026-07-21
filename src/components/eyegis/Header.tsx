@@ -19,6 +19,7 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 
+import { AmazonMark } from "./AmazonMark";
 import { Logo } from "./Logo";
 
 type LocaleSeg = "br" | "en" | "fr";
