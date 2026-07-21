@@ -1,6 +1,7 @@
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import { MARKETPLACES, COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon";
+import { AmazonMark } from "./AmazonMark";
 
 type Copy = {
   eyebrow: string;
