@@ -268,12 +268,12 @@ export function OurTechnology() {
             § Core Technology
           </span>
           <h1 className="mt-5 font-editorial text-4xl leading-[1.05] text-[#004B57] md:text-6xl">
-            Our Technology —{" "}
-            <span className="italic">Engineered for Vision</span>
+            Two lenses.{" "}
+            <span className="italic">Two hours of the day.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
-            Two dedicated optical systems. Two distinct challenges of modern
-            digital life. One uncompromising standard of visual protection.
+            E-Guard Retina™ for the screen-lit day. E-Guard Circadian™ for the
+            fall of night. Two dedicated optical systems, one honest standard.
           </p>
           <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-teal/60 to-transparent" />
         </div>

@@ -10,33 +10,33 @@ type Copy = {
 
 const COPY: Record<Lang, Copy> = {
   EN: {
-    eyebrow: "Honest Science™ · Engineered for vision",
-    title1: "Three principles,",
-    title2: "no marketing myths.",
+    eyebrow: "Honest Science™",
+    title1: "Three principles.",
+    title2: "Nothing invented.",
     steps: [
-      { n: "01", title: "Selective filtering, not tinted glass", body: "E-Guard Retina™ and E-Guard Circadian™ lenses target the specific wavelengths involved in digital eye strain — while letting through the light your eyes need to see colors as they are." },
-      { n: "02", title: "Designed to be worn all day",           body: "Lightweight TR90 frames, balanced hinges and clean silhouettes — made to disappear on your face and belong in your wardrobe." },
-      { n: "03", title: "Comfort you can feel",                  body: "Less visual fatigue during screen time, softer transitions into the evening — supported by peer-reviewed optical principles, not overpromises." },
+      { n: "01", title: "Selective filtering, not a tint",         body: "E-Guard Retina™ and E-Guard Circadian™ act only on the wavelengths where high-energy blue light lives — and leave the rest of the visible spectrum to your eyes, so colours stay honest." },
+      { n: "02", title: "Frames built to be forgotten",            body: "Featherweight TR90 architecture, balanced hinges, quiet silhouettes — an object designed to sit on your face all day and belong in your wardrobe at night." },
+      { n: "03", title: "Backed by optics, not slogans",           body: "Every lens is engineered against peer-reviewed optical principles — ICNIRP, CIE S 026, ANSI Z80.3 — and verified in an independent laboratory. No inflated percentages. No overpromises." },
     ],
   },
   PT: {
-    eyebrow: "Honest Science™ · Engenharia para a visão",
-    title1: "Três princípios,",
-    title2: "sem mitos de marketing.",
+    eyebrow: "Honest Science™",
+    title1: "Três princípios.",
+    title2: "Nada inventado.",
     steps: [
-      { n: "01", title: "Filtragem seletiva, não lente colorida", body: "As lentes E-Guard Retina™ e E-Guard Circadian™ atuam sobre os comprimentos de onda envolvidos na fadiga visual digital — deixando passar a luz que seus olhos precisam para ver as cores como elas são." },
-      { n: "02", title: "Feitas para o dia inteiro",              body: "Armações TR90 leves, charneiras equilibradas e silhuetas limpas — pensadas para desaparecer no rosto e pertencer ao seu guarda-roupa." },
-      { n: "03", title: "Um conforto que você sente",             body: "Menos fadiga visual nas horas de tela, transições mais suaves para a noite — apoiado em princípios ópticos revisados por pares, sem promessas exageradas." },
+      { n: "01", title: "Filtragem seletiva, não é lente colorida", body: "As lentes E-Guard Retina™ e E-Guard Circadian™ atuam apenas nos comprimentos de onda onde vive a luz azul de alta energia — e deixam o restante do espectro visível passar, para as cores continuarem fiéis." },
+      { n: "02", title: "Armações feitas para desaparecer",         body: "Arquitetura TR90 leve, charneiras equilibradas, silhuetas silenciosas — um objeto pensado para ficar no rosto o dia inteiro e pertencer ao guarda-roupa à noite." },
+      { n: "03", title: "Apoio na óptica, não no marketing",        body: "Cada lente é projetada segundo princípios ópticos revisados por pares — ICNIRP, CIE S 026, ANSI Z80.3 — e verificada em laboratório independente. Sem porcentagens infladas. Sem promessas exageradas." },
     ],
   },
   FR: {
-    eyebrow: "Honest Science™ · Pensé pour la vision",
-    title1: "Trois principes,",
-    title2: "aucun mythe marketing.",
+    eyebrow: "Honest Science™",
+    title1: "Trois principes.",
+    title2: "Rien d'inventé.",
     steps: [
-      { n: "01", title: "Filtrage sélectif, pas un verre teinté", body: "Les verres E-Guard Retina™ et E-Guard Circadian™ ciblent les longueurs d'onde impliquées dans la fatigue visuelle numérique — tout en laissant passer la lumière dont vos yeux ont besoin pour voir les couleurs telles qu'elles sont." },
-      { n: "02", title: "Conçues pour être portées toute la journée", body: "Montures TR90 légères, charnières équilibrées et silhouettes épurées — pensées pour s'oublier sur le visage et trouver leur place dans votre vestiaire." },
-      { n: "03", title: "Un confort qui se ressent",              body: "Moins de fatigue visuelle face aux écrans, une transition plus douce vers le soir — soutenu par des principes optiques évalués par les pairs, sans promesses exagérées." },
+      { n: "01", title: "Filtrage sélectif, pas un verre teinté",   body: "Les verres E-Guard Retina™ et E-Guard Circadian™ n'agissent que sur les longueurs d'onde où vit la lumière bleue haute énergie — et laissent passer le reste du spectre visible, pour que les couleurs restent fidèles." },
+      { n: "02", title: "Des montures faites pour s'oublier",       body: "Architecture TR90 légère, charnières équilibrées, silhouettes silencieuses — un objet pensé pour rester sur le visage toute la journée et trouver sa place dans votre vestiaire le soir." },
+      { n: "03", title: "L'optique, pas les slogans",               body: "Chaque verre est conçu selon des principes optiques évalués par les pairs — ICNIRP, CIE S 026, ANSI Z80.3 — et vérifié en laboratoire indépendant. Aucun pourcentage gonflé. Aucune promesse exagérée." },
     ],
   },
 };
