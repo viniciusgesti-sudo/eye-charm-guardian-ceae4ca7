@@ -1,5 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroImg from "@/assets/universe-lens-macro.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
@@ -7,33 +6,6 @@ import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-export const Route = createFileRoute("/faq")({
-  head: () => {
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: CONTENT.EN.categories.flatMap((c) =>
-        c.items.map((i) => ({
-          "@type": "Question",
-          name: i.q,
-          acceptedAnswer: { "@type": "Answer", text: i.a },
-        })),
-      ),
-    };
-    const seo = buildSeo({
-      title: "FAQ & Knowledge Center — Eyegis",
-      description:
-        "Answers about Eyegis lenses, EyegisGuard™ technology, shipping, warranty, returns and lens care. The Eyegis Knowledge Center.",
-      path: "/faq",
-    });
-    return {
-      ...seo,
-      scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
-    };
-  },
-
-  component: FAQPage,
-});
 
 const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
