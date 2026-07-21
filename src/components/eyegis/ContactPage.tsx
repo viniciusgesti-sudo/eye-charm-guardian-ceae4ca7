@@ -650,14 +650,6 @@ export function ContactPage() {
           />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-            <Link to="/" className="min-w-0 truncate text-[11px] uppercase tracking-[0.4em]" style={{ color: INK }}>
-              {c.nav.back}
-            </Link>
-            <span className="shrink-0 text-[10px] uppercase tracking-[0.4em]" style={{ color: INK }}>
-              {c.nav.tag}
-            </span>
-          </div>
 
           <div className="max-w-[1100px]">
             <Reveal>

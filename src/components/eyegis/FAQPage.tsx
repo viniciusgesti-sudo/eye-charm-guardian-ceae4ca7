@@ -688,21 +688,6 @@ export function FAQPage() {
           />
         </div>
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 pt-10 pb-16 md:px-12 md:pt-14 md:pb-24">
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-            <Link
-              to="/"
-              className="min-w-0 truncate text-[11px] uppercase tracking-[0.4em]"
-              style={{ color: INK }}
-            >
-              {c.back}
-            </Link>
-            <span
-              className="shrink-0 text-[10px] uppercase tracking-[0.4em]"
-              style={{ color: INK }}
-            >
-              {c.knowledgeCenter}
-            </span>
-          </div>
 
           <div className="mt-20 max-w-[1200px] md:mt-28">
             <Reveal>

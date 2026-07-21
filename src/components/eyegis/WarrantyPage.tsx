@@ -593,14 +593,6 @@ export function WarrantyPage() {
           />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="text-[11px] uppercase tracking-[0.4em]" style={{ color: INK }}>
-              {c.nav.back}
-            </Link>
-            <span className="text-[10px] uppercase tracking-[0.4em]" style={{ color: INK }}>
-              {c.nav.tag}
-            </span>
-          </div>
           <div className="max-w-[1100px]">
             <Reveal>
               <span className="text-[11px] uppercase tracking-[0.5em]" style={{ color: TEAL }}>
