@@ -1,28 +1,27 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/context";
-import { COMING_SOON_HREF } from "@/lib/amazon";
+
+const STORE_URL = "https://www.amazon.com.br/";
 
 /**
- * Floating notify-me bar. Mobile: full width. Desktop: bottom-right pill.
- * Appears after the user scrolls past the hero. No fabricated ratings —
- * the store isn't live yet, so the CTA opens the ComingSoonModal.
+ * Floating store CTA. Appears only AFTER the user scrolls past the hero
+ * (both mobile and desktop) so it never overlaps the hero CTA on load.
  */
 export function StickyBuyBar() {
   const { lang } = useI18n();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const onScroll = () => setVisible(isMobile || window.scrollY > 700);
+    const onScroll = () => setVisible(window.scrollY > 700);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const copy = {
-    en: { label: "Coming soon — Notify me", sub: "Priority access · Amazon launch" },
-    pt: { label: "Em breve — Seja notificado", sub: "Acesso prioritário · Lançamento Amazon" },
-    fr: { label: "Bientôt — Prévenez-moi", sub: "Accès prioritaire · Lancement Amazon" },
+    en: { label: "Visit Store", sub: "Certified · ANSI · EN ISO · AS/NZS" },
+    pt: { label: "Visitar Loja", sub: "Certificado · ANSI · EN ISO · AS/NZS" },
+    fr: { label: "Voir la boutique", sub: "Certifié · ANSI · EN ISO · AS/NZS" },
   } as const;
   const c = copy[lang.toLowerCase() as keyof typeof copy] ?? copy.en;
 
@@ -57,7 +56,7 @@ export function StickyBuyBar() {
             </div>
           </div>
           <a
-            href={COMING_SOON_HREF}
+            href={STORE_URL}
             className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper shadow-lg active:scale-95 transition-transform"
             style={{ backgroundColor: "#004B57", boxShadow: "0 12px 30px -12px rgba(0,75,87,0.55)" }}
            target="_blank" rel="noopener noreferrer">
@@ -69,7 +68,7 @@ export function StickyBuyBar() {
 
       {/* Desktop pill */}
       <a
-        href={COMING_SOON_HREF}
+        href={STORE_URL}
         className="hidden md:inline-flex group items-center gap-4 rounded-full py-3 pl-3 pr-5 shadow-2xl backdrop-blur-xl ring-1 ring-paper/10 transition-all hover:brightness-110"
         style={{ backgroundColor: "#004B57" }}
        target="_blank" rel="noopener noreferrer">

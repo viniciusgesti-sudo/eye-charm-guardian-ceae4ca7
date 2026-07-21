@@ -20,16 +20,16 @@ const COPY = {
     eyebrow: "Coleção · Mulher",
     title: (
       <>
-        Women's Collection<br />
+        Coleção Feminina<br />
         <span className="italic text-teal-deep">para quem cria e escreve.</span>
       </>
     ),
     subtitle:
       "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
     ctaLabel: "Ver na Amazon",
-    metaTitle: "Women's Collection — Eyegis",
+    metaTitle: "Coleção Feminina — Eyegis",
     metaDesc:
-      "Eyegis Women's Collection: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz mais quente ao entardecer.",
+      "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz mais quente ao entardecer.",
   },
   en: {
     eyebrow: "Collection · Women",
@@ -50,16 +50,16 @@ const COPY = {
     eyebrow: "Collection · Femme",
     title: (
       <>
-        Women's Collection<br />
+        Collection Femme<br />
         <span className="italic text-teal-deep">pour celles qui créent.</span>
       </>
     ),
     subtitle:
       "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
     ctaLabel: "Voir sur Amazon",
-    metaTitle: "Women's Collection — Eyegis",
+    metaTitle: "Collection Femme — Eyegis",
     metaDesc:
-      "Eyegis Women's Collection : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière plus chaude au crépuscule.",
+      "Collection Femme Eyegis : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière plus chaude au crépuscule.",
   },
 } as const;
 

@@ -20,16 +20,16 @@ const COPY = {
     eyebrow: "Coleção · Homem",
     title: (
       <>
-        Men's Collection<br />
+        Coleção Masculina<br />
         <span className="italic text-mint">para quem vive em telas.</span>
       </>
     ),
     subtitle:
       "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
     ctaLabel: "Ver na Amazon",
-    metaTitle: "Men's Collection — Eyegis",
+    metaTitle: "Coleção Masculina — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection: acetato preto brilhante, hastes douradas e lente E-Guard Retina™. Filtragem seletiva de luz azul para o dia digital.",
+      "Coleção Masculina Eyegis: acetato preto brilhante, hastes douradas e lente E-Guard Retina™. Filtragem seletiva de luz azul para o dia digital.",
   },
   en: {
     eyebrow: "Collection · Men",
@@ -50,16 +50,16 @@ const COPY = {
     eyebrow: "Collection · Homme",
     title: (
       <>
-        Men's Collection<br />
+        Collection Homme<br />
         <span className="italic text-mint">pour la journée sur écran.</span>
       </>
     ),
     subtitle:
       "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
-    metaTitle: "Men's Collection — Eyegis",
+    metaTitle: "Collection Homme — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection : acétate noir brillant, branches dorées et verres E-Guard Retina™. Filtrage sélectif de la lumière bleue pour la journée numérique.",
+      "Collection Homme Eyegis : acétate noir brillant, branches dorées et verres E-Guard Retina™. Filtrage sélectif de la lumière bleue pour la journée numérique.",
   },
 } as const;
 

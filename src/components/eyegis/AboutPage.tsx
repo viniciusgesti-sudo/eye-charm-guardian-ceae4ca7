@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import heroImgSrc from "@/assets/about-hero-eyegis.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
+import heroImgSrc from "@/assets/models-focus-eyegis.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
 import whyImg1 from "@/assets/science-devices.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import whyImg2 from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
