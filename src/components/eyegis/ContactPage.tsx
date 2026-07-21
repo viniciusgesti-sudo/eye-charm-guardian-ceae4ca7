@@ -625,7 +625,7 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
   YouTube: <Icon.Youtube />,
 };
 
-function ContactPage() {
+export function ContactPage() {
   const { lang } = useI18n();
   const c = COPY[lang];
 

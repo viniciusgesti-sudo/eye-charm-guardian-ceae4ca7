@@ -605,7 +605,7 @@ function Rule({ label }: { label: string }) {
   );
 }
 
-function FAQPage() {
+export function FAQPage() {
   const { lang } = useI18n();
   const c = CONTENT[lang];
 
