@@ -48,23 +48,41 @@ export function HowItWorks() {
   return (
     <section className="relative bg-paper py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
-        <div className="mb-16 md:mb-20 max-w-3xl">
-          <span className="font-eyebrow text-teal">{c.eyebrow}</span>
-          <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-fluid-h1">
-            {c.title1}
-            <span className="block italic text-teal">{c.title2}</span>
-          </h2>
+        <div className="mb-14 md:mb-20 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="max-w-2xl">
+            <span className="font-eyebrow text-teal">{c.eyebrow}</span>
+            <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-fluid-h1">
+              {c.title1}
+              <span className="block italic text-teal">{c.title2}</span>
+            </h2>
+          </div>
+          <div className="hidden md:flex items-center gap-3 font-eyebrow text-[10px] text-ink/50">
+            <span className="h-px w-16 bg-ink/25" aria-hidden />
+            <span>§ 01 — 03</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-          {c.steps.map((s) => (
-            <article key={s.n} className="group relative flex flex-col gap-5 border-t border-ink/15 pt-8">
+        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-3 md:gap-x-12 md:gap-y-0">
+          {c.steps.map((s, i) => (
+            <article
+              key={s.n}
+              className={`group relative flex flex-col gap-5 pt-8 border-t border-ink/15 ${
+                i > 0 ? "md:border-l md:border-t-0 md:pt-0 md:pl-10" : ""
+              }`}
+            >
               <div className="flex items-baseline justify-between">
-                <span className="font-editorial text-6xl text-ink/55 tabular-nums">{s.n}</span>
-                <span className="h-2 w-2 rounded-full bg-teal transition-transform duration-500 group-hover:scale-150" aria-hidden="true" />
+                <span className="font-editorial text-6xl md:text-7xl font-light text-ink/70 tabular-nums leading-none">
+                  {s.n}
+                </span>
+                <span
+                  className="h-1.5 w-1.5 rounded-full bg-teal transition-transform duration-500 group-hover:scale-[2]"
+                  aria-hidden="true"
+                />
               </div>
-              <h3 className="font-editorial text-2xl md:text-3xl leading-tight text-ink">{s.title}</h3>
-              <p className="text-ink/70 leading-relaxed max-w-sm">{s.body}</p>
+              <h3 className="font-editorial text-2xl md:text-[1.75rem] leading-[1.15] text-ink">
+                {s.title}
+              </h3>
+              <p className="text-ink/70 leading-relaxed max-w-sm text-[15px]">{s.body}</p>
             </article>
           ))}
         </div>
@@ -72,3 +90,4 @@ export function HowItWorks() {
     </section>
   );
 }
+
