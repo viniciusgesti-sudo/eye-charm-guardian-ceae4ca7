@@ -10,6 +10,7 @@ import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
+import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -99,6 +100,7 @@ function WomenPage() {
       <Collection audience="women" />
       <LifestyleUniverse audience="women" />
       <ModelRunway audience="women" />
+      <MacroTriptych audience="women" />
 
       <EyegisGuard audience="women" />
       <ShopOnAmazon />

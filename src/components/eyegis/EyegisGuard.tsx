@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
 import lensFloat from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lensMacro from "@/assets/products/solene-macro.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroMen from "@/assets/products/meridian-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroWomen from "@/assets/products/solene-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroKids from "@/assets/products/kids-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import { Picture, type PictureSource } from "./Picture";
 import comparisonImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 import lifeCreative from "@/assets/guard-life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -640,6 +642,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
   const LIFE_META = audience === "men" ? LIFE_META_MEN : LIFE_META_WOMEN;
+  const lensMacro =
+    audience === "men" ? lensMacroMen : audience === "kids" ? lensMacroKids : lensMacroWomen;
   return (
     <section id="technology" className="relative bg-paper text-ink">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">
