@@ -23,6 +23,7 @@ import { Logo } from "./Logo";
 
 type LocaleSeg = "br" | "en" | "fr";
 const LOCALES: LocaleSeg[] = ["br", "en", "fr"];
+const LOCALE_LABEL: Record<LocaleSeg, string> = { br: "Português", en: "English", fr: "Français" };
 const segToLang = (s: LocaleSeg): Lang => (s === "br" ? "PT" : (s.toUpperCase() as Lang));
 
 export function Header({ variant = "default" }: { variant?: "default" | "compact" } = {}) {
