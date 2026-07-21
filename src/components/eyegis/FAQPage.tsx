@@ -981,7 +981,7 @@ export function FAQPage() {
                   <span>→</span>
                 </Link>
                 <a
-                  href="https://www.amazon.com.br/"
+                  href="#coming-soon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between border px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors hover:bg-[rgba(14,22,19,0.04)]"

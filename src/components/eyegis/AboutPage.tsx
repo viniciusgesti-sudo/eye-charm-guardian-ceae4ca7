@@ -936,7 +936,7 @@ export function AboutPage() {
             </p>
             <div className="mt-10 flex flex-col gap-3">
               <a
-                href="https://www.amazon.com.br/"
+                href="#coming-soon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-between px-8 py-5 text-[12px] font-medium uppercase tracking-[0.3em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300] hover:bg-[#1F2A26]"

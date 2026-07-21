@@ -30,7 +30,7 @@ import atelierProfileThumb from "@/assets/products/atelier-profile.jpg?w=320;480
 import { Picture, type PictureSource } from "./Picture";
 
 
-const AMAZON_URL = "https://www.amazon.com.br/";
+const AMAZON_URL = "#coming-soon";
 
 /* ---------- Reveal ---------- */
 function useReveal<T extends HTMLElement>() {
