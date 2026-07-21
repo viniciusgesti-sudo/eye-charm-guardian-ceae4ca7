@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+
 
 import { Logo } from "./Logo";
 
