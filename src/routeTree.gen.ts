@@ -17,10 +17,8 @@ import { Route as QaRouteImport } from './routes/qa'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as LegalRouteImport } from './routes/legal'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DevTokensRouteImport } from './routes/dev-tokens'
 import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteImport } from './routes/$locale'
@@ -84,11 +82,6 @@ const LegalRoute = LegalRouteImport.update({
   path: '/legal',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DevTokensRoute = DevTokensRouteImport.update({
   id: '/dev-tokens',
   path: '/dev-tokens',
@@ -97,11 +90,6 @@ const DevTokensRoute = DevTokensRouteImport.update({
 const DevA11yLogoRoute = DevA11yLogoRouteImport.update({
   id: '/dev-a11y-logo',
   path: '/dev-a11y-logo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComplianceRoute = ComplianceRouteImport.update({
@@ -220,10 +208,8 @@ export interface FileRoutesByFullPath {
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
-  '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/dev-tokens': typeof DevTokensRoute
-  '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
@@ -255,10 +241,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
-  '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/dev-tokens': typeof DevTokensRoute
-  '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
@@ -292,10 +276,8 @@ export interface FileRoutesById {
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
-  '/contact': typeof ContactRoute
   '/dev-a11y-logo': typeof DevA11yLogoRoute
   '/dev-tokens': typeof DevTokensRoute
-  '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
@@ -330,10 +312,8 @@ export interface FileRouteTypes {
     | '/$locale'
     | '/about'
     | '/compliance'
-    | '/contact'
     | '/dev-a11y-logo'
     | '/dev-tokens'
-    | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
@@ -365,10 +345,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/compliance'
-    | '/contact'
     | '/dev-a11y-logo'
     | '/dev-tokens'
-    | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
@@ -401,10 +379,8 @@ export interface FileRouteTypes {
     | '/$locale'
     | '/about'
     | '/compliance'
-    | '/contact'
     | '/dev-a11y-logo'
     | '/dev-tokens'
-    | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
@@ -438,10 +414,8 @@ export interface RootRouteChildren {
   LocaleRoute: typeof LocaleRouteWithChildren
   AboutRoute: typeof AboutRoute
   ComplianceRoute: typeof ComplianceRoute
-  ContactRoute: typeof ContactRoute
   DevA11yLogoRoute: typeof DevA11yLogoRoute
   DevTokensRoute: typeof DevTokensRoute
-  FaqRoute: typeof FaqRoute
   LegalRoute: typeof LegalRoute
   LensesRoute: typeof LensesRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -514,13 +488,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dev-tokens': {
       id: '/dev-tokens'
       path: '/dev-tokens'
@@ -533,13 +500,6 @@ declare module '@tanstack/react-router' {
       path: '/dev-a11y-logo'
       fullPath: '/dev-a11y-logo'
       preLoaderRoute: typeof DevA11yLogoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compliance': {
@@ -741,10 +701,8 @@ const rootRouteChildren: RootRouteChildren = {
   LocaleRoute: LocaleRouteWithChildren,
   AboutRoute: AboutRoute,
   ComplianceRoute: ComplianceRoute,
-  ContactRoute: ContactRoute,
   DevA11yLogoRoute: DevA11yLogoRoute,
   DevTokensRoute: DevTokensRoute,
-  FaqRoute: FaqRoute,
   LegalRoute: LegalRoute,
   LensesRoute: LensesRoute,
   PrivacyRoute: PrivacyRoute,
