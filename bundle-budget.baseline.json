@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-21T01:33:35.906Z",
+  "updatedAt": "2026-07-21T01:39:49.489Z",
   "maxGrowthPct": 40,
   "client": {
-    "total": 1459196,
+    "total": 1459261,
     "groups": {
-      "dist/client/assets/index.js": 199099,
-      "dist/client/assets/styles.css": 188360,
+      "dist/client/assets/index.js": 199063,
+      "dist/client/assets/styles.css": 188347,
       "dist/client/assets/react.js": 181284,
       "dist/client/assets/_locale.contact.js": 91156,
       "dist/client/assets/radix.js": 89329,
@@ -14,7 +14,7 @@
       "dist/client/assets/_locale.faq.js": 44393,
       "dist/client/assets/_locale.lenses.js": 42320,
       "dist/client/assets/SocialProof.js": 40434,
-      "dist/client/assets/Header.js": 40305,
+      "dist/client/assets/Header.js": 40419,
       "dist/client/assets/AboutPage.js": 39182,
       "dist/client/assets/product.meridian.js": 38462,
       "dist/client/assets/EyegisGuard.js": 35994,
@@ -64,7 +64,7 @@
     }
   },
   "server": {
-    "total": 1554799,
+    "total": 1554877,
     "groups": {
       "dist/server/_libs/@tanstack/react-router+[...].mjs": 287258,
       "dist/server/index.mjs": 209302,
@@ -93,7 +93,7 @@
       "dist/server/_locale.index.mjs": 14602,
       "dist/server/_libs/@floating-ui/react-dom+[...].mjs": 14254,
       "dist/server/_ssr/OurTechnology.mjs": 13943,
-      "dist/server/_ssr/Header.mjs": 13281,
+      "dist/server/_ssr/Header.mjs": 13395,
       "dist/server/_ssr/product.atelier.mjs": 12046,
       "dist/server/_ssr/dev.mjs": 11985,
       "dist/server/_ssr/ModelRunway.mjs": 11734,
@@ -115,7 +115,7 @@
       "dist/server/_ssr/ShopOnAmazon.mjs": 5385,
       "dist/server/_libs/h3-v2+srvx.mjs": 5308,
       "dist/server/_libs/tanstack__history.mjs": 4723,
-      "dist/server/_ssr/context.mjs": 4465,
+      "dist/server/_ssr/context.mjs": 4429,
       "dist/server/_ssr/HowItWorks.mjs": 4402,
       "dist/server/_locale.mjs": 4336,
       "dist/server/_locale.legal.mjs": 4290,
