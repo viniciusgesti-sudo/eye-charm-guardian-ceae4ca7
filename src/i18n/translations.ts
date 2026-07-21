@@ -19,7 +19,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.lenses": "Lenses",
     "nav.social": "Social Networks",
     "nav.bag": "Bag",
-    "nav.shopAmazon": "Join the launch list",
+    "nav.shopAmazon": "Store",
     "nav.opticalScience": "® Optical Science",
 
     // Hero
@@ -50,7 +50,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.lenses": "Lentes",
     "nav.social": "Redes Sociais",
     "nav.bag": "Sacola",
-    "nav.shopAmazon": "Entrar na lista",
+    "nav.shopAmazon": "Loja",
     "nav.opticalScience": "® Ciência Óptica",
 
     // Hero
@@ -81,7 +81,7 @@ export const translations: Record<Lang, Dict> = {
     "nav.lenses": "Verres",
     "nav.social": "Réseaux sociaux",
     "nav.bag": "Panier",
-    "nav.shopAmazon": "Rejoindre la liste",
+    "nav.shopAmazon": "Boutique",
     "nav.opticalScience": "® Science Optique",
 
     // Hero

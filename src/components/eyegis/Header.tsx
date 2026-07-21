@@ -161,16 +161,17 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
 
           <a
             data-testid="header-cta"
-            href="#coming-soon"
-            data-coming-soon
-            className={`group hidden md:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs min-h-[40px] transition-all duration-500 ${
+            href="https://www.amazon.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group hidden lg:inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[11px] md:text-xs min-h-[40px] transition-all duration-500 ${
               useInk
                 ? "border-teal/40 text-teal hover:bg-teal hover:text-paper"
                 : "border-paper/40 text-paper hover:bg-paper hover:text-ink"
             }`}
             aria-label={t("nav.shopAmazon")}
           >
-            <span className="whitespace-nowrap">{t("nav.shopAmazon")}</span>
+            <span className="whitespace-nowrap uppercase tracking-[0.2em]">{t("nav.shopAmazon")}</span>
             <span
               className="transition-transform duration-500 group-hover:translate-x-0.5"
               aria-hidden
@@ -240,10 +241,11 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               </div>
               <div className="mt-auto">
                 <a
-                  href="#coming-soon"
-                  data-coming-soon
+                  href="https://www.amazon.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
+                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
                 >
                   <span>{t("nav.shopAmazon")}</span>
                   <span aria-hidden>→</span>
