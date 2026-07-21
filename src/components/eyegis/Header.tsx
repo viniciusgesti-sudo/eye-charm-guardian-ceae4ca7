@@ -240,15 +240,15 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               </div>
               <div className="mt-auto">
                 <a
-                  href={DEFAULT_AMAZON_URL}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  href="#coming-soon"
+                  data-coming-soon
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all"
+                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
                 >
                   <span>{t("nav.shopAmazon")}</span>
                   <span aria-hidden>→</span>
                 </a>
+
               </div>
             </SheetContent>
           </Sheet>
