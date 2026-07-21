@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
+import { AmazonMark } from "./AmazonMark";
 import { Picture, type PictureSource } from "./Picture";
 
 type Props = {

@@ -72,7 +72,10 @@ export function ShopOnAmazon() {
               href={COMING_SOON_HREF}
               className="group inline-flex w-full sm:w-auto items-center justify-between gap-6 rounded-full bg-mint px-8 py-5 text-ink shadow-[0_20px_60px_-20px_rgba(200,222,220,0.6)] hover:-translate-y-0.5 hover:bg-paper transition-all duration-500"
              target="_blank" rel="noopener noreferrer">
-              <span className="font-eyebrow">{c.comingSoon} · Amazon</span>
+              <span className="flex items-center gap-3">
+                <AmazonMark className="h-6 w-6" />
+                <span className="font-eyebrow">{c.comingSoon} · Amazon</span>
+              </span>
               <span className="grid h-9 w-9 place-items-center rounded-full bg-ink/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden="true">→</span>
             </a>
 
