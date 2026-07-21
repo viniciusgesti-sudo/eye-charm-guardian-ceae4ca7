@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "@tanstack/react-router";
 
 import universePortraitSrc from "@/assets/universe-portrait.jpg?w=480;768;1024&format=avif;webp;jpg&as=picture";
-import universeLens from "@/assets/products/solene-macro.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import universeLens from "@/assets/products/solene-macro-lens.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeScience from "@/assets/universe-science.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import { Picture, type PictureSource } from "./Picture";

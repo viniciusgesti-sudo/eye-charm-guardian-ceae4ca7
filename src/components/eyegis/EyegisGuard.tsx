@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, type ElementType } from "react";
 
 import lensFloat from "@/assets/guard-lens-float.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
-import lensMacro from "@/assets/products/solene-macro.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroMen from "@/assets/products/meridian-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroWomen from "@/assets/products/solene-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
+import lensMacroKids from "@/assets/products/kids-macro-lens.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import { Picture, type PictureSource } from "./Picture";
 import comparisonImg from "@/assets/guard-comparison.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 import lifeCreative from "@/assets/guard-life-creative.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
