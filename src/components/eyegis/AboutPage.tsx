@@ -463,39 +463,47 @@ export function AboutPage() {
       }}
     >
       {/* HERO */}
-      <section className="relative min-h-[78vh] w-full overflow-hidden">
+      <section className="relative min-h-[78vh] w-full overflow-hidden" style={{ background: "#0E1613" }}>
         <div className="absolute inset-0">
           <Picture
             source={heroImgSrc}
             alt={c.hero.alt}
             sizes="100vw"
             className="h-full w-full object-cover"
-            style={{ filter: "saturate(0.92) contrast(1.02)" }}
+            style={{ filter: "saturate(0.95) contrast(1.05) brightness(0.9)" }}
           />
+          {/* Left-to-right dark scrim for text legibility */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(14,22,19,0.15) 0%, rgba(14,22,19,0.05) 40%, rgba(246,243,238,0.85) 100%)",
+                "linear-gradient(90deg, rgba(10,16,14,0.82) 0%, rgba(10,16,14,0.65) 38%, rgba(10,16,14,0.25) 65%, rgba(10,16,14,0.05) 100%)",
+            }}
+          />
+          {/* Subtle bottom fade into page background */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-32"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(246,243,238,0) 0%, rgba(246,243,238,0.9) 100%)",
             }}
           />
         </div>
 
         <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
-
-          <div className="max-w-[1100px]">
+          <div className="max-w-[760px]">
             <Reveal>
               <span
                 className="text-[11px] uppercase tracking-[0.5em]"
-                style={{ color: INK }}
+                style={{ color: "#E8D9B8" }}
               >
                 {c.hero.eyebrow}
               </span>
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[92px] lg:text-[120px]"
-                style={{ fontFamily: serif, color: INK, fontWeight: 400 }}
+                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[88px] lg:text-[108px]"
+                style={{ fontFamily: serif, color: "#F6F3EE", fontWeight: 400, textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
               >
                 {c.hero.h1a}
                 <br />
@@ -505,7 +513,7 @@ export function AboutPage() {
             <Reveal delay={240}>
               <p
                 className="mt-8 max-w-2xl text-[15px] leading-[1.7] md:text-[17px]"
-                style={{ color: INK }}
+                style={{ color: "rgba(246,243,238,0.92)" }}
               >
                 {c.hero.sub}
               </p>
@@ -513,6 +521,7 @@ export function AboutPage() {
           </div>
         </div>
       </section>
+
 
       {/* 01 — OUR BELIEF */}
       <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
