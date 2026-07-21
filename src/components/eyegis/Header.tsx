@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+
 
 import { Logo } from "./Logo";
 
@@ -134,7 +134,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               <button
                 type="button"
                 aria-label={`Language: ${currentSeg.toUpperCase()}`}
-                className={`hidden md:inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 ${
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 md:px-3 text-[11px] uppercase tracking-[0.2em] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 min-h-[36px] ${
                   useInk
                     ? "border-ink/25 text-ink hover:bg-ink/5"
                     : "border-paper/40 text-paper hover:bg-paper/10"
@@ -161,10 +161,9 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
 
           <a
             data-testid="header-cta"
-            href={DEFAULT_AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className={`group hidden md:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs transition-all duration-500 ${
+            href="#coming-soon"
+            data-coming-soon
+            className={`group hidden md:inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[11px] md:px-4 md:text-xs min-h-[40px] transition-all duration-500 ${
               useInk
                 ? "border-teal/40 text-teal hover:bg-teal hover:text-paper"
                 : "border-paper/40 text-paper hover:bg-paper hover:text-ink"
@@ -179,6 +178,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               →
             </span>
           </a>
+
 
           {/* Mobile hamburger */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -240,15 +240,15 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
               </div>
               <div className="mt-auto">
                 <a
-                  href={DEFAULT_AMAZON_URL}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  href="#coming-soon"
+                  data-coming-soon
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all"
+                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
                 >
                   <span>{t("nav.shopAmazon")}</span>
                   <span aria-hidden>→</span>
                 </a>
+
               </div>
             </SheetContent>
           </Sheet>

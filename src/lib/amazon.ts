@@ -8,7 +8,11 @@ export const AMAZON_ASIN = ""; // set once the real ASIN is issued
 
 export const ASIN_IS_PLACEHOLDER = !AMAZON_ASIN;
 
-export const COMING_SOON_HREF = "https://www.amazon.com.br/";
+// Sentinel href used by every "Shop on Amazon" CTA across the site.
+// The global ComingSoonModal listens for clicks on `#coming-soon`
+// and intercepts them to open the email capture — so a single flag
+// flip here retires the whole "Em breve" state when the store goes live.
+export const COMING_SOON_HREF = "#coming-soon";
 
 type Marketplace = {
   code: string;
@@ -29,12 +33,14 @@ export const MARKETPLACES: Marketplace[] = [
   { code: "BR", label: "Brasil",         flag: "🇧🇷", domain: "amazon.com.br", active: true  },
 ];
 
-// Amazon store lives on amazon.com.br for now; CTAs deep-link there directly.
+// Store isn't live yet: every CTA opens the ComingSoonModal instead of
+// linking to a placeholder Amazon page.
 export function amazonUrl(_domain = "amazon.com.br", _asin = AMAZON_ASIN) {
-  return "https://www.amazon.com.br/";
+  return COMING_SOON_HREF;
 }
 
-export const DEFAULT_AMAZON_URL = "https://www.amazon.com.br/";
+export const DEFAULT_AMAZON_URL = COMING_SOON_HREF;
+
 
 // Honest social proof only — no fabricated reviews.
 // When real Amazon reviews exist, set this to

@@ -111,7 +111,7 @@ function TrustBar() {
 
 /* ---------- Footer ---------- */
 
-const AMZ = "https://www.amazon.com.br/";
+const AMZ = "#coming-soon";
 
 type LocaleSeg = "br" | "en" | "fr";
 const LOCALES: LocaleSeg[] = ["br", "en", "fr"];

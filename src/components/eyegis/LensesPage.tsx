@@ -13,7 +13,7 @@ import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&forma
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
-const AMAZON_URL = "https://www.amazon.com.br/";
+const AMAZON_URL = "#coming-soon";
 
 /* ------------------------------------------------------------------ */
 /*  Localized copy                                                    */
