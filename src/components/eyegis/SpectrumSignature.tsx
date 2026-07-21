@@ -17,7 +17,7 @@ import { SpectrumMark } from "./SpectrumMark";
  */
 
 const COPY = {
-  BR: {
+  PT: {
     eyebrow: "Ritual da Marca",
     title: (
       <>
