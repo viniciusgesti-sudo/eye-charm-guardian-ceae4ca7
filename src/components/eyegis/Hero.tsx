@@ -179,7 +179,7 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 sm:p-7 md:items-end md:p-12 md:pb-16 md:text-right">
+          <div className="relative z-10 flex h-full flex-col justify-between p-5 pb-14 pt-24 sm:p-7 sm:pt-28 md:items-end md:p-12 md:pb-16 md:pt-32 md:text-right">
 
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-champagne sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-champagne/70 sm:w-10" />
