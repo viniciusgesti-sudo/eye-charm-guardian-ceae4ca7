@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/context";
+import { AmazonMark } from "./AmazonMark";
 
 const STORE_URL = "https://www.amazon.com.br/";
 
