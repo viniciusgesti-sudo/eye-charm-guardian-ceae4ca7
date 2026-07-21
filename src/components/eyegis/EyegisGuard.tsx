@@ -546,7 +546,7 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
           style={{
-            filter: "hue-rotate(-6deg) saturate(1.25) contrast(1.12) brightness(1.06)",
+            filter: "saturate(1.08) contrast(1.05) brightness(1.03)",
             width: `${(100 / pos) * 100}%`,
             maxWidth: "none",
           }}
@@ -554,10 +554,11 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(180deg, rgba(120,160,220,0.16), rgba(120,160,220,0.06))",
+            background: "linear-gradient(180deg, rgba(140,170,210,0.08), rgba(140,170,210,0.02))",
             mixBlendMode: "screen",
           }}
         />
+
       </div>
       <span className="absolute left-5 top-5 font-eyebrow text-[10px] text-paper drop-shadow">{withoutLabel}</span>
       <span className="absolute right-5 top-5 font-eyebrow text-[10px] text-ink/80">{withLabel}</span>
