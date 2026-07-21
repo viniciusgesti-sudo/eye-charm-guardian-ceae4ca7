@@ -61,6 +61,7 @@ export function StickyBuyBar() {
             className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper shadow-lg active:scale-95 transition-transform"
             style={{ backgroundColor: "#004B57", boxShadow: "0 12px 30px -12px rgba(0,75,87,0.55)" }}
            target="_blank" rel="noopener noreferrer">
+            <AmazonMark className="h-4 w-4 [filter:brightness(0)_invert(1)]" />
             {c.label}
             <span aria-hidden="true">→</span>
           </a>
@@ -75,10 +76,10 @@ export function StickyBuyBar() {
        target="_blank" rel="noopener noreferrer">
         <span
           aria-hidden
-          className="grid h-10 w-10 place-items-center rounded-full text-[13px] font-bold"
-          style={{ backgroundColor: "#FF9900", color: "#1A1A2E" }}
+          className="grid h-10 w-10 place-items-center rounded-full"
+          style={{ backgroundColor: "#FF9900" }}
         >
-          a
+          <AmazonMark className="h-6 w-6" alt="" />
         </span>
         <span className="flex flex-col leading-tight">
           <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mint">
