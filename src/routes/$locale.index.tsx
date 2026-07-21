@@ -24,6 +24,9 @@ const LifestyleUniverse = lazy(() =>
 const HonestScienceTeaser = lazy(() =>
   import("@/components/eyegis/HonestScienceTeaser").then((m) => ({ default: m.HonestScienceTeaser })),
 );
+const SpectrumSignature = lazy(() =>
+  import("@/components/eyegis/SpectrumSignature").then((m) => ({ default: m.SpectrumSignature })),
+);
 const SocialProof = lazy(() =>
   import("@/components/eyegis/SocialProof").then((m) => ({ default: m.SocialProof })),
 );
@@ -90,6 +93,7 @@ function HomePage() {
         <HowItWorks />
         <Universe />
         <OurTechnology />
+        <SpectrumSignature />
         <LifestyleUniverse />
         <HonestScienceTeaser />
         <SocialProof />
