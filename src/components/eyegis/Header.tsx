@@ -1,5 +1,11 @@
 import { Link, useLocation, useNavigate, useParams } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { Check, Globe, Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useEffect, useState } from "react";
 
 import {
@@ -121,25 +127,36 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             useInk ? "text-ink" : "text-paper"
           }`}
         >
-          <div className="hidden md:flex items-center gap-2">
-            {LOCALES.map((l, i) => (
-              <div key={l} className="flex items-center gap-2">
-                {i > 0 && <span aria-hidden className={useInk ? "text-ink/60" : "text-paper/70"}>·</span>}
-                <button
-                  onClick={() => switchLocale(l)}
-                  className={`uppercase transition-colors ${
-                    currentSeg === l
-                      ? "font-semibold underline underline-offset-4"
-                      : "hover:opacity-80"
-                  }`}
-                  aria-label={`Language: ${l.toUpperCase()}`}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                aria-label={`Language: ${currentSeg.toUpperCase()}`}
+                className={`hidden md:inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 ${
+                  useInk
+                    ? "border-ink/25 text-ink hover:bg-ink/5"
+                    : "border-paper/40 text-paper hover:bg-paper/10"
+                }`}
+              >
+                <Globe className="h-3.5 w-3.5" aria-hidden />
+                <span>{currentSeg}</span>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[9rem] bg-paper text-ink border-ink/10">
+              {LOCALES.map((l) => (
+                <DropdownMenuItem
+                  key={l}
+                  onSelect={() => switchLocale(l)}
+                  className="flex items-center justify-between gap-4 uppercase tracking-[0.2em] text-[11px] cursor-pointer"
                   aria-current={currentSeg === l ? "true" : undefined}
                 >
-                  {l}
-                </button>
-              </div>
-            ))}
-          </div>
+                  <span>{LOCALE_LABEL[l]}</span>
+                  {currentSeg === l && <Check className="h-3.5 w-3.5 text-teal" aria-hidden />}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <a
             data-testid="header-cta"
             href={DEFAULT_AMAZON_URL}
