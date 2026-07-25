@@ -197,7 +197,7 @@ export function Hero({ locale }: Props) {
 
       {/* Centered unified headline — positioned in the upper safe area so it never
           crosses the models' faces (which sit around the vertical mid-line). */}
-      <div className="pointer-events-none absolute inset-x-0 top-20 z-20 flex flex-col items-center px-6 text-center sm:top-24 md:top-[14svh]">
+      <div className="pointer-events-none absolute inset-x-0 bottom-28 z-20 flex flex-col items-center px-6 text-center sm:bottom-32 md:bottom-24">
         <div className="mb-3 font-mono text-[9px] uppercase tracking-[0.38em] text-paper/70 sm:text-[10px] sm:tracking-[0.42em] md:mb-4">
           {t.eyebrow}
         </div>
