@@ -131,13 +131,8 @@ export function Hero({ locale }: Props) {
             </div>
 
             <div className="max-w-[520px] text-center md:text-left mx-auto md:mx-0">
-              <h2 className="font-editorial text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[0.98] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
-                <span className="block">{t.titleA}</span>
-                <span className="block italic text-mint">{t.titleB}</span>
-              </h2>
-
-              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center md:justify-start">
-                <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center md:justify-start">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
                 <span className="min-w-0">{t.men.product}</span>
               </div>
 
@@ -146,6 +141,7 @@ export function Hero({ locale }: Props) {
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
             </div>
+
 
           </div>
         </Link>
@@ -183,13 +179,8 @@ export function Hero({ locale }: Props) {
             </div>
 
             <div className="max-w-[520px] text-center mx-auto">
-              <h2 className="font-editorial text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[0.98] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
-                <span className="block">{t.titleA}</span>
-                <span className="block italic text-champagne">{t.titleB}</span>
-              </h2>
-
-              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center">
-                <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
                 <span className="min-w-0">{t.women.product}</span>
               </div>
 
@@ -199,9 +190,21 @@ export function Hero({ locale }: Props) {
               </div>
             </div>
 
+
           </div>
         </Link>
       </div>
+
+      {/* Centered unified headline — one elegant title, no per-panel duplication */}
+      <div className="pointer-events-none absolute inset-x-0 top-[26svh] z-20 flex flex-col items-center px-6 text-center md:top-1/2 md:-translate-y-1/2">
+        <h2 className="font-editorial font-extralight tracking-[-0.02em] text-paper leading-[1] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(2.2rem,6.4vw,5.25rem)]">
+          <span className="italic text-champagne">{t.titleA.replace(/\.$/, "")}</span>
+          <span aria-hidden className="mx-3 inline-block align-middle text-paper/45">·</span>
+          <span className="italic text-mint">{t.titleB.replace(/\.$/, "")}</span>
+        </h2>
+        <span aria-hidden className="mt-6 block h-px w-16 bg-paper/40 md:w-24" />
+      </div>
+
 
       {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
       <div
