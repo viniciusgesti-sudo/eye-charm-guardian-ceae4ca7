@@ -96,7 +96,7 @@ function MenPage() {
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="men" />
-      <LifestyleUniverse audience="men" />
+      <LifestyleUniverse audience="men" compact />
       <ModelRunway audience="men" />
       <MacroTriptych audience="men" />
 

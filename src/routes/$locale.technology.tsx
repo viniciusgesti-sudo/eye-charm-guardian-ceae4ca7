@@ -10,6 +10,9 @@ const TechCore = lazy(() =>
 const HonestScience = lazy(() =>
   import("@/components/eyegis/HonestScience").then((m) => ({ default: m.HonestScience })),
 );
+const SpectrumSignature = lazy(() =>
+  import("@/components/eyegis/SpectrumSignature").then((m) => ({ default: m.SpectrumSignature })),
+);
 const ScienceInPractice = lazy(() =>
   import("@/components/eyegis/ScienceInPractice").then((m) => ({ default: m.ScienceInPractice })),
 );
@@ -22,6 +25,7 @@ const HowItWorks = lazy(() =>
 const ShopOnAmazon = lazy(() =>
   import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
 );
+
 
 
 const META = {
@@ -64,6 +68,7 @@ function TechnologyPage() {
       <OurTechnology />
       <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}>
         <TechCore />
+        <SpectrumSignature />
         <HonestScience />
         <ScienceInPractice />
         <EyegisGuard />
@@ -73,4 +78,5 @@ function TechnologyPage() {
     </>
   );
 }
+
 

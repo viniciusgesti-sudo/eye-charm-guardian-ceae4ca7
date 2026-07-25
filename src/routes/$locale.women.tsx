@@ -98,7 +98,7 @@ function WomenPage() {
 
       />
       <Collection audience="women" />
-      <LifestyleUniverse audience="women" />
+      <LifestyleUniverse audience="women" compact />
       <ModelRunway audience="women" />
       <MacroTriptych audience="women" />
 

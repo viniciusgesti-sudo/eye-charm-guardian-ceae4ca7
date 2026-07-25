@@ -27,17 +27,15 @@ const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
     manifesto: "Eyewear engineered for vision. Designed for the way you live.",
+    titleA: "Engineered for Vision.",
+    titleB: "Designed for Style.",
     men: {
       tag: "São Paulo · Night",
-      titleA: "Engineered",
-      titleB: "for Vision.",
       product: "Men's Collection",
       cta: "Enter the Men's Collection",
     },
     women: {
       tag: "Paris · Golden Hour",
-      titleA: "Designed",
-      titleB: "for Style.",
       product: "Women's Collection",
       cta: "Enter the Women's Collection",
     },
@@ -45,17 +43,15 @@ const COPY = {
   PT: {
     eyebrow: "Manifesto Eyegis",
     manifesto: "Óculos com engenharia para a visão. Design para o seu jeito de viver.",
+    titleA: "Engenharia para a Visão.",
+    titleB: "Design para o Estilo.",
     men: {
       tag: "São Paulo · Noite",
-      titleA: "Engenharia",
-      titleB: "para a Visão.",
       product: "Coleção Masculina",
       cta: "Entrar na Coleção Masculina",
     },
     women: {
       tag: "Paris · Hora Dourada",
-      titleA: "Design",
-      titleB: "para o Estilo.",
       product: "Coleção Feminina",
       cta: "Entrar na Coleção Feminina",
     },
@@ -63,22 +59,21 @@ const COPY = {
   FR: {
     eyebrow: "Manifeste Eyegis",
     manifesto: "Des lunettes pensées pour la vision. Dessinées pour votre façon de vivre.",
+    titleA: "L'ingénierie de la vision.",
+    titleB: "Le design du style.",
     men: {
       tag: "São Paulo · Nuit",
-      titleA: "L'ingénierie",
-      titleB: "de la vision.",
       product: "Collection Homme",
       cta: "Entrer dans la Collection Homme",
     },
     women: {
       tag: "Paris · Heure Dorée",
-      titleA: "Le design",
-      titleB: "du style.",
       product: "Collection Femme",
       cta: "Entrer dans la Collection Femme",
     },
   },
 } as const;
+
 
 
 export function Hero({ locale }: Props) {
@@ -135,13 +130,13 @@ export function Hero({ locale }: Props) {
               <span className="truncate">{t.men.tag}</span>
             </div>
 
-            <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2rem,5.2vw,4rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
-                <span className="block">{t.men.titleA}</span>
-                <span className="block italic text-mint">{t.men.titleB}</span>
+            <div className="max-w-[520px] text-center md:text-left mx-auto md:mx-0">
+              <h2 className="font-editorial text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[0.98] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
+                <span className="block">{t.titleA}</span>
+                <span className="block italic text-mint">{t.titleB}</span>
               </h2>
 
-              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
+              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center md:justify-start">
                 <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
                 <span className="min-w-0">{t.men.product}</span>
               </div>
@@ -151,6 +146,7 @@ export function Hero({ locale }: Props) {
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
             </div>
+
           </div>
         </Link>
 
@@ -179,20 +175,20 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-14 sm:px-7 sm:pt-28 md:items-end md:px-12 md:pt-32 md:pb-16 md:text-right">
+          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-14 sm:px-7 sm:pt-28 md:items-center md:px-12 md:pt-32 md:pb-16 md:text-center">
 
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-champagne sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-champagne/70 sm:w-10" />
               <span className="truncate">{t.women.tag}</span>
             </div>
 
-            <div className="max-w-[520px]">
-              <h2 className="font-editorial text-[clamp(2rem,5.2vw,4rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
-                <span className="block">{t.women.titleA}</span>
-                <span className="block italic text-champagne">{t.women.titleB}</span>
+            <div className="max-w-[520px] text-center mx-auto">
+              <h2 className="font-editorial text-[clamp(1.9rem,4.6vw,3.4rem)] font-light leading-[0.98] tracking-[-0.02em] text-paper [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
+                <span className="block">{t.titleA}</span>
+                <span className="block italic text-champagne">{t.titleB}</span>
               </h2>
 
-              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
+              <div className="mt-4 flex items-start gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] justify-center">
                 <span aria-hidden className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
                 <span className="min-w-0">{t.women.product}</span>
               </div>
@@ -202,6 +198,7 @@ export function Hero({ locale }: Props) {
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
             </div>
+
           </div>
         </Link>
       </div>
