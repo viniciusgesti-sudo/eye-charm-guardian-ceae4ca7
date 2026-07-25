@@ -508,12 +508,57 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
 }
 
 /* ---------- Main ---------- */
-export function LifestyleUniverse({ audience }: { audience?: LifestyleAudience } = {}) {
+export function LifestyleUniverse({ audience, compact = false }: { audience?: LifestyleAudience; compact?: boolean } = {}) {
   const { lang } = useI18n();
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = params.locale ?? "br";
   const copy = LIFESTYLE_COPY[lang];
   const panels = buildPanels(copy, audience);
+
+  if (compact) {
+    return (
+      <section id="lifestyles" className="relative bg-paper text-ink">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-20 md:py-28 border-t border-ink/10">
+          <Reveal>
+            <div className="flex items-center gap-4 text-ink/60">
+              <span className="font-eyebrow text-teal">§ 05</span>
+              <span className="h-px w-8 bg-ink/25" />
+              <span className="font-eyebrow">{copy.sectionEyebrow}</span>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <h2 className="mt-6 max-w-3xl font-editorial text-ink text-balance-tight text-fluid-display leading-[0.95]">
+              {copy.headline1} <span className="italic text-teal">{copy.headline2}</span>
+            </h2>
+          </Reveal>
+
+          <ul className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
+            {panels.map((p) => (
+              <li key={p.index} className="group">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10">
+                  <Picture
+                    source={p.image}
+                    alt={p.imageAlt}
+                    sizes="(min-width:768px) 30vw, 50vw"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute left-3 top-3 font-eyebrow text-[9px] text-paper/85 drop-shadow">N° {p.index}</span>
+                </div>
+                <div className="mt-4 flex items-center gap-2 font-eyebrow text-[10px] text-ink/60">
+                  <span className="text-teal"><p.Icon /></span>
+                  <span>{p.eyebrow}</span>
+                </div>
+                <p className="mt-2 font-light text-sm md:text-base leading-snug text-ink/75">
+                  {p.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="lifestyles" className="relative">
 
@@ -552,6 +597,7 @@ export function LifestyleUniverse({ audience }: { audience?: LifestyleAudience }
       {panels.map((p, i) => (
         <LifestylePanel key={p.index} panel={p} i={i} />
       ))}
+
 
       {/* ============ FINAL CTA — TRANSITION TO COLLECTIONS ============ */}
       <div className="relative bg-paper text-ink">
