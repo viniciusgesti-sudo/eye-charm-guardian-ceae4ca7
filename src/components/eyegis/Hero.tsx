@@ -195,15 +195,20 @@ export function Hero({ locale }: Props) {
         </Link>
       </div>
 
-      {/* Centered unified headline — one elegant title, no per-panel duplication */}
-      <div className="pointer-events-none absolute inset-x-0 top-[26svh] z-20 flex flex-col items-center px-6 text-center md:top-1/2 md:-translate-y-1/2">
-        <h2 className="font-editorial font-extralight tracking-[-0.02em] text-paper leading-[1] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(2.2rem,6.4vw,5.25rem)]">
+      {/* Centered unified headline — positioned in the upper safe area so it never
+          crosses the models' faces (which sit around the vertical mid-line). */}
+      <div className="pointer-events-none absolute inset-x-0 top-20 z-20 flex flex-col items-center px-6 text-center sm:top-24 md:top-[14svh]">
+        <div className="font-mono text-[10px] uppercase tracking-[0.42em] text-paper/70 mb-4 hidden md:block">
+          {t.eyebrow}
+        </div>
+        <h2 className="font-editorial font-extralight tracking-[-0.02em] text-paper leading-[1.05] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(1.7rem,4.6vw,3.75rem)] max-w-[22ch]">
           <span className="italic text-champagne">{t.titleA.replace(/\.$/, "")}</span>
           <span aria-hidden className="mx-3 inline-block align-middle text-paper/45">·</span>
           <span className="italic text-mint">{t.titleB.replace(/\.$/, "")}</span>
         </h2>
-        <span aria-hidden className="mt-6 block h-px w-16 bg-paper/40 md:w-24" />
+        <span aria-hidden className="mt-5 block h-px w-16 bg-paper/40 md:w-24" />
       </div>
+
 
 
       {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
