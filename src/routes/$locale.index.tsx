@@ -15,20 +15,8 @@ const HowItWorks = lazy(() =>
 const Universe = lazy(() =>
   import("@/components/eyegis/Universe").then((m) => ({ default: m.Universe })),
 );
-const OurTechnology = lazy(() =>
-  import("@/components/eyegis/OurTechnology").then((m) => ({ default: m.OurTechnology })),
-);
-const LifestyleUniverse = lazy(() =>
-  import("@/components/eyegis/LifestyleUniverse").then((m) => ({ default: m.LifestyleUniverse })),
-);
 const HonestScienceTeaser = lazy(() =>
   import("@/components/eyegis/HonestScienceTeaser").then((m) => ({ default: m.HonestScienceTeaser })),
-);
-const SpectrumSignature = lazy(() =>
-  import("@/components/eyegis/SpectrumSignature").then((m) => ({ default: m.SpectrumSignature })),
-);
-const SocialProof = lazy(() =>
-  import("@/components/eyegis/SocialProof").then((m) => ({ default: m.SocialProof })),
 );
 const ShopOnAmazon = lazy(() =>
   import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
@@ -36,6 +24,7 @@ const ShopOnAmazon = lazy(() =>
 const FAQ = lazy(() =>
   import("@/components/eyegis/FAQ").then((m) => ({ default: m.FAQ })),
 );
+
 
 const META = {
   br: {
@@ -92,14 +81,11 @@ function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <HowItWorks />
         <Universe />
-        <OurTechnology />
-        <SpectrumSignature />
-        <LifestyleUniverse />
         <HonestScienceTeaser />
-        <SocialProof />
         <ShopOnAmazon />
         <FAQ />
       </Suspense>
     </>
   );
 }
+
