@@ -198,16 +198,26 @@ export function Hero({ locale }: Props) {
       {/* Centered unified headline — positioned in the upper safe area so it never
           crosses the models' faces (which sit around the vertical mid-line). */}
       <div className="pointer-events-none absolute inset-x-0 top-20 z-20 flex flex-col items-center px-6 text-center sm:top-24 md:top-[14svh]">
-        <div className="font-mono text-[10px] uppercase tracking-[0.42em] text-paper/70 mb-4 hidden md:block">
+        <div className="mb-3 font-mono text-[9px] uppercase tracking-[0.38em] text-paper/70 sm:text-[10px] sm:tracking-[0.42em] md:mb-4">
           {t.eyebrow}
         </div>
-        <h2 className="font-editorial font-extralight tracking-[-0.02em] text-paper leading-[1.05] [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(1.7rem,4.6vw,3.75rem)] max-w-[22ch]">
-          <span className="italic text-champagne">{t.titleA.replace(/\.$/, "")}</span>
-          <span aria-hidden className="mx-3 inline-block align-middle text-paper/45">·</span>
-          <span className="italic text-mint">{t.titleB.replace(/\.$/, "")}</span>
+        <h2 className="mx-auto max-w-[18ch] font-editorial font-extralight leading-[1.1] tracking-[-0.02em] text-paper text-balance [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(1.5rem,7vw,3.75rem)] sm:max-w-[24ch] sm:leading-[1.05]">
+          <span className="block italic text-champagne sm:inline">
+            {t.titleA.replace(/\.$/, "")}
+          </span>
+          <span
+            aria-hidden
+            className="mx-3 hidden align-middle text-paper/45 sm:inline-block"
+          >
+            ·
+          </span>
+          <span className="block italic text-mint sm:inline">
+            {t.titleB.replace(/\.$/, "")}
+          </span>
         </h2>
-        <span aria-hidden className="mt-5 block h-px w-16 bg-paper/40 md:w-24" />
+        <span aria-hidden className="mt-4 block h-px w-12 bg-paper/40 sm:mt-5 sm:w-16 md:w-24" />
       </div>
+
 
 
 
