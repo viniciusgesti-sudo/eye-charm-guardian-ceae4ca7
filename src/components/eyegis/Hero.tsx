@@ -195,31 +195,22 @@ export function Hero({ locale }: Props) {
         </Link>
       </div>
 
-      {/* Centered unified headline — positioned in the upper safe area so it never
-          crosses the models' faces (which sit around the vertical mid-line). */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-28 z-20 flex flex-col items-center px-6 text-center sm:bottom-32 md:bottom-24">
-        <div className="mb-3 font-mono text-[9px] uppercase tracking-[0.38em] text-paper/70 sm:text-[10px] sm:tracking-[0.42em] md:mb-4">
+      {/* Unified centered headline.
+          - Mobile: hidden (each stacked panel already owns its own CTA; an
+            overlay would collide with the button or the models' faces).
+          - Desktop: pinned to the top safe area above the models' eye-line
+            (images use object-position ~32% Y, so the upper band is sky/skyline). */}
+      <div className="pointer-events-none absolute inset-x-0 top-[12svh] z-20 hidden flex-col items-center px-6 text-center md:flex">
+        <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.42em] text-paper/75">
           {t.eyebrow}
         </div>
-        <h2 className="mx-auto max-w-[18ch] font-editorial font-extralight leading-[1.1] tracking-[-0.02em] text-paper text-balance [text-shadow:0_2px_28px_rgba(0,0,0,0.55)] text-[clamp(1.5rem,7vw,3.75rem)] sm:max-w-[24ch] sm:leading-[1.05]">
-          <span className="block italic text-champagne sm:inline">
-            {t.titleA.replace(/\.$/, "")}
-          </span>
-          <span
-            aria-hidden
-            className="mx-3 hidden align-middle text-paper/45 sm:inline-block"
-          >
-            ·
-          </span>
-          <span className="block italic text-mint sm:inline">
-            {t.titleB.replace(/\.$/, "")}
-          </span>
+        <h2 className="mx-auto max-w-[26ch] font-editorial font-extralight leading-[1.05] tracking-[-0.02em] text-paper text-balance [text-shadow:0_2px_28px_rgba(0,0,0,0.6)] text-[clamp(1.75rem,3.6vw,3.25rem)]">
+          <span className="italic text-champagne">{t.titleA.replace(/\.$/, "")}</span>
+          <span aria-hidden className="mx-3 inline-block align-middle text-paper/45">·</span>
+          <span className="italic text-mint">{t.titleB.replace(/\.$/, "")}</span>
         </h2>
-        <span aria-hidden className="mt-4 block h-px w-12 bg-paper/40 sm:mt-5 sm:w-16 md:w-24" />
+        <span aria-hidden className="mt-5 block h-px w-24 bg-paper/40" />
       </div>
-
-
-
 
       {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
       <div
@@ -231,7 +222,7 @@ export function Hero({ locale }: Props) {
         className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
       />
 
-      {/* Mobile scroll cue — encourages exploration past the split hero */}
+      {/* Mobile scroll cue */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex justify-center md:hidden"
@@ -241,16 +232,11 @@ export function Hero({ locale }: Props) {
         </span>
       </div>
 
-      {/* Bottom manifesto strip — only rendered on md+ so it never overlaps
-          the stacked-panel CTAs on mobile. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 hidden flex-col items-center gap-2 px-6 pb-6 text-center md:flex md:pb-8">
-        <div className="font-mono text-[10px] uppercase tracking-[0.42em] text-paper/70">
-          {t.eyebrow}
-        </div>
-        <p className="max-w-xl font-sans text-sm leading-relaxed text-paper/80 md:text-[15px]">
-          {t.manifesto}
-        </p>
-      </div>
+      {/* Manifesto strip — desktop only, below the fold visually anchored */}
+      <p className="pointer-events-none absolute inset-x-0 bottom-6 z-20 mx-auto hidden max-w-xl px-6 text-center font-sans text-sm leading-relaxed text-paper/75 md:block md:text-[15px]">
+        {t.manifesto}
+      </p>
+
     </section>
   );
 }
