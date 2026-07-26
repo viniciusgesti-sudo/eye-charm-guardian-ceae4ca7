@@ -1088,5 +1088,17 @@ header a[href*="amazon"]:focus-visible,
     font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
     line-height: 1.2 !important;
   }
+
+  /* Cap any inline pixel/viewport fixed heights that force full-screen media
+     panels — product deep-dives and lookbooks abuse these on laptops. */
+  [class*="h-[80vh]"],
+  [class*="h-[85vh]"],
+  [class*="h-[90vh]"],
+  [class*="h-[100vh]"],
+  [class*="h-[80svh]"],
+  [class*="h-[90svh]"],
+  [class*="h-[100svh]"] {
+    height: 55svh !important;
+  }
 }
 
