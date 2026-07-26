@@ -128,7 +128,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Questions Fréquentes",
     titleLead: "Encore des questions ?",
     titleAccent: "Nous avons vos réponses.",
+    viewAll: "Voir toutes les questions",
+    showLess: "Afficher moins",
     items: [
+
       { iconKey: "microscope", q: "Comment fonctionne concrètement le filtrage sélectif ?", a: "Honest Science™, en clair : nos verres E-Guard Retina™ et E-Guard Circadian™ n'agissent que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée — tout en laissant passer le reste du spectre, pour que vous continuiez à voir les couleurs telles qu'elles sont. Ce n'est ni un verre teinté, ni un filtre posé sur la réalité. Nous décrivons ce que fait le verre optiquement, pas ce que vous devez ressentir en le portant." },
       { iconKey: "people",     q: "À qui s'adressent les lunettes Eyegis ?",        a: "À toute personne qui passe un temps significatif devant les écrans — pour travailler, étudier, créer, jouer, streamer ou naviguer. Eyegis est pensée autour de modes de vie et de niveaux d'exposition différents, des heures concentrées de la journée (E-Guard Retina™) à l'usage tardif avant le coucher (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Vos lunettes sont-elles compatibles avec les casques audio et gaming ?", a: "Oui. Nos montures TR90 sont légères et fines au niveau des branches, pensées pour de longues sessions et un port confortable sous la plupart des casques audio et gaming." },
