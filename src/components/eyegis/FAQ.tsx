@@ -245,7 +245,6 @@ export function FAQ({ compact = false, initialLimit = 3 }: { compact?: boolean; 
 
   const visible = compact && !expanded ? items.slice(0, initialLimit) : items;
   const hasMore = compact && items.length > initialLimit;
-  const localePrefix = `/${lang.toLowerCase()}`;
 
   return (
     <section
