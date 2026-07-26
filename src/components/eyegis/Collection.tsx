@@ -928,11 +928,12 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
     <article
       ref={ref}
       data-card
-      className={`group snap-start shrink-0 w-[85vw] sm:w-[420px] md:w-[440px] lg:w-[460px] transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`group w-full transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       style={{ transitionDelay: `${i * 80}ms` }}
     >
+
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
         <button
           type="button"
