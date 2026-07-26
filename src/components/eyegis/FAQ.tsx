@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
@@ -241,10 +241,50 @@ export function FAQ({ compact = false, initialLimit = 3 }: { compact?: boolean; 
     icon: ICONS[it.iconKey],
   }));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [expanded, setExpanded] = useState(false);
+  const storageKey = `eyegis:faq:expanded:${compact ? "compact" : "full"}`;
+
+  // Read once during first client render so the expanded state is available
+  // synchronously on mount (avoids a "collapse → expand" flicker when returning
+  // to the page). Falls back to false during SSR.
+  const [expanded, setExpanded] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      // Prefer explicit URL flag (?faq=all) so the state is shareable, then
+      // sessionStorage so it survives back/forward navigation within a tab.
+      const url = new URL(window.location.href);
+      if (url.searchParams.get("faq") === "all") return true;
+      return window.sessionStorage.getItem(storageKey) === "1";
+    } catch {
+      return false;
+    }
+  });
+
+  // Persist changes to sessionStorage + reflect in URL without a reload.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      if (expanded) {
+        window.sessionStorage.setItem(storageKey, "1");
+      } else {
+        window.sessionStorage.removeItem(storageKey);
+      }
+      const url = new URL(window.location.href);
+      const current = url.searchParams.get("faq");
+      if (expanded && current !== "all") {
+        url.searchParams.set("faq", "all");
+        window.history.replaceState(window.history.state, "", url.toString());
+      } else if (!expanded && current === "all") {
+        url.searchParams.delete("faq");
+        window.history.replaceState(window.history.state, "", url.toString());
+      }
+    } catch {
+      /* ignore storage errors (private mode, quota) */
+    }
+  }, [expanded, storageKey]);
 
   const visible = compact && !expanded ? items.slice(0, initialLimit) : items;
   const hasMore = compact && items.length > initialLimit;
+
 
   return (
     <section
