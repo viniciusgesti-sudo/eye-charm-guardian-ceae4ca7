@@ -9,9 +9,8 @@ import { FAQ } from "@/components/eyegis/FAQ";
 import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
-import { VsGenerics } from "@/components/eyegis/VsGenerics";
-import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+
 
 const COPY = {
   br: {
@@ -94,10 +93,9 @@ function KidsPage() {
       />
       <Collection audience="kids" />
       <MacroTriptych audience="kids" />
-      <WhatsInTheBox />
-      <VsGenerics />
       <ShopOnAmazon />
       <FAQ />
+
     </>
   );
 }
