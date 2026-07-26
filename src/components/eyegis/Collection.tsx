@@ -786,7 +786,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
         </div>
 
         {audience ? (
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {visible.map((p, i) => (
               <ProductCard key={p.id} p={p} i={i} copy={copy} compact />
             ))}
@@ -796,6 +796,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
               </div>
             )}
           </div>
+
         ) : (
           <div
             ref={scrollerRef}
@@ -976,7 +977,7 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
       }`}
       style={{ transitionDelay: `${i * 80}ms` }}
     >
-      <div className={`relative w-full overflow-hidden bg-paper-warm ${compact ? "aspect-[4/5]" : "aspect-[4/5]"}`}>
+      <div className={`relative w-full overflow-hidden bg-paper-warm ${compact ? "aspect-[3/4]" : "aspect-[4/5]"}`}>
 
         <button
           type="button"
@@ -1066,14 +1067,14 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
         )}
       </div>
 
-      <div className={compact ? "mt-3" : "mt-6"}>
+      <div className={compact ? "mt-2" : "mt-6"}>
         <div className="flex items-baseline justify-between gap-3">
-          <span className="font-eyebrow text-[10px] text-ink/50">
+          <span className={`font-eyebrow ${compact ? "text-[9px]" : "text-[10px]"} text-ink/50`}>
             {pc.collection} · {pc.city}
           </span>
           <span className="h-px flex-1 bg-ink/15" />
         </div>
-        <h4 className={`mt-2 font-editorial text-ink ${compact ? "text-lg md:text-xl" : "text-2xl md:text-3xl"}`}>{pc.name}</h4>
+        <h4 className={`mt-1.5 font-editorial text-ink ${compact ? "text-sm md:text-base" : "text-2xl md:text-3xl"}`}>{pc.name}</h4>
         {!compact && (
           <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
             {pc.description}
@@ -1088,18 +1089,18 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
           </div>
         )}
 
-        <div className={`${compact ? "mt-3" : "mt-6"} flex items-center gap-4`}>
+        <div className={`${compact ? "mt-2" : "mt-6"} flex items-center gap-4`}>
           <a
             href={AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink ${compact ? "px-4 py-2" : "px-6 py-3"} text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal`}
+            className={`cta-lift group/btn inline-flex items-center gap-2 rounded-full bg-ink ${compact ? "px-3 py-1.5 text-[10px]" : "px-6 py-3"} text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal`}
           >
             <span className="font-eyebrow">{copy.buyOnAmazon}</span>
             <IconExternal className="opacity-80" />
           </a>
 
-          {p.pdpPath ? (
+          {!compact && (p.pdpPath ? (
             <Link
               to={p.pdpPath}
               className="group/link inline-flex items-center gap-2 font-eyebrow text-ink/70 transition-colors hover:text-ink"
@@ -1115,9 +1116,10 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
               <span>{copy.preview.learnMore}</span>
               <IconArrow className="transition-transform duration-500 group-hover/link:translate-x-1" />
             </a>
-          )}
+          ))}
         </div>
       </div>
+
       {open && (
         <Lightbox
           shots={shots}

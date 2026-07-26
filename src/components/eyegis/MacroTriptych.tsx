@@ -98,28 +98,21 @@ export function MacroTriptych({ audience, className = "" }: Props) {
       aria-labelledby="macro-triptych-title"
       className={`bg-paper-warm text-ink ${className}`}
     >
-      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-10 md:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
-          <div className="lg:col-span-4">
-            <span className="font-eyebrow text-[11px] tracking-[0.28em] text-teal">
-              {copy.eyebrow}
-            </span>
-          </div>
-          <div className="lg:col-span-8">
-            <h2
-              id="macro-triptych-title"
-              className="font-editorial text-fluid-h1 leading-[0.95] text-ink text-balance"
-            >
-              {copy.title1}{" "}
-              <span className="italic text-teal-deep">{copy.accent}</span>
-            </h2>
-            <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-ink/70">
-              {copy.lead}
-            </p>
-          </div>
+      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-6 md:py-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 mb-5 md:mb-6">
+          <h2
+            id="macro-triptych-title"
+            className="font-editorial text-fluid-h2 leading-[1] text-ink"
+          >
+            {copy.title1}{" "}
+            <span className="italic text-teal-deep">{copy.accent}</span>
+          </h2>
+          <span className="font-eyebrow text-[10px] tracking-[0.28em] text-teal">
+            {copy.eyebrow}
+          </span>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 md:gap-5">
+        <div className="grid grid-cols-3 gap-2 md:gap-3">
           {tiles.map((t, i) => {
             const c = copy.tiles[t.key];
             return (
@@ -127,25 +120,22 @@ export function MacroTriptych({ audience, className = "" }: Props) {
                 key={t.key}
                 className="group overflow-hidden rounded-sm bg-paper ring-1 ring-ink/10"
               >
-                <div className="relative aspect-square md:aspect-[5/4] overflow-hidden bg-ink/[0.04]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-ink/[0.04]">
                   <Picture
                     source={t.src}
                     alt={t.alt}
-                    sizes="(min-width:1024px) 32vw, (min-width:768px) 32vw, 32vw"
+                    sizes="(min-width:1024px) 32vw, 32vw"
                     className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
                     priority={i === 0 ? false : false}
                   />
                 </div>
-                <figcaption className="p-4 md:p-5">
-                  <span className="font-eyebrow text-[10px] tracking-[0.28em] text-teal">
+                <figcaption className="px-3 py-2">
+                  <span className="font-eyebrow text-[9px] tracking-[0.28em] text-teal">
                     {c.tag}
                   </span>
-                  <h3 className="mt-2 font-editorial text-base md:text-lg leading-tight">
+                  <h3 className="mt-0.5 font-editorial text-sm md:text-[15px] leading-tight">
                     {c.title}
                   </h3>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-ink/65 line-clamp-3">
-                    {c.body}
-                  </p>
                 </figcaption>
               </figure>
             );
@@ -153,6 +143,7 @@ export function MacroTriptych({ audience, className = "" }: Props) {
         </div>
 
       </div>
+
     </section>
   );
 }
