@@ -48,8 +48,8 @@ function LocaleLayout() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
-      <QuickJump />
       <Outlet />
+
 
       <Suspense fallback={null}><Footer /></Suspense>
       <StickyBuyBar />
