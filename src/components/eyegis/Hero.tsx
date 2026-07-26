@@ -146,7 +146,7 @@ export function Hero({ locale }: Props) {
         </div>
 
         {/* Manifesto — bottom center, desktop only, small and quiet */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:block">
+        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:bottom-24 lg:block xl:bottom-28">
           <p className="mx-auto max-w-lg text-balance font-sans text-[13px] leading-6 text-paper/78 [text-shadow:0_2px_18px_rgba(0,0,0,0.7)]">
             {t.manifesto}
           </p>
