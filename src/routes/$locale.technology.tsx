@@ -5,23 +5,14 @@ import { buildSeo } from "@/lib/seo";
 const OurTechnology = lazy(() =>
   import("@/components/eyegis/OurTechnology").then((m) => ({ default: m.OurTechnology })),
 );
-const TechCore = lazy(() =>
-  import("@/components/eyegis/TechCore").then((m) => ({ default: m.TechCore })),
-);
 const HonestScience = lazy(() =>
   import("@/components/eyegis/HonestScience").then((m) => ({ default: m.HonestScience })),
 );
 const SpectrumSignature = lazy(() =>
   import("@/components/eyegis/SpectrumSignature").then((m) => ({ default: m.SpectrumSignature })),
 );
-const ScienceInPractice = lazy(() =>
-  import("@/components/eyegis/ScienceInPractice").then((m) => ({ default: m.ScienceInPractice })),
-);
 const EyegisGuard = lazy(() =>
   import("@/components/eyegis/EyegisGuard").then((m) => ({ default: m.EyegisGuard })),
-);
-const HowItWorks = lazy(() =>
-  import("@/components/eyegis/HowItWorks").then((m) => ({ default: m.HowItWorks })),
 );
 const ShopOnAmazon = lazy(() =>
   import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
