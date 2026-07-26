@@ -163,11 +163,11 @@ export function Hero({ locale }: Props) {
         />
       </div>
 
-      <div className="relative z-20 grid border-y border-paper/10 bg-ink md:grid-cols-2">
+      <div className="relative z-20 grid border-y border-paper/10 bg-ink lg:grid-cols-2">
         <Link
           to="/$locale/men"
           params={{ locale }}
-          className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-paper/10 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint sm:px-8 md:border-r md:border-b-0 md:px-10"
+          className="group grid min-h-24 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-paper/10 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint sm:px-8 lg:min-h-28 lg:border-r lg:border-b-0 lg:px-10"
         >
           <div className="min-w-0">
             <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-mint sm:tracking-[0.34em]">
@@ -180,9 +180,9 @@ export function Hero({ locale }: Props) {
             </div>
           </div>
 
-          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition group-hover:bg-mint sm:px-6 sm:text-[11px] sm:tracking-[0.22em]">
-            <span className="hidden sm:inline">{t.men.cta}</span>
-            <span className="sm:hidden">{t.men.product}</span>
+          <div className="inline-flex min-h-11 max-w-[42vw] shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-mint sm:max-w-none sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
+            <span className="hidden max-w-[28ch] truncate xl:inline">{t.men.cta}</span>
+            <span className="max-w-[16ch] truncate xl:hidden">{t.men.product}</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
@@ -190,22 +190,22 @@ export function Hero({ locale }: Props) {
         <Link
           to="/$locale/women"
           params={{ locale }}
-          className="group grid min-h-28 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne sm:px-8 md:px-10"
+          className="group grid min-h-24 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne sm:px-8 lg:min-h-28 lg:px-10"
         >
-          <div className="min-w-0 md:text-right">
-            <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em] md:justify-end">
-              <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10 md:order-2" />
+          <div className="min-w-0">
+            <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em]">
+              <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10" />
               <span className="min-w-0 truncate">{t.women.tag}</span>
             </div>
-            <div className="mt-3 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
+            <div className="mt-3 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
               <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
               <span className="min-w-0 truncate">{t.women.product}</span>
             </div>
           </div>
 
-          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition group-hover:bg-champagne sm:px-6 sm:text-[11px] sm:tracking-[0.22em] md:order-first">
-            <span className="hidden sm:inline">{t.women.cta}</span>
-            <span className="sm:hidden">{t.women.product}</span>
+          <div className="inline-flex min-h-11 max-w-[42vw] shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-champagne sm:max-w-none sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
+            <span className="hidden max-w-[28ch] truncate xl:inline">{t.women.cta}</span>
+            <span className="max-w-[16ch] truncate xl:hidden">{t.women.product}</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
