@@ -59,12 +59,9 @@ function TechnologyPage() {
     <>
       <OurTechnology />
       <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}>
-        <TechCore />
         <SpectrumSignature />
         <HonestScience />
-        <ScienceInPractice />
         <EyegisGuard />
-        <HowItWorks />
         <ShopOnAmazon />
       </Suspense>
     </>
