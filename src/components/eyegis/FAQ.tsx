@@ -96,7 +96,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Frequently Asked Questions",
     titleLead: "Still have questions?",
     titleAccent: "We've got you covered.",
+    viewAll: "View all questions",
+    showLess: "Show less",
     items: [
+
       { iconKey: "microscope", q: "How does selective filtering actually work?", a: "Honest Science™, in plain words: our E-Guard Retina™ and E-Guard Circadian™ lenses act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure — while letting the rest of the spectrum pass through, so you keep seeing colors as they are. It is not a tinted lens and not a filter over reality. We describe what the lens does optically, not how you should feel wearing it." },
       { iconKey: "people",     q: "Who are Eyegis glasses designed for?",         a: "Anyone who spends meaningful time in front of screens — working, studying, creating, gaming, streaming or scrolling. Eyegis is built around different lifestyles and levels of digital exposure, from focused daytime hours (E-Guard Retina™) to late-evening use before sleep (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Are your glasses compatible with headphones and gaming headsets?", a: "Yes. Our TR90 frames are lightweight and slim at the temples, designed for long sessions and comfortable use with most over-ear headphones and gaming headsets." },
