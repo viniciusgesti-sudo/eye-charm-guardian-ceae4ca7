@@ -76,7 +76,7 @@ function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <HonestScienceTeaser />
         <ShopOnAmazon />
-        <FAQ />
+        <FAQ compact initialLimit={3} />
       </Suspense>
 
     </>

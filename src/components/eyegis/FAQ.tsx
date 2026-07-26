@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+
 
 const TEAL = "#004B57";
 const TEAL_DEEP = "#003842";
@@ -17,8 +19,11 @@ type Copy = {
   eyebrow: string;
   titleLead: string;
   titleAccent: string;
+  viewAll: string;
+  showLess: string;
   items: { q: string; a: string; iconKey: IconKey }[];
 };
+
 
 type IconKey = "microscope" | "people" | "headset" | "glasses" | "box" | "shield";
 
@@ -91,7 +96,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Frequently Asked Questions",
     titleLead: "Still have questions?",
     titleAccent: "We've got you covered.",
+    viewAll: "View all questions",
+    showLess: "Show less",
     items: [
+
       { iconKey: "microscope", q: "How does selective filtering actually work?", a: "Honest Science™, in plain words: our E-Guard Retina™ and E-Guard Circadian™ lenses act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure — while letting the rest of the spectrum pass through, so you keep seeing colors as they are. It is not a tinted lens and not a filter over reality. We describe what the lens does optically, not how you should feel wearing it." },
       { iconKey: "people",     q: "Who are Eyegis glasses designed for?",         a: "Anyone who spends meaningful time in front of screens — working, studying, creating, gaming, streaming or scrolling. Eyegis is built around different lifestyles and levels of digital exposure, from focused daytime hours (E-Guard Retina™) to late-evening use before sleep (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Are your glasses compatible with headphones and gaming headsets?", a: "Yes. Our TR90 frames are lightweight and slim at the temples, designed for long sessions and comfortable use with most over-ear headphones and gaming headsets." },
@@ -104,7 +112,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Perguntas Frequentes",
     titleLead: "Ainda tem dúvidas?",
     titleAccent: "Estamos aqui para responder.",
+    viewAll: "Ver todas as perguntas",
+    showLess: "Mostrar menos",
     items: [
+
       { iconKey: "microscope", q: "Como funciona a filtragem seletiva, na prática?", a: "Honest Science™, em palavras simples: as lentes E-Guard Retina™ e E-Guard Circadian™ atuam apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna — deixando o restante do espectro passar, para que você continue vendo as cores como elas são. Não é uma lente tingida nem um filtro sobre a realidade. Descrevemos o que a lente faz opticamente, não como você deve se sentir ao usá-la." },
       { iconKey: "people",     q: "Para quem os óculos Eyegis foram pensados?",     a: "Para qualquer pessoa que passa horas significativas diante de telas — trabalhando, estudando, criando, jogando, transmitindo ou navegando. A Eyegis foi desenhada em torno de diferentes estilos de vida e níveis de exposição digital, das horas focadas do dia (E-Guard Retina™) ao uso noturno antes de dormir (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Os óculos são compatíveis com fones e headsets gamers?", a: "Sim. Nossas armações em TR90 são leves e finas nas hastes, pensadas para longas sessões e uso confortável com a maioria dos fones over-ear e headsets gamers." },
@@ -117,7 +128,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Questions Fréquentes",
     titleLead: "Encore des questions ?",
     titleAccent: "Nous avons vos réponses.",
+    viewAll: "Voir toutes les questions",
+    showLess: "Afficher moins",
     items: [
+
       { iconKey: "microscope", q: "Comment fonctionne concrètement le filtrage sélectif ?", a: "Honest Science™, en clair : nos verres E-Guard Retina™ et E-Guard Circadian™ n'agissent que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée — tout en laissant passer le reste du spectre, pour que vous continuiez à voir les couleurs telles qu'elles sont. Ce n'est ni un verre teinté, ni un filtre posé sur la réalité. Nous décrivons ce que fait le verre optiquement, pas ce que vous devez ressentir en le portant." },
       { iconKey: "people",     q: "À qui s'adressent les lunettes Eyegis ?",        a: "À toute personne qui passe un temps significatif devant les écrans — pour travailler, étudier, créer, jouer, streamer ou naviguer. Eyegis est pensée autour de modes de vie et de niveaux d'exposition différents, des heures concentrées de la journée (E-Guard Retina™) à l'usage tardif avant le coucher (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Vos lunettes sont-elles compatibles avec les casques audio et gaming ?", a: "Oui. Nos montures TR90 sont légères et fines au niveau des branches, pensées pour de longues sessions et un port confortable sous la plupart des casques audio et gaming." },
@@ -218,7 +232,7 @@ function FaqCard({
   );
 }
 
-export function FAQ() {
+export function FAQ({ compact = false, initialLimit = 3 }: { compact?: boolean; initialLimit?: number } = {}) {
   const { lang } = useI18n();
   const c = COPY[lang] ?? COPY.EN;
   const items: FaqItem[] = c.items.map((it) => ({
@@ -227,6 +241,10 @@ export function FAQ() {
     icon: ICONS[it.iconKey],
   }));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const visible = compact && !expanded ? items.slice(0, initialLimit) : items;
+  const hasMore = compact && items.length > initialLimit;
 
   return (
     <section
@@ -258,8 +276,8 @@ export function FAQ() {
           />
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 md:mt-16">
-          {items.map((item, i) => (
+        <div className="mt-10 flex flex-col gap-4 md:mt-12">
+          {visible.map((item, i) => (
             <FaqCard
               key={item.q}
               item={item}
@@ -269,7 +287,36 @@ export function FAQ() {
             />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.28em] transition-colors"
+              style={{
+                background: expanded ? "transparent" : TEAL,
+                color: expanded ? TEAL : "#F9F9F9",
+                border: `1px solid ${TEAL}`,
+              }}
+            >
+              {expanded ? c.showLess : c.viewAll}
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              />
+            </button>
+            <Link
+              to="/$locale/faq"
+              params={{ locale: lang.toLowerCase() }}
+              className="font-mono text-[10px] uppercase tracking-[0.28em] underline-offset-4 hover:underline"
+              style={{ color: TEAL_DEEP }}
+            >
+              {c.eyebrow} →
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
