@@ -19,8 +19,11 @@ type Copy = {
   eyebrow: string;
   titleLead: string;
   titleAccent: string;
+  viewAll: string;
+  showLess: string;
   items: { q: string; a: string; iconKey: IconKey }[];
 };
+
 
 type IconKey = "microscope" | "people" | "headset" | "glasses" | "box" | "shield";
 
