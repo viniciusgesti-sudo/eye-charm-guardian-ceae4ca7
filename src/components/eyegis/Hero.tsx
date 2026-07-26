@@ -124,6 +124,24 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
+        <div className="relative z-20 bg-ink px-5 py-9 text-center md:pointer-events-none md:absolute md:inset-x-0 md:bottom-36 md:bg-transparent md:px-10 md:py-0 lg:bottom-40">
+          <div className="mx-auto w-full max-w-5xl">
+            <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em]">
+              <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
+              <span className="min-w-0 truncate">{t.eyebrow}</span>
+              <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
+            </div>
+
+            <h1 className="mx-auto mt-4 max-w-[19ch] text-balance font-editorial text-[clamp(1.75rem,7vw,2.45rem)] font-extralight leading-[1.08] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.75)] sm:max-w-[24ch] md:max-w-[28ch] md:text-[clamp(2.3rem,4.3vw,3.85rem)] md:leading-[1.05]">
+              {t.headline}
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl text-balance font-sans text-sm leading-7 text-paper/72 drop-shadow-[0_2px_20px_rgba(0,0,0,0.65)] sm:text-base md:text-paper/78">
+              {t.manifesto}
+            </p>
+          </div>
+        </div>
+
         {/* RIGHT — WOMEN */}
         <Link
           to="/$locale/women"
@@ -171,26 +189,6 @@ export function Hero({ locale }: Props) {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
         />
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 top-[54svh] z-20 -translate-y-1/2 px-5 sm:px-7 md:top-28 md:translate-y-0 md:px-10">
-        <div className="mx-auto w-full max-w-5xl text-center">
-          <div className="mx-auto hidden min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em] md:flex">
-            <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
-            <span className="min-w-0 truncate">{t.eyebrow}</span>
-            <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
-          </div>
-
-          <h1 className="mx-auto max-w-[18ch] text-balance font-editorial text-[clamp(1.65rem,7vw,2.35rem)] font-extralight leading-[1.08] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.75)] sm:max-w-[24ch] md:mt-4 md:max-w-[28ch] md:text-[clamp(2.4rem,4.4vw,4.05rem)] md:leading-[1.05]">
-            {t.headline}
-          </h1>
-        </div>
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-[10.5rem] z-20 hidden px-6 text-center md:block lg:bottom-40">
-        <p className="mx-auto max-w-xl text-balance font-sans text-sm leading-7 text-paper/78 drop-shadow-[0_2px_20px_rgba(0,0,0,0.65)] sm:text-base">
-          {t.manifesto}
-        </p>
       </div>
 
       {/* Mobile scroll cue */}
