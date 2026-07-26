@@ -906,5 +906,5 @@ header a[href*="amazon"]:focus-visible,
   section h1, section h2 { line-height: 1.08; }
 
   /* Runway / triptych trim */
-  [data-runway] { height: 380px !important; }
+  [data-runway] { min-height: 380px !important; }
 }
