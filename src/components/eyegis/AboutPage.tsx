@@ -753,58 +753,55 @@ export function AboutPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 md:mt-28">
-          <div className="grid gap-0 md:grid-cols-6">
+        {/* Horizontally scrollable timeline — collapses ~6 stacked rows into
+            a single row on every viewport. Snap-x keeps each step aligned. */}
+        <div className="mt-12 md:mt-16">
+          <div
+            role="list"
+            aria-label={c.process.rule}
+            className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-6 pb-4 md:-mx-12 md:gap-6 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             {c.process.items.map((s, i) => (
-              <Reveal key={s.k} delay={i * 120}>
-                <div className="relative border-t px-2 py-8 md:border-t-0 md:border-l md:px-6 md:py-0" style={{ borderColor: "rgba(14,22,19,0.15)" }}>
-                  <div className="hidden md:block">
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="inline-block h-1.5 w-1.5 rounded-full"
-                        style={{ background: TEAL }}
-                      />
-                      <span
-                        className="text-[10px] uppercase tracking-[0.35em]"
-                        style={{ color: MUTED }}
-                      >
-                        {c.process.step} 0{i + 1}
-                      </span>
-                    </div>
-                    <h3
-                      className="mt-10 text-[28px] leading-[1]"
-                      style={{ fontFamily: serif, fontWeight: 400 }}
+              <Reveal key={s.k} delay={i * 80}>
+                <article
+                  role="listitem"
+                  className="relative w-[78vw] max-w-[320px] shrink-0 snap-start border-l pl-5 md:w-[280px]"
+                  style={{ borderColor: "rgba(14,22,19,0.15)" }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="inline-block h-1.5 w-1.5 rounded-full"
+                      style={{ background: TEAL }}
+                    />
+                    <span
+                      className="text-[10px] uppercase tracking-[0.35em]"
+                      style={{ color: MUTED }}
                     >
-                      {s.k}
-                    </h3>
-                    <p className="mt-4 text-[13px] leading-[1.7]" style={{ color: MUTED }}>
-                      {s.d}
-                    </p>
+                      {c.process.step} 0{i + 1}
+                    </span>
                   </div>
-                  <div className="md:hidden">
-                    <div className="flex items-baseline justify-between">
-                      <h3
-                        className="text-[28px] leading-[1]"
-                        style={{ fontFamily: serif, fontWeight: 400 }}
-                      >
-                        {s.k}
-                      </h3>
-                      <span
-                        className="text-[10px] uppercase tracking-[0.35em]"
-                        style={{ color: MUTED }}
-                      >
-                        0{i + 1}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-[13px] leading-[1.7]" style={{ color: MUTED }}>
-                      {s.d}
-                    </p>
-                  </div>
-                </div>
+                  <h3
+                    className="mt-6 text-[26px] leading-[1]"
+                    style={{ fontFamily: serif, fontWeight: 400 }}
+                  >
+                    {s.k}
+                  </h3>
+                  <p className="mt-3 text-[13px] leading-[1.7]" style={{ color: MUTED }}>
+                    {s.d}
+                  </p>
+                </article>
               </Reveal>
             ))}
           </div>
+          <p
+            className="mt-4 text-[10px] uppercase tracking-[0.3em]"
+            style={{ color: MUTED }}
+            aria-hidden
+          >
+            ← →
+          </p>
         </div>
+
       </section>
 
       {/* 06 — THE PEOPLE WE DESIGN FOR */}
@@ -824,20 +821,20 @@ export function AboutPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {c.people.labels.map((label, i) => (
-              <Reveal key={label} delay={(i % 4) * 100}>
+          <div className="mt-12 grid grid-cols-2 gap-3 md:mt-16 md:grid-cols-3 md:gap-4">
+            {c.people.labels.slice(0, 6).map((label, i) => (
+              <Reveal key={label} delay={(i % 3) * 100}>
                 <figure className="group relative overflow-hidden">
-                  <div className="aspect-[3/4] w-full overflow-hidden">
+                  <div className="aspect-[4/5] w-full overflow-hidden">
                     <Picture
                       source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}
-                      sizes="(min-width:768px) 25vw, 50vw"
+                      sizes="(min-width:768px) 33vw, 50vw"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
                     />
                   </div>
                   <figcaption
-                    className="mt-3 text-[11px] uppercase tracking-[0.3em]"
+                    className="mt-2 text-[10px] uppercase tracking-[0.3em]"
                     style={{ color: INK }}
                   >
                     {label}
@@ -846,6 +843,7 @@ export function AboutPage() {
               </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
