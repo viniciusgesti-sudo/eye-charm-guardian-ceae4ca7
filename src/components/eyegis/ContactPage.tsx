@@ -1030,8 +1030,10 @@ export function ContactPage() {
           </div>
         </div>
       </section>
+      </details>
 
       {/* FINAL CTA */}
+
       <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
