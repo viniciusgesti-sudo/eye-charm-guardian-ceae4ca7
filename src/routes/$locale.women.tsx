@@ -7,7 +7,6 @@ import heroClaritySrc from "@/assets/products/solene-front.jpg?w=768;1200;1920&f
 
 import { Collection } from "@/components/eyegis/Collection";
 import { FAQ } from "@/components/eyegis/FAQ";
-import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -96,7 +95,6 @@ function WomenPage() {
 
       />
       <Collection audience="women" />
-      <MacroTriptych audience="women" />
       <ShopOnAmazon />
       <FAQ compact />
 
