@@ -969,69 +969,53 @@ header a[href*="amazon"]:focus-visible,
 /* Global headline cap — applies to ALL viewports (not just compact ≤900px tall).
    Neutralizes inline text-[NNpx]/text-[NNvw] on giant editorial headlines so
    pages don't ship 100–150px H1/H2 on typical laptops (900–1080px tall). */
-@media (min-width: 768px) and (max-width: 1600px) {
-  h1[class*="text-["],
-  .font-editorial[class*="text-["],
-  h1.font-editorial {
+@media (min-width: 768px) and (max-width: 1700px) {
+  /* Blanket cap on every heading — high specificity via body prefix so it beats
+     Tailwind arbitrary utilities like md:text-[64px] (0,1,0). */
+  body h1, body h1[class], body h1.font-editorial {
     font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important;
     line-height: 1.08 !important;
     letter-spacing: -0.02em !important;
   }
-  h2[class*="text-["],
-  h2.font-editorial {
+  body h2, body h2[class], body h2.font-editorial {
     font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important;
     line-height: 1.12 !important;
     letter-spacing: -0.015em !important;
   }
-  h3[class*="text-["],
-  h3.font-editorial {
+  body h3, body h3[class], body h3.font-editorial {
     font-size: clamp(0.98rem, 1.4vw, 1.2rem) !important;
     line-height: 1.22 !important;
   }
-
-  /* Catch Tailwind size utilities that escape the [class*="text-["] selector. */
-  h1[class*="text-5xl"], h1[class*="text-6xl"], h1[class*="text-7xl"],
-  h1[class*="text-8xl"], h1[class*="text-9xl"],
-  .font-editorial[class*="text-5xl"],
-  .font-editorial[class*="text-6xl"],
-  .font-editorial[class*="text-7xl"],
-  .font-editorial[class*="text-8xl"],
-  .font-editorial[class*="text-9xl"] {
-    font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.02em !important;
-  }
-  h2[class*="text-5xl"], h2[class*="text-6xl"], h2[class*="text-7xl"],
-  h2[class*="text-8xl"], h2[class*="text-9xl"] {
-    font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.015em !important;
-  }
-  h3[class*="text-4xl"], h3[class*="text-5xl"],
-  h3[class*="text-6xl"], h3[class*="text-7xl"] {
-    font-size: clamp(0.98rem, 1.5vw, 1.25rem) !important;
-    line-height: 1.22 !important;
-  }
-
-  /* Non-heading elements (<div>/<span>) used as display type. */
-  div.font-editorial[class*="text-5xl"],
-  div.font-editorial[class*="text-6xl"],
-  div.font-editorial[class*="text-7xl"],
-  div.font-editorial[class*="text-8xl"],
-  div.font-editorial[class*="text-9xl"],
-  span.font-editorial[class*="text-5xl"],
-  span.font-editorial[class*="text-6xl"],
-  span.font-editorial[class*="text-7xl"] {
+  /* Non-heading display type (<div>/<span>.font-editorial acting as title) */
+  body div.font-editorial[class*="text-"],
+  body span.font-editorial[class*="text-"] {
     font-size: clamp(1.25rem, 2.1vw, 1.85rem) !important;
     line-height: 1.08 !important;
   }
-
-  /* Hero H1 — slightly larger than section H1s but still contained. */
-  [data-hero] h1 {
+  /* Hero H1 slightly larger than section H1s */
+  body [data-hero] h1 {
     font-size: clamp(1.5rem, 2.6vw, 2.35rem) !important;
     line-height: 1.05 !important;
   }
+
+  /* Legacy fallback for non-heading display type only (<div>/<span>).
+     Heading tags are already covered by the `body h1/h2/h3` block above —
+     do NOT re-target them here, or the `.font-editorial[class*="text-5xl"]`
+     specificity (0,2,0) will beat `body h2` (0,0,2) and re-inflate H2/H3. */
+  body div.font-editorial[class*="text-5xl"],
+  body div.font-editorial[class*="text-6xl"],
+  body div.font-editorial[class*="text-7xl"],
+  body div.font-editorial[class*="text-8xl"],
+  body div.font-editorial[class*="text-9xl"],
+  body span.font-editorial[class*="text-5xl"],
+  body span.font-editorial[class*="text-6xl"],
+  body span.font-editorial[class*="text-7xl"] {
+    font-size: clamp(1.25rem, 2.1vw, 1.85rem) !important;
+    line-height: 1.08 !important;
+  }
 }
+
+
 
 @media (min-width: 1024px) and (max-width: 1600px) and (max-height: 900px) {
   :root {
@@ -1100,17 +1084,18 @@ header a[href*="amazon"]:focus-visible,
   section h1,
   [data-hero] h1,
   [data-page-hero] h1,
-  h1.font-editorial { font-size: clamp(1.6rem, 3vw, 2.5rem) !important; }
+  h1.font-editorial { font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important; }
 
   section h2,
   [data-hero] h2,
   [data-page-hero] h2,
-  h2.font-editorial { font-size: clamp(1.3rem, 2.4vw, 1.9rem) !important; }
+  h2.font-editorial { font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important; }
 
   section h3, [data-hero] h3, [data-page-hero] h3 {
-    font-size: clamp(1.05rem, 1.6vw, 1.35rem) !important;
-    line-height: 1.2;
+    font-size: clamp(0.98rem, 1.4vw, 1.2rem) !important;
+    line-height: 1.22;
   }
+
 
   section p, [data-hero] p, [data-page-hero] p { line-height: 1.5; }
 
@@ -1146,14 +1131,25 @@ header a[href*="amazon"]:focus-visible,
      font-editorial as a headline). Keeps compact laptops readable even
      when a component hasn't migrated to the type-* tokens yet. */
   h1[class*="text-["],
-  h2[class*="text-["],
-  .font-editorial[class*="text-["] {
-    font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
+  h1.font-editorial[class*="text-"] {
+    font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important;
     line-height: 1.08 !important;
   }
-  h3[class*="text-["] {
-    font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
-    line-height: 1.2 !important;
+  h2[class*="text-["],
+  h2.font-editorial[class*="text-"] {
+    font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important;
+    line-height: 1.12 !important;
+  }
+  h3[class*="text-["],
+  h3.font-editorial[class*="text-"] {
+    font-size: clamp(0.98rem, 1.4vw, 1.2rem) !important;
+    line-height: 1.22 !important;
+  }
+  /* Non-heading .font-editorial display type only. */
+  div.font-editorial[class*="text-["],
+  span.font-editorial[class*="text-["] {
+    font-size: clamp(1.25rem, 2.1vw, 1.85rem) !important;
+    line-height: 1.08 !important;
   }
 
   /* Cap any inline pixel/viewport fixed heights that force full-screen media
