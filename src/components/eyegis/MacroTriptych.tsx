@@ -119,7 +119,7 @@ export function MacroTriptych({ audience, className = "" }: Props) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-3 gap-3 md:gap-5">
           {tiles.map((t, i) => {
             const c = copy.tiles[t.key];
             return (
@@ -127,23 +127,23 @@ export function MacroTriptych({ audience, className = "" }: Props) {
                 key={t.key}
                 className="group overflow-hidden rounded-sm bg-paper ring-1 ring-ink/10"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-ink/[0.04]">
+                <div className="relative aspect-square md:aspect-[5/4] overflow-hidden bg-ink/[0.04]">
                   <Picture
                     source={t.src}
                     alt={t.alt}
-                    sizes="(min-width:1024px) 32vw, (min-width:768px) 45vw, 92vw"
-                    className="h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width:1024px) 32vw, (min-width:768px) 32vw, 32vw"
+                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
                     priority={i === 0 ? false : false}
                   />
                 </div>
-                <figcaption className="p-6 md:p-7">
+                <figcaption className="p-4 md:p-5">
                   <span className="font-eyebrow text-[10px] tracking-[0.28em] text-teal">
                     {c.tag}
                   </span>
-                  <h3 className="mt-3 font-editorial text-xl md:text-2xl leading-tight">
+                  <h3 className="mt-2 font-editorial text-base md:text-lg leading-tight">
                     {c.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-ink/65 line-clamp-3">
                     {c.body}
                   </p>
                 </figcaption>
@@ -151,6 +151,7 @@ export function MacroTriptych({ audience, className = "" }: Props) {
             );
           })}
         </div>
+
       </div>
     </section>
   );
