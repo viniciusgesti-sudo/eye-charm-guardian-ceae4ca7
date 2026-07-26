@@ -855,8 +855,10 @@ export function ShippingPage() {
           ))}
         </div>
       </section>
+      </details>
 
       {/* 08 — OFFICIAL AMAZON STORE */}
+
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-30">
           <Picture
