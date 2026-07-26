@@ -821,20 +821,20 @@ export function AboutPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {c.people.labels.map((label, i) => (
-              <Reveal key={label} delay={(i % 4) * 100}>
+          <div className="mt-12 grid grid-cols-2 gap-3 md:mt-16 md:grid-cols-3 md:gap-4">
+            {c.people.labels.slice(0, 6).map((label, i) => (
+              <Reveal key={label} delay={(i % 3) * 100}>
                 <figure className="group relative overflow-hidden">
-                  <div className="aspect-[3/4] w-full overflow-hidden">
+                  <div className="aspect-[4/5] w-full overflow-hidden">
                     <Picture
                       source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}
-                      sizes="(min-width:768px) 25vw, 50vw"
+                      sizes="(min-width:768px) 33vw, 50vw"
                       className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
                     />
                   </div>
                   <figcaption
-                    className="mt-3 text-[11px] uppercase tracking-[0.3em]"
+                    className="mt-2 text-[10px] uppercase tracking-[0.3em]"
                     style={{ color: INK }}
                   >
                     {label}
@@ -843,6 +843,7 @@ export function AboutPage() {
               </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
