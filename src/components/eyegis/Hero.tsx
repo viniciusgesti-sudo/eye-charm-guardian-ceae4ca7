@@ -124,23 +124,34 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
-        <div className="relative z-20 bg-ink px-5 py-7 text-center md:pointer-events-none md:absolute md:inset-x-0 md:bottom-40 md:bg-transparent md:px-10 md:py-0 lg:bottom-40">
+        {/* Top contrast scrim — guarantees readable text without touching faces/glasses */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh]"
+        />
+
+        {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
+        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-28 md:px-10">
           <div className="mx-auto w-full max-w-5xl">
-            <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em]">
+            <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
               <span className="min-w-0 truncate">{t.eyebrow}</span>
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-[19ch] text-balance font-editorial text-[clamp(1.55rem,6.4vw,2.15rem)] font-extralight leading-[1.08] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.75)] sm:max-w-[24ch] md:max-w-[28ch] md:text-[clamp(2.3rem,4.3vw,3.85rem)] md:leading-[1.05]">
+            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(2.2rem,4.1vw,3.5rem)] md:leading-[1.05]">
               {t.headline}
             </h1>
-
-            <p className="mx-auto mt-4 max-w-xl text-balance font-sans text-sm leading-6 text-paper/72 drop-shadow-[0_2px_20px_rgba(0,0,0,0.65)] sm:text-base md:hidden lg:block lg:leading-7 lg:text-paper/78">
-              {t.manifesto}
-            </p>
           </div>
         </div>
+
+        {/* Manifesto — bottom center, desktop only, small and quiet */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:block">
+          <p className="mx-auto max-w-lg text-balance font-sans text-[13px] leading-6 text-paper/78 [text-shadow:0_2px_18px_rgba(0,0,0,0.7)]">
+            {t.manifesto}
+          </p>
+        </div>
+
 
         {/* RIGHT — WOMEN */}
         <Link
