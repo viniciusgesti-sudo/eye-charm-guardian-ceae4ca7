@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { buildSeo } from "@/lib/seo";
 
-import { OurTechnology } from "@/components/eyegis/OurTechnology";
-
+const OurTechnology = lazy(() =>
+  import("@/components/eyegis/OurTechnology").then((m) => ({ default: m.OurTechnology })),
+);
 const TechCore = lazy(() =>
   import("@/components/eyegis/TechCore").then((m) => ({ default: m.TechCore })),
 );
