@@ -82,15 +82,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate min-h-screen w-full overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-[72svh] w-full overflow-hidden bg-ink text-paper"
     >
-      <div className="relative grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
+      <div className="relative grid min-h-[72svh] w-full grid-cols-1 md:grid-cols-2">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-screen"
+          className="group relative block min-h-[46svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[72svh]"
         >
           <Picture
             source={heroSaoPaulo}
@@ -158,7 +158,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-screen"
+          className="group relative block min-h-[46svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[72svh]"
         >
           <Picture
             source={heroParis}
