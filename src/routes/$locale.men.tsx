@@ -6,11 +6,9 @@ import heroZenith from "@/assets/hero-zenith-man.jpg?url";
 import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
-import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
-import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -25,11 +23,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
+      "Acetato preto, hastes douradas, silhueta discreta — do escritório à noite.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Masculina — Eyegis",
     metaDesc:
-      "Coleção Masculina Eyegis: acetato preto brilhante, hastes douradas e lente E-Guard Retina™. Filtragem seletiva de luz azul para o dia digital.",
+      "Coleção Masculina Eyegis: acetato preto, hastes douradas. Silhueta discreta para o dia digital.",
   },
   en: {
     eyebrow: "Collection · Men",
@@ -40,11 +38,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
+      "Glossy black acetate, gold temples, a discreet silhouette — office to nightfall.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Men's Collection — Eyegis",
     metaDesc:
-      "Eyegis Men's Collection: glossy black acetate, gold temples and E-Guard Retina™ lenses. Selective blue-light filtering for the digital day.",
+      "Eyegis Men's Collection: glossy black acetate with gold temples. A discreet silhouette for the digital day.",
   },
   fr: {
     eyebrow: "Collection · Homme",
@@ -55,11 +53,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
+      "Acétate noir, branches dorées, silhouette discrète — du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Homme — Eyegis",
     metaDesc:
-      "Collection Homme Eyegis : acétate noir brillant, branches dorées et verres E-Guard Retina™. Filtrage sélectif de la lumière bleue pour la journée numérique.",
+      "Collection Homme Eyegis : acétate noir brillant et branches dorées. Silhouette discrète pour la journée numérique.",
   },
 } as const;
 
@@ -98,9 +96,6 @@ function MenPage() {
       <Collection audience="men" />
       <LifestyleUniverse audience="men" compact />
       <ModelRunway audience="men" />
-      <MacroTriptych audience="men" />
-
-      <EyegisGuard audience="men" />
       <ShopOnAmazon />
       <FAQ />
     </>
