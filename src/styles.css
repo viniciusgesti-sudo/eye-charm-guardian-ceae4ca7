@@ -966,6 +966,34 @@ header a[href*="amazon"]:focus-visible,
    Reduces vertical rhythm and hero heights so full sections fit a notebook.
    Larger monitors keep the normal layout untouched.
    ========================================================================== */
+/* Global headline cap — applies to ALL viewports (not just compact ≤900px tall).
+   Neutralizes inline text-[NNpx]/text-[NNvw] on giant editorial headlines so
+   pages don't ship 100–150px H1/H2 on typical laptops (900–1080px tall). */
+@media (min-width: 768px) and (max-width: 1600px) {
+  h1[class*="text-["],
+  .font-editorial[class*="text-["],
+  h1.font-editorial {
+    font-size: clamp(1.75rem, 3.4vw, 3rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
+  }
+  h2[class*="text-["],
+  h2.font-editorial {
+    font-size: clamp(1.45rem, 2.8vw, 2.35rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.015em !important;
+  }
+  h3[class*="text-["] {
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
+    line-height: 1.2 !important;
+  }
+  /* Cap the specific hero <h1> in Hero.tsx that uses type-hero token too */
+  [data-hero] h1 {
+    font-size: clamp(1.9rem, 3.6vw, 3.25rem) !important;
+    line-height: 1.02 !important;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1600px) and (max-height: 900px) {
   :root {
     --compact-scale: 0.68;
