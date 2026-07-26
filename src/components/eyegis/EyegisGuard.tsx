@@ -650,7 +650,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const lensMacro =
     audience === "men" ? lensMacroMen : audience === "kids" ? lensMacroKids : lensMacroWomen;
   return (
-    <section id="technology" className="relative bg-paper text-ink">
+    <section id="technology" className="relative bg-paper text-ink overflow-x-clip">
+
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">
         <Reveal>
           <IndexMark n="§ 04" label={copy.intro.section} />
@@ -701,7 +702,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-20">
             <Reveal className="lg:col-span-3">
               <IndexMark n="02" label={copy.s02.label} />
@@ -717,8 +718,11 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <Spectrum filteredLabel={copy.s02.filteredLabel} />
+            <div className="overflow-x-clip px-6 md:px-10">
+              <Spectrum filteredLabel={copy.s02.filteredLabel} />
+            </div>
           </Reveal>
+
           <Reveal delay={400}>
             <p className="mt-16 max-w-2xl font-editorial italic text-ink/60 text-lg leading-relaxed">{copy.s02.quote}</p>
           </Reveal>
