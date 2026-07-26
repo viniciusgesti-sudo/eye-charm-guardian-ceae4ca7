@@ -127,11 +127,11 @@ export function Hero({ locale }: Props) {
         {/* Top contrast scrim — guarantees readable text without touching faces/glasses */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh]"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh] lg:h-[30vh]"
         />
 
         {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
-        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-28 md:px-10">
+        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-24 md:px-10 lg:top-20">
           <div className="mx-auto w-full max-w-5xl">
             <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
@@ -139,7 +139,7 @@ export function Hero({ locale }: Props) {
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(2.2rem,4.1vw,3.5rem)] md:leading-[1.05]">
+            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.9rem,3.2vw,2.75rem)] md:leading-[1.06] lg:text-[clamp(2rem,2.4vw,2.85rem)]">
               {t.headline}
             </h1>
           </div>
