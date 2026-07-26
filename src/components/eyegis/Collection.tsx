@@ -482,9 +482,9 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-12 lg:gap-12 lg:px-14">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-10 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-6`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[4/5]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[16/11]">
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
@@ -709,7 +709,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
   return (
     <section id="preview" className="bg-paper text-ink border-t border-ink/10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-28 md:pt-40 pb-24 md:pb-36">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-20 pb-14 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
           <Reveal className="lg:col-span-7">
             <div className="flex items-center gap-4 text-ink/60">
@@ -717,7 +717,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
               <span className="h-px w-8 bg-ink/25" />
               <span className="font-eyebrow">{copy.preview.eyebrow}</span>
             </div>
-            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
+            <h3 className="mt-5 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-h1">
               {copy.preview.headline1}
               <br />
               <span className="italic text-teal">{copy.preview.headline2}</span>
@@ -731,7 +731,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
           </Reveal>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-ink/10 pt-6">
+        <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-ink/10 pt-5">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
             <span className="mr-2 font-eyebrow text-[10px] text-ink/50">{copy.preview.filterLabel}</span>
             {availableFilters.map((f) => {
@@ -776,7 +776,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
         <div
           ref={scrollerRef}
-          className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
+          className="mt-8 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-4"
           style={{ scrollbarWidth: "thin" }}
         >
           {visible.map((p, i) => (
@@ -1105,7 +1105,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
     <section className="relative bg-teal-deep text-paper">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-52 text-center">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-16 md:py-24 text-center">
         <Reveal>
           <div className="flex items-center justify-center gap-4 text-paper/60">
             <span className="h-px w-14 bg-paper/30" />
@@ -1115,7 +1115,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={180}>
-          <h3 className="mt-12 font-editorial text-paper text-balance-tight text-fluid-hero leading-[0.95]">
+          <h3 className="mt-6 font-editorial text-paper text-balance-tight text-fluid-h1 leading-[0.95]">
             {copy.closing.headline1}
             <br />
             <span className="italic text-mint">{copy.closing.headline2}</span>
@@ -1123,13 +1123,13 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={340}>
-          <p className="mx-auto mt-8 max-w-xl font-light text-base md:text-lg leading-relaxed text-paper/70">
+          <p className="mx-auto mt-5 max-w-xl font-light text-sm md:text-base leading-relaxed text-paper/70">
             {copy.closing.lead}
           </p>
         </Reveal>
 
         <Reveal delay={480}>
-          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#preview"
               className="cta-lift group inline-flex items-center justify-between gap-6 rounded-full bg-paper px-8 py-5 min-w-[280px] text-teal-deep shadow-[0_20px_50px_-20px_rgba(249,249,249,0.35)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-sand-warm"
@@ -1153,7 +1153,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={640}>
-          <div className="mt-16 flex items-center justify-center gap-4 font-eyebrow text-[9px] text-paper/50">
+          <div className="mt-10 flex items-center justify-center gap-4 font-eyebrow text-[9px] text-paper/50">
             <span>{copy.closing.est}</span>
             <span className="block h-px w-10 bg-paper/25" />
             <span>{copy.closing.cities}</span>
@@ -1174,7 +1174,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
   return (
     <section id="collections" className="relative">
       <div className="bg-paper text-ink border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-16 md:pb-24">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-8 md:pb-12">
           <Reveal>
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
@@ -1183,7 +1183,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
             </div>
           </Reveal>
 
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end">
             <Reveal delay={120} className="lg:col-span-8">
               <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
                 {copy.introHeadline1}
