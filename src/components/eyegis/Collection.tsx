@@ -1115,7 +1115,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={180}>
-          <h3 className="mt-12 font-editorial text-paper text-balance-tight text-fluid-hero leading-[0.95]">
+          <h3 className="mt-6 font-editorial text-paper text-balance-tight text-fluid-h1 leading-[0.95]">
             {copy.closing.headline1}
             <br />
             <span className="italic text-mint">{copy.closing.headline2}</span>
