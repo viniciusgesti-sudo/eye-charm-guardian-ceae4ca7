@@ -869,3 +869,34 @@ header a[href*="amazon"]:focus-visible,
   transform: none !important;
 }
 
+
+/* -------- Global type down-scale --------
+   User feedback: fonts were consistently too large across pages.
+   Override Tailwind's default XL scale (including responsive variants
+   like md:text-6xl) with tighter clamp()s so headings breathe without
+   dominating the viewport. Uses attribute selector so md:/lg:/xl:
+   prefixed classes are matched too. */
+[class*="text-4xl"] {
+  font-size: clamp(1.5rem, 2.6vw + 0.4rem, 2rem) !important;
+  line-height: 1.15 !important;
+}
+[class*="text-5xl"] {
+  font-size: clamp(1.75rem, 3vw + 0.4rem, 2.375rem) !important;
+  line-height: 1.12 !important;
+}
+[class*="text-6xl"] {
+  font-size: clamp(1.875rem, 3.4vw + 0.4rem, 2.75rem) !important;
+  line-height: 1.1 !important;
+}
+[class*="text-7xl"] {
+  font-size: clamp(2rem, 3.8vw + 0.4rem, 3.125rem) !important;
+  line-height: 1.08 !important;
+}
+[class*="text-8xl"] {
+  font-size: clamp(2.125rem, 4.2vw + 0.4rem, 3.5rem) !important;
+  line-height: 1.06 !important;
+}
+[class*="text-9xl"] {
+  font-size: clamp(2.25rem, 4.6vw + 0.4rem, 3.875rem) !important;
+  line-height: 1.05 !important;
+}
