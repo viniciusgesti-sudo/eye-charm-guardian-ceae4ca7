@@ -9,12 +9,6 @@ import heroClarity from "@/assets/hero-paris-eyegis.jpg?w=640;1024;1600&format=a
 
 
 // Below-the-fold sections are lazy-loaded to shrink the initial home chunk.
-const HowItWorks = lazy(() =>
-  import("@/components/eyegis/HowItWorks").then((m) => ({ default: m.HowItWorks })),
-);
-const Universe = lazy(() =>
-  import("@/components/eyegis/Universe").then((m) => ({ default: m.Universe })),
-);
 const HonestScienceTeaser = lazy(() =>
   import("@/components/eyegis/HonestScienceTeaser").then((m) => ({ default: m.HonestScienceTeaser })),
 );
@@ -24,6 +18,7 @@ const ShopOnAmazon = lazy(() =>
 const FAQ = lazy(() =>
   import("@/components/eyegis/FAQ").then((m) => ({ default: m.FAQ })),
 );
+
 
 
 const META = {
@@ -79,12 +74,11 @@ function HomePage() {
       <Hero locale={locale} />
       <TrustStrip />
       <Suspense fallback={<SectionFallback />}>
-        <HowItWorks />
-        <Universe />
         <HonestScienceTeaser />
         <ShopOnAmazon />
         <FAQ />
       </Suspense>
+
     </>
   );
 }
