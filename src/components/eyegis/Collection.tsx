@@ -463,7 +463,7 @@ const TONE_STYLES: Record<
   },
 };
 
-function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number; copy: Copy }) {
+function CollectionSection({ meta, i, copy, compact = false }: { meta: CollectionMeta; i: number; copy: Copy; compact?: boolean }) {
   const t = TONE_STYLES[meta.tone];
   const { ref, visible } = useReveal<HTMLDivElement>();
   const textOrder = meta.align === "right" ? "lg:order-1" : "lg:order-2";
@@ -483,13 +483,13 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid min-h-[52vh] max-w-[1600px] grid-cols-1 items-center gap-8 px-6 py-8 md:px-10 md:py-10 lg:grid-cols-12 lg:gap-12 lg:px-14">
-        <div className={`relative ${imageOrder} lg:col-span-7`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[5/6] lg:aspect-[4/5]">
+      <div className={`mx-auto grid ${compact ? "min-h-[32vh] gap-6 py-6 md:py-8 lg:gap-10" : "min-h-[52vh] gap-8 py-8 md:py-10 lg:gap-12"} max-w-[1600px] grid-cols-1 items-center px-6 md:px-10 lg:grid-cols-12 lg:px-14`}>
+        <div className={`relative ${imageOrder} ${compact ? "lg:col-span-6" : "lg:col-span-7"}`}>
+          <div className={`relative w-full overflow-hidden bg-teal-deep/10 ${compact ? "aspect-[16/10] md:aspect-[3/2] lg:aspect-[16/10]" : "aspect-[4/5] md:aspect-[5/6] lg:aspect-[4/5]"}`}>
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
-              sizes="(min-width:1024px) 58vw, 100vw"
+              sizes={compact ? "(min-width:1024px) 45vw, 100vw" : "(min-width:1024px) 58vw, 100vw"}
               className={`h-full w-full object-cover will-change-transform transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
@@ -503,7 +503,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
           </div>
         </div>
 
-        <div className={`${textOrder} lg:col-span-5`}>
+        <div className={`${textOrder} ${compact ? "lg:col-span-6" : "lg:col-span-5"}`}>
           <Reveal delay={120}>
             <div className={`flex items-center gap-3 font-eyebrow ${t.eyebrow}`}>
               <span className={t.script}>N° {meta.index}</span>
@@ -514,7 +514,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 
           <Reveal delay={220}>
             <h3
-              className={`mt-8 font-editorial leading-[0.92] text-balance-tight text-fluid-hero ${t.text}`}
+              className={`${compact ? "mt-4 text-fluid-h2" : "mt-8 text-fluid-hero"} font-editorial leading-[0.95] text-balance-tight ${t.text}`}
             >
               {c.headline}
               <br />
@@ -523,32 +523,34 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
           </Reveal>
 
           <Reveal delay={340}>
-            <p className={`mt-8 max-w-md font-light text-base md:text-lg leading-relaxed ${t.muted}`}>
+            <p className={`${compact ? "mt-4 text-sm md:text-base" : "mt-8 text-base md:text-lg"} max-w-md font-light leading-relaxed ${t.muted}`}>
               {c.supporting}
             </p>
           </Reveal>
 
-          <Reveal delay={440}>
-            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-              {c.highlights.map((h) => (
-                <li
-                  key={h}
-                  className={`flex items-baseline gap-3 border-t ${
-                    meta.tone === "teal" ? "border-paper/20" : "border-ink/15"
-                  } pt-3`}
-                >
-                  <span className={`font-eyebrow text-[9px] ${t.script}`}>•</span>
-                  <span className={`text-sm ${t.text}`}>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          {!compact && (
+            <Reveal delay={440}>
+              <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                {c.highlights.map((h) => (
+                  <li
+                    key={h}
+                    className={`flex items-baseline gap-3 border-t ${
+                      meta.tone === "teal" ? "border-paper/20" : "border-ink/15"
+                    } pt-3`}
+                  >
+                    <span className={`font-eyebrow text-[9px] ${t.script}`}>•</span>
+                    <span className={`text-sm ${t.text}`}>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          )}
 
           <Reveal delay={560}>
-            <div className="mt-12 flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className={`${compact ? "mt-6" : "mt-12"} flex flex-col md:flex-row items-start md:items-center gap-4`}>
               <a
                 href="#preview"
-                className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[240px] max-w-full transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
+                className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full ${compact ? "px-6 py-3 min-w-[200px]" : "px-8 py-5 min-w-[240px]"} max-w-full transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
               >
                 <span className="font-eyebrow">{c.primaryCta}</span>
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-current/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
@@ -560,7 +562,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-3 rounded-full px-6 py-4 ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
+                className={`group inline-flex items-center gap-3 rounded-full ${compact ? "px-5 py-2.5" : "px-6 py-4"} ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
               >
                 <span className="font-eyebrow">{copy.buyOnAmazon}</span>
                 <IconExternal className="opacity-70 transition-opacity group-hover:opacity-100" />
@@ -568,16 +570,19 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
             </div>
           </Reveal>
 
-          <Reveal delay={680}>
-            <p className={`mt-6 font-eyebrow text-[9px] ${t.eyebrow}`}>
-              {copy.amazonNote}
-            </p>
-          </Reveal>
+          {!compact && (
+            <Reveal delay={680}>
+              <p className={`mt-6 font-eyebrow text-[9px] ${t.eyebrow}`}>
+                {copy.amazonNote}
+              </p>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------- PRODUCT PREVIEW ---------- */
 type GalleryShot = { src: PictureSource; thumb: PictureSource; alt: string; label: string };
@@ -711,29 +716,31 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
   return (
     <section id="preview" className="bg-paper text-ink border-t border-ink/10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-16 pb-14 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
-          <Reveal className="lg:col-span-7">
-            <div className="flex items-center gap-4 text-ink/60">
-              <span className="font-eyebrow text-teal">§ 06</span>
-              <span className="h-px w-8 bg-ink/25" />
-              <span className="font-eyebrow">{copy.preview.eyebrow}</span>
-            </div>
-            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
-              {copy.preview.headline1}
-              <br />
-              <span className="italic text-teal">{copy.preview.headline2}</span>
-            </h3>
-          </Reveal>
+      <div className={`mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 ${audience ? "pt-8 md:pt-10 pb-10 md:pb-12" : "pt-14 md:pt-16 pb-14 md:pb-16"}`}>
+        {!audience && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
+            <Reveal className="lg:col-span-7">
+              <div className="flex items-center gap-4 text-ink/60">
+                <span className="font-eyebrow text-teal">§ 06</span>
+                <span className="h-px w-8 bg-ink/25" />
+                <span className="font-eyebrow">{copy.preview.eyebrow}</span>
+              </div>
+              <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
+                {copy.preview.headline1}
+                <br />
+                <span className="italic text-teal">{copy.preview.headline2}</span>
+              </h3>
+            </Reveal>
 
-          <Reveal delay={200} className="lg:col-span-5">
-            <p className="max-w-md font-light text-base md:text-lg leading-relaxed text-ink/70">
-              {copy.preview.lead}
-            </p>
-          </Reveal>
-        </div>
+            <Reveal delay={200} className="lg:col-span-5">
+              <p className="max-w-md font-light text-base md:text-lg leading-relaxed text-ink/70">
+                {copy.preview.lead}
+              </p>
+            </Reveal>
+          </div>
+        )}
 
-        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-ink/10 pt-6">
+        <div className={`${audience ? "" : "mt-12"} flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-ink/10 pt-5`}>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
             <span className="mr-2 font-eyebrow text-[10px] text-ink/50">{copy.preview.filterLabel}</span>
             {availableFilters.map((f) => {
@@ -756,44 +763,60 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
             })}
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollLeft}
-            >
-              <IconArrow className="rotate-180" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollRight}
-            >
-              <IconArrow />
-            </button>
-          </div>
-        </div>
-
-        <div
-          ref={scrollerRef}
-          className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
-          style={{ scrollbarWidth: "thin" }}
-        >
-          {visible.map((p, i) => (
-            <ProductCard key={p.id} p={p} i={i} copy={copy} />
-          ))}
-          {visible.length === 0 && (
-            <div className="w-full py-10 text-center font-eyebrow text-ink/50">
-              {copy.preview.empty}
+          {!audience && (
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => scrollBy(-1)}
+                className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
+                aria-label={copy.preview.scrollLeft}
+              >
+                <IconArrow className="rotate-180" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollBy(1)}
+                className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
+                aria-label={copy.preview.scrollRight}
+              >
+                <IconArrow />
+              </button>
             </div>
           )}
         </div>
+
+        {audience ? (
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {visible.map((p, i) => (
+              <ProductCard key={p.id} p={p} i={i} copy={copy} compact />
+            ))}
+            {visible.length === 0 && (
+              <div className="w-full py-10 text-center font-eyebrow text-ink/50 col-span-full">
+                {copy.preview.empty}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div
+            ref={scrollerRef}
+            className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
+            style={{ scrollbarWidth: "thin" }}
+          >
+            {visible.map((p, i) => (
+              <ProductCard key={p.id} p={p} i={i} copy={copy} />
+            ))}
+            {visible.length === 0 && (
+              <div className="w-full py-10 text-center font-eyebrow text-ink/50">
+                {copy.preview.empty}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
 
 function Lightbox({
   shots,
@@ -932,7 +955,7 @@ function Lightbox({
   );
 }
 
-function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) {
+function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: number; copy: Copy; compact?: boolean }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const pc = copy.products[p.productKey];
   const shots: GalleryShot[] = p.gallery.length > 0
@@ -948,12 +971,13 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
     <article
       ref={ref}
       data-card
-      className={`group snap-start shrink-0 w-[85vw] sm:w-[420px] md:w-[440px] lg:w-[460px] transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`group ${compact ? "w-full" : "snap-start shrink-0 w-[85vw] sm:w-[420px] md:w-[440px] lg:w-[460px]"} transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       style={{ transitionDelay: `${i * 80}ms` }}
     >
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
+      <div className={`relative w-full overflow-hidden bg-paper-warm ${compact ? "aspect-[4/5]" : "aspect-[4/5]"}`}>
+
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -1042,34 +1066,39 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
         )}
       </div>
 
-      <div className="mt-6">
+      <div className={compact ? "mt-3" : "mt-6"}>
         <div className="flex items-baseline justify-between gap-3">
           <span className="font-eyebrow text-[10px] text-ink/50">
             {pc.collection} · {pc.city}
           </span>
           <span className="h-px flex-1 bg-ink/15" />
         </div>
-        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">{pc.name}</h4>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
-          {pc.description}
-        </p>
+        <h4 className={`mt-2 font-editorial text-ink ${compact ? "text-lg md:text-xl" : "text-2xl md:text-3xl"}`}>{pc.name}</h4>
+        {!compact && (
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
+            {pc.description}
+          </p>
+        )}
 
-        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-eyebrow text-[9px] text-ink/55">
-          <span>{copy.preview.warranty}</span>
-          <span className="opacity-40">/</span>
-          <span>{copy.preview.comfort}</span>
-        </div>
+        {!compact && (
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-eyebrow text-[9px] text-ink/55">
+            <span>{copy.preview.warranty}</span>
+            <span className="opacity-40">/</span>
+            <span>{copy.preview.comfort}</span>
+          </div>
+        )}
 
-        <div className="mt-6 flex items-center gap-4">
+        <div className={`${compact ? "mt-3" : "mt-6"} flex items-center gap-4`}>
           <a
             href={AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal"
+            className={`cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink ${compact ? "px-4 py-2" : "px-6 py-3"} text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal`}
           >
             <span className="font-eyebrow">{copy.buyOnAmazon}</span>
             <IconExternal className="opacity-80" />
           </a>
+
           {p.pdpPath ? (
             <Link
               to={p.pdpPath}
@@ -1208,8 +1237,9 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
       )}
 
       {collections.map((meta, i) => (
-        <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} />
+        <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} compact={!!audience} />
       ))}
+
 
       <ProductPreview copy={copy} audience={audience} />
 
