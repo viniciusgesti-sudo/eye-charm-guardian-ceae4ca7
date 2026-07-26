@@ -31,12 +31,12 @@ const COPY = {
     men: {
       tag: "São Paulo · Night",
       product: "Men's Collection",
-      cta: "Enter the Men's Collection",
+      cta: "View Collection",
     },
     women: {
       tag: "Paris · Golden Hour",
       product: "Women's Collection",
-      cta: "Enter the Women's Collection",
+      cta: "View Collection",
     },
   },
   PT: {
@@ -46,12 +46,12 @@ const COPY = {
     men: {
       tag: "São Paulo · Noite",
       product: "Coleção Masculina",
-      cta: "Entrar na Coleção Masculina",
+      cta: "Ver coleção",
     },
     women: {
       tag: "Paris · Hora Dourada",
       product: "Coleção Feminina",
-      cta: "Entrar na Coleção Feminina",
+      cta: "Ver coleção",
     },
   },
   FR: {
@@ -61,12 +61,12 @@ const COPY = {
     men: {
       tag: "São Paulo · Nuit",
       product: "Collection Homme",
-      cta: "Entrer dans la Collection Homme",
+      cta: "Voir la collection",
     },
     women: {
       tag: "Paris · Heure Dorée",
       product: "Collection Femme",
-      cta: "Entrer dans la Collection Femme",
+      cta: "Voir la collection",
     },
   },
 } as const;
@@ -180,9 +180,8 @@ export function Hero({ locale }: Props) {
             </div>
           </div>
 
-          <div className="inline-flex min-h-11 max-w-[42vw] shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-mint sm:max-w-none sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
-            <span className="hidden max-w-[28ch] truncate xl:inline">{t.men.cta}</span>
-            <span className="max-w-[16ch] truncate xl:hidden">{t.men.product}</span>
+          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-mint sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
+            <span className="whitespace-nowrap">{t.men.cta}</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
@@ -203,9 +202,8 @@ export function Hero({ locale }: Props) {
             </div>
           </div>
 
-          <div className="inline-flex min-h-11 max-w-[42vw] shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-champagne sm:max-w-none sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
-            <span className="hidden max-w-[28ch] truncate xl:inline">{t.women.cta}</span>
-            <span className="max-w-[16ch] truncate xl:hidden">{t.women.product}</span>
+          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-champagne sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
+            <span className="whitespace-nowrap">{t.women.cta}</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
