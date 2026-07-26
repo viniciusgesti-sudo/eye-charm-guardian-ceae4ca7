@@ -1153,7 +1153,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={640}>
-          <div className="mt-16 flex items-center justify-center gap-4 font-eyebrow text-[9px] text-paper/50">
+          <div className="mt-10 flex items-center justify-center gap-4 font-eyebrow text-[9px] text-paper/50">
             <span>{copy.closing.est}</span>
             <span className="block h-px w-10 bg-paper/25" />
             <span>{copy.closing.cities}</span>
