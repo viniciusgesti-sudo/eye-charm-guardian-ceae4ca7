@@ -94,7 +94,7 @@ function KidsPage() {
       <Collection audience="kids" />
       <MacroTriptych audience="kids" />
       <ShopOnAmazon />
-      <FAQ />
+      <FAQ compact />
 
     </>
   );
