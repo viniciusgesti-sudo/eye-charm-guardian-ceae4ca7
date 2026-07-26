@@ -90,7 +90,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-screen"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroSaoPaulo}
@@ -100,7 +100,7 @@ export function Hero({ locale }: Props) {
             width={1280}
             height={1920}
             /* keep the glasses/eyes area in view on both mobile and desktop */
-            className="absolute inset-0 h-full w-full object-cover object-[47%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[47%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate] lg:object-[47%_42%]"
           />
           <div
             aria-hidden
