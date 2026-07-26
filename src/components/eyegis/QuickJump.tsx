@@ -1,6 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Cpu, Eye, Info } from "lucide-react";
+import { useEffect } from "react";
 import { useI18n } from "@/i18n/context";
+
 
 /**
  * Sticky anchor / quick-jump bar under the header.
@@ -20,7 +22,19 @@ export function QuickJump() {
 
   // Hide the strip when the visitor is already on one of these pages.
   const onTargetPage = items.some((i) => pathname.endsWith(i.match));
+
+  // Sync a body attribute so global scroll-padding-top drops the QuickJump
+  // share on pages where the strip is not rendered.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.dataset.quickjump = onTargetPage ? "off" : "on";
+    return () => {
+      delete document.body.dataset.quickjump;
+    };
+  }, [onTargetPage]);
+
   if (onTargetPage) return null;
+
 
   return (
     <nav
