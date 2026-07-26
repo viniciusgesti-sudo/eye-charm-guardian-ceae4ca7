@@ -543,13 +543,13 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
           </Reveal>
 
           <Reveal delay={560}>
-            <div className="mt-12 flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <a
                 href="#preview"
-                className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[240px] max-w-full transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
+                className={`cta-lift group inline-flex items-center justify-between gap-4 rounded-full px-5 py-3 min-w-[200px] max-w-full text-xs transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
               >
                 <span className="font-eyebrow">{c.primaryCta}</span>
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-current/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-current/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
                   →
                 </span>
               </a>
