@@ -977,7 +977,7 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
       }`}
       style={{ transitionDelay: `${i * 80}ms` }}
     >
-      <div className={`relative w-full overflow-hidden bg-paper-warm ${compact ? "aspect-[4/5]" : "aspect-[4/5]"}`}>
+      <div className={`relative w-full overflow-hidden bg-paper-warm ${compact ? "aspect-[3/4]" : "aspect-[4/5]"}`}>
 
         <button
           type="button"
