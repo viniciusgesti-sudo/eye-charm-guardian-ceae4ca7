@@ -2,32 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { buildSeo } from "@/lib/seo";
 
-const OurTechnology = lazy(() =>
-  import("@/components/eyegis/OurTechnology").then((m) => ({ default: m.OurTechnology })),
-);
+// Above-the-fold intro stays eager so the page hero is fully SSR/hydrated.
+import { OurTechnology } from "@/components/eyegis/OurTechnology";
+
+// Everything below the hero is behind a tabbed deep-dive to keep the page
+// short (target ~7 screens vs. the previous ~27). See TechnologyDeepDive
+// for the tab wiring and lazy panels.
 const TechCore = lazy(() =>
   import("@/components/eyegis/TechCore").then((m) => ({ default: m.TechCore })),
 );
-const HonestScience = lazy(() =>
-  import("@/components/eyegis/HonestScience").then((m) => ({ default: m.HonestScience })),
-);
-const SpectrumSignature = lazy(() =>
-  import("@/components/eyegis/SpectrumSignature").then((m) => ({ default: m.SpectrumSignature })),
-);
-const ScienceInPractice = lazy(() =>
-  import("@/components/eyegis/ScienceInPractice").then((m) => ({ default: m.ScienceInPractice })),
-);
-const EyegisGuard = lazy(() =>
-  import("@/components/eyegis/EyegisGuard").then((m) => ({ default: m.EyegisGuard })),
-);
-const HowItWorks = lazy(() =>
-  import("@/components/eyegis/HowItWorks").then((m) => ({ default: m.HowItWorks })),
+const TechnologyDeepDive = lazy(() =>
+  import("@/components/eyegis/TechnologyDeepDive").then((m) => ({
+    default: m.TechnologyDeepDive,
+  })),
 );
 const ShopOnAmazon = lazy(() =>
   import("@/components/eyegis/ShopOnAmazon").then((m) => ({ default: m.ShopOnAmazon })),
 );
-
-
 
 const META = {
   br: {
@@ -67,17 +58,14 @@ function TechnologyPage() {
   return (
     <>
       <OurTechnology />
-      <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}>
+      <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden />}>
         <TechCore />
-        <SpectrumSignature />
-        <HonestScience />
-        <ScienceInPractice />
-        <EyegisGuard />
-        <HowItWorks />
+        <TechnologyDeepDive />
         <ShopOnAmazon />
       </Suspense>
     </>
   );
 }
+
 
 
