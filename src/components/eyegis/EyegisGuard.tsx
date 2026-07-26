@@ -718,8 +718,11 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <Spectrum filteredLabel={copy.s02.filteredLabel} />
+            <div className="overflow-x-clip px-6 md:px-10">
+              <Spectrum filteredLabel={copy.s02.filteredLabel} />
+            </div>
           </Reveal>
+
           <Reveal delay={400}>
             <p className="mt-16 max-w-2xl font-editorial italic text-ink/60 text-lg leading-relaxed">{copy.s02.quote}</p>
           </Reveal>
