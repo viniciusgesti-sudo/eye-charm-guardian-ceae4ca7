@@ -1123,7 +1123,7 @@ function FinalTransition({ copy }: { copy: Copy }) {
         </Reveal>
 
         <Reveal delay={340}>
-          <p className="mx-auto mt-8 max-w-xl font-light text-base md:text-lg leading-relaxed text-paper/70">
+          <p className="mx-auto mt-5 max-w-xl font-light text-sm md:text-base leading-relaxed text-paper/70">
             {copy.closing.lead}
           </p>
         </Reveal>
