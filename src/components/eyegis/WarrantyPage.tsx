@@ -574,7 +574,7 @@ export function WarrantyPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[52vh] w-full overflow-hidden">
+      <section data-page-hero className="relative min-h-[52vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
