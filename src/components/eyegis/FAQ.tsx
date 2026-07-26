@@ -112,7 +112,10 @@ const COPY: Record<Lang, Copy> = {
     eyebrow: "Perguntas Frequentes",
     titleLead: "Ainda tem dúvidas?",
     titleAccent: "Estamos aqui para responder.",
+    viewAll: "Ver todas as perguntas",
+    showLess: "Mostrar menos",
     items: [
+
       { iconKey: "microscope", q: "Como funciona a filtragem seletiva, na prática?", a: "Honest Science™, em palavras simples: as lentes E-Guard Retina™ e E-Guard Circadian™ atuam apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna — deixando o restante do espectro passar, para que você continue vendo as cores como elas são. Não é uma lente tingida nem um filtro sobre a realidade. Descrevemos o que a lente faz opticamente, não como você deve se sentir ao usá-la." },
       { iconKey: "people",     q: "Para quem os óculos Eyegis foram pensados?",     a: "Para qualquer pessoa que passa horas significativas diante de telas — trabalhando, estudando, criando, jogando, transmitindo ou navegando. A Eyegis foi desenhada em torno de diferentes estilos de vida e níveis de exposição digital, das horas focadas do dia (E-Guard Retina™) ao uso noturno antes de dormir (E-Guard Circadian™)." },
       { iconKey: "headset",    q: "Os óculos são compatíveis com fones e headsets gamers?", a: "Sim. Nossas armações em TR90 são leves e finas nas hastes, pensadas para longas sessões e uso confortável com a maioria dos fones over-ear e headsets gamers." },
