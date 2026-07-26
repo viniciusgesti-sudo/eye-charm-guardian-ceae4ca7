@@ -482,9 +482,9 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-12 lg:gap-12 lg:px-14">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-10 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-6`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[4/5]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[16/11]">
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
