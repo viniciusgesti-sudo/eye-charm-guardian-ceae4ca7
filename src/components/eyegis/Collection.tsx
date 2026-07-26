@@ -1174,7 +1174,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
   return (
     <section id="collections" className="relative">
       <div className="bg-paper text-ink border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-16 md:pb-24">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-8 md:pb-12">
           <Reveal>
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
@@ -1183,7 +1183,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
             </div>
           </Reveal>
 
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end">
             <Reveal delay={120} className="lg:col-span-8">
               <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
                 {copy.introHeadline1}
