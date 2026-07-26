@@ -106,7 +106,7 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="absolute inset-0 bg-[radial-gradient(110%_68%_at_44%_36%,transparent_0%,rgba(0,75,87,0.10)_58%,rgba(6,12,18,0.66)_100%),linear-gradient(180deg,rgba(6,12,18,0.34)_0%,rgba(6,12,18,0.04)_28%,rgba(6,12,18,0.10)_52%,rgba(6,12,18,0.78)_100%)]"
           />
-          <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 md:p-10 lg:p-12">
+          <div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-28 sm:p-7 sm:pt-32 md:p-10 lg:p-12">
             <div className="max-w-[500px]">
               <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-mint sm:tracking-[0.34em]">
                 <span className="inline-block h-px w-8 shrink-0 bg-mint/70 sm:w-10" />
@@ -144,7 +144,7 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="absolute inset-0 bg-[radial-gradient(110%_68%_at_55%_36%,transparent_0%,rgba(226,209,195,0.06)_58%,rgba(20,12,8,0.58)_100%),linear-gradient(180deg,rgba(20,12,8,0.22)_0%,rgba(20,12,8,0.02)_28%,rgba(20,12,8,0.10)_52%,rgba(20,12,8,0.74)_100%)]"
           />
-          <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 md:p-10 lg:p-12">
+          <div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-24 sm:p-7 sm:pt-28 md:p-10 lg:p-12">
             <div className="ml-auto max-w-[500px] text-left md:text-right">
               <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em] md:justify-end">
                 <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10 md:order-2" />
@@ -173,15 +173,15 @@ export function Hero({ locale }: Props) {
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 sm:top-24 sm:px-7 md:top-28 md:px-10">
+      <div className="pointer-events-none absolute inset-x-0 top-[54svh] z-20 -translate-y-1/2 px-5 sm:px-7 md:top-28 md:translate-y-0 md:px-10">
         <div className="mx-auto w-full max-w-5xl text-center">
-          <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em]">
+          <div className="mx-auto hidden min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em] md:flex">
             <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
             <span className="min-w-0 truncate">{t.eyebrow}</span>
             <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
           </div>
 
-          <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.9rem,7vw,3.35rem)] font-extralight leading-[1.05] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.55)] sm:max-w-[26ch] sm:text-[clamp(2.4rem,4.4vw,4.05rem)] md:max-w-[28ch]">
+          <h1 className="mx-auto max-w-[18ch] text-balance font-editorial text-[clamp(1.65rem,7vw,2.35rem)] font-extralight leading-[1.08] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.75)] sm:max-w-[24ch] md:mt-4 md:max-w-[28ch] md:text-[clamp(2.4rem,4.4vw,4.05rem)] md:leading-[1.05]">
             {t.headline}
           </h1>
         </div>
