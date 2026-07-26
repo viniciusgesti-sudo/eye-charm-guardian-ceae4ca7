@@ -786,7 +786,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
         </div>
 
         {audience ? (
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {visible.map((p, i) => (
               <ProductCard key={p.id} p={p} i={i} copy={copy} compact />
             ))}
@@ -796,6 +796,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
               </div>
             )}
           </div>
+
         ) : (
           <div
             ref={scrollerRef}
