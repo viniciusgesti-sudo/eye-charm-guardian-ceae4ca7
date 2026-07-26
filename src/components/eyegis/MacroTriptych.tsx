@@ -98,21 +98,28 @@ export function MacroTriptych({ audience, className = "" }: Props) {
       aria-labelledby="macro-triptych-title"
       className={`bg-paper-warm text-ink ${className}`}
     >
-      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-6 md:py-8">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 mb-5 md:mb-6">
-          <h2
-            id="macro-triptych-title"
-            className="font-editorial text-fluid-h2 leading-[1] text-ink"
-          >
-            {copy.title1}{" "}
-            <span className="italic text-teal-deep">{copy.accent}</span>
-          </h2>
-          <span className="font-eyebrow text-[10px] tracking-[0.28em] text-teal">
-            {copy.eyebrow}
-          </span>
+      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-24 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
+          <div className="lg:col-span-4">
+            <span className="font-eyebrow text-[11px] tracking-[0.28em] text-teal">
+              {copy.eyebrow}
+            </span>
+          </div>
+          <div className="lg:col-span-8">
+            <h2
+              id="macro-triptych-title"
+              className="font-editorial text-fluid-h1 leading-[0.95] text-ink text-balance"
+            >
+              {copy.title1}{" "}
+              <span className="italic text-teal-deep">{copy.accent}</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-ink/70">
+              {copy.lead}
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 md:gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {tiles.map((t, i) => {
             const c = copy.tiles[t.key];
             return (
@@ -124,26 +131,27 @@ export function MacroTriptych({ audience, className = "" }: Props) {
                   <Picture
                     source={t.src}
                     alt={t.alt}
-                    sizes="(min-width:1024px) 32vw, 32vw"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width:1024px) 32vw, (min-width:768px) 45vw, 92vw"
+                    className="h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
                     priority={i === 0 ? false : false}
                   />
                 </div>
-                <figcaption className="px-3 py-2">
-                  <span className="font-eyebrow text-[9px] tracking-[0.28em] text-teal">
+                <figcaption className="p-6 md:p-7">
+                  <span className="font-eyebrow text-[10px] tracking-[0.28em] text-teal">
                     {c.tag}
                   </span>
-                  <h3 className="mt-0.5 font-editorial text-sm md:text-[15px] leading-tight">
+                  <h3 className="mt-3 font-editorial text-xl md:text-2xl leading-tight">
                     {c.title}
                   </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                    {c.body}
+                  </p>
                 </figcaption>
               </figure>
             );
           })}
         </div>
-
       </div>
-
     </section>
   );
 }

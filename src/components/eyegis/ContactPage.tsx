@@ -632,7 +632,7 @@ export function ContactPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section data-page-hero className="relative min-h-[52vh] w-full overflow-hidden">
+      <section className="relative min-h-[74vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -649,7 +649,7 @@ export function ContactPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -677,13 +677,13 @@ export function ContactPage() {
       </section>
 
       {/* 01 — CONTACT OPTIONS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s1.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
+            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[72px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s1.title[0]}
@@ -724,16 +724,9 @@ export function ContactPage() {
         </div>
       </section>
 
-      <details open className="[&_summary::-webkit-details-marker]:hidden" style={{ background: OFFWHITE }}>
-        <summary className="mx-auto flex max-w-[1400px] cursor-pointer list-none items-center justify-between border-y px-6 py-6 text-[11px] uppercase tracking-[0.35em] md:px-12" style={{ color: MUTED, borderColor: "rgba(14,22,19,0.15)" }}>
-          <span>Mais detalhes · More details · Plus de détails</span>
-          <span aria-hidden>+</span>
-        </summary>
-
       {/* 02 — CONTACT FORM */}
-
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <div className="grid gap-16 md:grid-cols-12">
             <div className="md:col-span-5">
               <Reveal>
@@ -785,7 +778,7 @@ export function ContactPage() {
       </section>
 
       {/* 03 — CUSTOMER SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s3.rule} />
         </Reveal>
@@ -827,14 +820,14 @@ export function ContactPage() {
             loading="lazy" decoding="async"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
           <Reveal>
             <Rule label={c.s4.rule} light />
           </Reveal>
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
               <h2
-                className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[64px]"
+                className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[76px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.s4.title}
@@ -860,7 +853,7 @@ export function ContactPage() {
       </section>
 
       {/* 05 — SOCIAL MEDIA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s5.rule} />
         </Reveal>
@@ -906,7 +899,7 @@ export function ContactPage() {
 
       {/* 06 — BUSINESS HOURS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.s6.rule} />
           </Reveal>
@@ -944,7 +937,7 @@ export function ContactPage() {
       </section>
 
       {/* 07 — GLOBAL SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s7.rule} />
         </Reveal>
@@ -994,7 +987,7 @@ export function ContactPage() {
 
       {/* 08 — COMMON QUESTIONS QUICK LINKS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.s8.rule} />
           </Reveal>
@@ -1030,15 +1023,13 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-      </details>
 
       {/* FINAL CTA */}
-
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
-              className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[64px]"
+              className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[88px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.cta.title[0]}
@@ -1194,7 +1185,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
   if (status === "sent") {
     return (
       <div
-        className="flex min-h-[420px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
+        className="flex min-h-[560px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
         style={{ background: OFFWHITE }}
       >
         <div style={{ color: TEAL }}>

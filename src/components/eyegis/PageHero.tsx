@@ -45,11 +45,9 @@ export function PageHero({
   return (
     <section
       aria-label={typeof title === "string" ? title : eyebrow}
-      data-page-hero
-      className={`relative isolate flex min-h-[62svh] w-full items-end overflow-hidden ${
+      className={`relative isolate flex min-h-[86svh] w-full items-end overflow-hidden ${
         isDark ? "bg-ink text-paper" : "bg-paper text-ink"
       }`}
-
     >
       {bgSource ? (
         <Picture
@@ -83,7 +81,7 @@ export function PageHero({
       />
 
       <div
-        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 pb-16 md:px-10 md:pt-40 md:pb-20 ${
+        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-24 md:px-10 md:pt-56 md:pb-32 ${
           align === "center" ? "text-center" : "text-left"
         }`}
       >
@@ -96,13 +94,13 @@ export function PageHero({
           {eyebrow}
         </div>
 
-        <h1 className="mt-4 type-hero">
+        <h1 className="mt-6 font-editorial text-fluid-hero leading-[0.9] tracking-[-0.02em]">
           {title}
         </h1>
 
         {subtitle && (
           <p
-            className={`mt-4 max-w-xl type-lead ${
+            className={`mt-6 max-w-2xl font-sans text-fluid-lead leading-relaxed ${
               isDark ? "text-paper/80" : "text-ink/75"
             } ${align === "center" ? "mx-auto" : ""}`}
           >

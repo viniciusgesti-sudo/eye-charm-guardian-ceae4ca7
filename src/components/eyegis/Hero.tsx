@@ -82,16 +82,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      data-hero
-      className="relative isolate min-h-[72svh] w-full overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-screen w-full overflow-hidden bg-ink text-paper"
     >
-      <div className="relative grid min-h-[72svh] w-full grid-cols-1 md:grid-cols-2">
+      <div className="relative grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block min-h-[46svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[72svh]"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-screen"
         >
           <Picture
             source={heroSaoPaulo}
@@ -125,16 +124,14 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
-        {/* Mid contrast scrim — sits behind the headline band (mouth level),
-            keeps text legible without covering foreheads/eyes/glasses */}
+        {/* Top contrast scrim — guarantees readable text without touching faces/glasses */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-[42%] z-10 h-[22svh] bg-gradient-to-b from-transparent via-[rgba(6,12,18,0.55)] to-transparent md:top-[46%] md:h-[24vh]"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh]"
         />
 
-        {/* HEADLINE — mouth-level band, clears eyewear and eye-line */}
-        <div className="pointer-events-none absolute inset-x-0 top-[48%] z-20 px-5 text-center sm:top-[50%] sm:px-7 md:top-[52%] md:px-10">
-
+        {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
+        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-28 md:px-10">
           <div className="mx-auto w-full max-w-5xl">
             <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
@@ -142,7 +139,7 @@ export function Hero({ locale }: Props) {
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance type-hero font-extralight text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch]">
+            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(2.2rem,4.1vw,3.5rem)] md:leading-[1.05]">
               {t.headline}
             </h1>
           </div>
@@ -161,7 +158,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block min-h-[46svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[72svh]"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-screen"
         >
           <Picture
             source={heroParis}

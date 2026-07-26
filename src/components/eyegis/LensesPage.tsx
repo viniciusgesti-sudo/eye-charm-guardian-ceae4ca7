@@ -1,10 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
-
-const EyegisGuard = lazy(() =>
-  import("@/components/eyegis/EyegisGuard").then((m) => ({ default: m.EyegisGuard })),
-);
-
+import { useEffect, useRef, useState } from "react";
 
 import heroImg from "@/assets/contact-concierge.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
@@ -746,7 +741,7 @@ function Hero({ c }: { c: Copy }) {
             <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[64px]">
+            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[104px]">
               {c.hero.h1a}
               <span className="block italic text-teal">{c.hero.h1b}</span>
             </h1>
@@ -835,7 +830,7 @@ function HowToChoose({
   active: PersonaId;
 }) {
   return (
-    <section className="bg-paper-warm py-8 md:py-10">
+    <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
@@ -941,7 +936,7 @@ function ScoreBar({ v }: { v: number }) {
 
 function Comparison({ c }: { c: Copy }) {
   return (
-    <section id="compare" className="bg-paper py-8 md:py-10">
+    <section id="compare" className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.compare.eyebrow}</span>
@@ -1097,7 +1092,7 @@ function BeforeAfter({ c }: { c: Copy }) {
   }, []);
 
   return (
-    <section className="bg-paper-warm py-8 md:py-10">
+    <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-12">
           <div className="lg:col-span-6">
@@ -1185,7 +1180,7 @@ function BeforeAfter({ c }: { c: Copy }) {
 
 function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
   return (
-    <section className="bg-paper py-8 md:py-10">
+    <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
@@ -1264,7 +1259,7 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 function Faq({ c }: { c: Copy }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-paper-warm py-8 md:py-10">
+    <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.faq.eyebrow}</span>
@@ -1298,7 +1293,7 @@ function Faq({ c }: { c: Copy }) {
 
 function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
   return (
-    <section className="bg-paper py-8 md:py-10">
+    <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.reco.eyebrow}</span>
@@ -1386,7 +1381,7 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
 
 function FinalCta({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-teal-deep py-8 md:py-10 text-paper overflow-hidden">
+    <section className="relative bg-teal-deep py-20 md:py-28 text-paper overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(134,217,209,0.22),transparent_60%)]"
@@ -1396,7 +1391,7 @@ function FinalCta({ c }: { c: Copy }) {
           <span className="font-eyebrow text-mint">{c.cta.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[64px] leading-[0.94]">
+          <h2 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[96px] leading-[0.94]">
             {c.cta.h2a}
             <span className="block italic text-mint">{c.cta.h2b}</span>
           </h2>
@@ -1463,11 +1458,7 @@ export function LensesPage() {
       <HowToChoose c={c} active={active} onPick={setActive} />
       <Comparison c={c} />
       <BeforeAfter c={c} />
-      <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}> 
-        <EyegisGuard />
-      </Suspense>
       <WhoFor c={c} onPick={pickAndScroll} />
-
       <Faq c={c} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />

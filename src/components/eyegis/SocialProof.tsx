@@ -735,41 +735,39 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-16 md:mt-20">
-        {/* Uniform thumb grid — same aspect ratio for every tile, object-cover keeps
-            focal areas visible. Denser columns = shorter gallery on notebooks. */}
-        <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-6">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-20 md:mt-28">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
           {SHOTS.map((s, i) => {
             const caption = copy.captions[s.id] ?? s.id;
             return (
               <Reveal
                 key={s.id}
-                delay={Math.min(i, 8) * 40}
-                className="relative overflow-hidden rounded-md bg-paper-warm group"
+                delay={i * 60}
+                className={`col-span-2 ${s.span} relative overflow-hidden rounded-md bg-paper-warm group`}
               >
                 <button
                   type="button"
                   onClick={() => setOpen(s)}
-                  className="relative block h-full w-full text-left aspect-square bg-teal-deep/10"
+                  className="block h-full w-full text-left aspect-[3/4] bg-teal-deep/10"
                   aria-label={copy.lightbox.open(caption)}
                 >
                   <Picture
                     source={s.src}
                     alt={copy.alts[s.id] ?? s.alt}
-                    sizes="(min-width:1280px) 16vw, (min-width:1024px) 18vw, (min-width:640px) 25vw, 33vw"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
+                    sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+                    className="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between text-paper opacity-0 translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                    <div className="min-w-0">
-                      <div className="font-eyebrow text-[8px] tracking-[0.24em] text-mint truncate">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between text-paper opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                    <div>
+                      <div className="font-eyebrow text-[9px] text-mint">
                         {copy.collections[s.collectionKey]}
                       </div>
-                      <div className="mt-0.5 font-editorial text-[13px] leading-tight truncate">{caption}</div>
+                      <div className="mt-1 font-editorial text-lg leading-tight">{caption}</div>
                     </div>
                     <span
                       aria-hidden="true"
-                      className="ml-2 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper/15 backdrop-blur-md text-[11px]"
+                      className="grid h-9 w-9 place-items-center rounded-full bg-paper/15 backdrop-blur-md"
                     >
                       ↗
                     </span>
@@ -781,8 +779,7 @@ export function SocialProof() {
         </div>
       </div>
 
-
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-10 md:py-12">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40">
         <Reveal>
           <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
             <span className="text-teal">"</span>
@@ -809,7 +806,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="bg-paper-warm mt-28 md:mt-40 py-10 md:py-12">
+      <div className="bg-paper-warm mt-28 md:mt-40 py-28 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
@@ -904,12 +901,12 @@ export function SocialProof() {
       </div>
 
       <div className="mt-24 md:mt-32 bg-teal-deep text-paper">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-10 md:py-12 text-center">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40 text-center">
           <Reveal>
             <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h3 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[64px] leading-[0.92]">
+            <h3 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[104px] leading-[0.92]">
               {copy.finalHeadline1}
               <span className="block italic text-mint">{copy.finalHeadline2}</span>
             </h3>

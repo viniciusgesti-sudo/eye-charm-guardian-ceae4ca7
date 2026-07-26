@@ -3,9 +3,7 @@ import { Suspense, lazy, useEffect } from "react";
 
 const Footer = lazy(() => import("@/components/eyegis/Footer").then((m) => ({ default: m.Footer })));
 import { Header } from "@/components/eyegis/Header";
-
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
-
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -49,8 +47,6 @@ function LocaleLayout() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <Outlet />
-
-
       <Suspense fallback={null}><Footer /></Suspense>
       <StickyBuyBar />
       <Suspense fallback={null}>

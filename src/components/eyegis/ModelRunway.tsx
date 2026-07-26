@@ -233,7 +233,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
   if (looks.length === 0) return null;
 
   return (
-    <section id="models" className="relative overflow-hidden bg-paper-warm py-10 text-ink md:py-10" aria-labelledby="model-runway-title">
+    <section id="models" className="relative overflow-hidden bg-paper-warm py-24 text-ink md:py-32" aria-labelledby="model-runway-title">
 
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.06)_1px,transparent_1px),linear-gradient(180deg,rgba(29,37,45,0.05)_1px,transparent_1px)] bg-[size:120px_120px]" />
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
@@ -258,8 +258,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
           {looks.map((look, index) => (
             <article
               key={look.code}
-              data-runway
-              className="group relative grid min-h-[480px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
+              className="group relative grid min-h-[720px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
             >
               <Picture source={look.image} alt={look.alt} sizes="(min-width:1024px) 60vw, 90vw" priority={false} width={1600} height={2000} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.82)_0%,rgba(29,37,45,0.42)_42%,rgba(29,37,45,0.08)_100%)]" />

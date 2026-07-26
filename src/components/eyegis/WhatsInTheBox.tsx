@@ -59,12 +59,12 @@ export function WhatsInTheBox() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (
-    <section className="relative bg-sand/40 py-10 md:py-10">
+    <section className="relative bg-sand/40 py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <div className="mb-14 md:mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
             <span className="font-eyebrow text-teal">{c.eyebrow}</span>
-            <h2 className="mt-5 type-display text-ink">
+            <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-[10vw] sm:text-[7vw] md:text-[5vw] lg:text-[4vw] xl:text-[60px]">
               {c.title1}
               <span className="block italic text-teal">{c.title2}</span>
             </h2>

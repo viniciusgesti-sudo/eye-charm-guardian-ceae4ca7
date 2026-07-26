@@ -46,7 +46,7 @@ export function HowItWorks() {
   const c = COPY[lang];
 
   return (
-    <section className="relative bg-paper py-10 md:py-10">
+    <section className="relative bg-paper py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <div className="mb-14 md:mb-20 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div className="max-w-2xl">

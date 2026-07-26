@@ -85,7 +85,7 @@ export function ScienceInPractice() {
     >
       {/* HERO */}
       <div
-        className="relative overflow-hidden px-6 py-10 md:px-12 md:py-12"
+        className="relative overflow-hidden px-6 py-32 md:px-12 md:py-40"
         style={{
           background: `linear-gradient(160deg, ${INK} 0%, ${TEAL} 100%)`,
           color: PAPER,
@@ -165,7 +165,7 @@ export function ScienceInPractice() {
 
       {/* CHECKLIST */}
       <div
-        className="relative px-6 py-10 md:px-12 md:py-12"
+        className="relative px-6 py-28 md:px-12 md:py-36"
         style={{ background: PAPER }}
       >
         <div

@@ -547,7 +547,7 @@ export function ShippingPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section data-page-hero className="relative min-h-[52vh] w-full overflow-hidden">
+      <section className="relative min-h-[74vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -558,7 +558,7 @@ export function ShippingPage() {
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -567,7 +567,7 @@ export function ShippingPage() {
               </span>
             </Reveal>
             <Reveal delay={120}>
-              <h1 className="mt-6 text-[52px] leading-[0.95] tracking-[-0.02em] md:text-[64px] lg:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+              <h1 className="mt-6 text-[52px] leading-[0.95] tracking-[-0.02em] md:text-[120px] lg:text-[152px]" style={{ fontFamily: serif, fontWeight: 400 }}>
                 {c.hero.title[0]}
                 <br />
                 {c.hero.title[1]}
@@ -585,13 +585,13 @@ export function ShippingPage() {
       </section>
 
       {/* 01 — WHY AMAZON */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.why.rule} />
         </Reveal>
         <div className="mt-14 grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal delay={100} className="md:col-span-7">
-            <h2 className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+            <h2 className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px]" style={{ fontFamily: serif, fontWeight: 400 }}>
               {c.why.title}
             </h2>
           </Reveal>
@@ -624,21 +624,14 @@ export function ShippingPage() {
         </div>
       </section>
 
-      <details open className="[&_summary::-webkit-details-marker]:hidden" style={{ background: OFFWHITE }}>
-        <summary className="mx-auto flex max-w-[1400px] cursor-pointer list-none items-center justify-between border-y px-6 py-6 text-[11px] uppercase tracking-[0.35em] md:px-12" style={{ color: MUTED, borderColor: "rgba(14,22,19,0.15)" }}>
-          <span>Mais detalhes · More details · Plus de détails</span>
-          <span aria-hidden>+</span>
-        </summary>
-
       {/* 02 — HOW YOUR ORDER WORKS */}
-
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.steps.rule} />
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+            <h2 className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]" style={{ fontFamily: serif, fontWeight: 400 }}>
               {c.steps.title[0]}
               <br />
               {c.steps.title[1]}
@@ -673,7 +666,7 @@ export function ShippingPage() {
       </section>
 
       {/* 03 — DELIVERY */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.delivery.rule} />
         </Reveal>
@@ -705,7 +698,7 @@ export function ShippingPage() {
 
       {/* 04 — RETURNS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.returns.rule} />
           </Reveal>
@@ -740,7 +733,7 @@ export function ShippingPage() {
       </section>
 
       {/* 05 — COUNTRIES */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.countries.rule} />
         </Reveal>
@@ -784,7 +777,7 @@ export function ShippingPage() {
 
       {/* 06 — QUESTIONS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.faq.rule} />
           </Reveal>
@@ -807,7 +800,7 @@ export function ShippingPage() {
       </section>
 
       {/* 07 — CUSTOMER SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.support.rule} />
         </Reveal>
@@ -855,10 +848,8 @@ export function ShippingPage() {
           ))}
         </div>
       </section>
-      </details>
 
       {/* 08 — OFFICIAL AMAZON STORE */}
-
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-30">
           <Picture
@@ -869,14 +860,14 @@ export function ShippingPage() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
           <Reveal>
             <Rule label={c.store.rule} light />
           </Reveal>
 
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
-              <h2 className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}>
+              <h2 className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[92px]" style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}>
                 {c.store.title[0]}
                 <br />
                 {c.store.title[1]}

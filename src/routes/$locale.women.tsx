@@ -6,11 +6,14 @@ import heroClarity from "@/assets/products/solene-front.jpg?url";
 import heroClaritySrc from "@/assets/products/solene-front.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
+import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
+import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
+import { ModelRunway } from "@/components/eyegis/ModelRunway";
+import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
-
 
 const COPY = {
   br: {
@@ -22,7 +25,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Cat-eye em acetato tartaruga, shield-G dourado, lente E-Guard Circadian™.",
+      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Feminina — Eyegis",
     metaDesc:
@@ -37,7 +40,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Tortoise cat-eye acetate, gold shield-G, E-Guard Circadian™ lens.",
+      "A cat-eye in tortoise acetate, discreet gold shield-G on the temple, and an E-Guard Circadian™ lens — true color by day, warmer light at dusk.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Women's Collection — Eyegis",
     metaDesc:
@@ -52,7 +55,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Cat-eye acétate écaille, shield-G doré, verre E-Guard Circadian™.",
+      "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Femme — Eyegis",
     metaDesc:
@@ -95,9 +98,13 @@ function WomenPage() {
 
       />
       <Collection audience="women" />
-      <ShopOnAmazon />
-      <FAQ compact />
+      <LifestyleUniverse audience="women" compact />
+      <ModelRunway audience="women" />
+      <MacroTriptych audience="women" />
 
+      <EyegisGuard audience="women" />
+      <ShopOnAmazon />
+      <FAQ />
     </>
   );
 }

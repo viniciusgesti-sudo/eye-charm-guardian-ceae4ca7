@@ -607,7 +607,7 @@ export function TechCore() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
+      <div className="relative mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 md:mb-24">
           <div className="max-w-3xl">

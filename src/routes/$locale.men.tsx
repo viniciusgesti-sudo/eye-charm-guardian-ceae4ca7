@@ -6,7 +6,11 @@ import heroZenith from "@/assets/hero-zenith-man.jpg?url";
 import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
+import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
+import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
+import { ModelRunway } from "@/components/eyegis/ModelRunway";
+import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -21,7 +25,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acetato preto brilhante, hastes douradas, filtro E-Guard Retina™. Do escritório à noite.",
+      "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Masculina — Eyegis",
     metaDesc:
@@ -36,7 +40,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Glossy black acetate, gold temples, E-Guard Retina™ lens. Office to nightfall.",
+      "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Men's Collection — Eyegis",
     metaDesc:
@@ -51,7 +55,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acétate noir brillant, branches dorées, verre E-Guard Retina™. Du bureau à la nuit.",
+      "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Homme — Eyegis",
     metaDesc:
@@ -92,8 +96,13 @@ function MenPage() {
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="men" />
+      <LifestyleUniverse audience="men" compact />
+      <ModelRunway audience="men" />
+      <MacroTriptych audience="men" />
+
+      <EyegisGuard audience="men" />
       <ShopOnAmazon />
-      <FAQ compact />
+      <FAQ />
     </>
   );
 }

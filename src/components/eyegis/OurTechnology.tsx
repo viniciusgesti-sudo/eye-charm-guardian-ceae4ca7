@@ -272,7 +272,7 @@ export function OurTechnology() {
   return (
     <section
       id="our-technology"
-      className="relative overflow-hidden bg-[#F9F9F9] py-10 md:py-12"
+      className="relative overflow-hidden bg-[#F9F9F9] py-28 md:py-36"
     >
       {/* Grid backdrop */}
       <div
@@ -391,7 +391,7 @@ export function OurTechnology() {
 
         {/* Why Both Matter — champagne panel */}
         <div className="mt-24 md:mt-32">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-16 md:px-16 md:py-10">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-16 md:px-16 md:py-24">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.05]"
               style={{

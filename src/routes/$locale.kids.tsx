@@ -6,10 +6,12 @@ import kidsHero from "@/assets/collection-hero-kids.jpg?url";
 import kidsHeroSrc from "@/assets/collection-hero-kids.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 import { Collection } from "@/components/eyegis/Collection";
 import { FAQ } from "@/components/eyegis/FAQ";
+import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
+import { VsGenerics } from "@/components/eyegis/VsGenerics";
+import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
-
 
 const COPY = {
   br: {
@@ -21,7 +23,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Armações leves e resistentes com filtro de luz azul. Estudo, jogos e videoaulas.",
+      "Armações leves, flexíveis e resistentes com o mesmo padrão óptico dos adultos. Feitos para estudo, jogos e videoaulas — sem fadiga visual.",
     ctaLabel: "Ver coleção Kids",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
@@ -36,7 +38,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Lightweight, impact-resistant frames with blue-light filter. Study, gaming, class.",
+      "Lightweight, flexible, impact-resistant frames with the same optical grade as the adult lineup. Built for study, gaming, and remote learning.",
     ctaLabel: "Shop the Kids collection",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
@@ -51,7 +53,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Montures légères et résistantes avec filtre lumière bleue. Étude, jeu et cours.",
+      "Montures légères, flexibles et résistantes avec la même qualité optique que la gamme adulte. Pensées pour l'étude, le jeu et les cours à distance.",
     ctaLabel: "Voir la collection Enfants",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
@@ -91,9 +93,11 @@ function KidsPage() {
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="kids" />
+      <MacroTriptych audience="kids" />
+      <WhatsInTheBox />
+      <VsGenerics />
       <ShopOnAmazon />
-      <FAQ compact />
-
+      <FAQ />
     </>
   );
 }

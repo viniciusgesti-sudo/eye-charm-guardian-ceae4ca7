@@ -574,7 +574,7 @@ export function WarrantyPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section data-page-hero className="relative min-h-[52vh] w-full overflow-hidden">
+      <section className="relative min-h-[74vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -592,7 +592,7 @@ export function WarrantyPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
           <div className="max-w-[1100px]">
             <Reveal>
               <span className="text-[11px] uppercase tracking-[0.5em]" style={{ color: TEAL }}>
@@ -601,7 +601,7 @@ export function WarrantyPage() {
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
+                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[92px] lg:text-[116px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.hero.title[0]}
@@ -624,13 +624,13 @@ export function WarrantyPage() {
       </section>
 
       {/* 01 — OUR PROMISE */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.promise.rule} />
         </Reveal>
         <Reveal delay={120}>
           <h2
-            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
+            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[92px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.promise.title[0]}
@@ -667,16 +667,9 @@ export function WarrantyPage() {
         </div>
       </section>
 
-      <details open className="[&_summary::-webkit-details-marker]:hidden" style={{ background: OFFWHITE }}>
-        <summary className="mx-auto flex max-w-[1400px] cursor-pointer list-none items-center justify-between border-y px-6 py-6 text-[11px] uppercase tracking-[0.35em] md:px-12" style={{ color: MUTED, borderColor: "rgba(14,22,19,0.15)" }}>
-          <span>Mais detalhes · More details · Plus de détails</span>
-          <span aria-hidden>+</span>
-        </summary>
-
       {/* 02 — 2-YEAR WARRANTY */}
-
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.warranty.rule} />
           </Reveal>
@@ -715,7 +708,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 03 — NOT COVERED */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.notCovered.rule} />
         </Reveal>
@@ -748,7 +741,7 @@ export function WarrantyPage() {
 
       {/* 04 — 60-DAY COMFORT GUARANTEE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.comfort.rule} light />
           </Reveal>
@@ -756,7 +749,7 @@ export function WarrantyPage() {
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-center">
             <Reveal delay={120} className="md:col-span-7">
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
+                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[92px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.comfort.title[0]}
@@ -788,7 +781,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 05 — QUALITY CONTROL */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.qc.rule} />
         </Reveal>
@@ -845,13 +838,13 @@ export function WarrantyPage() {
 
       {/* 06 — CARE GUIDE */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.care.rule} />
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+              className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.care.title[0]}
@@ -881,7 +874,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 07 — NEED HELP */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.help.rule} />
         </Reveal>
@@ -931,10 +924,8 @@ export function WarrantyPage() {
           ))}
         </div>
       </section>
-      </details>
 
       {/* FINAL CTA */}
-
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
           <Picture
@@ -945,11 +936,11 @@ export function WarrantyPage() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
           <div className="grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <h2
-                className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[64px]"
+                className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[92px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.cta.title[0]}
