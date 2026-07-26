@@ -909,7 +909,7 @@ export function SocialProof() {
             <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h3 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[104px] leading-[0.92]">
+            <h3 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[64px] leading-[0.92]">
               {copy.finalHeadline1}
               <span className="block italic text-mint">{copy.finalHeadline2}</span>
             </h3>

@@ -683,7 +683,7 @@ export function ContactPage() {
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[72px]"
+            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s1.title[0]}
@@ -834,7 +834,7 @@ export function ContactPage() {
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
               <h2
-                className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[76px]"
+                className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.s4.title}
@@ -1038,7 +1038,7 @@ export function ContactPage() {
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
-              className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[88px]"
+              className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[64px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.cta.title[0]}
