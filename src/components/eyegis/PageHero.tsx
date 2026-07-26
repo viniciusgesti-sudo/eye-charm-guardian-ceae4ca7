@@ -83,7 +83,7 @@ export function PageHero({
       />
 
       <div
-        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-24 md:px-10 md:pt-56 md:pb-32 ${
+        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 pb-16 md:px-10 md:pt-40 md:pb-20 ${
           align === "center" ? "text-center" : "text-left"
         }`}
       >
@@ -96,13 +96,13 @@ export function PageHero({
           {eyebrow}
         </div>
 
-        <h1 className="mt-6 font-editorial text-fluid-hero leading-[0.9] tracking-[-0.02em]">
+        <h1 className="mt-4 font-editorial text-fluid-hero leading-[0.95] tracking-[-0.02em]">
           {title}
         </h1>
 
         {subtitle && (
           <p
-            className={`mt-6 max-w-2xl font-sans text-fluid-lead leading-relaxed ${
+            className={`mt-4 max-w-xl font-sans text-fluid-lead leading-snug ${
               isDark ? "text-paper/80" : "text-ink/75"
             } ${align === "center" ? "mx-auto" : ""}`}
           >
