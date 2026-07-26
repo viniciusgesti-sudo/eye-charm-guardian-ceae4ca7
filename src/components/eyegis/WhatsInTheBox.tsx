@@ -64,7 +64,7 @@ export function WhatsInTheBox() {
         <div className="mb-14 md:mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
             <span className="font-eyebrow text-teal">{c.eyebrow}</span>
-            <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-[10vw] sm:text-[7vw] md:text-[5vw] lg:text-[4vw] xl:text-[60px]">
+            <h2 className="mt-5 type-display text-ink">
               {c.title1}
               <span className="block italic text-teal">{c.title2}</span>
             </h2>
