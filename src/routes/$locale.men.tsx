@@ -22,7 +22,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acetato preto brilhante, hastes douradas e lente com filtro E-Guard Retina™. Silhueta discreta, testada em laboratório contra luz azul de alta energia — do escritório à noite.",
+      "Acetato preto brilhante, hastes douradas, filtro E-Guard Retina™. Do escritório à noite.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Masculina — Eyegis",
     metaDesc:
@@ -37,7 +37,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Glossy black acetate, gold temples and E-Guard Retina™ lens. A discreet silhouette, lab-tested against high-energy blue light — from office to nightfall.",
+      "Glossy black acetate, gold temples, E-Guard Retina™ lens. Office to nightfall.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Men's Collection — Eyegis",
     metaDesc:
@@ -52,7 +52,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Acétate noir brillant, branches dorées et verre E-Guard Retina™. Une silhouette discrète, testée en laboratoire contre la lumière bleue haute énergie — du bureau à la nuit.",
+      "Acétate noir brillant, branches dorées, verre E-Guard Retina™. Du bureau à la nuit.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Homme — Eyegis",
     metaDesc:
