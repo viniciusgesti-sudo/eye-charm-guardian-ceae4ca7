@@ -1,5 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+
+const EyegisGuard = lazy(() =>
+  import("@/components/eyegis/EyegisGuard").then((m) => ({ default: m.EyegisGuard })),
+);
+
 
 import heroImg from "@/assets/contact-concierge.jpg?w=640;960;1200;1600&format=avif;webp;jpg&as=picture";
 import { Picture } from "@/components/eyegis/Picture";
@@ -1458,7 +1463,11 @@ export function LensesPage() {
       <HowToChoose c={c} active={active} onPick={setActive} />
       <Comparison c={c} />
       <BeforeAfter c={c} />
+      <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden />}> 
+        <EyegisGuard />
+      </Suspense>
       <WhoFor c={c} onPick={pickAndScroll} />
+
       <Faq c={c} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />
