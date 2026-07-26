@@ -82,15 +82,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate min-h-screen w-full overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-[100svh] w-full overflow-hidden bg-ink text-paper lg:min-h-[min(100svh,780px)]"
     >
-      <div className="relative grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
+      <div className="relative grid min-h-[100svh] w-full grid-cols-1 md:grid-cols-2 lg:min-h-[min(100svh,780px)]">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-screen"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroSaoPaulo}
@@ -100,7 +100,7 @@ export function Hero({ locale }: Props) {
             width={1280}
             height={1920}
             /* keep the glasses/eyes area in view on both mobile and desktop */
-            className="absolute inset-0 h-full w-full object-cover object-[47%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[47%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate] lg:object-[47%_42%]"
           />
           <div
             aria-hidden
@@ -127,11 +127,11 @@ export function Hero({ locale }: Props) {
         {/* Top contrast scrim — guarantees readable text without touching faces/glasses */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh]"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh] lg:h-[30vh]"
         />
 
         {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
-        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-28 md:px-10">
+        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-24 md:px-10 lg:top-20">
           <div className="mx-auto w-full max-w-5xl">
             <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
@@ -139,14 +139,14 @@ export function Hero({ locale }: Props) {
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(2.2rem,4.1vw,3.5rem)] md:leading-[1.05]">
+            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.9rem,3.2vw,2.75rem)] md:leading-[1.06] lg:text-[clamp(2rem,2.4vw,2.85rem)]">
               {t.headline}
             </h1>
           </div>
         </div>
 
         {/* Manifesto — bottom center, desktop only, small and quiet */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:block">
+        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:bottom-24 lg:block xl:bottom-28">
           <p className="mx-auto max-w-lg text-balance font-sans text-[13px] leading-6 text-paper/78 [text-shadow:0_2px_18px_rgba(0,0,0,0.7)]">
             {t.manifesto}
           </p>
@@ -158,7 +158,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-screen"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroParis}
@@ -167,7 +167,7 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
             height={1920}
-            className="absolute inset-0 h-full w-full object-cover object-[53%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[53%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate] lg:object-[53%_42%]"
           />
           <div
             aria-hidden
