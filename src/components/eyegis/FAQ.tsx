@@ -232,7 +232,7 @@ function FaqCard({
   );
 }
 
-export function FAQ() {
+export function FAQ({ compact = false, initialLimit = 3 }: { compact?: boolean; initialLimit?: number } = {}) {
   const { lang } = useI18n();
   const c = COPY[lang] ?? COPY.EN;
   const items: FaqItem[] = c.items.map((it) => ({
@@ -241,6 +241,11 @@ export function FAQ() {
     icon: ICONS[it.iconKey],
   }));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const visible = compact && !expanded ? items.slice(0, initialLimit) : items;
+  const hasMore = compact && items.length > initialLimit;
+  const localePrefix = `/${lang.toLowerCase()}`;
 
   return (
     <section
@@ -272,8 +277,8 @@ export function FAQ() {
           />
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 md:mt-16">
-          {items.map((item, i) => (
+        <div className="mt-10 flex flex-col gap-4 md:mt-12">
+          {visible.map((item, i) => (
             <FaqCard
               key={item.q}
               item={item}
@@ -283,7 +288,36 @@ export function FAQ() {
             />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.28em] transition-colors"
+              style={{
+                background: expanded ? "transparent" : TEAL,
+                color: expanded ? TEAL : "#F9F9F9",
+                border: `1px solid ${TEAL}`,
+              }}
+            >
+              {expanded ? c.showLess : c.viewAll}
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              />
+            </button>
+            <Link
+              to="/$locale/faq"
+              params={{ locale: lang.toLowerCase() }}
+              className="font-mono text-[10px] uppercase tracking-[0.28em] underline-offset-4 hover:underline"
+              style={{ color: TEAL_DEEP }}
+            >
+              {c.eyebrow} →
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
