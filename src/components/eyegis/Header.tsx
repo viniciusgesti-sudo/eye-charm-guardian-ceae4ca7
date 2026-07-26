@@ -80,14 +80,17 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
         >
           <Logo
             priority
-            tone="light"
-            className="h-7 w-auto text-white [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.55))]"
+            tone={useInk ? "dark" : "light"}
+            className={`h-7 w-auto ${useInk ? "text-ink" : "text-white [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.55))]"}`}
           />
 
           <span
-            className="small-caps hidden whitespace-nowrap text-[9px] xl:inline text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]"
+            className={`small-caps hidden whitespace-nowrap text-[9px] xl:inline ${
+              useInk ? "text-muted-foreground" : "text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]"
+            }`}
           >
             {t("nav.opticalScience")}
+
           </span>
 
 
