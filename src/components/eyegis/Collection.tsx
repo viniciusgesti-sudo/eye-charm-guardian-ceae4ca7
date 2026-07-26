@@ -1237,8 +1237,9 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
       )}
 
       {collections.map((meta, i) => (
-        <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} />
+        <CollectionSection key={meta.id} meta={meta} i={i} copy={copy} compact={!!audience} />
       ))}
+
 
       <ProductPreview copy={copy} audience={audience} />
 
