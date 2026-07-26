@@ -1,6 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Cpu, Eye, Info } from "lucide-react";
+import { useEffect } from "react";
 import { useI18n } from "@/i18n/context";
+
 
 /**
  * Sticky anchor / quick-jump bar under the header.
