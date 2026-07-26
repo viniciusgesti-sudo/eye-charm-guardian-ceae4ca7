@@ -125,14 +125,16 @@ export function Hero({ locale }: Props) {
           </div>
         </Link>
 
-        {/* Top contrast scrim — guarantees readable text without touching faces/glasses */}
+        {/* Mid contrast scrim — sits behind the headline band (mouth level),
+            keeps text legible without covering foreheads/eyes/glasses */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[42svh] bg-gradient-to-b from-[rgba(6,12,18,0.85)] via-[rgba(6,12,18,0.45)] to-transparent md:h-[38vh]"
+          className="pointer-events-none absolute inset-x-0 top-[42%] z-10 h-[22svh] bg-gradient-to-b from-transparent via-[rgba(6,12,18,0.55)] to-transparent md:top-[46%] md:h-[24vh]"
         />
 
-        {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
-        <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-28 md:px-10">
+        {/* HEADLINE — mouth-level band, clears eyewear and eye-line */}
+        <div className="pointer-events-none absolute inset-x-0 top-[48%] z-20 px-5 text-center sm:top-[50%] sm:px-7 md:top-[52%] md:px-10">
+
           <div className="mx-auto w-full max-w-5xl">
             <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
