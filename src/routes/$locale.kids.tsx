@@ -22,7 +22,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Armações leves, flexíveis e resistentes com o mesmo padrão óptico dos adultos. Feitos para estudo, jogos e videoaulas — sem fadiga visual.",
+      "Armações leves e resistentes com filtro de luz azul. Estudo, jogos e videoaulas.",
     ctaLabel: "Ver coleção Kids",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
@@ -37,7 +37,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Lightweight, flexible, impact-resistant frames with the same optical grade as the adult lineup. Built for study, gaming, and remote learning.",
+      "Lightweight, impact-resistant frames with blue-light filter. Study, gaming, class.",
     ctaLabel: "Shop the Kids collection",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
@@ -52,7 +52,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Montures légères, flexibles et résistantes avec la même qualité optique que la gamme adulte. Pensées pour l'étude, le jeu et les cours à distance.",
+      "Montures légères et résistantes avec filtre lumière bleue. Étude, jeu et cours.",
     ctaLabel: "Voir la collection Enfants",
     metaTitle: "Kids & Teens — Eyegis",
     metaDesc:
