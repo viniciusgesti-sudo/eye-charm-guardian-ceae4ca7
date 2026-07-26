@@ -463,7 +463,7 @@ export function AboutPage() {
       }}
     >
       {/* HERO */}
-      <section data-page-hero className="relative min-h-[78vh] w-full overflow-hidden" style={{ background: "#0E1613" }}>
+      <section data-page-hero className="relative min-h-[62vh] w-full overflow-hidden" style={{ background: "#0E1613" }}>
         <div className="absolute inset-0">
           <Picture
             source={heroImgSrc}
