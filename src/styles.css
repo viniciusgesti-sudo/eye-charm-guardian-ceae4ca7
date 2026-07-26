@@ -305,6 +305,73 @@
   line-height: 1.55;
 }
 
+/* -------- Semantic typography tokens --------
+   Canonical names to reach for in components. All aliases resolve to the
+   fluid steps above so the compact-mode overrides at the bottom of this
+   file still apply. Prefer these over inline `text-[NNpx]` on H1/H2/H3.
+
+     type-hero      → landing hero H1
+     type-display   → editorial display H1 on interior pages
+     type-h1        → section-level H1
+     type-h2        → section headline
+     type-h3        → sub-headline / card title
+     type-lead      → intro paragraph after a headline
+     type-body      → default body copy
+     type-eyebrow   → uppercase kicker above a headline */
+@utility type-hero {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.5rem, 8.4vw + 0.25rem, 6.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+@utility type-display {
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 6vw + 0.25rem, 5.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+@utility type-h1 {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 4.4vw + 0.4rem, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+@utility type-h2 {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 2.6vw + 0.6rem, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+@utility type-h3 {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.25rem, 1.6vw + 0.6rem, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+  text-wrap: balance;
+}
+@utility type-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.25rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+@utility type-body {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9375rem, 0.35vw + 0.85rem, 1.0625rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+@utility type-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(0.6875rem, 0.15vw + 0.65rem, 0.75rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
 /* -------- CTA labels --------
    Guarantees readable label size + 48px minimum touch target. */
 @utility cta-label {
