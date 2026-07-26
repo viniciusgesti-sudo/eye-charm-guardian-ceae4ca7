@@ -139,7 +139,7 @@ export function Hero({ locale }: Props) {
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
-            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.75rem,6.4vw,2.35rem)] font-extralight leading-[1.08] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.9rem,3.2vw,2.75rem)] md:leading-[1.06] lg:text-[clamp(2rem,2.4vw,2.85rem)]">
+            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.375rem,5vw,1.875rem)] font-extralight leading-[1.1] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.5rem,2.4vw,2.125rem)] md:leading-[1.08] lg:text-[clamp(1.625rem,1.9vw,2.25rem)]">
               {t.headline}
             </h1>
           </div>
