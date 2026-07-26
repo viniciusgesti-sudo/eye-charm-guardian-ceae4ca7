@@ -558,7 +558,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-3 rounded-full px-6 py-4 ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
+                className={`group inline-flex items-center gap-2 rounded-full px-4 py-3 text-xs ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
               >
                 <span className="font-eyebrow">{copy.buyOnAmazon}</span>
                 <IconExternal className="opacity-70 transition-opacity group-hover:opacity-100" />
