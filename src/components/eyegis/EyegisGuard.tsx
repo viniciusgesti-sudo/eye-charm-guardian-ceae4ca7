@@ -650,7 +650,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const lensMacro =
     audience === "men" ? lensMacroMen : audience === "kids" ? lensMacroKids : lensMacroWomen;
   return (
-    <section id="technology" className="relative bg-paper text-ink">
+    <section id="technology" className="relative bg-paper text-ink overflow-x-clip">
+
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">
         <Reveal>
           <IndexMark n="§ 04" label={copy.intro.section} />
