@@ -96,13 +96,13 @@ export function PageHero({
           {eyebrow}
         </div>
 
-        <h1 className="mt-4 font-editorial text-fluid-hero leading-[0.95] tracking-[-0.02em]">
+        <h1 className="mt-4 type-hero">
           {title}
         </h1>
 
         {subtitle && (
           <p
-            className={`mt-4 max-w-xl font-sans text-fluid-lead leading-snug ${
+            className={`mt-4 max-w-xl type-lead ${
               isDark ? "text-paper/80" : "text-ink/75"
             } ${align === "center" ? "mx-auto" : ""}`}
           >
