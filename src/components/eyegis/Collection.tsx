@@ -717,7 +717,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
               <span className="h-px w-8 bg-ink/25" />
               <span className="font-eyebrow">{copy.preview.eyebrow}</span>
             </div>
-            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
+            <h3 className="mt-5 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-h1">
               {copy.preview.headline1}
               <br />
               <span className="italic text-teal">{copy.preview.headline2}</span>
