@@ -82,37 +82,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate w-full overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-screen w-full overflow-hidden bg-ink text-paper"
     >
-      <div className="relative z-20 grid min-h-[clamp(300px,36svh,390px)] w-full place-items-center border-b border-paper/10 bg-ink px-5 pt-24 pb-10 text-center sm:px-7 md:min-h-[clamp(330px,34svh,430px)] md:px-10 md:pt-28 md:pb-12">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em]">
-            <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
-            <span className="min-w-0 truncate">{t.eyebrow}</span>
-            <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
-          </div>
-
-          <h1 className="mx-auto mt-5 max-w-[22ch] text-balance font-editorial text-[clamp(2rem,8vw,3.45rem)] font-extralight leading-[1.08] text-paper sm:max-w-[26ch] sm:text-[clamp(2.55rem,5vw,4.35rem)] md:max-w-[28ch]">
-            {t.headline}
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-balance font-sans text-sm leading-7 text-paper/72 sm:text-base">
-            {t.manifesto}
-          </p>
-        </div>
-      </div>
-
-      {/*
-        Image panels stay completely clean: no headline, CTA, or metadata sits on
-        top of the faces/glasses area. Collection actions live in the band below.
-      */}
-      <div className="relative grid w-full grid-cols-1 md:grid-cols-2">
+      <div className="relative grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-[48svh] min-h-[390px] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint sm:min-h-[460px] md:h-[clamp(430px,52svh,620px)] md:min-h-0"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-screen"
         >
           <Picture
             source={heroSaoPaulo}
@@ -122,12 +100,28 @@ export function Hero({ locale }: Props) {
             width={1280}
             height={1920}
             /* keep the glasses/eyes area in view on both mobile and desktop */
-            className="absolute inset-0 h-full w-full object-cover object-[46%_32%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[47%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-left_28s_ease-in-out_infinite_alternate]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_28%_38%,rgba(0,75,87,0.22),transparent_62%),linear-gradient(180deg,rgba(10,18,24,0.16)_0%,rgba(10,18,24,0.28)_62%,rgba(10,18,24,0.54)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(110%_68%_at_44%_36%,transparent_0%,rgba(0,75,87,0.10)_58%,rgba(6,12,18,0.66)_100%),linear-gradient(180deg,rgba(6,12,18,0.34)_0%,rgba(6,12,18,0.04)_28%,rgba(6,12,18,0.10)_52%,rgba(6,12,18,0.78)_100%)]"
           />
+          <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 md:p-10 lg:p-12">
+            <div className="max-w-[500px]">
+              <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-mint sm:tracking-[0.34em]">
+                <span className="inline-block h-px w-8 shrink-0 bg-mint/70 sm:w-10" />
+                <span className="min-w-0 truncate">{t.men.tag}</span>
+              </div>
+              <div className="mt-4 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
+                <span className="min-w-0 truncate">{t.men.product}</span>
+              </div>
+              <div className="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink transition group-hover:bg-mint sm:px-6 sm:text-[11px] sm:tracking-[0.20em]">
+                <span className="whitespace-nowrap">{t.men.cta}</span>
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </div>
+          </div>
         </Link>
 
         {/* RIGHT — WOMEN */}
@@ -135,7 +129,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block h-[48svh] min-h-[390px] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne sm:min-h-[460px] md:h-[clamp(430px,52svh,620px)] md:min-h-0"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-screen"
         >
           <Picture
             source={heroParis}
@@ -144,12 +138,28 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
             height={1920}
-            className="absolute inset-0 h-full w-full object-cover object-[54%_32%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[53%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(120%_80%_at_72%_38%,rgba(226,209,195,0.16),transparent_62%),linear-gradient(180deg,rgba(28,20,14,0.12)_0%,rgba(28,20,14,0.28)_62%,rgba(28,20,14,0.52)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(110%_68%_at_55%_36%,transparent_0%,rgba(226,209,195,0.06)_58%,rgba(20,12,8,0.58)_100%),linear-gradient(180deg,rgba(20,12,8,0.22)_0%,rgba(20,12,8,0.02)_28%,rgba(20,12,8,0.10)_52%,rgba(20,12,8,0.74)_100%)]"
           />
+          <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 md:p-10 lg:p-12">
+            <div className="ml-auto max-w-[500px] text-left md:text-right">
+              <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em] md:justify-end">
+                <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10 md:order-2" />
+                <span className="min-w-0 truncate">{t.women.tag}</span>
+              </div>
+              <div className="mt-4 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
+                <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+                <span className="min-w-0 truncate">{t.women.product}</span>
+              </div>
+              <div className="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink transition group-hover:bg-champagne sm:px-6 sm:text-[11px] sm:tracking-[0.20em]">
+                <span className="whitespace-nowrap">{t.women.cta}</span>
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </div>
+          </div>
         </Link>
 
         {/* Seam divisor — scoped to image panels only. */}
@@ -163,50 +173,24 @@ export function Hero({ locale }: Props) {
         />
       </div>
 
-      <div className="relative z-20 grid border-y border-paper/10 bg-ink lg:grid-cols-2">
-        <Link
-          to="/$locale/men"
-          params={{ locale }}
-          className="group grid min-h-24 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-paper/10 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint sm:px-8 lg:min-h-28 lg:border-r lg:border-b-0 lg:px-10"
-        >
-          <div className="min-w-0">
-            <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-mint sm:tracking-[0.34em]">
-              <span className="inline-block h-px w-8 shrink-0 bg-mint/70 sm:w-10" />
-              <span className="min-w-0 truncate">{t.men.tag}</span>
-            </div>
-            <div className="mt-3 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
-              <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
-              <span className="min-w-0 truncate">{t.men.product}</span>
-            </div>
+      <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 sm:top-24 sm:px-7 md:top-28 md:px-10">
+        <div className="mx-auto w-full max-w-5xl text-center">
+          <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/72 sm:tracking-[0.38em]">
+            <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
+            <span className="min-w-0 truncate">{t.eyebrow}</span>
+            <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
           </div>
 
-          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-mint sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
-            <span className="whitespace-nowrap">{t.men.cta}</span>
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-          </div>
-        </Link>
+          <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.9rem,7vw,3.35rem)] font-extralight leading-[1.05] text-paper drop-shadow-[0_2px_28px_rgba(0,0,0,0.55)] sm:max-w-[26ch] sm:text-[clamp(2.4rem,4.4vw,4.05rem)] md:max-w-[28ch]">
+            {t.headline}
+          </h1>
+        </div>
+      </div>
 
-        <Link
-          to="/$locale/women"
-          params={{ locale }}
-          className="group grid min-h-24 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne sm:px-8 lg:min-h-28 lg:px-10"
-        >
-          <div className="min-w-0">
-            <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em]">
-              <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10" />
-              <span className="min-w-0 truncate">{t.women.tag}</span>
-            </div>
-            <div className="mt-3 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
-              <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
-              <span className="min-w-0 truncate">{t.women.product}</span>
-            </div>
-          </div>
-
-          <div className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition group-hover:bg-champagne sm:px-6 sm:text-[11px] sm:tracking-[0.18em] xl:tracking-[0.22em]">
-            <span className="whitespace-nowrap">{t.women.cta}</span>
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-          </div>
-        </Link>
+      <div className="pointer-events-none absolute inset-x-0 bottom-[10.5rem] z-20 hidden px-6 text-center md:block lg:bottom-40">
+        <p className="mx-auto max-w-xl text-balance font-sans text-sm leading-7 text-paper/78 drop-shadow-[0_2px_20px_rgba(0,0,0,0.65)] sm:text-base">
+          {t.manifesto}
+        </p>
       </div>
 
       {/* Mobile scroll cue */}
