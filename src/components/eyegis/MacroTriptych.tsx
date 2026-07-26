@@ -98,7 +98,7 @@ export function MacroTriptych({ audience, className = "" }: Props) {
       aria-labelledby="macro-triptych-title"
       className={`bg-paper-warm text-ink ${className}`}
     >
-      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-24 md:py-32">
+      <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-14 py-10 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 md:mb-16">
           <div className="lg:col-span-4">
             <span className="font-eyebrow text-[11px] tracking-[0.28em] text-teal">

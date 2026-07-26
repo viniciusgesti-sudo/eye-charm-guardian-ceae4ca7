@@ -779,7 +779,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-10 md:py-12">
         <Reveal>
           <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
             <span className="text-teal">"</span>
@@ -806,7 +806,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="bg-paper-warm mt-28 md:mt-40 py-28 md:py-40">
+      <div className="bg-paper-warm mt-28 md:mt-40 py-10 md:py-12">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
@@ -901,7 +901,7 @@ export function SocialProof() {
       </div>
 
       <div className="mt-24 md:mt-32 bg-teal-deep text-paper">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40 text-center">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-10 md:py-12 text-center">
           <Reveal>
             <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
           </Reveal>

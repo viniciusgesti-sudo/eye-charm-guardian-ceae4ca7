@@ -668,7 +668,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-24 md:py-36">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16 lg:mb-24">
             <Reveal className="lg:col-span-3">
               <IndexMark n="01" label={copy.s01.label} />
@@ -696,7 +696,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-20">
             <Reveal className="lg:col-span-3">
               <IndexMark n="02" label={copy.s02.label} />
@@ -721,7 +721,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
             <Reveal className="lg:col-span-3">
               <IndexMark n="03" label={copy.s03.label} />
@@ -752,7 +752,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
             <Reveal className="lg:col-span-3">
               <IndexMark n="04" label={copy.s04.label} />
@@ -798,7 +798,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-10 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
             <Reveal className="lg:col-span-3">
               <IndexMark n="05" label={copy.s05.label} />
@@ -840,7 +840,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-teal-deep text-paper">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-48">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-14">
           <Reveal>
             <IndexMark n="06" label={copy.s06.label} tone="dark" />
           </Reveal>

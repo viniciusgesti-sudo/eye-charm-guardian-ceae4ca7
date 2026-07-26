@@ -105,7 +105,7 @@ export function LiveStats() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-ink py-24 text-paper md:py-32"
+      className="relative overflow-hidden bg-ink py-10 text-paper md:py-10"
       aria-labelledby="live-stats-title"
     >
       {/* HUD grid */}

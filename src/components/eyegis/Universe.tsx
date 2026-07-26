@@ -514,7 +514,7 @@ export function Universe() {
 
       {/* --------- Champagne closing rule --------- */}
       <div className="bg-[var(--paper-warm)]">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-24 md:py-28 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-10 md:py-10 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <Reveal>
             <p className="font-editorial text-ink text-3xl md:text-4xl tracking-[-0.01em] leading-[1.05] max-w-[24ch]">
               {copy.closingLine}

@@ -632,7 +632,7 @@ export function ContactPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden">
+      <section className="relative min-h-[52vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -649,7 +649,7 @@ export function ContactPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -677,7 +677,7 @@ export function ContactPage() {
       </section>
 
       {/* 01 — CONTACT OPTIONS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.s1.rule} />
         </Reveal>
@@ -726,7 +726,7 @@ export function ContactPage() {
 
       {/* 02 — CONTACT FORM */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <div className="grid gap-16 md:grid-cols-12">
             <div className="md:col-span-5">
               <Reveal>
@@ -778,7 +778,7 @@ export function ContactPage() {
       </section>
 
       {/* 03 — CUSTOMER SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.s3.rule} />
         </Reveal>
@@ -820,7 +820,7 @@ export function ContactPage() {
             loading="lazy" decoding="async"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
           <Reveal>
             <Rule label={c.s4.rule} light />
           </Reveal>
@@ -853,7 +853,7 @@ export function ContactPage() {
       </section>
 
       {/* 05 — SOCIAL MEDIA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.s5.rule} />
         </Reveal>
@@ -899,7 +899,7 @@ export function ContactPage() {
 
       {/* 06 — BUSINESS HOURS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.s6.rule} />
           </Reveal>
@@ -937,7 +937,7 @@ export function ContactPage() {
       </section>
 
       {/* 07 — GLOBAL SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.s7.rule} />
         </Reveal>
@@ -987,7 +987,7 @@ export function ContactPage() {
 
       {/* 08 — COMMON QUESTIONS QUICK LINKS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.s8.rule} />
           </Reveal>
@@ -1025,7 +1025,7 @@ export function ContactPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
@@ -1185,7 +1185,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
   if (status === "sent") {
     return (
       <div
-        className="flex min-h-[560px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
+        className="flex min-h-[420px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
         style={{ background: OFFWHITE }}
       >
         <div style={{ color: TEAL }}>

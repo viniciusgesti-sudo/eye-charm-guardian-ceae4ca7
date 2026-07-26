@@ -52,7 +52,7 @@ export function ShopOnAmazon() {
   const c = COPY[lang];
 
   return (
-    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-24 md:py-32 overflow-hidden">
+    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-10 md:py-10 overflow-hidden">
       {/* soft ambient light */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(200,222,220,0.10),transparent_60%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_90%,rgba(200,222,220,0.08),transparent_55%)]" aria-hidden="true" />

@@ -429,7 +429,7 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
       {/* subtle top hairline between panels */}
       {i > 0 && <div className={`absolute inset-x-6 top-0 h-px ${t.hairline} opacity-40 md:inset-x-14`} />}
 
-      <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-28 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-16 lg:px-14">
+      <div className="mx-auto grid min-h-[64vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-16 lg:px-14">
         {/* IMAGE */}
         <div className={`relative ${imageOrder} lg:col-span-7`}>
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[5/6] lg:aspect-[4/5]">
@@ -518,7 +518,7 @@ export function LifestyleUniverse({ audience, compact = false }: { audience?: Li
   if (compact) {
     return (
       <section id="lifestyles" className="relative bg-paper text-ink">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-20 md:py-28 border-t border-ink/10">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-8 md:py-10 border-t border-ink/10">
           <Reveal>
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">§ 05</span>
@@ -601,7 +601,7 @@ export function LifestyleUniverse({ audience, compact = false }: { audience?: Li
 
       {/* ============ FINAL CTA — TRANSITION TO COLLECTIONS ============ */}
       <div className="relative bg-paper text-ink">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-48 text-center">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-14 text-center">
           <Reveal>
             <div className="flex items-center justify-center gap-4 text-ink/60">
               <span className="h-px w-14 bg-ink/25" />
