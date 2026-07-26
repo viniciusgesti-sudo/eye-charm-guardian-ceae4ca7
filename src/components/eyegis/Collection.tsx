@@ -709,7 +709,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
   return (
     <section id="preview" className="bg-paper text-ink border-t border-ink/10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-28 md:pt-40 pb-24 md:pb-36">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-20 pb-14 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
           <Reveal className="lg:col-span-7">
             <div className="flex items-center gap-4 text-ink/60">
