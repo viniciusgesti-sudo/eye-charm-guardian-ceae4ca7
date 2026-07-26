@@ -776,7 +776,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
         <div
           ref={scrollerRef}
-          className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
+          className="mt-8 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-4"
           style={{ scrollbarWidth: "thin" }}
         >
           {visible.map((p, i) => (
