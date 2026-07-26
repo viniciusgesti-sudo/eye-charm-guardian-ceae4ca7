@@ -1038,9 +1038,19 @@ header a[href*="amazon"]:focus-visible,
     min-height: 200px !important;
   }
 
-  /* Neutralize inline text-[NNpx] on giant headlines */
-  h1[class*="text-["], h2[class*="text-["] {
+  /* Neutralize inline text-[NNpx] / text-[NNvw] on giant headlines,
+     regardless of the underlying element (h1/h2/h3, or a div using
+     font-editorial as a headline). Keeps compact laptops readable even
+     when a component hasn't migrated to the type-* tokens yet. */
+  h1[class*="text-["],
+  h2[class*="text-["],
+  .font-editorial[class*="text-["] {
     font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
+    line-height: 1.08 !important;
+  }
+  h3[class*="text-["] {
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
+    line-height: 1.2 !important;
   }
 }
 
