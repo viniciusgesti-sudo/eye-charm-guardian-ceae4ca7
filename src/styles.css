@@ -973,17 +973,27 @@ header a[href*="amazon"]:focus-visible,
     --quickjump-offset: 40px;
   }
 
-  :where(section, .section, main > div, [data-section]) {
-    &.py-40 { padding-top: 3rem; padding-bottom: 3rem; }
-    &.py-36 { padding-top: 3rem; padding-bottom: 3rem; }
-    &.py-32 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-    &.py-28 { padding-top: 2.25rem; padding-bottom: 2.25rem; }
-    &.py-24 { padding-top: 2rem; padding-bottom: 2rem; }
-    &.py-20 { padding-top: 1.75rem; padding-bottom: 1.75rem; }
-    &.py-16 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-    &.py-14 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-    &.py-12 { padding-top: 1rem; padding-bottom: 1rem; }
-    &.py-10 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+  /* Vertical rhythm — targets sections AND their immediate content wrappers
+     (some pages, e.g. Warranty, put py-* on an inner div instead of the
+     <section> itself). Applies to any descendant inside main or a section. */
+  :where(section, .section, main > div, [data-section], section > div, section > div > div, main div) {
+    &.py-40 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    &.py-36 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    &.py-32 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    &.py-28 { padding-top: 2.25rem !important; padding-bottom: 2.25rem !important; }
+    &.py-24 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    &.py-20 { padding-top: 1.75rem !important; padding-bottom: 1.75rem !important; }
+    &.py-16 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    &.py-14 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+    &.py-12 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+    &.py-10 { padding-top: 0.875rem !important; padding-bottom: 0.875rem !important; }
+    &[class*="md:py-32"] { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+    &[class*="md:py-28"] { padding-top: 2.25rem !important; padding-bottom: 2.25rem !important; }
+    &[class*="md:py-24"] { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+    &[class*="md:py-20"] { padding-top: 1.75rem !important; padding-bottom: 1.75rem !important; }
+    &[class*="md:py-16"] { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    &[class*="md:py-14"] { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+    &[class*="md:py-12"] { padding-top: 1rem !important; padding-bottom: 1rem !important; }
     &[class*="pt-32"] { padding-top: 2.5rem !important; }
     &[class*="pt-28"] { padding-top: 2.25rem !important; }
     &[class*="pt-24"] { padding-top: 2rem !important; }
