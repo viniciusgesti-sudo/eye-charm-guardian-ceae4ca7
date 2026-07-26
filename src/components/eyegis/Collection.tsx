@@ -716,29 +716,31 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
   return (
     <section id="preview" className="bg-paper text-ink border-t border-ink/10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-16 pb-14 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
-          <Reveal className="lg:col-span-7">
-            <div className="flex items-center gap-4 text-ink/60">
-              <span className="font-eyebrow text-teal">§ 06</span>
-              <span className="h-px w-8 bg-ink/25" />
-              <span className="font-eyebrow">{copy.preview.eyebrow}</span>
-            </div>
-            <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
-              {copy.preview.headline1}
-              <br />
-              <span className="italic text-teal">{copy.preview.headline2}</span>
-            </h3>
-          </Reveal>
+      <div className={`mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 ${audience ? "pt-8 md:pt-10 pb-10 md:pb-12" : "pt-14 md:pt-16 pb-14 md:pb-16"}`}>
+        {!audience && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
+            <Reveal className="lg:col-span-7">
+              <div className="flex items-center gap-4 text-ink/60">
+                <span className="font-eyebrow text-teal">§ 06</span>
+                <span className="h-px w-8 bg-ink/25" />
+                <span className="font-eyebrow">{copy.preview.eyebrow}</span>
+              </div>
+              <h3 className="mt-8 font-editorial text-ink leading-[0.94] text-balance-tight text-fluid-display">
+                {copy.preview.headline1}
+                <br />
+                <span className="italic text-teal">{copy.preview.headline2}</span>
+              </h3>
+            </Reveal>
 
-          <Reveal delay={200} className="lg:col-span-5">
-            <p className="max-w-md font-light text-base md:text-lg leading-relaxed text-ink/70">
-              {copy.preview.lead}
-            </p>
-          </Reveal>
-        </div>
+            <Reveal delay={200} className="lg:col-span-5">
+              <p className="max-w-md font-light text-base md:text-lg leading-relaxed text-ink/70">
+                {copy.preview.lead}
+              </p>
+            </Reveal>
+          </div>
+        )}
 
-        <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-ink/10 pt-6">
+        <div className={`${audience ? "" : "mt-12"} flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-ink/10 pt-5`}>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
             <span className="mr-2 font-eyebrow text-[10px] text-ink/50">{copy.preview.filterLabel}</span>
             {availableFilters.map((f) => {
@@ -761,44 +763,60 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
             })}
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollLeft}
-            >
-              <IconArrow className="rotate-180" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollRight}
-            >
-              <IconArrow />
-            </button>
-          </div>
-        </div>
-
-        <div
-          ref={scrollerRef}
-          className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
-          style={{ scrollbarWidth: "thin" }}
-        >
-          {visible.map((p, i) => (
-            <ProductCard key={p.id} p={p} i={i} copy={copy} />
-          ))}
-          {visible.length === 0 && (
-            <div className="w-full py-10 text-center font-eyebrow text-ink/50">
-              {copy.preview.empty}
+          {!audience && (
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => scrollBy(-1)}
+                className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
+                aria-label={copy.preview.scrollLeft}
+              >
+                <IconArrow className="rotate-180" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollBy(1)}
+                className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
+                aria-label={copy.preview.scrollRight}
+              >
+                <IconArrow />
+              </button>
             </div>
           )}
         </div>
+
+        {audience ? (
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {visible.map((p, i) => (
+              <ProductCard key={p.id} p={p} i={i} copy={copy} compact />
+            ))}
+            {visible.length === 0 && (
+              <div className="w-full py-10 text-center font-eyebrow text-ink/50 col-span-full">
+                {copy.preview.empty}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div
+            ref={scrollerRef}
+            className="mt-12 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-6"
+            style={{ scrollbarWidth: "thin" }}
+          >
+            {visible.map((p, i) => (
+              <ProductCard key={p.id} p={p} i={i} copy={copy} />
+            ))}
+            {visible.length === 0 && (
+              <div className="w-full py-10 text-center font-eyebrow text-ink/50">
+                {copy.preview.empty}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
 
 function Lightbox({
   shots,
