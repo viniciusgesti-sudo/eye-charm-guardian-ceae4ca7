@@ -1,20 +1,7 @@
 import { Link, useLocation, useNavigate, useParams } from "@tanstack/react-router";
-import { Check, Globe, Menu } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
@@ -130,35 +117,28 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             useInk ? "text-ink" : "text-paper"
           }`}
         >
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                type="button"
-                aria-label={`Language: ${currentSeg.toUpperCase()}`}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 md:px-3 text-[11px] uppercase tracking-[0.2em] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60 min-h-[36px] ${
-                  useInk
-                    ? "border-ink/25 text-ink hover:bg-ink/5"
-                    : "border-paper/40 text-paper hover:bg-paper/10"
-                }`}
-              >
-                <Globe className="h-3.5 w-3.5" aria-hidden />
-                <span>{currentSeg}</span>
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-[9rem] bg-paper text-ink border-ink/10">
+          <label
+            className={`relative inline-flex min-h-[36px] items-center rounded-full border transition-colors duration-500 ${
+              useInk
+                ? "border-ink/25 text-ink hover:bg-ink/5"
+                : "border-paper/40 text-paper hover:bg-paper/10"
+            }`}
+          >
+            <span className="sr-only">Language</span>
+            <Globe className="pointer-events-none absolute left-2.5 h-3.5 w-3.5" aria-hidden />
+            <select
+              value={currentSeg}
+              onChange={(event) => switchLocale(event.target.value as LocaleSeg)}
+              aria-label={`Language: ${currentSeg.toUpperCase()}`}
+              className="min-h-[36px] appearance-none rounded-full bg-transparent py-1.5 pr-3 pl-8 font-eyebrow text-[11px] uppercase tracking-[0.2em] outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+            >
               {LOCALES.map((l) => (
-                <DropdownMenuItem
-                  key={l}
-                  onSelect={() => switchLocale(l)}
-                  className="flex items-center justify-between gap-4 uppercase tracking-[0.2em] text-[11px] cursor-pointer"
-                  aria-current={currentSeg === l ? "true" : undefined}
-                >
-                  <span>{LOCALE_LABEL[l]}</span>
-                  {currentSeg === l && <Check className="h-3.5 w-3.5 text-teal" aria-hidden />}
-                </DropdownMenuItem>
+                <option key={l} value={l} className="bg-paper text-ink">
+                  {l.toUpperCase()}
+                </option>
               ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </select>
+          </label>
 
           <a
             data-testid="header-cta"
@@ -184,83 +164,93 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
 
 
           {/* Mobile hamburger */}
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <button
-                type="button"
-                aria-label="Open menu"
-                className={`lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-500 ${
-                  useInk
-                    ? "border-ink/25 text-ink hover:bg-ink/5"
-                    : "border-paper/40 text-paper hover:bg-paper/10"
-                }`}
-              >
-                <Menu className="h-5 w-5" aria-hidden />
-              </button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-[86%] max-w-sm bg-paper text-ink flex flex-col gap-8 p-8"
-            >
-              <SheetTitle className="sr-only">Menu</SheetTitle>
-              <div className="flex items-center justify-between">
-                <Logo className="h-6 w-auto text-ink" />
-              </div>
-              <nav className="flex flex-col gap-1 font-editorial text-2xl leading-tight">
-                {nav.map((item) => (
-                  <SheetClose asChild key={item.key}>
-                    <Link
-                      to={item.to}
-                      params={{ locale }}
-                      onClick={() => setMobileOpen(false)}
-                      className="py-3 border-b border-ink/10 hover:text-teal transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </nav>
-              <div className="flex items-center gap-3 font-eyebrow text-xs">
-                {LOCALES.map((l, i) => (
-                  <div key={l} className="flex items-center gap-3">
-                    {i > 0 && <span className="text-ink/50" aria-hidden="true">·</span>}
-                    <button
-                      onClick={() => {
-                        switchLocale(l);
-                        setMobileOpen(false);
-                      }}
-                      className={`uppercase transition-colors ${
-                        currentSeg === l
-                          ? "text-teal font-semibold underline underline-offset-4"
-                          : "text-ink hover:text-teal"
-                      }`}
-                      aria-current={currentSeg === l ? "true" : undefined}
-                    >
-                      {l}
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-auto">
-                <a
-                  href="https://www.amazon.com.br/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 text-paper font-eyebrow text-sm uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep transition-all min-h-[52px]"
-                >
-                  <span className="flex items-center gap-3">
-                    <AmazonMark className="h-5 w-5 [filter:brightness(0)_invert(1)]" />
-                    <span>{t("nav.shopAmazon")}</span>
-                  </span>
-                  <span aria-hidden>→</span>
-                </a>
-
-              </div>
-            </SheetContent>
-          </Sheet>
+          <button
+            type="button"
+            aria-label="Open menu"
+            onClick={() => setMobileOpen(true)}
+            className={`lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-500 ${
+              useInk
+                ? "border-ink/25 text-ink hover:bg-ink/5"
+                : "border-paper/40 text-paper hover:bg-paper/10"
+            }`}
+          >
+            <Menu className="h-5 w-5" aria-hidden />
+          </button>
         </div>
       </div>
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setMobileOpen(false)}
+            className="absolute inset-0 bg-ink/45 backdrop-blur-sm"
+          />
+          <div className="absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-8 bg-paper p-8 text-ink shadow-[0_30px_80px_-30px_rgba(0,0,0,0.45)]">
+            <div className="flex items-center justify-between gap-4">
+              <Logo className="h-6 w-auto text-ink" />
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:bg-ink/5"
+              >
+                <X className="h-5 w-5" aria-hidden />
+              </button>
+            </div>
+            <nav className="flex flex-col gap-1 font-editorial text-2xl leading-tight">
+              {nav.map((item) => (
+                <Link
+                  key={item.key}
+                  to={item.to}
+                  params={{ locale }}
+                  onClick={() => setMobileOpen(false)}
+                  className="border-b border-ink/10 py-3 transition-colors hover:text-teal"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex items-center gap-3 font-eyebrow text-xs">
+              {LOCALES.map((l, i) => (
+                <div key={l} className="flex items-center gap-3">
+                  {i > 0 && <span className="text-ink/50" aria-hidden="true">·</span>}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      switchLocale(l);
+                      setMobileOpen(false);
+                    }}
+                    className={`uppercase transition-colors ${
+                      currentSeg === l
+                        ? "text-teal font-semibold underline underline-offset-4"
+                        : "text-ink hover:text-teal"
+                    }`}
+                    aria-current={currentSeg === l ? "true" : undefined}
+                  >
+                    {l}
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="mt-auto">
+              <a
+                href="https://www.amazon.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="flex min-h-[52px] w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 font-eyebrow text-sm uppercase tracking-[0.2em] text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] transition-all hover:bg-teal-deep"
+              >
+                <span className="flex items-center gap-3">
+                  <AmazonMark className="h-5 w-5 [filter:brightness(0)_invert(1)]" />
+                  <span>{t("nav.shopAmazon")}</span>
+                </span>
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
