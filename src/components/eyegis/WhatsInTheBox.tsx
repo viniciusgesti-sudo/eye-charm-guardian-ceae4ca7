@@ -59,7 +59,7 @@ export function WhatsInTheBox() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (
-    <section className="relative bg-sand/40 py-24 md:py-32">
+    <section className="relative bg-sand/40 py-10 md:py-10">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <div className="mb-14 md:mb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">

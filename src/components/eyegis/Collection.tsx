@@ -482,7 +482,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-28 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-16 lg:px-14">
+      <div className="mx-auto grid min-h-[64vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-10 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-16 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-7`}>
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[5/6] lg:aspect-[4/5]">
             <Picture
@@ -784,7 +784,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
             <ProductCard key={p.id} p={p} i={i} copy={copy} />
           ))}
           {visible.length === 0 && (
-            <div className="w-full py-24 text-center font-eyebrow text-ink/50">
+            <div className="w-full py-10 text-center font-eyebrow text-ink/50">
               {copy.preview.empty}
             </div>
           )}
@@ -1106,7 +1106,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
     <section className="relative bg-teal-deep text-paper">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-52 text-center">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-16 text-center">
         <Reveal>
           <div className="flex items-center justify-center gap-4 text-paper/60">
             <span className="h-px w-14 bg-paper/30" />

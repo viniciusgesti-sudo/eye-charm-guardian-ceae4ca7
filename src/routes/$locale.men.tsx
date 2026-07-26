@@ -6,10 +6,7 @@ import heroZenith from "@/assets/hero-zenith-man.jpg?url";
 import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
-import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
-import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
-import { ModelRunway } from "@/components/eyegis/ModelRunway";
 import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
@@ -96,11 +93,7 @@ function MenPage() {
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="men" />
-      <LifestyleUniverse audience="men" compact />
-      <ModelRunway audience="men" />
       <MacroTriptych audience="men" />
-
-      <EyegisGuard audience="men" />
       <ShopOnAmazon />
       <FAQ />
     </>

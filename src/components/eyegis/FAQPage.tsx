@@ -814,7 +814,7 @@ export function FAQPage() {
       </section>
 
       {/* CATEGORY NAV + BODY */}
-      <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+      <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-8 md:px-12 md:py-10">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-16 md:grid-cols-12">
           <aside className="min-w-0 md:col-span-4 lg:col-span-3">
             <div className="sticky top-6">
@@ -954,7 +954,7 @@ export function FAQPage() {
 
       {/* STILL NEED HELP */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <div className="grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <Rule label={c.stillNeedRule} />

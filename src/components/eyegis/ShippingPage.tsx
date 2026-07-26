@@ -547,7 +547,7 @@ export function ShippingPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden">
+      <section className="relative min-h-[52vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -558,7 +558,7 @@ export function ShippingPage() {
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,22,19,0.10) 0%, rgba(246,243,238,0.4) 55%, rgba(246,243,238,0.95) 100%)" }} />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -585,7 +585,7 @@ export function ShippingPage() {
       </section>
 
       {/* 01 — WHY AMAZON */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.why.rule} />
         </Reveal>
@@ -626,7 +626,7 @@ export function ShippingPage() {
 
       {/* 02 — HOW YOUR ORDER WORKS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.steps.rule} />
           </Reveal>
@@ -666,7 +666,7 @@ export function ShippingPage() {
       </section>
 
       {/* 03 — DELIVERY */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.delivery.rule} />
         </Reveal>
@@ -698,7 +698,7 @@ export function ShippingPage() {
 
       {/* 04 — RETURNS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.returns.rule} />
           </Reveal>
@@ -733,7 +733,7 @@ export function ShippingPage() {
       </section>
 
       {/* 05 — COUNTRIES */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.countries.rule} />
         </Reveal>
@@ -777,7 +777,7 @@ export function ShippingPage() {
 
       {/* 06 — QUESTIONS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.faq.rule} />
           </Reveal>
@@ -800,7 +800,7 @@ export function ShippingPage() {
       </section>
 
       {/* 07 — CUSTOMER SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.support.rule} />
         </Reveal>
@@ -860,7 +860,7 @@ export function ShippingPage() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
           <Reveal>
             <Rule label={c.store.rule} light />
           </Reveal>

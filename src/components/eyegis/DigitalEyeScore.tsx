@@ -743,7 +743,7 @@ export function DigitalEyeScore() {
     <section
       id="digital-eye-score"
       ref={ref}
-      className={`relative bg-paper-warm py-28 md:py-40 transition-opacity duration-1000 ${
+      className={`relative bg-paper-warm py-10 md:py-12 transition-opacity duration-1000 ${
         shown ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -919,7 +919,7 @@ function Results({
         </div>
       </div>
 
-      <div className="mt-20 rounded-xl bg-teal-deep px-8 py-14 md:px-14 md:py-20 text-center text-paper">
+      <div className="mt-20 rounded-xl bg-teal-deep px-8 py-14 md:px-14 md:py-8 text-center text-paper">
         <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
         <h4 className="mx-auto mt-6 max-w-2xl font-editorial text-3xl md:text-5xl leading-[0.98]">
           {copy.finalLine1}

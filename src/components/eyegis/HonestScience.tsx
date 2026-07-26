@@ -95,7 +95,7 @@ function PictoShield() {
 function Hero() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-32 md:px-12 md:py-40"
+      className="relative overflow-hidden px-6 py-10 md:px-12 md:py-12"
       style={{ background: INK, color: PAPER }}
     >
       <div
@@ -147,7 +147,7 @@ function Hero() {
 function SpectrumSection() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
@@ -241,7 +241,7 @@ function SpectrumSection() {
 function RetinaVsCircadian() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: PAPER, borderTop: `1px solid ${TEAL}15` }}
     >
       <div className="mx-auto max-w-6xl">
@@ -337,7 +337,7 @@ function RetinaVsCircadian() {
 function SelectiveFiltering() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: INK, color: PAPER }}
     >
       <div className="mx-auto max-w-4xl">
@@ -403,7 +403,7 @@ function OrangeDistortion() {
   ];
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
@@ -502,7 +502,7 @@ function MiddleGround() {
   ];
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: CHAMPAGNE, color: INK }}
     >
       <div className="mx-auto max-w-5xl text-center">
@@ -543,7 +543,7 @@ function MiddleGround() {
 function EGuardScores() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-12"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-4xl">
@@ -645,7 +645,7 @@ function References() {
   ];
   return (
     <section
-      className="relative px-6 py-20 md:px-12"
+      className="relative px-6 py-8 md:px-12"
       style={{ background: INK, color: "rgba(249,249,249,0.7)" }}
     >
       <div className="mx-auto max-w-4xl">

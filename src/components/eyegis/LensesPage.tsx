@@ -830,7 +830,7 @@ function HowToChoose({
   active: PersonaId;
 }) {
   return (
-    <section className="bg-paper-warm py-20 md:py-28">
+    <section className="bg-paper-warm py-8 md:py-10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
@@ -936,7 +936,7 @@ function ScoreBar({ v }: { v: number }) {
 
 function Comparison({ c }: { c: Copy }) {
   return (
-    <section id="compare" className="bg-paper py-20 md:py-28">
+    <section id="compare" className="bg-paper py-8 md:py-10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.compare.eyebrow}</span>
@@ -1092,7 +1092,7 @@ function BeforeAfter({ c }: { c: Copy }) {
   }, []);
 
   return (
-    <section className="bg-paper-warm py-20 md:py-28">
+    <section className="bg-paper-warm py-8 md:py-10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-12">
           <div className="lg:col-span-6">
@@ -1180,7 +1180,7 @@ function BeforeAfter({ c }: { c: Copy }) {
 
 function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
   return (
-    <section className="bg-paper py-20 md:py-28">
+    <section className="bg-paper py-8 md:py-10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
@@ -1259,7 +1259,7 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 function Faq({ c }: { c: Copy }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-paper-warm py-20 md:py-28">
+    <section className="bg-paper-warm py-8 md:py-10">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.faq.eyebrow}</span>
@@ -1293,7 +1293,7 @@ function Faq({ c }: { c: Copy }) {
 
 function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
   return (
-    <section className="bg-paper py-20 md:py-28">
+    <section className="bg-paper py-8 md:py-10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.reco.eyebrow}</span>
@@ -1381,7 +1381,7 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
 
 function FinalCta({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-teal-deep py-20 md:py-28 text-paper overflow-hidden">
+    <section className="relative bg-teal-deep py-8 md:py-10 text-paper overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(134,217,209,0.22),transparent_60%)]"

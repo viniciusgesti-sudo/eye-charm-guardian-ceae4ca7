@@ -45,9 +45,10 @@ export function PageHero({
   return (
     <section
       aria-label={typeof title === "string" ? title : eyebrow}
-      className={`relative isolate flex min-h-[86svh] w-full items-end overflow-hidden ${
+      className={`relative isolate flex min-h-[62svh] w-full items-end overflow-hidden ${
         isDark ? "bg-ink text-paper" : "bg-paper text-ink"
       }`}
+
     >
       {bgSource ? (
         <Picture

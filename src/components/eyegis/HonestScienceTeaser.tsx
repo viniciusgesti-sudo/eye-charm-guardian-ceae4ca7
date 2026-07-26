@@ -53,7 +53,7 @@ export function HonestScienceTeaser() {
       aria-label="Honest Science teaser"
       className="bg-[#F9F9F9] text-[#1D252D]"
     >
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36 lg:py-40">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start relative">
           {/* Left: eyebrow + heading */}
           <div className="lg:col-span-6 lg:pr-8">

@@ -524,7 +524,7 @@ export function AboutPage() {
 
 
       {/* 01 — OUR BELIEF */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.belief.rule} />
         </Reveal>
@@ -554,7 +554,7 @@ export function AboutPage() {
 
       {/* 02 — WHY WE CREATED EYEGIS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.why.rule} />
           </Reveal>
@@ -616,7 +616,7 @@ export function AboutPage() {
       </section>
 
       {/* 03 — OUR PHILOSOPHY */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.philosophy.rule} />
         </Reveal>
@@ -680,7 +680,7 @@ export function AboutPage() {
 
       {/* 04 — OUR VALUES */}
       <section style={{ background: INK, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -738,7 +738,7 @@ export function AboutPage() {
       </section>
 
       {/* 05 — DESIGN PROCESS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.process.rule} />
         </Reveal>
@@ -809,7 +809,7 @@ export function AboutPage() {
 
       {/* 06 — THE PEOPLE WE DESIGN FOR */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.people.rule} />
           </Reveal>
@@ -850,7 +850,7 @@ export function AboutPage() {
       </section>
 
       {/* 07 — GLOBAL VISION */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.global.rule} />
         </Reveal>
@@ -891,7 +891,7 @@ export function AboutPage() {
 
       {/* 08 — OUR PROMISE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -918,7 +918,7 @@ export function AboutPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <div className="grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2

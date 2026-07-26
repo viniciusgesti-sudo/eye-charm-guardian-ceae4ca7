@@ -574,7 +574,7 @@ export function WarrantyPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden">
+      <section className="relative min-h-[52vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -592,7 +592,7 @@ export function WarrantyPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
           <div className="max-w-[1100px]">
             <Reveal>
               <span className="text-[11px] uppercase tracking-[0.5em]" style={{ color: TEAL }}>
@@ -624,7 +624,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 01 — OUR PROMISE */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.promise.rule} />
         </Reveal>
@@ -669,7 +669,7 @@ export function WarrantyPage() {
 
       {/* 02 — 2-YEAR WARRANTY */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.warranty.rule} />
           </Reveal>
@@ -708,7 +708,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 03 — NOT COVERED */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.notCovered.rule} />
         </Reveal>
@@ -741,7 +741,7 @@ export function WarrantyPage() {
 
       {/* 04 — 60-DAY COMFORT GUARANTEE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.comfort.rule} light />
           </Reveal>
@@ -781,7 +781,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 05 — QUALITY CONTROL */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.qc.rule} />
         </Reveal>
@@ -838,7 +838,7 @@ export function WarrantyPage() {
 
       {/* 06 — CARE GUIDE */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <Rule label={c.care.rule} />
           </Reveal>
@@ -874,7 +874,7 @@ export function WarrantyPage() {
       </section>
 
       {/* 07 — NEED HELP */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.help.rule} />
         </Reveal>
@@ -936,7 +936,7 @@ export function WarrantyPage() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
           <div className="grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <h2
