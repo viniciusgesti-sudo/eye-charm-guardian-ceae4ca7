@@ -85,12 +85,11 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
           />
 
           <span
-            className={`small-caps hidden whitespace-nowrap text-[9px] xl:inline transition-colors duration-500 ${
-              useInk ? "text-muted-foreground" : "text-paper/85"
-            }`}
+            className="small-caps hidden whitespace-nowrap text-[9px] xl:inline text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]"
           >
             {t("nav.opticalScience")}
           </span>
+
 
         </Link>
 
