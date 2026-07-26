@@ -474,6 +474,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
     <section
       ref={ref}
       id={meta.id}
+      data-collection-panel
       className={`${t.bg} ${t.text} relative overflow-hidden`}
     >
       {i > 0 && (
