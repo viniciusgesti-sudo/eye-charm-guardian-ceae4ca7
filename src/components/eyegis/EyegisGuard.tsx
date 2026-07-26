@@ -702,7 +702,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-20">
             <Reveal className="lg:col-span-3">
               <IndexMark n="02" label={copy.s02.label} />
