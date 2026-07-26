@@ -942,6 +942,13 @@ header a[href*="amazon"]:focus-visible,
     padding-bottom: 1.5rem !important;
     gap: 2rem !important;
   }
+  /* Cap the tall product image inside collection panels */
+  [data-collection-panel] .aspect-\[4\/5\],
+  [data-collection-panel] .aspect-\[5\/6\] {
+    aspect-ratio: 16 / 11 !important;
+    max-height: 62svh;
+  }
+
 
   /* Cap oversized cards used on service pages */
   [class*="min-h-[280px]"],
