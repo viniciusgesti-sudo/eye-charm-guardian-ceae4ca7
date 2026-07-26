@@ -1,14 +1,17 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-26T19:59:37.591Z",
+  "updatedAt": "2026-07-26T20:05:00.000Z",
   "maxGrowthPct": 40,
   "client": {
-    "total": 0,
+    "total": 1892608,
     "groups": {}
   },
   "server": {
-    "total": 0,
-    "groups": {}
+    "total": 1764725,
+    "groups": {
+      "dist/server/_locale.technology.mjs": 25396,
+      "dist/server/_ssr/Header.mjs": 16486
+    }
   },
   "env": "dev"
 }
