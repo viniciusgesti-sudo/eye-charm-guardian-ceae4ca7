@@ -724,7 +724,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <details className="[&_summary::-webkit-details-marker]:hidden" style={{ background: OFFWHITE }}>
+      <details open className="[&_summary::-webkit-details-marker]:hidden" style={{ background: OFFWHITE }}>
         <summary className="mx-auto flex max-w-[1400px] cursor-pointer list-none items-center justify-between border-y px-6 py-6 text-[11px] uppercase tracking-[0.35em] md:px-12" style={{ color: MUTED, borderColor: "rgba(14,22,19,0.15)" }}>
           <span>Mais detalhes · More details · Plus de détails</span>
           <span aria-hidden>+</span>
