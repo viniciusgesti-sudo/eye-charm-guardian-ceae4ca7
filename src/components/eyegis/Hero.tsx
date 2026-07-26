@@ -82,6 +82,7 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
+      data-hero
       className="relative isolate min-h-[72svh] w-full overflow-hidden bg-ink text-paper"
     >
       <div className="relative grid min-h-[72svh] w-full grid-cols-1 md:grid-cols-2">

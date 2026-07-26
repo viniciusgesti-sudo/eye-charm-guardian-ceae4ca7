@@ -258,6 +258,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
           {looks.map((look, index) => (
             <article
               key={look.code}
+              data-runway
               className="group relative grid min-h-[480px] min-w-[86vw] snap-center overflow-hidden bg-ink text-paper md:min-w-[72vw] lg:min-w-[58vw] xl:min-w-[980px]"
             >
               <Picture source={look.image} alt={look.alt} sizes="(min-width:1024px) 60vw, 90vw" priority={false} width={1600} height={2000} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1600ms] ease-out group-hover:scale-[1.025]" />
