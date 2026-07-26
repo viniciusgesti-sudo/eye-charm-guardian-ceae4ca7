@@ -1066,34 +1066,39 @@ function ProductCard({ p, i, copy, compact = false }: { p: ProductMeta; i: numbe
         )}
       </div>
 
-      <div className="mt-6">
+      <div className={compact ? "mt-3" : "mt-6"}>
         <div className="flex items-baseline justify-between gap-3">
           <span className="font-eyebrow text-[10px] text-ink/50">
             {pc.collection} · {pc.city}
           </span>
           <span className="h-px flex-1 bg-ink/15" />
         </div>
-        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">{pc.name}</h4>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
-          {pc.description}
-        </p>
+        <h4 className={`mt-2 font-editorial text-ink ${compact ? "text-lg md:text-xl" : "text-2xl md:text-3xl"}`}>{pc.name}</h4>
+        {!compact && (
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
+            {pc.description}
+          </p>
+        )}
 
-        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-eyebrow text-[9px] text-ink/55">
-          <span>{copy.preview.warranty}</span>
-          <span className="opacity-40">/</span>
-          <span>{copy.preview.comfort}</span>
-        </div>
+        {!compact && (
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-eyebrow text-[9px] text-ink/55">
+            <span>{copy.preview.warranty}</span>
+            <span className="opacity-40">/</span>
+            <span>{copy.preview.comfort}</span>
+          </div>
+        )}
 
-        <div className="mt-6 flex items-center gap-4">
+        <div className={`${compact ? "mt-3" : "mt-6"} flex items-center gap-4`}>
           <a
             href={AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal"
+            className={`cta-lift group/btn inline-flex items-center gap-3 rounded-full bg-ink ${compact ? "px-4 py-2" : "px-6 py-3"} text-paper transition-all duration-500 hover:-translate-y-0.5 hover:bg-teal`}
           >
             <span className="font-eyebrow">{copy.buyOnAmazon}</span>
             <IconExternal className="opacity-80" />
           </a>
+
           {p.pdpPath ? (
             <Link
               to={p.pdpPath}
