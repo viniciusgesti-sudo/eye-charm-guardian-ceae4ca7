@@ -482,75 +482,74 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-28 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-16 lg:px-14">
-        <div className={`relative ${imageOrder} lg:col-span-7`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[5/6] lg:aspect-[4/5]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-12 lg:gap-12 lg:px-14">
+        <div className={`relative ${imageOrder} lg:col-span-6`}>
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[4/5]">
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
-              sizes="(min-width:1024px) 58vw, 100vw"
+              sizes="(min-width:1024px) 50vw, 100vw"
               className={`h-full w-full object-cover will-change-transform transition-[transform,filter] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 visible ? "scale-100" : "scale-[1.06]"
               }`}
               style={{ filter: visible ? "none" : "brightness(0.92)" }}
             />
-            <div className="absolute left-5 top-5 inline-flex items-center gap-3 rounded-full bg-ink/70 px-3 py-1.5 font-eyebrow text-[10px] text-paper backdrop-blur-sm">
+            <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-ink/70 px-2.5 py-1 font-eyebrow text-[9px] text-paper backdrop-blur-sm">
               <span>N° {meta.index}</span>
-              <span className="h-px w-8 bg-paper/80" />
+              <span className="h-px w-6 bg-paper/80" />
               <span>{c.city}</span>
             </div>
           </div>
         </div>
 
-        <div className={`${textOrder} lg:col-span-5`}>
+        <div className={`${textOrder} lg:col-span-6`}>
           <Reveal delay={120}>
-            <div className={`flex items-center gap-3 font-eyebrow ${t.eyebrow}`}>
+            <div className={`flex items-center gap-3 font-eyebrow text-[10px] ${t.eyebrow}`}>
               <span className={t.script}>N° {meta.index}</span>
-              <span className={`h-px w-8 ${t.hairline}`} />
+              <span className={`h-px w-6 ${t.hairline}`} />
               <span>{copy.section} · {c.label}</span>
             </div>
           </Reveal>
 
           <Reveal delay={220}>
             <h3
-              className={`mt-6 font-editorial leading-[0.98] text-balance-tight text-fluid-h1 ${t.text}`}
+              className={`mt-4 font-editorial leading-[1.02] text-balance-tight text-fluid-h2 ${t.text}`}
             >
-              {c.headline}
-              <br />
+              {c.headline}{" "}
               <span className={`italic ${t.script}`}>{c.scriptWord}</span>
             </h3>
           </Reveal>
 
           <Reveal delay={340}>
-            <p className={`mt-8 max-w-md font-light text-base md:text-lg leading-relaxed ${t.muted}`}>
+            <p className={`mt-4 max-w-md font-light text-sm md:text-base leading-relaxed ${t.muted}`}>
               {c.supporting}
             </p>
           </Reveal>
 
           <Reveal delay={440}>
-            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+            <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2">
               {c.highlights.map((h) => (
                 <li
                   key={h}
-                  className={`flex items-baseline gap-3 border-t ${
+                  className={`flex items-baseline gap-2 border-t ${
                     meta.tone === "teal" ? "border-paper/20" : "border-ink/15"
-                  } pt-3`}
+                  } pt-2`}
                 >
                   <span className={`font-eyebrow text-[9px] ${t.script}`}>•</span>
-                  <span className={`text-sm ${t.text}`}>{h}</span>
+                  <span className={`text-xs md:text-sm ${t.text}`}>{h}</span>
                 </li>
               ))}
             </ul>
           </Reveal>
 
           <Reveal delay={560}>
-            <div className="mt-12 flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <a
                 href="#preview"
-                className={`cta-lift group inline-flex items-center justify-between gap-6 rounded-full px-8 py-5 min-w-[240px] max-w-full transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
+                className={`cta-lift group inline-flex items-center justify-between gap-4 rounded-full px-5 py-3 min-w-[200px] max-w-full text-xs transition-all duration-500 hover:-translate-y-0.5 ${t.primary}`}
               >
                 <span className="font-eyebrow">{c.primaryCta}</span>
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-current/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-current/10 transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
                   →
                 </span>
               </a>
@@ -559,7 +558,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
                 href={AMAZON_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-3 rounded-full px-6 py-4 ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
+                className={`group inline-flex items-center gap-2 rounded-full px-4 py-3 text-xs ring-1 transition-all duration-500 hover:-translate-y-0.5 ${t.secondary}`}
               >
                 <span className="font-eyebrow">{copy.buyOnAmazon}</span>
                 <IconExternal className="opacity-70 transition-opacity group-hover:opacity-100" />
