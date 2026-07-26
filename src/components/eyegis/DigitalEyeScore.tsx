@@ -675,7 +675,7 @@ function CircularScore({ score, label, outOf }: { score: number; label: string; 
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="font-eyebrow text-[10px] text-teal">{label}</span>
-        <span className="mt-2 font-editorial text-ink text-[88px] leading-none tabular-nums">
+        <span className="mt-2 font-editorial text-ink text-[64px] leading-none tabular-nums">
           {display}
         </span>
         <span className="mt-1 font-eyebrow text-[10px] text-ink/50">{outOf}</span>

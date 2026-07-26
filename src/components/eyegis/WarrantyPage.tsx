@@ -601,7 +601,7 @@ export function WarrantyPage() {
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[92px] lg:text-[116px]"
+                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.hero.title[0]}
@@ -630,7 +630,7 @@ export function WarrantyPage() {
         </Reveal>
         <Reveal delay={120}>
           <h2
-            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[92px]"
+            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.promise.title[0]}
@@ -756,7 +756,7 @@ export function WarrantyPage() {
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-center">
             <Reveal delay={120} className="md:col-span-7">
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[92px]"
+                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.comfort.title[0]}
@@ -851,7 +851,7 @@ export function WarrantyPage() {
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
+              className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.care.title[0]}
@@ -949,7 +949,7 @@ export function WarrantyPage() {
           <div className="grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <h2
-                className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[92px]"
+                className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
               >
                 {c.cta.title[0]}

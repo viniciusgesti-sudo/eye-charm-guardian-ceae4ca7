@@ -567,7 +567,7 @@ export function ShippingPage() {
               </span>
             </Reveal>
             <Reveal delay={120}>
-              <h1 className="mt-6 text-[52px] leading-[0.95] tracking-[-0.02em] md:text-[120px] lg:text-[152px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+              <h1 className="mt-6 text-[52px] leading-[0.95] tracking-[-0.02em] md:text-[64px] lg:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
                 {c.hero.title[0]}
                 <br />
                 {c.hero.title[1]}
@@ -591,7 +591,7 @@ export function ShippingPage() {
         </Reveal>
         <div className="mt-14 grid gap-16 md:grid-cols-12 md:items-end">
           <Reveal delay={100} className="md:col-span-7">
-            <h2 className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+            <h2 className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
               {c.why.title}
             </h2>
           </Reveal>
@@ -638,7 +638,7 @@ export function ShippingPage() {
             <Rule label={c.steps.rule} />
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]" style={{ fontFamily: serif, fontWeight: 400 }}>
+            <h2 className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400 }}>
               {c.steps.title[0]}
               <br />
               {c.steps.title[1]}
@@ -876,7 +876,7 @@ export function ShippingPage() {
 
           <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
-              <h2 className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[92px]" style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}>
+              <h2 className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[64px]" style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}>
                 {c.store.title[0]}
                 <br />
                 {c.store.title[1]}

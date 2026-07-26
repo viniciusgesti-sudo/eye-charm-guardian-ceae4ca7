@@ -23,7 +23,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
+      "Cat-eye em acetato tartaruga, shield-G dourado, lente E-Guard Circadian™.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Feminina — Eyegis",
     metaDesc:
@@ -38,7 +38,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "A cat-eye in tortoise acetate, discreet gold shield-G on the temple, and an E-Guard Circadian™ lens — true color by day, warmer light at dusk.",
+      "Tortoise cat-eye acetate, gold shield-G, E-Guard Circadian™ lens.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Women's Collection — Eyegis",
     metaDesc:
@@ -53,7 +53,7 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
+      "Cat-eye acétate écaille, shield-G doré, verre E-Guard Circadian™.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Femme — Eyegis",
     metaDesc:

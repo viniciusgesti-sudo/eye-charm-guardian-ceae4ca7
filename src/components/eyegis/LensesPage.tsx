@@ -741,7 +741,7 @@ function Hero({ c }: { c: Copy }) {
             <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[104px]">
+            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[64px]">
               {c.hero.h1a}
               <span className="block italic text-teal">{c.hero.h1b}</span>
             </h1>
@@ -1391,7 +1391,7 @@ function FinalCta({ c }: { c: Copy }) {
           <span className="font-eyebrow text-mint">{c.cta.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[96px] leading-[0.94]">
+          <h2 className="mt-6 font-editorial text-5xl md:text-7xl lg:text-[64px] leading-[0.94]">
             {c.cta.h2a}
             <span className="block italic text-mint">{c.cta.h2b}</span>
           </h2>

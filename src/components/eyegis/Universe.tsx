@@ -399,7 +399,7 @@ export function Universe() {
         <Reveal delay={120}>
           <h2
             id="universe-title"
-            className="mt-8 font-editorial text-center text-ink text-balance-tight leading-[0.92] tracking-[-0.02em] text-[13vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[112px]"
+            className="mt-8 font-editorial text-center text-ink text-balance-tight leading-[0.92] tracking-[-0.02em] text-[13vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[64px]"
           >
             {copy.title1} <span className="italic text-teal">{copy.titleAccent}</span>
           </h2>

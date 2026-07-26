@@ -697,7 +697,7 @@ export function FAQPage() {
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[96px] lg:text-[120px]"
+                className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[64px] lg:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.h1[0]}
@@ -959,7 +959,7 @@ export function FAQPage() {
             <Reveal className="md:col-span-7">
               <Rule label={c.stillNeedRule} />
               <h2
-                className="mt-8 text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[80px]"
+                className="mt-8 text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[64px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.stillNeedH2[0]}
