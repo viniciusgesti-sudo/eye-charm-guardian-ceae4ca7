@@ -973,25 +973,23 @@ header a[href*="amazon"]:focus-visible,
   h1[class*="text-["],
   .font-editorial[class*="text-["],
   h1.font-editorial {
-    font-size: clamp(1.75rem, 3.4vw, 3rem) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important;
+    line-height: 1.08 !important;
     letter-spacing: -0.02em !important;
   }
   h2[class*="text-["],
   h2.font-editorial {
-    font-size: clamp(1.45rem, 2.8vw, 2.35rem) !important;
-    line-height: 1.08 !important;
+    font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important;
+    line-height: 1.12 !important;
     letter-spacing: -0.015em !important;
   }
   h3[class*="text-["],
   h3.font-editorial {
-    font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(0.98rem, 1.4vw, 1.2rem) !important;
+    line-height: 1.22 !important;
   }
 
-  /* Catch Tailwind size utilities that escape the [class*="text-["] selector.
-     Any element declared as text-5xl..text-9xl gets capped when acting as a
-     headline (h1/h2/h3 or .font-editorial). */
+  /* Catch Tailwind size utilities that escape the [class*="text-["] selector. */
   h1[class*="text-5xl"], h1[class*="text-6xl"], h1[class*="text-7xl"],
   h1[class*="text-8xl"], h1[class*="text-9xl"],
   .font-editorial[class*="text-5xl"],
@@ -999,24 +997,23 @@ header a[href*="amazon"]:focus-visible,
   .font-editorial[class*="text-7xl"],
   .font-editorial[class*="text-8xl"],
   .font-editorial[class*="text-9xl"] {
-    font-size: clamp(1.75rem, 3.4vw, 3rem) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(1.35rem, 2.4vw, 2.1rem) !important;
+    line-height: 1.08 !important;
     letter-spacing: -0.02em !important;
   }
   h2[class*="text-5xl"], h2[class*="text-6xl"], h2[class*="text-7xl"],
   h2[class*="text-8xl"], h2[class*="text-9xl"] {
-    font-size: clamp(1.45rem, 2.8vw, 2.35rem) !important;
-    line-height: 1.08 !important;
+    font-size: clamp(1.15rem, 1.9vw, 1.65rem) !important;
+    line-height: 1.12 !important;
     letter-spacing: -0.015em !important;
   }
   h3[class*="text-4xl"], h3[class*="text-5xl"],
   h3[class*="text-6xl"], h3[class*="text-7xl"] {
-    font-size: clamp(1.1rem, 1.9vw, 1.6rem) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(0.98rem, 1.5vw, 1.25rem) !important;
+    line-height: 1.22 !important;
   }
 
-  /* Elements without a heading tag (e.g. <div> or <span>) that carry
-     .font-editorial + a large Tailwind size — used as display type. */
+  /* Non-heading elements (<div>/<span>) used as display type. */
   div.font-editorial[class*="text-5xl"],
   div.font-editorial[class*="text-6xl"],
   div.font-editorial[class*="text-7xl"],
@@ -1025,14 +1022,14 @@ header a[href*="amazon"]:focus-visible,
   span.font-editorial[class*="text-5xl"],
   span.font-editorial[class*="text-6xl"],
   span.font-editorial[class*="text-7xl"] {
-    font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(1.25rem, 2.1vw, 1.85rem) !important;
+    line-height: 1.08 !important;
   }
 
-  /* Hero H1 (uses type-hero token) — slightly larger than other H1s. */
+  /* Hero H1 — slightly larger than section H1s but still contained. */
   [data-hero] h1 {
-    font-size: clamp(1.9rem, 3.6vw, 3.25rem) !important;
-    line-height: 1.02 !important;
+    font-size: clamp(1.5rem, 2.6vw, 2.35rem) !important;
+    line-height: 1.05 !important;
   }
 }
 
