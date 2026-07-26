@@ -764,7 +764,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
               </h3>
             </Reveal>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 md:gap-x-8 lg:gap-x-10">
             {copy.life.map((l, i) => {
               const meta = LIFE_META[i];
               const Icon = meta.Icon;
@@ -779,14 +779,14 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
                         className="h-full w-full object-cover img-hover group-hover:img-hover-in"
                       />
                     </div>
-                    <div className="mt-6 flex items-start gap-6">
-                      <div className="mt-1 text-teal">
+                    <div className="mt-4 flex items-start gap-3">
+                      <div className="mt-1 text-teal shrink-0">
                         <Icon />
                       </div>
-                      <div className="flex-1">
+                      <div className="min-w-0 flex-1">
                         <span className="font-eyebrow text-[10px] text-ink/50">{l.tag}</span>
-                        <h4 className="mt-2 font-editorial text-2xl md:text-3xl text-ink">{l.title}</h4>
-                        <p className="mt-3 max-w-md text-sm md:text-base leading-relaxed text-ink/65">{l.body}</p>
+                        <h4 className="mt-1 font-editorial text-base md:text-lg leading-tight text-ink">{l.title}</h4>
+                        <p className="mt-2 text-xs md:text-sm leading-relaxed text-ink/65">{l.body}</p>
                       </div>
                     </div>
                   </article>
@@ -839,26 +839,6 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
         </div>
       </div>
 
-      <div className="relative bg-teal-deep text-paper">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-48">
-          <Reveal>
-            <IndexMark n="06" label={copy.s06.label} tone="dark" />
-          </Reveal>
-          <Reveal delay={180}>
-            <blockquote className="mt-12 max-w-5xl font-editorial text-paper text-fluid-display leading-[1.02] text-balance-tight">
-              {copy.s06.quoteA}
-              <span className="italic text-mint">{copy.s06.quoteMid}</span>
-              {copy.s06.quoteB}
-            </blockquote>
-          </Reveal>
-          <Reveal delay={340}>
-            <div className="mt-14 flex items-center gap-4 text-paper/60">
-              <span className="h-px w-14 bg-paper/40" />
-              <span className="font-eyebrow text-[10px]">{copy.s06.footer}</span>
-            </div>
-          </Reveal>
-        </div>
-      </div>
     </section>
   );
 }
