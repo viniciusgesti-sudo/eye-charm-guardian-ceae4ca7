@@ -754,40 +754,22 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
             })}
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollLeft}
-            >
-              <IconArrow className="rotate-180" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-ink/20 text-ink transition-all hover:bg-ink hover:text-paper"
-              aria-label={copy.preview.scrollRight}
-            >
-              <IconArrow />
-            </button>
-          </div>
         </div>
 
         <div
           ref={scrollerRef}
-          className="mt-8 -mx-6 md:-mx-10 lg:-mx-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 md:px-10 lg:px-14 pb-4"
-          style={{ scrollbarWidth: "thin" }}
+          className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 lg:gap-6"
         >
           {visible.map((p, i) => (
             <ProductCard key={p.id} p={p} i={i} copy={copy} />
           ))}
           {visible.length === 0 && (
-            <div className="w-full py-24 text-center font-eyebrow text-ink/50">
+            <div className="col-span-full py-24 text-center font-eyebrow text-ink/50">
               {copy.preview.empty}
             </div>
           )}
         </div>
+
       </div>
     </section>
   );
