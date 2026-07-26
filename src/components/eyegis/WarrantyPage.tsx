@@ -931,8 +931,10 @@ export function WarrantyPage() {
           ))}
         </div>
       </section>
+      </details>
 
       {/* FINAL CTA */}
+
       <section className="relative overflow-hidden" style={{ background: INK, color: OFFWHITE }}>
         <div className="absolute inset-0 opacity-25">
           <Picture
