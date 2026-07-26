@@ -26,9 +26,8 @@ const ALTS = {
 const COPY = {
   EN: {
     eyebrow: "The Eyegis Manifesto",
+    headline: "Eyegis, engineered for vision and designed for style.",
     manifesto: "Eyewear engineered for vision. Designed for the way you live.",
-    titleA: "Engineered for Vision.",
-    titleB: "Designed for Style.",
     men: {
       tag: "São Paulo · Night",
       product: "Men's Collection",
@@ -42,9 +41,8 @@ const COPY = {
   },
   PT: {
     eyebrow: "Manifesto Eyegis",
+    headline: "Eyegis, engenharia para a visão e design para o estilo.",
     manifesto: "Óculos com engenharia para a visão. Design para o seu jeito de viver.",
-    titleA: "Engenharia para a Visão.",
-    titleB: "Design para o Estilo.",
     men: {
       tag: "São Paulo · Noite",
       product: "Coleção Masculina",
@@ -58,9 +56,8 @@ const COPY = {
   },
   FR: {
     eyebrow: "Manifeste Eyegis",
+    headline: "Eyegis, l'ingénierie de la vision et le design du style.",
     manifesto: "Des lunettes pensées pour la vision. Dessinées pour votre façon de vivre.",
-    titleA: "L'ingénierie de la vision.",
-    titleB: "Le design du style.",
     men: {
       tag: "São Paulo · Nuit",
       product: "Collection Homme",
@@ -87,21 +84,35 @@ export function Hero({ locale }: Props) {
       aria-label="Eyegis manifesto hero"
       className="relative isolate w-full overflow-hidden bg-ink"
     >
-      {/* Single, page-level H1 for SEO / a11y; visually hidden — the split panels
-          use H2s for the men/women collections. */}
-      <h1 className="sr-only">{t.manifesto}</h1>
+      <div className="relative z-20 flex min-h-[32svh] w-full items-end border-b border-paper/10 bg-ink px-5 pt-28 pb-8 text-center sm:px-7 md:min-h-[30svh] md:px-10 md:pt-32 md:pb-10">
+        <div className="mx-auto w-full max-w-5xl">
+          <div className="mx-auto flex items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.34em] text-paper/72 sm:tracking-[0.42em]">
+            <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
+            <span>{t.eyebrow}</span>
+            <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
+          </div>
+
+          <h1 className="mx-auto mt-5 max-w-[18ch] text-balance font-editorial text-[clamp(2rem,9vw,3.65rem)] font-extralight leading-[0.98] text-paper sm:max-w-[30ch] sm:text-[clamp(2.55rem,5vw,4.5rem)]">
+            {t.headline}
+          </h1>
+
+          <p className="mx-auto mt-5 max-w-2xl text-balance font-sans text-sm leading-relaxed text-paper/72 sm:text-base">
+            {t.manifesto}
+          </p>
+        </div>
+      </div>
+
       {/*
-        Mobile: two stacked panels, each ~70svh so both faces and glasses stay
-        in frame without forcing a 200svh scroll.
-        Desktop: side-by-side 100svh split with a subtle seam.
+        Mobile: two stacked panels kept clean under the editorial headline.
+        Desktop: side-by-side image split fills the remaining first viewport.
       */}
-      <div className="grid w-full grid-cols-1 md:grid-cols-2 md:h-[100svh] md:min-h-[720px]">
+      <div className="relative grid w-full grid-cols-1 md:h-[70svh] md:min-h-[560px] md:grid-cols-2">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={alts.men}
-          className="group relative block h-[58svh] min-h-[460px] w-full overflow-hidden bg-[#0b1620] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
+          className="group relative block h-[52svh] min-h-[420px] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:h-full md:min-h-0"
         >
           <Picture
             source={heroSaoPaulo}
@@ -123,7 +134,7 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(6,12,18,0.8)] via-[rgba(6,12,18,0.4)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-14 sm:px-7 sm:pt-28 md:px-12 md:pt-32 md:pb-16">
+          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-8 pb-14 sm:px-7 sm:pt-10 md:px-12 md:pt-10 md:pb-16">
 
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-mint sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-mint/70 sm:w-10" />
@@ -151,7 +162,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block h-[58svh] min-h-[460px] w-full overflow-hidden bg-[#231a13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:h-full md:min-h-0"
+          className="group relative block h-[52svh] min-h-[420px] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:h-full md:min-h-0"
         >
           <Picture
             source={heroParis}
@@ -171,7 +182,7 @@ export function Hero({ locale }: Props) {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[rgba(15,10,6,0.75)] via-[rgba(15,10,6,0.35)] to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black_55%,transparent_100%)]"
           />
-          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-24 pb-14 sm:px-7 sm:pt-28 md:items-center md:px-12 md:pt-32 md:pb-16 md:text-center">
+          <div className="relative z-10 flex h-full flex-col justify-between px-5 pt-8 pb-14 sm:px-7 sm:pt-10 md:items-center md:px-12 md:pt-10 md:pb-16 md:text-center">
 
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-champagne sm:tracking-[0.36em]">
               <span className="inline-block h-px w-8 bg-champagne/70 sm:w-10" />
@@ -193,34 +204,17 @@ export function Hero({ locale }: Props) {
 
           </div>
         </Link>
-      </div>
 
-      {/* Unified centered headline.
-          - Mobile: hidden (each stacked panel already owns its own CTA; an
-            overlay would collide with the button or the models' faces).
-          - Desktop: pinned to the top safe area above the models' eye-line
-            (images use object-position ~32% Y, so the upper band is sky/skyline). */}
-      <div className="pointer-events-none absolute inset-x-0 top-[12svh] z-20 hidden flex-col items-center px-6 text-center md:flex">
-        <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.42em] text-paper/75">
-          {t.eyebrow}
-        </div>
-        <h2 className="mx-auto max-w-[26ch] font-editorial font-extralight leading-[1.05] tracking-[-0.02em] text-paper text-balance [text-shadow:0_2px_28px_rgba(0,0,0,0.6)] text-[clamp(1.75rem,3.6vw,3.25rem)]">
-          <span className="italic text-champagne">{t.titleA.replace(/\.$/, "")}</span>
-          <span aria-hidden className="mx-3 inline-block align-middle text-paper/45">·</span>
-          <span className="italic text-mint">{t.titleB.replace(/\.$/, "")}</span>
-        </h2>
-        <span aria-hidden className="mt-5 block h-px w-24 bg-paper/40" />
+        {/* Seam divisor — scoped to image panels only. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-champagne/25 to-transparent md:block"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
+        />
       </div>
-
-      {/* Seam divisor — vertical on desktop, horizontal on mobile between stacked panels */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-champagne/25 to-transparent md:block"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-champagne/20 to-transparent md:hidden"
-      />
 
       {/* Mobile scroll cue */}
       <div
@@ -231,11 +225,6 @@ export function Hero({ locale }: Props) {
           ↓
         </span>
       </div>
-
-      {/* Manifesto strip — desktop only, below the fold visually anchored */}
-      <p className="pointer-events-none absolute inset-x-0 bottom-6 z-20 mx-auto hidden max-w-xl px-6 text-center font-sans text-sm leading-relaxed text-paper/75 md:block md:text-[15px]">
-        {t.manifesto}
-      </p>
 
     </section>
   );
