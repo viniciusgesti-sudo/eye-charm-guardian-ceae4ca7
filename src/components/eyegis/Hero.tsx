@@ -158,7 +158,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={alts.women}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-screen"
+          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroParis}
@@ -167,7 +167,7 @@ export function Hero({ locale }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
             height={1920}
-            className="absolute inset-0 h-full w-full object-cover object-[53%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate]"
+            className="absolute inset-0 h-full w-full object-cover object-[53%_34%] transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[kenburns-right_28s_ease-in-out_infinite_alternate] lg:object-[53%_42%]"
           />
           <div
             aria-hidden
