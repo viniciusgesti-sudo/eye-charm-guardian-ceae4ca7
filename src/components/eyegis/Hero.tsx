@@ -82,9 +82,9 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate min-h-screen w-full overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-[100svh] w-full overflow-hidden bg-ink text-paper lg:min-h-[min(100svh,780px)]"
     >
-      <div className="relative grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
+      <div className="relative grid min-h-[100svh] w-full grid-cols-1 md:grid-cols-2 lg:min-h-[min(100svh,780px)]">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
