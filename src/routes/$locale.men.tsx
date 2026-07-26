@@ -7,7 +7,6 @@ import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=a
 
 import { Collection } from "@/components/eyegis/Collection";
 import { FAQ } from "@/components/eyegis/FAQ";
-import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -93,7 +92,6 @@ function MenPage() {
         externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="men" />
-      <MacroTriptych audience="men" />
       <ShopOnAmazon />
       <FAQ compact />
     </>
