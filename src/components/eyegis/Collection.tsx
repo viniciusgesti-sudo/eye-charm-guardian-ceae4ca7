@@ -513,7 +513,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 
           <Reveal delay={220}>
             <h3
-              className={`mt-8 font-editorial leading-[0.92] text-balance-tight text-fluid-hero ${t.text}`}
+              className={`mt-6 font-editorial leading-[0.98] text-balance-tight text-fluid-h1 ${t.text}`}
             >
               {c.headline}
               <br />

@@ -8,7 +8,7 @@ import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=a
 import { Collection } from "@/components/eyegis/Collection";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
-import { ModelRunway } from "@/components/eyegis/ModelRunway";
+
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -95,7 +95,7 @@ function MenPage() {
       />
       <Collection audience="men" />
       <LifestyleUniverse audience="men" compact />
-      <ModelRunway audience="men" />
+      
       <ShopOnAmazon />
       <FAQ />
     </>
