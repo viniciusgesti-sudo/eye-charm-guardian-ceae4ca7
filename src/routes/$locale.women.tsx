@@ -98,7 +98,7 @@ function WomenPage() {
       <Collection audience="women" />
       <MacroTriptych audience="women" />
       <ShopOnAmazon />
-      <FAQ />
+      <FAQ compact />
 
     </>
   );
