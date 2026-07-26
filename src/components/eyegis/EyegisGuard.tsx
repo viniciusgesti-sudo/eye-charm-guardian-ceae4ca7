@@ -540,30 +540,35 @@ function ComparisonSlider({ withoutLabel, withLabel }: { withoutLabel: string; w
         setFromClientX(e.touches[0].clientX);
       }}
     >
-      <Picture source={comparisonImg} alt={withLabel} sizes="100vw" className="absolute inset-0 h-full w-full object-cover" />
+      {/* BASE (right side): SEM EYEGIS — cool, harsh blue-cast */}
+      <Picture
+        source={comparisonImg}
+        alt={withoutLabel}
+        sizes="100vw"
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{ filter: "saturate(0.82) hue-rotate(-10deg) brightness(1.06) contrast(0.96)" }}
+      />
+      {/* Cool blue tint over the base to emphasise harshness */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "linear-gradient(180deg, rgba(120,170,220,0.18), rgba(120,170,220,0.08))", mixBlendMode: "screen" }}
+      />
+      {/* OVERLAY (left side): COM EYEGIS — natural, warm, comfortable */}
       <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${pos}%` }}>
         <Picture
           source={comparisonImg}
-          alt={withoutLabel}
+          alt={withLabel}
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
           style={{
-            filter: "saturate(1.08) contrast(1.05) brightness(1.03)",
+            filter: "saturate(1.05) contrast(1.02) brightness(1.0)",
             width: `${(100 / pos) * 100}%`,
             maxWidth: "none",
           }}
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(180deg, rgba(140,170,210,0.08), rgba(140,170,210,0.02))",
-            mixBlendMode: "screen",
-          }}
-        />
-
       </div>
-      <span className="absolute left-5 top-5 font-eyebrow text-[10px] text-paper drop-shadow">{withoutLabel}</span>
-      <span className="absolute right-5 top-5 font-eyebrow text-[10px] text-ink/80">{withLabel}</span>
+      <span className="absolute left-5 top-5 z-10 rounded-full bg-teal/90 px-3 py-1 font-eyebrow text-[10px] text-paper drop-shadow">{withLabel}</span>
+      <span className="absolute right-5 top-5 z-10 rounded-full bg-ink/70 px-3 py-1 font-eyebrow text-[10px] text-paper drop-shadow">{withoutLabel}</span>
       <div className="absolute inset-y-0 z-10" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
         <div className="relative h-full w-px bg-paper/85 shadow-[0_0_0_1px_rgba(29,37,45,0.15)]" />
         <button
