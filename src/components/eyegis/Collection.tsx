@@ -1202,7 +1202,7 @@ export type CollectionAudience = "men" | "women" | "kids";
 export function Collection({ audience }: { audience?: CollectionAudience } = {}) {
   const { lang } = useI18n();
   const copy = COPY[lang];
-  const collections = audience ? COLLECTIONS.filter((c) => c.id === audience) : COLLECTIONS;
+  const collections = audience ? [] : COLLECTIONS;
 
   return (
     <section id="collections" className="relative">
