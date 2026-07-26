@@ -1105,7 +1105,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
     <section className="relative bg-teal-deep text-paper">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-32 md:py-52 text-center">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-16 md:py-24 text-center">
         <Reveal>
           <div className="flex items-center justify-center gap-4 text-paper/60">
             <span className="h-px w-14 bg-paper/30" />
