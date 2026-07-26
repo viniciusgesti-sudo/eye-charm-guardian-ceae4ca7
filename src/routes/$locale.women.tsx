@@ -6,11 +6,9 @@ import heroClarity from "@/assets/products/solene-front.jpg?url";
 import heroClaritySrc from "@/assets/products/solene-front.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
 
 import { Collection } from "@/components/eyegis/Collection";
-import { EyegisGuard } from "@/components/eyegis/EyegisGuard";
 import { FAQ } from "@/components/eyegis/FAQ";
 import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { ModelRunway } from "@/components/eyegis/ModelRunway";
-import { MacroTriptych } from "@/components/eyegis/MacroTriptych";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
@@ -25,11 +23,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste e lente E-Guard Circadian™ — alta fidelidade de cor de dia, luz mais quente ao entardecer.",
+      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste.",
     ctaLabel: "Ver na Amazon",
     metaTitle: "Coleção Feminina — Eyegis",
     metaDesc:
-      "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com lente E-Guard Circadian™. Cor fiel de dia, luz mais quente ao entardecer.",
+      "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com shield-G dourado.",
   },
   en: {
     eyebrow: "Collection · Women",
@@ -40,11 +38,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "A cat-eye in tortoise acetate, discreet gold shield-G on the temple, and an E-Guard Circadian™ lens — true color by day, warmer light at dusk.",
+      "A cat-eye in tortoise acetate with a discreet gold shield-G on the temple.",
     ctaLabel: "Shop on Amazon",
     metaTitle: "Women's Collection — Eyegis",
     metaDesc:
-      "Eyegis Women's Collection: tortoise cat-eye with E-Guard Circadian™ lens. True color by day, warmer light at dusk.",
+      "Eyegis Women's Collection: tortoise cat-eye with a discreet gold shield-G.",
   },
   fr: {
     eyebrow: "Collection · Femme",
@@ -55,11 +53,11 @@ const COPY = {
       </>
     ),
     subtitle:
-      "Un cat-eye en acétate écaille, discret shield-G doré sur la branche et un verre E-Guard Circadian™ — couleurs fidèles le jour, lumière plus chaude au crépuscule.",
+      "Un cat-eye en acétate écaille avec un discret shield-G doré sur la branche.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Femme — Eyegis",
     metaDesc:
-      "Collection Femme Eyegis : cat-eye écaille avec verre E-Guard Circadian™. Couleurs fidèles le jour, lumière plus chaude au crépuscule.",
+      "Collection Femme Eyegis : cat-eye écaille avec un discret shield-G doré.",
   },
 } as const;
 
@@ -100,9 +98,6 @@ function WomenPage() {
       <Collection audience="women" />
       <LifestyleUniverse audience="women" compact />
       <ModelRunway audience="women" />
-      <MacroTriptych audience="women" />
-
-      <EyegisGuard audience="women" />
       <ShopOnAmazon />
       <FAQ />
     </>
