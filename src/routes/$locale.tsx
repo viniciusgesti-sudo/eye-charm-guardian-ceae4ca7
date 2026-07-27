@@ -52,7 +52,7 @@ function LocaleLayout() {
   }, [locale]);
 
   return (
-    <main className="bg-background text-foreground overflow-x-hidden">
+    <main id="main" tabIndex={-1} className="bg-background text-foreground overflow-x-hidden outline-none">
       <Header />
       <Outlet />
       <Suspense fallback={null}><Footer /></Suspense>
