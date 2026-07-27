@@ -40,16 +40,12 @@ function LocaleLayout() {
   const { lang, setLang } = useI18n();
   const target = localeToLang(locale);
 
-  // Sync during render so first paint matches URL locale (no EN flash on /br).
-  if (lang !== target) {
-    setLang(target);
-  }
-
   useEffect(() => {
+    if (lang !== target) setLang(target);
     if (typeof document !== "undefined") {
       document.documentElement.lang = locale;
     }
-  }, [locale]);
+  }, [locale, target, lang, setLang]);
 
   return (
     <main id="main" tabIndex={-1} className="bg-background text-foreground overflow-x-hidden outline-none">
