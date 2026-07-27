@@ -36,7 +36,7 @@ export function StickyBuyBar() {
       }`}
       // Use `inert` instead of aria-hidden so focusable descendants are
       // fully removed from the tab order while the bar is off-screen.
-      {...(!visible ? { inert: "" as unknown as boolean } : {})}
+      inert={!visible}
     >
       {/* Mobile bar */}
       <div className="md:hidden border-t border-ink/10 bg-paper/95 px-4 py-3 backdrop-blur-xl">
