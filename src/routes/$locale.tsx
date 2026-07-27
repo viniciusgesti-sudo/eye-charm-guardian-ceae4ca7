@@ -18,6 +18,10 @@ function isValid(v: string): v is ValidLocale {
   return (VALID as readonly string[]).includes(v);
 }
 
+function localeToLang(locale: string): Lang {
+  return locale === "br" ? "PT" : (locale.toUpperCase() as Lang);
+}
+
 export const Route = createFileRoute("/$locale")({
   beforeLoad: ({ params }) => {
     if (!isValid(params.locale)) {
@@ -33,15 +37,19 @@ export const Route = createFileRoute("/$locale")({
 
 function LocaleLayout() {
   const { locale } = Route.useParams();
-  const { setLang } = useI18n();
+  const { lang, setLang } = useI18n();
+  const target = localeToLang(locale);
+
+  // Sync during render so first paint matches URL locale (no EN flash on /br).
+  if (lang !== target) {
+    setLang(target);
+  }
 
   useEffect(() => {
-    const lang: Lang = locale === "br" ? "PT" : (locale.toUpperCase() as Lang);
-    setLang(lang);
     if (typeof document !== "undefined") {
       document.documentElement.lang = locale;
     }
-  }, [locale, setLang]);
+  }, [locale]);
 
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
