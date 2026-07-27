@@ -26,11 +26,20 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 const STORAGE_KEY = "eyegis.lang";
 
+function langFromPath(): Lang | null {
+  if (typeof window === "undefined") return null;
+  const seg = window.location.pathname.split("/")[1]?.toLowerCase();
+  if (seg === "br") return "PT";
+  if (seg === "en") return "EN";
+  if (seg === "fr") return "FR";
+  return null;
+}
+
 export function I18nProvider({ children }: { children: ReactNode }) {
-  // SSR-safe: start with EN, then hydrate from browser once mounted
-  const [lang, setLangState] = useState<Lang>("EN");
+  const [lang, setLangState] = useState<Lang>(() => langFromPath() ?? "EN");
 
   useEffect(() => {
+    if (langFromPath()) return; // URL locale wins; LocaleLayout will sync on nav
     try {
       const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
       if (stored && LANGS.includes(stored)) {

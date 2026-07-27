@@ -173,18 +173,8 @@ function RootComponent() {
     } catch {
       /* ignore */
     }
-    // Ensure the first <main> is a valid skip-link target on every route.
-    const assignMainId = () => {
-      const main = document.querySelector("main");
-      if (main && !main.id) {
-        main.id = "main";
-        if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
-      }
-    };
-    assignMainId();
-    const obs = new MutationObserver(assignMainId);
-    obs.observe(document.body, { childList: true, subtree: true });
-    return () => obs.disconnect();
+    // Skip-link target is baked into the locale layout <main id="main">.
+
   }, []);
 
 

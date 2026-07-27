@@ -18,6 +18,10 @@ function isValid(v: string): v is ValidLocale {
   return (VALID as readonly string[]).includes(v);
 }
 
+function localeToLang(locale: string): Lang {
+  return locale === "br" ? "PT" : (locale.toUpperCase() as Lang);
+}
+
 export const Route = createFileRoute("/$locale")({
   beforeLoad: ({ params }) => {
     if (!isValid(params.locale)) {
@@ -33,18 +37,18 @@ export const Route = createFileRoute("/$locale")({
 
 function LocaleLayout() {
   const { locale } = Route.useParams();
-  const { setLang } = useI18n();
+  const { lang, setLang } = useI18n();
+  const target = localeToLang(locale);
 
   useEffect(() => {
-    const lang: Lang = locale === "br" ? "PT" : (locale.toUpperCase() as Lang);
-    setLang(lang);
+    if (lang !== target) setLang(target);
     if (typeof document !== "undefined") {
       document.documentElement.lang = locale;
     }
-  }, [locale, setLang]);
+  }, [locale, target, lang, setLang]);
 
   return (
-    <main className="bg-background text-foreground overflow-x-hidden">
+    <main id="main" tabIndex={-1} className="bg-background text-foreground overflow-x-hidden outline-none">
       <Header />
       <Outlet />
       <Suspense fallback={null}><Footer /></Suspense>
