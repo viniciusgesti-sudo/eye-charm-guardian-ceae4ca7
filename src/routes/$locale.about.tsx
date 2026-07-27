@@ -14,13 +14,32 @@ function LocaleAboutRoute() {
   );
 }
 
+const META = {
+  br: {
+    title: "Sobre a Eyegis — Feito para o modo como vivemos hoje",
+    description:
+      "A Eyegis é uma marca premium de eyewear feita para a geração digital — engenharia óptica baseada em evidências e design atemporal.",
+  },
+  en: {
+    title: "About Eyegis — Designed for the Way We Live Today",
+    description:
+      "Eyegis is a premium eyewear brand built for the digital generation — pairing evidence-based optical engineering with timeless design.",
+  },
+  fr: {
+    title: "À propos d'Eyegis — Pensée pour la vie que nous vivons aujourd'hui",
+    description:
+      "Eyegis est une marque de lunetterie premium pensée pour la génération numérique — ingénierie optique fondée sur des preuves et design intemporel.",
+  },
+} as const;
+
 export const Route = createFileRoute("/$locale/about")({
-  head: ({ params }) =>
-    buildSeo({
-      title: "About Eyegis — Designed for the Way We Live Today",
-      description:
-        "Eyegis is a premium eyewear brand built for the digital generation — pairing evidence-based optical engineering with timeless design.",
+  head: ({ params }) => {
+    const m = META[(params.locale as keyof typeof META)] ?? META.en;
+    return buildSeo({
+      title: m.title,
+      description: m.description,
       path: `/${params.locale}/about`,
-    }),
+    });
+  },
   component: LocaleAboutRoute,
 });
