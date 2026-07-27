@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 import {
   LANGS,
@@ -26,9 +27,9 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 const STORAGE_KEY = "eyegis.lang";
 
-function langFromPath(): Lang | null {
-  if (typeof window === "undefined") return null;
-  const seg = window.location.pathname.split("/")[1]?.toLowerCase();
+function langFromPathname(pathname: string | undefined): Lang | null {
+  if (!pathname) return null;
+  const seg = pathname.split("/")[1]?.toLowerCase();
   if (seg === "br") return "PT";
   if (seg === "en") return "EN";
   if (seg === "fr") return "FR";
@@ -36,10 +37,22 @@ function langFromPath(): Lang | null {
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => langFromPath() ?? "EN");
+  // Derive locale from router pathname — identical on SSR and client,
+  // so first paint never mismatches on /br, /en, /fr routes.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const urlLang = langFromPathname(pathname);
+
+  const [lang, setLangState] = useState<Lang>(() => urlLang ?? "EN");
 
   useEffect(() => {
-    if (langFromPath()) return; // URL locale wins; LocaleLayout will sync on nav
+    if (urlLang && urlLang !== lang) {
+      setLangState(urlLang);
+      document.documentElement.lang = urlLang.toLowerCase();
+    }
+  }, [urlLang, lang]);
+
+  useEffect(() => {
+    if (urlLang) return; // URL locale wins on locale routes
     try {
       const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
       if (stored && LANGS.includes(stored)) {
@@ -53,7 +66,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     const detected = detectBrowserLang();
     setLangState(detected);
     document.documentElement.lang = detected.toLowerCase();
-  }, []);
+  }, [urlLang]);
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
