@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
-import { CmsProvider } from "../lib/cms";
+import { CmsProvider, siteContentQueryOptions } from "../lib/cms";
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
@@ -144,6 +144,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
+  // Prime the CMS query on the server so the first paint uses live Wix
+  // content. The fetcher itself never throws — on failure it resolves to
+  // an empty map and CmsProvider transparently uses local fallbacks.
+  loader: ({ context }) => {
+    void context.queryClient.prefetchQuery(siteContentQueryOptions);
+  },
 });
 
 function RootShell({ children }: { children: ReactNode }) {
@@ -174,14 +180,11 @@ function RootComponent() {
     } catch {
       /* ignore */
     }
-    // Skip-link target is baked into the locale layout <main id="main">.
-
   }, []);
-
 
   return (
     <QueryClientProvider client={queryClient}>
-      <CmsProvider>
+      <CmsHydrator>
         <I18nProvider>
           <a href="#main" className="skip-to-content">Skip to content</a>
           <PreviewErrorBoundary
@@ -195,9 +198,19 @@ function RootComponent() {
             <CookieBanner />
           </Suspense>
         </I18nProvider>
-      </CmsProvider>
+      </CmsHydrator>
     </QueryClientProvider>
   );
+}
 
+/**
+ * Reads the pre-fetched CMS map from React Query and feeds it into
+ * CmsProvider. Uses `useQuery` (not suspense) so a slow or failing Wix
+ * response never blocks the shell — components silently render fallbacks
+ * until the map arrives.
+ */
+function CmsHydrator({ children }: { children: ReactNode }) {
+  const { data } = useQuery(siteContentQueryOptions);
+  return <CmsProvider value={data ?? undefined}>{children}</CmsProvider>;
 }
 
