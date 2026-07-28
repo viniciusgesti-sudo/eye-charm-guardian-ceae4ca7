@@ -33,7 +33,15 @@ import "@/styles.css";
 // Remove once <eyegis-app> is confirmed rendering.
 try {
   // eslint-disable-next-line no-console
-  console.info("[EYEGIS] bundle loaded", { url: import.meta.url });
+  console.info("[EYEGIS] bundle loaded");
+  
+  // Set CDN base dynamically for assets based on script src
+  if (typeof document !== 'undefined' && document.currentScript) {
+    const src = (document.currentScript as HTMLScriptElement).src;
+    if (src) {
+      (window as any).__EYEGIS_CDN_BASE__ = src.substring(0, src.lastIndexOf('/'));
+    }
+  }
 } catch (err) {
   // eslint-disable-next-line no-console
   console.error("[EYEGIS] failed to log bundle load", err);
@@ -53,29 +61,8 @@ if (typeof window !== "undefined") {
 
 const TAG = "eyegis-app";
 
-// Auto-inject the sibling CSS file (eyegis-bundle.css) based on this module's
-// URL so the Wix Custom Element renders styled without manual <link> setup.
-// Safe against duplicate injection when multiple <eyegis-app> elements exist.
-(function injectBundleCss() {
-  try {
-    const moduleUrl = import.meta.url;
-    if (!moduleUrl) return;
-    const cssUrl = new URL("./eyegis-bundle.css", moduleUrl).href;
-    const existing = document.querySelector<HTMLLinkElement>(
-      `link[rel="stylesheet"][data-eyegis-bundle="1"]`,
-    );
-    if (existing && existing.href === cssUrl) return;
-    if (existing) return;
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = cssUrl;
-    link.setAttribute("data-eyegis-bundle", "1");
-    document.head.appendChild(link);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error("[EYEGIS] failed to inject bundle CSS", err);
-  }
-})();
+// CSS is now injected directly by the Vite inline-css plugin in vite.config.wix.ts.
+// No import.meta.url logic is needed here.
 
 class EyegisElement extends HTMLElement {
   static get observedAttributes() {

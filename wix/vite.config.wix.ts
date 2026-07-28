@@ -27,8 +27,35 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
+function inlineCssPlugin() {
+  return {
+    name: 'inline-css',
+    enforce: 'post' as const,
+    generateBundle(options: any, bundle: any) {
+      let cssContent = '';
+      const cssFiles: string[] = [];
+      for (const [fileName, file] of Object.entries(bundle)) {
+        if (fileName.endsWith('.css') && 'source' in (file as any)) {
+          cssContent += (file as any).source;
+          cssFiles.push(fileName);
+        }
+      }
+      if (cssContent) {
+        for (const [fileName, file] of Object.entries(bundle)) {
+          if (fileName.endsWith('.js') && (file as any).type === 'chunk' && (file as any).isEntry) {
+            const injectCode = `\n(function(){try{var s=document.createElement('style');s.setAttribute('data-eyegis-bundle', '1');s.textContent=${JSON.stringify(cssContent)};document.head.appendChild(s);}catch(e){}})();`;
+            (file as any).code += injectCode;
+          }
+        }
+        cssFiles.forEach(f => delete bundle[f]);
+      }
+    }
+  };
+}
+
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), tsconfigPaths()],
+  plugins: [react(), tailwindcss(), tsconfigPaths(), inlineCssPlugin()],
   resolve: {
     alias: {
       // Swap TanStack Router for a shim so <Link>/hooks work without a
@@ -38,6 +65,14 @@ export default defineConfig({
   },
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
+  },
+  experimental: {
+    renderBuiltUrl(filename, { hostType }) {
+      if (hostType === 'js') {
+        return { runtime: `(window.__EYEGIS_CDN_BASE__ || '') + ${JSON.stringify('/' + filename)}` };
+      }
+      return '/' + filename;
+    }
   },
   build: {
     outDir: "dist-wix",
@@ -54,18 +89,15 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     modulePreload: { polyfill: false },
     rollupOptions: {
-      // Explicit non-HTML entry (replaces `lib` mode) so we get standard
-      // multi-chunk code splitting while still emitting a stable
-      // `eyegis-bundle.js` for the Wix Custom Element to load.
       input: {
         "eyegis-bundle": path.resolve(__dirname, "entry.tsx"),
       },
       output: {
-        format: "es",
+        format: "iife",
+        name: "EyegisAppBundle",
         entryFileNames: "eyegis-bundle.js",
-        chunkFileNames: "chunks/[name]-[hash].js",
+        inlineDynamicImports: true,
         assetFileNames: (asset) => {
-          if (asset.name?.endsWith(".css")) return "eyegis-bundle.css";
           return "assets/[name]-[hash][extname]";
         },
       },
