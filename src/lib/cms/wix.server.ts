@@ -40,7 +40,11 @@ function toEntry(raw: Record<string, unknown>): CmsEntry | null {
 
   const entry: CmsEntry = {
     key,
-    title: asString(raw.title),
+    // NOTE: Wix `title` is the ADMIN label shown inside the CMS list view
+    // (e.g. "Hero Center", "Review 1"). It is intentionally NOT surfaced to
+    // the frontend — mapping it would leak internal labels into the UI.
+    // Components that need a display title read `text`, `subtitle`, or
+    // `description`.
     text: asString(raw.text),
     subtitle: asString(raw.subtitle),
     description: asString(raw.description),
