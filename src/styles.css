@@ -170,6 +170,39 @@
     line-height: 1.65;
   }
 
+  /* ---- Wix Custom Element host (<eyegis-app>) ----
+     Inside Wix, our React tree is nested under Wix wrappers that override
+     inherited font/color/line-height, so rules bound to `body` never reach
+     the content. Re-anchor the design system on the custom element host
+     itself. No-op outside Wix (the host element doesn't exist there). */
+  eyegis-app {
+    display: block;
+    width: 100%;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    letter-spacing: -0.005em;
+    font-size: clamp(0.9375rem, 0.35vw + 0.85rem, 1.0625rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  eyegis-app * {
+    border-color: var(--color-border);
+  }
+  eyegis-app h1,
+  eyegis-app h2,
+  eyegis-app h3,
+  eyegis-app h4 {
+    text-wrap: balance;
+  }
+  eyegis-app p {
+    line-height: 1.65;
+  }
+
   ::selection {
     background: var(--color-teal);
     color: var(--color-paper);
