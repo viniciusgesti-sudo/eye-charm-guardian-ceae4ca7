@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import heroSaoPaulo from "@/assets/hero-saopaulo-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import heroParis from "@/assets/hero-paris-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
+import { useCms } from "@/lib/cms";
 
 import { Picture } from "./Picture";
 
@@ -78,6 +79,22 @@ export function Hero({ locale }: Props) {
   const lang = (language as keyof typeof COPY) ?? "EN";
   const t = COPY[lang];
   const alts = ALTS[lang];
+
+  // CMS overrides (Wix) — silently fall back to the locale COPY above.
+  const cmsCenter = useCms("home.hero.center");
+  const cmsMen = useCms("home.hero.men");
+  const cmsWomen = useCms("home.hero.women");
+  const eyebrow = cmsCenter.title ?? t.eyebrow;
+  const headline = cmsCenter.text ?? t.headline;
+  const manifesto = cmsCenter.subtitle ?? t.manifesto;
+  const menTag = cmsMen.text ?? t.men.tag;
+  const menProduct = cmsMen.title ?? t.men.product;
+  const menCta = cmsMen.buttonText ?? t.men.cta;
+  const menAlt = cmsMen.image?.alt ?? alts.men;
+  const womenTag = cmsWomen.text ?? t.women.tag;
+  const womenProduct = cmsWomen.title ?? t.women.product;
+  const womenCta = cmsWomen.buttonText ?? t.women.cta;
+  const womenAlt = cmsWomen.image?.alt ?? alts.women;
 
   return (
     <section
