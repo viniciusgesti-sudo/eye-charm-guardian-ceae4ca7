@@ -28,6 +28,29 @@ import type { CmsMap } from "@/lib/cms";
 // Import global stylesheet — Vite inlines it into the bundle's CSS output.
 import "@/styles.css";
 
+// ── TEMP INSTRUMENTATION ─────────────────────────────────────────────────
+// Diagnostic logs to trace Custom Element execution inside Wix Preview.
+// Remove once <eyegis-app> is confirmed rendering.
+try {
+  // eslint-disable-next-line no-console
+  console.info("[EYEGIS] bundle loaded", { url: import.meta.url });
+} catch (err) {
+  // eslint-disable-next-line no-console
+  console.error("[EYEGIS] failed to log bundle load", err);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("error", (event) => {
+    // eslint-disable-next-line no-console
+    console.error("[EYEGIS] window.error", event.message, event.error);
+  });
+  window.addEventListener("unhandledrejection", (event) => {
+    // eslint-disable-next-line no-console
+    console.error("[EYEGIS] unhandledrejection", event.reason);
+  });
+}
+// ─────────────────────────────────────────────────────────────────────────
+
 const TAG = "eyegis-app";
 
 // Auto-inject the sibling CSS file (eyegis-bundle.css) based on this module's
@@ -50,7 +73,7 @@ const TAG = "eyegis-app";
     document.head.appendChild(link);
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error("[eyegis-app] failed to inject bundle CSS", err);
+    console.error("[EYEGIS] failed to inject bundle CSS", err);
   }
 })();
 
@@ -63,12 +86,23 @@ class EyegisElement extends HTMLElement {
   private mountNode: HTMLDivElement | null = null;
 
   connectedCallback() {
-    if (this.mountNode) return;
-    this.mountNode = document.createElement("div");
-    this.mountNode.style.display = "contents";
-    this.appendChild(this.mountNode);
-    this.root = createRoot(this.mountNode);
-    this.render();
+    // eslint-disable-next-line no-console
+    console.info("[EYEGIS] connectedCallback");
+    try {
+      if (this.mountNode) return;
+      this.mountNode = document.createElement("div");
+      this.mountNode.style.display = "contents";
+      this.appendChild(this.mountNode);
+      // eslint-disable-next-line no-console
+      console.info("[EYEGIS] mount node created");
+      this.root = createRoot(this.mountNode);
+      // eslint-disable-next-line no-console
+      console.info("[EYEGIS] React root created");
+      this.render();
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("[EYEGIS] connectedCallback failed", err);
+    }
   }
 
   attributeChangedCallback() {
@@ -84,16 +118,23 @@ class EyegisElement extends HTMLElement {
 
   private render() {
     if (!this.root) return;
-    const page = (this.getAttribute("page") ?? "home") as PageId;
-    const locale = (this.getAttribute("locale") ?? "br").toLowerCase();
-    const cms = this.readCms();
-    this.root.render(
-      <StrictMode>
-        <CmsProvider value={cms}>
-          <EyegisApp page={page} locale={locale} />
-        </CmsProvider>
-      </StrictMode>,
-    );
+    try {
+      const page = (this.getAttribute("page") ?? "home") as PageId;
+      const locale = (this.getAttribute("locale") ?? "br").toLowerCase();
+      const cms = this.readCms();
+      // eslint-disable-next-line no-console
+      console.info("[EYEGIS] rendering app", { page, locale, hasCms: !!cms });
+      this.root.render(
+        <StrictMode>
+          <CmsProvider value={cms}>
+            <EyegisApp page={page} locale={locale} />
+          </CmsProvider>
+        </StrictMode>,
+      );
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("[EYEGIS] render failed", err);
+    }
   }
 
   private readCms(): CmsMap | undefined {
@@ -107,14 +148,26 @@ class EyegisElement extends HTMLElement {
       return JSON.parse(raw) as CmsMap;
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.error("[eyegis-app] invalid cms-json attribute", err);
+      console.error("[EYEGIS] invalid cms-json attribute", err);
       return undefined;
     }
   }
 }
 
+// eslint-disable-next-line no-console
+console.info("[EYEGIS] defining custom element");
 if (!customElements.get(TAG)) {
-  customElements.define(TAG, EyegisElement);
+  try {
+    customElements.define(TAG, EyegisElement);
+    // eslint-disable-next-line no-console
+    console.info("[EYEGIS] custom element defined");
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error("[EYEGIS] customElements.define failed", err);
+  }
+} else {
+  // eslint-disable-next-line no-console
+  console.info("[EYEGIS] custom element already defined, skipping");
 }
 
 // Signal readiness so Velo can `window.__EYEGIS_CMS__ = …` and then dispatch
