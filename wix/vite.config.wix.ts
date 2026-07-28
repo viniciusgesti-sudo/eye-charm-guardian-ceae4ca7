@@ -23,11 +23,12 @@
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
       // Swap TanStack Router for a shim so <Link>/hooks work without a
@@ -43,6 +44,7 @@ export default defineConfig({
     emptyOutDir: true,
     target: "es2022",
     minify: "esbuild",
+    cssMinify: "esbuild",
     cssCodeSplit: false,
     sourcemap: false,
     lib: {
