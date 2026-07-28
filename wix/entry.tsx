@@ -30,6 +30,30 @@ import "@/styles.css";
 
 const TAG = "eyegis-app";
 
+// Auto-inject the sibling CSS file (eyegis-bundle.css) based on this module's
+// URL so the Wix Custom Element renders styled without manual <link> setup.
+// Safe against duplicate injection when multiple <eyegis-app> elements exist.
+(function injectBundleCss() {
+  try {
+    const moduleUrl = import.meta.url;
+    if (!moduleUrl) return;
+    const cssUrl = new URL("./eyegis-bundle.css", moduleUrl).href;
+    const existing = document.querySelector<HTMLLinkElement>(
+      `link[rel="stylesheet"][data-eyegis-bundle="1"]`,
+    );
+    if (existing && existing.href === cssUrl) return;
+    if (existing) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = cssUrl;
+    link.setAttribute("data-eyegis-bundle", "1");
+    document.head.appendChild(link);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error("[eyegis-app] failed to inject bundle CSS", err);
+  }
+})();
+
 class EyegisElement extends HTMLElement {
   static get observedAttributes() {
     return ["page", "locale", "cms-json"];
