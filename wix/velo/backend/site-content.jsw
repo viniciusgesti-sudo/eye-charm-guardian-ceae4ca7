@@ -1,0 +1,79 @@
+/**
+ * Velo backend web module — reads the SiteContent collection.
+ *
+ * File location in Wix: Backend > site-content.jsw
+ *
+ * Called from Velo page code with:
+ *
+ *   import { getContentForPage } from 'backend/site-content';
+ *   const cms = await getContentForPage('home');
+ *
+ * Because this runs server-side (Wix Node runtime), the returned data can
+ * be injected into `wix-seo-frontend` for SEO — Google sees it in the
+ * first HTML response, not after JS hydration.
+ */
+
+import wixData from 'wix-data';
+
+const PAGE_KEY_PREFIXES = {
+  home: 'home.',
+  men: 'men.',
+  women: 'women.',
+  kids: 'kids.',
+  technology: 'technology.',
+  lenses: 'lenses.',
+  about: 'about.',
+  faq: 'faq.',
+  contact: 'contact.',
+};
+
+/**
+ * Fetch every active SiteContent row whose `key` starts with the page
+ * prefix. Returns a plain object keyed by `key`, ready to be JSON.stringify'd
+ * into the Custom Element attribute.
+ *
+ * @param {keyof typeof PAGE_KEY_PREFIXES} page
+ * @returns {Promise<Record<string, object>>}
+ */
+export async function getContentForPage(page) {
+  const prefix = PAGE_KEY_PREFIXES[page];
+  if (!prefix) return {};
+
+  const query = await wixData
+    .query('SiteContent')
+    .startsWith('key', prefix)
+    .eq('active', true)
+    .limit(500)
+    .find({ suppressAuth: true });
+
+  /** @type {Record<string, object>} */
+  const map = {};
+  for (const row of query.items) {
+    if (!row.key) continue;
+    map[row.key] = normalize(row);
+  }
+  return map;
+}
+
+function normalize(row) {
+  return {
+    key: row.key,
+    title: row.title || undefined,
+    text: row.text || undefined,
+    subtitle: row.subtitle || undefined,
+    description: row.description || undefined,
+    buttonText: row.buttonText || undefined,
+    buttonLink: row.buttonLink || undefined,
+    link: row.link || undefined,
+    altText: row.altText || undefined,
+    order: typeof row.order === 'number' ? row.order : undefined,
+    active: row.active !== false,
+    video: row.video || undefined,
+    image: row.image
+      ? { src: row.image, alt: row.altText || row.title || '' }
+      : undefined,
+    mobileImage: row.mobileImage
+      ? { src: row.mobileImage, alt: row.altText || row.title || '' }
+      : undefined,
+  };
+}

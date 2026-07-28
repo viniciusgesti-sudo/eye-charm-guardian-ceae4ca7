@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
+import { CmsProvider } from "../lib/cms";
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
@@ -180,19 +181,21 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <I18nProvider>
-        <a href="#main" className="skip-to-content">Skip to content</a>
-        <PreviewErrorBoundary
-          fallback={(err, resetBoundary) => (
-            <ErrorComponent error={err} reset={resetBoundary} />
-          )}
-        >
-          <Outlet />
-        </PreviewErrorBoundary>
-        <Suspense fallback={null}>
-          <CookieBanner />
-        </Suspense>
-      </I18nProvider>
+      <CmsProvider>
+        <I18nProvider>
+          <a href="#main" className="skip-to-content">Skip to content</a>
+          <PreviewErrorBoundary
+            fallback={(err, resetBoundary) => (
+              <ErrorComponent error={err} reset={resetBoundary} />
+            )}
+          >
+            <Outlet />
+          </PreviewErrorBoundary>
+          <Suspense fallback={null}>
+            <CookieBanner />
+          </Suspense>
+        </I18nProvider>
+      </CmsProvider>
     </QueryClientProvider>
   );
 

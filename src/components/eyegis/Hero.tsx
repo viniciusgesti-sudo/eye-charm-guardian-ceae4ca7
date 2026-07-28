@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import heroSaoPaulo from "@/assets/hero-saopaulo-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import heroParis from "@/assets/hero-paris-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
+import { useCms } from "@/lib/cms";
 
 import { Picture } from "./Picture";
 
@@ -79,6 +80,22 @@ export function Hero({ locale }: Props) {
   const t = COPY[lang];
   const alts = ALTS[lang];
 
+  // CMS overrides (Wix) — silently fall back to the locale COPY above.
+  const cmsCenter = useCms("home.hero.center");
+  const cmsMen = useCms("home.hero.men");
+  const cmsWomen = useCms("home.hero.women");
+  const eyebrow = cmsCenter.title ?? t.eyebrow;
+  const headline = cmsCenter.text ?? t.headline;
+  const manifesto = cmsCenter.subtitle ?? t.manifesto;
+  const menTag = cmsMen.text ?? t.men.tag;
+  const menProduct = cmsMen.title ?? t.men.product;
+  const menCta = cmsMen.buttonText ?? t.men.cta;
+  const menAlt = cmsMen.image?.alt ?? alts.men;
+  const womenTag = cmsWomen.text ?? t.women.tag;
+  const womenProduct = cmsWomen.title ?? t.women.product;
+  const womenCta = cmsWomen.buttonText ?? t.women.cta;
+  const womenAlt = cmsWomen.image?.alt ?? alts.women;
+
   return (
     <section
       aria-label="Eyegis manifesto hero"
@@ -89,12 +106,12 @@ export function Hero({ locale }: Props) {
         <Link
           to="/$locale/men"
           params={{ locale }}
-          aria-label={alts.men}
+          aria-label={menAlt}
           className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroSaoPaulo}
-            alt={alts.men}
+            alt={menAlt}
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
@@ -110,14 +127,14 @@ export function Hero({ locale }: Props) {
             <div className="max-w-[500px]">
               <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-mint sm:tracking-[0.34em]">
                 <span className="inline-block h-px w-8 shrink-0 bg-mint/70 sm:w-10" />
-                <span className="min-w-0 truncate">{t.men.tag}</span>
+                <span className="min-w-0 truncate">{menTag}</span>
               </div>
               <div className="mt-4 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em]">
                 <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
-                <span className="min-w-0 truncate">{t.men.product}</span>
+                <span className="min-w-0 truncate">{menProduct}</span>
               </div>
               <div className="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink transition group-hover:bg-mint sm:px-6 sm:text-[11px] sm:tracking-[0.20em]">
-                <span className="whitespace-nowrap">{t.men.cta}</span>
+                <span className="whitespace-nowrap">{menCta}</span>
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
             </div>
@@ -135,12 +152,12 @@ export function Hero({ locale }: Props) {
           <div className="mx-auto w-full max-w-5xl">
             <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
               <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
-              <span className="min-w-0 truncate">{t.eyebrow}</span>
+              <span className="min-w-0 truncate">{eyebrow}</span>
               <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
             </div>
 
             <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.375rem,5vw,1.875rem)] font-extralight leading-[1.1] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.5rem,2.4vw,2.125rem)] md:leading-[1.08] lg:text-[clamp(1.625rem,1.9vw,2.25rem)]">
-              {t.headline}
+              {headline}
             </h1>
           </div>
         </div>
@@ -148,7 +165,7 @@ export function Hero({ locale }: Props) {
         {/* Manifesto — bottom center, desktop only, small and quiet */}
         <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:bottom-24 lg:block xl:bottom-28">
           <p className="mx-auto max-w-lg text-balance font-sans text-[13px] leading-6 text-paper/78 [text-shadow:0_2px_18px_rgba(0,0,0,0.7)]">
-            {t.manifesto}
+            {manifesto}
           </p>
         </div>
 
@@ -157,12 +174,12 @@ export function Hero({ locale }: Props) {
         <Link
           to="/$locale/women"
           params={{ locale }}
-          aria-label={alts.women}
+          aria-label={womenAlt}
           className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
         >
           <Picture
             source={heroParis}
-            alt={alts.women}
+            alt={womenAlt}
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
             width={1280}
@@ -177,14 +194,14 @@ export function Hero({ locale }: Props) {
             <div className="ml-auto max-w-[500px] text-left md:text-right">
               <div className="flex min-w-0 items-center gap-3 font-mono text-[10px] uppercase tracking-[0.26em] text-champagne sm:tracking-[0.34em] md:justify-end">
                 <span className="inline-block h-px w-8 shrink-0 bg-champagne/70 sm:w-10 md:order-2" />
-                <span className="min-w-0 truncate">{t.women.tag}</span>
+                <span className="min-w-0 truncate">{womenTag}</span>
               </div>
               <div className="mt-4 flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.20em] text-paper/85 sm:tracking-[0.24em] md:justify-end">
                 <span aria-hidden className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
-                <span className="min-w-0 truncate">{t.women.product}</span>
+                <span className="min-w-0 truncate">{womenProduct}</span>
               </div>
               <div className="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-5 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink transition group-hover:bg-champagne sm:px-6 sm:text-[11px] sm:tracking-[0.20em]">
-                <span className="whitespace-nowrap">{t.women.cta}</span>
+                <span className="whitespace-nowrap">{womenCta}</span>
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </div>
             </div>
