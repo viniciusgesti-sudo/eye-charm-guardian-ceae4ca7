@@ -47,18 +47,27 @@ export default defineConfig({
     cssMinify: "esbuild",
     cssCodeSplit: false,
     sourcemap: false,
-    lib: {
-      entry: path.resolve(__dirname, "entry.tsx"),
-      formats: ["es"],
-      fileName: () => "eyegis-bundle.js",
-    },
+    // Keep asset inlining threshold at Vite's default (4 KiB) so large
+    // images/fonts are emitted as sibling files instead of base64. Lib mode
+    // would force-inline everything, which pushed the single JS above the
+    // 25 MiB Cloudflare Pages per-file cap.
+    assetsInlineLimit: 4096,
+    modulePreload: { polyfill: false },
     rollupOptions: {
+      // Explicit non-HTML entry (replaces `lib` mode) so we get standard
+      // multi-chunk code splitting while still emitting a stable
+      // `eyegis-bundle.js` for the Wix Custom Element to load.
+      input: {
+        "eyegis-bundle": path.resolve(__dirname, "entry.tsx"),
+      },
       output: {
+        format: "es",
+        entryFileNames: "eyegis-bundle.js",
+        chunkFileNames: "chunks/[name]-[hash].js",
         assetFileNames: (asset) => {
           if (asset.name?.endsWith(".css")) return "eyegis-bundle.css";
-          return "assets/[name][extname]";
+          return "assets/[name]-[hash][extname]";
         },
-        codeSplitting: false,
       },
     },
   },
