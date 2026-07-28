@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /qa
-Disallow: /api/
-
-Sitemap: https://eye-charm-guardian.lovable.app/sitemap.xml
