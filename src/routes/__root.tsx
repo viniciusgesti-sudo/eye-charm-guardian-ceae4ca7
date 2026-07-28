@@ -147,8 +147,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   // Prime the CMS query on the server so the first paint uses live Wix
   // content. The fetcher itself never throws — on failure it resolves to
   // an empty map and CmsProvider transparently uses local fallbacks.
-  loader: ({ context }) => {
-    void context.queryClient.prefetchQuery(siteContentQueryOptions);
+  loader: async ({ context }) => {
+    // `fetchSiteContent` swallows every error and returns {} on failure, so
+    // awaiting here is safe — SSR will never break because the CMS is slow.
+    await context.queryClient.ensureQueryData(siteContentQueryOptions);
   },
 });
 
