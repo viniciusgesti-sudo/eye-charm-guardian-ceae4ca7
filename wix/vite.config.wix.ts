@@ -28,6 +28,13 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
+  resolve: {
+    alias: {
+      // Swap TanStack Router for a shim so <Link>/hooks work without a
+      // RouterProvider (Wix owns URLs). See wix/shims/router.tsx.
+      "@tanstack/react-router": path.resolve(__dirname, "shims/router.tsx"),
+    },
+  },
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
   },
