@@ -58,7 +58,6 @@ export default defineConfig({
           if (asset.name?.endsWith(".css")) return "eyegis-bundle.css";
           return "assets/[name][extname]";
         },
-        inlineDynamicImports: true,
       },
     },
   },
