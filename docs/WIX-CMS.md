@@ -19,9 +19,9 @@ createServerFn — src/lib/cms/cms.functions.ts
    ↓
 src/lib/cms/wix.server.ts        (SERVER ONLY — never bundled to the client)
    ↓
-Lovable Connector Gateway (https://connector-gateway.lovable.dev/wix)
+Wix Data API — POST https://www.wixapis.com/wix-data/v2/items/query
    ↓
-Wix Data API — collection `SiteContent`
+Collection `SiteContent` (segmento LIVE)
 ```
 
 **Nunca** a API Key do Wix trafega para o navegador. O único lugar onde ela
