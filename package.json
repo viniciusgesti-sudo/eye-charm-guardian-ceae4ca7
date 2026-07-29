@@ -36,8 +36,7 @@
     "smoke:about": "node scripts/smoke-about.mjs",
     "smoke:hmr-about": "node scripts/hmr-about.mjs",
     "check:route-exports": "node scripts/check-route-exports.mjs",
-    "format": "prettier --write .",
-    "build:wix": "vite build --config wix/vite.config.wix.ts"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
