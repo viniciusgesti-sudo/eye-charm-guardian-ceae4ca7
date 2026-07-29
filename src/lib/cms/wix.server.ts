@@ -70,21 +70,20 @@ function toEntry(raw: Record<string, unknown>): CmsEntry | null {
  * the CMS is unreachable.
  */
 export async function fetchSiteContent(): Promise<CmsMap> {
-  const lovableKey = process.env.LOVABLE_API_KEY;
   const wixKey = process.env.WIX_API_KEY;
-  if (!lovableKey || !wixKey) {
-    // No credentials injected — running outside Lovable runtime. Fallback path.
+  const siteId = process.env.WIX_SITE_ID || DEFAULT_WIX_SITE_ID;
+  if (!wixKey) {
+    console.warn("[CMS] WIX_API_KEY missing — falling back to local content.");
     return {};
   }
 
   try {
-    const res = await fetch(`${GATEWAY}/wix-data/v2/items/query`, {
+    const res = await fetch(WIX_QUERY_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${lovableKey}`,
-        "X-Connection-Api-Key": wixKey,
+        Authorization: wixKey,
         "Content-Type": "application/json",
-        "wix-site-id": WIX_SITE_ID,
+        "wix-site-id": siteId,
       },
       body: JSON.stringify({
         dataCollectionId: COLLECTION_ID,
@@ -111,3 +110,4 @@ export async function fetchSiteContent(): Promise<CmsMap> {
     return {};
   }
 }
+
