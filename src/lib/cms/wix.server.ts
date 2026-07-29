@@ -1,20 +1,21 @@
 /**
  * Wix CMS — server-only fetcher.
  *
- * Reads the `SiteContent` data collection through the Lovable connector
- * gateway. Credentials never leave the server: WIX_API_KEY and
- * LOVABLE_API_KEY are only readable inside handlers. This module has the
- * `.server.` suffix so the client-bundle import guard blocks it hard.
+ * Talks directly to the official Wix Data API (www.wixapis.com) using a
+ * real Wix API Key (IST.*) stored in WIX_API_KEY. This runs server-side
+ * only (TanStack server functions / SSR on Vercel) — the key never ships
+ * to the client bundle. No Lovable gateway, no LOVABLE_API_KEY.
  */
 import type { CmsMap, CmsEntry } from "./types";
 
 /**
  * Wix site ID for eyegis-eyewear.com — non-secret, stable identifier.
- * If Eyegis ever migrates sites, override with SiteContent env in Cloud.
+ * Override with WIX_SITE_ID env var if the site ever changes.
  */
-const WIX_SITE_ID = "fd7d4ce1-76de-49ab-8bdf-8a3c5425cced";
+const DEFAULT_WIX_SITE_ID = "fd7d4ce1-76de-49ab-8bdf-8a3c5425cced";
 const COLLECTION_ID = "SiteContent";
-const GATEWAY = "https://connector-gateway.lovable.dev/wix";
+const WIX_QUERY_URL = "https://www.wixapis.com/wix-data/v2/items/query";
+
 
 type WixItem = {
   id: string;
@@ -69,21 +70,20 @@ function toEntry(raw: Record<string, unknown>): CmsEntry | null {
  * the CMS is unreachable.
  */
 export async function fetchSiteContent(): Promise<CmsMap> {
-  const lovableKey = process.env.LOVABLE_API_KEY;
   const wixKey = process.env.WIX_API_KEY;
-  if (!lovableKey || !wixKey) {
-    // No credentials injected — running outside Lovable runtime. Fallback path.
+  const siteId = process.env.WIX_SITE_ID || DEFAULT_WIX_SITE_ID;
+  if (!wixKey) {
+    console.warn("[CMS] WIX_API_KEY missing — falling back to local content.");
     return {};
   }
 
   try {
-    const res = await fetch(`${GATEWAY}/wix-data/v2/items/query`, {
+    const res = await fetch(WIX_QUERY_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${lovableKey}`,
-        "X-Connection-Api-Key": wixKey,
+        Authorization: wixKey,
         "Content-Type": "application/json",
-        "wix-site-id": WIX_SITE_ID,
+        "wix-site-id": siteId,
       },
       body: JSON.stringify({
         dataCollectionId: COLLECTION_ID,
@@ -110,3 +110,4 @@ export async function fetchSiteContent(): Promise<CmsMap> {
     return {};
   }
 }
+

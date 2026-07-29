@@ -19,9 +19,9 @@ createServerFn — src/lib/cms/cms.functions.ts
    ↓
 src/lib/cms/wix.server.ts        (SERVER ONLY — never bundled to the client)
    ↓
-Lovable Connector Gateway (https://connector-gateway.lovable.dev/wix)
+Wix Data API — POST https://www.wixapis.com/wix-data/v2/items/query
    ↓
-Wix Data API — collection `SiteContent`
+Collection `SiteContent` (segmento LIVE)
 ```
 
 **Nunca** a API Key do Wix trafega para o navegador. O único lugar onde ela
@@ -151,12 +151,13 @@ opera 100% com fallbacks. **Sem single point of failure visual.**
 
 ## 7. Segurança
 
-- `WIX_API_KEY` — segredo do connector Wix. Injetado apenas em
-  `process.env` no runtime edge. **Nunca** exposto ao navegador.
-- `LOVABLE_API_KEY` — mesma coisa, para autenticar no Gateway.
+- `WIX_API_KEY` — API Key oficial do Wix (formato `IST.*`), gerada no
+  Wix Dashboard → Settings → API Keys. Injetada apenas em `process.env`
+  no runtime server (Vercel). **Nunca** exposta ao navegador.
+- `WIX_SITE_ID` (opcional) — sobrescreve o site ID padrão.
 - Nenhuma credencial em `.env` versionado, `localStorage` ou variável Vite
   (`VITE_*`).
-- Todo tráfego passa pelo gateway TLS `connector-gateway.lovable.dev`.
+- Chamada direta e server-only para `https://www.wixapis.com` via TLS.
 
 ---
 
