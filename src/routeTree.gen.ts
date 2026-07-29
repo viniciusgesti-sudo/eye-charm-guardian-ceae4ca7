@@ -13,13 +13,10 @@ import { Route as WarrantyRouteImport } from './routes/warranty'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShippingRouteImport } from './routes/shipping'
-import { Route as QaRouteImport } from './routes/qa'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as DevTokensRouteImport } from './routes/dev-tokens'
-import { Route as DevA11yLogoRouteImport } from './routes/dev-a11y-logo'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as AboutRouteImport } from './routes/about'
@@ -64,11 +61,6 @@ const ShippingRoute = ShippingRouteImport.update({
   path: '/shipping',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QaRoute = QaRouteImport.update({
-  id: '/qa',
-  path: '/qa',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -87,16 +79,6 @@ const LegalRoute = LegalRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevTokensRoute = DevTokensRouteImport.update({
-  id: '/dev-tokens',
-  path: '/dev-tokens',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevA11yLogoRoute = DevA11yLogoRouteImport.update({
-  id: '/dev-a11y-logo',
-  path: '/dev-a11y-logo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -221,13 +203,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
-  '/dev-a11y-logo': typeof DevA11yLogoRoute
-  '/dev-tokens': typeof DevTokensRoute
   '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
-  '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -256,13 +235,10 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
-  '/dev-a11y-logo': typeof DevA11yLogoRoute
-  '/dev-tokens': typeof DevTokensRoute
   '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
-  '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -293,13 +269,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
-  '/dev-a11y-logo': typeof DevA11yLogoRoute
-  '/dev-tokens': typeof DevTokensRoute
   '/faq': typeof FaqRoute
   '/legal': typeof LegalRoute
   '/lenses': typeof LensesRoute
   '/privacy': typeof PrivacyRoute
-  '/qa': typeof QaRoute
   '/shipping': typeof ShippingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
@@ -331,13 +304,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/contact'
-    | '/dev-a11y-logo'
-    | '/dev-tokens'
     | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
-    | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
@@ -366,13 +336,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/contact'
-    | '/dev-a11y-logo'
-    | '/dev-tokens'
     | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
-    | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
@@ -402,13 +369,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/compliance'
     | '/contact'
-    | '/dev-a11y-logo'
-    | '/dev-tokens'
     | '/faq'
     | '/legal'
     | '/lenses'
     | '/privacy'
-    | '/qa'
     | '/shipping'
     | '/sitemap.xml'
     | '/technology'
@@ -439,13 +403,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ComplianceRoute: typeof ComplianceRoute
   ContactRoute: typeof ContactRoute
-  DevA11yLogoRoute: typeof DevA11yLogoRoute
-  DevTokensRoute: typeof DevTokensRoute
   FaqRoute: typeof FaqRoute
   LegalRoute: typeof LegalRoute
   LensesRoute: typeof LensesRoute
   PrivacyRoute: typeof PrivacyRoute
-  QaRoute: typeof QaRoute
   ShippingRoute: typeof ShippingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
@@ -486,13 +447,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShippingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/qa': {
-      id: '/qa'
-      path: '/qa'
-      fullPath: '/qa'
-      preLoaderRoute: typeof QaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -519,20 +473,6 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-tokens': {
-      id: '/dev-tokens'
-      path: '/dev-tokens'
-      fullPath: '/dev-tokens'
-      preLoaderRoute: typeof DevTokensRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-a11y-logo': {
-      id: '/dev-a11y-logo'
-      path: '/dev-a11y-logo'
-      fullPath: '/dev-a11y-logo'
-      preLoaderRoute: typeof DevA11yLogoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -742,13 +682,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ComplianceRoute: ComplianceRoute,
   ContactRoute: ContactRoute,
-  DevA11yLogoRoute: DevA11yLogoRoute,
-  DevTokensRoute: DevTokensRoute,
   FaqRoute: FaqRoute,
   LegalRoute: LegalRoute,
   LensesRoute: LensesRoute,
   PrivacyRoute: PrivacyRoute,
-  QaRoute: QaRoute,
   ShippingRoute: ShippingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
@@ -761,13 +698,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
