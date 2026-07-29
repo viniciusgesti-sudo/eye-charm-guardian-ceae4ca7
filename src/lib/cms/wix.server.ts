@@ -1,20 +1,21 @@
 /**
  * Wix CMS — server-only fetcher.
  *
- * Reads the `SiteContent` data collection through the Lovable connector
- * gateway. Credentials never leave the server: WIX_API_KEY and
- * LOVABLE_API_KEY are only readable inside handlers. This module has the
- * `.server.` suffix so the client-bundle import guard blocks it hard.
+ * Talks directly to the official Wix Data API (www.wixapis.com) using a
+ * real Wix API Key (IST.*) stored in WIX_API_KEY. This runs server-side
+ * only (TanStack server functions / SSR on Vercel) — the key never ships
+ * to the client bundle. No Lovable gateway, no LOVABLE_API_KEY.
  */
 import type { CmsMap, CmsEntry } from "./types";
 
 /**
  * Wix site ID for eyegis-eyewear.com — non-secret, stable identifier.
- * If Eyegis ever migrates sites, override with SiteContent env in Cloud.
+ * Override with WIX_SITE_ID env var if the site ever changes.
  */
-const WIX_SITE_ID = "fd7d4ce1-76de-49ab-8bdf-8a3c5425cced";
+const DEFAULT_WIX_SITE_ID = "fd7d4ce1-76de-49ab-8bdf-8a3c5425cced";
 const COLLECTION_ID = "SiteContent";
-const GATEWAY = "https://connector-gateway.lovable.dev/wix";
+const WIX_QUERY_URL = "https://www.wixapis.com/wix-data/v2/items/query";
+
 
 type WixItem = {
   id: string;
