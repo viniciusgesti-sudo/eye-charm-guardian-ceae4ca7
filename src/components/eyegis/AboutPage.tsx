@@ -112,11 +112,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Eyegis campaign — couple wearing Men's Collection and Women's Collection frames",
     },
     belief: {
-      rule: "01 — Our Belief",
-      h2a: "Protection should never",
-      h2b: "compromise style.",
-      p1: "Modern life has changed. We work, study, create, communicate and play — almost entirely through digital devices. Yet the objects designed to protect our eyes still feel like an afterthought.",
-      p2: "Eyegis believes visual comfort should be part of everyday life — not a medical accessory, not a gimmick. Simply a beautifully engineered object you'd want to wear anyway.",
+      rule: "01 — About Eyegis",
+      h2a: "Where Science",
+      h2b: "Meets Style",
+      sub: "Designed between Paris and São Paulo. Built for the digital generation.",
+      p1: "Every day, we spend more time in front of screens than ever before. They help us work, create, connect and unwind. But they also expose our eyes to long hours of digital eye strain.",
+      p2: "At Eyegis, we believe protecting your vision should never mean compromising the way you see the world. That's why we create premium eyewear that combines evidence-based lens technology with timeless design.",
+    },
+    origin: {
+      rule: "02 — Born from Two Worlds",
+      h2: "Born from Two Worlds",
+      lead: "Eyegis was founded by two people who approached the same problem from different perspectives.",
+      items: [
+        { k: "Biopharma", d: "Innovation driven by scientific evidence, precision and a commitment to improving people's health." },
+        { k: "Visual Communication & Design", d: "Every material, every detail and every colour shapes the way we experience the world." },
+      ],
+      closing: "Together, they shared one simple belief:",
+      quote: "Eye protection shouldn't come at the expense of colour, comfort or style.",
     },
     why: {
       rule: "02 — Why We Created Eyegis",
