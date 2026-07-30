@@ -35,8 +35,17 @@ type Copy = {
     rule: string;
     h2a: string;
     h2b: string;
+    sub: string;
     p1: string;
     p2: string;
+  };
+  origin: {
+    rule: string;
+    h2: string;
+    lead: string;
+    items: { k: string; d: string }[];
+    closing: string;
+    quote: string;
   };
   why: {
     rule: string;
@@ -103,11 +112,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Eyegis campaign — couple wearing Men's Collection and Women's Collection frames",
     },
     belief: {
-      rule: "01 — Our Belief",
-      h2a: "Protection should never",
-      h2b: "compromise style.",
-      p1: "Modern life has changed. We work, study, create, communicate and play — almost entirely through digital devices. Yet the objects designed to protect our eyes still feel like an afterthought.",
-      p2: "Eyegis believes visual comfort should be part of everyday life — not a medical accessory, not a gimmick. Simply a beautifully engineered object you'd want to wear anyway.",
+      rule: "01 — About Eyegis",
+      h2a: "Where Science",
+      h2b: "Meets Style",
+      sub: "Designed between Paris and São Paulo. Built for the digital generation.",
+      p1: "Every day, we spend more time in front of screens than ever before. They help us work, create, connect and unwind. But they also expose our eyes to long hours of digital eye strain.",
+      p2: "At Eyegis, we believe protecting your vision should never mean compromising the way you see the world. That's why we create premium eyewear that combines evidence-based lens technology with timeless design.",
+    },
+    origin: {
+      rule: "02 — Born from Two Worlds",
+      h2: "Born from Two Worlds",
+      lead: "Eyegis was founded by two people who approached the same problem from different perspectives.",
+      items: [
+        { k: "Biopharma", d: "Innovation driven by scientific evidence, precision and a commitment to improving people's health." },
+        { k: "Visual Communication & Design", d: "Every material, every detail and every colour shapes the way we experience the world." },
+      ],
+      closing: "Together, they shared one simple belief:",
+      quote: "Eye protection shouldn't come at the expense of colour, comfort or style.",
     },
     why: {
       rule: "02 — Why We Created Eyegis",
@@ -196,11 +217,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Campanha Eyegis — casal usando modelos Men's Collection e Women's Collection",
     },
     belief: {
-      rule: "01 — Nossa Crença",
-      h2a: "Proteção nunca deve",
-      h2b: "comprometer o estilo.",
-      p1: "A vida moderna mudou. Trabalhamos, estudamos, criamos, nos comunicamos e jogamos — quase inteiramente por meio de dispositivos digitais. Ainda assim, os objetos feitos para proteger nossos olhos parecem um detalhe secundário.",
-      p2: "A Eyegis acredita que conforto visual deve fazer parte do dia a dia — não um acessório médico, nem um truque. Apenas um objeto bem projetado que você quer usar de qualquer forma.",
+      rule: "01 — Sobre a Eyegis",
+      h2a: "Onde a Ciência",
+      h2b: "Encontra o Estilo",
+      sub: "Desenhada entre Paris e São Paulo. Feita para a geração digital.",
+      p1: "Todos os dias passamos mais tempo diante de telas do que nunca. Elas nos ajudam a trabalhar, criar, conectar e relaxar. Mas também expõem nossos olhos a longas horas de fadiga visual digital.",
+      p2: "Na Eyegis, acreditamos que proteger sua visão nunca deve significar comprometer a forma como você vê o mundo. Por isso criamos óculos premium que unem tecnologia de lentes baseada em evidências a um design atemporal.",
+    },
+    origin: {
+      rule: "02 — Nascida de Dois Mundos",
+      h2: "Nascida de Dois Mundos",
+      lead: "A Eyegis foi fundada por duas pessoas que enxergaram o mesmo problema por perspectivas diferentes.",
+      items: [
+        { k: "Biofarmácia", d: "Inovação guiada por evidência científica, precisão e o compromisso de melhorar a saúde das pessoas." },
+        { k: "Comunicação Visual & Design", d: "Cada material, cada detalhe e cada cor moldam a forma como experimentamos o mundo." },
+      ],
+      closing: "Juntos, compartilhavam uma crença simples:",
+      quote: "Proteção ocular não deve custar cor, conforto ou estilo.",
     },
     why: {
       rule: "02 — Por que criamos a Eyegis",
@@ -289,11 +322,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Campagne Eyegis — couple portant les modèles Men's Collection et Women's Collection",
     },
     belief: {
-      rule: "01 — Notre Conviction",
-      h2a: "La protection ne doit jamais",
-      h2b: "compromettre le style.",
-      p1: "La vie moderne a changé. Nous travaillons, étudions, créons, communiquons et jouons — presque entièrement via des appareils numériques. Pourtant, les objets censés protéger nos yeux ressemblent encore à un détail secondaire.",
-      p2: "Eyegis pense que le confort visuel doit faire partie de la vie quotidienne — pas un accessoire médical, pas un gadget. Simplement un objet magnifiquement conçu, que l'on a envie de porter.",
+      rule: "01 — À propos d'Eyegis",
+      h2a: "Là où la Science",
+      h2b: "Rencontre le Style",
+      sub: "Conçue entre Paris et São Paulo. Créée pour la génération numérique.",
+      p1: "Chaque jour, nous passons plus de temps que jamais devant des écrans. Ils nous aident à travailler, créer, échanger et nous détendre. Mais ils exposent aussi nos yeux à de longues heures de fatigue visuelle numérique.",
+      p2: "Chez Eyegis, nous pensons que protéger sa vision ne doit jamais compromettre la façon dont on voit le monde. C'est pourquoi nous créons des lunettes premium qui allient une technologie de verres fondée sur des preuves à un design intemporel.",
+    },
+    origin: {
+      rule: "02 — Née de Deux Mondes",
+      h2: "Née de Deux Mondes",
+      lead: "Eyegis a été fondée par deux personnes qui ont abordé le même problème sous des angles différents.",
+      items: [
+        { k: "Biopharma", d: "Une innovation guidée par la preuve scientifique, la précision et l'engagement d'améliorer la santé." },
+        { k: "Communication Visuelle & Design", d: "Chaque matière, chaque détail et chaque couleur façonnent notre perception du monde." },
+      ],
+      closing: "Ensemble, ils partageaient une conviction simple :",
+      quote: "La protection oculaire ne doit pas se faire au détriment de la couleur, du confort ou du style.",
     },
     why: {
       rule: "02 — Pourquoi nous avons créé Eyegis",
@@ -523,14 +568,14 @@ export function AboutPage() {
       </section>
 
 
-      {/* 01 — OUR BELIEF */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      {/* 01 — WHERE SCIENCE MEETS STYLE */}
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         <Reveal>
           <Rule label={c.belief.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[96px]"
+            className="mt-10 max-w-[1000px] text-[34px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[76px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.belief.h2a}
@@ -538,19 +583,73 @@ export function AboutPage() {
             {c.belief.h2b}
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-16 md:grid-cols-12">
-          <Reveal delay={120} className="md:col-span-5">
+        <Reveal delay={160}>
+          <p
+            className="mt-6 max-w-[620px] text-[15px] italic leading-[1.6] md:text-[17px]"
+            style={{ color: MUTED }}
+          >
+            {c.belief.sub}
+          </p>
+        </Reveal>
+        <div className="mt-14 grid gap-12 md:grid-cols-12 md:gap-16">
+          <Reveal delay={200} className="md:col-span-5">
             <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>
               {c.belief.p1}
             </p>
           </Reveal>
-          <Reveal delay={220} className="md:col-span-5 md:col-start-8">
+          <Reveal delay={260} className="md:col-span-5 md:col-start-8">
             <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>
               {c.belief.p2}
             </p>
           </Reveal>
         </div>
       </section>
+
+      {/* 01b — BORN FROM TWO WORLDS */}
+      <section style={{ background: CHAMPAGNE }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-28">
+          <Reveal>
+            <Rule label={c.origin.rule} />
+          </Reveal>
+          <div className="mt-10 grid gap-12 md:grid-cols-12">
+            <Reveal delay={100} className="md:col-span-5">
+              <h3
+                className="text-[28px] leading-[1.1] tracking-[-0.02em] md:text-[40px]"
+                style={{ fontFamily: serif, fontWeight: 400 }}
+              >
+                {c.origin.h2}
+              </h3>
+              <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
+                {c.origin.lead}
+              </p>
+            </Reveal>
+            <div className="md:col-span-6 md:col-start-7">
+              {c.origin.items.map((it, i) => (
+                <Reveal key={it.k} delay={160 + i * 90}>
+                  <div className="border-t py-6" style={{ borderColor: "rgba(10,15,20,0.12)" }}>
+                    <p className="text-[13px] font-semibold uppercase tracking-[0.12em]">{it.k}</p>
+                    <p className="mt-2 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                      {it.d}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+              <Reveal delay={360}>
+                <p className="mt-6 text-[14px]" style={{ color: MUTED }}>
+                  {c.origin.closing}
+                </p>
+                <p
+                  className="mt-4 text-[22px] leading-[1.3] md:text-[30px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  “{c.origin.quote}”
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* 02 — WHY WE CREATED EYEGIS */}
       <section style={{ background: CHAMPAGNE }}>
