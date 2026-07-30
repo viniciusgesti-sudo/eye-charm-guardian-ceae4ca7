@@ -82,6 +82,10 @@ export function HowItWorks() {
                 {s.title}
               </h3>
               <p className="text-ink/70 leading-relaxed max-w-sm text-[15px]">{s.body}</p>
+              {i === 0 && (
+                <Logo className="mt-1 h-6 w-auto" tone="dark" showWordmark={false} />
+              )}
+
             </article>
           ))}
         </div>
