@@ -801,7 +801,7 @@ export function AboutPage() {
               </Reveal>
               <Reveal delay={100}>
                 <h3
-                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  className="mt-6 text-balance text-[26px] leading-[1.15] tracking-[-0.02em] sm:text-[28px] md:text-[42px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   {c.why.name.eq}
