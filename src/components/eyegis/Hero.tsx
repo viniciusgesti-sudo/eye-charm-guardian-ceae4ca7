@@ -84,9 +84,8 @@ export function Hero({ locale }: Props) {
   const cmsCenter = useCms("home.hero.center");
   const cmsMen = useCms("home.hero.men");
   const cmsWomen = useCms("home.hero.women");
-  const eyebrow = cmsCenter.title ?? t.eyebrow;
   const headline = cmsCenter.text ?? t.headline;
-  const manifesto = cmsCenter.subtitle ?? t.manifesto;
+
   const menTag = cmsMen.text ?? t.men.tag;
   const menProduct = cmsMen.title ?? t.men.product;
   const menCta = cmsMen.buttonText ?? t.men.cta;
