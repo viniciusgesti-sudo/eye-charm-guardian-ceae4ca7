@@ -180,7 +180,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Section 02 · Comparison",
+      eyebrow: "Section 03 · Comparison",
       h2a: "Three lenses.",
       h2b: " One perfect fit.",
       mostPopular: "Most popular",
@@ -222,7 +222,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Section 03 · Demonstration",
+      eyebrow: "Section 02 · Demonstration",
       h2a: "A quieter screen,",
       h2b: " in true color.",
       body: "Drag the slider to see how EyegisGuard™ filters high-energy blue light without introducing an amber tint. Subtle, precise, honest.",
@@ -345,7 +345,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Seção 02 · Comparação",
+      eyebrow: "Seção 03 · Comparação",
       h2a: "Três lentes.",
       h2b: " Uma escolha certa.",
       mostPopular: "Mais popular",
@@ -387,7 +387,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Seção 03 · Demonstração",
+      eyebrow: "Seção 02 · Demonstração",
       h2a: "Uma tela mais silenciosa,",
       h2b: " em cores reais.",
       body: "Arraste o controle para ver como o EyegisGuard™ filtra a luz azul de alta energia sem adicionar tom âmbar. Sutil, preciso, honesto.",
@@ -510,7 +510,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Section 02 · Comparaison",
+      eyebrow: "Section 03 · Comparaison",
       h2a: "Trois verres.",
       h2b: " Un choix parfait.",
       mostPopular: "Le plus populaire",
@@ -552,7 +552,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Section 03 · Démonstration",
+      eyebrow: "Section 02 · Démonstration",
       h2a: "Un écran plus doux,",
       h2b: " en couleurs fidèles.",
       body: "Faites glisser le curseur pour voir comment EyegisGuard™ filtre la lumière bleue haute énergie sans ajouter de teinte ambrée. Subtil, précis, honnête.",
