@@ -1628,8 +1628,8 @@ export function LensesPage() {
       {/* Global <Header /> is provided by the /$locale layout */}
       <Hero c={c} />
       <HowToChoose c={c} active={active} onPick={setActive} />
-      <Comparison c={c} />
       <BeforeAfter c={c} />
+      <Comparison c={c} />
       <WhoFor c={c} onPick={pickAndScroll} />
       <Faq c={c} />
       <div id="recommendation">
