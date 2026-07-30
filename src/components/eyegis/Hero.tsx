@@ -150,24 +150,13 @@ export function Hero({ locale }: Props) {
         {/* HEADLINE — top safe zone, above eye-line, over dark sky scrim */}
         <div className="pointer-events-none absolute inset-x-0 top-20 z-20 px-5 text-center sm:top-24 sm:px-7 md:top-24 md:px-10 lg:top-20">
           <div className="mx-auto w-full max-w-5xl">
-            <div className="mx-auto flex min-w-0 items-center justify-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-paper/80 sm:tracking-[0.38em]">
-              <span aria-hidden className="h-px w-8 bg-mint/70 sm:w-10" />
-              <span className="min-w-0 truncate">{eyebrow}</span>
-              <span aria-hidden className="h-px w-8 bg-champagne/70 sm:w-10" />
-            </div>
-
-            <h1 className="mx-auto mt-4 max-w-[20ch] text-balance font-editorial text-[clamp(1.375rem,5vw,1.875rem)] font-extralight leading-[1.1] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.5rem,2.4vw,2.125rem)] md:leading-[1.08] lg:text-[clamp(1.625rem,1.9vw,2.25rem)]">
+            <h1 className="mx-auto max-w-[20ch] text-balance font-editorial text-[clamp(1.375rem,5vw,1.875rem)] font-extralight leading-[1.1] text-paper [text-shadow:0_2px_24px_rgba(0,0,0,0.65)] sm:max-w-[26ch] md:max-w-[30ch] md:text-[clamp(1.5rem,2.4vw,2.125rem)] md:leading-[1.08] lg:text-[clamp(1.625rem,1.9vw,2.25rem)]">
               {headline}
             </h1>
           </div>
         </div>
 
-        {/* Manifesto — bottom center, desktop only, small and quiet */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 hidden px-6 text-center lg:bottom-24 lg:block xl:bottom-28">
-          <p className="mx-auto max-w-lg text-balance font-sans text-[13px] leading-6 text-paper/78 [text-shadow:0_2px_18px_rgba(0,0,0,0.7)]">
-            {manifesto}
-          </p>
-        </div>
+
 
 
         {/* RIGHT — WOMEN */}
