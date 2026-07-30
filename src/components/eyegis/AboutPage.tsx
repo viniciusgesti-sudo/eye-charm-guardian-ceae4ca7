@@ -49,14 +49,31 @@ type Copy = {
   };
   why: {
     rule: string;
-    alt1: string;
-    alt2: string;
-    h1: string;
-    p1: string;
+    eyebrow: string;
     h2a: string;
     h2b: string;
-    p2: string;
+    lead: string;
+    cities: { k: string; d: string; alt: string }[];
+    together: string;
+    name: {
+      rule: string;
+      eq: string;
+      p1: string;
+      p2: string;
+      quote: string;
+    };
+    honest: {
+      rule: string;
+      h2: string;
+      p1: string;
+      p2: string;
+      p3: string;
+      p4: string;
+      chips: string[];
+      cta: string;
+    };
   };
+
   philosophy: {
     rule: string;
     h2a: string;
