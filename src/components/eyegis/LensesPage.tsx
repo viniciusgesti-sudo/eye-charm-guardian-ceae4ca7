@@ -119,8 +119,8 @@ const CONTENT: Record<Lang, Copy> = {
     nav: { home: "← Home", buy: "Buy on Amazon" },
     hero: {
       eyebrow: "Choose Your Lenses",
-      h1a: "Find the perfect lens",
-      h1b: "for the way you live.",
+      h1a: "Your Eyegis lenses are designed for",
+      h1b: "every part of your digital day.",
       sub: "Every digital lifestyle is different. Discover which Eyegis lens best matches your daily routine — from short reading sessions to full days on multiple monitors.",
       start: "Start comparing",
       assessment: "Take the Assessment",
@@ -284,8 +284,8 @@ const CONTENT: Record<Lang, Copy> = {
     nav: { home: "← Início", buy: "Comprar na Amazon" },
     hero: {
       eyebrow: "Escolha as Suas Lentes",
-      h1a: "Encontre a lente ideal",
-      h1b: "para o seu estilo de vida.",
+      h1a: "Suas lentes Eyegis são feitas para",
+      h1b: "cada momento do seu dia digital.",
       sub: "Cada rotina digital é única. Descubra qual lente Eyegis se ajusta melhor ao seu dia a dia — de leituras curtas a jornadas completas em múltiplos monitores.",
       start: "Começar a comparar",
       assessment: "Fazer a Avaliação",
@@ -449,8 +449,8 @@ const CONTENT: Record<Lang, Copy> = {
     nav: { home: "← Accueil", buy: "Acheter sur Amazon" },
     hero: {
       eyebrow: "Choisissez Vos Verres",
-      h1a: "Trouvez le verre parfait",
-      h1b: "pour votre mode de vie.",
+      h1a: "Vos verres Eyegis sont conçus pour",
+      h1b: "chaque moment de votre journée numérique.",
       sub: "Chaque vie numérique est différente. Découvrez quel verre Eyegis correspond le mieux à votre quotidien — de courtes lectures à de longues journées sur plusieurs écrans.",
       start: "Commencer la comparaison",
       assessment: "Faire l'évaluation",
