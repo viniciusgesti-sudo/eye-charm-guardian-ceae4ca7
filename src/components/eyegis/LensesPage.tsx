@@ -1114,34 +1114,56 @@ function BeforeAfter({ c }: { c: Copy }) {
         </div>
 
         <Reveal>
+          <div className="mb-6 flex flex-wrap gap-2">
+            {DEMO_FILTERS.map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setFilterId(f.id)}
+                aria-pressed={filterId === f.id}
+                className={`rounded-full border px-4 py-2 font-eyebrow text-[10px] transition-colors ${
+                  filterId === f.id
+                    ? "border-teal bg-teal text-paper"
+                    : "border-ink/20 text-ink/70 hover:border-teal/50 hover:text-teal"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal>
           <div
             ref={wrapRef}
             className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-ink select-none"
           >
+            {/* Base image — single fixed photo, never resized */}
             <Picture
               source={compareImg}
-              alt={c.demo.with}
+              alt={c.demo.without}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
             />
+
+            {/* Same photo, clipped to the right side, with the lens filter on top */}
             <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ width: `${pos}%` }}
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
             >
               <Picture
                 source={compareImg}
-                alt={c.demo.without}
+                alt=""
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
+                style={{ filter: activeFilter.filter }}
               />
               <div
-                aria-hidden="true"
                 className="absolute inset-0"
                 style={{
-                  background:
-                    "radial-gradient(ellipse at 50% 50%, rgba(120,170,255,0.28), transparent 60%)",
-                  mixBlendMode: "screen",
+                  background: activeFilter.overlay,
+                  mixBlendMode: "multiply",
                 }}
               />
             </div>
@@ -1150,7 +1172,7 @@ function BeforeAfter({ c }: { c: Copy }) {
               {c.demo.without}
             </div>
             <div className="pointer-events-none absolute top-5 right-5 rounded-full bg-mint/85 px-3 py-1 font-eyebrow text-[10px] text-teal-deep">
-              {c.demo.with}
+              {c.demo.with} · {activeFilter.label}
             </div>
 
             <div
@@ -1171,6 +1193,7 @@ function BeforeAfter({ c }: { c: Copy }) {
             </div>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
