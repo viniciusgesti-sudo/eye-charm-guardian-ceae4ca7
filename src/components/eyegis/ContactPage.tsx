@@ -632,7 +632,7 @@ export function ContactPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden">
+      <section className="relative min-h-[56vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -649,7 +649,7 @@ export function ContactPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-14">
+        <div className="relative z-10 mx-auto flex min-h-[56vh] max-w-[1400px] flex-col justify-between px-6 py-8 md:px-12 md:py-8">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -677,13 +677,13 @@ export function ContactPage() {
       </section>
 
       {/* 01 — CONTACT OPTIONS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s1.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[72px]"
+            className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[72px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s1.title[0]}
@@ -692,12 +692,12 @@ export function ContactPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4" style={{ background: "rgba(14,22,19,0.12)" }}>
+        <div className="mt-9 grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4" style={{ background: "rgba(14,22,19,0.12)" }}>
           {c.s1.options.map((o, i) => (
             <Reveal key={o.k} delay={(i % 4) * 100}>
               <a
                 href={`mailto:${o.cta}`}
-                className="group flex h-full min-h-[320px] flex-col justify-between p-10 transition-transform duration-700 hover:-translate-y-1"
+                className="group flex h-full min-h-[260px] flex-col justify-between p-10 transition-transform duration-700 hover:-translate-y-1"
                 style={{ background: OFFWHITE }}
               >
                 <div style={{ color: TEAL }}>{OPTION_ICONS[i]}</div>
@@ -726,15 +726,15 @@ export function ContactPage() {
 
       {/* 02 — CONTACT FORM */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
-          <div className="grid gap-16 md:grid-cols-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+          <div className="grid gap-10 md:grid-cols-12">
             <div className="md:col-span-5">
               <Reveal>
                 <Rule label={c.s2.rule} />
               </Reveal>
               <Reveal delay={120}>
                 <h2
-                  className="mt-10 text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
+                  className="mt-8 text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   {c.s2.title.map((line, idx) => (
@@ -751,7 +751,7 @@ export function ContactPage() {
                 </p>
               </Reveal>
               <Reveal delay={320}>
-                <div className="mt-12 space-y-6 text-[12px] uppercase tracking-[0.3em]" style={{ color: INK }}>
+                <div className="mt-9 space-y-6 text-[12px] uppercase tracking-[0.3em]" style={{ color: INK }}>
                   <div>
                     <div className="opacity-60">{c.s2.labels.care}</div>
                     <div className="mt-1 text-[15px] tracking-normal" style={{ fontFamily: serif }}>
@@ -778,11 +778,11 @@ export function ContactPage() {
       </section>
 
       {/* 03 — CUSTOMER SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s3.rule} />
         </Reveal>
-        <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
+        <div className="mt-8 grid gap-10 md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-6">
             <Picture source={supportImg} alt="Eyegis client-care specialist ready to guide the perfect frame selection" sizes="(min-width:768px) 50vw, 100vw" className="h-[70vh] w-full object-cover"
             loading="lazy" decoding="async"
@@ -800,7 +800,7 @@ export function ContactPage() {
               </h2>
             </Reveal>
             <Reveal delay={220}>
-              <ul className="mt-10 grid grid-cols-2 gap-y-4 text-[13px] uppercase tracking-[0.28em]" style={{ color: INK }}>
+              <ul className="mt-8 grid grid-cols-2 gap-y-4 text-[13px] uppercase tracking-[0.28em]" style={{ color: INK }}>
                 {c.s3.categories.map((cat) => (
                   <li key={cat} className="flex items-center gap-3">
                     <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: TEAL }} />
@@ -820,11 +820,11 @@ export function ContactPage() {
             loading="lazy" decoding="async"
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-52">
           <Reveal>
             <Rule label={c.s4.rule} light />
           </Reveal>
-          <div className="mt-12 grid gap-16 md:grid-cols-12 md:items-end">
+          <div className="mt-9 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-7">
               <h2
                 className="text-[36px] leading-[1.02] tracking-[-0.02em] lg:text-[76px]"
@@ -853,13 +853,13 @@ export function ContactPage() {
       </section>
 
       {/* 05 — SOCIAL MEDIA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s5.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
+            className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.s5.title[0]}
@@ -868,14 +868,14 @@ export function ContactPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-5" style={{ background: "rgba(14,22,19,0.12)" }}>
+        <div className="mt-8 grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-5" style={{ background: "rgba(14,22,19,0.12)" }}>
           {c.s5.socials.map((s, i) => (
             <Reveal key={s.k} delay={(i % 5) * 80}>
               <a
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full min-h-[240px] flex-col justify-between p-8 transition-transform duration-700 hover:-translate-y-1"
+                className="group flex h-full min-h-[200px] flex-col justify-between p-8 transition-transform duration-700 hover:-translate-y-1"
                 style={{ background: OFFWHITE }}
               >
                 <div style={{ color: TEAL }}>{SOCIAL_ICONS[s.k]}</div>
@@ -899,11 +899,11 @@ export function ContactPage() {
 
       {/* 06 — BUSINESS HOURS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.s6.rule} />
           </Reveal>
-          <div className="mt-14 grid gap-16 md:grid-cols-12 md:items-end">
+          <div className="mt-8 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal delay={120} className="md:col-span-6">
               <h2
                 className="text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
@@ -921,7 +921,7 @@ export function ContactPage() {
             </Reveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-px sm:grid-cols-3" style={{ background: "rgba(14,22,19,0.12)" }}>
+          <div className="mt-8 grid grid-cols-1 gap-px sm:grid-cols-3" style={{ background: "rgba(14,22,19,0.12)" }}>
             {c.s6.hours.map((h) => (
               <div key={h.k} className="p-10" style={{ background: OFFWHITE }}>
                 <div className="text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
@@ -937,11 +937,11 @@ export function ContactPage() {
       </section>
 
       {/* 07 — GLOBAL SUPPORT */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.s7.rule} />
         </Reveal>
-        <div className="mt-16 grid gap-16 md:grid-cols-12 md:items-center">
+        <div className="mt-8 grid gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-5">
             <Reveal delay={100}>
               <h2
@@ -959,7 +959,7 @@ export function ContactPage() {
               </p>
             </Reveal>
             <Reveal delay={280}>
-              <div className="mt-10 grid grid-cols-2 gap-y-3 text-[11px] uppercase tracking-[0.3em]" style={{ color: INK }}>
+              <div className="mt-8 grid grid-cols-2 gap-y-3 text-[11px] uppercase tracking-[0.3em]" style={{ color: INK }}>
                 {c.s7.countries.filter((x) => x.live).map((x) => (
                   <div key={x.k} className="flex items-center gap-3">
                     <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: TEAL }} />
@@ -987,13 +987,13 @@ export function ContactPage() {
 
       {/* 08 — COMMON QUESTIONS QUICK LINKS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.s8.rule} />
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
+              className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] lg:text-[64px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.s8.title[0]}
@@ -1001,7 +1001,7 @@ export function ContactPage() {
               {c.s8.title[1]}
             </h2>
           </Reveal>
-          <div className="mt-16 grid grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-6" style={{ background: "rgba(14,22,19,0.12)" }}>
+          <div className="mt-8 grid grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-6" style={{ background: "rgba(14,22,19,0.12)" }}>
             {c.s8.quickLinks.map((q) => (
               <Link
                 key={q.k}
@@ -1025,8 +1025,8 @@ export function ContactPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
-        <div className="grid gap-16 md:grid-cols-12 md:items-end">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+        <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
               className="text-[40px] leading-[1.02] tracking-[-0.02em] lg:text-[88px]"
@@ -1071,7 +1071,7 @@ export function ContactPage() {
         </div>
 
         <div
-          className="mt-32 flex flex-col items-start justify-between gap-6 border-t pt-10 md:flex-row md:items-center"
+          className="mt-16 flex flex-col items-start justify-between gap-6 border-t pt-8 md:flex-row md:items-center"
           style={{ borderColor: "rgba(14,22,19,0.15)" }}
         >
           <span className="text-[10px] uppercase tracking-[0.4em]" style={{ color: MUTED }}>
@@ -1185,7 +1185,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
   if (status === "sent") {
     return (
       <div
-        className="flex min-h-[560px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
+        className="flex min-h-[420px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
         style={{ background: OFFWHITE }}
       >
         <div style={{ color: TEAL }}>
@@ -1213,7 +1213,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
               message: "",
             });
           }}
-          className="mt-10 inline-flex items-center gap-3 border px-6 py-4 text-[11px] uppercase tracking-[0.3em]"
+          className="mt-8 inline-flex items-center gap-3 border px-6 py-4 text-[11px] uppercase tracking-[0.3em]"
           style={{ borderColor: INK, color: INK }}
         >
           {copy.sendAnother}
@@ -1305,7 +1305,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-10 inline-flex w-full items-center justify-between px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors disabled:opacity-70"
+        className="mt-8 inline-flex w-full items-center justify-between px-8 py-5 text-[12px] uppercase tracking-[0.3em] transition-colors disabled:opacity-70"
         style={{ background: INK, color: OFFWHITE }}
       >
         <span>{status === "sending" ? copy.sending : copy.submit}</span>

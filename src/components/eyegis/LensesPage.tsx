@@ -734,8 +734,8 @@ function MiniHeader({ c }: { c: Copy }) {
 
 function Hero({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-paper pt-20 md:pt-24 pb-10 md:pb-14 overflow-hidden">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center px-6 md:px-10 lg:px-14">
+    <section className="relative bg-paper pt-12 md:pt-14 pb-10 md:pb-10 overflow-hidden">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-7 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-6">
           <Reveal>
             <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
@@ -832,7 +832,7 @@ function HowToChoose({
   active: PersonaId;
 }) {
   return (
-    <section className="bg-paper-warm py-20 md:py-28">
+    <section className="bg-paper-warm py-12 md:py-14">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
@@ -844,7 +844,7 @@ function HowToChoose({
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {c.personas.map((p, i) => {
             const isActive = active === p.id;
             return (
@@ -1044,7 +1044,7 @@ function Comparison({ c }: { c: Copy }) {
   const locale = lang === "PT" ? "br" : lang === "FR" ? "fr" : "en";
 
   return (
-    <section id="compare" className="bg-paper py-16 md:py-24">
+    <section id="compare" className="bg-paper py-10 md:py-14">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="block text-center font-eyebrow text-teal">{c.compare.eyebrow}</span>
@@ -1243,9 +1243,9 @@ function BeforeAfter({ c }: { c: Copy }) {
   }, []);
 
   return (
-    <section className="bg-paper-warm py-20 md:py-28">
+    <section className="bg-paper-warm py-12 md:py-14">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end mb-12">
           <div className="lg:col-span-6">
             <Reveal>
               <span className="font-eyebrow text-teal">{c.demo.eyebrow}</span>
@@ -1354,7 +1354,7 @@ function BeforeAfter({ c }: { c: Copy }) {
 
 function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
   return (
-    <section className="bg-paper py-20 md:py-28">
+    <section className="bg-paper py-12 md:py-14">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
@@ -1366,7 +1366,7 @@ function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {c.who.items.map((l, i) => (
             <Reveal key={l.label} delay={i * 50}>
               <button
@@ -1401,7 +1401,7 @@ function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
 
 function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
   return (
-    <section className="bg-paper py-20 md:py-28">
+    <section className="bg-paper py-12 md:py-14">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <Reveal>
           <span className="font-eyebrow text-teal">{c.reco.eyebrow}</span>
@@ -1415,7 +1415,7 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
 
         <div
           key={persona.id}
-          className="mt-14 grid grid-cols-1 md:grid-cols-5 gap-10 rounded-2xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 md:p-10 animate-[fadeUp_700ms_cubic-bezier(0.22,1,0.36,1)_both]"
+          className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-7 rounded-2xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 md:p-10 animate-[fadeUp_700ms_cubic-bezier(0.22,1,0.36,1)_both]"
         >
           <div className="md:col-span-2 relative overflow-hidden rounded-xl bg-paper">
             <Picture
@@ -1489,7 +1489,7 @@ function Recommended({ c, persona }: { c: Copy; persona: PersonaCopy }) {
 
 function FinalCta({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-teal-deep py-20 md:py-28 text-paper overflow-hidden">
+    <section className="relative bg-teal-deep py-12 md:py-14 text-paper overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(134,217,209,0.22),transparent_60%)]"

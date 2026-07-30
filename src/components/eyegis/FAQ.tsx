@@ -235,7 +235,7 @@ export function FAQ() {
       className="relative"
       style={{ background: "#F9F9F9" }}
     >
-      <div className="mx-auto max-w-3xl px-6 py-14 md:py-16">
+      <div className="mx-auto max-w-3xl px-6 py-10 md:py-10">
         <div className="text-center">
           <span
             className="font-mono text-[11px] uppercase tracking-[0.32em]"

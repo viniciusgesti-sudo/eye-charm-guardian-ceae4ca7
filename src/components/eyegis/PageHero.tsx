@@ -81,7 +81,7 @@ export function PageHero({
       />
 
       <div
-        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-24 md:px-10 md:pt-56 md:pb-32 ${
+        className={`relative z-10 mx-auto w-full max-w-6xl px-6 pt-40 pb-14 md:px-10 md:pt-56 md:pb-16 ${
           align === "center" ? "text-center" : "text-left"
         }`}
       >

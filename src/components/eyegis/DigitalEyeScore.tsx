@@ -743,7 +743,7 @@ export function DigitalEyeScore() {
     <section
       id="digital-eye-score"
       ref={ref}
-      className={`relative bg-paper-warm py-28 md:py-40 transition-opacity duration-1000 ${
+      className={`relative bg-paper-warm py-14 md:py-40 transition-opacity duration-1000 ${
         shown ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -778,7 +778,7 @@ export function DigitalEyeScore() {
           </p>
         </div>
 
-        <div className="mt-16 rounded-2xl border border-ink/10 bg-paper/70 backdrop-blur-xl p-8 md:p-14 shadow-[0_40px_120px_-60px_rgba(0,56,66,0.35)]">
+        <div className="mt-10 rounded-2xl border border-ink/10 bg-paper/70 backdrop-blur-xl p-8 md:p-14 shadow-[0_40px_120px_-60px_rgba(0,56,66,0.35)]">
           {!done ? (
             <>
               <Progress step={step + 1} total={total} label={copy.progressLabel} />
@@ -852,7 +852,7 @@ function Results({
         {rec.summary}
       </p>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 rounded-xl border border-ink/10 bg-paper p-6 md:p-8">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-8 rounded-xl border border-ink/10 bg-paper p-6 md:p-8">
         <div className="md:col-span-2 relative overflow-hidden rounded-lg bg-paper-warm">
           <Picture
             source={recImage}
@@ -899,7 +899,7 @@ function Results({
         </div>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-10">
         <span className="font-eyebrow text-teal">{copy.tipsEyebrow}</span>
         <h4 className="mt-4 font-editorial text-ink text-2xl md:text-3xl leading-tight">
           {copy.tipsTitle}
@@ -919,7 +919,7 @@ function Results({
         </div>
       </div>
 
-      <div className="mt-20 rounded-xl bg-teal-deep px-8 py-14 md:px-14 md:py-20 text-center text-paper">
+      <div className="mt-12 rounded-xl bg-teal-deep px-8 py-10 md:px-14 md:py-12 text-center text-paper">
         <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
         <h4 className="mx-auto mt-6 max-w-2xl font-editorial text-3xl md:text-5xl leading-[0.98]">
           {copy.finalLine1}

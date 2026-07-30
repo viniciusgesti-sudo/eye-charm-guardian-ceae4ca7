@@ -233,11 +233,11 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
   if (looks.length === 0) return null;
 
   return (
-    <section id="models" className="relative overflow-hidden bg-paper-warm py-24 text-ink md:py-32" aria-labelledby="model-runway-title">
+    <section id="models" className="relative overflow-hidden bg-paper-warm py-14 text-ink md:py-16" aria-labelledby="model-runway-title">
 
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,37,45,0.06)_1px,transparent_1px),linear-gradient(180deg,rgba(29,37,45,0.05)_1px,transparent_1px)] bg-[size:120px_120px]" />
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <div className="grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
             <h2 id="model-runway-title" className="mt-5 max-w-3xl font-editorial leading-[0.9] text-[12vw] sm:text-[8vw] md:text-[6vw] lg:text-[4.6vw] xl:text-[76px]">
@@ -254,7 +254,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
           </div>
         </div>
 
-        <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-8 [scrollbar-width:none] md:mt-20 md:gap-7 [&::-webkit-scrollbar]:hidden" aria-label="Eyegis applied model runway">
+        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-8 [scrollbar-width:none] md:mt-12 md:gap-7 [&::-webkit-scrollbar]:hidden" aria-label="Eyegis applied model runway">
           {looks.map((look, index) => (
             <article
               key={look.code}
@@ -266,7 +266,7 @@ export function ModelRunway({ audience }: { audience?: RunwayAudience } = {}) {
                 <span>{look.code}</span>
                 <span>{look.city} · {look.hour}</span>
               </div>
-              <div className="relative z-10 grid h-full content-end px-5 pb-8 pt-20 md:px-8 md:pb-10 lg:grid-cols-[0.95fr_1fr] lg:gap-8">
+              <div className="relative z-10 grid h-full content-end px-5 pb-8 pt-12 md:px-8 md:pb-10 lg:grid-cols-[0.95fr_1fr] lg:gap-8">
                 <div className="max-w-xl self-end">
                   <div className="mb-5 inline-flex items-center gap-3 border border-paper/20 bg-ink/35 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-mint backdrop-blur-md">
                     <span className="h-1.5 w-1.5 rounded-full bg-mint" />

@@ -371,7 +371,7 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
     };
   }, []);
   return (
-    <div ref={stageRef} className="relative mx-auto w-full max-w-[1100px]">
+    <div ref={stageRef} className="relative mx-auto w-full max-w-[1100px] overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -379,7 +379,7 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
           background: "radial-gradient(60% 55% at 50% 50%, rgba(226,209,195,0.55), rgba(249,249,249,0) 70%)",
         }}
       />
-      <div className="relative aspect-square w-full">
+      <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square">
         <Picture
           source={lensFloat}
           alt="EyegisGuard™ optical lens — floating study"
@@ -652,11 +652,11 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   return (
     <section id="technology" className="relative bg-paper text-ink overflow-x-clip">
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-44 pb-20 md:pb-28">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-16 md:pt-44 pb-12 md:pb-14">
         <Reveal>
           <IndexMark n="§ 04" label={copy.intro.section} />
         </Reveal>
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-end">
           <Reveal delay={120} className="lg:col-span-8">
             <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
               {copy.intro.headline1}
@@ -674,8 +674,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-24 md:py-36">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16 lg:mb-24">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-36">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start mb-10 lg:mb-14">
             <Reveal className="lg:col-span-3">
               <IndexMark n="01" label={copy.s01.label} />
             </Reveal>
@@ -687,7 +687,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
             </Reveal>
           </div>
           <LensStage callouts={copy.callouts} />
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:hidden gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:hidden gap-6">
             {copy.callouts.map((c) => (
               <div key={c.n} className="border-t border-ink/15 pt-4">
                 <div className="flex items-baseline gap-3">
@@ -702,8 +702,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-20">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end mb-12">
             <Reveal className="lg:col-span-3">
               <IndexMark n="02" label={copy.s02.label} />
             </Reveal>
@@ -724,14 +724,14 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
           </Reveal>
 
           <Reveal delay={400}>
-            <p className="mt-16 max-w-2xl font-editorial italic text-ink/60 text-lg leading-relaxed">{copy.s02.quote}</p>
+            <p className="mt-10 max-w-2xl font-editorial italic text-ink/60 text-lg leading-relaxed">{copy.s02.quote}</p>
           </Reveal>
         </div>
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end mb-10">
             <Reveal className="lg:col-span-3">
               <IndexMark n="03" label={copy.s03.label} />
             </Reveal>
@@ -748,7 +748,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
           <Reveal delay={200}>
             <ComparisonSlider withoutLabel={copy.s03.withoutLabel} withLabel={copy.s03.withLabel} />
           </Reveal>
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-8">
             {copy.s03.pills.map((t, i) => (
               <Reveal key={t} delay={i * 120}>
                 <div className="border-t border-ink/15 pt-4">
@@ -761,8 +761,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative bg-paper-warm">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end mb-10">
             <Reveal className="lg:col-span-3">
               <IndexMark n="04" label={copy.s04.label} />
             </Reveal>
@@ -773,7 +773,7 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
               </h3>
             </Reveal>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 md:gap-x-8 lg:gap-x-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-7 sm:gap-x-6 md:gap-x-8 lg:gap-x-7">
             {copy.life.map((l, i) => {
               const meta = LIFE_META[i];
               const Icon = meta.Icon;
@@ -807,8 +807,8 @@ export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
       </div>
 
       <div className="relative border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-28 md:py-40">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end mb-10">
             <Reveal className="lg:col-span-3">
               <IndexMark n="05" label={copy.s05.label} />
             </Reveal>

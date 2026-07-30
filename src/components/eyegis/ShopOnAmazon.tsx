@@ -52,13 +52,13 @@ export function ShopOnAmazon() {
   const c = COPY[lang];
 
   return (
-    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-14 md:py-16 overflow-hidden">
+    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-10 md:py-10 overflow-hidden">
       {/* soft ambient light */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(200,222,220,0.10),transparent_60%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_90%,rgba(200,222,220,0.08),transparent_55%)]" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end mb-10 md:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-7 items-end mb-10 md:mb-12">
           <div className="lg:col-span-7">
             <span className="font-eyebrow text-mint">{c.eyebrow}</span>
             <h2 className="mt-5 font-editorial leading-[0.92] text-[8vw] sm:text-[5.5vw] md:text-[4vw] lg:text-[3vw] xl:text-[46px]">

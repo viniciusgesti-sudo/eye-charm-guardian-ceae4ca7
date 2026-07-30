@@ -482,9 +482,9 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
         />
       )}
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-10 lg:px-14">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-7 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-6`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[16/11]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[4/5] lg:aspect-[16/11]">
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
@@ -714,8 +714,8 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
 
   return (
     <section id="preview" className="bg-paper text-ink border-t border-ink/10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-20 pb-14 md:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-10">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-10 md:pt-12 pb-10 md:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-7">
           <Reveal className="lg:col-span-7">
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">§ 06</span>
@@ -769,7 +769,7 @@ function ProductPreview({ copy, audience }: { copy: Copy; audience?: "men" | "wo
             <ProductCard key={p.id} p={p} i={i} copy={copy} />
           ))}
           {visible.length === 0 && (
-            <div className="col-span-full py-24 text-center font-eyebrow text-ink/50">
+            <div className="col-span-full py-14 text-center font-eyebrow text-ink/50">
               {copy.preview.empty}
             </div>
           )}
@@ -939,7 +939,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-paper-warm">
         {p.pdpPath ? (
           <Link
             to={p.pdpPath}
@@ -1115,7 +1115,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
 function FinalTransition({ copy }: { copy: Copy }) {
   return (
     <section className="relative bg-teal-deep text-paper">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-16 md:py-24 text-center">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-14 text-center">
         <Reveal>
           <div className="flex items-center justify-center gap-4 text-paper/60">
             <span className="h-px w-14 bg-paper/30" />
@@ -1184,7 +1184,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
   return (
     <section id="collections" className="relative">
       <div className="bg-paper text-ink border-t border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-8 md:pb-12">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-10 md:pt-14 pb-8 md:pb-12">
           <Reveal>
             <div className="flex items-center gap-4 text-ink/60">
               <span className="font-eyebrow text-teal">{copy.eyebrow}</span>
@@ -1193,7 +1193,7 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
             </div>
           </Reveal>
 
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end">
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-7 items-end">
             <Reveal delay={120} className="lg:col-span-8">
               <h2 className="font-editorial text-ink text-balance-tight text-fluid-hero leading-[0.9]">
                 {copy.introHeadline1}

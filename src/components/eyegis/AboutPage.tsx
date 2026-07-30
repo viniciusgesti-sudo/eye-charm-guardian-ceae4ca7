@@ -614,7 +614,7 @@ export function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] items-center px-6 py-16 md:min-h-[58vh] md:px-12 md:py-20">
+        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] items-center px-6 py-8 md:min-h-[58vh] md:px-12 md:py-9">
           <div className="max-w-[560px]">
             <Reveal>
               <span
@@ -648,13 +648,13 @@ export function AboutPage() {
 
 
       {/* 01 — WHERE SCIENCE MEETS STYLE */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
         <Reveal>
           <Rule label={c.belief.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1000px] text-[34px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[76px]"
+            className="mt-8 max-w-[1000px] text-[34px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[76px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.belief.h2a}
@@ -670,7 +670,7 @@ export function AboutPage() {
             {c.belief.sub}
           </p>
         </Reveal>
-        <div className="mt-14 grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="mt-8 grid gap-8 md:grid-cols-12 md:gap-10">
           <Reveal delay={200} className="md:col-span-5">
             <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>
               {c.belief.p1}
@@ -686,11 +686,11 @@ export function AboutPage() {
 
       {/* 01b — BORN FROM TWO WORLDS */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 py-9 md:px-12 md:py-10">
           <Reveal>
             <Rule label={c.origin.rule} />
           </Reveal>
-          <div className="mt-10 grid gap-12 md:grid-cols-12">
+          <div className="mt-8 grid gap-8 md:grid-cols-12">
             <Reveal delay={100} className="md:col-span-5">
               <h3
                 className="text-[28px] leading-[1.1] tracking-[-0.02em] md:text-[40px]"
@@ -732,7 +732,7 @@ export function AboutPage() {
 
       {/* 02 — DESIGNED BETWEEN PARIS AND SÃO PAULO */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-[1200px] px-6 py-9 md:px-12 md:py-10">
           <Reveal>
             <Rule label={c.why.rule} />
           </Reveal>
@@ -751,13 +751,13 @@ export function AboutPage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid items-stretch gap-8 md:grid-cols-12">
+          <div className="mt-9 grid items-stretch gap-8 md:grid-cols-12">
             <Reveal className="md:col-span-4">
               <Picture
                 source={parisImg}
                 alt={c.why.cities[0].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
+                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
               />
             </Reveal>
 
@@ -784,7 +784,7 @@ export function AboutPage() {
                 source={saoPauloImg}
                 alt={c.why.cities[1].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
+                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
               />
             </Reveal>
           </div>
@@ -793,8 +793,8 @@ export function AboutPage() {
 
       {/* 02b — THE STORY BEHIND OUR NAME */}
       <section style={{ background: OFFWHITE }}>
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
-          <div className="grid items-center gap-12 md:grid-cols-12">
+        <div className="mx-auto max-w-[1200px] px-6 py-9 md:px-12 md:py-10">
+          <div className="grid items-center gap-8 md:grid-cols-12">
             <div className="md:col-span-6">
               <Reveal>
                 <Rule label={c.why.name.rule} />
@@ -824,7 +824,7 @@ export function AboutPage() {
                 source={whyImg2}
                 alt={c.why.name.eq}
                 sizes="(min-width:768px) 40vw, 100vw"
-                className="h-[300px] w-full object-cover md:h-[400px]"
+                className="h-[240px] w-full object-cover md:h-[320px]"
               />
             </Reveal>
           </div>
@@ -833,8 +833,8 @@ export function AboutPage() {
 
       {/* 02c — HONEST SCIENCE */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
-          <div className="grid gap-12 md:grid-cols-12">
+        <div className="mx-auto max-w-[1200px] px-6 py-9 md:px-12 md:py-10">
+          <div className="grid gap-8 md:grid-cols-12">
             <div className="md:col-span-5">
               <Reveal>
                 <Rule label={c.why.honest.rule} />
@@ -886,13 +886,13 @@ export function AboutPage() {
 
 
       {/* 03 — OUR PHILOSOPHY */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.philosophy.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
+            className="mt-8 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.philosophy.h2a}
@@ -901,13 +901,13 @@ export function AboutPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-10 md:grid-cols-3">
+        <div className="mt-9 grid gap-7 md:grid-cols-3">
           {c.philosophy.items.map((p, i) => {
             const imgs = [philo1, philo2, philo3];
             return (
               <Reveal key={p.idx} delay={i * 120}>
                 <article className="group flex h-full flex-col">
-                  <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Picture
                       source={imgs[i]}
                       alt={`${p.title} — Eyegis philosophy portrait`}
@@ -950,7 +950,7 @@ export function AboutPage() {
 
       {/* 04 — OUR VALUES */}
       <section style={{ background: INK, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -964,19 +964,19 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px]"
+              className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px]"
               style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
             >
               {c.values.h2}
             </h2>
           </Reveal>
 
-          <div className="mt-24 grid gap-px" style={{ background: "rgba(246,243,238,0.15)" }}>
+          <div className="mt-10 grid gap-px" style={{ background: "rgba(246,243,238,0.15)" }}>
             <div className="grid gap-px md:grid-cols-2" style={{ background: "rgba(246,243,238,0.15)" }}>
               {c.values.items.map((v, i) => (
                 <Reveal key={v.k} delay={i * 100}>
                   <div
-                    className="flex min-h-[280px] flex-col justify-between p-10 md:min-h-[360px] md:p-16"
+                    className="flex min-h-[220px] flex-col justify-between p-8 md:min-h-[280px] md:p-10"
                     style={{ background: INK }}
                   >
                     <span
@@ -1008,13 +1008,13 @@ export function AboutPage() {
       </section>
 
       {/* 05 — DESIGN PROCESS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.process.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
+            className="mt-8 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.process.h2a}
@@ -1023,7 +1023,7 @@ export function AboutPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 md:mt-28">
+        <div className="mt-9 md:mt-10">
           <div className="grid gap-0 md:grid-cols-6">
             {c.process.items.map((s, i) => (
               <Reveal key={s.k} delay={i * 120}>
@@ -1042,7 +1042,7 @@ export function AboutPage() {
                       </span>
                     </div>
                     <h3
-                      className="mt-10 text-[28px] leading-[1]"
+                      className="mt-8 text-[28px] leading-[1]"
                       style={{ fontFamily: serif, fontWeight: 400 }}
                     >
                       {s.k}
@@ -1079,13 +1079,13 @@ export function AboutPage() {
 
       {/* 06 — THE PEOPLE WE DESIGN FOR */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
           <Reveal>
             <Rule label={c.people.rule} />
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-10 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
+              className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.people.h2a}
@@ -1094,11 +1094,11 @@ export function AboutPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          <div className="mt-9 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {c.people.labels.map((label, i) => (
               <Reveal key={label} delay={(i % 4) * 100}>
                 <figure className="group relative overflow-hidden">
-                  <div className="aspect-[3/4] w-full overflow-hidden">
+                  <div className="aspect-[4/3] w-full overflow-hidden">
                     <Picture
                       source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}
@@ -1120,11 +1120,11 @@ export function AboutPage() {
       </section>
 
       {/* 07 — GLOBAL VISION */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
         <Reveal>
           <Rule label={c.global.rule} />
         </Reveal>
-        <div className="mt-16 grid items-center gap-16 md:grid-cols-12">
+        <div className="mt-8 grid items-center gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <Reveal delay={100}>
               <h2
@@ -1140,7 +1140,7 @@ export function AboutPage() {
               </p>
             </Reveal>
             <Reveal delay={280}>
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.3em]" style={{ color: INK }}>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.3em]" style={{ color: INK }}>
                 <span>Paris</span>
                 <span>Tokyo</span>
                 <span>New York</span>
@@ -1161,7 +1161,7 @@ export function AboutPage() {
 
       {/* 08 — OUR PROMISE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-12 md:py-52">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-52">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -1170,7 +1170,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={120}>
             <blockquote
-              className="mt-14 max-w-[1200px] text-[32px] leading-[1.15] tracking-[-0.01em] md:text-[64px] lg:text-[80px]"
+              className="mt-8 max-w-[1200px] text-[32px] leading-[1.15] tracking-[-0.01em] md:text-[64px] lg:text-[80px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.promise.quote}
@@ -1178,7 +1178,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={240}>
             <div
-              className="mt-16 text-[11px] uppercase tracking-[0.4em]"
+              className="mt-8 text-[11px] uppercase tracking-[0.4em]"
               style={{ color: "rgba(246,243,238,0.7)" }}
             >
               {c.promise.sign}
@@ -1188,8 +1188,8 @@ export function AboutPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
-        <div className="grid gap-16 md:grid-cols-12 md:items-end">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+        <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
               className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[88px]"
@@ -1204,7 +1204,7 @@ export function AboutPage() {
             <p className="text-[14px] leading-[1.8]" style={{ color: MUTED }}>
               {c.cta.p}
             </p>
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-8 flex flex-col gap-3">
               <a
                 href="#coming-soon"
                 target="_blank"
@@ -1238,7 +1238,7 @@ export function AboutPage() {
         </div>
 
         <div
-          className="mt-32 flex flex-col items-start justify-between gap-6 border-t pt-10 md:flex-row md:items-center"
+          className="mt-16 flex flex-col items-start justify-between gap-6 border-t pt-8 md:flex-row md:items-center"
           style={{ borderColor: "rgba(14,22,19,0.15)" }}
         >
           <span
