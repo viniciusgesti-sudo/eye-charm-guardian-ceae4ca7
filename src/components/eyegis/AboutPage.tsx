@@ -35,8 +35,17 @@ type Copy = {
     rule: string;
     h2a: string;
     h2b: string;
+    sub: string;
     p1: string;
     p2: string;
+  };
+  origin: {
+    rule: string;
+    h2: string;
+    lead: string;
+    items: { k: string; d: string }[];
+    closing: string;
+    quote: string;
   };
   why: {
     rule: string;
