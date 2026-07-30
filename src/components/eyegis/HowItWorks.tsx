@@ -45,9 +45,9 @@ export function HowItWorks() {
   const c = COPY[lang];
 
   return (
-    <section className="relative bg-paper py-24 md:py-32">
+    <section className="relative bg-paper py-14 md:py-16">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
-        <div className="mb-14 md:mb-20 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mb-8 md:mb-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div className="max-w-2xl">
             <h2 className="font-editorial text-ink leading-[0.95] text-fluid-h1">
               {c.title1}
@@ -61,11 +61,11 @@ export function HowItWorks() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-3 md:gap-x-12 md:gap-y-0">
+        <div className="grid grid-cols-1 gap-y-8 md:grid-cols-3 md:gap-x-8 md:gap-y-0">
           {c.steps.map((s, i) => (
             <article
               key={s.n}
-              className={`group relative flex flex-col gap-5 pt-8 border-t border-ink/15 ${
+              className={`group relative flex flex-col gap-3 pt-5 border-t border-ink/15 ${
                 i > 0 ? "md:border-l md:border-t-0 md:pt-0 md:pl-10" : ""
               }`}
             >
@@ -78,10 +78,10 @@ export function HowItWorks() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="font-editorial text-2xl md:text-[1.75rem] leading-[1.15] text-ink">
+              <h3 className="font-editorial text-xl md:text-[1.375rem] leading-[1.15] text-ink">
                 {s.title}
               </h3>
-              <p className="text-ink/70 leading-relaxed max-w-sm text-[15px]">{s.body}</p>
+              <p className="text-ink/70 leading-relaxed max-w-sm text-[13.5px]">{s.body}</p>
               {i === 0 && (
                 <Logo className="mt-1 h-6 w-auto" tone="dark" showWordmark={false} />
               )}

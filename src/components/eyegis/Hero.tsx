@@ -98,15 +98,15 @@ export function Hero({ locale }: Props) {
   return (
     <section
       aria-label="Eyegis manifesto hero"
-      className="relative isolate min-h-[100svh] w-full overflow-hidden bg-ink text-paper lg:min-h-[min(100svh,780px)]"
+      className="relative isolate min-h-[76svh] w-full overflow-hidden bg-ink text-paper lg:min-h-[min(78svh,600px)]"
     >
-      <div className="relative grid min-h-[100svh] w-full grid-cols-1 md:grid-cols-2 lg:min-h-[min(100svh,780px)]">
+      <div className="relative grid min-h-[76svh] w-full grid-cols-1 md:grid-cols-2 lg:min-h-[min(78svh,600px)]">
         {/* LEFT — MEN */}
         <Link
           to="/$locale/men"
           params={{ locale }}
           aria-label={menAlt}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
+          className="group relative block min-h-[42svh] w-full overflow-hidden bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-mint md:min-h-[76svh] lg:min-h-[min(78svh,600px)]"
         >
           <Picture
             source={heroSaoPaulo}
@@ -163,7 +163,7 @@ export function Hero({ locale }: Props) {
           to="/$locale/women"
           params={{ locale }}
           aria-label={womenAlt}
-          className="group relative block min-h-[50svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[100svh] lg:min-h-[min(100svh,780px)]"
+          className="group relative block min-h-[42svh] w-full overflow-hidden bg-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-champagne md:min-h-[76svh] lg:min-h-[min(78svh,600px)]"
         >
           <Picture
             source={heroParis}

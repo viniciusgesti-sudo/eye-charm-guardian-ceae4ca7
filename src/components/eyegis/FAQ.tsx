@@ -156,7 +156,7 @@ function FaqCard({
         aria-expanded={open}
         aria-controls={contentId}
         onClick={onToggle}
-        className="group flex w-full items-center gap-5 px-6 py-6 text-left md:px-8 rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--teal)] focus-visible:ring-offset-white"
+        className="group flex w-full items-center gap-4 px-5 py-4 text-left md:px-6 rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--teal)] focus-visible:ring-offset-white"
       >
         <span
           className="grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors"
@@ -200,7 +200,7 @@ function FaqCard({
       >
         <div className="overflow-hidden">
           <div
-            className="px-6 pb-7 pl-[76px] pr-16 text-[15px] leading-relaxed md:px-8 md:pl-[92px]"
+            className="px-5 pb-5 pl-[64px] pr-10 text-[14px] leading-relaxed md:px-8 md:pl-[92px]"
             style={{ color: INK }}
           >
             <div
@@ -235,7 +235,7 @@ export function FAQ() {
       className="relative"
       style={{ background: "#F9F9F9" }}
     >
-      <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-3xl px-6 py-14 md:py-16">
         <div className="text-center">
           <span
             className="font-mono text-[11px] uppercase tracking-[0.32em]"
@@ -244,7 +244,7 @@ export function FAQ() {
             {c.eyebrow}
           </span>
           <h2
-            className="mt-5 font-editorial text-3xl leading-[1.1] md:text-5xl"
+            className="mt-4 font-editorial text-2xl leading-[1.1] md:text-[2rem]"
             style={{ color: INK }}
           >
             {c.titleLead}{" "}
@@ -258,7 +258,7 @@ export function FAQ() {
           />
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 md:mt-16">
+        <div className="mt-8 flex flex-col gap-3 md:mt-10">
           {items.map((item, i) => (
             <FaqCard
               key={item.q}

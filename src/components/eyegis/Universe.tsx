@@ -323,20 +323,20 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
       </div>
 
       {/* Editorial caption */}
-      <div className="mt-8 md:mt-10 grid grid-cols-12 gap-6">
+      <div className="mt-5 md:mt-6 grid grid-cols-12 gap-5">
         <div className="col-span-12 md:col-span-4">
           <span className="font-eyebrow text-ink/60">{panel.eyebrow}</span>
         </div>
         <div className="col-span-12 md:col-span-8 max-w-[46ch]">
-          <h3 className="font-editorial text-ink text-3xl md:text-[38px] leading-[1] tracking-[-0.02em]">
+          <h3 className="font-editorial text-ink text-2xl md:text-[28px] leading-[1.05] tracking-[-0.02em]">
             {panel.headline}
           </h3>
-          <p className="mt-5 text-[15px] leading-[1.7] text-ink/70">
+          <p className="mt-3 text-[14px] leading-[1.6] text-ink/70">
             {panel.description}
           </p>
           <a
             href={panel.href}
-            className="mt-8 inline-flex items-center gap-3 font-eyebrow text-ink group/cta"
+            className="mt-5 inline-flex items-center gap-3 font-eyebrow text-ink group/cta"
           >
             <span className="relative">
               {panel.cta}
@@ -392,7 +392,7 @@ export function Universe() {
       {/* --------- Editorial intro : two-column asymmetric --------- */}
       <div className="mx-auto pt-24 md:pt-32 max-w-[1600px] px-6 md:px-10 lg:px-14">
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 lg:gap-16 items-start [&>*]:min-w-0">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 lg:gap-10 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
             <Reveal delay={80} className="flex items-center gap-4">
@@ -401,7 +401,7 @@ export function Universe() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-6 font-editorial text-ink text-balance-tight leading-[1.1] tracking-[-0.02em] text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] md:max-w-[22ch]">
+              <p className="mt-4 font-editorial text-ink text-balance-tight leading-[1.1] tracking-[-0.02em] text-[19px] sm:text-[21px] md:text-[25px] lg:text-[28px] md:max-w-[22ch]">
                 {copy.noteHeadline1}
                 <span className="italic text-teal">{copy.noteHeadlineAccent}</span>
                 {copy.noteHeadline2}
@@ -409,14 +409,14 @@ export function Universe() {
             </Reveal>
 
             <Reveal delay={280}>
-              <div className="mt-12 max-w-[62ch] space-y-6 text-[16px] md:text-[17px] leading-[1.75] text-ink/75">
+              <div className="mt-6 max-w-[58ch] space-y-4 text-[14px] md:text-[15px] leading-[1.7] text-ink/75">
                 <p>{copy.noteBody1}</p>
                 <p>{copy.noteBody2}</p>
               </div>
             </Reveal>
 
             <Reveal delay={380}>
-              <div className="mt-14 grid grid-cols-3 gap-8 max-w-lg">
+              <div className="mt-8 grid grid-cols-3 gap-6 max-w-lg">
                 {copy.stats.map((s) => (
                   <div key={s.k} className="flex flex-col gap-2 border-t border-ink/15 pt-4">
                     <span className="font-eyebrow text-ink/50 text-[10px]">
@@ -444,7 +444,7 @@ export function Universe() {
                   />
 
                 </div>
-                <figcaption className="mt-5 flex items-center justify-between font-eyebrow text-ink/55">
+                <figcaption className="mt-3 flex items-center justify-between font-eyebrow text-ink/55">
                   <span>{copy.portraitCaption1}</span>
                   <span>{copy.portraitCaption2}</span>
                 </figcaption>
@@ -455,7 +455,7 @@ export function Universe() {
       </div>
 
       {/* --------- Section transition rule --------- */}
-      <div className="mx-auto mt-32 md:mt-40 lg:mt-48 max-w-[1600px] px-6 md:px-10 lg:px-14">
+      <div className="mx-auto mt-16 md:mt-20 lg:mt-24 max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end [&>*]:min-w-0">
           <Reveal className="col-span-12 md:col-span-6 flex items-center gap-4">
             <span className="font-eyebrow text-ink/50">{copy.principlesEyebrow}</span>
@@ -470,16 +470,16 @@ export function Universe() {
       </div>
 
       {/* --------- Editorial panels grid --------- */}
-      <div className="mx-auto mt-20 md:mt-28 max-w-[1600px] px-6 md:px-10 lg:px-14 pb-40 md:pb-48">
+      <div className="mx-auto mt-12 md:mt-14 max-w-[1600px] px-6 md:px-10 lg:px-14 pb-20 md:pb-24">
         {/* Asymmetric editorial grid — not equal-height cards */}
-        <div className="grid grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-28 md:gap-y-36">
+        <div className="grid grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-14 md:gap-y-18">
           {/* Panel 01 — column span 5, top */}
           <div className="col-span-12 md:col-span-6 lg:col-span-5 lg:col-start-1">
             <EditorialPanel panel={panels[0]} />
           </div>
 
           {/* Panel 02 — column span 6, offset right, pushed down */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-6 lg:col-start-7 lg:mt-32">
+          <div className="col-span-12 md:col-span-6 lg:col-span-6 lg:col-start-7 lg:mt-16">
             <EditorialPanel panel={panels[1]} delay={80} />
           </div>
 
@@ -492,7 +492,7 @@ export function Universe() {
 
       {/* --------- Champagne closing rule --------- */}
       <div className="bg-[var(--paper-warm)]">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-24 md:py-28 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-16 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <Reveal>
             <p className="font-editorial text-ink text-3xl md:text-4xl tracking-[-0.01em] leading-[1.05] max-w-[24ch]">
               {copy.closingLine}
