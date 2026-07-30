@@ -753,10 +753,10 @@ function Hero({ c }: { c: Copy }) {
           </Reveal>
 
           <Reveal delay={340}>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <a
                 href="#compare"
-                className="group inline-flex items-center gap-6 rounded-full bg-teal px-8 py-5 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
+                className="group inline-flex items-center gap-4 rounded-full bg-teal px-6 py-3.5 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
                 <span className="font-eyebrow">{c.hero.start}</span>
                 <span aria-hidden="true">→</span>
@@ -764,7 +764,7 @@ function Hero({ c }: { c: Copy }) {
               <Link
                 to="/"
                 hash="digital-eye-score"
-                className="inline-flex items-center justify-center rounded-full border border-ink/20 px-8 py-5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors"
+                className="inline-flex items-center justify-center rounded-full border border-ink/20 px-6 py-3.5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors"
               >
                 {c.hero.assessment}
               </Link>
@@ -774,7 +774,8 @@ function Hero({ c }: { c: Copy }) {
 
         <div className="lg:col-span-6">
           <Reveal delay={200}>
-            <div className="relative aspect-[5/6] overflow-hidden rounded-md bg-paper-warm">
+            <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
+
               <Picture
                 source={heroImg}
                 alt={c.hero.heroAlt}
