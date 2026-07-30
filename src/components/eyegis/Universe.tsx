@@ -323,17 +323,18 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
       </div>
 
       {/* Editorial caption */}
-      <div className="mt-5 md:mt-6 grid grid-cols-12 gap-5">
-        <div className="col-span-12 md:col-span-4">
+      <div className="mt-4 grid grid-cols-12 gap-2">
+        <div className="col-span-12">
           <span className="font-eyebrow text-ink/60">{panel.eyebrow}</span>
         </div>
-        <div className="col-span-12 md:col-span-8 max-w-[46ch]">
-          <h3 className="font-editorial text-ink text-2xl md:text-[28px] leading-[1.05] tracking-[-0.02em]">
+        <div className="col-span-12 max-w-[46ch]">
+          <h3 className="mt-1 font-editorial text-ink text-lg md:text-xl leading-[1.1] tracking-[-0.02em]">
             {panel.headline}
           </h3>
-          <p className="mt-3 text-[14px] leading-[1.6] text-ink/70">
+          <p className="mt-2 text-[13px] leading-[1.55] text-ink/70">
             {panel.description}
           </p>
+
           <a
             href={panel.href}
             className="mt-5 inline-flex items-center gap-3 font-eyebrow text-ink group/cta"
@@ -365,9 +366,9 @@ export function Universe() {
   const locale = params.locale ?? "br";
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
-    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/3]" },
-    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/3]" },
-    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/3]" },
+    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
+    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
+    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
     index: p.index,
@@ -390,7 +391,7 @@ export function Universe() {
       className="relative bg-[var(--paper)] text-ink"
     >
       {/* --------- Editorial intro : two-column asymmetric --------- */}
-      <div className="mx-auto pt-24 md:pt-32 max-w-[1600px] px-6 md:px-10 lg:px-14">
+      <div className="mx-auto pt-12 md:pt-16 max-w-[1400px] px-6 md:px-10 lg:px-14">
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 lg:gap-10 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
@@ -434,16 +435,17 @@ export function Universe() {
           {/* Right — Lifestyle image (5 col) */}
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
             <Reveal delay={40}>
-              <figure className="relative">
-                <div className="relative overflow-hidden rounded-[6px] aspect-[4/3] bg-[var(--paper-warm)]">
+              <figure className="relative lg:ml-auto lg:max-w-[420px]">
+                <div className="relative overflow-hidden rounded-[6px] aspect-[16/10] lg:aspect-[3/2] bg-[var(--paper-warm)]">
                   <Picture
                     source={universePortraitSrc}
                     alt="An Eyegis wearer resting by a window in a minimal concrete and oak interior, Paris"
-                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    sizes="(min-width: 1024px) 32vw, 100vw"
                     className="h-full w-full object-cover"
                   />
 
                 </div>
+
                 <figcaption className="mt-3 flex items-center justify-between font-eyebrow text-ink/55">
                   <span>{copy.portraitCaption1}</span>
                   <span>{copy.portraitCaption2}</span>
@@ -455,14 +457,14 @@ export function Universe() {
       </div>
 
       {/* --------- Section transition rule --------- */}
-      <div className="mx-auto mt-16 md:mt-20 lg:mt-24 max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end [&>*]:min-w-0">
+      <div className="mx-auto mt-10 md:mt-12 max-w-[1400px] px-6 md:px-10 lg:px-14">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-end [&>*]:min-w-0">
           <Reveal className="col-span-12 md:col-span-6 flex items-center gap-4">
             <span className="font-eyebrow text-ink/50">{copy.principlesEyebrow}</span>
             <span className="h-px w-16 bg-ink/25" />
           </Reveal>
           <Reveal delay={120} className="col-span-12 md:col-span-6 md:text-right">
-            <p className="font-editorial text-ink text-2xl md:text-3xl tracking-[-0.01em] leading-tight max-w-[32ch] md:ml-auto">
+            <p className="font-editorial text-ink text-xl md:text-2xl tracking-[-0.01em] leading-tight max-w-[32ch] md:ml-auto">
               {copy.principlesLine}
             </p>
           </Reveal>
@@ -470,31 +472,28 @@ export function Universe() {
       </div>
 
       {/* --------- Editorial panels grid --------- */}
-      <div className="mx-auto mt-12 md:mt-14 max-w-[1600px] px-6 md:px-10 lg:px-14 pb-20 md:pb-24">
-        {/* Asymmetric editorial grid — not equal-height cards */}
-        <div className="grid grid-cols-12 gap-x-8 lg:gap-x-14 gap-y-14 md:gap-y-18">
-          {/* Panel 01 — column span 5, top */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-5 lg:col-start-1">
+      <div className="mx-auto mt-8 md:mt-10 max-w-[1400px] px-6 md:px-10 lg:px-14 pb-14 md:pb-16">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-8 gap-y-10 md:gap-y-12">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <EditorialPanel panel={panels[0]} />
           </div>
 
-          {/* Panel 02 — column span 6, offset right, pushed down */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-6 lg:col-start-7 lg:mt-16">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <EditorialPanel panel={panels[1]} delay={80} />
           </div>
 
-          {/* Panel 03 — column span 7, centered-ish, wider */}
-          <div className="col-span-12 md:col-span-12 lg:col-span-7 lg:col-start-3">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <EditorialPanel panel={panels[2]} delay={40} />
           </div>
         </div>
       </div>
 
+
       {/* --------- Champagne closing rule --------- */}
       <div className="bg-[var(--paper-warm)]">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 py-14 md:py-16 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14 py-10 md:py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <Reveal>
-            <p className="font-editorial text-ink text-3xl md:text-4xl tracking-[-0.01em] leading-[1.05] max-w-[24ch]">
+            <p className="font-editorial text-ink text-xl md:text-2xl tracking-[-0.01em] leading-[1.1] max-w-[24ch]">
               {copy.closingLine}
             </p>
           </Reveal>
