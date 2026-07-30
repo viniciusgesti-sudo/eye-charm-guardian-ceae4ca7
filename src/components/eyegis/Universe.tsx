@@ -390,7 +390,7 @@ export function Universe() {
       className="relative bg-[var(--paper)] text-ink"
     >
       {/* --------- Editorial intro : two-column asymmetric --------- */}
-      <div className="mx-auto pt-24 md:pt-32 max-w-[1600px] px-6 md:px-10 lg:px-14">
+      <div className="mx-auto pt-12 md:pt-16 max-w-[1400px] px-6 md:px-10 lg:px-14">
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 lg:gap-10 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
