@@ -365,9 +365,9 @@ export function Universe() {
   const locale = params.locale ?? "br";
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
-    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
-    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },
-    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/5]" },
+    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/3]" },
+    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/3]" },
+    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/3]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
     index: p.index,
@@ -435,7 +435,7 @@ export function Universe() {
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
             <Reveal delay={40}>
               <figure className="relative">
-                <div className="relative overflow-hidden rounded-[6px] aspect-[4/5] bg-[var(--paper-warm)]">
+                <div className="relative overflow-hidden rounded-[6px] aspect-[4/3] bg-[var(--paper-warm)]">
                   <Picture
                     source={universePortraitSrc}
                     alt="An Eyegis wearer resting by a window in a minimal concrete and oak interior, Paris"
