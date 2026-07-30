@@ -1063,10 +1063,39 @@ function Comparison({ c }: { c: Copy }) {
 /*  Visual Demonstration (before/after slider)                        */
 /* ------------------------------------------------------------------ */
 
+const DEMO_FILTERS = [
+  {
+    id: "clarity",
+    label: "Clarity",
+    // ~95% light transmission — almost neutral, only a touch of blue removed
+    filter: "brightness(0.98) saturate(0.99)",
+    overlay: "rgba(255, 251, 240, 0.05)",
+  },
+  {
+    id: "serenity",
+    label: "Serenity",
+    // slightly brown / warm
+    filter: "sepia(0.18) saturate(1.02) brightness(0.97)",
+    overlay: "rgba(196, 158, 118, 0.14)",
+  },
+  {
+    id: "gaming",
+    label: "Gaming",
+    // slightly yellow
+    filter: "sepia(0.26) saturate(1.08) brightness(0.98) hue-rotate(-6deg)",
+    overlay: "rgba(240, 205, 110, 0.16)",
+  },
+] as const;
+
+type DemoFilterId = (typeof DEMO_FILTERS)[number]["id"];
+
 function BeforeAfter({ c }: { c: Copy }) {
   const [pos, setPos] = useState(52);
+  const [filterId, setFilterId] = useState<DemoFilterId>("clarity");
+  const activeFilter = DEMO_FILTERS.find((f) => f.id === filterId) ?? DEMO_FILTERS[0];
   const dragging = useRef(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
+
 
   const move = (clientX: number) => {
     const el = wrapRef.current;
@@ -1114,34 +1143,56 @@ function BeforeAfter({ c }: { c: Copy }) {
         </div>
 
         <Reveal>
+          <div className="mb-6 flex flex-wrap gap-2">
+            {DEMO_FILTERS.map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setFilterId(f.id)}
+                aria-pressed={filterId === f.id}
+                className={`rounded-full border px-4 py-2 font-eyebrow text-[10px] transition-colors ${
+                  filterId === f.id
+                    ? "border-teal bg-teal text-paper"
+                    : "border-ink/20 text-ink/70 hover:border-teal/50 hover:text-teal"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal>
           <div
             ref={wrapRef}
             className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-ink select-none"
           >
+            {/* Base image — single fixed photo, never resized */}
             <Picture
               source={compareImg}
-              alt={c.demo.with}
+              alt={c.demo.without}
               sizes="100vw"
               className="absolute inset-0 h-full w-full object-cover"
             />
+
+            {/* Same photo, clipped to the right side, with the lens filter on top */}
             <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ width: `${pos}%` }}
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
             >
               <Picture
                 source={compareImg}
-                alt={c.demo.without}
+                alt=""
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: "saturate(1.15) contrast(1.12) hue-rotate(-8deg)" }}
+                style={{ filter: activeFilter.filter }}
               />
               <div
-                aria-hidden="true"
                 className="absolute inset-0"
                 style={{
-                  background:
-                    "radial-gradient(ellipse at 50% 50%, rgba(120,170,255,0.28), transparent 60%)",
-                  mixBlendMode: "screen",
+                  background: activeFilter.overlay,
+                  mixBlendMode: "multiply",
                 }}
               />
             </div>
@@ -1150,7 +1201,7 @@ function BeforeAfter({ c }: { c: Copy }) {
               {c.demo.without}
             </div>
             <div className="pointer-events-none absolute top-5 right-5 rounded-full bg-mint/85 px-3 py-1 font-eyebrow text-[10px] text-teal-deep">
-              {c.demo.with}
+              {c.demo.with} · {activeFilter.label}
             </div>
 
             <div
@@ -1171,6 +1222,7 @@ function BeforeAfter({ c }: { c: Copy }) {
             </div>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
