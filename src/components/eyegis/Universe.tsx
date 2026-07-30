@@ -386,7 +386,7 @@ export function Universe() {
   return (
     <section
       id="universe"
-      aria-labelledby="universe-title"
+      aria-label="Eyegis"
       className="relative bg-[var(--paper)] text-ink"
     >
       {/* --------- Editorial intro : two-column asymmetric --------- */}
