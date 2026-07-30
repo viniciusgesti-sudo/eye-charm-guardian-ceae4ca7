@@ -40,14 +40,6 @@ export function TrustStrip() {
           </span>
           <span className="font-semibold">{certCopy}</span>
         </div>
-        <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70">
-          {c.chips.map((label) => (
-            <li key={label} className="flex items-center gap-2">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-teal-deep" />
-              {label}
-            </li>
-          ))}
-        </ul>
         <a
           href={COMING_SOON_HREF}
           className="inline-flex items-center gap-3 rounded-full px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper shadow-md transition-transform hover:-translate-y-0.5"
