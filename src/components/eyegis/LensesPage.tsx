@@ -734,28 +734,29 @@ function MiniHeader({ c }: { c: Copy }) {
 
 function Hero({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-paper pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 md:px-10 lg:px-14">
+    <section className="relative bg-paper pt-20 md:pt-24 pb-10 md:pb-14 overflow-hidden">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-6">
           <Reveal>
             <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[104px]">
+            <h1 className="mt-4 font-editorial text-ink leading-[1.02] text-balance-tight text-[8vw] sm:text-[5.4vw] lg:text-[3.2vw] xl:text-[46px]">
               {c.hero.h1a}
-              <span className="block italic text-teal">{c.hero.h1b}</span>
+              <span className="italic text-teal"> {c.hero.h1b}</span>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 max-w-lg font-light text-lg leading-relaxed text-ink/75">
+            <p className="mt-5 max-w-md font-light text-[15px] leading-relaxed text-ink/75">
               {c.hero.sub}
             </p>
           </Reveal>
+
           <Reveal delay={340}>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <a
                 href="#compare"
-                className="group inline-flex items-center gap-6 rounded-full bg-teal px-8 py-5 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
+                className="group inline-flex items-center gap-4 rounded-full bg-teal px-6 py-3.5 text-paper hover:bg-teal-deep hover:-translate-y-0.5 transition-all duration-500"
               >
                 <span className="font-eyebrow">{c.hero.start}</span>
                 <span aria-hidden="true">→</span>
@@ -763,7 +764,7 @@ function Hero({ c }: { c: Copy }) {
               <Link
                 to="/"
                 hash="digital-eye-score"
-                className="inline-flex items-center justify-center rounded-full border border-ink/20 px-8 py-5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors"
+                className="inline-flex items-center justify-center rounded-full border border-ink/20 px-6 py-3.5 font-eyebrow text-ink hover:bg-ink hover:text-paper transition-colors"
               >
                 {c.hero.assessment}
               </Link>
@@ -773,7 +774,8 @@ function Hero({ c }: { c: Copy }) {
 
         <div className="lg:col-span-6">
           <Reveal delay={200}>
-            <div className="relative aspect-[5/6] overflow-hidden rounded-md bg-paper-warm">
+            <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-md bg-paper-warm">
+
               <Picture
                 source={heroImg}
                 alt={c.hero.heroAlt}
