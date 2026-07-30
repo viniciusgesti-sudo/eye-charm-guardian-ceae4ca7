@@ -127,7 +127,7 @@ const CONTENT: Record<Lang, Copy> = {
       eyebrow: "— Our Story",
       h1a: "Designed for the",
       h1b: "way we live today.",
-      sub: "Eyegis was created for a generation that spends more time looking at screens than ever before. Our mission is to make digital life more comfortable — without sacrificing timeless design.",
+      sub: "Eyewear for a generation living on screens — comfort, protection and timeless design.",
       alt: "Eyegis campaign — couple wearing Men's Collection and Women's Collection frames",
     },
     belief: {
@@ -252,7 +252,7 @@ const CONTENT: Record<Lang, Copy> = {
       eyebrow: "— Nossa História",
       h1a: "Feito para o",
       h1b: "modo como vivemos hoje.",
-      sub: "A Eyegis foi criada para uma geração que passa mais tempo diante de telas do que nunca. Nossa missão é tornar a vida digital mais confortável — sem abrir mão de um design atemporal.",
+      sub: "Óculos para uma geração que vive em telas — conforto, proteção e design atemporal.",
       alt: "Campanha Eyegis — casal usando modelos Men's Collection e Women's Collection",
     },
     belief: {
@@ -377,7 +377,7 @@ const CONTENT: Record<Lang, Copy> = {
       eyebrow: "— Notre Histoire",
       h1a: "Pensée pour la",
       h1b: "vie que nous vivons aujourd'hui.",
-      sub: "Eyegis a été créée pour une génération qui passe plus de temps devant les écrans que jamais. Notre mission : rendre la vie numérique plus confortable, sans jamais sacrifier un design intemporel.",
+      sub: "Des lunettes pour une génération vivant sur écrans — confort, protection et design intemporel.",
       alt: "Campagne Eyegis — couple portant les modèles Men's Collection et Women's Collection",
     },
     belief: {
