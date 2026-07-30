@@ -260,7 +260,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Section 06 · Recommendation",
+      eyebrow: "Section 05 · Recommendation",
       h2a: "Based on your day,",
       h2b: " we suggest…",
       collection: "Collection",
@@ -425,7 +425,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Seção 06 · Recomendação",
+      eyebrow: "Seção 05 · Recomendação",
       h2a: "Com base no seu dia,",
       h2b: " sugerimos…",
       collection: "Coleção",
@@ -590,7 +590,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Section 06 · Recommandation",
+      eyebrow: "Section 05 · Recommandation",
       h2a: "En fonction de votre journée,",
       h2b: " nous suggérons…",
       collection: "Collection",
@@ -928,11 +928,11 @@ type LensKey = "clear" | "shield" | "pro";
 
 const LENS_METRICS: Record<
   LensKey,
-  { values: number[]; retina: number; circadian: number; to: string }
+  { values: number[]; retina: number; circadian: number; page: "men" | "women"; lens: string }
 > = {
-  clear: { values: [2.5, 4.5, 3, 5], retina: 35, circadian: 60, to: "men?lens=clarity" },
-  shield: { values: [4.5, 3, 4.5, 3], retina: 60, circadian: 75, to: "women?lens=serenity" },
-  pro: { values: [4.5, 3, 4, 3], retina: 90, circadian: 90, to: "men?lens=gaming" },
+  clear: { values: [2.5, 4.5, 3, 5], retina: 35, circadian: 60, page: "men", lens: "clarity" },
+  shield: { values: [4.5, 3, 4.5, 3], retina: 60, circadian: 75, page: "women", lens: "serenity" },
+  pro: { values: [4.5, 3, 4, 3], retina: 90, circadian: 90, page: "men", lens: "gaming" },
 };
 
 const CompareIcon = {
@@ -1041,7 +1041,7 @@ const CRITERIA_ICONS: (keyof typeof CompareIcon)[] = ["shield", "palette", "moon
 function Comparison({ c }: { c: Copy }) {
   const { lang } = useI18n();
   const ui = COMPARE_UI[lang];
-  const prefix = lang === "PT" ? "/br" : lang === "FR" ? "/fr" : "/en";
+  const locale = lang === "PT" ? "br" : lang === "FR" ? "fr" : "en";
 
   return (
     <section id="compare" className="bg-paper py-16 md:py-24">
@@ -1154,7 +1154,9 @@ function Comparison({ c }: { c: Copy }) {
 
                   <div className="mt-auto pt-6">
                     <Link
-                      to={`${prefix}/${m.to}`}
+                      to={m.page === "men" ? "/$locale/men" : "/$locale/women"}
+                      params={{ locale }}
+                      search={{ lens: m.lens }}
                       className={`flex w-full items-center justify-center gap-3 rounded-full px-6 py-3 font-eyebrow font-semibold tracking-[0.15em] text-[11px] transition-all duration-500 ${
                         dark
                           ? "bg-mint text-teal-deep hover:-translate-y-0.5"
@@ -1394,72 +1396,6 @@ function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  FAQ                                                               */
-/* ------------------------------------------------------------------ */
-
-function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
-  return (
-    <div className="border-t border-ink/10">
-      <button
-        onClick={onToggle}
-        className="flex w-full items-center justify-between gap-8 py-6 text-left"
-        aria-expanded={open}
-      >
-        <span className="font-editorial text-ink text-xl md:text-2xl leading-snug">{q}</span>
-        <span
-          aria-hidden="true"
-          className={`grid h-9 w-9 place-items-center rounded-full border border-ink/20 text-ink transition-transform duration-500 ${
-            open ? "rotate-45" : ""
-          }`}
-        >
-          +
-        </span>
-      </button>
-      <div
-        className={`grid transition-all duration-700 ease-out ${
-          open ? "grid-rows-[1fr] opacity-100 pb-8" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <p className="max-w-2xl font-light text-ink/70 leading-relaxed">{a}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Faq({ c }: { c: Copy }) {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section className="bg-paper-warm py-20 md:py-28">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <Reveal>
-          <span className="font-eyebrow text-teal">{c.faq.eyebrow}</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="mt-4 font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            {c.faq.h2a}
-            <span className="italic text-teal">{c.faq.h2b}</span>
-          </h2>
-        </Reveal>
-        <div className="mt-14">
-          {c.faq.items.map((f, i) => (
-            <FaqItem
-              key={f.q}
-              q={f.q}
-              a={f.a}
-              open={open === i}
-              onToggle={() => setOpen(open === i ? null : i)}
-            />
-          ))}
-          <div className="border-t border-ink/10" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Recommended product (reacts to selected persona)                  */
 /* ------------------------------------------------------------------ */
 
@@ -1631,7 +1567,6 @@ export function LensesPage() {
       <BeforeAfter c={c} />
       <Comparison c={c} />
       <WhoFor c={c} onPick={pickAndScroll} />
-      <Faq c={c} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />
       </div>
