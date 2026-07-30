@@ -49,12 +49,12 @@ export function HowItWorks() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <div className="mb-14 md:mb-20 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div className="max-w-2xl">
-            <span className="font-eyebrow text-teal">{c.eyebrow}</span>
-            <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-fluid-h1">
+            <h2 className="font-editorial text-ink leading-[0.95] text-fluid-h1">
               {c.title1}
               <span className="block italic text-teal">{c.title2}</span>
             </h2>
           </div>
+
           <div className="hidden md:flex items-center gap-3 font-eyebrow text-[10px] text-ink/50">
             <span className="h-px w-16 bg-ink/25" aria-hidden />
             <span>§ 01 — 03</span>
