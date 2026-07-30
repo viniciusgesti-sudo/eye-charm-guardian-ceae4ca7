@@ -434,16 +434,17 @@ export function Universe() {
           {/* Right — Lifestyle image (5 col) */}
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
             <Reveal delay={40}>
-              <figure className="relative">
-                <div className="relative overflow-hidden rounded-[6px] aspect-[4/3] bg-[var(--paper-warm)]">
+              <figure className="relative lg:ml-auto lg:max-w-[420px]">
+                <div className="relative overflow-hidden rounded-[6px] aspect-[16/10] lg:aspect-[3/2] bg-[var(--paper-warm)]">
                   <Picture
                     source={universePortraitSrc}
                     alt="An Eyegis wearer resting by a window in a minimal concrete and oak interior, Paris"
-                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    sizes="(min-width: 1024px) 32vw, 100vw"
                     className="h-full w-full object-cover"
                   />
 
                 </div>
+
                 <figcaption className="mt-3 flex items-center justify-between font-eyebrow text-ink/55">
                   <span>{copy.portraitCaption1}</span>
                   <span>{copy.portraitCaption2}</span>
