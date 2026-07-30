@@ -429,10 +429,10 @@ function LifestylePanel({ panel, i }: { panel: Panel; i: number }) {
       {/* subtle top hairline between panels */}
       {i > 0 && <div className={`absolute inset-x-6 top-0 h-px ${t.hairline} opacity-40 md:inset-x-14`} />}
 
-      <div className="mx-auto grid min-h-[92vh] max-w-[1600px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-10 md:py-36 lg:grid-cols-12 lg:gap-10 lg:px-14">
+      <div className="mx-auto grid min-h-[70vh] max-w-[1600px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-12 lg:gap-10 lg:px-14">
         {/* IMAGE */}
         <div className={`relative ${imageOrder} lg:col-span-7`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[5/6] lg:aspect-[4/5]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[4/5] lg:aspect-[5/6]">
             <Picture
               source={panel.image}
               alt={panel.imageAlt}

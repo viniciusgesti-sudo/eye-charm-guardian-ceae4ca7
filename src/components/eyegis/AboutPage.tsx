@@ -757,7 +757,7 @@ export function AboutPage() {
                 source={parisImg}
                 alt={c.why.cities[0].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
+                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
               />
             </Reveal>
 
@@ -784,7 +784,7 @@ export function AboutPage() {
                 source={saoPauloImg}
                 alt={c.why.cities[1].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
+                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
               />
             </Reveal>
           </div>
@@ -824,7 +824,7 @@ export function AboutPage() {
                 source={whyImg2}
                 alt={c.why.name.eq}
                 sizes="(min-width:768px) 40vw, 100vw"
-                className="h-[300px] w-full object-cover md:h-[400px]"
+                className="h-[240px] w-full object-cover md:h-[320px]"
               />
             </Reveal>
           </div>
@@ -907,7 +907,7 @@ export function AboutPage() {
             return (
               <Reveal key={p.idx} delay={i * 120}>
                 <article className="group flex h-full flex-col">
-                  <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Picture
                       source={imgs[i]}
                       alt={`${p.title} — Eyegis philosophy portrait`}
@@ -976,7 +976,7 @@ export function AboutPage() {
               {c.values.items.map((v, i) => (
                 <Reveal key={v.k} delay={i * 100}>
                   <div
-                    className="flex min-h-[280px] flex-col justify-between p-10 md:min-h-[360px] md:p-16"
+                    className="flex min-h-[220px] flex-col justify-between p-8 md:min-h-[280px] md:p-10"
                     style={{ background: INK }}
                   >
                     <span
@@ -1098,7 +1098,7 @@ export function AboutPage() {
             {c.people.labels.map((label, i) => (
               <Reveal key={label} delay={(i % 4) * 100}>
                 <figure className="group relative overflow-hidden">
-                  <div className="aspect-[3/4] w-full overflow-hidden">
+                  <div className="aspect-[4/3] w-full overflow-hidden">
                     <Picture
                       source={PEOPLE_IMAGES[i]}
                       alt={`${label} wearing Eyegis eyewear`}

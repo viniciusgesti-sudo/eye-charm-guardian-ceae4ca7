@@ -632,7 +632,7 @@ export function ContactPage() {
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
       {/* HERO */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden">
+      <section className="relative min-h-[56vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Picture
             source={heroImg}
@@ -649,7 +649,7 @@ export function ContactPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-10">
+        <div className="relative z-10 mx-auto flex min-h-[56vh] max-w-[1400px] flex-col justify-between px-6 py-10 md:px-12 md:py-10">
 
           <div className="max-w-[1100px]">
             <Reveal>
@@ -697,7 +697,7 @@ export function ContactPage() {
             <Reveal key={o.k} delay={(i % 4) * 100}>
               <a
                 href={`mailto:${o.cta}`}
-                className="group flex h-full min-h-[320px] flex-col justify-between p-10 transition-transform duration-700 hover:-translate-y-1"
+                className="group flex h-full min-h-[260px] flex-col justify-between p-10 transition-transform duration-700 hover:-translate-y-1"
                 style={{ background: OFFWHITE }}
               >
                 <div style={{ color: TEAL }}>{OPTION_ICONS[i]}</div>
@@ -875,7 +875,7 @@ export function ContactPage() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full min-h-[240px] flex-col justify-between p-8 transition-transform duration-700 hover:-translate-y-1"
+                className="group flex h-full min-h-[200px] flex-col justify-between p-8 transition-transform duration-700 hover:-translate-y-1"
                 style={{ background: OFFWHITE }}
               >
                 <div style={{ color: TEAL }}>{SOCIAL_ICONS[s.k]}</div>
@@ -1185,7 +1185,7 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
   if (status === "sent") {
     return (
       <div
-        className="flex min-h-[560px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
+        className="flex min-h-[420px] flex-col items-start justify-center rounded-[28px] p-10 md:p-16"
         style={{ background: OFFWHITE }}
       >
         <div style={{ color: TEAL }}>

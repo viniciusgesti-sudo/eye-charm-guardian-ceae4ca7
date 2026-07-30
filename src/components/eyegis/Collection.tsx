@@ -484,7 +484,7 @@ function CollectionSection({ meta, i, copy }: { meta: CollectionMeta; i: number;
 
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:px-10 md:py-12 lg:grid-cols-12 lg:gap-7 lg:px-14">
         <div className={`relative ${imageOrder} lg:col-span-6`}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[3/4] lg:aspect-[16/11]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-teal-deep/10 md:aspect-[4/5] lg:aspect-[16/11]">
             <Picture
               source={meta.image}
               alt={meta.imageAlt}
@@ -939,7 +939,7 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
       style={{ transitionDelay: `${i * 80}ms` }}
     >
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-paper-warm">
         {p.pdpPath ? (
           <Link
             to={p.pdpPath}
