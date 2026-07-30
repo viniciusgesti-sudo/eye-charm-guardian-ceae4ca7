@@ -641,6 +641,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "meridian-pair", productKey: "meridian-pair", filterKey: "Men",
     image: meridianPair, thumbImage: meridianPairThumb,
     imageAlt: "Men's Collection pair — editorial still life",
+    pdpPath: "/product/meridian",
     gallery: [
       { src: meridianPair, thumb: meridianPairThumb, alt: "Men's Collection — twin pair still life", label: "Pair" },
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Men's Collection — hero shot", label: "Hero" },
@@ -651,6 +652,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
     image: atelierProfile, thumbImage: atelierProfileThumb,
     imageAlt: "Men's Collection frame profile — editorial",
+    pdpPath: "/product/atelier",
     gallery: [
       { src: atelierProfile, thumb: atelierProfileThumb, alt: "Men's Collection — profile study", label: "Profile" },
       { src: atelierFront, thumb: atelierFrontThumb, alt: "Men's Collection — front view", label: "Front" },
@@ -661,6 +663,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
     image: soleneMacro, thumbImage: soleneMacroThumb,
     imageAlt: "Women's Collection lens macro — editorial",
+    pdpPath: "/product/solene",
     gallery: [
       { src: soleneMacro, thumb: soleneMacroThumb, alt: "Women's Collection — lens coating macro", label: "Macro" },
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Women's Collection — hero shot", label: "Hero" },
@@ -672,11 +675,13 @@ const PRODUCTS: ProductMeta[] = [
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
     image: atelierKids, thumbImage: atelierKidsThumb,
     imageAlt: "Men's Collection Young — teen wearing honey champagne frames at study desk",
+    pdpPath: "/product/atelier",
     gallery: [
       { src: atelierKids, thumb: atelierKidsThumb, alt: "Men's Collection Young — teen study portrait", label: "Front" },
     ],
     newest: true,
   },
+
 ];
 
 type Filter = "All" | "Men" | "Women" | "Kids" | "Newest" | "Best" | "Details";
@@ -935,12 +940,20 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
     >
 
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-warm">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="absolute inset-0 z-[5] cursor-zoom-in"
-          aria-label={`Zoom ${pc.name} — ${shots[active].label}`}
-        />
+        {p.pdpPath ? (
+          <Link
+            to={p.pdpPath}
+            className="absolute inset-0 z-[5] cursor-pointer"
+            aria-label={`${copy.preview.learnMore} — ${pc.name}`}
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="absolute inset-0 z-[5] cursor-zoom-in"
+            aria-label={`Zoom ${pc.name} — ${shots[active].label}`}
+          />
+        )}
         {shots.map((s, idx) => (
           <Picture
             key={idx}
@@ -955,13 +968,19 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           />
         ))}
 
-        <span className="absolute right-4 bottom-4 z-10 hidden md:inline-flex items-center gap-1.5 rounded-full bg-paper/90 px-2.5 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <button
+          type="button"
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(true); }}
+          className="absolute right-4 bottom-4 z-20 hidden md:inline-flex items-center gap-1.5 rounded-full bg-paper/90 px-2.5 py-1 font-eyebrow text-[9px] text-ink ring-1 ring-ink/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-paper"
+          aria-label={`Zoom ${pc.name} — ${shots[active].label}`}
+        >
           <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.8">
             <circle cx="11" cy="11" r="6" />
             <path d="M20 20l-4-4M9 11h4M11 9v4" />
           </svg>
           Zoom
-        </span>
+        </button>
+
 
 
 
@@ -1030,7 +1049,15 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           </span>
           <span className="h-px flex-1 bg-ink/15" />
         </div>
-        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">{pc.name}</h4>
+        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">
+          {p.pdpPath ? (
+            <Link to={p.pdpPath} className="transition-colors hover:text-teal">
+              {pc.name}
+            </Link>
+          ) : (
+            pc.name
+          )}
+        </h4>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
           {pc.description}
         </p>
