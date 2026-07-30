@@ -120,7 +120,7 @@ function ShieldBadge({
           />
         </svg>
         {/* Central symbol overlay */}
-        <div className="absolute inset-0 flex items-start justify-center pt-10 text-mint">
+        <div className="absolute inset-0 flex items-start justify-center pt-8 text-mint">
           {children}
         </div>
       </div>
@@ -272,7 +272,7 @@ export function OurTechnology() {
   return (
     <section
       id="our-technology"
-      className="relative overflow-hidden bg-[#F9F9F9] py-14 md:py-36"
+      className="relative overflow-hidden bg-[#F9F9F9] py-10 md:py-36"
     >
       {/* Grid backdrop */}
       <div
@@ -302,7 +302,7 @@ export function OurTechnology() {
         </div>
 
         {/* Two sub-sections */}
-        <div className="mt-12 grid gap-8 lg:mt-14 lg:grid-cols-2">
+        <div className="mt-9 grid gap-8 lg:mt-10 lg:grid-cols-2">
           {/* E-Guard Retina */}
           <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
@@ -390,8 +390,8 @@ export function OurTechnology() {
         </div>
 
         {/* Why Both Matter — champagne panel */}
-        <div className="mt-14 md:mt-16">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-10 md:px-16 md:py-14">
+        <div className="mt-10 md:mt-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-8 md:px-16 md:py-10">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.05]"
               style={{
@@ -415,7 +415,7 @@ export function OurTechnology() {
                 </p>
               </div>
 
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
                 {/* Daytime */}
                 <div className="rounded-2xl bg-white/70 p-10 ring-1 ring-white/60 backdrop-blur-sm">
                   <div className="flex items-center gap-4">
@@ -465,13 +465,13 @@ export function OurTechnology() {
                 </div>
               </div>
 
-              <p className="mx-auto mt-10 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
+              <p className="mx-auto mt-8 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
                 Different wavelengths. Different effects.
                 <br />
                 <span className="text-ink/70">Two dedicated solutions.</span>
               </p>
 
-              <div className="mt-10 flex justify-center">
+              <div className="mt-8 flex justify-center">
                 <Link
                   to="/"
                   hash="honest-science"

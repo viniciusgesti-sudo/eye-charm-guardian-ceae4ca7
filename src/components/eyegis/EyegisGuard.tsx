@@ -371,7 +371,7 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
     };
   }, []);
   return (
-    <div ref={stageRef} className="relative mx-auto w-full max-w-[1100px]">
+    <div ref={stageRef} className="relative mx-auto w-full max-w-[1100px] overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"

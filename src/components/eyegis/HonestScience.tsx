@@ -107,7 +107,7 @@ function Hero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[360px] w-[360px] max-w-full -translate-x-1/2 rounded-full blur-3xl"
         style={{ background: `radial-gradient(circle, ${TEAL}55, transparent 65%)` }}
         aria-hidden="true"
       />
@@ -133,7 +133,7 @@ function Hero() {
           what we don't know, and how our lenses are engineered.
         </p>
         <div
-          className="mx-auto mt-10 h-px w-24"
+          className="mx-auto mt-8 h-px w-24"
           style={{
             background: `linear-gradient(90deg, transparent, ${MINT}, transparent)`,
           }}
@@ -147,7 +147,7 @@ function Hero() {
 function SpectrumSection() {
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
@@ -174,7 +174,7 @@ function SpectrumSection() {
           it's a category, not a single wavelength.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <div className="relative">
             <div
               className="h-14 w-full rounded-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
@@ -219,7 +219,7 @@ function SpectrumSection() {
           </div>
 
           <div
-            className="mt-10 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
+            className="mt-8 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "#3A4450" }}
 
           >
@@ -241,7 +241,7 @@ function SpectrumSection() {
 function RetinaVsCircadian() {
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: PAPER, borderTop: `1px solid ${TEAL}15` }}
     >
       <div className="mx-auto max-w-6xl">
@@ -255,7 +255,7 @@ function RetinaVsCircadian() {
           </h3>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
           <article className="relative rounded-2xl bg-white p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
             <div className="flex items-center gap-4">
               <PictoEye />
@@ -321,7 +321,7 @@ function RetinaVsCircadian() {
         </div>
 
         <p
-          className="mx-auto mt-10 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
+          className="mx-auto mt-8 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
           style={{ color: TEAL }}
         >
           Because the biological mechanisms and wavelengths are different,
@@ -337,7 +337,7 @@ function RetinaVsCircadian() {
 function SelectiveFiltering() {
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: INK, color: PAPER }}
     >
       <div className="mx-auto max-w-4xl">
@@ -365,7 +365,7 @@ function SelectiveFiltering() {
         </div>
 
         <div
-          className="mt-10 space-y-8 text-[15px] leading-relaxed md:text-base"
+          className="mt-8 space-y-8 text-[15px] leading-relaxed md:text-base"
           style={{ color: "rgba(249,249,249,0.78)" }}
         >
           <p>
@@ -403,7 +403,7 @@ function OrangeDistortion() {
   ];
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
@@ -462,7 +462,7 @@ function OrangeDistortion() {
           </div>
         </div>
 
-        <ul className="mt-10 grid gap-3 md:grid-cols-2">
+        <ul className="mt-8 grid gap-3 md:grid-cols-2">
           {issues.map((t) => (
             <li
               key={t}
@@ -481,7 +481,7 @@ function OrangeDistortion() {
         </ul>
 
         <p
-          className="mt-10 max-w-2xl text-[15px] leading-relaxed"
+          className="mt-8 max-w-2xl text-[15px] leading-relaxed"
           style={{ color: "rgba(29,37,45,0.75)" }}
         >
           For some applications, that trade-off may be acceptable. For many
@@ -502,7 +502,7 @@ function MiddleGround() {
   ];
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: CHAMPAGNE, color: INK }}
     >
       <div className="mx-auto max-w-5xl text-center">
@@ -516,7 +516,7 @@ function MiddleGround() {
           Protection <span className="italic">without compromise</span>.
         </h3>
 
-        <div className="mx-auto mt-10 grid max-w-3xl gap-4 md:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-2">
           {items.map((t) => (
             <div
               key={t}
@@ -543,7 +543,7 @@ function MiddleGround() {
 function EGuardScores() {
   return (
     <section
-      className="relative px-6 py-14 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-4xl">
@@ -561,7 +561,7 @@ function EGuardScores() {
         </div>
 
         <div
-          className="mt-10 space-y-6 text-[15px] leading-relaxed"
+          className="mt-8 space-y-6 text-[15px] leading-relaxed"
           style={{ color: "rgba(29,37,45,0.78)" }}
         >
           <p>
@@ -584,7 +584,7 @@ function EGuardScores() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
+        <div className="mt-9 grid gap-4 md:grid-cols-2">
           <div
             className="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1"
             style={{ borderColor: `${TEAL}18` }}
@@ -645,7 +645,7 @@ function References() {
   ];
   return (
     <section
-      className="relative px-6 py-12 md:px-12"
+      className="relative px-6 py-9 md:px-12"
       style={{ background: INK, color: "rgba(249,249,249,0.7)" }}
     >
       <div className="mx-auto max-w-4xl">
