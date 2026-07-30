@@ -53,8 +53,8 @@ export function HonestScienceTeaser() {
       aria-label="Honest Science teaser"
       className="bg-[#F9F9F9] text-[#1D252D]"
     >
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36 lg:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start relative">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative">
           {/* Left: eyebrow + heading */}
           <div className="lg:col-span-6 lg:pr-8">
             <span
@@ -63,7 +63,7 @@ export function HonestScienceTeaser() {
             >
               {c.eyebrow}
             </span>
-            <h2 className="mt-6 font-editorial text-3xl md:text-5xl leading-[1.05] tracking-tight">
+            <h2 className="mt-4 font-editorial text-2xl md:text-[2rem] leading-[1.05] tracking-tight">
               {c.title}
               <br />
               <span className="italic text-[#004B57]">{c.titleAccent}</span>
@@ -79,7 +79,7 @@ export function HonestScienceTeaser() {
 
           {/* Right: bullets + CTA */}
           <div className="lg:col-span-6 lg:pl-8">
-            <ul className="space-y-5">
+            <ul className="space-y-3">
               {c.bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <span
@@ -89,7 +89,7 @@ export function HonestScienceTeaser() {
                   >
                     ✓
                   </span>
-                  <p className="text-base md:text-[17px] leading-relaxed text-[#1D252D]/85 font-light">
+                  <p className="text-[14px] md:text-[15px] leading-relaxed text-[#1D252D]/85 font-light">
                     {b}
                   </p>
                 </li>
@@ -99,7 +99,7 @@ export function HonestScienceTeaser() {
             <Link
               to="/technology"
               hash="honest-science"
-              className="group mt-10 inline-flex items-center gap-3 border-b-2 pb-1 font-eyebrow text-[12px] tracking-[0.2em] uppercase transition-colors"
+              className="group mt-6 inline-flex items-center gap-3 border-b-2 pb-1 font-eyebrow text-[12px] tracking-[0.2em] uppercase transition-colors"
               style={{ color: "#004B57", borderColor: "#004B57" }}
             >
               <span>{c.cta}</span>

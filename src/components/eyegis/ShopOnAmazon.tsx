@@ -52,26 +52,26 @@ export function ShopOnAmazon() {
   const c = COPY[lang];
 
   return (
-    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-24 md:py-32 overflow-hidden">
+    <section id="shop-amazon" className="relative bg-teal-deep text-paper py-14 md:py-16 overflow-hidden">
       {/* soft ambient light */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(200,222,220,0.10),transparent_60%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_90%,rgba(200,222,220,0.08),transparent_55%)]" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end mb-16 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end mb-10 md:mb-12">
           <div className="lg:col-span-7">
             <span className="font-eyebrow text-mint">{c.eyebrow}</span>
-            <h2 className="mt-5 font-editorial leading-[0.92] text-[11vw] sm:text-[8vw] md:text-[6vw] lg:text-[4.6vw] xl:text-[76px]">
+            <h2 className="mt-5 font-editorial leading-[0.92] text-[8vw] sm:text-[5.5vw] md:text-[4vw] lg:text-[3vw] xl:text-[46px]">
               {c.title1}
               <span className="block italic text-mint">{c.title2}</span>
             </h2>
-            <p className="mt-8 max-w-xl text-paper/75 leading-relaxed text-lg">{c.body}</p>
+            <p className="mt-5 max-w-xl text-paper/75 leading-relaxed text-[15px]">{c.body}</p>
           </div>
 
           <div className="lg:col-span-5 lg:justify-self-end w-full">
             <a
               href={COMING_SOON_HREF}
-              className="group inline-flex w-full sm:w-auto items-center justify-between gap-6 rounded-full bg-mint px-8 py-5 text-ink shadow-[0_20px_60px_-20px_rgba(200,222,220,0.6)] hover:-translate-y-0.5 hover:bg-paper transition-all duration-500"
+              className="group inline-flex w-full sm:w-auto items-center justify-between gap-6 rounded-full bg-mint px-7 py-4 text-ink shadow-[0_20px_60px_-20px_rgba(200,222,220,0.6)] hover:-translate-y-0.5 hover:bg-paper transition-all duration-500"
              target="_blank" rel="noopener noreferrer">
               <span className="flex items-center gap-3">
                 <AmazonMark className="h-6 w-6" />
@@ -136,7 +136,7 @@ export function ShopOnAmazon() {
         </div>
 
         {/* Trust row */}
-        <ul className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-paper/60 font-eyebrow text-[10px]">
+        <ul className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-paper/60 font-eyebrow text-[10px]">
           {c.trust.map((t) => (
             <li key={t} className="flex items-center gap-2">
               <span className="h-1 w-1 rounded-full bg-mint" aria-hidden="true" />
