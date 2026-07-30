@@ -1063,10 +1063,39 @@ function Comparison({ c }: { c: Copy }) {
 /*  Visual Demonstration (before/after slider)                        */
 /* ------------------------------------------------------------------ */
 
+const DEMO_FILTERS = [
+  {
+    id: "clarity",
+    label: "Clarity",
+    // ~95% light transmission — almost neutral, only a touch of blue removed
+    filter: "brightness(0.98) saturate(0.99)",
+    overlay: "rgba(255, 251, 240, 0.05)",
+  },
+  {
+    id: "serenity",
+    label: "Serenity",
+    // slightly brown / warm
+    filter: "sepia(0.18) saturate(1.02) brightness(0.97)",
+    overlay: "rgba(196, 158, 118, 0.14)",
+  },
+  {
+    id: "gaming",
+    label: "Gaming",
+    // slightly yellow
+    filter: "sepia(0.26) saturate(1.08) brightness(0.98) hue-rotate(-6deg)",
+    overlay: "rgba(240, 205, 110, 0.16)",
+  },
+] as const;
+
+type DemoFilterId = (typeof DEMO_FILTERS)[number]["id"];
+
 function BeforeAfter({ c }: { c: Copy }) {
   const [pos, setPos] = useState(52);
+  const [filterId, setFilterId] = useState<DemoFilterId>("clarity");
+  const activeFilter = DEMO_FILTERS.find((f) => f.id === filterId) ?? DEMO_FILTERS[0];
   const dragging = useRef(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
+
 
   const move = (clientX: number) => {
     const el = wrapRef.current;
