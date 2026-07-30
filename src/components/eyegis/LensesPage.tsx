@@ -928,11 +928,11 @@ type LensKey = "clear" | "shield" | "pro";
 
 const LENS_METRICS: Record<
   LensKey,
-  { values: number[]; retina: number; circadian: number; to: string }
+  { values: number[]; retina: number; circadian: number; page: "men" | "women"; lens: string }
 > = {
-  clear: { values: [2.5, 4.5, 3, 5], retina: 35, circadian: 60, to: "men?lens=clarity" },
-  shield: { values: [4.5, 3, 4.5, 3], retina: 60, circadian: 75, to: "women?lens=serenity" },
-  pro: { values: [4.5, 3, 4, 3], retina: 90, circadian: 90, to: "men?lens=gaming" },
+  clear: { values: [2.5, 4.5, 3, 5], retina: 35, circadian: 60, page: "men", lens: "clarity" },
+  shield: { values: [4.5, 3, 4.5, 3], retina: 60, circadian: 75, page: "women", lens: "serenity" },
+  pro: { values: [4.5, 3, 4, 3], retina: 90, circadian: 90, page: "men", lens: "gaming" },
 };
 
 const CompareIcon = {
@@ -1041,7 +1041,7 @@ const CRITERIA_ICONS: (keyof typeof CompareIcon)[] = ["shield", "palette", "moon
 function Comparison({ c }: { c: Copy }) {
   const { lang } = useI18n();
   const ui = COMPARE_UI[lang];
-  const prefix = lang === "PT" ? "/br" : lang === "FR" ? "/fr" : "/en";
+  const locale = lang === "PT" ? "br" : lang === "FR" ? "fr" : "en";
 
   return (
     <section id="compare" className="bg-paper py-16 md:py-24">
@@ -1154,7 +1154,9 @@ function Comparison({ c }: { c: Copy }) {
 
                   <div className="mt-auto pt-6">
                     <Link
-                      to={`${prefix}/${m.to}`}
+                      to={m.page === "men" ? "/$locale/men" : "/$locale/women"}
+                      params={{ locale }}
+                      search={{ lens: m.lens }}
                       className={`flex w-full items-center justify-center gap-3 rounded-full px-6 py-3 font-eyebrow font-semibold tracking-[0.15em] text-[11px] transition-all duration-500 ${
                         dark
                           ? "bg-mint text-teal-deep hover:-translate-y-0.5"
