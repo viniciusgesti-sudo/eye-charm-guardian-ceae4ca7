@@ -734,23 +734,24 @@ function MiniHeader({ c }: { c: Copy }) {
 
 function Hero({ c }: { c: Copy }) {
   return (
-    <section className="relative bg-paper pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 items-center px-6 md:px-10 lg:px-14">
+    <section className="relative bg-paper pt-20 md:pt-24 pb-10 md:pb-14 overflow-hidden">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-6">
           <Reveal>
             <span className="font-eyebrow text-teal">{c.hero.eyebrow}</span>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[104px]">
+            <h1 className="mt-4 font-editorial text-ink leading-[1.02] text-balance-tight text-[8vw] sm:text-[5.4vw] lg:text-[3.2vw] xl:text-[46px]">
               {c.hero.h1a}
-              <span className="block italic text-teal">{c.hero.h1b}</span>
+              <span className="italic text-teal"> {c.hero.h1b}</span>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 max-w-lg font-light text-lg leading-relaxed text-ink/75">
+            <p className="mt-5 max-w-md font-light text-[15px] leading-relaxed text-ink/75">
               {c.hero.sub}
             </p>
           </Reveal>
+
           <Reveal delay={340}>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
