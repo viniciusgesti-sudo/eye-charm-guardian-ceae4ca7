@@ -4,6 +4,8 @@ import heroImgSrc from "@/assets/models-focus-eyegis.jpg?w=768;1200;1920;2400&fo
 import { Picture } from "@/components/eyegis/Picture";
 import whyImg1 from "@/assets/science-devices.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import whyImg2 from "@/assets/universe-lens-macro.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
+import parisImg from "@/assets/hero-paris-eyegis.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
+import saoPauloImg from "@/assets/hero-saopaulo-eyegis.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import philo1 from "@/assets/science-lens-exploded.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
 import philo2 from "@/assets/universe-eyewear.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
 import philo3 from "@/assets/guard-lens-float.jpg?w=320;480;800;1200&format=avif;webp;jpg&as=picture";
@@ -49,14 +51,31 @@ type Copy = {
   };
   why: {
     rule: string;
-    alt1: string;
-    alt2: string;
-    h1: string;
-    p1: string;
+    eyebrow: string;
     h2a: string;
     h2b: string;
-    p2: string;
+    lead: string;
+    cities: { k: string; d: string; alt: string }[];
+    together: string;
+    name: {
+      rule: string;
+      eq: string;
+      p1: string;
+      p2: string;
+      quote: string;
+    };
+    honest: {
+      rule: string;
+      h2: string;
+      p1: string;
+      p2: string;
+      p3: string;
+      p4: string;
+      chips: string[];
+      cta: string;
+    };
   };
+
   philosophy: {
     rule: string;
     h2a: string;
@@ -131,15 +150,35 @@ const CONTENT: Record<Lang, Copy> = {
       quote: "Eye protection shouldn't come at the expense of colour, comfort or style.",
     },
     why: {
-      rule: "02 — Why We Created Eyegis",
-      alt1: "Screens surround modern life",
-      alt2: "Macro detail of Eyegis lens",
-      h1: "Digital lifestyles have changed. Eyewear hasn't.",
-      p1: "We spend eight to twelve hours a day in front of screens — phones, laptops, monitors, tablets, consoles. And still, most blue-light eyewear feels stuck in another decade.",
-      h2a: "Between the lab",
-      h2b: "and the object.",
-      p2: "Most blue-light glasses either look overly technical — or make exaggerated promises they can't measure. Eyegis was created to bridge that gap: honest optical engineering, expressed through timeless design.",
+      rule: "02 — Designed Between Paris and São Paulo",
+      eyebrow: "Designed Between Paris and São Paulo",
+      h2a: "Eyegis was born",
+      h2b: "between France and Brazil.",
+      lead: "Two cities, two rhythms, one way of looking at modern life.",
+      cities: [
+        { k: "Paris", d: "Inspires our appreciation for timeless aesthetics, craftsmanship and understated elegance.", alt: "Eyegis in Paris" },
+        { k: "São Paulo", d: "Reminds us that modern life happens on screens — from early-morning meetings to late-night gaming sessions.", alt: "Eyegis in São Paulo" },
+      ],
+      together: "Together, we aim at improving global digital lifestyles.",
+      name: {
+        rule: "The Story Behind Our Name",
+        eq: "Eye + Aegis = Eyegis",
+        p1: "In Greek mythology, the Aegis was a legendary shield carried by Zeus and Athena. It symbolized wisdom, confidence and protection.",
+        p2: "Our name reflects our mission:",
+        quote: "Protection without compromise.",
+      },
+      honest: {
+        rule: "Honest Science™",
+        h2: "Because your eyes deserve the truth.",
+        p1: "The blue light market is full of exaggerated claims. We believe people deserve better.",
+        p2: "At Eyegis, we don't promise miracle solutions. We don't use fear-based marketing. We don't hide behind vague terminology.",
+        p3: "Instead, we focus on transparent engineering, selective blue light filtering and measurable performance.",
+        p4: "Every Eyegis lens is independently tested and designed to meet recognized international standards, including CE, ANSI and applicable ISO standards.",
+        chips: ["Transparent Engineering", "Selective Blue Light Filtering", "Measurable Performance", "Independently Tested"],
+        cta: "Discover EyegisGuard™ Technology",
+      },
     },
+
     philosophy: {
       rule: "03 — Our Philosophy",
       h2a: "Three principles.",
@@ -236,15 +275,35 @@ const CONTENT: Record<Lang, Copy> = {
       quote: "Proteção ocular não deve custar cor, conforto ou estilo.",
     },
     why: {
-      rule: "02 — Por que criamos a Eyegis",
-      alt1: "Telas cercam a vida moderna",
-      alt2: "Detalhe macro de uma lente Eyegis",
-      h1: "Estilos de vida digitais mudaram. Os óculos, não.",
-      p1: "Passamos de oito a doze horas por dia em frente a telas — celulares, notebooks, monitores, tablets, consoles. Mesmo assim, a maioria dos óculos de luz azul parece presa em outra década.",
-      h2a: "Entre o laboratório",
-      h2b: "e o objeto.",
-      p2: "A maior parte dos óculos de luz azul parece técnica demais — ou faz promessas exageradas que não conseguem mensurar. A Eyegis nasceu para preencher essa lacuna: engenharia óptica honesta, expressa em design atemporal.",
+      rule: "02 — Desenhada entre Paris e São Paulo",
+      eyebrow: "Desenhada entre Paris e São Paulo",
+      h2a: "A Eyegis nasceu",
+      h2b: "entre a França e o Brasil.",
+      lead: "Duas cidades, dois ritmos, um mesmo olhar sobre a vida moderna.",
+      cities: [
+        { k: "Paris", d: "Inspira nossa apreciação por estética atemporal, artesania e elegância discreta.", alt: "Eyegis em Paris" },
+        { k: "São Paulo", d: "Lembra que a vida moderna acontece nas telas — de reuniões no início da manhã a sessões de jogo madrugada adentro.", alt: "Eyegis em São Paulo" },
+      ],
+      together: "Juntos, queremos melhorar os estilos de vida digitais no mundo todo.",
+      name: {
+        rule: "A História por Trás do Nome",
+        eq: "Eye + Aegis = Eyegis",
+        p1: "Na mitologia grega, a Aegis era um escudo lendário carregado por Zeus e Atena. Simbolizava sabedoria, confiança e proteção.",
+        p2: "Nosso nome reflete nossa missão:",
+        quote: "Proteção sem concessões.",
+      },
+      honest: {
+        rule: "Honest Science™",
+        h2: "Porque seus olhos merecem a verdade.",
+        p1: "O mercado de luz azul está cheio de promessas exageradas. Acreditamos que as pessoas merecem mais.",
+        p2: "Na Eyegis, não prometemos soluções milagrosas. Não usamos marketing baseado em medo. Não nos escondemos atrás de termos vagos.",
+        p3: "Em vez disso, focamos em engenharia transparente, filtragem seletiva de luz azul e desempenho mensurável.",
+        p4: "Cada lente Eyegis é testada de forma independente e projetada para atender padrões internacionais reconhecidos, incluindo CE, ANSI e normas ISO aplicáveis.",
+        chips: ["Engenharia Transparente", "Filtragem Seletiva de Luz Azul", "Desempenho Mensurável", "Testes Independentes"],
+        cta: "Conheça a Tecnologia EyegisGuard™",
+      },
     },
+
     philosophy: {
       rule: "03 — Nossa Filosofia",
       h2a: "Três princípios.",
@@ -341,15 +400,35 @@ const CONTENT: Record<Lang, Copy> = {
       quote: "La protection oculaire ne doit pas se faire au détriment de la couleur, du confort ou du style.",
     },
     why: {
-      rule: "02 — Pourquoi nous avons créé Eyegis",
-      alt1: "Les écrans entourent la vie moderne",
-      alt2: "Détail macro d'un verre Eyegis",
-      h1: "Les vies numériques ont changé. Pas les lunettes.",
-      p1: "Nous passons huit à douze heures par jour devant des écrans — téléphones, ordinateurs, moniteurs, tablettes, consoles. Et pourtant, la plupart des lunettes anti-lumière bleue semblent figées dans une autre décennie.",
-      h2a: "Entre le laboratoire",
-      h2b: "et l'objet.",
-      p2: "La plupart des lunettes anti-lumière bleue paraissent trop techniques — ou multiplient les promesses invérifiables. Eyegis a été créée pour combler ce fossé : une ingénierie optique honnête, portée par un design intemporel.",
+      rule: "02 — Conçue entre Paris et São Paulo",
+      eyebrow: "Conçue entre Paris et São Paulo",
+      h2a: "Eyegis est née",
+      h2b: "entre la France et le Brésil.",
+      lead: "Deux villes, deux rythmes, un même regard sur la vie moderne.",
+      cities: [
+        { k: "Paris", d: "Inspire notre goût pour l'esthétique intemporelle, le savoir-faire et l'élégance discrète.", alt: "Eyegis à Paris" },
+        { k: "São Paulo", d: "Nous rappelle que la vie moderne se joue sur les écrans — des réunions matinales aux sessions de jeu nocturnes.", alt: "Eyegis à São Paulo" },
+      ],
+      together: "Ensemble, nous voulons améliorer les modes de vie numériques partout dans le monde.",
+      name: {
+        rule: "L'Histoire de Notre Nom",
+        eq: "Eye + Aegis = Eyegis",
+        p1: "Dans la mythologie grecque, l'Égide était un bouclier légendaire porté par Zeus et Athéna. Il symbolisait la sagesse, la confiance et la protection.",
+        p2: "Notre nom reflète notre mission :",
+        quote: "Une protection sans compromis.",
+      },
+      honest: {
+        rule: "Honest Science™",
+        h2: "Parce que vos yeux méritent la vérité.",
+        p1: "Le marché de la lumière bleue regorge de promesses exagérées. Nous pensons que les gens méritent mieux.",
+        p2: "Chez Eyegis, nous ne promettons pas de solutions miracles. Nous n'utilisons pas le marketing de la peur. Nous ne nous cachons pas derrière un vocabulaire flou.",
+        p3: "Nous privilégions une ingénierie transparente, un filtrage sélectif de la lumière bleue et des performances mesurables.",
+        p4: "Chaque verre Eyegis est testé de façon indépendante et conçu pour répondre aux normes internationales reconnues, dont CE, ANSI et les normes ISO applicables.",
+        chips: ["Ingénierie Transparente", "Filtrage Sélectif de la Lumière Bleue", "Performances Mesurables", "Tests Indépendants"],
+        cta: "Découvrir la Technologie EyegisGuard™",
+      },
     },
+
     philosophy: {
       rule: "03 — Notre Philosophie",
       h2a: "Trois principes.",
@@ -651,68 +730,160 @@ export function AboutPage() {
       </section>
 
 
-      {/* 02 — WHY WE CREATED EYEGIS */}
+      {/* 02 — DESIGNED BETWEEN PARIS AND SÃO PAULO */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
           <Reveal>
             <Rule label={c.why.rule} />
           </Reveal>
 
-          <div className="mt-20 grid items-center gap-16 md:grid-cols-12">
-            <Reveal className="md:col-span-6">
+          <Reveal delay={80}>
+            <h3
+              className="mx-auto mt-8 max-w-[720px] text-center text-[30px] leading-[1.1] tracking-[-0.02em] md:text-[46px]"
+              style={{ fontFamily: serif, fontWeight: 400 }}
+            >
+              {c.why.h2a}
+              <br />
+              {c.why.h2b}
+            </h3>
+            <p className="mx-auto mt-4 max-w-[560px] text-center text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+              {c.why.lead}
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid items-stretch gap-8 md:grid-cols-12">
+            <Reveal className="md:col-span-4">
               <Picture
-                source={whyImg1}
-                alt={c.why.alt1}
-                sizes="(min-width:768px) 50vw, 100vw"
-                className="h-[70vh] w-full object-cover"
+                source={parisImg}
+                alt={c.why.cities[0].alt}
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
               />
             </Reveal>
-            <div className="md:col-span-5 md:col-start-8">
-              <Reveal delay={120}>
-                <h3
-                  className="text-[32px] leading-[1.05] tracking-[-0.01em] md:text-[56px]"
-                  style={{ fontFamily: serif, fontWeight: 400 }}
-                >
-                  {c.why.h1}
-                </h3>
-              </Reveal>
-              <Reveal delay={220}>
-                <p className="mt-8 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
-                  {c.why.p1}
-                </p>
-              </Reveal>
-            </div>
-          </div>
 
-          <div className="mt-32 grid items-center gap-16 md:grid-cols-12">
-            <div className="md:col-span-5 md:order-1 order-2">
-              <Reveal delay={120}>
-                <h3
-                  className="text-[32px] leading-[1.05] tracking-[-0.01em] md:text-[56px]"
-                  style={{ fontFamily: serif, fontWeight: 400 }}
-                >
-                  {c.why.h2a}
-                  <br />
-                  {c.why.h2b}
-                </h3>
-              </Reveal>
-              <Reveal delay={220}>
-                <p className="mt-8 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
-                  {c.why.p2}
+            <div className="md:col-span-4 flex flex-col justify-center gap-6">
+              {c.why.cities.map((city, i) => (
+                <Reveal key={city.k} delay={120 + i * 90}>
+                  <div className="border-t pt-5" style={{ borderColor: "rgba(10,15,20,0.16)" }}>
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em]">{city.k}</p>
+                    <p className="mt-2 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                      {city.d}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+              <Reveal delay={320}>
+                <p className="border-t pt-5 text-[14px] leading-[1.8]" style={{ borderColor: "rgba(10,15,20,0.16)", color: MUTED }}>
+                  {c.why.together}
                 </p>
               </Reveal>
             </div>
-            <Reveal className="md:col-span-6 md:col-start-7 md:order-2 order-1">
+
+            <Reveal className="md:col-span-4" delay={100}>
               <Picture
-                source={whyImg2}
-                alt={c.why.alt2}
-                sizes="(min-width:768px) 50vw, 100vw"
-                className="h-[70vh] w-full object-cover"
+                source={saoPauloImg}
+                alt={c.why.cities[1].alt}
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
               />
             </Reveal>
           </div>
         </div>
       </section>
+
+      {/* 02b — THE STORY BEHIND OUR NAME */}
+      <section style={{ background: OFFWHITE }}>
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
+          <div className="grid items-center gap-12 md:grid-cols-12">
+            <div className="md:col-span-6">
+              <Reveal>
+                <Rule label={c.why.name.rule} />
+              </Reveal>
+              <Reveal delay={100}>
+                <h3
+                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  {c.why.name.eq}
+                </h3>
+              </Reveal>
+              <Reveal delay={180}>
+                <p className="mt-6 max-w-[520px] text-[15px] leading-[1.85]" style={{ color: MUTED }}>
+                  {c.why.name.p1}
+                </p>
+                <p className="mt-5 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                  {c.why.name.p2}
+                </p>
+                <p className="mt-2 text-[18px] md:text-[22px]" style={{ fontFamily: serif, color: TEAL }}>
+                  {c.why.name.quote}
+                </p>
+              </Reveal>
+            </div>
+            <Reveal className="md:col-span-5 md:col-start-8" delay={140}>
+              <Picture
+                source={whyImg2}
+                alt={c.why.name.eq}
+                sizes="(min-width:768px) 40vw, 100vw"
+                className="h-[300px] w-full object-cover md:h-[400px]"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 02c — HONEST SCIENCE */}
+      <section style={{ background: CHAMPAGNE }}>
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
+          <div className="grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Rule label={c.why.honest.rule} />
+              </Reveal>
+              <Reveal delay={100}>
+                <h3
+                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  {c.why.honest.h2}
+                </h3>
+              </Reveal>
+              <Reveal delay={200}>
+                <ul className="mt-8 grid grid-cols-2 gap-4">
+                  {c.why.honest.chips.map((chip) => (
+                    <li
+                      key={chip}
+                      className="border-t pt-3 text-[11px] font-semibold uppercase leading-[1.5] tracking-[0.14em]"
+                      style={{ borderColor: "rgba(10,15,20,0.2)", color: MUTED }}
+                    >
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+
+            <div className="md:col-span-6 md:col-start-7">
+              <Reveal delay={140}>
+                <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p1}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p2}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p3}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p4}</p>
+              </Reveal>
+              <Reveal delay={240}>
+                <Link
+                  to="/technology"
+                  className="mt-8 inline-flex items-center gap-3 border-2 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.28em] transition-colors hover:bg-[rgba(14,22,19,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
+                  style={{ borderColor: INK, color: INK }}
+                >
+                  <span>{c.why.honest.cta}</span>
+                  <span aria-hidden>→</span>
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* 03 — OUR PHILOSOPHY */}
       <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
