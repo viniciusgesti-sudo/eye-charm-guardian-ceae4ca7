@@ -641,6 +641,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "meridian-pair", productKey: "meridian-pair", filterKey: "Men",
     image: meridianPair, thumbImage: meridianPairThumb,
     imageAlt: "Men's Collection pair — editorial still life",
+    pdpPath: "/product/meridian",
     gallery: [
       { src: meridianPair, thumb: meridianPairThumb, alt: "Men's Collection — twin pair still life", label: "Pair" },
       { src: meridianHero, thumb: meridianHeroThumb, alt: "Men's Collection — hero shot", label: "Hero" },
@@ -651,6 +652,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "atelier-profile", productKey: "atelier-profile", filterKey: "Men",
     image: atelierProfile, thumbImage: atelierProfileThumb,
     imageAlt: "Men's Collection frame profile — editorial",
+    pdpPath: "/product/atelier",
     gallery: [
       { src: atelierProfile, thumb: atelierProfileThumb, alt: "Men's Collection — profile study", label: "Profile" },
       { src: atelierFront, thumb: atelierFrontThumb, alt: "Men's Collection — front view", label: "Front" },
@@ -661,6 +663,7 @@ const PRODUCTS: ProductMeta[] = [
     id: "solene-macro", productKey: "solene-macro", filterKey: "Women",
     image: soleneMacro, thumbImage: soleneMacroThumb,
     imageAlt: "Women's Collection lens macro — editorial",
+    pdpPath: "/product/solene",
     gallery: [
       { src: soleneMacro, thumb: soleneMacroThumb, alt: "Women's Collection — lens coating macro", label: "Macro" },
       { src: soleneFront, thumb: soleneFrontThumb, alt: "Women's Collection — hero shot", label: "Hero" },
@@ -672,11 +675,13 @@ const PRODUCTS: ProductMeta[] = [
     id: "atelier-kids", productKey: "atelier-kids", filterKey: "Kids",
     image: atelierKids, thumbImage: atelierKidsThumb,
     imageAlt: "Men's Collection Young — teen wearing honey champagne frames at study desk",
+    pdpPath: "/product/atelier",
     gallery: [
       { src: atelierKids, thumb: atelierKidsThumb, alt: "Men's Collection Young — teen study portrait", label: "Front" },
     ],
     newest: true,
   },
+
 ];
 
 type Filter = "All" | "Men" | "Women" | "Kids" | "Newest" | "Best" | "Details";
