@@ -728,68 +728,160 @@ export function AboutPage() {
       </section>
 
 
-      {/* 02 — WHY WE CREATED EYEGIS */}
+      {/* 02 — DESIGNED BETWEEN PARIS AND SÃO PAULO */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
           <Reveal>
             <Rule label={c.why.rule} />
           </Reveal>
 
-          <div className="mt-20 grid items-center gap-16 md:grid-cols-12">
-            <Reveal className="md:col-span-6">
+          <Reveal delay={80}>
+            <h3
+              className="mx-auto mt-8 max-w-[720px] text-center text-[30px] leading-[1.1] tracking-[-0.02em] md:text-[46px]"
+              style={{ fontFamily: serif, fontWeight: 400 }}
+            >
+              {c.why.h2a}
+              <br />
+              {c.why.h2b}
+            </h3>
+            <p className="mx-auto mt-4 max-w-[560px] text-center text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+              {c.why.lead}
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid items-stretch gap-8 md:grid-cols-12">
+            <Reveal className="md:col-span-4">
               <Picture
-                source={whyImg1}
-                alt={c.why.alt1}
-                sizes="(min-width:768px) 50vw, 100vw"
-                className="h-[70vh] w-full object-cover"
+                source={parisImg}
+                alt={c.why.cities[0].alt}
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
               />
             </Reveal>
-            <div className="md:col-span-5 md:col-start-8">
-              <Reveal delay={120}>
-                <h3
-                  className="text-[32px] leading-[1.05] tracking-[-0.01em] md:text-[56px]"
-                  style={{ fontFamily: serif, fontWeight: 400 }}
-                >
-                  {c.why.h1}
-                </h3>
-              </Reveal>
-              <Reveal delay={220}>
-                <p className="mt-8 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
-                  {c.why.p1}
-                </p>
-              </Reveal>
-            </div>
-          </div>
 
-          <div className="mt-32 grid items-center gap-16 md:grid-cols-12">
-            <div className="md:col-span-5 md:order-1 order-2">
-              <Reveal delay={120}>
-                <h3
-                  className="text-[32px] leading-[1.05] tracking-[-0.01em] md:text-[56px]"
-                  style={{ fontFamily: serif, fontWeight: 400 }}
-                >
-                  {c.why.h2a}
-                  <br />
-                  {c.why.h2b}
-                </h3>
-              </Reveal>
-              <Reveal delay={220}>
-                <p className="mt-8 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
-                  {c.why.p2}
+            <div className="md:col-span-4 flex flex-col justify-center gap-6">
+              {c.why.cities.map((city, i) => (
+                <Reveal key={city.k} delay={120 + i * 90}>
+                  <div className="border-t pt-5" style={{ borderColor: "rgba(10,15,20,0.16)" }}>
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em]">{city.k}</p>
+                    <p className="mt-2 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                      {city.d}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+              <Reveal delay={320}>
+                <p className="border-t pt-5 text-[14px] leading-[1.8]" style={{ borderColor: "rgba(10,15,20,0.16)", color: MUTED }}>
+                  {c.why.together}
                 </p>
               </Reveal>
             </div>
-            <Reveal className="md:col-span-6 md:col-start-7 md:order-2 order-1">
+
+            <Reveal className="md:col-span-4" delay={100}>
               <Picture
-                source={whyImg2}
-                alt={c.why.alt2}
-                sizes="(min-width:768px) 50vw, 100vw"
-                className="h-[70vh] w-full object-cover"
+                source={saoPauloImg}
+                alt={c.why.cities[1].alt}
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="h-[280px] w-full object-cover md:h-full md:min-h-[360px]"
               />
             </Reveal>
           </div>
         </div>
       </section>
+
+      {/* 02b — THE STORY BEHIND OUR NAME */}
+      <section style={{ background: OFFWHITE }}>
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
+          <div className="grid items-center gap-12 md:grid-cols-12">
+            <div className="md:col-span-6">
+              <Reveal>
+                <Rule label={c.why.name.rule} />
+              </Reveal>
+              <Reveal delay={100}>
+                <h3
+                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  {c.why.name.eq}
+                </h3>
+              </Reveal>
+              <Reveal delay={180}>
+                <p className="mt-6 max-w-[520px] text-[15px] leading-[1.85]" style={{ color: MUTED }}>
+                  {c.why.name.p1}
+                </p>
+                <p className="mt-5 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                  {c.why.name.p2}
+                </p>
+                <p className="mt-2 text-[18px] md:text-[22px]" style={{ fontFamily: serif, color: TEAL }}>
+                  {c.why.name.quote}
+                </p>
+              </Reveal>
+            </div>
+            <Reveal className="md:col-span-5 md:col-start-8" delay={140}>
+              <Picture
+                source={whyImg2}
+                alt={c.why.name.eq}
+                sizes="(min-width:768px) 40vw, 100vw"
+                className="h-[300px] w-full object-cover md:h-[400px]"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 02c — HONEST SCIENCE */}
+      <section style={{ background: CHAMPAGNE }}>
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-12 md:py-28">
+          <div className="grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <Reveal>
+                <Rule label={c.why.honest.rule} />
+              </Reveal>
+              <Reveal delay={100}>
+                <h3
+                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  {c.why.honest.h2}
+                </h3>
+              </Reveal>
+              <Reveal delay={200}>
+                <ul className="mt-8 grid grid-cols-2 gap-4">
+                  {c.why.honest.chips.map((chip) => (
+                    <li
+                      key={chip}
+                      className="border-t pt-3 text-[11px] font-semibold uppercase leading-[1.5] tracking-[0.14em]"
+                      style={{ borderColor: "rgba(10,15,20,0.2)", color: MUTED }}
+                    >
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+
+            <div className="md:col-span-6 md:col-start-7">
+              <Reveal delay={140}>
+                <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p1}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p2}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p3}</p>
+                <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>{c.why.honest.p4}</p>
+              </Reveal>
+              <Reveal delay={240}>
+                <Link
+                  to="/technology"
+                  className="mt-8 inline-flex items-center gap-3 border-2 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.28em] transition-colors hover:bg-[rgba(14,22,19,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB300]"
+                  style={{ borderColor: INK, color: INK }}
+                >
+                  <span>{c.why.honest.cta}</span>
+                  <span aria-hidden>→</span>
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* 03 — OUR PHILOSOPHY */}
       <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
