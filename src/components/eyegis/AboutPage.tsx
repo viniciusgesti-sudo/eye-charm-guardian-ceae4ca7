@@ -322,11 +322,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Campagne Eyegis — couple portant les modèles Men's Collection et Women's Collection",
     },
     belief: {
-      rule: "01 — Notre Conviction",
-      h2a: "La protection ne doit jamais",
-      h2b: "compromettre le style.",
-      p1: "La vie moderne a changé. Nous travaillons, étudions, créons, communiquons et jouons — presque entièrement via des appareils numériques. Pourtant, les objets censés protéger nos yeux ressemblent encore à un détail secondaire.",
-      p2: "Eyegis pense que le confort visuel doit faire partie de la vie quotidienne — pas un accessoire médical, pas un gadget. Simplement un objet magnifiquement conçu, que l'on a envie de porter.",
+      rule: "01 — À propos d'Eyegis",
+      h2a: "Là où la Science",
+      h2b: "Rencontre le Style",
+      sub: "Conçue entre Paris et São Paulo. Créée pour la génération numérique.",
+      p1: "Chaque jour, nous passons plus de temps que jamais devant des écrans. Ils nous aident à travailler, créer, échanger et nous détendre. Mais ils exposent aussi nos yeux à de longues heures de fatigue visuelle numérique.",
+      p2: "Chez Eyegis, nous pensons que protéger sa vision ne doit jamais compromettre la façon dont on voit le monde. C'est pourquoi nous créons des lunettes premium qui allient une technologie de verres fondée sur des preuves à un design intemporel.",
+    },
+    origin: {
+      rule: "02 — Née de Deux Mondes",
+      h2: "Née de Deux Mondes",
+      lead: "Eyegis a été fondée par deux personnes qui ont abordé le même problème sous des angles différents.",
+      items: [
+        { k: "Biopharma", d: "Une innovation guidée par la preuve scientifique, la précision et l'engagement d'améliorer la santé." },
+        { k: "Communication Visuelle & Design", d: "Chaque matière, chaque détail et chaque couleur façonnent notre perception du monde." },
+      ],
+      closing: "Ensemble, ils partageaient une conviction simple :",
+      quote: "La protection oculaire ne doit pas se faire au détriment de la couleur, du confort ou du style.",
     },
     why: {
       rule: "02 — Pourquoi nous avons créé Eyegis",
