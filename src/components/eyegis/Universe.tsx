@@ -323,17 +323,18 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
       </div>
 
       {/* Editorial caption */}
-      <div className="mt-5 md:mt-6 grid grid-cols-12 gap-5">
-        <div className="col-span-12 md:col-span-4">
+      <div className="mt-4 grid grid-cols-12 gap-2">
+        <div className="col-span-12">
           <span className="font-eyebrow text-ink/60">{panel.eyebrow}</span>
         </div>
-        <div className="col-span-12 md:col-span-8 max-w-[46ch]">
-          <h3 className="font-editorial text-ink text-2xl md:text-[28px] leading-[1.05] tracking-[-0.02em]">
+        <div className="col-span-12 max-w-[46ch]">
+          <h3 className="mt-1 font-editorial text-ink text-lg md:text-xl leading-[1.1] tracking-[-0.02em]">
             {panel.headline}
           </h3>
-          <p className="mt-3 text-[14px] leading-[1.6] text-ink/70">
+          <p className="mt-2 text-[13px] leading-[1.55] text-ink/70">
             {panel.description}
           </p>
+
           <a
             href={panel.href}
             className="mt-5 inline-flex items-center gap-3 font-eyebrow text-ink group/cta"
