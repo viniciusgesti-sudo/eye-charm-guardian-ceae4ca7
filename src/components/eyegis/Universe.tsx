@@ -365,9 +365,9 @@ export function Universe() {
   const locale = params.locale ?? "br";
   const copy = UNIVERSE_COPY[lang];
   const panelMeta = [
-    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/3]" },
-    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/3]" },
-    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[4/3]" },
+    { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
+    { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
+    { href: `/${locale}/lenses`, image: universeEyewear, icon: <IconLens />, tone: "paper" as const, aspect: "aspect-[16/10] lg:aspect-[3/2]" },
   ];
   const panels: Panel[] = copy.panels.map((p, i) => ({
     index: p.index,
