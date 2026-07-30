@@ -386,34 +386,12 @@ export function Universe() {
   return (
     <section
       id="universe"
-      aria-labelledby="universe-title"
+      aria-label="Eyegis"
       className="relative bg-[var(--paper)] text-ink"
     >
-      {/* --------- Editorial title band --------- */}
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-32 md:pt-40 lg:pt-48">
-        <Reveal className="flex items-center gap-4">
-          <span className="h-px w-10 bg-ink/30" />
-          <span className="font-eyebrow text-ink/60">{copy.chapter}</span>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <h2
-            id="universe-title"
-            className="mt-8 font-editorial text-center text-ink text-balance-tight leading-[0.92] tracking-[-0.02em] text-[13vw] sm:text-[10vw] md:text-[7.5vw] lg:text-[112px]"
-          >
-            {copy.title1} <span className="italic text-teal">{copy.titleAccent}</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={220} className="mt-10 flex justify-center">
-          <span className="font-eyebrow text-ink/50">
-            {copy.tagline}
-          </span>
-        </Reveal>
-      </div>
-
       {/* --------- Editorial intro : two-column asymmetric --------- */}
-      <div className="mx-auto mt-24 md:mt-32 lg:mt-40 max-w-[1600px] px-6 md:px-10 lg:px-14">
+      <div className="mx-auto pt-24 md:pt-32 max-w-[1600px] px-6 md:px-10 lg:px-14">
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 lg:gap-16 items-start [&>*]:min-w-0">
           {/* Left — Editorial content (7 col, offset 1) */}
           <div className="col-span-12 lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
@@ -423,7 +401,7 @@ export function Universe() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-8 font-editorial text-ink text-balance-tight leading-[1.05] tracking-[-0.02em] text-[28px] sm:text-[36px] md:text-[46px] lg:text-[54px] md:max-w-[18ch]">
+              <p className="mt-6 font-editorial text-ink text-balance-tight leading-[1.1] tracking-[-0.02em] text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] md:max-w-[22ch]">
                 {copy.noteHeadline1}
                 <span className="italic text-teal">{copy.noteHeadlineAccent}</span>
                 {copy.noteHeadline2}
