@@ -379,7 +379,7 @@ function LensStage({ callouts }: { callouts: Callout[] }) {
           background: "radial-gradient(60% 55% at 50% 50%, rgba(226,209,195,0.55), rgba(249,249,249,0) 70%)",
         }}
       />
-      <div className="relative aspect-square w-full">
+      <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square">
         <Picture
           source={lensFloat}
           alt="EyegisGuard™ optical lens — floating study"
