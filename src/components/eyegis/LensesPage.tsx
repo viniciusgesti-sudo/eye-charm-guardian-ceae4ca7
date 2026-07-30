@@ -180,7 +180,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Section 02 · Comparison",
+      eyebrow: "Section 03 · Comparison",
       h2a: "Three lenses.",
       h2b: " One perfect fit.",
       mostPopular: "Most popular",
@@ -222,7 +222,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Section 03 · Demonstration",
+      eyebrow: "Section 02 · Demonstration",
       h2a: "A quieter screen,",
       h2b: " in true color.",
       body: "Drag the slider to see how EyegisGuard™ filters high-energy blue light without introducing an amber tint. Subtle, precise, honest.",
@@ -345,7 +345,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Seção 02 · Comparação",
+      eyebrow: "Seção 03 · Comparação",
       h2a: "Três lentes.",
       h2b: " Uma escolha certa.",
       mostPopular: "Mais popular",
@@ -387,7 +387,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Seção 03 · Demonstração",
+      eyebrow: "Seção 02 · Demonstração",
       h2a: "Uma tela mais silenciosa,",
       h2b: " em cores reais.",
       body: "Arraste o controle para ver como o EyegisGuard™ filtra a luz azul de alta energia sem adicionar tom âmbar. Sutil, preciso, honesto.",
@@ -510,7 +510,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     compare: {
-      eyebrow: "Section 02 · Comparaison",
+      eyebrow: "Section 03 · Comparaison",
       h2a: "Trois verres.",
       h2b: " Un choix parfait.",
       mostPopular: "Le plus populaire",
@@ -552,7 +552,7 @@ const CONTENT: Record<Lang, Copy> = {
       },
     ],
     demo: {
-      eyebrow: "Section 03 · Démonstration",
+      eyebrow: "Section 02 · Démonstration",
       h2a: "Un écran plus doux,",
       h2b: " en couleurs fidèles.",
       body: "Faites glisser le curseur pour voir comment EyegisGuard™ filtre la lumière bleue haute énergie sans ajouter de teinte ambrée. Subtil, précis, honnête.",
@@ -924,136 +924,254 @@ function HowToChoose({
 /*  Interactive Comparison                                            */
 /* ------------------------------------------------------------------ */
 
-function ScoreBar({ v }: { v: number }) {
-  const pct = (v / 5) * 100;
-  return (
-    <div className="relative h-[3px] w-full overflow-hidden bg-ink/10 rounded-full">
-      <div
-        className="absolute inset-y-0 left-0 bg-teal transition-[width] duration-[900ms] ease-out"
-        style={{ width: `${pct}%` }}
-      />
-    </div>
-  );
-}
+type LensKey = "clear" | "shield" | "pro";
+
+const LENS_METRICS: Record<
+  LensKey,
+  { values: number[]; retina: number; circadian: number; to: string }
+> = {
+  clear: { values: [2.5, 4.5, 3, 5], retina: 35, circadian: 60, to: "men?lens=clarity" },
+  shield: { values: [4.5, 3, 4.5, 3], retina: 60, circadian: 75, to: "women?lens=serenity" },
+  pro: { values: [4.5, 3, 4, 3], retina: 90, circadian: 90, to: "men?lens=gaming" },
+};
+
+const CompareIcon = {
+  sun: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+    </svg>
+  ),
+  leaf: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M20 4C10 4 4 9 4 16a4 4 0 0 0 4 4c7 0 12-6 12-16Z" />
+      <path d="M4 20c4-6 8-9 12-11" />
+    </svg>
+  ),
+  game: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <rect x="2" y="7" width="20" height="10" rx="5" />
+      <path d="M7 10v4M5 12h4M15.5 11.5h.01M18 13.5h.01" />
+    </svg>
+  ),
+  shield: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
+    </svg>
+  ),
+  palette: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2H18a3 3 0 0 0 3-3c0-5-4-11-9-11Z" />
+      <circle cx="8" cy="10" r="1" />
+      <circle cx="12" cy="7.5" r="1" />
+      <circle cx="15.5" cy="10.5" r="1" />
+    </svg>
+  ),
+  moon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+    </svg>
+  ),
+  bulb: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.5 1.1.5 2.1h6c0-1 0-1.7.5-2.1A6 6 0 0 0 12 3Z" />
+    </svg>
+  ),
+  eye: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-5 w-5">
+      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" />
+      <circle cx="12" cy="12" r="2.5" />
+    </svg>
+  ),
+};
+
+const COMPARE_UI: Record<
+  Lang,
+  {
+    sub: string;
+    badges: Record<LensKey, string>;
+    short: Record<LensKey, string>;
+    criteria: string[];
+    retina: string;
+    circadian: string;
+    choose: (n: string) => string;
+    note: string;
+  }
+> = {
+  EN: {
+    sub: "Compare our lenses and choose the one that matches your lifestyle.",
+    badges: { clear: "Everyday", shield: "Most popular", pro: "Maximum protection" },
+    short: { clear: "Clarity", shield: "Serenity", pro: "Gaming" },
+    criteria: ["Blue light protection", "Color preservation", "Circadian cycle support", "Luminosity preservation"],
+    retina: "E-Guard™ Retina",
+    circadian: "E-Guard™ Circadian",
+    choose: (n) => `Choose ${n}`,
+    note: "Scores are based on internal lab tests and real-world usage simulations.",
+  },
+  PT: {
+    sub: "Compare nossas lentes e escolha a que combina com o seu estilo de vida.",
+    badges: { clear: "Dia a dia", shield: "Mais popular", pro: "Proteção máxima" },
+    short: { clear: "Clarity", shield: "Serenity", pro: "Gaming" },
+    criteria: ["Proteção contra luz azul", "Preservação de cores", "Suporte ao ciclo circadiano", "Preservação da luminosidade"],
+    retina: "E-Guard™ Retina",
+    circadian: "E-Guard™ Circadiano",
+    choose: (n) => `Escolher ${n}`,
+    note: "Índices baseados em testes internos de laboratório e simulações de uso real.",
+  },
+  FR: {
+    sub: "Comparez nos verres et choisissez celui qui correspond à votre mode de vie.",
+    badges: { clear: "Au quotidien", shield: "Le plus choisi", pro: "Protection maximale" },
+    short: { clear: "Clarity", shield: "Serenity", pro: "Gaming" },
+    criteria: ["Protection lumière bleue", "Préservation des couleurs", "Soutien du cycle circadien", "Préservation de la luminosité"],
+    retina: "E-Guard™ Rétine",
+    circadian: "E-Guard™ Circadien",
+    choose: (n) => `Choisir ${n}`,
+    note: "Indices issus de tests internes en laboratoire et de simulations d'usage réel.",
+  },
+};
+
+const LENS_ICON: Record<LensKey, keyof typeof CompareIcon> = {
+  clear: "sun",
+  shield: "leaf",
+  pro: "game",
+};
+
+const CRITERIA_ICONS: (keyof typeof CompareIcon)[] = ["shield", "palette", "moon", "bulb"];
 
 function Comparison({ c }: { c: Copy }) {
+  const { lang } = useI18n();
+  const ui = COMPARE_UI[lang];
+  const prefix = lang === "PT" ? "/br" : lang === "FR" ? "/fr" : "/en";
+
   return (
-    <section id="compare" className="bg-paper py-20 md:py-28">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
+    <section id="compare" className="bg-paper py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
         <Reveal>
-          <span className="font-eyebrow text-teal">{c.compare.eyebrow}</span>
+          <span className="block text-center font-eyebrow text-teal">{c.compare.eyebrow}</span>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
+          <h2 className="mt-3 text-center font-editorial text-ink text-[clamp(28px,3.4vw,46px)] leading-[1.05]">
             {c.compare.h2a}
             <span className="italic text-teal">{c.compare.h2b}</span>
           </h2>
         </Reveal>
+        <Reveal delay={160}>
+          <p className="mt-3 text-center font-light text-ink/60 text-sm md:text-base">{ui.sub}</p>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
           {c.lenses.map((l, i) => {
-            const scores = LENS_SCORES[l.key];
+            const key = l.key as LensKey;
+            const m = LENS_METRICS[key];
+            const dark = key === "shield";
             return (
               <Reveal key={l.key} delay={i * 100}>
                 <article
-                  className={`group h-full rounded-2xl p-8 md:p-10 flex flex-col gap-8 transition-all duration-500 ${
-                    l.key === "shield"
-                      ? "bg-teal-deep text-paper shadow-[0_50px_120px_-50px_rgba(0,56,66,0.55)]"
+                  className={`h-full rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-500 ${
+                    dark
+                      ? "bg-teal-deep text-paper shadow-[0_50px_120px_-50px_rgba(0,56,66,0.55)] lg:-my-3 lg:py-9"
                       : "bg-paper-warm text-ink border border-ink/10 hover:-translate-y-1"
                   }`}
                 >
-                  <div>
+                  <span
+                    className={`self-start rounded-full px-3 py-1 font-eyebrow text-[9px] ${
+                      dark ? "bg-mint text-teal-deep" : "bg-ink/[0.06] text-ink/70"
+                    }`}
+                  >
+                    {ui.badges[key]}
+                  </span>
+
+                  <div className="mt-5 flex items-start gap-3">
                     <span
-                      className={`font-eyebrow text-[10px] ${
-                        l.key === "shield" ? "text-mint" : "text-teal"
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${
+                        dark ? "bg-paper/10 text-mint" : "bg-ink/[0.05] text-teal"
                       }`}
                     >
-                      {l.key === "shield" ? c.compare.mostPopular : c.compare.lensTier}
+                      {CompareIcon[LENS_ICON[key]]}
                     </span>
-                    <h3
-                      className={`mt-4 font-editorial text-3xl md:text-4xl leading-tight ${
-                        l.key === "shield" ? "text-paper" : "text-ink"
-                      }`}
-                    >
-                      {l.name}
-                    </h3>
-                    <p
-                      className={`mt-3 font-light leading-relaxed ${
-                        l.key === "shield" ? "text-paper/75" : "text-ink/70"
-                      }`}
-                    >
-                      {l.tagline}
-                    </p>
+                    <div>
+                      <h3 className={`font-editorial text-2xl leading-tight ${dark ? "text-paper" : "text-ink"}`}>
+                        {ui.short[key]}
+                      </h3>
+                      <p className={`mt-1 text-[13px] font-light leading-snug ${dark ? "text-paper/75" : "text-ink/65"}`}>
+                        {l.tagline}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-4">
-                    {c.compare.criteria.map((crit, idx) => (
-                      <div key={crit}>
-                        <div
-                          className={`flex items-center justify-between font-eyebrow text-[10px] ${
-                            l.key === "shield" ? "text-paper/70" : "text-ink/55"
+                  <div className={`mt-6 space-y-3.5 border-t pt-5 ${dark ? "border-paper/15" : "border-ink/10"}`}>
+                    {ui.criteria.map((crit, idx) => (
+                      <div key={crit} className="flex items-center gap-3">
+                        <span className={dark ? "text-paper/60" : "text-ink/45"}>
+                          {CompareIcon[CRITERIA_ICONS[idx]]}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className={`font-eyebrow text-[9px] ${dark ? "text-paper/70" : "text-ink/55"}`}>
+                            {crit}
+                          </div>
+                          <div
+                            className={`mt-1 relative h-[3px] w-full overflow-hidden rounded-full ${
+                              dark ? "bg-paper/15" : "bg-ink/10"
+                            }`}
+                          >
+                            <div
+                              className={`absolute inset-y-0 left-0 transition-[width] duration-[900ms] ease-out ${
+                                dark ? "bg-mint" : "bg-teal"
+                              }`}
+                              style={{ width: `${(m.values[idx] / 5) * 100}%` }}
+                            />
+                          </div>
+                        </div>
+                        <span
+                          className={`w-11 shrink-0 text-right font-eyebrow text-[10px] tabular-nums ${
+                            dark ? "text-paper/80" : "text-ink/60"
                           }`}
                         >
-                          <span>{crit}</span>
-                          <span className="tabular-nums">{scores[idx]}/5</span>
-                        </div>
-                        <div className="mt-1.5">
-                          {l.key === "shield" ? (
-                            <div className="relative h-[3px] w-full overflow-hidden bg-paper/15 rounded-full">
-                              <div
-                                className="absolute inset-y-0 left-0 bg-mint transition-[width] duration-[900ms] ease-out"
-                                style={{ width: `${(scores[idx] / 5) * 100}%` }}
-                              />
-                            </div>
-                          ) : (
-                            <ScoreBar v={scores[idx]} />
-                          )}
+                          {m.values[idx]} / 5
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className={`mt-6 grid grid-cols-2 gap-3 border-t pt-5 ${dark ? "border-paper/15" : "border-ink/10"}`}>
+                    {[
+                      { label: ui.retina, value: m.retina, icon: "eye" as const },
+                      { label: ui.circadian, value: m.circadian, icon: "moon" as const },
+                    ].map((g) => (
+                      <div key={g.label} className="flex items-center gap-2.5">
+                        <span className={dark ? "text-mint" : "text-teal"}>{CompareIcon[g.icon]}</span>
+                        <div>
+                          <div className={`font-eyebrow text-[8px] leading-tight ${dark ? "text-paper/65" : "text-ink/55"}`}>
+                            {g.label}
+                          </div>
+                          <div className={`font-editorial text-xl leading-none ${dark ? "text-mint" : "text-teal"}`}>
+                            {g.value}
+                          </div>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-auto">
-                    <div
-                      className={`font-eyebrow text-[10px] ${
-                        l.key === "shield" ? "text-mint" : "text-teal"
-                      }`}
-                    >
-                      {c.compare.bestFor}
-                    </div>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {l.bestFor.map((b) => (
-                        <span
-                          key={b}
-                          className={`rounded-full px-2.5 py-0.5 font-eyebrow text-[9px] ${
-                            l.key === "shield"
-                              ? "border border-paper/25 text-paper/85"
-                              : "border border-ink/15 text-ink/70"
-                          }`}
-                        >
-                          {b}
-                        </span>
-                      ))}
-                    </div>
-                    <a
-                      href={AMAZON_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`mt-8 inline-flex items-center gap-4 rounded-full px-6 py-3.5 font-eyebrow font-semibold tracking-[0.15em] shadow-sm transition-all duration-500 ${
-                        l.key === "shield"
-                          ? "bg-teal-deep text-mint ring-1 ring-teal-deep/20 hover:bg-ink hover:-translate-y-0.5"
+                  <div className="mt-auto pt-6">
+                    <Link
+                      to={`${prefix}/${m.to}`}
+                      className={`flex w-full items-center justify-center gap-3 rounded-full px-6 py-3 font-eyebrow font-semibold tracking-[0.15em] text-[11px] transition-all duration-500 ${
+                        dark
+                          ? "bg-mint text-teal-deep hover:-translate-y-0.5"
                           : "bg-ink text-paper hover:-translate-y-0.5"
                       }`}
                     >
-                      {c.compare.choose}
+                      {ui.choose(ui.short[key])}
                       <span aria-hidden="true">→</span>
-                    </a>
+                    </Link>
                   </div>
                 </article>
               </Reveal>
             );
           })}
         </div>
+
+        <p className="mt-6 text-center font-light text-ink/45 text-[11px]">{ui.note}</p>
       </div>
     </section>
   );
@@ -1510,8 +1628,8 @@ export function LensesPage() {
       {/* Global <Header /> is provided by the /$locale layout */}
       <Hero c={c} />
       <HowToChoose c={c} active={active} onPick={setActive} />
-      <Comparison c={c} />
       <BeforeAfter c={c} />
+      <Comparison c={c} />
       <WhoFor c={c} onPick={pickAndScroll} />
       <Faq c={c} />
       <div id="recommendation">
