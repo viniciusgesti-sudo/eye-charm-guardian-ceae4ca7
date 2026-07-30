@@ -1049,7 +1049,15 @@ function ProductCard({ p, i, copy }: { p: ProductMeta; i: number; copy: Copy }) 
           </span>
           <span className="h-px flex-1 bg-ink/15" />
         </div>
-        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">{pc.name}</h4>
+        <h4 className="mt-3 font-editorial text-2xl md:text-3xl text-ink">
+          {p.pdpPath ? (
+            <Link to={p.pdpPath} className="transition-colors hover:text-teal">
+              {pc.name}
+            </Link>
+          ) : (
+            pc.name
+          )}
+        </h4>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/65">
           {pc.description}
         </p>
