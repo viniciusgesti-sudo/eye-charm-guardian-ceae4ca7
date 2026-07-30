@@ -568,14 +568,14 @@ export function AboutPage() {
       </section>
 
 
-      {/* 01 — OUR BELIEF */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
+      {/* 01 — WHERE SCIENCE MEETS STYLE */}
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         <Reveal>
           <Rule label={c.belief.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-10 max-w-[1200px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px] lg:text-[96px]"
+            className="mt-10 max-w-[1000px] text-[34px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[76px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.belief.h2a}
@@ -583,19 +583,73 @@ export function AboutPage() {
             {c.belief.h2b}
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-16 md:grid-cols-12">
-          <Reveal delay={120} className="md:col-span-5">
+        <Reveal delay={160}>
+          <p
+            className="mt-6 max-w-[620px] text-[15px] italic leading-[1.6] md:text-[17px]"
+            style={{ color: MUTED }}
+          >
+            {c.belief.sub}
+          </p>
+        </Reveal>
+        <div className="mt-14 grid gap-12 md:grid-cols-12 md:gap-16">
+          <Reveal delay={200} className="md:col-span-5">
             <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>
               {c.belief.p1}
             </p>
           </Reveal>
-          <Reveal delay={220} className="md:col-span-5 md:col-start-8">
+          <Reveal delay={260} className="md:col-span-5 md:col-start-8">
             <p className="text-[15px] leading-[1.85]" style={{ color: MUTED }}>
               {c.belief.p2}
             </p>
           </Reveal>
         </div>
       </section>
+
+      {/* 01b — BORN FROM TWO WORLDS */}
+      <section style={{ background: CHAMPAGNE }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-28">
+          <Reveal>
+            <Rule label={c.origin.rule} />
+          </Reveal>
+          <div className="mt-10 grid gap-12 md:grid-cols-12">
+            <Reveal delay={100} className="md:col-span-5">
+              <h3
+                className="text-[28px] leading-[1.1] tracking-[-0.02em] md:text-[40px]"
+                style={{ fontFamily: serif, fontWeight: 400 }}
+              >
+                {c.origin.h2}
+              </h3>
+              <p className="mt-5 text-[15px] leading-[1.85]" style={{ color: MUTED }}>
+                {c.origin.lead}
+              </p>
+            </Reveal>
+            <div className="md:col-span-6 md:col-start-7">
+              {c.origin.items.map((it, i) => (
+                <Reveal key={it.k} delay={160 + i * 90}>
+                  <div className="border-t py-6" style={{ borderColor: "rgba(10,15,20,0.12)" }}>
+                    <p className="text-[13px] font-semibold uppercase tracking-[0.12em]">{it.k}</p>
+                    <p className="mt-2 text-[14px] leading-[1.8]" style={{ color: MUTED }}>
+                      {it.d}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+              <Reveal delay={360}>
+                <p className="mt-6 text-[14px]" style={{ color: MUTED }}>
+                  {c.origin.closing}
+                </p>
+                <p
+                  className="mt-4 text-[22px] leading-[1.3] md:text-[30px]"
+                  style={{ fontFamily: serif, fontWeight: 400 }}
+                >
+                  “{c.origin.quote}”
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* 02 — WHY WE CREATED EYEGIS */}
       <section style={{ background: CHAMPAGNE }}>
