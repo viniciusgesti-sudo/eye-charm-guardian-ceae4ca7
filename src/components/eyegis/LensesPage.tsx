@@ -260,7 +260,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Section 06 · Recommendation",
+      eyebrow: "Section 05 · Recommendation",
       h2a: "Based on your day,",
       h2b: " we suggest…",
       collection: "Collection",
@@ -425,7 +425,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Seção 06 · Recomendação",
+      eyebrow: "Seção 05 · Recomendação",
       h2a: "Com base no seu dia,",
       h2b: " sugerimos…",
       collection: "Coleção",
@@ -590,7 +590,7 @@ const CONTENT: Record<Lang, Copy> = {
       ],
     },
     reco: {
-      eyebrow: "Section 06 · Recommandation",
+      eyebrow: "Section 05 · Recommandation",
       h2a: "En fonction de votre journée,",
       h2b: " nous suggérons…",
       collection: "Collection",
@@ -1631,7 +1631,6 @@ export function LensesPage() {
       <BeforeAfter c={c} />
       <Comparison c={c} />
       <WhoFor c={c} onPick={pickAndScroll} />
-      <Faq c={c} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />
       </div>
