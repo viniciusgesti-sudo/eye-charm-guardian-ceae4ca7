@@ -217,11 +217,23 @@ const CONTENT: Record<Lang, Copy> = {
       alt: "Campanha Eyegis — casal usando modelos Men's Collection e Women's Collection",
     },
     belief: {
-      rule: "01 — Nossa Crença",
-      h2a: "Proteção nunca deve",
-      h2b: "comprometer o estilo.",
-      p1: "A vida moderna mudou. Trabalhamos, estudamos, criamos, nos comunicamos e jogamos — quase inteiramente por meio de dispositivos digitais. Ainda assim, os objetos feitos para proteger nossos olhos parecem um detalhe secundário.",
-      p2: "A Eyegis acredita que conforto visual deve fazer parte do dia a dia — não um acessório médico, nem um truque. Apenas um objeto bem projetado que você quer usar de qualquer forma.",
+      rule: "01 — Sobre a Eyegis",
+      h2a: "Onde a Ciência",
+      h2b: "Encontra o Estilo",
+      sub: "Desenhada entre Paris e São Paulo. Feita para a geração digital.",
+      p1: "Todos os dias passamos mais tempo diante de telas do que nunca. Elas nos ajudam a trabalhar, criar, conectar e relaxar. Mas também expõem nossos olhos a longas horas de fadiga visual digital.",
+      p2: "Na Eyegis, acreditamos que proteger sua visão nunca deve significar comprometer a forma como você vê o mundo. Por isso criamos óculos premium que unem tecnologia de lentes baseada em evidências a um design atemporal.",
+    },
+    origin: {
+      rule: "02 — Nascida de Dois Mundos",
+      h2: "Nascida de Dois Mundos",
+      lead: "A Eyegis foi fundada por duas pessoas que enxergaram o mesmo problema por perspectivas diferentes.",
+      items: [
+        { k: "Biofarmácia", d: "Inovação guiada por evidência científica, precisão e o compromisso de melhorar a saúde das pessoas." },
+        { k: "Comunicação Visual & Design", d: "Cada material, cada detalhe e cada cor moldam a forma como experimentamos o mundo." },
+      ],
+      closing: "Juntos, compartilhavam uma crença simples:",
+      quote: "Proteção ocular não deve custar cor, conforto ou estilo.",
     },
     why: {
       rule: "02 — Por que criamos a Eyegis",
