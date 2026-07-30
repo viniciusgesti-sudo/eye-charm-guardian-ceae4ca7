@@ -1,8 +1,9 @@
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
+import { Logo } from "./Logo";
+
 type Copy = {
-  eyebrow: string;
   title1: string;
   title2: string;
   steps: { n: string; title: string; body: string }[];
@@ -10,36 +11,34 @@ type Copy = {
 
 const COPY: Record<Lang, Copy> = {
   EN: {
-    eyebrow: "Honest Science™",
-    title1: "Three principles.",
-    title2: "Nothing invented.",
+    title1: "The Eyegis",
+    title2: "Difference.",
     steps: [
-      { n: "01", title: "Selective filtering, not a tint",         body: "E-Guard Retina™ and E-Guard Circadian™ act only on the wavelengths where high-energy blue light lives — and leave the rest of the visible spectrum to your eyes, so colours stay honest." },
-      { n: "02", title: "Frames built to be forgotten",            body: "Featherweight TR90 architecture, balanced hinges, quiet silhouettes — an object designed to sit on your face all day and belong in your wardrobe at night." },
-      { n: "03", title: "Backed by optics, not slogans",           body: "Every lens is engineered against peer-reviewed optical principles — ICNIRP, CIE S 026, ANSI Z80.3 — and verified in an independent laboratory. No inflated percentages. No overpromises." },
+      { n: "01", title: "EyegisGuard™ Technology", body: "Selective blue light filtering that preserves true colors and natural contrast." },
+      { n: "02", title: "Style & Comfort",         body: "Premium polymer frames engineered for lightweight comfort and timeless style, designed to be worn all day." },
+      { n: "03", title: "Designed for Digital Life", body: "Helps reduce digital eye strain and headaches while supporting healthier sleep." },
     ],
   },
   PT: {
-    eyebrow: "Honest Science™",
-    title1: "Três princípios.",
-    title2: "Nada inventado.",
+    title1: "A diferença",
+    title2: "Eyegis.",
     steps: [
-      { n: "01", title: "Filtragem seletiva, não é lente colorida", body: "As lentes E-Guard Retina™ e E-Guard Circadian™ atuam apenas nos comprimentos de onda onde vive a luz azul de alta energia — e deixam o restante do espectro visível passar, para as cores continuarem fiéis." },
-      { n: "02", title: "Armações feitas para desaparecer",         body: "Arquitetura TR90 leve, charneiras equilibradas, silhuetas silenciosas — um objeto pensado para ficar no rosto o dia inteiro e pertencer ao guarda-roupa à noite." },
-      { n: "03", title: "Apoio na óptica, não no marketing",        body: "Cada lente é projetada segundo princípios ópticos revisados por pares — ICNIRP, CIE S 026, ANSI Z80.3 — e verificada em laboratório independente. Sem porcentagens infladas. Sem promessas exageradas." },
+      { n: "01", title: "Tecnologia EyegisGuard™", body: "Filtragem seletiva de luz azul que preserva as cores reais e o contraste natural." },
+      { n: "02", title: "Estilo e conforto",       body: "Armações em polímeros premium, projetadas para conforto leve e estilo atemporal, feitas para usar o dia inteiro." },
+      { n: "03", title: "Feito para a vida digital", body: "Ajuda a reduzir o cansaço visual digital e as dores de cabeça, favorecendo um sono mais saudável." },
     ],
   },
   FR: {
-    eyebrow: "Honest Science™",
-    title1: "Trois principes.",
-    title2: "Rien d'inventé.",
+    title1: "La différence",
+    title2: "Eyegis.",
     steps: [
-      { n: "01", title: "Filtrage sélectif, pas un verre teinté",   body: "Les verres E-Guard Retina™ et E-Guard Circadian™ n'agissent que sur les longueurs d'onde où vit la lumière bleue haute énergie — et laissent passer le reste du spectre visible, pour que les couleurs restent fidèles." },
-      { n: "02", title: "Des montures faites pour s'oublier",       body: "Architecture TR90 légère, charnières équilibrées, silhouettes silencieuses — un objet pensé pour rester sur le visage toute la journée et trouver sa place dans votre vestiaire le soir." },
-      { n: "03", title: "L'optique, pas les slogans",               body: "Chaque verre est conçu selon des principes optiques évalués par les pairs — ICNIRP, CIE S 026, ANSI Z80.3 — et vérifié en laboratoire indépendant. Aucun pourcentage gonflé. Aucune promesse exagérée." },
+      { n: "01", title: "Technologie EyegisGuard™", body: "Filtrage sélectif de la lumière bleue qui préserve les couleurs réelles et le contraste naturel." },
+      { n: "02", title: "Style et confort",         body: "Montures en polymères premium, conçues pour un confort léger et un style intemporel, à porter toute la journée." },
+      { n: "03", title: "Pensé pour la vie numérique", body: "Aide à réduire la fatigue visuelle numérique et les maux de tête, tout en favorisant un sommeil plus sain." },
     ],
   },
 };
+
 
 export function HowItWorks() {
   const { lang } = useI18n();
