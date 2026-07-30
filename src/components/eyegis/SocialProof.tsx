@@ -535,7 +535,7 @@ function Lightbox({ shot, copy, onClose }: { shot: ShotMeta; copy: Copy; onClose
       </button>
 
       <div
-        className="grid w-full max-w-[1200px] grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10"
+        className="grid w-full max-w-[1200px] grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-7"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="lg:col-span-3">
@@ -713,8 +713,8 @@ export function SocialProof() {
 
   return (
     <section id="social-proof" className="relative bg-paper">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-28 md:pt-40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 pt-14 md:pt-40">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7">
           <div className="lg:col-span-6">
             <Reveal>
               <span className="font-eyebrow text-teal">{copy.intro.eyebrow}</span>
@@ -735,7 +735,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-20 md:mt-28">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-12 md:mt-14">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
           {SHOTS.map((s, i) => {
             const caption = copy.captions[s.id] ?? s.id;
@@ -779,7 +779,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-14 md:py-40">
         <Reveal>
           <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
             <span className="text-teal">"</span>
@@ -806,7 +806,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="bg-paper-warm mt-28 md:mt-40 py-28 md:py-40">
+      <div className="bg-paper-warm mt-14 md:mt-40 py-14 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <p className="font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.02] text-balance-tight">
@@ -825,7 +825,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-20 md:mt-28">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-12 md:mt-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.slice(3).map((t, i) => (
             <Reveal key={t.id} delay={i * 100}>
@@ -835,7 +835,7 @@ export function SocialProof() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-28 md:mt-40">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-14 md:mt-40">
         <Reveal>
           <span className="font-eyebrow text-teal">{copy.numbersEyebrow}</span>
         </Reveal>
@@ -859,16 +859,16 @@ export function SocialProof() {
             </span>
           </div>
         </Reveal>
-        <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-7">
           {STATS.map((s) => (
             <StatBlock key={s.id} stat={s} label={copy.stats[s.id]} lang={lang} />
           ))}
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-24 md:mt-32">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-14 md:mt-16">
         <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-end">
             <div className="lg:col-span-4">
               <span className="font-eyebrow text-teal">{copy.shippingEyebrow}</span>
               <h4 className="mt-4 font-editorial text-ink text-3xl md:text-4xl leading-tight">
@@ -885,9 +885,9 @@ export function SocialProof() {
         </Reveal>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-24 md:mt-32">
+      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14 mt-14 md:mt-16">
         <Reveal>
-          <div className="border-y border-ink/10 py-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <div className="border-y border-ink/10 py-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
             {copy.signals.map((s) => (
               <span
                 key={s}
@@ -900,8 +900,8 @@ export function SocialProof() {
         </Reveal>
       </div>
 
-      <div className="mt-24 md:mt-32 bg-teal-deep text-paper">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-28 md:py-40 text-center">
+      <div className="mt-14 md:mt-16 bg-teal-deep text-paper">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-14 md:py-40 text-center">
           <Reveal>
             <span className="font-eyebrow text-mint">{copy.finalEyebrow}</span>
           </Reveal>
@@ -912,7 +912,7 @@ export function SocialProof() {
             </h3>
           </Reveal>
           <Reveal delay={220}>
-            <div className="mt-14 flex flex-col sm:flex-row justify-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="#coming-soon" target="_blank" rel="noopener noreferrer"
                 className="group inline-flex items-center gap-6 rounded-full bg-mint px-9 py-5 text-teal-deep hover:-translate-y-0.5 transition-all duration-500"

@@ -272,7 +272,7 @@ export function OurTechnology() {
   return (
     <section
       id="our-technology"
-      className="relative overflow-hidden bg-[#F9F9F9] py-28 md:py-36"
+      className="relative overflow-hidden bg-[#F9F9F9] py-14 md:py-36"
     >
       {/* Grid backdrop */}
       <div
@@ -302,7 +302,7 @@ export function OurTechnology() {
         </div>
 
         {/* Two sub-sections */}
-        <div className="mt-20 grid gap-8 lg:mt-24 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:mt-14 lg:grid-cols-2">
           {/* E-Guard Retina */}
           <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
@@ -390,8 +390,8 @@ export function OurTechnology() {
         </div>
 
         {/* Why Both Matter — champagne panel */}
-        <div className="mt-24 md:mt-32">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-16 md:px-16 md:py-24">
+        <div className="mt-14 md:mt-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-10 md:px-16 md:py-14">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.05]"
               style={{
@@ -415,7 +415,7 @@ export function OurTechnology() {
                 </p>
               </div>
 
-              <div className="mt-14 grid gap-6 md:grid-cols-2">
+              <div className="mt-10 grid gap-6 md:grid-cols-2">
                 {/* Daytime */}
                 <div className="rounded-2xl bg-white/70 p-10 ring-1 ring-white/60 backdrop-blur-sm">
                   <div className="flex items-center gap-4">
@@ -465,7 +465,7 @@ export function OurTechnology() {
                 </div>
               </div>
 
-              <p className="mx-auto mt-14 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
+              <p className="mx-auto mt-10 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
                 Different wavelengths. Different effects.
                 <br />
                 <span className="text-ink/70">Two dedicated solutions.</span>

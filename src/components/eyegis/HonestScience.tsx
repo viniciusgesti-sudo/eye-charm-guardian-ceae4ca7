@@ -95,7 +95,7 @@ function PictoShield() {
 function Hero() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-32 md:px-12 md:py-40"
+      className="relative overflow-hidden px-6 py-16 md:px-12 md:py-40"
       style={{ background: INK, color: PAPER }}
     >
       <div
@@ -147,7 +147,7 @@ function Hero() {
 function SpectrumSection() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
@@ -174,7 +174,7 @@ function SpectrumSection() {
           it's a category, not a single wavelength.
         </p>
 
-        <div className="mt-16">
+        <div className="mt-10">
           <div className="relative">
             <div
               className="h-14 w-full rounded-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
@@ -219,7 +219,7 @@ function SpectrumSection() {
           </div>
 
           <div
-            className="mt-14 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
+            className="mt-10 flex justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "#3A4450" }}
 
           >
@@ -241,7 +241,7 @@ function SpectrumSection() {
 function RetinaVsCircadian() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: PAPER, borderTop: `1px solid ${TEAL}15` }}
     >
       <div className="mx-auto max-w-6xl">
@@ -255,7 +255,7 @@ function RetinaVsCircadian() {
           </h3>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           <article className="relative rounded-2xl bg-white p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
             <div className="flex items-center gap-4">
               <PictoEye />
@@ -321,7 +321,7 @@ function RetinaVsCircadian() {
         </div>
 
         <p
-          className="mx-auto mt-14 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
+          className="mx-auto mt-10 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
           style={{ color: TEAL }}
         >
           Because the biological mechanisms and wavelengths are different,
@@ -337,7 +337,7 @@ function RetinaVsCircadian() {
 function SelectiveFiltering() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: INK, color: PAPER }}
     >
       <div className="mx-auto max-w-4xl">
@@ -403,11 +403,11 @@ function OrangeDistortion() {
   ];
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-5xl">
-        <div className="grid gap-14 md:grid-cols-[1fr_1fr] md:items-center">
+        <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-center">
           <div>
             <SectionLabel n="§ 04">Color fidelity</SectionLabel>
             <h3
@@ -462,7 +462,7 @@ function OrangeDistortion() {
           </div>
         </div>
 
-        <ul className="mt-14 grid gap-3 md:grid-cols-2">
+        <ul className="mt-10 grid gap-3 md:grid-cols-2">
           {issues.map((t) => (
             <li
               key={t}
@@ -502,7 +502,7 @@ function MiddleGround() {
   ];
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: CHAMPAGNE, color: INK }}
     >
       <div className="mx-auto max-w-5xl text-center">
@@ -516,7 +516,7 @@ function MiddleGround() {
           Protection <span className="italic">without compromise</span>.
         </h3>
 
-        <div className="mx-auto mt-14 grid max-w-3xl gap-4 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-3xl gap-4 md:grid-cols-2">
           {items.map((t) => (
             <div
               key={t}
@@ -543,7 +543,7 @@ function MiddleGround() {
 function EGuardScores() {
   return (
     <section
-      className="relative px-6 py-28 md:px-12 md:py-36"
+      className="relative px-6 py-14 md:px-12 md:py-36"
       style={{ background: PAPER, color: INK }}
     >
       <div className="mx-auto max-w-4xl">
@@ -645,7 +645,7 @@ function References() {
   ];
   return (
     <section
-      className="relative px-6 py-20 md:px-12"
+      className="relative px-6 py-12 md:px-12"
       style={{ background: INK, color: "rgba(249,249,249,0.7)" }}
     >
       <div className="mx-auto max-w-4xl">

@@ -687,9 +687,9 @@ export function FAQPage() {
             }}
           />
         </div>
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 pt-10 pb-16 md:px-12 md:pt-14 md:pb-24">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 pt-10 pb-10 md:px-12 md:pt-10 md:pb-14">
 
-          <div className="mt-20 max-w-[1200px] md:mt-28">
+          <div className="mt-12 max-w-[1200px] md:mt-14">
             <Reveal>
               <span className="text-[11px] uppercase tracking-[0.5em]" style={{ color: TEAL }}>
                 {c.eyebrow}
@@ -814,8 +814,8 @@ export function FAQPage() {
       </section>
 
       {/* CATEGORY NAV + BODY */}
-      <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
-        <div className="grid grid-cols-[minmax(0,1fr)] gap-16 md:grid-cols-12">
+      <section id="faq-body" className="mx-auto max-w-[1400px] px-6 py-12 md:px-12 md:py-16">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 md:grid-cols-12">
           <aside className="min-w-0 md:col-span-4 lg:col-span-3">
             <div className="sticky top-6">
               <Rule label={c.categoriesRule} />
@@ -954,8 +954,8 @@ export function FAQPage() {
 
       {/* STILL NEED HELP */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-12 md:py-40">
-          <div className="grid gap-16 md:grid-cols-12 md:items-end">
+        <div className="mx-auto max-w-[1400px] px-6 py-14 md:px-12 md:py-40">
+          <div className="grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <Rule label={c.stillNeedRule} />
               <h2
@@ -1003,7 +1003,7 @@ export function FAQPage() {
           </div>
 
           <div
-            className="mt-24 flex flex-col items-start justify-between gap-6 border-t pt-10 md:flex-row md:items-center"
+            className="mt-14 flex flex-col items-start justify-between gap-6 border-t pt-10 md:flex-row md:items-center"
             style={{ borderColor: "rgba(14,22,19,0.2)" }}
           >
             <span className="text-[10px] uppercase tracking-[0.4em]" style={{ color: MUTED }}>

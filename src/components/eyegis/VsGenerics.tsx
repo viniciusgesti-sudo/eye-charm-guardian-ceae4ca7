@@ -74,9 +74,9 @@ export function VsGenerics() {
   const { lang } = useI18n();
   const c = COPY[lang];
   return (
-    <section className="relative bg-paper py-24 md:py-32">
+    <section className="relative bg-paper py-14 md:py-16">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
-        <div className="mb-12 md:mb-16 max-w-3xl">
+        <div className="mb-12 md:mb-10 max-w-3xl">
           <span className="font-eyebrow text-teal">{c.eyebrow}</span>
           <h2 className="mt-5 font-editorial text-ink leading-[0.95] text-fluid-h1">
             {c.title1}
