@@ -159,10 +159,24 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </head>
       <body>
         {children}
         <Scripts />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          `
+        }} />
       </body>
     </html>
   );
