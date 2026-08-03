@@ -52,6 +52,34 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Mission", name: "mission", widget: "text" }
 
+      - label: "Coleção Homem"
+        name: "men"
+        file: "src/content/men.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+
+      - label: "Coleção Mulher"
+        name: "women"
+        file: "src/content/women.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+
+      - label: "Coleção Kids"
+        name: "kids"
+        file: "src/content/kids.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+
+      - label: "Lentes & Tecnologia"
+        name: "lenses"
+        file: "src/content/lenses.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+
   - name: "products"
     label: "🛍️ Produtos"
     folder: "src/content/products"
