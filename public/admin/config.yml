@@ -78,13 +78,16 @@ collections:
 
   - name: "faq"
     label: "❓ Perguntas Frequentes (FAQ)"
-    file: "src/content/faq.json"
-    fields:
-      - label: "Perguntas"
-        name: "questions"
-        widget: "list"
+    files:
+      - label: "Lista de FAQs"
+        name: "faq_list"
+        file: "src/content/faq.json"
         fields:
-          - { label: "Pergunta (PT)", name: "q_pt", widget: "string" }
-          - { label: "Resposta (PT)", name: "a_pt", widget: "text" }
-          - { label: "Pergunta (EN)", name: "q_en", widget: "string" }
-          - { label: "Resposta (EN)", name: "a_en", widget: "text" }
+          - label: "Perguntas"
+            name: "questions"
+            widget: "list"
+            fields:
+              - { label: "Pergunta (PT)", name: "q_pt", widget: "string" }
+              - { label: "Resposta (PT)", name: "a_pt", widget: "text" }
+              - { label: "Pergunta (EN)", name: "q_en", widget: "string" }
+              - { label: "Resposta (EN)", name: "a_en", widget: "text" }
