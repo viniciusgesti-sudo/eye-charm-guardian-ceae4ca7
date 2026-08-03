@@ -22,6 +22,7 @@ import { Header } from "@/components/eyegis/Header";
 import { Footer } from "@/components/eyegis/Footer";
 
 import { buildSeo, SITE } from "@/lib/seo";
+import meridianData from "@/content/products/meridian.json";
 
 const MERIDIAN_OG = `${SITE}/og-meridian.jpg`;
 
@@ -66,7 +67,7 @@ export const Route = createFileRoute("/product/meridian")({
   component: MeridianProduct,
 });
 
-const AMAZON_URL = DEFAULT_AMAZON_URL;
+const AMAZON_URL = meridianData.buy_link || DEFAULT_AMAZON_URL;
 
 /* ---------------------------------------------------------------- */
 /*  i18n content                                                    */
@@ -111,8 +112,7 @@ const CONTENT: Record<Lang, Content> = {
     viewGallery: "View Gallery",
     chapter: "Chapter I · Men's Collection",
     by: "by Eyegis",
-    intro:
-      "Designed for professionals who demand visual comfort without compromising style. A quiet architectural line, engineered for hours in front of the screen.",
+    intro: meridianData.details_en.short_desc,
     badges: [
       "EyegisGuard™",
       "Blue Light Filtering",
@@ -210,8 +210,7 @@ const CONTENT: Record<Lang, Content> = {
     viewGallery: "Ver galeria",
     chapter: "Capítulo I · Men's Collection",
     by: "por Eyegis",
-    intro:
-      "Desenhado para profissionais que exigem conforto visual sem abrir mão do estilo. Uma linha arquitetônica silenciosa, feita para horas em frente à tela.",
+    intro: meridianData.details_pt.short_desc,
     badges: [
       "EyegisGuard™",
       "Filtro de luz azul",
