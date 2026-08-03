@@ -19,6 +19,7 @@ import peopleHeroImg from "@/assets/collection-men.jpg?w=320;480;800&format=avif
 import lifeConcierge from "@/assets/contact-concierge.jpg?w=320;480;800&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import aboutData from "@/content/about.json";
 
 
 
@@ -505,9 +506,7 @@ export function AboutPage() {
                 className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[88px] lg:text-[108px]"
                 style={{ fontFamily: serif, color: "#F6F3EE", fontWeight: 400, textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
               >
-                {c.hero.h1a}
-                <br />
-                {c.hero.h1b}
+                {lang === "PT" ? aboutData.PT.title : aboutData.EN.title}
               </h1>
             </Reveal>
             <Reveal delay={240}>
@@ -515,7 +514,7 @@ export function AboutPage() {
                 className="mt-8 max-w-2xl text-[15px] leading-[1.7] md:text-[17px]"
                 style={{ color: "rgba(246,243,238,0.92)" }}
               >
-                {c.hero.sub}
+                {lang === "PT" ? aboutData.PT.mission : aboutData.EN.mission}
               </p>
             </Reveal>
           </div>

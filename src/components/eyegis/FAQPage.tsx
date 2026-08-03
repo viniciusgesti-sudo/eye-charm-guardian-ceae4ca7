@@ -5,7 +5,7 @@ import heroImg from "@/assets/universe-lens-macro.jpg?w=768;1200;1920;2400&forma
 import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
-
+import faqData from "@/content/faq.json";
 
 const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
@@ -613,9 +613,17 @@ export function FAQPage() {
     () =>
       CATEGORY_META.map((meta) => {
         const localized = c.categories.find((x) => x.id === meta.id)!;
+        if (meta.id === "general") {
+          const cmsItems = faqData.questions.map((q) => ({
+            q: lang === "PT" ? q.q_pt : q.q_en,
+            a: lang === "PT" ? q.a_pt : q.a_en,
+            related: []
+          }));
+          return { ...meta, label: localized.label, items: [...cmsItems, ...localized.items] };
+        }
         return { ...meta, label: localized.label, items: localized.items };
       }),
-    [c],
+    [c, lang],
   );
 
   const allQuestions = useMemo(

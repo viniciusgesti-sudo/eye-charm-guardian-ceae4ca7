@@ -2,6 +2,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import globalData from "@/content/global.json";
 
 /* ---------- Icons (line-art, currentColor) ---------- */
 
@@ -163,7 +164,7 @@ const FOOTER_COPY: Record<Lang, FooterCopy> = {
       {
         title: "Follow Eyegis",
         social: [
-          { label: "Instagram", href: "https://www.instagram.com/", icon: Ic.Instagram },
+          { label: "Instagram", href: globalData.instagram_url || "https://www.instagram.com/", icon: Ic.Instagram },
           { label: "TikTok",    href: "https://www.tiktok.com/",    icon: Ic.TikTok },
           { label: "Facebook",  href: "https://www.facebook.com/",  icon: Ic.Facebook },
           { label: "YouTube",   href: "https://www.youtube.com/",   icon: Ic.YouTube },
@@ -208,7 +209,7 @@ const FOOTER_COPY: Record<Lang, FooterCopy> = {
       {
         title: "Siga a Eyegis",
         social: [
-          { label: "Instagram", href: "https://www.instagram.com/", icon: Ic.Instagram },
+          { label: "Instagram", href: globalData.instagram_url || "https://www.instagram.com/", icon: Ic.Instagram },
           { label: "TikTok",    href: "https://www.tiktok.com/",    icon: Ic.TikTok },
           { label: "Facebook",  href: "https://www.facebook.com/",  icon: Ic.Facebook },
           { label: "YouTube",   href: "https://www.youtube.com/",   icon: Ic.YouTube },
@@ -316,11 +317,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-2 lg:pr-10">
               <Logo className="h-8 w-auto text-paper" />
               <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/60">
-                {lang === "PT"
-                  ? "Óculos com engenharia para a visão. Design para o seu jeito de viver."
-                  : lang === "FR"
-                    ? "Des lunettes pensées pour la vision. Dessinées pour votre façon de vivre."
-                    : "Eyewear engineered for vision. Designed for the way you live."}
+                {lang === "PT" ? globalData.footer_text_pt : globalData.footer_text_en}
               </p>
               <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/80">
                 Honest Science™ · λ 445nm

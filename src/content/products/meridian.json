@@ -1,0 +1,23 @@
+{
+  "slug": "meridian",
+  "name": "Men's Collection by Eyegis",
+  "price": "89.00",
+  "buy_link": "https://www.amazon.com/dp/B0DNYGZXZM",
+  "main_image": "/assets/products/meridian-hero.jpg",
+  "details_pt": {
+    "short_desc": "Desenhado para profissionais que exigem conforto visual sem abrir mão do estilo.",
+    "specs": [
+      { "item": "Material: Polímero TR90 com memória" },
+      { "item": "Tipo de lente: Óptica EyegisGuard™" },
+      { "item": "Peso: 17,8 g" }
+    ]
+  },
+  "details_en": {
+    "short_desc": "Designed for professionals who demand visual comfort without compromising style.",
+    "specs": [
+      { "item": "Material: TR90 memory polymer" },
+      { "item": "Lens Type: EyegisGuard™ optical grade" },
+      { "item": "Weight: 17.8 g" }
+    ]
+  }
+}

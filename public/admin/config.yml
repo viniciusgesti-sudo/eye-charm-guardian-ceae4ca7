@@ -8,14 +8,83 @@ public_folder: "/uploads"
 
 # Definindo o que o cliente pode editar
 collections:
-  - name: "pages"
-    label: "Páginas do Site"
+  - name: "global"
+    label: "⚙️ Configurações Globais"
     files:
-      - label: "Página Inicial (Banner)"
+      - label: "Cabeçalho e Rodapé"
+        name: "settings"
+        file: "src/content/global.json"
+        description: "Altere os links, e-mails e avisos de todas as páginas."
+        fields:
+          - { label: "Aviso do Topo (PT)", name: "topbar_pt", widget: "string" }
+          - { label: "Aviso do Topo (EN)", name: "topbar_en", widget: "string" }
+          - { label: "Email de Contato", name: "contact_email", widget: "string" }
+          - { label: "Instagram Link", name: "instagram_url", widget: "string" }
+          - { label: "Texto do Rodapé (PT)", name: "footer_text_pt", widget: "text" }
+          - { label: "Texto do Rodapé (EN)", name: "footer_text_en", widget: "text" }
+
+  - name: "pages"
+    label: "📄 Páginas do Site"
+    files:
+      - label: "Página Inicial (Home)"
         name: "home"
         file: "src/content/home.json"
         description: "Altere os textos e a imagem do banner principal."
         fields:
           - { label: "Título Principal", name: "heroTitle", widget: "string" }
           - { label: "Subtítulo", name: "heroSubtitle", widget: "string" }
-          - { label: "Imagem de Fundo (Recomendado: Retrato)", name: "heroImage", widget: "image" }
+          - { label: "Imagem de Fundo", name: "heroImage", widget: "image" }
+
+      - label: "Sobre a Eyegis"
+        name: "about"
+        file: "src/content/about.json"
+        fields:
+          - label: "Português"
+            name: "PT"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Missão", name: "mission", widget: "text" }
+          - label: "Inglês"
+            name: "EN"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Mission", name: "mission", widget: "text" }
+
+  - name: "products"
+    label: "🛍️ Produtos"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Identificador (slug)", name: "slug", widget: "string" }
+      - { label: "Nome do Produto", name: "name", widget: "string" }
+      - { label: "Preço Padrão", name: "price", widget: "string" }
+      - { label: "Link de Compra (Amazon/Wix)", name: "buy_link", widget: "string" }
+      - { label: "Imagem Principal", name: "main_image", widget: "image" }
+      - label: "Detalhes (Português)"
+        name: "details_pt"
+        widget: "object"
+        fields:
+          - { label: "Descrição Curta", name: "short_desc", widget: "text" }
+          - { label: "Especificações", name: "specs", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      - label: "Detalhes (Inglês)"
+        name: "details_en"
+        widget: "object"
+        fields:
+          - { label: "Short Description", name: "short_desc", widget: "text" }
+          - { label: "Specifications", name: "specs", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+
+  - name: "faq"
+    label: "❓ Perguntas Frequentes (FAQ)"
+    file: "src/content/faq.json"
+    fields:
+      - label: "Perguntas"
+        name: "questions"
+        widget: "list"
+        fields:
+          - { label: "Pergunta (PT)", name: "q_pt", widget: "string" }
+          - { label: "Resposta (PT)", name: "a_pt", widget: "text" }
+          - { label: "Pergunta (EN)", name: "q_en", widget: "string" }
+          - { label: "Resposta (EN)", name: "a_en", widget: "text" }

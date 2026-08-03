@@ -8,6 +8,7 @@ import type { Lang } from "@/i18n/translations";
 
 import { AmazonMark } from "./AmazonMark";
 import { Logo } from "./Logo";
+import globalData from "@/content/global.json";
 
 type LocaleSeg = "br" | "en" | "fr";
 const LOCALES: LocaleSeg[] = ["br", "en", "fr"];
@@ -70,6 +71,11 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             : "bg-transparent border-b border-transparent"
       }`}
     >
+      {globalData.topbar_pt && globalData.topbar_en && (
+        <div className="bg-ink text-paper text-center py-1.5 px-4 font-eyebrow text-[9px] md:text-[10px] uppercase tracking-widest">
+          {lang === "PT" ? globalData.topbar_pt : globalData.topbar_en}
+        </div>
+      )}
       <div className={`mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 md:px-8 lg:px-12 ${compact ? "py-3 md:py-3.5" : "py-4 md:py-5"}`}>
 
         <Link
