@@ -14,43 +14,43 @@ import kidsData from "@/content/kids.json";
 
 const COPY = {
   br: {
-    eyebrow: kidsData.br.eyebrow,
+    eyebrow: kidsData.PT?.eyebrow,
     title: (
       <>
-        {kidsData.br.title}<br />
-        <span className="italic text-mint">{kidsData.br.titleAccent}</span>
+        {kidsData.PT?.title}<br />
+        <span className="italic text-mint">{kidsData.PT?.titleAccent}</span>
       </>
     ),
-    subtitle: kidsData.br.subtitle,
-    ctaLabel: kidsData.br.ctaLabel,
-    metaTitle: "Kids & Teens — Eyegis",
-    metaDesc: "Kids & Teens da Eyegis: armações leves, flexíveis e resistentes para o dia em telas.",
+    subtitle: kidsData.PT?.subtitle,
+    ctaLabel: kidsData.PT?.ctaLabel,
+    metaTitle: "Coleção Kids — Eyegis",
+    metaDesc: "Proteção contra luz azul projetada para os mais jovens.",
   },
   en: {
-    eyebrow: kidsData.en.eyebrow,
+    eyebrow: kidsData.EN?.eyebrow,
     title: (
       <>
-        {kidsData.en.title}<br />
-        <span className="italic text-mint">{kidsData.en.titleAccent}</span>
+        {kidsData.EN?.title}<br />
+        <span className="italic text-mint">{kidsData.EN?.titleAccent}</span>
       </>
     ),
-    subtitle: kidsData.en.subtitle,
-    ctaLabel: kidsData.en.ctaLabel,
-    metaTitle: "Kids & Teens — Eyegis",
-    metaDesc: "Eyegis Kids & Teens: lightweight, flexible, impact-resistant frames for a life on screens.",
+    subtitle: kidsData.EN?.subtitle,
+    ctaLabel: kidsData.EN?.ctaLabel,
+    metaTitle: "Kids Collection — Eyegis",
+    metaDesc: "Blue light protection engineered for young minds.",
   },
   fr: {
-    eyebrow: "Collection · Enfants & Ados",
+    eyebrow: kidsData.FR?.eyebrow,
     title: (
       <>
-        Protection<br />
-        <span className="italic text-mint">pour la génération des écrans.</span>
+        {kidsData.FR?.title}<br />
+        <span className="italic text-mint">{kidsData.FR?.titleAccent}</span>
       </>
     ),
-    subtitle: "Montures légères, flexibles et résistantes — pour l'étude, le jeu et les cours à distance.",
-    ctaLabel: "Voir la collection Enfants",
-    metaTitle: "Kids & Teens — Eyegis",
-    metaDesc: "Eyegis Kids & Teens : montures légères, flexibles et résistantes pour la vie sur écrans.",
+    subtitle: kidsData.FR?.subtitle,
+    ctaLabel: kidsData.FR?.ctaLabel,
+    metaTitle: "Collection Kids — Eyegis",
+    metaDesc: "Protection contre la lumière bleue conçue pour les plus jeunes.",
   },
 } as const;
 

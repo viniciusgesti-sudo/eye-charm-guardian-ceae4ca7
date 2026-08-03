@@ -1,10 +1,26 @@
 {
-  "questions": [
-    {
-      "q_pt": "O que é a Eyegis?",
-      "a_pt": "Eyegis é uma marca de óculos com foco em proteção digital e design premium.",
-      "q_en": "What is Eyegis?",
-      "a_en": "Eyegis is an eyewear brand focused on digital protection and premium design."
-    }
-  ]
+  "PT": {
+    "questions": [
+      {
+        "q": "O que é a Eyegis?",
+        "a": "Eyegis é uma marca de óculos com foco em proteção digital e design premium."
+      }
+    ]
+  },
+  "EN": {
+    "questions": [
+      {
+        "q": "What is Eyegis?",
+        "a": "Eyegis is an eyewear brand focused on digital protection and premium design."
+      }
+    ]
+  },
+  "FR": {
+    "questions": [
+      {
+        "q": "What is Eyegis?",
+        "a": "Eyegis is an eyewear brand focused on digital protection and premium design."
+      }
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "br": {
+  "PT": {
     "eyebrow": "Coleção · Homem",
     "title": "Coleção Masculina",
     "titleAccent": "para quem vive em telas.",
@@ -8,7 +8,7 @@
     "metaTitle": "Coleção Masculina — Eyegis",
     "metaDesc": "Coleção Masculina Eyegis: acetato preto, hastes douradas. Silhueta discreta para o dia digital."
   },
-  "en": {
+  "EN": {
     "eyebrow": "Collection · Men",
     "title": "Men's Collection",
     "titleAccent": "for the screen-bound day.",
@@ -17,7 +17,7 @@
     "metaTitle": "Men's Collection — Eyegis",
     "metaDesc": "Eyegis Men's Collection: glossy black acetate with gold temples. A discreet silhouette for the digital day."
   },
-  "fr": {
+  "FR": {
     "eyebrow": "Collection · Homme",
     "title": "Collection Homme",
     "titleAccent": "pour la journée sur écran.",

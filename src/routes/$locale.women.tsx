@@ -16,43 +16,43 @@ import womenData from "@/content/women.json";
 
 const COPY = {
   br: {
-    eyebrow: womenData.br.eyebrow,
+    eyebrow: womenData.PT?.eyebrow,
     title: (
       <>
-        {womenData.br.title}<br />
-        <span className="italic text-teal-deep">{womenData.br.titleAccent}</span>
+        {womenData.PT?.title}<br />
+        <span className="italic text-mint">{womenData.PT?.titleAccent}</span>
       </>
     ),
-    subtitle: womenData.br.subtitle,
-    ctaLabel: womenData.br.ctaLabel,
+    subtitle: womenData.PT?.subtitle,
+    ctaLabel: womenData.PT?.ctaLabel,
     metaTitle: "Coleção Feminina — Eyegis",
-    metaDesc: "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com shield-G dourado.",
+    metaDesc: "Descubra a elegância parisiense da coleção feminina Eyegis.",
   },
   en: {
-    eyebrow: womenData.en.eyebrow,
+    eyebrow: womenData.EN?.eyebrow,
     title: (
       <>
-        {womenData.en.title}<br />
-        <span className="italic text-teal-deep">{womenData.en.titleAccent}</span>
+        {womenData.EN?.title}<br />
+        <span className="italic text-mint">{womenData.EN?.titleAccent}</span>
       </>
     ),
-    subtitle: womenData.en.subtitle,
-    ctaLabel: womenData.en.ctaLabel,
+    subtitle: womenData.EN?.subtitle,
+    ctaLabel: womenData.EN?.ctaLabel,
     metaTitle: "Women's Collection — Eyegis",
-    metaDesc: "Eyegis Women's Collection: tortoise cat-eye with a discreet gold shield-G.",
+    metaDesc: "Discover the Parisian elegance of the Eyegis women's collection.",
   },
   fr: {
-    eyebrow: "Collection · Femme",
+    eyebrow: womenData.FR?.eyebrow,
     title: (
       <>
-        Collection Femme<br />
-        <span className="italic text-teal-deep">pour celles qui créent.</span>
+        {womenData.FR?.title}<br />
+        <span className="italic text-mint">{womenData.FR?.titleAccent}</span>
       </>
     ),
-    subtitle: "Un cat-eye en acétate écaille avec un discret shield-G doré sur la branche.",
-    ctaLabel: "Voir sur Amazon",
+    subtitle: womenData.FR?.subtitle,
+    ctaLabel: womenData.FR?.ctaLabel,
     metaTitle: "Collection Femme — Eyegis",
-    metaDesc: "Collection Femme Eyegis : cat-eye écaille avec un discret shield-G doré.",
+    metaDesc: "Découvrez l'élégance parisienne de la collection femme Eyegis.",
   },
 } as const;
 

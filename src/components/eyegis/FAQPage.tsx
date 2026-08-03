@@ -614,11 +614,11 @@ export function FAQPage() {
       CATEGORY_META.map((meta) => {
         const localized = c.categories.find((x) => x.id === meta.id)!;
         if (meta.id === "general") {
-          const cmsItems = faqData.questions.map((q) => ({
-            q: lang === "PT" ? q.q_pt : q.q_en,
-            a: lang === "PT" ? q.a_pt : q.a_en,
+          const cmsItems = (faqData as any)[lang]?.questions?.map((q: any) => ({
+            q: q.q,
+            a: q.a,
             related: []
-          }));
+          })) || [];
           return { ...meta, label: localized.label, items: [...cmsItems, ...localized.items] };
         }
         return { ...meta, label: localized.label, items: localized.items };

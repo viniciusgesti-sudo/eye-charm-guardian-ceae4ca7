@@ -1,5 +1,17 @@
 {
-  "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
-  "heroSubtitle": "O Manifesto Eyegis",
-  "heroImage": ""
+  "PT": {
+    "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
+    "heroSubtitle": "O Manifesto Eyegis",
+    "heroImage": ""
+  },
+  "EN": {
+    "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
+    "heroSubtitle": "O Manifesto Eyegis",
+    "heroImage": ""
+  },
+  "FR": {
+    "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
+    "heroSubtitle": "O Manifesto Eyegis",
+    "heroImage": ""
+  }
 }

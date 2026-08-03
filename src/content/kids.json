@@ -1,12 +1,19 @@
 {
-  "br": {
+  "PT": {
     "eyebrow": "Coleção · Kids & Teens",
     "title": "Proteção",
     "titleAccent": "para a geração das telas.",
     "subtitle": "Armações leves, flexíveis e resistentes — para estudo, jogos e videoaulas.",
     "ctaLabel": "Ver coleção Kids"
   },
-  "en": {
+  "EN": {
+    "eyebrow": "Collection · Kids & Teens",
+    "title": "Protection",
+    "titleAccent": "for the screen generation.",
+    "subtitle": "Lightweight, flexible, impact-resistant frames — for study, gaming and remote learning.",
+    "ctaLabel": "Shop the Kids collection"
+  },
+  "FR": {
     "eyebrow": "Collection · Kids & Teens",
     "title": "Protection",
     "titleAccent": "for the screen generation.",

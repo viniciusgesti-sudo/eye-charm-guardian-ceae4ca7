@@ -317,7 +317,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-2 lg:pr-10">
               <Logo className="h-8 w-auto text-paper" />
               <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/60">
-                {lang === "PT" ? globalData.footer_text_pt : globalData.footer_text_en}
+                {globalData[lang]?.footer_text}
               </p>
               <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/80">
                 Honest Science™ · λ 445nm

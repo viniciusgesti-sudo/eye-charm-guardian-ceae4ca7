@@ -16,43 +16,43 @@ import menData from "@/content/men.json";
 
 const COPY = {
   br: {
-    eyebrow: menData.br.eyebrow,
+    eyebrow: menData.PT?.eyebrow,
     title: (
       <>
-        {menData.br.title}<br />
-        <span className="italic text-mint">{menData.br.titleAccent}</span>
+        {menData.PT?.title}<br />
+        <span className="italic text-mint">{menData.PT?.titleAccent}</span>
       </>
     ),
-    subtitle: menData.br.subtitle,
-    ctaLabel: menData.br.ctaLabel,
-    metaTitle: menData.br.metaTitle,
-    metaDesc: menData.br.metaDesc,
+    subtitle: menData.PT?.subtitle,
+    ctaLabel: menData.PT?.ctaLabel,
+    metaTitle: menData.PT?.metaTitle,
+    metaDesc: menData.PT?.metaDesc,
   },
   en: {
-    eyebrow: menData.en.eyebrow,
+    eyebrow: menData.EN?.eyebrow,
     title: (
       <>
-        {menData.en.title}<br />
-        <span className="italic text-mint">{menData.en.titleAccent}</span>
+        {menData.EN?.title}<br />
+        <span className="italic text-mint">{menData.EN?.titleAccent}</span>
       </>
     ),
-    subtitle: menData.en.subtitle,
-    ctaLabel: menData.en.ctaLabel,
-    metaTitle: menData.en.metaTitle,
-    metaDesc: menData.en.metaDesc,
+    subtitle: menData.EN?.subtitle,
+    ctaLabel: menData.EN?.ctaLabel,
+    metaTitle: menData.EN?.metaTitle,
+    metaDesc: menData.EN?.metaDesc,
   },
   fr: {
-    eyebrow: menData.fr.eyebrow,
+    eyebrow: menData.FR?.eyebrow,
     title: (
       <>
-        {menData.fr.title}<br />
-        <span className="italic text-mint">{menData.fr.titleAccent}</span>
+        {menData.FR?.title}<br />
+        <span className="italic text-mint">{menData.FR?.titleAccent}</span>
       </>
     ),
-    subtitle: menData.fr.subtitle,
-    ctaLabel: menData.fr.ctaLabel,
-    metaTitle: menData.fr.metaTitle,
-    metaDesc: menData.fr.metaDesc,
+    subtitle: menData.FR?.subtitle,
+    ctaLabel: menData.FR?.ctaLabel,
+    metaTitle: menData.FR?.metaTitle,
+    metaDesc: menData.FR?.metaDesc,
   },
 } as const;
 
