@@ -49,6 +49,8 @@ collections:
             name: "EN"
             widget: "object"
             fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Mission", name: "mission", widget: "text" }
       - label: "Coleção Homem"
         name: "men"
         file: "src/content/men.json"
