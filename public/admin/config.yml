@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Onde as imagens enviadas pelo painel serão salvas
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Definindo o que o cliente pode editar
+collections:
+  - name: "pages"
+    label: "Páginas do Site"
+    files:
+      - label: "Página Inicial (Banner)"
+        name: "home"
+        file: "src/content/home.json"
+        description: "Altere os textos e a imagem do banner principal."
+        fields:
+          - { label: "Título Principal", name: "heroTitle", widget: "string" }
+          - { label: "Subtítulo", name: "heroSubtitle", widget: "string" }
+          - { label: "Imagem de Fundo (Recomendado: Retrato)", name: "heroImage", widget: "image" }

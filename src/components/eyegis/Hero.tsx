@@ -4,6 +4,7 @@ import heroSaoPaulo from "@/assets/hero-saopaulo-glasses.jpg?w=768;1280;1920&for
 import heroParis from "@/assets/hero-paris-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import { useCms } from "@/lib/cms";
+import homeData from "@/content/home.json";
 
 import { Picture } from "./Picture";
 
@@ -84,8 +85,8 @@ export function Hero({ locale }: Props) {
   const cmsCenter = useCms("home.hero.center");
   const cmsMen = useCms("home.hero.men");
   const cmsWomen = useCms("home.hero.women");
-  const eyebrow = cmsCenter.title ?? t.eyebrow;
-  const headline = cmsCenter.text ?? t.headline;
+  const eyebrow = homeData.heroSubtitle || (cmsCenter.title ?? t.eyebrow);
+  const headline = homeData.heroTitle || (cmsCenter.text ?? t.headline);
   const manifesto = cmsCenter.subtitle ?? t.manifesto;
   const menTag = cmsMen.text ?? t.men.tag;
   const menProduct = cmsMen.title ?? t.men.product;
