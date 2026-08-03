@@ -106,20 +106,17 @@ type CollectionCopy = {
   primaryCta: string;
 };
 type ProductCopy = {
-  name: string;
-  collection: string;
-  city: string;
-  description: string;
-};
-
-type Copy = {
   section: string;
   eyebrow: string;
   introHeadline1: string;
   introHeadline2: string;
   introLead: string;
   introLeadSub: string;
-  collections: Record<"men" | "women" | "kids", CollectionCopy>;
+  collections: {
+    men: { label: string; city: string; headline: string; scriptWord: string; supporting: string; highlights: string[]; primaryCta: string };
+    women: { label: string; city: string; headline: string; scriptWord: string; supporting: string; highlights: string[]; primaryCta: string };
+    kids: { label: string; city: string; headline: string; scriptWord: string; supporting: string; highlights: string[]; primaryCta: string };
+  };
   buyOnAmazon: string;
   amazonNote: string;
   preview: {
@@ -128,7 +125,7 @@ type Copy = {
     headline2: string;
     lead: string;
     filterLabel: string;
-    filters: { All: string; Men: string; Women: string; Kids: string; Newest: string; Best: string; Details: string };
+    filters: Record<string, string>;
     scrollLeft: string;
     scrollRight: string;
     empty: string;
@@ -138,7 +135,12 @@ type Copy = {
     comfort: string;
     learnMore: string;
   };
-  products: Record<string, ProductCopy>;
+  products: Record<string, {
+    name: string;
+    collection: string;
+    city: string;
+    description: string;
+  }>;
   closing: {
     eyebrow: string;
     headline1: string;
@@ -150,249 +152,8 @@ type Copy = {
     cities: string;
   };
 };
-
-const COPY: Record<Lang, Copy> = {
-  EN: {
-    section: "Collections",
-    eyebrow: "§ 06",
-    introHeadline1: "Find the frame",
-    introHeadline2: "that fits your lifestyle.",
-    introLead:
-      "Eyegis offers thoughtfully designed collections for different personalities, lifestyles and daily routines.",
-    introLeadSub:
-      "Each frame combines timeless aesthetics, lightweight comfort and premium blue-light filtering technology.",
-    collections: {
-      men: {
-        label: "Men",
-        city: "São Paulo · after hours",
-        headline: "Performance without",
-        scriptWord: "compromise.",
-        supporting:
-          "Designed for professionals who spend hours in front of screens without sacrificing elegance. Architecture, night light, glass and steel — translated into a frame.",
-        highlights: ["Lightweight TR90 Frame", "EyegisGuard™", "Anti-Reflective Coating", "Premium Comfort"],
-        primaryCta: "Explore Men's Collection",
-      },
-      women: {
-        label: "Women",
-        city: "Paris · golden hour",
-        headline: "Elegance for",
-        scriptWord: "every screen.",
-        supporting:
-          "A refined collection combining timeless design with visual comfort for modern digital lifestyles. Soft Parisian light, warm neutrals, considered proportion.",
-        highlights: ["Elegant Lightweight Frames", "Premium Lens Technology", "Natural Color Accuracy", "All-Day Comfort"],
-        primaryCta: "Explore Women's Collection",
-      },
-      kids: {
-        label: "Kids & Teens",
-        city: "Home study · daylight",
-        headline: "Designed for",
-        scriptWord: "growing minds.",
-        supporting:
-          "Helping students stay comfortable during study, creativity and everyday digital learning. Bright, clean and modern — never childish.",
-        highlights: ["Lightweight", "Comfortable Fit", "Durable Materials", "Premium Lens Protection"],
-        primaryCta: "Explore Kids Collection",
-      },
-    },
-    buyOnAmazon: "Buy on Amazon",
-    amazonNote: "Available on Amazon · fast delivery · trusted customer service",
-    preview: {
-      eyebrow: "Selected Frames",
-      headline1: "A curated preview.",
-      headline2: "Not the full catalogue.",
-      lead: "A small, considered selection from each collection. Every frame carries EyegisGuard™, a 2-year warranty and a 60-day comfort guarantee.",
-      filterLabel: "Filter",
-      filters: { All: "All", Men: "Men", Women: "Women", Kids: "Kids", Newest: "Newest", Best: "Best Sellers", Details: "Frame Details" },
-      scrollLeft: "Scroll left",
-      scrollRight: "Scroll right",
-      empty: "No frames match this filter.",
-      bestSeller: "Best Seller",
-      newest: "Newest",
-      warranty: "2-Year Warranty",
-      comfort: "60-Day Comfort Guarantee",
-      learnMore: "Learn More",
-    },
-    products: {
-      meridian: { name: "Men's Collection", collection: "Men", city: "São Paulo", description: "Architectural profile, matte acetate — engineered for long screen days." },
-      atelier: { name: "Men's Collection", collection: "Men", city: "São Paulo", description: "A quieter silhouette. Considered proportion, weightless on the bridge." },
-      solene: { name: "Women's Collection", collection: "Women", city: "Paris", description: "Softened geometry in warm champagne — golden-hour every day." },
-      marais: { name: "Women's Collection", collection: "Women", city: "Paris", description: "Refined round frame, subtle keyhole bridge — Parisian understatement." },
-      "meridian-pair": { name: "Men's Collection · Twin", collection: "Men", city: "São Paulo", description: "The Men's Collection shown as a pair — a study in balance and repetition." },
-      "atelier-profile": { name: "Men's Collection · Profile", collection: "Men", city: "São Paulo", description: "Studied side view — thin temples, honest hinges, no ornament." },
-      "solene-macro": { name: "Women's Collection · Macro", collection: "Women", city: "Paris", description: "Lens macro — anti-reflective coating catching quiet warm light." },
-      "atelier-kids": { name: "Men's Collection · Young", collection: "Kids", city: "Study", description: "The Men's Collection silhouette, sized for teens — durable, honest, comfortable." },
-    },
-    closing: {
-      eyebrow: "A Closing Note",
-      headline1: "Engineered for comfort.",
-      headline2: "Designed for everyday life.",
-      lead: "Every Eyegis frame begins where fashion and optical science meet — and ends at your desk, your studio, your commute, your home.",
-      ctaTech: "Discover the Technology",
-      ctaAmazon: "Shop on Amazon",
-      est: "EST · MMXXIV",
-      cities: "São Paulo · Paris · Porto",
-    },
-  },
-  PT: {
-    section: "Coleções",
-    eyebrow: "§ 06",
-    introHeadline1: "Encontre a armação",
-    introHeadline2: "que combina com seu estilo de vida.",
-    introLead:
-      "A Eyegis oferece coleções pensadas para diferentes personalidades, estilos de vida e rotinas diárias.",
-    introLeadSub:
-      "Cada armação combina estética atemporal, conforto leve e tecnologia premium de filtro de luz azul.",
-    collections: {
-      men: {
-        label: "Homem",
-        city: "São Paulo · madrugada",
-        headline: "Desempenho sem",
-        scriptWord: "compromissos.",
-        supporting:
-          "Desenhado para profissionais que passam horas diante de telas sem abrir mão da elegância. Arquitetura, luz noturna, vidro e aço — traduzidos em uma armação.",
-        highlights: ["Armação TR90 Leve", "EyegisGuard™", "Camada Antirreflexo", "Conforto Premium"],
-        primaryCta: "Explorar Coleção Masculina",
-      },
-      women: {
-        label: "Mulher",
-        city: "Paris · hora dourada",
-        headline: "Elegância para",
-        scriptWord: "cada tela.",
-        supporting:
-          "Uma coleção refinada que combina design atemporal e conforto visual para estilos de vida digitais. Luz suave parisiense, neutros quentes, proporções pensadas.",
-        highlights: ["Armações Leves e Elegantes", "Tecnologia Premium de Lentes", "Cores Naturais", "Conforto o Dia Todo"],
-        primaryCta: "Explorar Coleção Feminina",
-      },
-      kids: {
-        label: "Kids & Teens",
-        city: "Estudo em casa · luz natural",
-        headline: "Desenhado para",
-        scriptWord: "mentes em formação.",
-        supporting:
-          "Ajuda estudantes a manter o conforto no estudo, na criatividade e no aprendizado digital. Claro, limpo e moderno — nunca infantilizado.",
-        highlights: ["Leveza", "Ajuste Confortável", "Materiais Duráveis", "Proteção Premium das Lentes"],
-        primaryCta: "Explorar Coleção Kids",
-      },
-    },
-    buyOnAmazon: "Comprar na Amazon",
-    amazonNote: "Disponível na Amazon · entrega rápida · atendimento confiável",
-    preview: {
-      eyebrow: "Modelos Selecionados",
-      headline1: "Uma prévia curada.",
-      headline2: "Não é o catálogo completo.",
-      lead: "Uma seleção pequena e criteriosa de cada coleção. Todas as armações trazem EyegisGuard™, 2 anos de garantia e 60 dias de garantia de conforto.",
-      filterLabel: "Filtrar",
-      filters: { All: "Todos", Men: "Homem", Women: "Mulher", Kids: "Kids", Newest: "Novidades", Best: "Mais Vendidos", Details: "Detalhes" },
-      scrollLeft: "Rolar para a esquerda",
-      scrollRight: "Rolar para a direita",
-      empty: "Nenhuma armação corresponde a este filtro.",
-      bestSeller: "Mais Vendido",
-      newest: "Novidade",
-      warranty: "2 Anos de Garantia",
-      comfort: "60 Dias de Conforto",
-      learnMore: "Saiba mais",
-    },
-    products: {
-      meridian: { name: "Men's Collection", collection: "Homem", city: "São Paulo", description: "Perfil arquitetônico em acetato fosco — pensado para longos dias de tela." },
-      atelier: { name: "Men's Collection", collection: "Homem", city: "São Paulo", description: "Uma silhueta mais silenciosa. Proporção estudada, leveza sobre o nariz." },
-      solene: { name: "Women's Collection", collection: "Mulher", city: "Paris", description: "Geometria suavizada em champanhe quente — hora dourada, todo dia." },
-      marais: { name: "Women's Collection", collection: "Mulher", city: "Paris", description: "Armação redonda refinada, ponte em fechadura — discrição parisiense." },
-      "meridian-pair": { name: "Men's Collection · Duo", collection: "Homem", city: "São Paulo", description: "O Men's Collection em par — um estudo de equilíbrio e repetição." },
-      "atelier-profile": { name: "Men's Collection · Perfil", collection: "Homem", city: "São Paulo", description: "Vista lateral estudada — hastes finas, dobradiças honestas, sem ornamento." },
-      "solene-macro": { name: "Women's Collection · Macro", collection: "Mulher", city: "Paris", description: "Macro da lente — a camada antirreflexo captando luz quente." },
-      "atelier-kids": { name: "Men's Collection · Young", collection: "Kids", city: "Estudo", description: "A silhueta Men's Collection em tamanho teen — durável, honesto, confortável." },
-    },
-    closing: {
-      eyebrow: "Uma nota final",
-      headline1: "Projetado para o conforto.",
-      headline2: "Desenhado para o dia a dia.",
-      lead: "Cada armação Eyegis começa onde a moda encontra a ciência óptica — e termina na sua mesa, seu estúdio, seu trajeto, sua casa.",
-      ctaTech: "Descobrir a tecnologia",
-      ctaAmazon: "Comprar na Amazon",
-      est: "EST · MMXXIV",
-      cities: "São Paulo · Paris · Porto",
-    },
-  },
-  FR: {
-    section: "Collections",
-    eyebrow: "§ 06",
-    introHeadline1: "Trouvez la monture",
-    introHeadline2: "qui vous ressemble.",
-    introLead:
-      "Eyegis propose des collections pensées pour différents styles de vie et habitudes quotidiennes.",
-    introLeadSub:
-      "Chaque monture réunit une esthétique intemporelle, un confort léger et une technologie premium de filtration de la lumière bleue.",
-    collections: {
-      men: {
-        label: "Homme",
-        city: "São Paulo · nuit",
-        headline: "Performance sans",
-        scriptWord: "compromis.",
-        supporting:
-          "Pensée pour les professionnels qui passent des heures devant l'écran sans renoncer à l'élégance. Architecture, lumière nocturne, verre et acier — traduits en une monture.",
-        highlights: ["Monture TR90 légère", "EyegisGuard™", "Traitement antireflet", "Confort premium"],
-        primaryCta: "Découvrir la Collection Homme",
-      },
-      women: {
-        label: "Femme",
-        city: "Paris · heure dorée",
-        headline: "Élégance pour",
-        scriptWord: "chaque écran.",
-        supporting:
-          "Une collection raffinée qui associe design intemporel et confort visuel pour les vies numériques modernes. Lumière parisienne douce, neutres chauds, proportion étudiée.",
-        highlights: ["Montures légères et élégantes", "Technologie de verres premium", "Couleurs naturelles", "Confort toute la journée"],
-        primaryCta: "Découvrir la Collection Femme",
-      },
-      kids: {
-        label: "Enfants & Ados",
-        city: "Étude à la maison · lumière naturelle",
-        headline: "Conçue pour",
-        scriptWord: "les esprits qui grandissent.",
-        supporting:
-          "Pour aider les élèves à rester confortables pendant l'étude, la création et l'apprentissage numérique. Clair, net et moderne — jamais enfantin.",
-        highlights: ["Léger", "Ajustement confortable", "Matériaux durables", "Protection premium des verres"],
-        primaryCta: "Découvrir la Collection Enfants",
-      },
-    },
-    buyOnAmazon: "Acheter sur Amazon",
-    amazonNote: "Disponible sur Amazon · livraison rapide · service de confiance",
-    preview: {
-      eyebrow: "Modèles sélectionnés",
-      headline1: "Un aperçu choisi.",
-      headline2: "Pas le catalogue complet.",
-      lead: "Une petite sélection étudiée de chaque collection. Chaque monture est équipée d'EyegisGuard™, d'une garantie de 2 ans et d'un essai confort de 60 jours.",
-      filterLabel: "Filtrer",
-      filters: { All: "Tout", Men: "Homme", Women: "Femme", Kids: "Enfants", Newest: "Nouveautés", Best: "Best-sellers", Details: "Détails" },
-      scrollLeft: "Défiler à gauche",
-      scrollRight: "Défiler à droite",
-      empty: "Aucune monture ne correspond à ce filtre.",
-      bestSeller: "Best-seller",
-      newest: "Nouveauté",
-      warranty: "Garantie 2 ans",
-      comfort: "Essai confort 60 jours",
-      learnMore: "En savoir plus",
-    },
-    products: {
-      meridian: { name: "Men's Collection", collection: "Homme", city: "São Paulo", description: "Profil architectural en acétate mat — pensé pour les longues journées d'écran." },
-      atelier: { name: "Men's Collection", collection: "Homme", city: "São Paulo", description: "Une silhouette plus discrète. Proportion étudiée, légèreté sur le nez." },
-      solene: { name: "Women's Collection", collection: "Femme", city: "Paris", description: "Géométrie adoucie en champagne chaud — l'heure dorée au quotidien." },
-      marais: { name: "Women's Collection", collection: "Femme", city: "Paris", description: "Monture ronde raffinée, pont clef discret — sobriété parisienne." },
-      "meridian-pair": { name: "Men's Collection · Duo", collection: "Homme", city: "São Paulo", description: "Le Men's Collection en paire — une étude d'équilibre et de répétition." },
-      "atelier-profile": { name: "Men's Collection · Profil", collection: "Homme", city: "São Paulo", description: "Vue de profil étudiée — branches fines, charnières franches, sans ornement." },
-      "solene-macro": { name: "Women's Collection · Macro", collection: "Femme", city: "Paris", description: "Macro de verre — traitement antireflet captant une lumière chaude." },
-      "atelier-kids": { name: "Men's Collection · Young", collection: "Enfants", city: "Étude", description: "La silhouette Men's Collection, taille ado — durable, franche, confortable." },
-    },
-    closing: {
-      eyebrow: "Une note finale",
-      headline1: "Conçu pour le confort.",
-      headline2: "Dessiné pour la vie quotidienne.",
-      lead: "Chaque monture Eyegis commence là où la mode rencontre la science optique — et se termine sur votre bureau, dans votre studio, votre trajet, votre maison.",
-      ctaTech: "Découvrir la technologie",
-      ctaAmazon: "Acheter sur Amazon",
-      est: "EST · MMXXIV",
-      cities: "São Paulo · Paris · Porto",
-    },
-  },
-};
+// @ts-ignore
+const COPY: Record<Lang, CollectionCopy> = collectionData;
 
 /* ---------- Static (non-translatable) data ---------- */
 type CollectionMeta = {

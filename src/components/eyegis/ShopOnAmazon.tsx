@@ -3,6 +3,8 @@ import type { Lang } from "@/i18n/translations";
 import { MARKETPLACES, COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon";
 import { AmazonMark } from "./AmazonMark";
 
+import shopOnAmazonData from "@/content/shoponamazon.json";
+
 type Copy = {
   eyebrow: string;
   title1: string;
@@ -14,42 +16,10 @@ type Copy = {
   trust: string[];
 };
 
-const COPY: Record<Lang, Copy> = {
-  EN: {
-    eyebrow: "Launching soon on Amazon",
-    title1: "One catalogue.",
-    title2: "Your marketplace.",
-    body: "Eyegis is arriving on Amazon in every core marketplace — secure checkout, Prime delivery and hassle-free returns wherever you already shop. Leave your e-mail on the launch list to be the first served.",
-    primary: "Shop on Amazon",
-    comingSoon: "Join the launch list",
-    reviews: "verified reviews on Amazon",
-    trust: ["Prime delivery on launch", "60-day comfort guarantee", "2-year warranty", "Verified marketplace"],
-  },
-  PT: {
-    eyebrow: "Chegando em breve na Amazon",
-    title1: "Um catálogo.",
-    title2: "O seu marketplace.",
-    body: "A Eyegis chega à Amazon nos principais mercados — checkout seguro, entrega Prime e trocas sem burocracia onde você já compra. Deixe seu e-mail na lista de lançamento e seja o primeiro a receber.",
-    primary: "Comprar na Amazon",
-    comingSoon: "Entrar na lista de lançamento",
-    reviews: "avaliações verificadas na Amazon",
-    trust: ["Entrega Prime no lançamento", "Garantia de conforto 60 dias", "Garantia 2 anos", "Marketplace verificado"],
-  },
-  FR: {
-    eyebrow: "Bientôt sur Amazon",
-    title1: "Un catalogue.",
-    title2: "Votre marketplace.",
-    body: "Eyegis arrive sur Amazon dans les principaux marchés — paiement sécurisé, livraison Prime et retours simples là où vous achetez déjà. Inscrivez-vous à la liste de lancement pour être servi en premier.",
-    primary: "Acheter sur Amazon",
-    comingSoon: "Rejoindre la liste de lancement",
-    reviews: "avis vérifiés sur Amazon",
-    trust: ["Livraison Prime au lancement", "Garantie confort 60 jours", "Garantie 2 ans", "Marketplace vérifiée"],
-  },
-};
-
 export function ShopOnAmazon() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  // @ts-ignore
+  const c = shopOnAmazonData[lang] as Copy;
 
   return (
     <section id="shop-amazon" className="relative bg-teal-deep text-paper py-24 md:py-32 overflow-hidden">
