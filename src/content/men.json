@@ -1,4 +1,29 @@
 {
-  "title": "Coleção Masculina",
-  "subtitle": "Acetato preto, hastes douradas, silhueta discreta — do escritório à noite."
+  "br": {
+    "eyebrow": "Coleção · Homem",
+    "title": "Coleção Masculina",
+    "titleAccent": "para quem vive em telas.",
+    "subtitle": "Acetato preto, hastes douradas, silhueta discreta — do escritório à noite.",
+    "ctaLabel": "Ver na Amazon",
+    "metaTitle": "Coleção Masculina — Eyegis",
+    "metaDesc": "Coleção Masculina Eyegis: acetato preto, hastes douradas. Silhueta discreta para o dia digital."
+  },
+  "en": {
+    "eyebrow": "Collection · Men",
+    "title": "Men's Collection",
+    "titleAccent": "for the screen-bound day.",
+    "subtitle": "Glossy black acetate, gold temples, a discreet silhouette — office to nightfall.",
+    "ctaLabel": "Shop on Amazon",
+    "metaTitle": "Men's Collection — Eyegis",
+    "metaDesc": "Eyegis Men's Collection: glossy black acetate with gold temples. A discreet silhouette for the digital day."
+  },
+  "fr": {
+    "eyebrow": "Collection · Homme",
+    "title": "Collection Homme",
+    "titleAccent": "pour la journée sur écran.",
+    "subtitle": "Acétate noir, branches dorées, silhouette discrète — du bureau à la nuit.",
+    "ctaLabel": "Voir sur Amazon",
+    "metaTitle": "Collection Homme — Eyegis",
+    "metaDesc": "Collection Homme Eyegis : acétate noir brillant et branches dorées. Silhouette discrète pour la journée numérique."
+  }
 }

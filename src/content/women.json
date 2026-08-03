@@ -1,4 +1,16 @@
 {
-  "title": "Coleção Feminina",
-  "subtitle": "Formas superdimensionadas, acetato tartaruga italiano, proteção solar com estilo."
+  "br": {
+    "eyebrow": "Coleção · Mulher",
+    "title": "Coleção Feminina",
+    "titleAccent": "para quem cria e escreve.",
+    "subtitle": "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste.",
+    "ctaLabel": "Ver na Amazon"
+  },
+  "en": {
+    "eyebrow": "Collection · Women",
+    "title": "Women's Collection",
+    "titleAccent": "for those who create.",
+    "subtitle": "A cat-eye in tortoise acetate with a discreet gold shield-G on the temple.",
+    "ctaLabel": "Shop on Amazon"
+  }
 }

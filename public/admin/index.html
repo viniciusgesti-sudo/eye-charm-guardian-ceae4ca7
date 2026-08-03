@@ -56,6 +56,33 @@
         }
       });
       CMS.registerPreviewTemplate('products', ProductPreview);
+      // Preview das Coleções (Homem, Mulher, Kids)
+      var CollectionPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var br = entry.getIn(['data', 'br']);
+          if (!br) return h('div', {}, "Carregando dados...");
+          var eyebrow = br.get('eyebrow');
+          var title = br.get('title');
+          var titleAccent = br.get('titleAccent');
+          var subtitle = br.get('subtitle');
+          var cta = br.get('ctaLabel');
+          
+          return h('div', {style: {fontFamily: 'Inter, sans-serif', padding: '60px', backgroundColor: '#F6F3EE', color: '#060C12', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center'}},
+            h('div', {style: {textTransform: 'uppercase', letterSpacing: '3px', fontSize: '11px', color: '#86D9D1', marginBottom: '20px'}}, eyebrow || 'Eyebrow...'),
+            h('h1', {style: {fontSize: '3.5rem', fontWeight: '300', fontFamily: 'serif', lineHeight: '1.1', marginBottom: '20px'}}, 
+              title || 'Título principal', 
+              h('br'), 
+              h('span', {style: {fontStyle: 'italic', color: '#86D9D1'}}, titleAccent || 'Destaque')
+            ),
+            h('p', {style: {fontSize: '1.2rem', lineHeight: '1.6', maxWidth: '500px', opacity: 0.8, marginBottom: '30px'}}, subtitle || 'Subtítulo da coleção...'),
+            h('div', {style: {display: 'inline-block', padding: '15px 30px', backgroundColor: '#060C12', color: '#fff', borderRadius: '30px', fontWeight: 'bold', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', alignSelf: 'flex-start'}}, cta || 'Botão')
+          );
+        }
+      });
+      CMS.registerPreviewTemplate('men', CollectionPreview);
+      CMS.registerPreviewTemplate('women', CollectionPreview);
+      CMS.registerPreviewTemplate('kids', CollectionPreview);
     </script>
   </body>
 </html>

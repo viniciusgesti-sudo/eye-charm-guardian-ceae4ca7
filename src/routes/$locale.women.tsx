@@ -12,37 +12,34 @@ import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import womenData from "@/content/women.json";
 
 const COPY = {
   br: {
-    eyebrow: "Coleção · Mulher",
+    eyebrow: womenData.br.eyebrow,
     title: (
       <>
-        Coleção Feminina<br />
-        <span className="italic text-teal-deep">para quem cria e escreve.</span>
+        {womenData.br.title}<br />
+        <span className="italic text-teal-deep">{womenData.br.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Cat-eye em acetato tartaruga, shield-G dourado discreto na haste.",
-    ctaLabel: "Ver na Amazon",
+    subtitle: womenData.br.subtitle,
+    ctaLabel: womenData.br.ctaLabel,
     metaTitle: "Coleção Feminina — Eyegis",
-    metaDesc:
-      "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com shield-G dourado.",
+    metaDesc: "Coleção Feminina Eyegis: cat-eye em acetato tartaruga com shield-G dourado.",
   },
   en: {
-    eyebrow: "Collection · Women",
+    eyebrow: womenData.en.eyebrow,
     title: (
       <>
-        Women's Collection<br />
-        <span className="italic text-teal-deep">for those who create.</span>
+        {womenData.en.title}<br />
+        <span className="italic text-teal-deep">{womenData.en.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "A cat-eye in tortoise acetate with a discreet gold shield-G on the temple.",
-    ctaLabel: "Shop on Amazon",
+    subtitle: womenData.en.subtitle,
+    ctaLabel: womenData.en.ctaLabel,
     metaTitle: "Women's Collection — Eyegis",
-    metaDesc:
-      "Eyegis Women's Collection: tortoise cat-eye with a discreet gold shield-G.",
+    metaDesc: "Eyegis Women's Collection: tortoise cat-eye with a discreet gold shield-G.",
   },
   fr: {
     eyebrow: "Collection · Femme",
@@ -52,12 +49,10 @@ const COPY = {
         <span className="italic text-teal-deep">pour celles qui créent.</span>
       </>
     ),
-    subtitle:
-      "Un cat-eye en acétate écaille avec un discret shield-G doré sur la branche.",
+    subtitle: "Un cat-eye en acétate écaille avec un discret shield-G doré sur la branche.",
     ctaLabel: "Voir sur Amazon",
     metaTitle: "Collection Femme — Eyegis",
-    metaDesc:
-      "Collection Femme Eyegis : cat-eye écaille avec un discret shield-G doré.",
+    metaDesc: "Collection Femme Eyegis : cat-eye écaille avec un discret shield-G doré.",
   },
 } as const;
 

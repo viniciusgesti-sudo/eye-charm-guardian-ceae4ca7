@@ -49,36 +49,89 @@ collections:
             name: "EN"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Mission", name: "mission", widget: "text" }
-
       - label: "Coleção Homem"
         name: "men"
         file: "src/content/men.json"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+          - label: "Português (BR)"
+            name: "br"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow (Texto Peq)", name: "eyebrow", widget: "string" }
+              - { label: "Título Principal", name: "title", widget: "string" }
+              - { label: "Destaque do Título", name: "titleAccent", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Texto do Botão", name: "ctaLabel", widget: "string" }
+              - { label: "Título SEO", name: "metaTitle", widget: "string" }
+              - { label: "Descrição SEO", name: "metaDesc", widget: "text" }
+          - label: "Inglês (EN)"
+            name: "en"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Title Accent", name: "titleAccent", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "ctaLabel", widget: "string" }
+              - { label: "SEO Title", name: "metaTitle", widget: "string" }
+              - { label: "SEO Desc", name: "metaDesc", widget: "text" }
+          - label: "Francês (FR)"
+            name: "fr"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Titre Accent", name: "titleAccent", widget: "string" }
+              - { label: "Sous-titre", name: "subtitle", widget: "text" }
+              - { label: "Bouton", name: "ctaLabel", widget: "string" }
+              - { label: "SEO Titre", name: "metaTitle", widget: "string" }
+              - { label: "SEO Desc", name: "metaDesc", widget: "text" }
 
       - label: "Coleção Mulher"
         name: "women"
         file: "src/content/women.json"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+          - label: "Português (BR)"
+            name: "br"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Destaque", name: "titleAccent", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Botão", name: "ctaLabel", widget: "string" }
+          - label: "Inglês (EN)"
+            name: "en"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Accent", name: "titleAccent", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "ctaLabel", widget: "string" }
 
       - label: "Coleção Kids"
         name: "kids"
         file: "src/content/kids.json"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
-
-      - label: "Lentes & Tecnologia"
-        name: "lenses"
-        file: "src/content/lenses.json"
-        fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
+          - label: "Português (BR)"
+            name: "br"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Destaque", name: "titleAccent", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "text" }
+              - { label: "Botão", name: "ctaLabel", widget: "string" }
+          - label: "Inglês (EN)"
+            name: "en"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Accent", name: "titleAccent", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "ctaLabel", widget: "string" }
 
   - name: "products"
     label: "🛍️ Produtos"

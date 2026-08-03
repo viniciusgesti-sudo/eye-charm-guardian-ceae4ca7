@@ -10,37 +10,34 @@ import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import kidsData from "@/content/kids.json";
 
 const COPY = {
   br: {
-    eyebrow: "Coleção · Kids & Teens",
+    eyebrow: kidsData.br.eyebrow,
     title: (
       <>
-        Proteção<br />
-        <span className="italic text-mint">para a geração das telas.</span>
+        {kidsData.br.title}<br />
+        <span className="italic text-mint">{kidsData.br.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Armações leves, flexíveis e resistentes — para estudo, jogos e videoaulas.",
-    ctaLabel: "Ver coleção Kids",
+    subtitle: kidsData.br.subtitle,
+    ctaLabel: kidsData.br.ctaLabel,
     metaTitle: "Kids & Teens — Eyegis",
-    metaDesc:
-      "Kids & Teens da Eyegis: armações leves, flexíveis e resistentes para o dia em telas.",
+    metaDesc: "Kids & Teens da Eyegis: armações leves, flexíveis e resistentes para o dia em telas.",
   },
   en: {
-    eyebrow: "Collection · Kids & Teens",
+    eyebrow: kidsData.en.eyebrow,
     title: (
       <>
-        Protection<br />
-        <span className="italic text-mint">for the screen generation.</span>
+        {kidsData.en.title}<br />
+        <span className="italic text-mint">{kidsData.en.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Lightweight, flexible, impact-resistant frames — for study, gaming and remote learning.",
-    ctaLabel: "Shop the Kids collection",
+    subtitle: kidsData.en.subtitle,
+    ctaLabel: kidsData.en.ctaLabel,
     metaTitle: "Kids & Teens — Eyegis",
-    metaDesc:
-      "Eyegis Kids & Teens: lightweight, flexible, impact-resistant frames for a life on screens.",
+    metaDesc: "Eyegis Kids & Teens: lightweight, flexible, impact-resistant frames for a life on screens.",
   },
   fr: {
     eyebrow: "Collection · Enfants & Ados",
@@ -50,12 +47,10 @@ const COPY = {
         <span className="italic text-mint">pour la génération des écrans.</span>
       </>
     ),
-    subtitle:
-      "Montures légères, flexibles et résistantes — pour l'étude, le jeu et les cours à distance.",
+    subtitle: "Montures légères, flexibles et résistantes — pour l'étude, le jeu et les cours à distance.",
     ctaLabel: "Voir la collection Enfants",
     metaTitle: "Kids & Teens — Eyegis",
-    metaDesc:
-      "Eyegis Kids & Teens : montures légères, flexibles et résistantes pour la vie sur écrans.",
+    metaDesc: "Eyegis Kids & Teens : montures légères, flexibles et résistantes pour la vie sur écrans.",
   },
 } as const;
 

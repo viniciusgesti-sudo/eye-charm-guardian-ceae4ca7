@@ -12,52 +12,47 @@ import { LifestyleUniverse } from "@/components/eyegis/LifestyleUniverse";
 import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import menData from "@/content/men.json";
 
 const COPY = {
   br: {
-    eyebrow: "Coleção · Homem",
+    eyebrow: menData.br.eyebrow,
     title: (
       <>
-        Coleção Masculina<br />
-        <span className="italic text-mint">para quem vive em telas.</span>
+        {menData.br.title}<br />
+        <span className="italic text-mint">{menData.br.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Acetato preto, hastes douradas, silhueta discreta — do escritório à noite.",
-    ctaLabel: "Ver na Amazon",
-    metaTitle: "Coleção Masculina — Eyegis",
-    metaDesc:
-      "Coleção Masculina Eyegis: acetato preto, hastes douradas. Silhueta discreta para o dia digital.",
+    subtitle: menData.br.subtitle,
+    ctaLabel: menData.br.ctaLabel,
+    metaTitle: menData.br.metaTitle,
+    metaDesc: menData.br.metaDesc,
   },
   en: {
-    eyebrow: "Collection · Men",
+    eyebrow: menData.en.eyebrow,
     title: (
       <>
-        Men's Collection<br />
-        <span className="italic text-mint">for the screen-bound day.</span>
+        {menData.en.title}<br />
+        <span className="italic text-mint">{menData.en.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Glossy black acetate, gold temples, a discreet silhouette — office to nightfall.",
-    ctaLabel: "Shop on Amazon",
-    metaTitle: "Men's Collection — Eyegis",
-    metaDesc:
-      "Eyegis Men's Collection: glossy black acetate with gold temples. A discreet silhouette for the digital day.",
+    subtitle: menData.en.subtitle,
+    ctaLabel: menData.en.ctaLabel,
+    metaTitle: menData.en.metaTitle,
+    metaDesc: menData.en.metaDesc,
   },
   fr: {
-    eyebrow: "Collection · Homme",
+    eyebrow: menData.fr.eyebrow,
     title: (
       <>
-        Collection Homme<br />
-        <span className="italic text-mint">pour la journée sur écran.</span>
+        {menData.fr.title}<br />
+        <span className="italic text-mint">{menData.fr.titleAccent}</span>
       </>
     ),
-    subtitle:
-      "Acétate noir, branches dorées, silhouette discrète — du bureau à la nuit.",
-    ctaLabel: "Voir sur Amazon",
-    metaTitle: "Collection Homme — Eyegis",
-    metaDesc:
-      "Collection Homme Eyegis : acétate noir brillant et branches dorées. Silhouette discrète pour la journée numérique.",
+    subtitle: menData.fr.subtitle,
+    ctaLabel: menData.fr.ctaLabel,
+    metaTitle: menData.fr.metaTitle,
+    metaDesc: menData.fr.metaDesc,
   },
 } as const;
 
