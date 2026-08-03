@@ -1,0 +1,1 @@
+import{r as e}from"./_runtime.mjs";import{a as t,i as n}from"./_libs/react+tanstack__react-query.mjs";var r=e(t()),i=n(),a=(0,r.lazy)(()=>import(`./_ssr/AboutPage-DQC42JbM.mjs`).then(e=>({default:e.AboutPage})));function o(){return(0,i.jsx)(r.Suspense,{fallback:(0,i.jsx)(`div`,{style:{minHeight:`60vh`},"aria-hidden":!0}),children:(0,i.jsx)(a,{})})}export{o as component};

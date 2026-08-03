@@ -1,0 +1,1 @@
+import{a as e,i as t}from"./tanstack-DQRLoC-P.mjs";import{t as n}from"./ssr.mjs";var r=e().server(async({next:e})=>{try{return await e()}catch(e){if(typeof e==`object`&&e&&`statusCode`in e)throw e;return console.error(e),new Response(n(),{status:500,headers:{"content-type":`text/html; charset=utf-8`}})}}),i=t(()=>({requestMiddleware:[r]}));export{i as startInstance};
