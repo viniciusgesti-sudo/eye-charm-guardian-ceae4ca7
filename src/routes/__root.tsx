@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -163,8 +164,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const locale = pathname.split("/")[1]?.toLowerCase();
+  const documentLanguage = locale === "br" ? "pt-BR" : locale === "fr" ? "fr" : "en";
+
   return (
-    <html lang="en">
+    <html lang={documentLanguage}>
       <head>
         <HeadContent />
       </head>

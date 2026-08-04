@@ -14,11 +14,18 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Retina",
       taglineA: "Proteção contra o azul-violeta de alta energia",
       taglineB: "Conforto visual em longas sessões de tela",
-      description: "E-Guard Retina filtra seletivamente parte dos comprimentos de onda azul-violeta associados à fadiga visual digital durante longas sessões de tela, preservando a percepção das cores.",
+      description:
+        "E-Guard Retina filtra seletivamente parte dos comprimentos de onda azul-violeta associados à fadiga visual digital durante longas sessões de tela, preservando a percepção das cores.",
       benefits: [
-        { title: "Combate a fadiga das telas", desc: "Ajuda a reduzir olhos secos, irritados e avermelhados" },
+        {
+          title: "Combate a fadiga das telas",
+          desc: "Ajuda a reduzir olhos secos, irritados e avermelhados",
+        },
         { title: "Filtragem precisa", desc: "Atua somente sobre a luz azul-violeta mais intensa" },
-        { title: "Feita para alta performance", desc: "Ideal para dias longos de trabalho, streaming e jogos" },
+        {
+          title: "Feita para alta performance",
+          desc: "Ideal para dias longos de trabalho, streaming e jogos",
+        },
       ],
     },
     circadian: {
@@ -26,11 +33,21 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Circadian",
       taglineA: "Suporte ao ritmo circadiano e ao conforto visual",
       taglineB: "Modo pôr do sol e proteção do sono",
-      description: "A exposição à luz azul de alta energia depois de anoitecer pode interferir no ciclo natural do sono. E-Guard Circadian™ atenua esses comprimentos de onda noturnos específicos, mantendo uma experiência visual natural.",
+      description:
+        "A exposição à luz azul de alta energia depois de anoitecer pode interferir no ciclo natural do sono. E-Guard Circadian™ atenua esses comprimentos de onda noturnos específicos, mantendo uma experiência visual natural.",
       benefits: [
-        { title: "Protege a melatonina", desc: "Limita a interferência da luz noturna para favorecer um sono mais profundo" },
-        { title: "Cores naturais", desc: "Proteção circadiana com menos distorção de cor que lentes âmbar tradicionais" },
-        { title: "Rotinas noturnas mais inteligentes", desc: "Feita para jogos, trabalho, streaming e navegação à noite" },
+        {
+          title: "Protege a melatonina",
+          desc: "Limita a interferência da luz noturna para favorecer um sono mais profundo",
+        },
+        {
+          title: "Cores naturais",
+          desc: "Proteção circadiana com menos distorção de cor que lentes âmbar tradicionais",
+        },
+        {
+          title: "Rotinas noturnas mais inteligentes",
+          desc: "Feita para jogos, trabalho, streaming e navegação à noite",
+        },
       ],
     },
     why: {
@@ -57,11 +74,15 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Retina",
       taglineA: "High-energy blue-violet protection",
       taglineB: "Visual comfort during long screen sessions",
-      description: "E-Guard Retina selectively filters part of the blue-violet wavelengths associated with digital eye strain during prolonged screen sessions, while preserving color perception.",
+      description:
+        "E-Guard Retina selectively filters part of the blue-violet wavelengths associated with digital eye strain during prolonged screen sessions, while preserving color perception.",
       benefits: [
         { title: "Defeats screen fatigue", desc: "Helps minimize dry, itchy and red eyes" },
         { title: "Precision filtering", desc: "Targets only the harsh blue-violet light" },
-        { title: "Built for high output", desc: "Ideal for long workdays, streaming and intense gaming" },
+        {
+          title: "Built for high output",
+          desc: "Ideal for long workdays, streaming and intense gaming",
+        },
       ],
     },
     circadian: {
@@ -69,11 +90,21 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Circadian",
       taglineA: "Circadian rhythm and visual comfort support",
       taglineB: "Sunset mode and sleep protection",
-      description: "Exposure to high-energy blue light after dark can disrupt the natural sleep cycle. E-Guard Circadian™ mitigates these specific evening wavelengths while maintaining a natural viewing experience.",
+      description:
+        "Exposure to high-energy blue light after dark can disrupt the natural sleep cycle. E-Guard Circadian™ mitigates these specific evening wavelengths while maintaining a natural viewing experience.",
       benefits: [
-        { title: "Protects melatonin", desc: "Limits evening light disruption to support deeper sleep" },
-        { title: "True-to-life colors", desc: "Circadian protection with less color distortion than traditional amber lenses" },
-        { title: "Smarter night routines", desc: "Built for late-night gaming, work, streaming and scrolling" },
+        {
+          title: "Protects melatonin",
+          desc: "Limits evening light disruption to support deeper sleep",
+        },
+        {
+          title: "True-to-life colors",
+          desc: "Circadian protection with less color distortion than traditional amber lenses",
+        },
+        {
+          title: "Smarter night routines",
+          desc: "Built for late-night gaming, work, streaming and scrolling",
+        },
       ],
     },
     why: {
@@ -100,11 +131,21 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Retina",
       taglineA: "Protection contre le bleu-violet haute énergie",
       taglineB: "Confort visuel pendant les longues sessions d'écran",
-      description: "E-Guard Retina filtre sélectivement une partie des longueurs d'onde bleu-violet associées à la fatigue visuelle numérique, tout en préservant la perception des couleurs.",
+      description:
+        "E-Guard Retina filtre sélectivement une partie des longueurs d'onde bleu-violet associées à la fatigue visuelle numérique, tout en préservant la perception des couleurs.",
       benefits: [
-        { title: "Combat la fatigue des écrans", desc: "Aide à réduire les yeux secs, irrités et rouges" },
-        { title: "Filtrage précis", desc: "Cible uniquement la lumière bleu-violet la plus intense" },
-        { title: "Conçu pour la performance", desc: "Idéal pour le travail prolongé, le streaming et le gaming" },
+        {
+          title: "Combat la fatigue des écrans",
+          desc: "Aide à réduire les yeux secs, irrités et rouges",
+        },
+        {
+          title: "Filtrage précis",
+          desc: "Cible uniquement la lumière bleu-violet la plus intense",
+        },
+        {
+          title: "Conçu pour la performance",
+          desc: "Idéal pour le travail prolongé, le streaming et le gaming",
+        },
       ],
     },
     circadian: {
@@ -112,11 +153,21 @@ const TECH_HERO_COPY = {
       name: "E-Guard™ Circadian",
       taglineA: "Soutien du rythme circadien et du confort visuel",
       taglineB: "Mode coucher du soleil et protection du sommeil",
-      description: "L'exposition à la lumière bleue haute énergie après la tombée de la nuit peut perturber le cycle naturel du sommeil. E-Guard Circadian™ atténue ces longueurs d'onde du soir tout en maintenant une vision naturelle.",
+      description:
+        "L'exposition à la lumière bleue haute énergie après la tombée de la nuit peut perturber le cycle naturel du sommeil. E-Guard Circadian™ atténue ces longueurs d'onde du soir tout en maintenant une vision naturelle.",
       benefits: [
-        { title: "Protège la mélatonine", desc: "Limite l'interférence lumineuse du soir pour favoriser un sommeil plus profond" },
-        { title: "Couleurs naturelles", desc: "Protection circadienne avec moins de distorsion que les verres ambrés traditionnels" },
-        { title: "Routines nocturnes plus intelligentes", desc: "Conçu pour le gaming, le travail, le streaming et la navigation tardive" },
+        {
+          title: "Protège la mélatonine",
+          desc: "Limite l'interférence lumineuse du soir pour favoriser un sommeil plus profond",
+        },
+        {
+          title: "Couleurs naturelles",
+          desc: "Protection circadienne avec moins de distorsion que les verres ambrés traditionnels",
+        },
+        {
+          title: "Routines nocturnes plus intelligentes",
+          desc: "Conçu pour le gaming, le travail, le streaming et la navigation tardive",
+        },
       ],
     },
     why: {
@@ -140,21 +191,12 @@ const TECH_HERO_COPY = {
    Inspired by the reference banners: deep teal body,
    inner ring, tick marks, and a central symbol.
 ———————————————————————————————————————————————— */
-function ShieldBadge({
-  children,
-  label,
-}: {
-  children: React.ReactNode;
-  label: string;
-}) {
+function ShieldBadge({ children, label }: { children: React.ReactNode; label: string }) {
   return (
     <div className="relative inline-flex flex-col items-center">
       <div className="relative h-36 w-36">
         {/* Ambient glow */}
-        <div
-          className="absolute inset-0 rounded-full bg-mint/25 blur-2xl"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 rounded-full bg-mint/25 blur-2xl" aria-hidden="true" />
         <svg
           viewBox="0 0 144 160"
           className="relative h-full w-full drop-shadow-[0_18px_40px_rgba(0,75,87,0.35)]"
@@ -381,15 +423,10 @@ function Benefit({ title, desc }: { title: string; desc: string }) {
 export function OurTechnology() {
   const { lang } = useI18n();
   const content = useContentDocument<typeof TECH_HERO_COPY>("technology-overview", TECH_HERO_COPY);
-  const locale = (lang.toLowerCase() as "br" | "en" | "fr") in content
-    ? (lang.toLowerCase() as "br" | "en" | "fr")
-    : "en";
+  const locale = lang === "PT" ? "br" : (lang.toLowerCase() as "en" | "fr");
   const h = content[locale];
   return (
-    <section
-      id="our-technology"
-      className="relative overflow-hidden bg-[#F9F9F9] py-28 md:py-36"
-    >
+    <section id="our-technology" className="relative overflow-hidden bg-[#F9F9F9] py-28 md:py-36">
       {/* Grid backdrop */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.035]"
@@ -408,12 +445,9 @@ export function OurTechnology() {
             {h.kicker}
           </span>
           <h1 className="mt-5 font-editorial text-4xl leading-[1.05] text-[#004B57] md:text-6xl">
-            {h.titleA}{" "}
-            <span className="italic">{h.titleB}</span>
+            {h.titleA} <span className="italic">{h.titleB}</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
-            {h.sub}
-          </p>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/70">{h.sub}</p>
           <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-teal/60 to-transparent" />
         </div>
 
@@ -437,9 +471,7 @@ export function OurTechnology() {
               <TealAccent />
             </div>
 
-            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
-              {h.retina.description}
-            </p>
+            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">{h.retina.description}</p>
 
             <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
@@ -526,9 +558,7 @@ export function OurTechnology() {
                       {h.why.solvedBy}
                     </span>
                     <span className="h-px w-8 bg-teal/40" />
-                    <span className="font-editorial text-lg">
-                      E-Guard Retina™
-                    </span>
+                    <span className="font-editorial text-lg">E-Guard Retina™</span>
                   </div>
                 </div>
 
@@ -550,9 +580,7 @@ export function OurTechnology() {
                       {h.why.solvedBy}
                     </span>
                     <span className="h-px w-8 bg-mint/40" />
-                    <span className="font-editorial text-lg">
-                      E-Guard Circadian™
-                    </span>
+                    <span className="font-editorial text-lg">E-Guard Circadian™</span>
                   </div>
                 </div>
               </div>

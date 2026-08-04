@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Eyegis Headless Content
  * Description: Painel editorial e API de conteúdo para o front-end React da Eyegis.
- * Version: 2.0.0-beta.1
+ * Version: 2.0.0-beta.2
  * Author: Eyegis
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Eyegis_Headless_Content {
-	const VERSION       = '2.0.0-beta.1';
+	const VERSION       = '2.0.0-beta.2';
 	const POST_TYPE     = 'eyegis_document';
 	const META_KEY      = '_eyegis_document_json';
 	const DRAFT_META_KEY = '_eyegis_document_draft_json';
@@ -903,6 +903,7 @@ final class Eyegis_Headless_Content {
 					$changed = true;
 				} else {
 					$merged = $this->merge_missing_values( $stored, $document['content'] );
+					$merged = $this->apply_seed_migrations( $key, $merged, $document['content'] );
 					if ( $merged !== $stored ) {
 						update_post_meta(
 							$existing_id,
@@ -910,6 +911,19 @@ final class Eyegis_Headless_Content {
 							wp_json_encode( $merged, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES )
 						);
 						$changed = true;
+					}
+
+					$draft = json_decode( (string) get_post_meta( $existing_id, self::DRAFT_META_KEY, true ), true );
+					if ( is_array( $draft ) ) {
+						$migrated_draft = $this->apply_seed_migrations( $key, $draft, $document['content'] );
+						if ( $migrated_draft !== $draft ) {
+							update_post_meta(
+								$existing_id,
+								self::DRAFT_META_KEY,
+								wp_json_encode( $migrated_draft, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES )
+							);
+							$changed = true;
+						}
 					}
 				}
 				if ( $changed ) {
@@ -961,6 +975,67 @@ final class Eyegis_Headless_Content {
 			}
 		}
 		return $merged;
+	}
+
+	private function apply_seed_migrations( $document_key, $stored, $defaults ) {
+		$migrations = array(
+			'women' => array(
+				'FR.eyebrow'     => 'Collection · Women',
+				'FR.title'        => "Women's Collection",
+				'FR.titleAccent'  => 'for those who create.',
+				'FR.subtitle'     => 'A cat-eye in tortoise acetate with a discreet gold shield-G on the temple.',
+				'FR.ctaLabel'     => 'Shop on Amazon',
+			),
+			'kids' => array(
+				'FR.eyebrow'     => 'Collection · Kids & Teens',
+				'FR.title'        => 'Protection',
+				'FR.titleAccent'  => 'for the screen generation.',
+				'FR.subtitle'     => 'Lightweight, flexible, impact-resistant frames — for study, gaming and remote learning.',
+				'FR.ctaLabel'     => 'Shop the Kids collection',
+			),
+			'about' => array(
+				'FR.title'   => 'Our Story',
+				'FR.mission' => 'We believe design and engineering should walk together.',
+			),
+			'faq' => array(
+				'FR.questions.0.q' => 'What is Eyegis?',
+				'FR.questions.0.a' => 'Eyegis is an eyewear brand focused on digital protection and premium design.',
+			),
+		);
+
+		if ( empty( $migrations[ $document_key ] ) ) {
+			return $stored;
+		}
+
+		$migrated = $stored;
+		foreach ( $migrations[ $document_key ] as $path => $obsolete_value ) {
+			$this->replace_seed_value_if_unchanged( $migrated, $defaults, $path, $obsolete_value );
+		}
+		return $migrated;
+	}
+
+	private function replace_seed_value_if_unchanged( &$stored, $defaults, $path, $obsolete_value ) {
+		$segments       = explode( '.', $path );
+		$stored_cursor  =& $stored;
+		$default_cursor = $defaults;
+
+		foreach ( $segments as $index => $segment ) {
+			$is_last = count( $segments ) - 1 === $index;
+			if ( ! is_array( $stored_cursor ) || ! is_array( $default_cursor ) ) {
+				return;
+			}
+			if ( ! array_key_exists( $segment, $stored_cursor ) || ! array_key_exists( $segment, $default_cursor ) ) {
+				return;
+			}
+			if ( $is_last ) {
+				if ( $stored_cursor[ $segment ] === $obsolete_value ) {
+					$stored_cursor[ $segment ] = $default_cursor[ $segment ];
+				}
+				return;
+			}
+			$stored_cursor  =& $stored_cursor[ $segment ];
+			$default_cursor = $default_cursor[ $segment ];
+		}
 	}
 
 	private function is_list_array( $value ) {

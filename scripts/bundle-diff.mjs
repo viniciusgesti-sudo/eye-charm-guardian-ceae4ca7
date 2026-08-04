@@ -18,19 +18,12 @@
  * chunk-level diffs are produced. That keeps normal CI fast; run with
  * `BUNDLE_STATS=1` locally when investigating growth.
  */
-import {
-  readdirSync,
-  statSync,
-  existsSync,
-  readFileSync,
-  writeFileSync,
-  mkdirSync,
-} from "node:fs";
+import { readdirSync, statSync, existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
-const CLIENT_DIR = join(ROOT, "dist", "client");
-const SERVER_DIR = join(ROOT, "dist", "server");
+const CLIENT_DIR = join(ROOT, ".output", "public");
+const SERVER_DIR = join(ROOT, ".output", "server");
 const REPORTS_DIR = join(ROOT, "reports");
 const BASELINE_PATH = join(ROOT, "bundle-stats.baseline.json");
 
@@ -50,8 +43,7 @@ function walk(dir) {
 }
 
 // -------- VLQ decoder (source-map v3) --------
-const B64 =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 const B64_IDX = new Int8Array(128).fill(-1);
 for (let i = 0; i < B64.length; i++) B64_IDX[B64.charCodeAt(i)] = i;
 
@@ -120,9 +112,7 @@ function attributeBytes(code, mapJson) {
 
 // -------- Collect chunks + modules --------
 function collectChunks(dir) {
-  const files = walk(dir).filter((f) =>
-    /\.(m?js|css)$/.test(f) && !f.endsWith(".map"),
-  );
+  const files = walk(dir).filter((f) => /\.(m?js|css)$/.test(f) && !f.endsWith(".map"));
   const chunks = [];
   for (const f of files) {
     const size = statSync(f).size;
@@ -255,9 +245,10 @@ function diffBundle(cur, base) {
     const curSize = c?.size ?? null;
     const baseSize = b?.size ?? null;
     const delta = (curSize ?? 0) - (baseSize ?? 0);
-    const moduleDiff = c?.modules || b?.modules
-      ? diffMap(c?.modules, b?.modules).filter((r) => r.delta !== 0)
-      : null;
+    const moduleDiff =
+      c?.modules || b?.modules
+        ? diffMap(c?.modules, b?.modules).filter((r) => r.delta !== 0)
+        : null;
     chunkRows.push({
       chunk: k,
       current: curSize,

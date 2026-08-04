@@ -22,11 +22,14 @@ const META = {
 
 export const Route = createFileRoute("/$locale/lenses")({
   head: ({ params }) => {
-    const m = META[(params.locale as keyof typeof META)] ?? META.en;
+    const locale = (params.locale in META ? params.locale : "br") as "br" | "en" | "fr";
+    const m = META[locale];
     return buildSeo({
       title: m.title,
       description: m.description,
-      path: `/${params.locale}/lenses`,
+      path: `/${locale}/lenses`,
+      locale,
+      localizedBasePath: "/lenses",
     });
   },
   component: LensesPage,

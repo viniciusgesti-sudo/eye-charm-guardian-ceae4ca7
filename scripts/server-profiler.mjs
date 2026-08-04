@@ -2,7 +2,7 @@
 // Server bundle profiler — ranks the largest server chunks and emits
 // automatic reduction suggestions based on shape/heuristics.
 //
-// Reads dist/server/**, groups by _ssr / _libs / routes / other, prints a
+// Reads .output/server/**, groups by _ssr / _libs / routes / other, prints a
 // ranked table, writes JSON + HTML reports to dist/reports/server-profile.*
 // and dist/reports/server-profile.md. Never fails the build — pure advice.
 
@@ -10,11 +10,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const SERVER_DIR = path.join(ROOT, "dist", "server");
+const SERVER_DIR = path.join(ROOT, ".output", "server");
 const OUT_DIR = path.join(ROOT, "dist", "reports");
 
 if (!fs.existsSync(SERVER_DIR)) {
-  console.error("[server-profiler] dist/server not found — run the build first.");
+  console.error("[server-profiler] .output/server not found — run the build first.");
   process.exit(0);
 }
 
@@ -26,8 +26,7 @@ function walk(dir, acc = []) {
     const p = path.join(dir, name);
     const st = fs.statSync(p);
     if (st.isDirectory()) walk(p, acc);
-    else if (name.endsWith(".mjs") || name.endsWith(".js"))
-      acc.push({ path: p, size: st.size });
+    else if (name.endsWith(".mjs") || name.endsWith(".js")) acc.push({ path: p, size: st.size });
   }
   return acc;
 }
@@ -51,19 +50,33 @@ function suggestionsFor(entry, source) {
   if (entry.kind === "vendor" && kb >= SUGGEST_MIN_KB) {
     const name = path.basename(rel, ".mjs");
     if (/zod/i.test(name))
-      s.push("Vendor zod is imported on the server. Consider replacing schemas with hand-rolled guards on hot SSR paths, or lazy-import zod inside the handler that needs it.");
+      s.push(
+        "Vendor zod is imported on the server. Consider replacing schemas with hand-rolled guards on hot SSR paths, or lazy-import zod inside the handler that needs it.",
+      );
     else if (/tanstack__react-query|query-core/i.test(name))
-      s.push("react-query pulled server-side. Ensure QueryClient is instantiated per request and no client-only devtools are imported at module scope.");
+      s.push(
+        "react-query pulled server-side. Ensure QueryClient is instantiated per request and no client-only devtools are imported at module scope.",
+      );
     else if (/tanstack/i.test(name))
-      s.push("TanStack vendor chunk. Audit for accidental imports of `@tanstack/react-router-devtools` or `Link` in server-only utils.");
+      s.push(
+        "TanStack vendor chunk. Audit for accidental imports of `@tanstack/react-router-devtools` or `Link` in server-only utils.",
+      );
     else if (/lucide-react/i.test(name))
-      s.push("lucide-react ships every icon it sees imported. Prefer `import { Foo } from 'lucide-react'` (already tree-shakeable) and remove unused icons from shared components.");
+      s.push(
+        "lucide-react ships every icon it sees imported. Prefer `import { Foo } from 'lucide-react'` (already tree-shakeable) and remove unused icons from shared components.",
+      );
     else if (/radix-ui/i.test(name))
-      s.push("Radix primitives are heavy in SSR. Move purely interactive widgets behind `<ClientOnly>` / dynamic import so they leave the server graph.");
+      s.push(
+        "Radix primitives are heavy in SSR. Move purely interactive widgets behind `<ClientOnly>` / dynamic import so they leave the server graph.",
+      );
     else if (/unenv|h3|srvx|hookable/i.test(name))
-      s.push("Runtime shim — usually unavoidable, but confirm no Node-only polyfills are pulled through custom server helpers.");
+      s.push(
+        "Runtime shim — usually unavoidable, but confirm no Node-only polyfills are pulled through custom server helpers.",
+      );
     else
-      s.push("Large vendor chunk. Confirm it is used by SSR; if only client code needs it, move imports behind dynamic() to keep it out of `_libs/`.");
+      s.push(
+        "Large vendor chunk. Confirm it is used by SSR; if only client code needs it, move imports behind dynamic() to keep it out of `_libs/`.",
+      );
   }
 
   if (entry.kind === "ssr-component" && kb >= SUGGEST_MIN_KB) {
@@ -72,23 +85,35 @@ function suggestionsFor(entry, source) {
       const strings = (src.match(/"[^"\n]{40,}"/g) ?? []).length;
       const svgs = (src.match(/<svg/gi) ?? []).length;
       if (svgs >= 3)
-        s.push(`Contains ${svgs} inline <svg>. Extract to shared .svg?react imports or a single icon module so SSR emits them once.`);
+        s.push(
+          `Contains ${svgs} inline <svg>. Extract to shared .svg?react imports or a single icon module so SSR emits them once.`,
+        );
       if (strings >= 40)
-        s.push(`~${strings} long literal strings — likely marketing copy. Externalize copy into a JSON or .ts locale module shared across locales to dedupe.`);
+        s.push(
+          `~${strings} long literal strings — likely marketing copy. Externalize copy into a JSON or .ts locale module shared across locales to dedupe.`,
+        );
       if (lines > 400)
-        s.push(`Component is ${lines} lines. Split subsections into sibling files so route bundles only pull what they render.`);
+        s.push(
+          `Component is ${lines} lines. Split subsections into sibling files so route bundles only pull what they render.`,
+        );
       if (/from ["']lucide-react["']/.test(src)) {
         const iconCount = (src.match(/from ["']lucide-react["']/g) ?? []).length;
         if (iconCount > 4)
-          s.push("Multiple lucide-react imports in one file — consolidate at the top and drop unused ones.");
+          s.push(
+            "Multiple lucide-react imports in one file — consolidate at the top and drop unused ones.",
+          );
       }
     }
     if (s.length === 0)
-      s.push("Large SSR component. Consider moving below-the-fold blocks behind `React.lazy` + `<Suspense>` to shrink the server chunk.");
+      s.push(
+        "Large SSR component. Consider moving below-the-fold blocks behind `React.lazy` + `<Suspense>` to shrink the server chunk.",
+      );
   }
 
   if (entry.kind === "route" && kb >= SUGGEST_MIN_KB)
-    s.push("Route chunk carries too much inline JSX. Extract page body into a component under `src/components/**` and `React.lazy` it from the route.");
+    s.push(
+      "Route chunk carries too much inline JSX. Extract page body into a component under `src/components/**` and `React.lazy` it from the route.",
+    );
 
   return s;
 }
@@ -138,12 +163,14 @@ const top = files.slice(0, TOP_N).map((entry) => {
 
 // --- Print ---
 const fmtKB = (b) => `${(b / 1024).toFixed(1)} KB`;
-console.log("\n[server-profiler] dist/server profile");
+console.log("\n[server-profiler] .output/server profile");
 console.log(`  total: ${fmtKB(total)}  (${files.length} files)`);
 console.log("  by kind:");
 for (const [k, v] of Object.entries(byKind).sort((a, b) => b[1].bytes - a[1].bytes)) {
   const pct = ((v.bytes / total) * 100).toFixed(1);
-  console.log(`    ${k.padEnd(16)} ${fmtKB(v.bytes).padStart(10)}  ${pct.padStart(5)}%   (${v.count})`);
+  console.log(
+    `    ${k.padEnd(16)} ${fmtKB(v.bytes).padStart(10)}  ${pct.padStart(5)}%   (${v.count})`,
+  );
 }
 
 console.log(`\n  top ${TOP_N} chunks:`);
@@ -178,8 +205,9 @@ const md = [
   `| --- | ---: | ---: | ---: |`,
   ...Object.entries(byKind)
     .sort((a, b) => b[1].bytes - a[1].bytes)
-    .map(([k, v]) =>
-      `| ${k} | ${fmtKB(v.bytes)} | ${((v.bytes / total) * 100).toFixed(1)}% | ${v.count} |`,
+    .map(
+      ([k, v]) =>
+        `| ${k} | ${fmtKB(v.bytes)} | ${((v.bytes / total) * 100).toFixed(1)}% | ${v.count} |`,
     ),
   ``,
   `## Top ${TOP_N} chunks & next targets`,
@@ -187,7 +215,9 @@ const md = [
   ...top.flatMap((e) => [
     `### ${e.rel} — ${fmtKB(e.bytes)} (${e.pctOfTotal}%)`,
     e.sourceFile ? `- source: \`${e.sourceFile}\`` : `- source: _unresolved_`,
-    ...(e.suggestions.length ? e.suggestions.map((s) => `- ${s}`) : [`- No specific suggestion — inspect manually.`]),
+    ...(e.suggestions.length
+      ? e.suggestions.map((s) => `- ${s}`)
+      : [`- No specific suggestion — inspect manually.`]),
     ``,
   ]),
 ].join("\n");
@@ -203,12 +233,24 @@ table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border-bottom:1px 
 <p><small>${json.generatedAt}</small></p>
 <p><b>Total:</b> ${fmtKB(total)} · ${files.length} files</p>
 <h2>By kind</h2><table><tr><th>Kind</th><th class=kb>Size</th><th class=kb>Share</th><th class=kb>Files</th></tr>
-${Object.entries(byKind).sort((a,b)=>b[1].bytes-a[1].bytes).map(([k,v])=>`<tr><td>${k}</td><td class=kb>${fmtKB(v.bytes)}</td><td class=kb>${((v.bytes/total)*100).toFixed(1)}%</td><td class=kb>${v.count}</td></tr>`).join("")}
+${Object.entries(byKind)
+  .sort((a, b) => b[1].bytes - a[1].bytes)
+  .map(
+    ([k, v]) =>
+      `<tr><td>${k}</td><td class=kb>${fmtKB(v.bytes)}</td><td class=kb>${((v.bytes / total) * 100).toFixed(1)}%</td><td class=kb>${v.count}</td></tr>`,
+  )
+  .join("")}
 </table>
 <h2>Top ${TOP_N} chunks &amp; next targets</h2>
-${top.map(e=>`<div class=chunk><h3>${e.rel} <span class=pct>${fmtKB(e.bytes)} · ${e.pctOfTotal}%</span></h3>
-${e.sourceFile?`<p>source: <code>${e.sourceFile}</code></p>`:`<p><i>source unresolved</i></p>`}
-<ul>${(e.suggestions.length?e.suggestions:["No specific suggestion — inspect manually."]).map(s=>`<li>${s}</li>`).join("")}</ul></div>`).join("")}
+${top
+  .map(
+    (
+      e,
+    ) => `<div class=chunk><h3>${e.rel} <span class=pct>${fmtKB(e.bytes)} · ${e.pctOfTotal}%</span></h3>
+${e.sourceFile ? `<p>source: <code>${e.sourceFile}</code></p>` : `<p><i>source unresolved</i></p>`}
+<ul>${(e.suggestions.length ? e.suggestions : ["No specific suggestion — inspect manually."]).map((s) => `<li>${s}</li>`).join("")}</ul></div>`,
+  )
+  .join("")}
 `;
 fs.writeFileSync(path.join(OUT_DIR, "server-profile.html"), html);
 

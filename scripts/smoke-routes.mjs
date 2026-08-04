@@ -35,10 +35,7 @@ const LOCALIZED = [
   "/compliance",
 ];
 const NON_LOCALIZED = ["/", "/about", "/technology", "/lenses", "/contact", "/faq"];
-const ROUTES = [
-  ...NON_LOCALIZED,
-  ...LOCALES.flatMap((l) => LOCALIZED.map((p) => `/${l}${p}`)),
-];
+const ROUTES = [...NON_LOCALIZED, ...LOCALES.flatMap((l) => LOCALIZED.map((p) => `/${l}${p}`))];
 
 // Header/footer link expectations. We check the *href pattern*, not the label,
 // so translations don't break the test. Each entry is a regex tested against
@@ -58,6 +55,36 @@ const FOOTER_LINKS = [
   { name: "compliance", re: /href="\/(?:br|en|fr)\/compliance"/ },
 ];
 
+const PRODUCTION_ORIGIN = "https://eyegis-eyewear.com";
+const HTML_LANG = { br: "pt-BR", en: "en", fr: "fr" };
+const HREFLANG = { br: "pt-BR", en: "en", fr: "fr" };
+const LOCALIZED_H1 = {
+  br: {
+    "": "Eyegis, engenharia para a visão e design para o estilo.",
+    "/men": "Coleção Masculina para quem vive em telas.",
+    "/women": "Coleção Feminina para quem cria e escreve.",
+    "/kids": "Proteção para a geração das telas.",
+    "/technology": "Duas lentes. Duas horas do dia.",
+    "/about": "Nossa História",
+  },
+  en: {
+    "": "Eyegis, engineered for vision and designed for style.",
+    "/men": "Men's Collection for the screen-bound day.",
+    "/women": "Women's Collection for those who create.",
+    "/kids": "Protection for the screen generation.",
+    "/technology": "Two lenses. Two hours of the day.",
+    "/about": "Our Story",
+  },
+  fr: {
+    "": "Eyegis, l'ingénierie de la vision et le design du style.",
+    "/men": "Collection Homme pour la journée sur écran.",
+    "/women": "Collection Femme pour celles qui créent.",
+    "/kids": "Protection pour la génération écran.",
+    "/technology": "Deux verres. Deux heures du jour.",
+    "/about": "Notre Histoire",
+  },
+};
+
 // Stricter contract for /about — the page is the most link-shared entry point
 // after the home hero, so a regression here (missing nav item, mistranslated
 // label, broken href) is the fastest way to notice a visual/nav regression.
@@ -67,47 +94,47 @@ const FOOTER_LINKS = [
 const ABOUT_CONTRACT = {
   br: {
     header: [
-      { label: "Homem",             href: "/br/men" },
-      { label: "Mulher",            href: "/br/women" },
-      { label: "Kids & Teens",      href: "/br/kids" },
+      { label: "Homem", href: "/br/men" },
+      { label: "Mulher", href: "/br/women" },
+      { label: "Kids & Teens", href: "/br/kids" },
       { label: "Escolha suas lentes", href: "/br/lenses" },
-      { label: "Nossa Tecnologia",  href: "/br/technology" },
-      { label: "Sobre a Eyegis",    href: "/br/about" },
+      { label: "Nossa Tecnologia", href: "/br/technology" },
+      { label: "Sobre a Eyegis", href: "/br/about" },
     ],
     footer: [
-      { label: "Termos de Uso",              href: "/br/legal" },
-      { label: "Política de Privacidade",    href: "/br/privacy" },
+      { label: "Termos de Uso", href: "/br/legal" },
+      { label: "Política de Privacidade", href: "/br/privacy" },
       { label: "Declaração de Conformidade", href: "/br/compliance" },
     ],
   },
   en: {
     header: [
-      { label: "Men",               href: "/en/men" },
-      { label: "Women",             href: "/en/women" },
-      { label: "Kids & Teens",      href: "/en/kids" },
+      { label: "Men", href: "/en/men" },
+      { label: "Women", href: "/en/women" },
+      { label: "Kids & Teens", href: "/en/kids" },
       { label: "Choose your lenses", href: "/en/lenses" },
-      { label: "Our Technology",    href: "/en/technology" },
-      { label: "About Eyegis",      href: "/en/about" },
+      { label: "Our Technology", href: "/en/technology" },
+      { label: "About Eyegis", href: "/en/about" },
     ],
     footer: [
-      { label: "Website Terms of Use",       href: "/en/legal" },
-      { label: "Privacy Policy",             href: "/en/privacy" },
-      { label: "Declaration of Compliance",  href: "/en/compliance" },
+      { label: "Website Terms of Use", href: "/en/legal" },
+      { label: "Privacy Policy", href: "/en/privacy" },
+      { label: "Declaration of Compliance", href: "/en/compliance" },
     ],
   },
   fr: {
     header: [
-      { label: "Homme",             href: "/fr/men" },
-      { label: "Femme",             href: "/fr/women" },
-      { label: "Enfants & Ados",    href: "/fr/kids" },
+      { label: "Homme", href: "/fr/men" },
+      { label: "Femme", href: "/fr/women" },
+      { label: "Enfants & Ados", href: "/fr/kids" },
       { label: "Choisir ses verres", href: "/fr/lenses" },
       { label: "Notre Technologie", href: "/fr/technology" },
       { label: "À propos d'Eyegis", href: "/fr/about" },
     ],
     footer: [
-      { label: "Mentions légales",              href: "/fr/legal" },
-      { label: "Politique de confidentialité",  href: "/fr/privacy" },
-      { label: "Déclaration de conformité",     href: "/fr/compliance" },
+      { label: "Mentions légales", href: "/fr/legal" },
+      { label: "Politique de confidentialité", href: "/fr/privacy" },
+      { label: "Déclaration de conformité", href: "/fr/compliance" },
     ],
   },
 };
@@ -133,7 +160,9 @@ function extractAnchors(html) {
     const attrs = m[1];
     const hrefMatch = attrs.match(/\shref="([^"]*)"/i) ?? attrs.match(/^href="([^"]*)"/i);
     if (!hrefMatch) continue;
-    const label = decodeEntities(m[2].replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+    const label = decodeEntities(m[2].replace(/<[^>]+>/g, " "))
+      .replace(/\s+/g, " ")
+      .trim();
     out.push({ href: hrefMatch[1], label });
   }
   return out;
@@ -145,9 +174,7 @@ function checkAboutContract(html, locale) {
   if (!contract) return problems;
   const anchors = extractAnchors(html);
   for (const expected of [...contract.header, ...contract.footer]) {
-    const hit = anchors.find(
-      (a) => a.href === expected.href && a.label === expected.label,
-    );
+    const hit = anchors.find((a) => a.href === expected.href && a.label === expected.label);
     if (hit) continue;
     // Distinguish "href missing" from "href present but label drifted".
     const hrefHit = anchors.find((a) => a.href === expected.href);
@@ -162,8 +189,6 @@ function checkAboutContract(html, locale) {
   return problems;
 }
 
-
-
 const BAD_TITLES = new Set(["Lovable App", "Lovable Generated Project", ""]);
 
 function extractTitle(html) {
@@ -176,10 +201,22 @@ function extractH1s(html) {
   const re = /<h1\b[^>]*>([\s\S]*?)<\/h1>/gi;
   let m;
   while ((m = re.exec(html))) {
-    const text = m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const text = decodeEntities(m[1].replace(/<[^>]+>/g, " "))
+      .replace(/\s+/g, " ")
+      .trim();
     if (text) out.push(text);
   }
   return out;
+}
+
+function extractAttribute(tag, attribute) {
+  const match = tag.match(new RegExp(`\\s${attribute}="([^"]*)"`, "i"));
+  return match?.[1] ?? null;
+}
+
+function extractLinksByRel(html, rel) {
+  const tags = html.match(/<link\b[^>]*>/gi) ?? [];
+  return tags.filter((tag) => extractAttribute(tag, "rel") === rel);
 }
 
 async function checkRoute(path) {
@@ -210,6 +247,41 @@ async function checkRoute(path) {
   // there so the smoke test surfaces real regressions, not architecture noise.
   const isLocalized = /^\/(?:br|en|fr)(?:\/|$)/.test(finalUrl);
   if (isLocalized) {
+    const [, locale, localizedPath = ""] = finalUrl.match(/^\/(br|en|fr)(\/.*)?$/) ?? [];
+    const htmlLang = html.match(/<html\b[^>]*\slang="([^"]+)"/i)?.[1] ?? null;
+    if (htmlLang !== HTML_LANG[locale]) {
+      problems.push(`html lang mismatch: expected "${HTML_LANG[locale]}", got "${htmlLang}"`);
+    }
+
+    const canonicalTags = extractLinksByRel(html, "canonical");
+    const canonical =
+      canonicalTags.length === 1 ? extractAttribute(canonicalTags[0], "href") : null;
+    const expectedCanonical = `${PRODUCTION_ORIGIN}${finalUrl}`;
+    if (canonical !== expectedCanonical) {
+      problems.push(`canonical mismatch: expected "${expectedCanonical}", got "${canonical}"`);
+    }
+
+    const alternates = new Map(
+      extractLinksByRel(html, "alternate").map((tag) => [
+        extractAttribute(tag, "hrefLang"),
+        extractAttribute(tag, "href"),
+      ]),
+    );
+    for (const alt of LOCALES) {
+      const expected = `${PRODUCTION_ORIGIN}/${alt}${localizedPath}`;
+      if (alternates.get(HREFLANG[alt]) !== expected) {
+        problems.push(`hreflang ${HREFLANG[alt]} mismatch`);
+      }
+    }
+    if (alternates.get("x-default") !== `${PRODUCTION_ORIGIN}/br${localizedPath}`) {
+      problems.push("hreflang x-default mismatch");
+    }
+
+    const expectedH1 = LOCALIZED_H1[locale]?.[localizedPath];
+    if (expectedH1 && h1s[0] !== expectedH1) {
+      problems.push(`localized h1 mismatch: expected "${expectedH1}", got "${h1s[0]}"`);
+    }
+
     for (const link of HEADER_LINKS) {
       if (!link.re.test(html)) problems.push(`header link missing: ${link.name}`);
     }
@@ -218,16 +290,18 @@ async function checkRoute(path) {
     }
   }
 
+  if (html.includes("eye-charm-guardian.lovable.app")) {
+    problems.push("legacy Lovable domain leaked into rendered HTML");
+  }
+
   // Stricter per-locale contract for /about (label + href pairs).
   const aboutMatch = finalUrl.match(/^\/(br|en|fr)\/about\/?$/);
   if (aboutMatch) {
     problems.push(...checkAboutContract(html, aboutMatch[1]));
   }
 
-
   return { path, status, title, h1: h1s[0] ?? null, problems };
 }
-
 
 console.log(`Route smoke test against ${BASE}\n`);
 const results = await Promise.all(ROUTES.map(checkRoute));

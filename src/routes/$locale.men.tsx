@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
-
+import { buildSeo, SITE } from "@/lib/seo";
 
 import heroZenith from "@/assets/hero-zenith-man.jpg?url";
 import heroZenithSrc from "@/assets/hero-zenith-man.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
@@ -20,7 +19,8 @@ const COPY = {
     eyebrow: menData.PT?.eyebrow,
     title: (
       <>
-        {menData.PT?.title}<br />
+        {menData.PT?.title}
+        <br />
         <span className="italic text-mint">{menData.PT?.titleAccent}</span>
       </>
     ),
@@ -33,7 +33,8 @@ const COPY = {
     eyebrow: menData.EN?.eyebrow,
     title: (
       <>
-        {menData.EN?.title}<br />
+        {menData.EN?.title}
+        <br />
         <span className="italic text-mint">{menData.EN?.titleAccent}</span>
       </>
     ),
@@ -46,7 +47,8 @@ const COPY = {
     eyebrow: menData.FR?.eyebrow,
     title: (
       <>
-        {menData.FR?.title}<br />
+        {menData.FR?.title}
+        <br />
         <span className="italic text-mint">{menData.FR?.titleAccent}</span>
       </>
     ),
@@ -57,7 +59,6 @@ const COPY = {
   },
 } as const;
 
-
 export const Route = createFileRoute("/$locale/men")({
   head: ({ params }) => {
     const locale = (params.locale in COPY ? params.locale : "br") as "br" | "en" | "fr";
@@ -66,7 +67,7 @@ export const Route = createFileRoute("/$locale/men")({
       title: c.metaTitle,
       description: c.metaDesc,
       path: `/${locale}/men`,
-      image: `https://eye-charm-guardian.lovable.app${heroZenith}`,
+      image: `${SITE}${heroZenith}`,
       locale,
       localizedBasePath: "/men",
     });
@@ -78,13 +79,19 @@ export const Route = createFileRoute("/$locale/men")({
 function MenPage() {
   const { locale } = Route.useParams();
   const content = useContentDocument<typeof menData>("men", menData);
-  const lang = locale === "br" ? "PT" : locale.toUpperCase() as "EN" | "FR";
+  const lang = locale === "br" ? "PT" : (locale.toUpperCase() as "EN" | "FR");
   const page = content[lang] ?? content.PT;
   return (
     <>
       <PageHero
         eyebrow={page.eyebrow}
-        title={<>{page.title}<br /><span className="italic text-mint">{page.titleAccent}</span></>}
+        title={
+          <>
+            {page.title}
+            <br />
+            <span className="italic text-mint">{page.titleAccent}</span>
+          </>
+        }
         subtitle={page.subtitle}
         bgImage={heroZenith}
         bgSource={heroZenithSrc}
@@ -93,7 +100,7 @@ function MenPage() {
       />
       <Collection audience="men" />
       <LifestyleUniverse audience="men" compact />
-      
+
       <ShopOnAmazon />
       <FAQ />
     </>

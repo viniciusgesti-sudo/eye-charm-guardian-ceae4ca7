@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "documents": [
     {
       "key": "media",
@@ -1498,18 +1498,12 @@
           },
           "hero": {
             "eyebrow": "— Customer Care",
-            "title": [
-              "We're here",
-              "to help."
-            ],
+            "title": ["We're here", "to help."],
             "body": "Whether you have questions about our products, technology, warranty or your Amazon order, our team is ready to assist you."
           },
           "s1": {
             "rule": "01 — How can we help",
-            "title": [
-              "Choose the door",
-              "that fits your question."
-            ],
+            "title": ["Choose the door", "that fits your question."],
             "options": [
               {
                 "k": "General Questions",
@@ -1535,11 +1529,7 @@
           },
           "s2": {
             "rule": "02 — Write to Us",
-            "title": [
-              "A message,",
-              "answered by",
-              "a real person."
-            ],
+            "title": ["A message,", "answered by", "a real person."],
             "body": "Expect a reply within one business day, from a member of our care team — never an automated system.",
             "labels": {
               "care": "Care",
@@ -1573,10 +1563,7 @@
           },
           "s3": {
             "rule": "03 — Customer Support",
-            "title": [
-              "Support for every",
-              "part of ownership."
-            ],
+            "title": ["Support for every", "part of ownership."],
             "categories": [
               "Product Questions",
               "Order Assistance",
@@ -1594,10 +1581,7 @@
           },
           "s5": {
             "rule": "05 — Follow Eyegis",
-            "title": [
-              "Meet the brand,",
-              "wherever you are."
-            ],
+            "title": ["Meet the brand,", "wherever you are."],
             "follow": "Follow →",
             "socials": [
               {
@@ -1634,10 +1618,7 @@
           },
           "s6": {
             "rule": "06 — Business Hours",
-            "title": [
-              "When our team",
-              "is at the desk."
-            ],
+            "title": ["When our team", "is at the desk."],
             "body": "Times shown in Central European Time (CET). Our international team covers extended hours across time zones.",
             "hours": [
               {
@@ -1656,10 +1637,7 @@
           },
           "s7": {
             "rule": "07 — Global Support",
-            "title": [
-              "Support that",
-              "speaks globally."
-            ],
+            "title": ["Support that", "speaks globally."],
             "body": "Active support across three continents today, expanding to Asia, Oceania and the Middle East next.",
             "countries": [
               {
@@ -1703,10 +1681,7 @@
           },
           "s8": {
             "rule": "08 — Common Questions",
-            "title": [
-              "Jump straight",
-              "to an answer."
-            ],
+            "title": ["Jump straight", "to an answer."],
             "read": "Read",
             "quickLinks": [
               {
@@ -1736,10 +1711,7 @@
             ]
           },
           "cta": {
-            "title": [
-              "Let's make your",
-              "digital life more comfortable."
-            ],
+            "title": ["Let's make your", "digital life more comfortable."],
             "amazon": "Buy on Amazon",
             "collections": "Explore Collections",
             "lenses": "Learn About EyegisGuard™"
@@ -1778,18 +1750,12 @@
           },
           "hero": {
             "eyebrow": "— Atendimento",
-            "title": [
-              "Estamos aqui",
-              "para ajudar."
-            ],
+            "title": ["Estamos aqui", "para ajudar."],
             "body": "Se você tem perguntas sobre nossos produtos, tecnologia, garantia ou seu pedido na Amazon, nossa equipe está pronta para atender."
           },
           "s1": {
             "rule": "01 — Como podemos ajudar",
-            "title": [
-              "Escolha a porta",
-              "para a sua pergunta."
-            ],
+            "title": ["Escolha a porta", "para a sua pergunta."],
             "options": [
               {
                 "k": "Dúvidas Gerais",
@@ -1815,11 +1781,7 @@
           },
           "s2": {
             "rule": "02 — Escreva para Nós",
-            "title": [
-              "Uma mensagem,",
-              "respondida por",
-              "uma pessoa real."
-            ],
+            "title": ["Uma mensagem,", "respondida por", "uma pessoa real."],
             "body": "Resposta em até um dia útil, feita por um membro da nossa equipe — nunca por um sistema automatizado.",
             "labels": {
               "care": "Atendimento",
@@ -1853,10 +1815,7 @@
           },
           "s3": {
             "rule": "03 — Suporte ao Cliente",
-            "title": [
-              "Suporte em cada",
-              "parte da experiência."
-            ],
+            "title": ["Suporte em cada", "parte da experiência."],
             "categories": [
               "Dúvidas de Produto",
               "Ajuda com Pedido",
@@ -1874,10 +1833,7 @@
           },
           "s5": {
             "rule": "05 — Siga a Eyegis",
-            "title": [
-              "Conheça a marca,",
-              "onde você estiver."
-            ],
+            "title": ["Conheça a marca,", "onde você estiver."],
             "follow": "Seguir →",
             "socials": [
               {
@@ -1914,10 +1870,7 @@
           },
           "s6": {
             "rule": "06 — Horário de Atendimento",
-            "title": [
-              "Quando nossa equipe",
-              "está na mesa."
-            ],
+            "title": ["Quando nossa equipe", "está na mesa."],
             "body": "Horários em Horário da Europa Central (CET). Nossa equipe internacional cobre horários estendidos em vários fusos.",
             "hours": [
               {
@@ -1936,10 +1889,7 @@
           },
           "s7": {
             "rule": "07 — Suporte Global",
-            "title": [
-              "Um suporte que",
-              "fala globalmente."
-            ],
+            "title": ["Um suporte que", "fala globalmente."],
             "body": "Suporte ativo em três continentes hoje, expandindo em breve para Ásia, Oceania e Oriente Médio.",
             "countries": [
               {
@@ -1983,10 +1933,7 @@
           },
           "s8": {
             "rule": "08 — Perguntas Frequentes",
-            "title": [
-              "Vá direto",
-              "para a resposta."
-            ],
+            "title": ["Vá direto", "para a resposta."],
             "read": "Ler",
             "quickLinks": [
               {
@@ -2016,10 +1963,7 @@
             ]
           },
           "cta": {
-            "title": [
-              "Vamos tornar sua",
-              "vida digital mais confortável."
-            ],
+            "title": ["Vamos tornar sua", "vida digital mais confortável."],
             "amazon": "Comprar na Amazon",
             "collections": "Explorar Coleções",
             "lenses": "Conheça a EyegisGuard™"
@@ -2058,18 +2002,12 @@
           },
           "hero": {
             "eyebrow": "— Service Client",
-            "title": [
-              "Nous sommes là",
-              "pour vous aider."
-            ],
+            "title": ["Nous sommes là", "pour vous aider."],
             "body": "Que vous ayez des questions sur nos produits, notre technologie, la garantie ou votre commande Amazon, notre équipe est prête à vous répondre."
           },
           "s1": {
             "rule": "01 — Comment aider",
-            "title": [
-              "Choisissez la porte",
-              "qui correspond à votre question."
-            ],
+            "title": ["Choisissez la porte", "qui correspond à votre question."],
             "options": [
               {
                 "k": "Questions Générales",
@@ -2095,11 +2033,7 @@
           },
           "s2": {
             "rule": "02 — Écrivez-nous",
-            "title": [
-              "Un message,",
-              "une réponse par",
-              "une vraie personne."
-            ],
+            "title": ["Un message,", "une réponse par", "une vraie personne."],
             "body": "Réponse sous un jour ouvré, par un membre de notre équipe — jamais par un système automatisé.",
             "labels": {
               "care": "Service",
@@ -2133,10 +2067,7 @@
           },
           "s3": {
             "rule": "03 — Service Client",
-            "title": [
-              "Un support pour chaque",
-              "étape de la possession."
-            ],
+            "title": ["Un support pour chaque", "étape de la possession."],
             "categories": [
               "Questions produit",
               "Aide commande",
@@ -2154,10 +2085,7 @@
           },
           "s5": {
             "rule": "05 — Suivez Eyegis",
-            "title": [
-              "Rencontrez la marque,",
-              "où que vous soyez."
-            ],
+            "title": ["Rencontrez la marque,", "où que vous soyez."],
             "follow": "Suivre →",
             "socials": [
               {
@@ -2194,10 +2122,7 @@
           },
           "s6": {
             "rule": "06 — Horaires",
-            "title": [
-              "Quand notre équipe",
-              "est au bureau."
-            ],
+            "title": ["Quand notre équipe", "est au bureau."],
             "body": "Horaires en Heure d'Europe Centrale (CET). Notre équipe internationale couvre des plages étendues à travers les fuseaux horaires.",
             "hours": [
               {
@@ -2216,10 +2141,7 @@
           },
           "s7": {
             "rule": "07 — Support Global",
-            "title": [
-              "Un support qui",
-              "parle mondialement."
-            ],
+            "title": ["Un support qui", "parle mondialement."],
             "body": "Support actif sur trois continents aujourd'hui, avec une expansion prévue vers l'Asie, l'Océanie et le Moyen-Orient.",
             "countries": [
               {
@@ -2263,10 +2185,7 @@
           },
           "s8": {
             "rule": "08 — Questions Fréquentes",
-            "title": [
-              "Accédez directement",
-              "à la réponse."
-            ],
+            "title": ["Accédez directement", "à la réponse."],
             "read": "Lire",
             "quickLinks": [
               {
@@ -2296,10 +2215,7 @@
             ]
           },
           "cta": {
-            "title": [
-              "Rendons votre",
-              "vie numérique plus confortable."
-            ],
+            "title": ["Rendons votre", "vie numérique plus confortable."],
             "amazon": "Acheter sur Amazon",
             "collections": "Explorer les collections",
             "lenses": "Découvrir EyegisGuard™"
@@ -2344,11 +2260,7 @@
           },
           "hero": {
             "kicker": "— Fulfilled by Amazon",
-            "title": [
-              "Simple.",
-              "Fast.",
-              "Trusted."
-            ],
+            "title": ["Simple.", "Fast.", "Trusted."],
             "lead": "Every Eyegis purchase is fulfilled through Amazon — providing a secure shopping experience, fast delivery and reliable customer support in every marketplace we serve."
           },
           "why": {
@@ -2377,10 +2289,7 @@
           },
           "steps": {
             "rule": "02 — How Your Order Works",
-            "title": [
-              "Six quiet steps",
-              "from click to comfort."
-            ],
+            "title": ["Six quiet steps", "from click to comfort."],
             "stepLabel": "Step 0{n}",
             "items": [
               {
@@ -2411,10 +2320,7 @@
           },
           "delivery": {
             "rule": "03 — Delivery",
-            "title": [
-              "Delivered by the world's",
-              "largest logistics network."
-            ],
+            "title": ["Delivered by the world's", "largest logistics network."],
             "paragraphs": [
               "Delivery times vary depending on your country and Amazon marketplace, and are quoted in real time at checkout.",
               "Amazon Prime members may benefit from faster, complimentary shipping wherever Prime is available.",
@@ -2423,10 +2329,7 @@
           },
           "returns": {
             "rule": "04 — Returns",
-            "title": [
-              "Three scenarios,",
-              "one calm answer."
-            ],
+            "title": ["Three scenarios,", "one calm answer."],
             "items": [
               {
                 "tag": "01 — Arrives damaged",
@@ -2467,10 +2370,7 @@
           },
           "faq": {
             "rule": "06 — Questions",
-            "title": [
-              "Everything else,",
-              "answered."
-            ],
+            "title": ["Everything else,", "answered."],
             "lead": "Still stuck? The Eyegis Care team responds within one business day.",
             "items": [
               {
@@ -2501,10 +2401,7 @@
           },
           "support": {
             "rule": "07 — Customer Support",
-            "title": [
-              "Need help?",
-              "A real person is waiting."
-            ],
+            "title": ["Need help?", "A real person is waiting."],
             "lead": "For product, comfort or warranty questions — write to us. For shipping or refunds, open your Amazon order directly.",
             "tiles": [
               {
@@ -2533,16 +2430,8 @@
           },
           "store": {
             "rule": "08 — Official Amazon Store",
-            "title": [
-              "The official",
-              "Eyegis store."
-            ],
-            "bullets": [
-              "Verified Products",
-              "Secure Checkout",
-              "Fast Delivery",
-              "Trusted Reviews"
-            ],
+            "title": ["The official", "Eyegis store."],
+            "bullets": ["Verified Products", "Secure Checkout", "Fast Delivery", "Trusted Reviews"],
             "amazon": "Buy on Amazon",
             "collections": "Explore Collections",
             "footer": "Eyegis © 2026 — Shipping & Returns",
@@ -2559,11 +2448,7 @@
           },
           "hero": {
             "kicker": "— Entregue pela Amazon",
-            "title": [
-              "Simples.",
-              "Rápido.",
-              "Confiável."
-            ],
+            "title": ["Simples.", "Rápido.", "Confiável."],
             "lead": "Cada compra Eyegis é processada pela Amazon — proporcionando uma experiência segura, entrega rápida e suporte confiável em cada mercado que atendemos."
           },
           "why": {
@@ -2592,10 +2477,7 @@
           },
           "steps": {
             "rule": "02 — Como Funciona Seu Pedido",
-            "title": [
-              "Seis passos tranquilos",
-              "do clique ao conforto."
-            ],
+            "title": ["Seis passos tranquilos", "do clique ao conforto."],
             "stepLabel": "Etapa 0{n}",
             "items": [
               {
@@ -2626,10 +2508,7 @@
           },
           "delivery": {
             "rule": "03 — Entrega",
-            "title": [
-              "Entregue pela maior",
-              "rede logística do mundo."
-            ],
+            "title": ["Entregue pela maior", "rede logística do mundo."],
             "paragraphs": [
               "Os prazos de entrega variam de acordo com seu país e marketplace Amazon, e são calculados em tempo real no checkout.",
               "Membros Amazon Prime podem se beneficiar de envio mais rápido e gratuito onde o Prime estiver disponível.",
@@ -2638,10 +2517,7 @@
           },
           "returns": {
             "rule": "04 — Devoluções",
-            "title": [
-              "Três cenários,",
-              "uma resposta tranquila."
-            ],
+            "title": ["Três cenários,", "uma resposta tranquila."],
             "items": [
               {
                 "tag": "01 — Chega danificado",
@@ -2682,10 +2558,7 @@
           },
           "faq": {
             "rule": "06 — Perguntas",
-            "title": [
-              "Todo o resto,",
-              "respondido."
-            ],
+            "title": ["Todo o resto,", "respondido."],
             "lead": "Ainda com dúvidas? A equipe Eyegis Care responde em até um dia útil.",
             "items": [
               {
@@ -2716,10 +2589,7 @@
           },
           "support": {
             "rule": "07 — Suporte ao Cliente",
-            "title": [
-              "Precisa de ajuda?",
-              "Uma pessoa real está esperando."
-            ],
+            "title": ["Precisa de ajuda?", "Uma pessoa real está esperando."],
             "lead": "Para dúvidas de produto, conforto ou garantia — escreva-nos. Para envio ou reembolsos, abra seu pedido Amazon diretamente.",
             "tiles": [
               {
@@ -2748,10 +2618,7 @@
           },
           "store": {
             "rule": "08 — Loja Oficial Amazon",
-            "title": [
-              "A loja oficial",
-              "Eyegis."
-            ],
+            "title": ["A loja oficial", "Eyegis."],
             "bullets": [
               "Produtos Verificados",
               "Checkout Seguro",
@@ -2774,11 +2641,7 @@
           },
           "hero": {
             "kicker": "— Expédié par Amazon",
-            "title": [
-              "Simple.",
-              "Rapide.",
-              "De confiance."
-            ],
+            "title": ["Simple.", "Rapide.", "De confiance."],
             "lead": "Chaque achat Eyegis est expédié via Amazon — offrant une expérience d'achat sécurisée, une livraison rapide et un support fiable dans chaque marché que nous servons."
           },
           "why": {
@@ -2807,10 +2670,7 @@
           },
           "steps": {
             "rule": "02 — Comment Fonctionne Votre Commande",
-            "title": [
-              "Six étapes tranquilles",
-              "du clic au confort."
-            ],
+            "title": ["Six étapes tranquilles", "du clic au confort."],
             "stepLabel": "Étape 0{n}",
             "items": [
               {
@@ -2841,10 +2701,7 @@
           },
           "delivery": {
             "rule": "03 — Livraison",
-            "title": [
-              "Livré par le plus grand",
-              "réseau logistique au monde."
-            ],
+            "title": ["Livré par le plus grand", "réseau logistique au monde."],
             "paragraphs": [
               "Les délais de livraison varient selon votre pays et le marketplace Amazon, et sont indiqués en temps réel au checkout.",
               "Les membres Amazon Prime peuvent bénéficier d'une livraison plus rapide et gratuite là où Prime est disponible.",
@@ -2853,10 +2710,7 @@
           },
           "returns": {
             "rule": "04 — Retours",
-            "title": [
-              "Trois scénarios,",
-              "une réponse sereine."
-            ],
+            "title": ["Trois scénarios,", "une réponse sereine."],
             "items": [
               {
                 "tag": "01 — Arrive endommagé",
@@ -2897,10 +2751,7 @@
           },
           "faq": {
             "rule": "06 — Questions",
-            "title": [
-              "Tout le reste,",
-              "répondu."
-            ],
+            "title": ["Tout le reste,", "répondu."],
             "lead": "Encore bloqué ? L'équipe Eyegis Care répond sous un jour ouvré.",
             "items": [
               {
@@ -2931,10 +2782,7 @@
           },
           "support": {
             "rule": "07 — Service Client",
-            "title": [
-              "Besoin d'aide ?",
-              "Une vraie personne vous attend."
-            ],
+            "title": ["Besoin d'aide ?", "Une vraie personne vous attend."],
             "lead": "Pour les questions produit, confort ou garantie — écrivez-nous. Pour la livraison ou les remboursements, ouvrez directement votre commande Amazon.",
             "tiles": [
               {
@@ -2963,10 +2811,7 @@
           },
           "store": {
             "rule": "08 — Boutique Officielle Amazon",
-            "title": [
-              "La boutique officielle",
-              "Eyegis."
-            ],
+            "title": ["La boutique officielle", "Eyegis."],
             "bullets": [
               "Produits Vérifiés",
               "Paiement Sécurisé",
@@ -2992,10 +2837,7 @@
           "knowledgeCenter": "Knowledge Center",
           "back": "← Eyegis",
           "eyebrow": "— FAQ & Knowledge",
-          "h1": [
-            "Questions,",
-            "answered beautifully."
-          ],
+          "h1": ["Questions,", "answered beautifully."],
           "intro": "Everything you need to know about Eyegis — our lenses, shipping, warranty and digital eye comfort.",
           "searchPlaceholder": "Search for answers...",
           "searchAria": "Search FAQ",
@@ -3035,10 +2877,7 @@
             }
           },
           "stillNeedRule": "Still need help",
-          "stillNeedH2": [
-            "Didn't find",
-            "your answer?"
-          ],
+          "stillNeedH2": ["Didn't find", "your answer?"],
           "stillNeedIntro": "Our care team responds within one business day — from a real person, in your language when available.",
           "ctaContact": "Contact Us",
           "ctaAmazon": "Visit Amazon Store",
@@ -3060,41 +2899,27 @@
                 {
                   "q": "What does Honest Science™ mean at Eyegis?",
                   "a": "Honest Science™ is our commitment to describe what our lenses do optically — not to promise how you will feel wearing them. E-Guard Retina™ and E-Guard Circadian™ use selective filtering: they act only on the specific wavelengths of visible light involved in digital eye strain and evening exposure, and let the rest of the spectrum pass through so colors stay true.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "How does selective filtering work?",
                   "a": "Selective filtering means the lens targets a narrow, specific portion of the visible spectrum — the wavelengths linked to digital eye strain and to evening light exposure — while remaining highly transparent everywhere else. It is not a tint applied over your vision.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "Do Eyegis lenses change how colors look?",
                   "a": "No. Because the filtering is selective and not a broad tint, colors on your screen and around you keep their true appearance — which matters for designers, photographers and anyone working with color.",
-                  "related": [
-                    "lenses"
-                  ]
+                  "related": ["lenses"]
                 },
                 {
                   "q": "Why don't your lenses have an orange or yellow tint?",
                   "a": "Heavily tinted lenses filter a wide portion of the spectrum, which distorts whites and colors. E-Guard Retina™ and E-Guard Circadian™ filter selectively instead, so you keep color fidelity without a visible cast.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "What is different from ordinary blue-light glasses?",
                   "a": "Many lenses on the market either filter too little to be meaningful, or filter so broadly that they distort color. Eyegis is engineered around selective filtering and around frames worthy of daily wear — and we describe exactly what the lens does, nothing more.",
-                  "related": [
-                    "technology",
-                    "collections"
-                  ]
+                  "related": ["technology", "collections"]
                 }
               ]
             },
@@ -3105,39 +2930,27 @@
                 {
                   "q": "Which collection is right for me?",
                   "a": "Use the Choose Your Lens experience — a short guided flow that recommends the best Eyegis collection based on how you actually use screens.",
-                  "related": [
-                    "lenses",
-                    "collections"
-                  ]
+                  "related": ["lenses", "collections"]
                 },
                 {
                   "q": "Can I wear Eyegis every day?",
                   "a": "Yes. Every frame is designed for all-day comfort and timeless style — not a technical accessory you take off between meetings.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "Are the frames lightweight?",
                   "a": "Eyegis frames are engineered with TR90 and β-titanium for an ultralight feel — designed to disappear on your face during long wear.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "What materials are used?",
                   "a": "Ultralight TR90, hypoallergenic β-titanium, Italian acetate and stainless spring hinges — chosen for longevity, comfort and repairability.",
-                  "related": [
-                    "collections",
-                    "warranty"
-                  ]
+                  "related": ["collections", "warranty"]
                 },
                 {
                   "q": "Can I wear them with headphones?",
                   "a": "Yes. Slim TR90 temples are designed to sit comfortably under most audio and gaming headsets.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 }
               ]
             },
@@ -3148,31 +2961,22 @@
                 {
                   "q": "Do blue-light glasses really work?",
                   "a": "It depends entirely on how the lens is engineered. Many products on the market either filter too little to be meaningful, or filter so broadly that they distort color. Eyegis uses selective filtering — the lens acts only on the specific wavelengths of visible light involved in digital eye strain and evening exposure. We describe what the lens does optically and let you judge the comfort — that is why every pair is backed by a 60-day comfort guarantee.",
-                  "related": [
-                    "technology",
-                    "warranty"
-                  ]
+                  "related": ["technology", "warranty"]
                 },
                 {
                   "q": "What does current research say?",
                   "a": "Peer-reviewed research on symptomatic relief remains mixed. That is precisely why Honest Science™ exists: we describe how the lens filters light — selectively, on a narrow portion of the spectrum — rather than promising a specific outcome.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Does Eyegis make medical claims?",
                   "a": "No. Eyegis is a lifestyle eyewear brand. We do not diagnose, treat or cure any condition. Consult a qualified optometrist for medical advice.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Why does Honest Science™ matter?",
                   "a": "The blue-light category is full of unverifiable promises. Honest Science™ means we only describe what our lenses actually do — selective filtering on specific wavelengths, without a tint over your vision — and never sell a feeling or a percentage of relief.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 }
               ]
             },
@@ -3183,30 +2987,22 @@
                 {
                   "q": "Where can I buy Eyegis?",
                   "a": "Eyegis is sold exclusively through the official Amazon Store in supported marketplaces.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Why do purchases happen through Amazon?",
                   "a": "Amazon offers secure checkout, fast global logistics and trusted returns — freeing us to focus on the product itself.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Can I use Amazon Prime?",
                   "a": "Yes. Where Prime is available, Eyegis products are eligible for Prime shipping and returns.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "How do I track my order?",
                   "a": "All orders are tracked end-to-end inside your Amazon account.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3217,23 +3013,17 @@
                 {
                   "q": "How long does delivery take?",
                   "a": "Delivery times vary by country and Amazon marketplace and are quoted in real time at checkout.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Which countries are supported?",
                   "a": "Eyegis currently ships across the United States, Canada, United Kingdom, France, Germany, Italy, Spain and Brazil, with more markets on the roadmap.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "How is shipping calculated?",
                   "a": "Shipping cost is calculated by Amazon based on your marketplace, delivery speed and Prime status.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3244,25 +3034,17 @@
                 {
                   "q": "How do returns work?",
                   "a": "Returns are managed by Amazon under your local marketplace's return window and process.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 },
                 {
                   "q": "Can I exchange products?",
                   "a": "Yes — initiate a return from your Amazon order page and reorder your preferred model or size.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "What if my product arrives damaged?",
                   "a": "Report it inside your Amazon order within the return window — replacement is typically dispatched immediately.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 }
               ]
             },
@@ -3273,24 +3055,17 @@
                 {
                   "q": "What does the warranty cover?",
                   "a": "Two years of coverage against manufacturing defects — frame construction, hinges, materials, lens manufacturing and craftsmanship.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "What isn't covered?",
                   "a": "Accidental damage, drops, crushing, normal scratches, improper cleaning, heat exposure and unauthorized modifications sit outside the warranty. Paid repairs may still be available.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "How do I request support?",
                   "a": "Email care@eyegis.com with your Amazon order ID. A member of the care team replies within one business day.",
-                  "related": [
-                    "contact",
-                    "warranty"
-                  ]
+                  "related": ["contact", "warranty"]
                 }
               ]
             },
@@ -3301,31 +3076,22 @@
                 {
                   "q": "How should I clean my lenses?",
                   "a": "Use only the microfiber cloth and lens spray supplied. Rinse with lukewarm water first if the lens is dusty, then dry gently.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Can I use alcohol?",
                   "a": "No. Alcohol, ammonia and household glass cleaners will degrade lens coatings over time.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "How should I store my glasses?",
                   "a": "Return your Eyegis to its hardshell case whenever they're not on your face.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Can I travel with them?",
                   "a": "Yes — but never leave your frames in a hot car or in direct sunlight for long periods, as heat can distort the frame material.",
-                  "related": [
-                    "warranty",
-                    "shipping"
-                  ]
+                  "related": ["warranty", "shipping"]
                 }
               ]
             },
@@ -3336,16 +3102,12 @@
                 {
                   "q": "Is Eyegis a certified medical device?",
                   "a": "No. Eyegis is a premium lifestyle eyewear brand and does not sell medical devices.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "How do I contact the Eyegis team?",
                   "a": "Reach us at care@eyegis.com for product and care questions, or partners@eyegis.com for business enquiries.",
-                  "related": [
-                    "contact"
-                  ]
+                  "related": ["contact"]
                 }
               ]
             }
@@ -3355,10 +3117,7 @@
           "knowledgeCenter": "Central de Conhecimento",
           "back": "← Eyegis",
           "eyebrow": "— FAQ & Conhecimento",
-          "h1": [
-            "Perguntas,",
-            "respondidas com elegância."
-          ],
+          "h1": ["Perguntas,", "respondidas com elegância."],
           "intro": "Tudo o que você precisa saber sobre a Eyegis — nossas lentes, envio, garantia e conforto visual digital.",
           "searchPlaceholder": "Buscar respostas...",
           "searchAria": "Buscar no FAQ",
@@ -3398,10 +3157,7 @@
             }
           },
           "stillNeedRule": "Ainda precisa de ajuda",
-          "stillNeedH2": [
-            "Não encontrou",
-            "sua resposta?"
-          ],
+          "stillNeedH2": ["Não encontrou", "sua resposta?"],
           "stillNeedIntro": "Nossa equipe responde em até um dia útil — por uma pessoa real, no seu idioma quando disponível.",
           "ctaContact": "Fale Conosco",
           "ctaAmazon": "Visitar a Loja na Amazon",
@@ -3423,41 +3179,27 @@
                 {
                   "q": "O que é a Honest Science™ na Eyegis?",
                   "a": "Honest Science™ é nosso compromisso de descrever o que as lentes fazem opticamente — sem prometer como você vai se sentir usando elas. As E-Guard Retina™ e E-Guard Circadian™ usam filtragem seletiva: atuam apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna, deixando o restante do espectro passar para que as cores permaneçam fiéis.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "Como funciona a filtragem seletiva?",
                   "a": "Filtragem seletiva significa que a lente atua sobre uma faixa específica e estreita do espectro visível — os comprimentos de onda associados à fadiga visual digital e à exposição à luz no fim do dia — mantendo alta transparência em todo o restante. Não é um tom aplicado sobre a sua visão.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "As lentes Eyegis alteram as cores?",
                   "a": "Não. Como a filtragem é seletiva e não um tom amplo, as cores da sua tela e ao seu redor permanecem fiéis — essencial para designers, fotógrafos e qualquer profissional que trabalhe com cor.",
-                  "related": [
-                    "lenses"
-                  ]
+                  "related": ["lenses"]
                 },
                 {
                   "q": "Por que suas lentes não têm tom alaranjado ou amarelo?",
                   "a": "Lentes muito tingidas filtram uma faixa ampla do espectro, distorcendo brancos e cores. As E-Guard Retina™ e E-Guard Circadian™ filtram de forma seletiva, preservando a fidelidade cromática sem tom visível sobre a imagem.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "O que difere dos óculos anti-luz azul comuns?",
                   "a": "Muitas lentes no mercado filtram tão pouco que não é relevante, ou filtram de forma tão ampla que distorcem as cores. A Eyegis é desenhada em torno da filtragem seletiva e de armações à altura do uso diário — e descrevemos exatamente o que a lente faz, nada além disso.",
-                  "related": [
-                    "technology",
-                    "collections"
-                  ]
+                  "related": ["technology", "collections"]
                 }
               ]
             },
@@ -3468,39 +3210,27 @@
                 {
                   "q": "Qual coleção é ideal para mim?",
                   "a": "Use a experiência Escolha sua Lente — um guia curto que recomenda a melhor coleção Eyegis com base no seu uso real de telas.",
-                  "related": [
-                    "lenses",
-                    "collections"
-                  ]
+                  "related": ["lenses", "collections"]
                 },
                 {
                   "q": "Posso usar Eyegis todos os dias?",
                   "a": "Sim. Cada armação é desenhada para conforto o dia inteiro e estilo atemporal — não um acessório técnico que se tira entre reuniões.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "As armações são leves?",
                   "a": "As armações Eyegis são construídas em TR90 e β-titânio para uma sensação ultraleve — pensadas para desaparecer no rosto durante o uso prolongado.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "Quais materiais são utilizados?",
                   "a": "TR90 ultraleve, β-titânio hipoalergênico, acetato italiano e dobradiças de mola em aço inox — escolhidos por durabilidade, conforto e possibilidade de reparo.",
-                  "related": [
-                    "collections",
-                    "warranty"
-                  ]
+                  "related": ["collections", "warranty"]
                 },
                 {
                   "q": "Posso usar com fones de ouvido?",
                   "a": "Sim. As hastes finas em TR90 foram desenhadas para acomodar a maioria dos fones e headsets gamers.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 }
               ]
             },
@@ -3511,31 +3241,22 @@
                 {
                   "q": "Óculos anti-luz azul realmente funcionam?",
                   "a": "Depende inteiramente de como a lente é projetada. Muitos produtos no mercado filtram tão pouco que não é relevante, ou filtram de forma tão ampla que distorcem as cores. A Eyegis usa filtragem seletiva — a lente atua apenas sobre os comprimentos de onda específicos da luz visível envolvidos na fadiga visual digital e na exposição noturna. Descrevemos o que a lente faz opticamente e deixamos você julgar o conforto — por isso cada par é respaldado por 60 dias de garantia de conforto.",
-                  "related": [
-                    "technology",
-                    "warranty"
-                  ]
+                  "related": ["technology", "warranty"]
                 },
                 {
                   "q": "O que a pesquisa atual diz?",
                   "a": "As evidências científicas sobre alívio de sintomas ainda são mistas. É exatamente por isso que existe a Honest Science™: descrevemos como a lente filtra a luz — de forma seletiva, sobre uma faixa estreita do espectro — em vez de prometer um resultado específico.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "A Eyegis faz alegações médicas?",
                   "a": "Não. A Eyegis é uma marca de eyewear lifestyle. Não diagnosticamos, tratamos ou curamos condições. Consulte um oftalmologista qualificado para orientação médica.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Por que a Honest Science™ importa?",
                   "a": "A categoria de luz azul é cheia de promessas não verificáveis. Honest Science™ significa que só descrevemos o que as lentes de fato fazem — filtragem seletiva sobre comprimentos de onda específicos, sem tom sobre a sua visão — e nunca vendemos uma sensação ou um percentual de alívio.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 }
               ]
             },
@@ -3546,30 +3267,22 @@
                 {
                   "q": "Onde posso comprar Eyegis?",
                   "a": "A Eyegis é vendida exclusivamente pela loja oficial na Amazon nos marketplaces suportados.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Por que as compras são via Amazon?",
                   "a": "A Amazon oferece checkout seguro, logística global rápida e devoluções confiáveis — nos deixando livres para focar no produto.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Posso usar Amazon Prime?",
                   "a": "Sim. Onde o Prime estiver disponível, os produtos Eyegis são elegíveis a envio e devolução Prime.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Como acompanho meu pedido?",
                   "a": "Todos os pedidos são rastreados de ponta a ponta dentro da sua conta Amazon.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3580,23 +3293,17 @@
                 {
                   "q": "Quanto tempo leva a entrega?",
                   "a": "Os prazos variam conforme o país e o marketplace da Amazon, sendo exibidos em tempo real no checkout.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Quais países são atendidos?",
                   "a": "Atualmente entregamos nos Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Espanha e Brasil, com mais mercados no roadmap.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Como é calculado o frete?",
                   "a": "O frete é calculado pela Amazon conforme seu marketplace, velocidade de entrega e status Prime.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3607,25 +3314,17 @@
                 {
                   "q": "Como funcionam as devoluções?",
                   "a": "As devoluções são gerenciadas pela Amazon, conforme a janela e o processo do seu marketplace local.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 },
                 {
                   "q": "Posso trocar produtos?",
                   "a": "Sim — inicie uma devolução na página do pedido na Amazon e refaça o pedido do modelo ou tamanho desejado.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "E se o produto chegar danificado?",
                   "a": "Reporte pela sua página de pedido na Amazon dentro do prazo — a reposição costuma ser despachada imediatamente.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 }
               ]
             },
@@ -3636,24 +3335,17 @@
                 {
                   "q": "O que a garantia cobre?",
                   "a": "Dois anos de cobertura contra defeitos de fabricação — armação, dobradiças, materiais, fabricação das lentes e acabamento.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "O que não é coberto?",
                   "a": "Danos acidentais, quedas, esmagamento, arranhões normais, limpeza incorreta, exposição a calor e modificações não autorizadas ficam fora da garantia. Reparos pagos podem estar disponíveis.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Como solicito suporte?",
                   "a": "Escreva para care@eyegis.com com seu ID de pedido da Amazon. Nossa equipe responde em até um dia útil.",
-                  "related": [
-                    "contact",
-                    "warranty"
-                  ]
+                  "related": ["contact", "warranty"]
                 }
               ]
             },
@@ -3664,31 +3356,22 @@
                 {
                   "q": "Como devo limpar minhas lentes?",
                   "a": "Use apenas o pano de microfibra e o spray fornecidos. Se estiver com poeira, enxágue com água morna antes e seque com cuidado.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Posso usar álcool?",
                   "a": "Não. Álcool, amônia e produtos de limpeza de vidro comuns degradam os revestimentos ao longo do tempo.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Como devo guardar meus óculos?",
                   "a": "Volte o Eyegis para o estojo rígido sempre que não estiver com ele no rosto.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Posso viajar com eles?",
                   "a": "Sim — mas nunca deixe as armações em carros quentes ou sob sol direto por longos períodos, pois o calor pode deformar o material.",
-                  "related": [
-                    "warranty",
-                    "shipping"
-                  ]
+                  "related": ["warranty", "shipping"]
                 }
               ]
             },
@@ -3699,16 +3382,12 @@
                 {
                   "q": "A Eyegis é um dispositivo médico certificado?",
                   "a": "Não. A Eyegis é uma marca premium de eyewear lifestyle e não comercializa dispositivos médicos.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Como falo com a equipe Eyegis?",
                   "a": "Fale com a gente em care@eyegis.com para dúvidas sobre produto e cuidados, ou partners@eyegis.com para parcerias comerciais.",
-                  "related": [
-                    "contact"
-                  ]
+                  "related": ["contact"]
                 }
               ]
             }
@@ -3718,10 +3397,7 @@
           "knowledgeCenter": "Centre de Connaissance",
           "back": "← Eyegis",
           "eyebrow": "— FAQ & Connaissance",
-          "h1": [
-            "Vos questions,",
-            "des réponses justes."
-          ],
+          "h1": ["Vos questions,", "des réponses justes."],
           "intro": "Tout ce qu'il faut savoir sur Eyegis — nos verres, la livraison, la garantie et le confort visuel numérique.",
           "searchPlaceholder": "Rechercher une réponse...",
           "searchAria": "Rechercher dans la FAQ",
@@ -3761,10 +3437,7 @@
             }
           },
           "stillNeedRule": "Besoin d'aide",
-          "stillNeedH2": [
-            "Vous n'avez pas",
-            "trouvé la réponse ?"
-          ],
+          "stillNeedH2": ["Vous n'avez pas", "trouvé la réponse ?"],
           "stillNeedIntro": "Notre équipe répond sous un jour ouvré — par une vraie personne, dans votre langue quand c'est possible.",
           "ctaContact": "Nous Contacter",
           "ctaAmazon": "Visiter la Boutique Amazon",
@@ -3786,41 +3459,27 @@
                 {
                   "q": "Que signifie Honest Science™ chez Eyegis ?",
                   "a": "Honest Science™, c'est notre engagement à décrire ce que font nos verres sur le plan optique — sans promettre ce que vous allez ressentir en les portant. Les E-Guard Retina™ et E-Guard Circadian™ utilisent un filtrage sélectif : ils n'agissent que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée, et laissent passer le reste du spectre pour que les couleurs restent fidèles.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "Comment fonctionne le filtrage sélectif ?",
                   "a": "Le filtrage sélectif signifie que le verre agit sur une bande spécifique et étroite du spectre visible — les longueurs d'onde associées à la fatigue visuelle numérique et à l'exposition à la lumière en fin de journée — tout en restant très transparent sur le reste. Ce n'est pas une teinte appliquée sur votre vision.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "Les verres Eyegis modifient-ils les couleurs ?",
                   "a": "Non. Comme le filtrage est sélectif et non une teinte large, les couleurs de vos écrans et autour de vous restent fidèles — essentiel pour designers, photographes et tous les métiers de la couleur.",
-                  "related": [
-                    "lenses"
-                  ]
+                  "related": ["lenses"]
                 },
                 {
                   "q": "Pourquoi vos verres n'ont-ils pas de teinte orangée ou jaune ?",
                   "a": "Les verres très teintés filtrent une large partie du spectre et déforment les blancs et les couleurs. Les E-Guard Retina™ et E-Guard Circadian™ filtrent de manière sélective : la fidélité des couleurs est préservée, sans teinte visible sur l'image.",
-                  "related": [
-                    "technology",
-                    "lenses"
-                  ]
+                  "related": ["technology", "lenses"]
                 },
                 {
                   "q": "Quelle différence avec les lunettes anti-lumière bleue classiques ?",
                   "a": "Beaucoup de verres sur le marché filtrent soit trop peu pour être significatifs, soit de façon si large qu'ils déforment les couleurs. Eyegis est pensée autour du filtrage sélectif et de montures dignes du quotidien — et nous décrivons exactement ce que fait le verre, rien de plus.",
-                  "related": [
-                    "technology",
-                    "collections"
-                  ]
+                  "related": ["technology", "collections"]
                 }
               ]
             },
@@ -3831,39 +3490,27 @@
                 {
                   "q": "Quelle collection est faite pour moi ?",
                   "a": "Utilisez l'expérience Choisir vos Verres — un parcours guidé qui recommande la meilleure collection Eyegis selon votre usage réel des écrans.",
-                  "related": [
-                    "lenses",
-                    "collections"
-                  ]
+                  "related": ["lenses", "collections"]
                 },
                 {
                   "q": "Puis-je porter Eyegis tous les jours ?",
                   "a": "Oui. Chaque monture est pensée pour un confort toute la journée et un style intemporel — pas un accessoire technique à retirer entre deux réunions.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "Les montures sont-elles légères ?",
                   "a": "Les montures Eyegis sont conçues en TR90 et β-titane pour une sensation ultra-légère — pensées pour se faire oublier lors d'un port prolongé.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 },
                 {
                   "q": "Quels matériaux sont utilisés ?",
                   "a": "TR90 ultraléger, β-titane hypoallergénique, acétate italien et charnières à ressort en acier inoxydable — choisis pour la longévité, le confort et la réparabilité.",
-                  "related": [
-                    "collections",
-                    "warranty"
-                  ]
+                  "related": ["collections", "warranty"]
                 },
                 {
                   "q": "Puis-je les porter avec un casque ?",
                   "a": "Oui. Les branches fines en TR90 s'adaptent confortablement sous la plupart des casques audio et gaming.",
-                  "related": [
-                    "collections"
-                  ]
+                  "related": ["collections"]
                 }
               ]
             },
@@ -3874,31 +3521,22 @@
                 {
                   "q": "Les lunettes anti-lumière bleue fonctionnent-elles ?",
                   "a": "Cela dépend entièrement de la façon dont le verre est conçu. Beaucoup de produits filtrent soit trop peu pour être significatifs, soit de façon si large qu'ils déforment les couleurs. Eyegis utilise un filtrage sélectif — le verre n'agit que sur les longueurs d'onde spécifiques de la lumière visible impliquées dans la fatigue visuelle numérique et l'exposition en soirée. Nous décrivons ce que fait le verre optiquement et vous laissons juger du confort — c'est pourquoi chaque paire est couverte par 60 jours de garantie confort.",
-                  "related": [
-                    "technology",
-                    "warranty"
-                  ]
+                  "related": ["technology", "warranty"]
                 },
                 {
                   "q": "Que dit la recherche actuelle ?",
                   "a": "Les études évaluées par les pairs sur le soulagement des symptômes restent mitigées. C'est précisément pour cela qu'existe Honest Science™ : nous décrivons comment le verre filtre la lumière — de manière sélective, sur une bande étroite du spectre — plutôt que de promettre un résultat spécifique.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Eyegis fait-elle des allégations médicales ?",
                   "a": "Non. Eyegis est une marque de lunettes lifestyle. Nous ne diagnostiquons, ne traitons ni ne guérissons aucune condition. Consultez un ophtalmologiste qualifié pour un avis médical.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Pourquoi Honest Science™ est important ?",
                   "a": "La catégorie anti-lumière bleue regorge de promesses invérifiables. Honest Science™ signifie que nous décrivons uniquement ce que nos verres font réellement — un filtrage sélectif sur des longueurs d'onde spécifiques, sans teinte sur votre vision — et que nous ne vendons jamais une sensation ni un pourcentage de soulagement.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 }
               ]
             },
@@ -3909,30 +3547,22 @@
                 {
                   "q": "Où puis-je acheter Eyegis ?",
                   "a": "Eyegis est vendu exclusivement sur la boutique officielle Amazon dans les marchés pris en charge.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Pourquoi les achats se font via Amazon ?",
                   "a": "Amazon offre un paiement sécurisé, une logistique mondiale rapide et des retours fiables — ce qui nous permet de nous concentrer sur le produit.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Puis-je utiliser Amazon Prime ?",
                   "a": "Oui. Là où Prime est disponible, les produits Eyegis sont éligibles à la livraison et aux retours Prime.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Comment suivre ma commande ?",
                   "a": "Toutes les commandes sont suivies de bout en bout depuis votre compte Amazon.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3943,23 +3573,17 @@
                 {
                   "q": "Quels sont les délais de livraison ?",
                   "a": "Les délais varient selon le pays et le marché Amazon, et sont indiqués en temps réel au paiement.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Quels pays sont desservis ?",
                   "a": "Eyegis livre actuellement aux États-Unis, au Canada, au Royaume-Uni, en France, Allemagne, Italie, Espagne et au Brésil, avec d'autres marchés en préparation.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Comment le prix de livraison est-il calculé ?",
                   "a": "Le prix de livraison est calculé par Amazon selon votre marché, la vitesse choisie et votre statut Prime.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 }
               ]
             },
@@ -3970,25 +3594,17 @@
                 {
                   "q": "Comment fonctionnent les retours ?",
                   "a": "Les retours sont gérés par Amazon selon la fenêtre et la procédure de votre marché local.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 },
                 {
                   "q": "Puis-je échanger mes produits ?",
                   "a": "Oui — initiez un retour depuis votre page de commande Amazon et recommandez le modèle ou la taille souhaités.",
-                  "related": [
-                    "shipping"
-                  ]
+                  "related": ["shipping"]
                 },
                 {
                   "q": "Que faire si mon produit arrive endommagé ?",
                   "a": "Signalez-le depuis votre commande Amazon dans la fenêtre de retour — le remplacement est généralement expédié immédiatement.",
-                  "related": [
-                    "shipping",
-                    "warranty"
-                  ]
+                  "related": ["shipping", "warranty"]
                 }
               ]
             },
@@ -3999,24 +3615,17 @@
                 {
                   "q": "Que couvre la garantie ?",
                   "a": "Deux ans de couverture contre les défauts de fabrication — construction de la monture, charnières, matériaux, fabrication des verres et finitions.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Qu'est-ce qui n'est pas couvert ?",
                   "a": "Dommages accidentels, chutes, écrasement, rayures normales, mauvais nettoyage, exposition à la chaleur et modifications non autorisées ne sont pas couverts. Des réparations payantes peuvent rester possibles.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Comment demander de l'aide ?",
                   "a": "Écrivez à care@eyegis.com avec votre numéro de commande Amazon. Notre équipe répond sous un jour ouvré.",
-                  "related": [
-                    "contact",
-                    "warranty"
-                  ]
+                  "related": ["contact", "warranty"]
                 }
               ]
             },
@@ -4027,31 +3636,22 @@
                 {
                   "q": "Comment nettoyer mes verres ?",
                   "a": "Utilisez uniquement le chiffon microfibre et le spray fournis. Si les verres sont poussiéreux, rincez d'abord à l'eau tiède, puis séchez délicatement.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Puis-je utiliser de l'alcool ?",
                   "a": "Non. L'alcool, l'ammoniaque et les nettoyants pour vitres domestiques dégradent les traitements au fil du temps.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Comment ranger mes lunettes ?",
                   "a": "Remettez vos Eyegis dans leur étui rigide dès que vous ne les portez pas.",
-                  "related": [
-                    "warranty"
-                  ]
+                  "related": ["warranty"]
                 },
                 {
                   "q": "Puis-je voyager avec ?",
                   "a": "Oui — mais ne laissez jamais vos montures dans une voiture chaude ou en plein soleil trop longtemps, la chaleur peut déformer le matériau.",
-                  "related": [
-                    "warranty",
-                    "shipping"
-                  ]
+                  "related": ["warranty", "shipping"]
                 }
               ]
             },
@@ -4062,16 +3662,12 @@
                 {
                   "q": "Eyegis est-elle un dispositif médical certifié ?",
                   "a": "Non. Eyegis est une marque premium de lunettes lifestyle et ne commercialise pas de dispositifs médicaux.",
-                  "related": [
-                    "technology"
-                  ]
+                  "related": ["technology"]
                 },
                 {
                   "q": "Comment contacter l'équipe Eyegis ?",
                   "a": "Écrivez à care@eyegis.com pour les questions produit et entretien, ou partners@eyegis.com pour les demandes commerciales.",
-                  "related": [
-                    "contact"
-                  ]
+                  "related": ["contact"]
                 }
               ]
             }
@@ -4090,23 +3686,13 @@
           },
           "hero": {
             "kicker": "— Ownership",
-            "title": [
-              "Designed to last.",
-              "Backed with confidence."
-            ],
+            "title": ["Designed to last.", "Backed with confidence."],
             "lead": "Every pair of Eyegis glasses is engineered with premium materials and backed by a comprehensive warranty and comfort guarantee.",
-            "badges": [
-              "2-Year Warranty",
-              "60-Day Comfort Guarantee",
-              "Individually Inspected"
-            ]
+            "badges": ["2-Year Warranty", "60-Day Comfort Guarantee", "Individually Inspected"]
           },
           "promise": {
             "rule": "01 — Our Promise",
-            "title": [
-              "Confidence begins",
-              "before your first wear."
-            ],
+            "title": ["Confidence begins", "before your first wear."],
             "lead": "Every Eyegis frame is covered by a 2-Year Manufacturing Warranty and our exclusive 60-Day Comfort Guarantee — a commitment to the object you wear every day.",
             "stats": {
               "yr": "2 yr",
@@ -4162,20 +3748,14 @@
           },
           "comfort": {
             "rule": "04 — 60-Day Comfort Guarantee",
-            "title": [
-              "Comfort should never",
-              "be a gamble."
-            ],
+            "title": ["Comfort should never", "be a gamble."],
             "lead": "If you don't experience the visual comfort you expect from Eyegis, our team will work directly with you to find the best solution — whether that's a fit adjustment, a different collection, or a full resolution through Amazon.",
             "disclaimer": "A customer satisfaction commitment. Not a medical guarantee.",
             "cta": "Reach the Care Team"
           },
           "qc": {
             "rule": "05 — Quality Control",
-            "title": [
-              "Five checkpoints.",
-              "Every single pair."
-            ],
+            "title": ["Five checkpoints.", "Every single pair."],
             "lead": "Before an Eyegis frame is boxed, it passes through a five-stage inspection process — each stage signed off by a real person, not a scanner.",
             "steps": [
               {
@@ -4203,10 +3783,7 @@
           },
           "care": {
             "rule": "06 — Care Guide",
-            "title": [
-              "Small rituals.",
-              "A frame that lasts."
-            ],
+            "title": ["Small rituals.", "A frame that lasts."],
             "items": [
               {
                 "k": "Cleaning",
@@ -4260,10 +3837,7 @@
             "tileIndex": "0{n}"
           },
           "cta": {
-            "title": [
-              "Buy with",
-              "confidence."
-            ],
+            "title": ["Buy with", "confidence."],
             "lead": "Every pair is protected by our 2-Year Warranty and 60-Day Comfort Guarantee.",
             "amazon": "Buy on Amazon",
             "collections": "Explore Collections",
@@ -4280,10 +3854,7 @@
           },
           "hero": {
             "kicker": "— Propriedade",
-            "title": [
-              "Feito para durar.",
-              "Respaldado com confiança."
-            ],
+            "title": ["Feito para durar.", "Respaldado com confiança."],
             "lead": "Cada par de óculos Eyegis é projetado com materiais premium e respaldado por uma garantia abrangente e uma garantia de conforto.",
             "badges": [
               "Garantia de 2 Anos",
@@ -4293,10 +3864,7 @@
           },
           "promise": {
             "rule": "01 — Nosso Compromisso",
-            "title": [
-              "A confiança começa",
-              "antes do primeiro uso."
-            ],
+            "title": ["A confiança começa", "antes do primeiro uso."],
             "lead": "Cada armação Eyegis é coberta por uma Garantia de Fabricação de 2 Anos e nossa Garantia exclusiva de Conforto de 60 Dias — um compromisso com o objeto que você usa todos os dias.",
             "stats": {
               "yr": "2 anos",
@@ -4352,20 +3920,14 @@
           },
           "comfort": {
             "rule": "04 — Garantia de Conforto de 60 Dias",
-            "title": [
-              "O conforto nunca deve",
-              "ser uma aposta."
-            ],
+            "title": ["O conforto nunca deve", "ser uma aposta."],
             "lead": "Se você não sentir o conforto visual que espera do Eyegis, nossa equipe trabalhará diretamente com você para encontrar a melhor solução — seja um ajuste, uma coleção diferente ou uma resolução completa pela Amazon.",
             "disclaimer": "Um compromisso de satisfação do cliente. Não é uma garantia médica.",
             "cta": "Falar com o Atendimento"
           },
           "qc": {
             "rule": "05 — Controle de Qualidade",
-            "title": [
-              "Cinco verificações.",
-              "Cada par."
-            ],
+            "title": ["Cinco verificações.", "Cada par."],
             "lead": "Antes de uma armação Eyegis ser embalada, ela passa por um processo de inspeção em cinco etapas — cada etapa aprovada por uma pessoa real, não um scanner.",
             "steps": [
               {
@@ -4393,10 +3955,7 @@
           },
           "care": {
             "rule": "06 — Guia de Cuidados",
-            "title": [
-              "Pequenos rituais.",
-              "Uma armação que dura."
-            ],
+            "title": ["Pequenos rituais.", "Uma armação que dura."],
             "items": [
               {
                 "k": "Limpeza",
@@ -4450,10 +4009,7 @@
             "tileIndex": "0{n}"
           },
           "cta": {
-            "title": [
-              "Compre com",
-              "confiança."
-            ],
+            "title": ["Compre com", "confiança."],
             "lead": "Cada par é protegido pela nossa Garantia de 2 Anos e Garantia de Conforto de 60 Dias.",
             "amazon": "Comprar na Amazon",
             "collections": "Explorar Coleções",
@@ -4470,23 +4026,13 @@
           },
           "hero": {
             "kicker": "— Possession",
-            "title": [
-              "Conçu pour durer.",
-              "Soutenu avec confiance."
-            ],
+            "title": ["Conçu pour durer.", "Soutenu avec confiance."],
             "lead": "Chaque paire de lunettes Eyegis est conçue avec des matériaux premium et soutenue par une garantie complète et une garantie de confort.",
-            "badges": [
-              "Garantie 2 ans",
-              "Garantie confort 60 jours",
-              "Inspecté individuellement"
-            ]
+            "badges": ["Garantie 2 ans", "Garantie confort 60 jours", "Inspecté individuellement"]
           },
           "promise": {
             "rule": "01 — Notre Promesse",
-            "title": [
-              "La confiance commence",
-              "avant votre premier port."
-            ],
+            "title": ["La confiance commence", "avant votre premier port."],
             "lead": "Chaque monture Eyegis est couverte par une Garantie de Fabrication de 2 ans et notre Garantie exclusive de Confort de 60 jours — un engagement envers l'objet que vous portez chaque jour.",
             "stats": {
               "yr": "2 ans",
@@ -4542,20 +4088,14 @@
           },
           "comfort": {
             "rule": "04 — Garantie Confort 60 jours",
-            "title": [
-              "Le confort ne doit jamais",
-              "être un pari."
-            ],
+            "title": ["Le confort ne doit jamais", "être un pari."],
             "lead": "Si vous ne ressentez pas le confort visuel attendu d'Eyegis, notre équipe travaillera directement avec vous pour trouver la meilleure solution — que ce soit un ajustement, une autre collection ou une résolution complète via Amazon.",
             "disclaimer": "Un engagement de satisfaction client. Pas une garantie médicale.",
             "cta": "Contacter le Service"
           },
           "qc": {
             "rule": "05 — Contrôle Qualité",
-            "title": [
-              "Cinq contrôles.",
-              "Chaque paire."
-            ],
+            "title": ["Cinq contrôles.", "Chaque paire."],
             "lead": "Avant qu'une monture Eyegis ne soit emballée, elle passe par un processus d'inspection en cinq étapes — chaque étape validée par une personne réelle, pas un scanner.",
             "steps": [
               {
@@ -4583,10 +4123,7 @@
           },
           "care": {
             "rule": "06 — Guide d'Entretien",
-            "title": [
-              "Petits rituels.",
-              "Une monture qui dure."
-            ],
+            "title": ["Petits rituels.", "Une monture qui dure."],
             "items": [
               {
                 "k": "Nettoyage",
@@ -4640,10 +4177,7 @@
             "tileIndex": "0{n}"
           },
           "cta": {
-            "title": [
-              "Achetez en toute",
-              "confiance."
-            ],
+            "title": ["Achetez en toute", "confiance."],
             "lead": "Chaque paire est protégée par notre Garantie 2 ans et notre Garantie Confort 60 jours.",
             "amazon": "Acheter sur Amazon",
             "collections": "Explorer les Collections",
@@ -4776,11 +4310,11 @@
           "ctaLabel": "Shop the Kids collection"
         },
         "FR": {
-          "eyebrow": "Collection · Kids & Teens",
+          "eyebrow": "Collection · Enfants & Ados",
           "title": "Protection",
-          "titleAccent": "for the screen generation.",
-          "subtitle": "Lightweight, flexible, impact-resistant frames — for study, gaming and remote learning.",
-          "ctaLabel": "Shop the Kids collection"
+          "titleAccent": "pour la génération écran.",
+          "subtitle": "Des montures légères, flexibles et résistantes aux chocs — pour étudier, jouer et apprendre à distance.",
+          "ctaLabel": "Voir la collection Enfants"
         }
       }
     },
@@ -4814,12 +4348,7 @@
               "label": "Everyday Digital Life",
               "eyebrow": "Card 01 · 3–6 hours daily",
               "hours": "3 – 6 h",
-              "contexts": [
-                "Office",
-                "Email",
-                "Browsing",
-                "Meetings"
-              ],
+              "contexts": ["Office", "Email", "Browsing", "Meetings"],
               "desc": "For people who spend a moderate part of the day in front of screens and value elegance in everyday wear.",
               "collection": "Men · Everyday",
               "cta": "Discover Men's Collection",
@@ -4834,13 +4363,7 @@
               "label": "Creative Performance",
               "eyebrow": "Card 02 · 6–8 hours daily",
               "hours": "6 – 8 h",
-              "contexts": [
-                "Designers",
-                "Editors",
-                "Photographers",
-                "Architects",
-                "Developers"
-              ],
+              "contexts": ["Designers", "Editors", "Photographers", "Architects", "Developers"],
               "desc": "For long creative sessions where accurate color perception and sustained comfort matter most.",
               "collection": "Women · Creative",
               "cta": "Discover Women's Collection",
@@ -4855,13 +4378,7 @@
               "label": "Maximum Screen Exposure",
               "eyebrow": "Card 03 · 8+ hours daily",
               "hours": "8 h +",
-              "contexts": [
-                "Gamers",
-                "Streamers",
-                "Remote work",
-                "Traders",
-                "Multi-monitor"
-              ],
+              "contexts": ["Gamers", "Streamers", "Remote work", "Traders", "Multi-monitor"],
               "desc": "For people whose daily routine involves multiple screens, extended focus and demanding sessions.",
               "collection": "Men · Business",
               "cta": "Discover Men's Collection",
@@ -4896,33 +4413,21 @@
               "key": "clear",
               "name": "EyegisGuard™ Clear",
               "tagline": "For everyday moderate screen use.",
-              "bestFor": [
-                "Office",
-                "Reading",
-                "Meetings"
-              ],
+              "bestFor": ["Office", "Reading", "Meetings"],
               "scoresLabel": "Best for"
             },
             {
               "key": "shield",
               "name": "EyegisGuard™ Shield",
               "tagline": "For creative professionals and long sessions.",
-              "bestFor": [
-                "Design",
-                "Photography",
-                "Editing"
-              ],
+              "bestFor": ["Design", "Photography", "Editing"],
               "scoresLabel": "Best for"
             },
             {
               "key": "pro",
               "name": "EyegisGuard™ Pro",
               "tagline": "For maximum daily screen exposure.",
-              "bestFor": [
-                "Gaming",
-                "Trading",
-                "Streaming"
-              ],
+              "bestFor": ["Gaming", "Trading", "Streaming"],
               "scoresLabel": "Best for"
             }
           ],
@@ -5061,12 +4566,7 @@
               "label": "Vida Digital Diária",
               "eyebrow": "Cartão 01 · 3–6 horas por dia",
               "hours": "3 – 6 h",
-              "contexts": [
-                "Escritório",
-                "E-mail",
-                "Navegação",
-                "Reuniões"
-              ],
+              "contexts": ["Escritório", "E-mail", "Navegação", "Reuniões"],
               "desc": "Para quem passa uma parte moderada do dia em frente às telas e valoriza elegância no uso diário.",
               "collection": "Homem · Diário",
               "cta": "Conhecer Men's Collection",
@@ -5081,13 +4581,7 @@
               "label": "Performance Criativa",
               "eyebrow": "Cartão 02 · 6–8 horas por dia",
               "hours": "6 – 8 h",
-              "contexts": [
-                "Designers",
-                "Editores",
-                "Fotógrafos",
-                "Arquitetos",
-                "Desenvolvedores"
-              ],
+              "contexts": ["Designers", "Editores", "Fotógrafos", "Arquitetos", "Desenvolvedores"],
               "desc": "Para sessões criativas longas, onde percepção precisa de cor e conforto contínuo são essenciais.",
               "collection": "Mulher · Criativo",
               "cta": "Conhecer Women's Collection",
@@ -5102,13 +4596,7 @@
               "label": "Exposição Máxima a Telas",
               "eyebrow": "Cartão 03 · 8+ horas por dia",
               "hours": "8 h +",
-              "contexts": [
-                "Gamers",
-                "Streamers",
-                "Trabalho remoto",
-                "Traders",
-                "Multi-monitores"
-              ],
+              "contexts": ["Gamers", "Streamers", "Trabalho remoto", "Traders", "Multi-monitores"],
               "desc": "Para quem convive com múltiplas telas, foco prolongado e sessões exigentes.",
               "collection": "Homem · Business",
               "cta": "Conhecer Men's Collection",
@@ -5143,33 +4631,21 @@
               "key": "clear",
               "name": "EyegisGuard™ Clear",
               "tagline": "Para uso moderado diário de telas.",
-              "bestFor": [
-                "Escritório",
-                "Leitura",
-                "Reuniões"
-              ],
+              "bestFor": ["Escritório", "Leitura", "Reuniões"],
               "scoresLabel": "Ideal para"
             },
             {
               "key": "shield",
               "name": "EyegisGuard™ Shield",
               "tagline": "Para profissionais criativos e sessões longas.",
-              "bestFor": [
-                "Design",
-                "Fotografia",
-                "Edição"
-              ],
+              "bestFor": ["Design", "Fotografia", "Edição"],
               "scoresLabel": "Ideal para"
             },
             {
               "key": "pro",
               "name": "EyegisGuard™ Pro",
               "tagline": "Para máxima exposição diária a telas.",
-              "bestFor": [
-                "Gaming",
-                "Trading",
-                "Streaming"
-              ],
+              "bestFor": ["Gaming", "Trading", "Streaming"],
               "scoresLabel": "Ideal para"
             }
           ],
@@ -5308,12 +4784,7 @@
               "label": "Vie numérique quotidienne",
               "eyebrow": "Carte 01 · 3–6 heures par jour",
               "hours": "3 – 6 h",
-              "contexts": [
-                "Bureau",
-                "E-mail",
-                "Navigation",
-                "Réunions"
-              ],
+              "contexts": ["Bureau", "E-mail", "Navigation", "Réunions"],
               "desc": "Pour celles et ceux qui passent une part modérée de leur journée devant un écran et recherchent l'élégance au quotidien.",
               "collection": "Homme · Quotidien",
               "cta": "Découvrir Men's Collection",
@@ -5328,13 +4799,7 @@
               "label": "Performance créative",
               "eyebrow": "Carte 02 · 6–8 heures par jour",
               "hours": "6 – 8 h",
-              "contexts": [
-                "Designers",
-                "Monteurs",
-                "Photographes",
-                "Architectes",
-                "Développeurs"
-              ],
+              "contexts": ["Designers", "Monteurs", "Photographes", "Architectes", "Développeurs"],
               "desc": "Pour de longues sessions créatives où la précision des couleurs et le confort prolongé sont essentiels.",
               "collection": "Femme · Créatif",
               "cta": "Découvrir Women's Collection",
@@ -5349,13 +4814,7 @@
               "label": "Exposition maximale aux écrans",
               "eyebrow": "Carte 03 · 8h+ par jour",
               "hours": "8 h +",
-              "contexts": [
-                "Gamers",
-                "Streamers",
-                "Télétravail",
-                "Traders",
-                "Multi-écrans"
-              ],
+              "contexts": ["Gamers", "Streamers", "Télétravail", "Traders", "Multi-écrans"],
               "desc": "Pour celles et ceux dont la routine implique plusieurs écrans, une concentration prolongée et des sessions exigeantes.",
               "collection": "Homme · Business",
               "cta": "Découvrir Men's Collection",
@@ -5390,33 +4849,21 @@
               "key": "clear",
               "name": "EyegisGuard™ Clear",
               "tagline": "Pour un usage quotidien modéré des écrans.",
-              "bestFor": [
-                "Bureau",
-                "Lecture",
-                "Réunions"
-              ],
+              "bestFor": ["Bureau", "Lecture", "Réunions"],
               "scoresLabel": "Idéal pour"
             },
             {
               "key": "shield",
               "name": "EyegisGuard™ Shield",
               "tagline": "Pour les professionnels créatifs et les longues sessions.",
-              "bestFor": [
-                "Design",
-                "Photographie",
-                "Montage"
-              ],
+              "bestFor": ["Design", "Photographie", "Montage"],
               "scoresLabel": "Idéal pour"
             },
             {
               "key": "pro",
               "name": "EyegisGuard™ Pro",
               "tagline": "Pour une exposition maximale aux écrans.",
-              "bestFor": [
-                "Gaming",
-                "Trading",
-                "Streaming"
-              ],
+              "bestFor": ["Gaming", "Trading", "Streaming"],
               "scoresLabel": "Idéal pour"
             }
           ],
@@ -5550,11 +4997,11 @@
           "ctaLabel": "Shop on Amazon"
         },
         "FR": {
-          "eyebrow": "Collection · Women",
-          "title": "Women's Collection",
-          "titleAccent": "for those who create.",
-          "subtitle": "A cat-eye in tortoise acetate with a discreet gold shield-G on the temple.",
-          "ctaLabel": "Shop on Amazon"
+          "eyebrow": "Collection · Femme",
+          "title": "Collection Femme",
+          "titleAccent": "pour celles qui créent.",
+          "subtitle": "Une monture œil-de-chat en acétate écaille, rehaussée d'un discret G-bouclier doré sur la branche.",
+          "ctaLabel": "Acheter sur Amazon"
         }
       }
     },
@@ -5643,8 +5090,8 @@
           "mission": "We believe design and engineering should walk together."
         },
         "FR": {
-          "title": "Our Story",
-          "mission": "We believe design and engineering should walk together."
+          "title": "Notre Histoire",
+          "mission": "Nous croyons que le design et l'ingénierie doivent avancer ensemble."
         }
       }
     },
@@ -6127,8 +5574,8 @@
         "FR": {
           "questions": [
             {
-              "q": "What is Eyegis?",
-              "a": "Eyegis is an eyewear brand focused on digital protection and premium design."
+              "q": "Qu'est-ce qu'Eyegis ?",
+              "a": "Eyegis est une marque de lunettes axée sur la protection numérique et le design haut de gamme."
             }
           ]
         }
@@ -6540,14 +5987,7 @@
           },
           "gallery": {
             "title": "A closer look.",
-            "labels": [
-              "Front",
-              "Pair",
-              "Lens Macro",
-              "Pouch",
-              "Packaging",
-              "On Face"
-            ],
+            "labels": ["Front", "Pair", "Lens Macro", "Pouch", "Packaging", "On Face"],
             "zoom": "Click to zoom",
             "reset": "Click to reset"
           },
@@ -6639,14 +6079,7 @@
           "lifestyle": {
             "title1": "Where Men's Collection",
             "title2": "belongs.",
-            "contexts": [
-              "Business",
-              "Creative",
-              "Travel",
-              "Gaming",
-              "Remote Work",
-              "Architecture"
-            ]
+            "contexts": ["Business", "Creative", "Travel", "Gaming", "Remote Work", "Architecture"]
           },
           "tech": {
             "title1": "EyegisGuard™",
@@ -6709,11 +6142,7 @@
             "eyebrow": "Men's Collection · by Eyegis",
             "title1": "Ready to experience",
             "title2": "digital comfort?",
-            "trust": [
-              "Secure purchase through Amazon",
-              "Fast shipping",
-              "Trusted customer support"
-            ]
+            "trust": ["Secure purchase through Amazon", "Fast shipping", "Trusted customer support"]
           }
         },
         "PT": {
@@ -6739,14 +6168,7 @@
           },
           "gallery": {
             "title": "Um olhar mais próximo.",
-            "labels": [
-              "Frente",
-              "Par",
-              "Macro da lente",
-              "Bolsa",
-              "Embalagem",
-              "No rosto"
-            ],
+            "labels": ["Frente", "Par", "Macro da lente", "Bolsa", "Embalagem", "No rosto"],
             "zoom": "Clique para ampliar",
             "reset": "Clique para restaurar"
           },
@@ -6908,11 +6330,7 @@
             "eyebrow": "Men's Collection · por Eyegis",
             "title1": "Pronto para experimentar",
             "title2": "o conforto digital?",
-            "trust": [
-              "Compra segura pela Amazon",
-              "Entrega rápida",
-              "Suporte confiável"
-            ]
+            "trust": ["Compra segura pela Amazon", "Entrega rápida", "Suporte confiável"]
           }
         },
         "FR": {
@@ -6939,14 +6357,7 @@
           },
           "gallery": {
             "title": "Regardez de plus près.",
-            "labels": [
-              "Face",
-              "Paire",
-              "Macro verre",
-              "Pochette",
-              "Emballage",
-              "Portée"
-            ],
+            "labels": ["Face", "Paire", "Macro verre", "Pochette", "Emballage", "Portée"],
             "zoom": "Cliquer pour zoomer",
             "reset": "Cliquer pour réinitialiser"
           },
@@ -7038,14 +6449,7 @@
           "lifestyle": {
             "title1": "Où Men's Collection",
             "title2": "s'inscrit.",
-            "contexts": [
-              "Business",
-              "Créatif",
-              "Voyage",
-              "Gaming",
-              "Télétravail",
-              "Architecture"
-            ]
+            "contexts": ["Business", "Créatif", "Voyage", "Gaming", "Télétravail", "Architecture"]
           },
           "tech": {
             "title1": "EyegisGuard™",
@@ -7667,13 +7071,7 @@
             },
             {
               "eyebrow": "Business Professionals",
-              "tags": [
-                "Executives",
-                "Finance",
-                "Developers",
-                "Consultants",
-                "Remote Workers"
-              ],
+              "tags": ["Executives", "Finance", "Developers", "Consultants", "Remote Workers"],
               "title": "Designed for",
               "script": "performance.",
               "body": "Stay focused through meetings, spreadsheets, presentations and long workdays — from Faria Lima to a hotel desk in Paris.",
@@ -7696,13 +7094,7 @@
             },
             {
               "eyebrow": "Students",
-              "tags": [
-                "Laptop",
-                "Tablet",
-                "Notebook",
-                "Natural Light",
-                "Modern Library"
-              ],
+              "tags": ["Laptop", "Tablet", "Notebook", "Natural Light", "Modern Library"],
               "title": "Designed for",
               "script": "learning.",
               "body": "From morning lectures to late-night study sessions — visual comfort that lets ideas, not fatigue, lead the day.",
@@ -7711,12 +7103,7 @@
             },
             {
               "eyebrow": "Travel & Digital Nomads",
-              "tags": [
-                "Airport Lounge",
-                "Luxury Hotel",
-                "Coffee Shop",
-                "Business Class"
-              ],
+              "tags": ["Airport Lounge", "Luxury Hotel", "Coffee Shop", "Business Class"],
               "title": "Designed to",
               "script": "move.",
               "body": "Your work travels with you. Your comfort should too. A lightweight TR90 frame, a considered case, a lens that behaves the same at 35,000 feet.",
@@ -7789,13 +7176,7 @@
             },
             {
               "eyebrow": "Estudantes",
-              "tags": [
-                "Laptop",
-                "Tablet",
-                "Caderno",
-                "Luz Natural",
-                "Biblioteca Moderna"
-              ],
+              "tags": ["Laptop", "Tablet", "Caderno", "Luz Natural", "Biblioteca Moderna"],
               "title": "Feito para",
               "script": "aprender.",
               "body": "Das aulas da manhã aos estudos madrugada adentro — conforto visual que deixa as ideias, não o cansaço, guiarem o dia.",
@@ -7804,12 +7185,7 @@
             },
             {
               "eyebrow": "Viagem & Nômades Digitais",
-              "tags": [
-                "Sala VIP",
-                "Hotel de Luxo",
-                "Cafeteria",
-                "Classe Executiva"
-              ],
+              "tags": ["Sala VIP", "Hotel de Luxo", "Cafeteria", "Classe Executiva"],
               "title": "Feito para",
               "script": "mover.",
               "body": "Seu trabalho viaja com você. Seu conforto também. Armação TR90 leve, um estojo pensado, uma lente que se comporta igual a 35.000 pés.",
@@ -7853,13 +7229,7 @@
             },
             {
               "eyebrow": "Professionnels & Cadres",
-              "tags": [
-                "Direction",
-                "Finance",
-                "Développeurs",
-                "Consultants",
-                "Télétravail"
-              ],
+              "tags": ["Direction", "Finance", "Développeurs", "Consultants", "Télétravail"],
               "title": "Conçu pour",
               "script": "la performance.",
               "body": "Rester concentré : réunions, tableurs, présentations, longues journées — de Faria Lima à un bureau d'hôtel parisien.",
@@ -7897,12 +7267,7 @@
             },
             {
               "eyebrow": "Voyage & Nomades Numériques",
-              "tags": [
-                "Salon d'Aéroport",
-                "Hôtel de Luxe",
-                "Café",
-                "Classe Affaires"
-              ],
+              "tags": ["Salon d'Aéroport", "Hôtel de Luxe", "Café", "Classe Affaires"],
               "title": "Conçu pour",
               "script": "bouger.",
               "body": "Votre travail voyage avec vous. Votre confort aussi. Une monture TR90 légère, un étui pensé, un verre qui se comporte pareil à 35 000 pieds.",

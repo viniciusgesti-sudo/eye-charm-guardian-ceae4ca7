@@ -26,7 +26,7 @@ const documents = walkJson(contentRoot)
 fs.mkdirSync(pluginRoot, { recursive: true });
 fs.writeFileSync(
   seedFile,
-  `${JSON.stringify({ schema_version: 4, documents }, null, 2)}\n`,
+  `${JSON.stringify({ schema_version: 5, documents }, null, 2)}\n`,
   "utf8",
 );
 

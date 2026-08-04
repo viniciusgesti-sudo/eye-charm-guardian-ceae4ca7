@@ -6,10 +6,16 @@
  * `hreflang alternate` links stay consistent site-wide.
  */
 
-export const SITE = "https://eye-charm-guardian.lovable.app";
+export const SITE = "https://eyegis-eyewear.com";
 export const LOCALES = ["br", "en", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "br";
+
+const HREFLANG: Record<Locale, string> = {
+  br: "pt-BR",
+  en: "en",
+  fr: "fr",
+};
 
 type Meta = { title?: string; name?: string; property?: string; content?: string };
 type Link = { rel: string; href: string; hrefLang?: string };
@@ -76,7 +82,7 @@ export function buildSeo(input: SeoInput): SeoOutput {
     for (const alt of LOCALES) {
       links.push({
         rel: "alternate",
-        hrefLang: alt,
+        hrefLang: HREFLANG[alt],
         href: `${SITE}/${alt}${input.localizedBasePath}`,
       });
     }
@@ -92,8 +98,11 @@ export function buildSeo(input: SeoInput): SeoOutput {
 
 function localeToOg(l: Locale): string {
   switch (l) {
-    case "br": return "pt_BR";
-    case "en": return "en_US";
-    case "fr": return "fr_FR";
+    case "br":
+      return "pt_BR";
+    case "en":
+      return "en_US";
+    case "fr":
+      return "fr_FR";
   }
 }
