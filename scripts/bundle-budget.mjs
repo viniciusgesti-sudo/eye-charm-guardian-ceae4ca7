@@ -551,7 +551,7 @@ function parseIssue(msg) {
   let m = msg.match(/^baseline growth · (client|server) ([^:]+):/);
   if (m) return { side: m[1], key: m[2].trim() };
   m = msg.match(/^(client|server) file (\S+)/);
-  if (m) return { side: m[1], key: normalizeKey(m[2]) };
+  if (m) return { side: m[1], key: normalizeKey(m[2], m[1]) };
   m = msg.match(/^(client|server) total/);
   if (m) return { side: m[1], key: null };
   return null;
