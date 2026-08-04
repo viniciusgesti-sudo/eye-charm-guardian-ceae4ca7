@@ -11,6 +11,7 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import kidsData from "@/content/kids.json";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY = {
   br: {
@@ -73,17 +74,19 @@ export const Route = createFileRoute("/$locale/kids")({
 
 function KidsPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
+  const content = useContentDocument<typeof kidsData>("kids", kidsData);
+  const lang = locale === "br" ? "PT" : locale.toUpperCase() as "EN" | "FR";
+  const page = content[lang] ?? content.PT;
   return (
     <>
       <PageHero
-        eyebrow={c.eyebrow}
-        title={c.title}
-        subtitle={c.subtitle}
+        eyebrow={page.eyebrow}
+        title={<>{page.title}<br /><span className="italic text-mint">{page.titleAccent}</span></>}
+        subtitle={page.subtitle}
         bgImage={kidsHero}
         bgSource={kidsHeroSrc}
         tone="dark"
-        externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
+        externalCta={{ label: page.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="kids" />
       <WhatsInTheBox />

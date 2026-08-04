@@ -13,6 +13,7 @@ import { PageHero } from "@/components/eyegis/PageHero";
 import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import menData from "@/content/men.json";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY = {
   br: {
@@ -76,17 +77,19 @@ export const Route = createFileRoute("/$locale/men")({
 
 function MenPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
+  const content = useContentDocument<typeof menData>("men", menData);
+  const lang = locale === "br" ? "PT" : locale.toUpperCase() as "EN" | "FR";
+  const page = content[lang] ?? content.PT;
   return (
     <>
       <PageHero
-        eyebrow={c.eyebrow}
-        title={c.title}
-        subtitle={c.subtitle}
+        eyebrow={page.eyebrow}
+        title={<>{page.title}<br /><span className="italic text-mint">{page.titleAccent}</span></>}
+        subtitle={page.subtitle}
         bgImage={heroZenith}
         bgSource={heroZenithSrc}
         tone="dark"
-        externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
+        externalCta={{ label: page.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="men" />
       <LifestyleUniverse audience="men" compact />

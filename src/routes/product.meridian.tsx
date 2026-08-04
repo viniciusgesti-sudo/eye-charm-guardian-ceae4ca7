@@ -23,6 +23,7 @@ import { Footer } from "@/components/eyegis/Footer";
 
 import { buildSeo, SITE } from "@/lib/seo";
 import meridianData from "@/content/products/meridian.json";
+import { formatContentTemplate, useContentDocument } from "@/lib/cms";
 
 const MERIDIAN_OG = `${SITE}/og-meridian.jpg`;
 
@@ -67,8 +68,6 @@ export const Route = createFileRoute("/product/meridian")({
   component: MeridianProduct,
 });
 
-const AMAZON_URL = meridianData.buy_link || DEFAULT_AMAZON_URL;
-
 /* ---------------------------------------------------------------- */
 /*  i18n content                                                    */
 /* ---------------------------------------------------------------- */
@@ -81,7 +80,8 @@ type Content = {
   by: string;
   intro: string;
   badges: string[];
-  section: (n: string, sub?: string) => string;
+  section: string;
+  sectionNames: { lifestyle: string; technology: string; reviews: string; faq: string };
   gallery: { title: string; labels: string[]; zoom: string; reset: string };
   why: { title: string; features: { title: string; body: string }[] };
   details: {
@@ -121,7 +121,8 @@ const CONTENT: Record<Lang, Content> = {
       "2-Year Warranty",
       "60-Day Comfort Guarantee",
     ],
-    section: (n, sub) => `Section ${n}${sub ? ` · ${sub}` : ""}`,
+    section: "Section {n}{sub}",
+    sectionNames: { lifestyle: "Lifestyle", technology: "Technology", reviews: "Reviews", faq: "FAQ" },
     gallery: {
       title: "A closer look.",
       labels: ["Front", "Pair", "Lens Macro", "Pouch", "Packaging", "On Face"],
@@ -219,7 +220,8 @@ const CONTENT: Record<Lang, Content> = {
       "Garantia de 2 anos",
       "Garantia de conforto 60 dias",
     ],
-    section: (n, sub) => `Seção ${n}${sub ? ` · ${sub}` : ""}`,
+    section: "Seção {n}{sub}",
+    sectionNames: { lifestyle: "Estilo de vida", technology: "Tecnologia", reviews: "Avaliações", faq: "FAQ" },
     gallery: {
       title: "Um olhar mais próximo.",
       labels: ["Frente", "Par", "Macro da lente", "Bolsa", "Embalagem", "No rosto"],
@@ -318,7 +320,8 @@ const CONTENT: Record<Lang, Content> = {
       "Garantie 2 ans",
       "Garantie confort 60 jours",
     ],
-    section: (n, sub) => `Section ${n}${sub ? ` · ${sub}` : ""}`,
+    section: "Section {n}{sub}",
+    sectionNames: { lifestyle: "Mode de vie", technology: "Technologie", reviews: "Avis", faq: "FAQ" },
     gallery: {
       title: "Regardez de plus près.",
       labels: ["Face", "Paire", "Macro verre", "Pochette", "Emballage", "Portée"],
@@ -405,7 +408,21 @@ const CONTENT: Record<Lang, Content> = {
 
 function useContent(): Content {
   const { lang } = useI18n();
-  return CONTENT[lang];
+  const pageContent = useContentDocument<typeof CONTENT>("product-meridian-page", CONTENT);
+  const product = useContentDocument<typeof meridianData>("products-meridian", meridianData);
+  const localized = lang === "PT" ? product.details_pt : lang === "EN" ? product.details_en : undefined;
+  return localized?.short_desc
+    ? { ...pageContent[lang], intro: localized.short_desc }
+    : pageContent[lang];
+}
+
+function useAmazonUrl() {
+  const product = useContentDocument<typeof meridianData>("products-meridian", meridianData);
+  return product.buy_link || DEFAULT_AMAZON_URL;
+}
+
+function sectionLabel(template: string, n: string, sub?: string) {
+  return formatContentTemplate(template, { n, sub: sub ? ` · ${sub}` : "" });
 }
 
 /* ---------------------------------------------------------------- */
@@ -484,13 +501,15 @@ function Reveal({
 
 function ProductHero() {
   const c = useContent();
+  const product = useContentDocument<typeof meridianData>("products-meridian", meridianData);
+  const amazonUrl = useAmazonUrl();
   return (
     <section className="relative bg-paper pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 px-6 md:px-10 lg:px-14 items-center">
         <div className="lg:col-span-5 order-2 lg:order-1">
           <span className="font-eyebrow text-teal">{c.chapter}</span>
           <h1 className="mt-6 font-editorial text-ink leading-[0.9] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] xl:text-[96px]">
-            Men's Collection
+            {product.name}
             <span className="block italic text-teal">{c.by}</span>
           </h1>
           <p className="mt-8 max-w-md font-light text-lg leading-relaxed text-ink/75">
@@ -510,7 +529,7 @@ function ProductHero() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
-              href={AMAZON_URL}
+              href={amazonUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-between gap-6 rounded-full bg-teal px-8 py-5 text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] hover:bg-teal-deep hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-20px_rgba(0,56,66,0.85)] transition-all duration-500"
@@ -571,7 +590,7 @@ function Gallery() {
         <Reveal>
           <div className="mb-14 flex items-end justify-between">
             <div>
-              <span className="font-eyebrow text-teal">{c.section("02")}</span>
+              <span className="font-eyebrow text-teal">{sectionLabel(c.section, "02")}</span>
               <h2 className="mt-3 font-editorial text-ink text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
                 {c.gallery.title}
               </h2>
@@ -651,7 +670,7 @@ function WhyLove() {
   return (
     <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <Reveal><span className="font-eyebrow text-teal">{c.section("03")}</span></Reveal>
+        <Reveal><span className="font-eyebrow text-teal">{sectionLabel(c.section, "03")}</span></Reveal>
         <Reveal delay={120}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[0.95]">
             {c.why.title}
@@ -696,7 +715,7 @@ function FrameDetails() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
           <div className="lg:col-span-4">
-            <Reveal><span className="font-eyebrow text-mint">{c.section("04")}</span></Reveal>
+            <Reveal><span className="font-eyebrow text-mint">{sectionLabel(c.section, "04")}</span></Reveal>
             <Reveal delay={120}>
               <h2 className="mt-4 font-editorial text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
                 {c.details.title1}
@@ -756,7 +775,7 @@ function Specifications() {
   return (
     <section className="bg-paper-warm py-20 md:py-28">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <Reveal><span className="font-eyebrow text-teal">{c.section("05")}</span></Reveal>
+        <Reveal><span className="font-eyebrow text-teal">{sectionLabel(c.section, "05")}</span></Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl lg:text-7xl leading-[0.95]">
             {c.specs.title}
@@ -796,7 +815,7 @@ function Lifestyle() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-14 pb-16 md:pb-24 text-paper">
-            <Reveal><span className="font-eyebrow text-mint">{c.section("06", "Lifestyle")}</span></Reveal>
+            <Reveal><span className="font-eyebrow text-mint">{sectionLabel(c.section, "06", c.sectionNames.lifestyle)}</span></Reveal>
             <Reveal delay={120}>
               <h2 className="mt-6 max-w-3xl font-editorial text-4xl md:text-6xl lg:text-7xl leading-[0.95]">
                 {c.lifestyle.title1}
@@ -829,7 +848,7 @@ function TechnologyRecap() {
     <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 gap-14 items-center px-6 md:px-10 lg:px-14">
         <div className="lg:col-span-5">
-          <Reveal><span className="font-eyebrow text-teal">{c.section("07", "Technology")}</span></Reveal>
+          <Reveal><span className="font-eyebrow text-teal">{sectionLabel(c.section, "07", c.sectionNames.technology)}</span></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-4 font-editorial text-ink text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
               {c.tech.title1}
@@ -899,7 +918,7 @@ function Reviews() {
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14">
           <div className="lg:col-span-7">
-            <Reveal><span className="font-eyebrow text-teal">{c.section("08", "Reviews")}</span></Reveal>
+            <Reveal><span className="font-eyebrow text-teal">{sectionLabel(c.section, "08", c.sectionNames.reviews)}</span></Reveal>
             <Reveal delay={100}>
               <h2 className="mt-4 font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
                 {c.reviews.title1}
@@ -972,7 +991,7 @@ function Faq() {
   return (
     <section className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
-        <Reveal><span className="font-eyebrow text-teal">{c.section("09", "FAQ")}</span></Reveal>
+        <Reveal><span className="font-eyebrow text-teal">{sectionLabel(c.section, "09", c.sectionNames.faq)}</span></Reveal>
         <Reveal delay={100}>
           <h2 className="mt-4 font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
             {c.faq.title1}
@@ -997,6 +1016,7 @@ function Faq() {
 
 function FinalCta() {
   const c = useContent();
+  const amazonUrl = useAmazonUrl();
   return (
     <section className="relative bg-teal-deep py-20 md:py-28 text-paper overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(134,217,209,0.25),transparent_60%)]" />
@@ -1010,7 +1030,7 @@ function FinalCta() {
         </Reveal>
         <Reveal delay={240}>
           <div className="mt-14 flex justify-center">
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 rounded-full bg-mint px-10 py-6 text-teal-deep shadow-[0_30px_80px_-30px_rgba(134,217,209,0.6)] hover:-translate-y-0.5 transition-all duration-500">
+            <a href={amazonUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-6 rounded-full bg-mint px-10 py-6 text-teal-deep shadow-[0_30px_80px_-30px_rgba(134,217,209,0.6)] hover:-translate-y-0.5 transition-all duration-500">
               <span className="font-eyebrow text-sm">{c.buyAmazon}</span>
               <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-full bg-teal-deep/10 transition-transform duration-500 group-hover:translate-x-1">→</span>
             </a>
@@ -1037,6 +1057,7 @@ function FinalCta() {
 
 function StickyBuy() {
   const c = useContent();
+  const amazonUrl = useAmazonUrl();
   const [show, setShow] = useState(false);
   useEffect(() => {
     const on = () => setShow(window.scrollY > 700);
@@ -1051,7 +1072,7 @@ function StickyBuy() {
           <div className="font-editorial text-ink text-base leading-tight">Men's Collection</div>
           <div className="font-eyebrow text-[9px] text-ink/60">{c.by}</div>
         </div>
-        <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-teal px-5 py-3 font-eyebrow text-paper">
+        <a href={amazonUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-teal px-5 py-3 font-eyebrow text-paper">
           {c.buyAmazon}
         </a>
       </div>

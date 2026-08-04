@@ -1,20 +1,32 @@
 {
   "PT": {
-    "topbar": "Teste",
+    "topbar": "Frete mundial gratuito",
     "contact_email": "hello@eyegis-eyewear.com",
+    "amazon_url": "https://www.amazon.com.br/",
     "instagram_url": "https://instagram.com/eyegis",
+    "tiktok_url": "https://www.tiktok.com/",
+    "facebook_url": "https://www.facebook.com/",
+    "youtube_url": "https://www.youtube.com/",
     "footer_text": "Engenharia visual para a era digital."
   },
   "EN": {
-    "topbar": "FREE WORLDWIDE SHIPPING",
+    "topbar": "Free worldwide shipping",
     "contact_email": "hello@eyegis-eyewear.com",
+    "amazon_url": "https://www.amazon.com.br/",
     "instagram_url": "https://instagram.com/eyegis",
+    "tiktok_url": "https://www.tiktok.com/",
+    "facebook_url": "https://www.facebook.com/",
+    "youtube_url": "https://www.youtube.com/",
     "footer_text": "Engineered for Vision. Designed for Style."
   },
   "FR": {
-    "topbar": "FREE WORLDWIDE SHIPPING",
+    "topbar": "Livraison mondiale gratuite",
     "contact_email": "hello@eyegis-eyewear.com",
+    "amazon_url": "https://www.amazon.com.br/",
     "instagram_url": "https://instagram.com/eyegis",
-    "footer_text": "Engineered for Vision. Designed for Style."
+    "tiktok_url": "https://www.tiktok.com/",
+    "facebook_url": "https://www.facebook.com/",
+    "youtube_url": "https://www.youtube.com/",
+    "footer_text": "Conçu pour la vision. Dessiné pour le style."
   }
 }

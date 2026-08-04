@@ -20,6 +20,7 @@ import lifeConcierge from "@/assets/contact-concierge.jpg?w=320;480;800&format=a
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import aboutData from "@/content/about.json";
+import { useContentDocument } from "@/lib/cms";
 
 
 
@@ -405,7 +406,7 @@ function Reveal({
   children: React.ReactNode;
   delay?: number;
   y?: number;
-  as?: any;
+  as?: React.ElementType;
   className?: string;
 }) {
   const { ref, shown } = useReveal<HTMLDivElement>();
@@ -451,7 +452,9 @@ const PEOPLE_IMAGES = [life1, life2, life3, life6, peopleHeroImg, life4, life8, 
 
 export function AboutPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const details = useContentDocument<typeof CONTENT>("about-details", CONTENT);
+  const c = details[lang];
+  const aboutContent = useContentDocument<typeof aboutData>("about", aboutData);
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";
   const sans = "'Inter', system-ui, sans-serif";
 
@@ -506,7 +509,7 @@ export function AboutPage() {
                 className="mt-6 text-[44px] leading-[0.98] tracking-[-0.02em] md:text-[88px] lg:text-[108px]"
                 style={{ fontFamily: serif, color: "#F6F3EE", fontWeight: 400, textShadow: "0 2px 24px rgba(0,0,0,0.35)" }}
               >
-                {lang === "PT" ? aboutData.PT.title : aboutData.EN.title}
+                {aboutContent[lang]?.title ?? aboutContent.EN.title}
               </h1>
             </Reveal>
             <Reveal delay={240}>
@@ -514,7 +517,7 @@ export function AboutPage() {
                 className="mt-8 max-w-2xl text-[15px] leading-[1.7] md:text-[17px]"
                 style={{ color: "rgba(246,243,238,0.92)" }}
               >
-                {lang === "PT" ? aboutData.PT.mission : aboutData.EN.mission}
+                {aboutContent[lang]?.mission ?? aboutContent.EN.mission}
               </p>
             </Reveal>
           </div>
@@ -1066,4 +1069,3 @@ function WorldMap() {
     </div>
   );
 }
-

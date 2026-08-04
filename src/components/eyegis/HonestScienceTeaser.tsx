@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY: Record<Lang, {
   eyebrow: string;
@@ -46,7 +47,8 @@ const COPY: Record<Lang, {
 
 export function HonestScienceTeaser() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("home-honest-science", COPY);
+  const c = content[lang];
 
   return (
     <section

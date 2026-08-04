@@ -8,6 +8,7 @@ import supportImg from "@/assets/contact-concierge.jpg?w=480;800;1200;1600&forma
 import storeImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { formatContentTemplate, useContentDocument } from "@/lib/cms";
 
 
 const OFFWHITE = "#F6F3EE";
@@ -42,7 +43,7 @@ type CopyShape = {
       invalidEmail: string;
       tooShort: string;
       successTitle: string;
-      successBody: (name: string, email: string) => React.ReactNode;
+      successBody: string;
       sendAnother: string;
     };
     reasons: string[];
@@ -107,12 +108,7 @@ const COPY: Record<Lang, CopyShape> = {
         invalidEmail: "Invalid email",
         tooShort: "Please add a few more details",
         successTitle: "Message received.",
-        successBody: (name, email) => (
-          <>
-            Thank you, {name}. A member of our care team will reply to{" "}
-            <span style={{ color: INK }}>{email}</span> within one business day.
-          </>
-        ),
+        successBody: "Thank you, {name}. A member of our care team will reply to {email} within one business day.",
         sendAnother: "Send another message →",
       },
       reasons: [
@@ -248,12 +244,7 @@ const COPY: Record<Lang, CopyShape> = {
         invalidEmail: "E-mail inválido",
         tooShort: "Por favor, adicione mais alguns detalhes",
         successTitle: "Mensagem recebida.",
-        successBody: (name, email) => (
-          <>
-            Obrigado, {name}. Um membro da nossa equipe responderá em{" "}
-            <span style={{ color: INK }}>{email}</span> em até um dia útil.
-          </>
-        ),
+        successBody: "Obrigado, {name}. Um membro da nossa equipe responderá em {email} em até um dia útil.",
         sendAnother: "Enviar outra mensagem →",
       },
       reasons: [
@@ -389,12 +380,7 @@ const COPY: Record<Lang, CopyShape> = {
         invalidEmail: "E-mail invalide",
         tooShort: "Merci d'ajouter quelques détails",
         successTitle: "Message reçu.",
-        successBody: (name, email) => (
-          <>
-            Merci, {name}. Un membre de notre équipe vous répondra à{" "}
-            <span style={{ color: INK }}>{email}</span> sous un jour ouvré.
-          </>
-        ),
+        successBody: "Merci, {name}. Un membre de notre équipe vous répondra à {email} sous un jour ouvré.",
         sendAnother: "Envoyer un autre message →",
       },
       reasons: [
@@ -627,7 +613,8 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
 
 export function ContactPage() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("contact", COPY);
+  const c = content[lang];
 
   return (
     <main style={{ background: OFFWHITE, color: INK, fontFamily: sans }}>
@@ -1198,7 +1185,10 @@ function ContactForm({ copy, reasons }: { copy: FormCopy; reasons: string[] }) {
           {copy.successTitle}
         </h3>
         <p className="mt-6 max-w-md text-[14px] leading-[1.8]" style={{ color: MUTED }}>
-          {copy.successBody(values.firstName, values.email)}
+          {formatContentTemplate(copy.successBody, {
+            name: values.firstName,
+            email: values.email,
+          })}
         </p>
         <button
           type="button"

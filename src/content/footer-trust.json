@@ -1,0 +1,62 @@
+{
+  "EN": {
+    "items": [
+      {
+        "title": "Engineered to Protect",
+        "sub": "Selective blue-light filtering"
+      },
+      {
+        "title": "True Colors",
+        "sub": "No yellow tint"
+      },
+      {
+        "title": "Designed to Wear",
+        "sub": "Timeless style, every day"
+      },
+      {
+        "title": "Lab-Verified",
+        "sub": "ANSI · EN ISO · AS/NZS"
+      }
+    ]
+  },
+  "PT": {
+    "items": [
+      {
+        "title": "Feito para proteger",
+        "sub": "Filtragem seletiva de luz azul"
+      },
+      {
+        "title": "Cores fiéis",
+        "sub": "Sem tom amarelado"
+      },
+      {
+        "title": "Feito para usar",
+        "sub": "Estilo atemporal, todo dia"
+      },
+      {
+        "title": "Verificado em laboratório",
+        "sub": "ANSI · EN ISO · AS/NZS"
+      }
+    ]
+  },
+  "FR": {
+    "items": [
+      {
+        "title": "Conçu pour protéger",
+        "sub": "Filtrage sélectif de lumière bleue"
+      },
+      {
+        "title": "Couleurs fidèles",
+        "sub": "Sans teinte jaune"
+      },
+      {
+        "title": "Conçu pour être porté",
+        "sub": "Un style intemporel, chaque jour"
+      },
+      {
+        "title": "Vérifié en laboratoire",
+        "sub": "ANSI · EN ISO · AS/NZS"
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import { MARKETPLACES, COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon
 import { AmazonMark } from "./AmazonMark";
 
 import shopOnAmazonData from "@/content/shoponamazon.json";
+import { useContentDocument } from "@/lib/cms";
 
 type Copy = {
   eyebrow: string;
@@ -18,8 +19,8 @@ type Copy = {
 
 export function ShopOnAmazon() {
   const { lang } = useI18n();
-  // @ts-ignore
-  const c = shopOnAmazonData[lang] as Copy;
+  const content = useContentDocument<typeof shopOnAmazonData>("shoponamazon", shopOnAmazonData);
+  const c = content[lang] as Copy;
 
   return (
     <section id="shop-amazon" className="relative bg-teal-deep text-paper py-24 md:py-32 overflow-hidden">

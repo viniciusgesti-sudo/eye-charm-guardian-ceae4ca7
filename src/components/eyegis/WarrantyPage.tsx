@@ -7,6 +7,7 @@ import promiseImg from "@/assets/universe-eyewear.jpg?w=768;1200;1920;2400&forma
 import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { formatContentTemplate, useContentDocument } from "@/lib/cms";
 
 const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
@@ -52,7 +53,7 @@ type WarrantyCopy = {
     title: [string, string];
     lead: string;
     steps: { k: string; d: string }[];
-    stepLabel: (n: number) => string;
+    stepLabel: string;
   };
   care: {
     rule: string;
@@ -65,7 +66,7 @@ type WarrantyCopy = {
     lead: string;
     tiles: { k: string; d: string; href: string }[];
     openLabel: string;
-    tileIndex: (n: number) => string;
+    tileIndex: string;
   };
   cta: {
     title: [string, string];
@@ -145,7 +146,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "Comfort Inspection", d: "Weight balance, nose-pad geometry, temple curvature." },
         { k: "Final Quality Approval", d: "Individually signed off before packaging." },
       ],
-      stepLabel: (n) => `Step 0${n}`,
+      stepLabel: "Step 0{n}",
     },
     care: {
       rule: "06 — Care Guide",
@@ -169,7 +170,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "FAQ", d: "Answers on lenses, fit & care", href: "/lenses" },
       ],
       openLabel: "Open →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     cta: {
       title: ["Buy with", "confidence."],
@@ -247,7 +248,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "Inspeção de Conforto", d: "Equilíbrio de peso, geometria das plaquetas, curvatura das hastes." },
         { k: "Aprovação Final de Qualidade", d: "Aprovado individualmente antes do empacotamento." },
       ],
-      stepLabel: (n) => `Etapa 0${n}`,
+      stepLabel: "Etapa 0{n}",
     },
     care: {
       rule: "06 — Guia de Cuidados",
@@ -271,7 +272,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "FAQ", d: "Respostas sobre lentes, ajuste e cuidados", href: "/lenses" },
       ],
       openLabel: "Abrir →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     cta: {
       title: ["Compre com", "confiança."],
@@ -349,7 +350,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "Inspection du confort", d: "Équilibre du poids, géométrie des plaquettes, courbure des branches." },
         { k: "Approbation Finale", d: "Validé individuellement avant emballage." },
       ],
-      stepLabel: (n) => `Étape 0${n}`,
+      stepLabel: "Étape 0{n}",
     },
     care: {
       rule: "06 — Guide d'Entretien",
@@ -373,7 +374,7 @@ const CONTENT: Record<Lang, WarrantyCopy> = {
         { k: "FAQ", d: "Réponses sur verres, ajustement et entretien", href: "/lenses" },
       ],
       openLabel: "Ouvrir →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     cta: {
       title: ["Achetez en toute", "confiance."],
@@ -567,7 +568,8 @@ const CARE_ICONS = [<Icon.Cloth />, <Icon.Case />, <Icon.Plane />, <Icon.Sun />,
 
 export function WarrantyPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const content = useContentDocument<typeof CONTENT>("warranty", CONTENT);
+  const c = content[lang];
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";
   const sans = "'Inter', system-ui, sans-serif";
 
@@ -822,7 +824,7 @@ export function WarrantyPage() {
                         {s.k}
                       </h3>
                       <span className="text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
-                        {c.qc.stepLabel(i + 1)}
+                        {formatContentTemplate(c.qc.stepLabel, { n: i + 1 })}
                       </span>
                     </div>
                     <p className="mt-3 max-w-lg text-[13px] leading-[1.75]" style={{ color: MUTED }}>
@@ -903,7 +905,7 @@ export function WarrantyPage() {
                 style={{ background: OFFWHITE, color: INK }}
               >
                 <span className="text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
-                  {c.help.tileIndex(i + 1)}
+                  {formatContentTemplate(c.help.tileIndex, { n: i + 1 })}
                 </span>
                 <div>
                   <h3 className="text-[26px] leading-[1.05]" style={{ fontFamily: serif, fontWeight: 400 }}>

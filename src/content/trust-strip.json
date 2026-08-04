@@ -1,0 +1,29 @@
+{
+  "en": {
+    "certification": "Independently lab tested",
+    "chips": [
+      "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+      "60-day comfort guarantee",
+      "2-year warranty"
+    ],
+    "cta": "Coming soon on Amazon"
+  },
+  "pt": {
+    "certification": "Testado em laboratório independente",
+    "chips": [
+      "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+      "Garantia de conforto 60 dias",
+      "Garantia de 2 anos"
+    ],
+    "cta": "Em breve na Amazon"
+  },
+  "fr": {
+    "certification": "Testé en laboratoire indépendant",
+    "chips": [
+      "ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1",
+      "Garantie confort 60 jours",
+      "Garantie 2 ans"
+    ],
+    "cta": "Bientôt sur Amazon"
+  }
+}

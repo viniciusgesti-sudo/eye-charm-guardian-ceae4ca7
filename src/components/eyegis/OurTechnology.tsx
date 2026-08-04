@@ -1,6 +1,7 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
+import { useContentDocument } from "@/lib/cms";
 
 const TECH_HERO_COPY = {
   br: {
@@ -8,18 +9,129 @@ const TECH_HERO_COPY = {
     titleA: "Duas lentes.",
     titleB: "Duas horas do dia.",
     sub: "E-Guard Retina™ para o dia diante das telas. E-Guard Circadian™ para a chegada da noite. Dois sistemas ópticos dedicados, um único padrão honesto.",
+    retina: {
+      badge: "Certificado · Uso diurno",
+      name: "E-Guard™ Retina",
+      taglineA: "Proteção contra o azul-violeta de alta energia",
+      taglineB: "Conforto visual em longas sessões de tela",
+      description: "E-Guard Retina filtra seletivamente parte dos comprimentos de onda azul-violeta associados à fadiga visual digital durante longas sessões de tela, preservando a percepção das cores.",
+      benefits: [
+        { title: "Combate a fadiga das telas", desc: "Ajuda a reduzir olhos secos, irritados e avermelhados" },
+        { title: "Filtragem precisa", desc: "Atua somente sobre a luz azul-violeta mais intensa" },
+        { title: "Feita para alta performance", desc: "Ideal para dias longos de trabalho, streaming e jogos" },
+      ],
+    },
+    circadian: {
+      badge: "Certificado · Uso noturno",
+      name: "E-Guard™ Circadian",
+      taglineA: "Suporte ao ritmo circadiano e ao conforto visual",
+      taglineB: "Modo pôr do sol e proteção do sono",
+      description: "A exposição à luz azul de alta energia depois de anoitecer pode interferir no ciclo natural do sono. E-Guard Circadian™ atenua esses comprimentos de onda noturnos específicos, mantendo uma experiência visual natural.",
+      benefits: [
+        { title: "Protege a melatonina", desc: "Limita a interferência da luz noturna para favorecer um sono mais profundo" },
+        { title: "Cores naturais", desc: "Proteção circadiana com menos distorção de cor que lentes âmbar tradicionais" },
+        { title: "Rotinas noturnas mais inteligentes", desc: "Feita para jogos, trabalho, streaming e navegação à noite" },
+      ],
+    },
+    why: {
+      eyebrow: "§ Por que as duas importam",
+      title: "Por que as duas importam.",
+      lead: "A maioria dos óculos trata toda luz azul como se fosse igual. Na Eyegis, vemos dois desafios diferentes.",
+      dayLabel: "O desafio diurno",
+      dayProblem: "Fadiga e cansaço visual.",
+      nightLabel: "O desafio noturno",
+      nightProblem: "Interferência no sono e no relógio biológico.",
+      solvedBy: "Resolvido por",
+      closingA: "Comprimentos de onda diferentes. Efeitos diferentes.",
+      closingB: "Duas soluções dedicadas.",
+      cta: "Explorar a Honest Science com a Eyegis",
+    },
   },
   en: {
     kicker: "§ Core Technology",
     titleA: "Two lenses.",
     titleB: "Two hours of the day.",
     sub: "E-Guard Retina™ for the screen-lit day. E-Guard Circadian™ for the fall of night. Two dedicated optical systems, one honest standard.",
+    retina: {
+      badge: "Certified · Daytime",
+      name: "E-Guard™ Retina",
+      taglineA: "High-energy blue-violet protection",
+      taglineB: "Visual comfort during long screen sessions",
+      description: "E-Guard Retina selectively filters part of the blue-violet wavelengths associated with digital eye strain during prolonged screen sessions, while preserving color perception.",
+      benefits: [
+        { title: "Defeats screen fatigue", desc: "Helps minimize dry, itchy and red eyes" },
+        { title: "Precision filtering", desc: "Targets only the harsh blue-violet light" },
+        { title: "Built for high output", desc: "Ideal for long workdays, streaming and intense gaming" },
+      ],
+    },
+    circadian: {
+      badge: "Certified · Nighttime",
+      name: "E-Guard™ Circadian",
+      taglineA: "Circadian rhythm and visual comfort support",
+      taglineB: "Sunset mode and sleep protection",
+      description: "Exposure to high-energy blue light after dark can disrupt the natural sleep cycle. E-Guard Circadian™ mitigates these specific evening wavelengths while maintaining a natural viewing experience.",
+      benefits: [
+        { title: "Protects melatonin", desc: "Limits evening light disruption to support deeper sleep" },
+        { title: "True-to-life colors", desc: "Circadian protection with less color distortion than traditional amber lenses" },
+        { title: "Smarter night routines", desc: "Built for late-night gaming, work, streaming and scrolling" },
+      ],
+    },
+    why: {
+      eyebrow: "§ Why both matter",
+      title: "Why both matter.",
+      lead: "Most blue-light eyewear treats all blue light as if it were the same. At Eyegis, we see two very different challenges.",
+      dayLabel: "The daytime challenge",
+      dayProblem: "Eye strain and fatigue.",
+      nightLabel: "The nighttime challenge",
+      nightProblem: "Sleep disruption and the biological clock.",
+      solvedBy: "Solved by",
+      closingA: "Different wavelengths. Different effects.",
+      closingB: "Two dedicated solutions.",
+      cta: "Explore Honest Science with Eyegis",
+    },
   },
   fr: {
     kicker: "§ Technologie Centrale",
     titleA: "Deux verres.",
     titleB: "Deux heures du jour.",
     sub: "E-Guard Retina™ pour la journée devant les écrans. E-Guard Circadian™ pour la tombée de la nuit. Deux systèmes optiques dédiés, un seul standard honnête.",
+    retina: {
+      badge: "Certifié · Usage diurne",
+      name: "E-Guard™ Retina",
+      taglineA: "Protection contre le bleu-violet haute énergie",
+      taglineB: "Confort visuel pendant les longues sessions d'écran",
+      description: "E-Guard Retina filtre sélectivement une partie des longueurs d'onde bleu-violet associées à la fatigue visuelle numérique, tout en préservant la perception des couleurs.",
+      benefits: [
+        { title: "Combat la fatigue des écrans", desc: "Aide à réduire les yeux secs, irrités et rouges" },
+        { title: "Filtrage précis", desc: "Cible uniquement la lumière bleu-violet la plus intense" },
+        { title: "Conçu pour la performance", desc: "Idéal pour le travail prolongé, le streaming et le gaming" },
+      ],
+    },
+    circadian: {
+      badge: "Certifié · Usage nocturne",
+      name: "E-Guard™ Circadian",
+      taglineA: "Soutien du rythme circadien et du confort visuel",
+      taglineB: "Mode coucher du soleil et protection du sommeil",
+      description: "L'exposition à la lumière bleue haute énergie après la tombée de la nuit peut perturber le cycle naturel du sommeil. E-Guard Circadian™ atténue ces longueurs d'onde du soir tout en maintenant une vision naturelle.",
+      benefits: [
+        { title: "Protège la mélatonine", desc: "Limite l'interférence lumineuse du soir pour favoriser un sommeil plus profond" },
+        { title: "Couleurs naturelles", desc: "Protection circadienne avec moins de distorsion que les verres ambrés traditionnels" },
+        { title: "Routines nocturnes plus intelligentes", desc: "Conçu pour le gaming, le travail, le streaming et la navigation tardive" },
+      ],
+    },
+    why: {
+      eyebrow: "§ Pourquoi les deux comptent",
+      title: "Pourquoi les deux comptent.",
+      lead: "La plupart des lunettes traitent toute la lumière bleue comme si elle était identique. Chez Eyegis, nous distinguons deux défis.",
+      dayLabel: "Le défi de la journée",
+      dayProblem: "Fatigue et inconfort visuel.",
+      nightLabel: "Le défi de la nuit",
+      nightProblem: "Perturbation du sommeil et de l'horloge biologique.",
+      solvedBy: "Pris en charge par",
+      closingA: "Longueurs d'onde différentes. Effets différents.",
+      closingB: "Deux solutions dédiées.",
+      cta: "Explorer Honest Science avec Eyegis",
+    },
   },
 } as const;
 
@@ -268,7 +380,11 @@ function Benefit({ title, desc }: { title: string; desc: string }) {
 
 export function OurTechnology() {
   const { lang } = useI18n();
-  const h = TECH_HERO_COPY[(lang.toLowerCase() as "br" | "en" | "fr") in TECH_HERO_COPY ? (lang.toLowerCase() as "br" | "en" | "fr") : "en"];
+  const content = useContentDocument<typeof TECH_HERO_COPY>("technology-overview", TECH_HERO_COPY);
+  const locale = (lang.toLowerCase() as "br" | "en" | "fr") in content
+    ? (lang.toLowerCase() as "br" | "en" | "fr")
+    : "en";
+  const h = content[locale];
   return (
     <section
       id="our-technology"
@@ -307,41 +423,30 @@ export function OurTechnology() {
           <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
-              <ShieldBadge label="Certified · Daytime">
+              <ShieldBadge label={h.retina.badge}>
                 <EyeInsignia />
               </ShieldBadge>
               <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
-                E-Guard™ Retina
+                {h.retina.name}
               </h3>
               <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
-                Protection du bleu-violet haute énergie
+                {h.retina.taglineA}
                 <span className="mx-2 text-ink/30">·</span>
-                Protect visual comfort during long screen sessions
+                {h.retina.taglineB}
               </p>
               <TealAccent />
             </div>
 
             <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
-              E-Guard Retina selectively filters part of the blue-violet
-              wavelengths responsible for digital eye strain during prolonged
-              screen sessions, while preserving color perception.
+              {h.retina.description}
             </p>
 
             <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
             <ul className="space-y-4">
-              <Benefit
-                title="Defeats Screen Fatigue"
-                desc="Minimizes dry, itchy, and red eyes"
-              />
-              <Benefit
-                title="Precision Filtering"
-                desc="Targets only the harsh blue-violet light"
-              />
-              <Benefit
-                title="Built for High-Output"
-                desc="Ideal for long workdays, binge watching, and intense gaming"
-              />
+              {h.retina.benefits.map((benefit) => (
+                <Benefit key={benefit.title} title={benefit.title} desc={benefit.desc} />
+              ))}
             </ul>
           </article>
 
@@ -349,42 +454,30 @@ export function OurTechnology() {
           <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
-              <ShieldBadge label="Certified · Nighttime">
+              <ShieldBadge label={h.circadian.badge}>
                 <MoonStarsInsignia />
               </ShieldBadge>
               <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
-                E-Guard™ Circadian
+                {h.circadian.name}
               </h3>
               <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
-                Soutien du rythme circadien et du confort visuel
+                {h.circadian.taglineA}
                 <span className="mx-2 text-ink/30">·</span>
-                Sunset Mode &amp; Sleep Protection
+                {h.circadian.taglineB}
               </p>
               <TealAccent />
             </div>
 
             <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
-              Exposure to high-energy blue light after dark tricks your brain
-              into thinking it's still noon, disrupting your natural sleep
-              cycle. E-Guard Circadian™ mitigates these specific evening
-              wavelengths while maintaining a natural viewing experience.
+              {h.circadian.description}
             </p>
 
             <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
             <ul className="space-y-4">
-              <Benefit
-                title="Protects Melatonin"
-                desc="Limits evening light disruption to support deeper, uninterrupted sleep"
-              />
-              <Benefit
-                title="True-to-Life Colors"
-                desc="Maximum circadian protection with significantly less color distortion than traditional amber lenses"
-              />
-              <Benefit
-                title="Smarter Night Routines"
-                desc="Built for late-night gaming, work, streaming, and scrolling"
-              />
+              {h.circadian.benefits.map((benefit) => (
+                <Benefit key={benefit.title} title={benefit.title} desc={benefit.desc} />
+              ))}
             </ul>
           </article>
         </div>
@@ -404,14 +497,13 @@ export function OurTechnology() {
             <div className="relative">
               <div className="text-center">
                 <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-teal">
-                  § Why Both Matter
+                  {h.why.eyebrow}
                 </span>
                 <h3 className="mt-4 font-editorial text-3xl leading-tight text-[#004B57] md:text-5xl">
-                  Why both matter.
+                  {h.why.title}
                 </h3>
                 <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink/75">
-                  Most blue-light eyewear treat all blue light as if it were the
-                  same. At Eyegis we see it as two very different challenges.
+                  {h.why.lead}
                 </p>
               </div>
 
@@ -423,15 +515,15 @@ export function OurTechnology() {
                       <SunGlyph className="h-6 w-6" />
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/60">
-                      The Daytime Challenge
+                      {h.why.dayLabel}
                     </span>
                   </div>
                   <p className="mt-6 font-editorial text-2xl leading-tight text-ink md:text-3xl">
-                    Eye strain &amp; fatigue.
+                    {h.why.dayProblem}
                   </p>
                   <div className="mt-6 flex items-center gap-3 text-teal">
                     <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                      Solved by
+                      {h.why.solvedBy}
                     </span>
                     <span className="h-px w-8 bg-teal/40" />
                     <span className="font-editorial text-lg">
@@ -447,15 +539,15 @@ export function OurTechnology() {
                       <MoonGlyph className="h-6 w-6" />
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-paper/60">
-                      The Nighttime Challenge
+                      {h.why.nightLabel}
                     </span>
                   </div>
                   <p className="mt-6 font-editorial text-2xl leading-tight md:text-3xl">
-                    Sleep disruption &amp; biological clock.
+                    {h.why.nightProblem}
                   </p>
                   <div className="mt-6 flex items-center gap-3 text-mint">
                     <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                      Solved by
+                      {h.why.solvedBy}
                     </span>
                     <span className="h-px w-8 bg-mint/40" />
                     <span className="font-editorial text-lg">
@@ -466,9 +558,9 @@ export function OurTechnology() {
               </div>
 
               <p className="mx-auto mt-14 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
-                Different wavelengths. Different effects.
+                {h.why.closingA}
                 <br />
-                <span className="text-ink/70">Two dedicated solutions.</span>
+                <span className="text-ink/70">{h.why.closingB}</span>
               </p>
 
               <div className="mt-10 flex justify-center">
@@ -477,7 +569,7 @@ export function OurTechnology() {
                   hash="honest-science"
                   className="group inline-flex items-center gap-2 rounded-full border border-teal/30 bg-white/60 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-teal transition hover:bg-white"
                 >
-                  Explore Honest Science with Eyegis
+                  {h.why.cta}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>

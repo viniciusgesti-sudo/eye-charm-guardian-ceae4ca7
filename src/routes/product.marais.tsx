@@ -3,6 +3,8 @@ import { Picture } from "@/components/eyegis/Picture";
 import { Header } from "@/components/eyegis/Header";
 import { Footer } from "@/components/eyegis/Footer";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
+import maraisPage from "@/content/products/marais-page.json";
+import { useContentDocument } from "@/lib/cms";
 
 import heroImg from "@/assets/products/marais-front.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import packageImg from "@/assets/products/marais-package.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
@@ -54,24 +56,8 @@ export const Route = createFileRoute("/product/marais")({
   component: MaraisProduct,
 });
 
-const SPECS: { k: string; v: string }[] = [
-  { k: "Frame Material", v: "Italian acetate — obsidian black" },
-  { k: "Lens Type", v: "EyegisGuard™ optical grade" },
-  { k: "Weight", v: "18.6 g" },
-  { k: "Protection", v: "Filters 400–455 nm HEV blue light" },
-  { k: "Coating", v: "Anti-reflective · Anti-scratch · Oleophobic" },
-  { k: "Bridge", v: "Subtle keyhole detail" },
-  { k: "Warranty", v: "2-year international" },
-  { k: "Comfort Guarantee", v: "60 days, no questions" },
-];
-
-const FEATURES = [
-  { title: "Round, understated", body: "A perfectly circular silhouette with a delicate keyhole bridge — Parisian restraint, not a statement." },
-  { title: "Screen-honest color", body: "EyegisGuard™ filters the harmful HEV band without an amber tint or color shift." },
-  { title: "Featherweight balance", body: "18.6g of hand-polished acetate designed to disappear on the face." },
-];
-
 function MaraisProduct() {
+  const content = useContentDocument<typeof maraisPage>("products-marais-page", maraisPage);
   return (
     <main className="bg-[#F9F6F1] text-[#1D252D]">
       <Header variant="compact" />
@@ -82,24 +68,23 @@ function MaraisProduct() {
       <section className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-16 md:py-24 items-center">
         <div className="order-2 md:order-1">
           <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-            Chapter III · Women's Collection
+            {content.hero.chapter}
           </p>
           <h1 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95] tracking-tight">
-            Round, quiet,
+            {content.hero.title}
             <br />
-            <span className="italic text-[#004B57]">Parisian.</span>
+            <span className="italic text-[#004B57]">{content.hero.titleAccent}</span>
           </h1>
           <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed text-black/70">
-            A refined round frame with a keyhole bridge — for readers, writers,
-            and anyone who prefers their design to whisper.
+            {content.hero.description}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={DEFAULT_AMAZON_URL}
+              href={content.buyLink || DEFAULT_AMAZON_URL}
               className="inline-flex items-center gap-3 rounded-full bg-[#004B57] px-6 py-3 text-white transition hover:-translate-y-0.5 hover:bg-[#003942]"
              target="_blank" rel="noopener noreferrer">
-              <span className="font-eyebrow text-xs tracking-[0.2em]">Coming soon on Amazon</span>
+              <span className="font-eyebrow text-xs tracking-[0.2em]">{content.hero.buyLabel}</span>
               <span aria-hidden>→</span>
             </a>
             <span className="inline-flex items-center gap-2 text-xs text-black/60">
@@ -110,12 +95,12 @@ function MaraisProduct() {
               >
                 ✓
               </span>
-              Independent lab tested
+              {content.hero.labLabel}
             </span>
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-2">
-            {["EyegisGuard™", "Round acetate", "Keyhole bridge", "2-yr warranty", "60-day comfort"].map((b) => (
+            {content.hero.badges.map((b) => (
               <li
                 key={b}
                 className="rounded-full border border-black/10 bg-white px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-black/70"
@@ -138,7 +123,7 @@ function MaraisProduct() {
 
       {/* Why you'll love it */}
       <section className="mx-auto max-w-6xl px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {FEATURES.map((f, i) => (
+        {content.features.map((f, i) => (
           <article
             key={f.title}
             className="rounded-lg border border-black/10 bg-white p-6"
@@ -158,10 +143,10 @@ function MaraisProduct() {
           <div className="flex items-end justify-between gap-6 mb-8">
             <div>
               <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-                In the box
+                {content.box.eyebrow}
               </p>
               <h2 className="mt-2 font-editorial text-3xl md:text-4xl">
-                Women's Collection, carefully packed.
+                {content.box.title}
               </h2>
             </div>
           </div>
@@ -174,7 +159,7 @@ function MaraisProduct() {
                 className="w-full aspect-[4/3] object-center object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-black/60">
-                Recyclable paperboard box · debossed Eyegis mark
+                {content.box.packageCaption}
               </figcaption>
             </figure>
             <figure className="overflow-hidden rounded-lg bg-white border border-black/10">
@@ -185,7 +170,7 @@ function MaraisProduct() {
                 className="w-full aspect-[4/3] object-center object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-black/60">
-                Microfibre pouch · doubles as a lens cloth
+                {content.box.pouchCaption}
               </figcaption>
             </figure>
           </div>
@@ -196,13 +181,13 @@ function MaraisProduct() {
       <section className="bg-white border-y border-black/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <p className="text-[11px] uppercase tracking-[0.25em] text-[#004B57]">
-            Specifications
+            {content.specifications.eyebrow}
           </p>
           <h2 className="mt-2 font-editorial text-3xl md:text-4xl mb-8">
-            Every measurement, honest.
+            {content.specifications.title}
           </h2>
           <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
-            {SPECS.map((row) => (
+            {content.specifications.rows.map((row) => (
               <div
                 key={row.k}
                 className="flex items-baseline justify-between border-b border-black/10 py-3 gap-4"
@@ -229,10 +214,10 @@ function MaraisProduct() {
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-16 text-white">
             <p className="text-[11px] uppercase tracking-[0.25em] opacity-80">
-              Where Women's Collection belongs
+              {content.lifestyle.eyebrow}
             </p>
             <h2 className="mt-3 font-editorial text-3xl md:text-5xl max-w-xl leading-tight">
-              Quiet rooms, long reads, unhurried mornings.
+              {content.lifestyle.title}
             </h2>
           </div>
         </div>
@@ -242,26 +227,24 @@ function MaraisProduct() {
       <section className="bg-[#004B57] text-white">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] opacity-70">
-            Women's Collection · by Eyegis
+            {content.cta.eyebrow}
           </p>
           <h2 className="mt-4 font-editorial text-4xl md:text-6xl leading-[0.95]">
-            Ready to see the world
+            {content.cta.title}
             <br />
-            <span className="italic text-[#86D9D1]">a little rounder?</span>
+            <span className="italic text-[#86D9D1]">{content.cta.titleAccent}</span>
           </h2>
           <a
-            href={DEFAULT_AMAZON_URL}
+            href={content.buyLink || DEFAULT_AMAZON_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-[#004B57] transition hover:-translate-y-0.5"
           >
-            <span className="font-eyebrow text-xs tracking-[0.2em]">Buy on Amazon</span>
+            <span className="font-eyebrow text-xs tracking-[0.2em]">{content.cta.buyLabel}</span>
             <span aria-hidden>→</span>
           </a>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs opacity-80">
-            <li>Secure purchase through Amazon</li>
-            <li>Fast Prime shipping</li>
-            <li>60-day comfort guarantee</li>
+            {content.cta.trust.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
       </section>

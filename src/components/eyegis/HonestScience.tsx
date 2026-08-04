@@ -3,6 +3,11 @@
  * Palette: Deep Teal #004B57, Champagne #E2D1C3, Mint #86D9D1, Obsidian #1D252D, Off-white #F9F9F9
  */
 import { Check } from "lucide-react";
+import { useI18n } from "@/i18n/context";
+import honestScienceData from "@/content/honest-science.json";
+import { useContentDocument } from "@/lib/cms";
+
+type ScienceCopy = typeof honestScienceData.EN;
 
 const TEAL = "#004B57";
 const CHAMPAGNE = "#E2D1C3";
@@ -92,7 +97,7 @@ function PictoShield() {
 }
 
 /* 1. Hero */
-function Hero() {
+function Hero({ c }: { c: ScienceCopy }) {
   return (
     <section
       className="relative overflow-hidden px-6 py-32 md:px-12 md:py-40"
@@ -116,21 +121,19 @@ function Hero() {
           className="font-mono text-[11px] uppercase tracking-[0.32em]"
           style={{ color: MINT }}
         >
-          § Honest Science™
+          {c.hero.eyebrow}
         </span>
         <h2 className="mt-6 font-editorial text-4xl leading-[1.05] md:text-6xl">
-          The science behind the lenses.{" "}
+          {c.hero.title}{" "}
           <span className="italic" style={{ color: MINT }}>
-            Without the marketing myths.
+            {c.hero.titleAccent}
           </span>
         </h2>
         <p
           className="mx-auto mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
           style={{ color: "rgba(249,249,249,0.72)" }}
         >
-          The blue-light market is filled with confusion, exaggerated claims,
-          and misleading numbers. Our goal is simple: explain what we know,
-          what we don't know, and how our lenses are engineered.
+          {c.hero.body}
         </p>
         <div
           className="mx-auto mt-10 h-px w-24"
@@ -144,7 +147,7 @@ function Hero() {
 }
 
 /* 2. Spectrum */
-function SpectrumSection() {
+function SpectrumSection({ c }: { c: ScienceCopy }) {
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -154,12 +157,12 @@ function SpectrumSection() {
         <div className="flex items-start gap-4">
           <PictoSpectrum />
           <div>
-            <SectionLabel n="§ 01">Spectrum</SectionLabel>
+            <SectionLabel n="§ 01">{c.spectrum.label}</SectionLabel>
             <h3
               className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
               style={{ color: TEAL }}
             >
-              Blue light is not <span className="italic">one single thing</span>.
+              {c.spectrum.title} <span className="italic">{c.spectrum.titleAccent}</span>
             </h3>
           </div>
         </div>
@@ -168,10 +171,7 @@ function SpectrumSection() {
           className="mt-8 max-w-3xl text-[15px] leading-relaxed md:text-base"
           style={{ color: "rgba(29,37,45,0.78)" }}
         >
-          "Blue light" is often marketed as one specific threat. In reality, it
-          spans a broad spectrum of visible wavelengths between{" "}
-          <strong>380 and 500 nanometers</strong>. Think of it like UV light:
-          it's a category, not a single wavelength.
+          {c.spectrum.body}
         </p>
 
         <div className="mt-16">
@@ -197,7 +197,7 @@ function SpectrumSection() {
               className="absolute font-mono text-[9px] uppercase tracking-[0.2em]"
               style={{ left: "26%", top: "76px", color: TEAL }}
             >
-              Retina · 435–440
+              {c.spectrum.retinaMarker}
             </div>
 
             {/* Circadian zone marker (~480nm) */}
@@ -214,7 +214,7 @@ function SpectrumSection() {
               className="absolute font-mono text-[9px] uppercase tracking-[0.2em]"
               style={{ right: "10%", top: "76px", color: TEAL }}
             >
-              Circadian · ~480
+              {c.spectrum.circadianMarker}
             </div>
           </div>
 
@@ -238,7 +238,7 @@ function SpectrumSection() {
 }
 
 /* 3. Retina vs Circadian */
-function RetinaVsCircadian() {
+function RetinaVsCircadian({ c }: { c: ScienceCopy }) {
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -246,12 +246,12 @@ function RetinaVsCircadian() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
-          <SectionLabel n="§ 02">Two mechanisms</SectionLabel>
+          <SectionLabel n="§ 02">{c.mechanisms.label}</SectionLabel>
           <h3
             className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
             style={{ color: TEAL }}
           >
-            Retina vs Circadian.
+            {c.mechanisms.title}
           </h3>
         </div>
 
@@ -264,10 +264,10 @@ function RetinaVsCircadian() {
                   className="font-mono text-[10px] uppercase tracking-[0.28em]"
                   style={{ color: TEAL }}
                 >
-                  Retina
+                  {c.mechanisms.retina.eyebrow}
                 </span>
                 <h4 className="mt-1 font-editorial text-2xl" style={{ color: INK }}>
-                  Photobiological hazard
+                  {c.mechanisms.retina.title}
                 </h4>
               </div>
             </div>
@@ -275,14 +275,13 @@ function RetinaVsCircadian() {
               className="mt-6 text-[15px] leading-relaxed"
               style={{ color: "rgba(29,37,45,0.8)" }}
             >
-              Research on photobiological hazards identifies a peak sensitivity
-              in the blue-violet region, around <strong>435–440 nm</strong>.
+              {c.mechanisms.retina.body}
             </p>
             <p
               className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
               style={{ borderColor: `${TEAL}20`, color: "rgba(29,37,45,0.55)" }}
             >
-              Ref. ICNIRP 2013 · ANSI 2015
+              {c.mechanisms.retina.reference}
             </p>
           </article>
 
@@ -299,23 +298,22 @@ function RetinaVsCircadian() {
                   className="font-mono text-[10px] uppercase tracking-[0.28em]"
                   style={{ color: MINT }}
                 >
-                  Circadian
+                  {c.mechanisms.circadian.eyebrow}
                 </span>
-                <h4 className="mt-1 font-editorial text-2xl">Biological clock</h4>
+                <h4 className="mt-1 font-editorial text-2xl">{c.mechanisms.circadian.title}</h4>
               </div>
             </div>
             <p
               className="mt-6 text-[15px] leading-relaxed"
               style={{ color: "rgba(249,249,249,0.85)" }}
             >
-              The body's internal clock is most sensitive to slightly longer
-              blue wavelengths, centered around roughly <strong>480 nm</strong>.
+              {c.mechanisms.circadian.body}
             </p>
             <p
               className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
               style={{ borderColor: `${MINT}30`, color: "rgba(249,249,249,0.55)" }}
             >
-              Ref. CIE S 026/E:2018
+              {c.mechanisms.circadian.reference}
             </p>
           </article>
         </div>
@@ -324,9 +322,8 @@ function RetinaVsCircadian() {
           className="mx-auto mt-14 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
           style={{ color: TEAL }}
         >
-          Because the biological mechanisms and wavelengths are different,
-          Eyegis targets them as{" "}
-          <span style={{ color: INK }}>two separate problems</span>.
+          {c.mechanisms.closing}{" "}
+          <span style={{ color: INK }}>{c.mechanisms.closingAccent}</span>
         </p>
       </div>
     </section>
@@ -334,7 +331,7 @@ function RetinaVsCircadian() {
 }
 
 /* 4. Selective filtering */
-function SelectiveFiltering() {
+function SelectiveFiltering({ c }: { c: ScienceCopy }) {
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -352,14 +349,13 @@ function SelectiveFiltering() {
             >
               <span>§ 03</span>
               <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
-              <span>Selective filtering</span>
+              <span>{c.selective.label}</span>
             </div>
             <h3 className="mt-4 font-editorial text-3xl leading-tight md:text-5xl">
-              Why selective filtering{" "}
+              {c.selective.title}{" "}
               <span className="italic" style={{ color: MINT }}>
-                matters
+                {c.selective.titleAccent}
               </span>
-              .
             </h3>
           </div>
         </div>
@@ -368,24 +364,12 @@ function SelectiveFiltering() {
           className="mt-10 space-y-8 text-[15px] leading-relaxed md:text-base"
           style={{ color: "rgba(249,249,249,0.78)" }}
         >
-          <p>
-            Many brands advertise a single, catch-all number:{" "}
-            <em>"Blocks 40%"</em>, <em>"Blocks 60%"</em>, or{" "}
-            <em>"Blocks 90%"</em>. These metrics are highly misleading because
-            they depend entirely on which wavelengths are included in the math.
-          </p>
-          <p>
-            A lens could block large amounts of relatively less relevant
-            wavelengths while allowing much of the critical range to pass
-            through. Actually, the cornea already filters close to 100% of
-            blue-light on the lowest wavelengths (~380 nm to 400 nm).
-          </p>
+          {c.selective.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           <p
             className="font-editorial text-xl italic md:text-2xl"
             style={{ color: MINT }}
           >
-            Eyegis measures performance where it actually matters, not where it
-            inflates a marketing claim.
+            {c.selective.closing}
           </p>
         </div>
       </div>
@@ -394,13 +378,8 @@ function SelectiveFiltering() {
 }
 
 /* 5. Orange distortion */
-function OrangeDistortion() {
-  const issues = [
-    "Reddish or amber screens",
-    "Reduced color accuracy",
-    "Altered white balance",
-    "Distorted visual experience",
-  ];
+function OrangeDistortion({ c }: { c: ScienceCopy }) {
+  const issues = c.color.issues;
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -409,20 +388,19 @@ function OrangeDistortion() {
       <div className="mx-auto max-w-5xl">
         <div className="grid gap-14 md:grid-cols-[1fr_1fr] md:items-center">
           <div>
-            <SectionLabel n="§ 04">Color fidelity</SectionLabel>
+            <SectionLabel n="§ 04">{c.color.label}</SectionLabel>
             <h3
               className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
               style={{ color: TEAL }}
             >
-              Why heavy orange lenses{" "}
-              <span className="italic">distort colors</span>.
+              {c.color.title}{" "}
+              <span className="italic">{c.color.titleAccent}</span>
             </h3>
             <p
               className="mt-6 text-[15px] leading-relaxed"
               style={{ color: "rgba(29,37,45,0.75)" }}
             >
-              When a lens aggressively strips away all blue light, color
-              accuracy vanishes.
+              {c.color.body}
             </p>
           </div>
 
@@ -440,7 +418,7 @@ function OrangeDistortion() {
                 className="font-mono text-[10px] uppercase tracking-[0.22em]"
                 style={{ color: "rgba(29,37,45,0.55)" }}
               >
-                Heavy amber
+                {c.color.amberLabel}
               </span>
             </div>
             <div className="flex flex-col items-center gap-3">
@@ -456,7 +434,7 @@ function OrangeDistortion() {
                 className="font-mono text-[10px] uppercase tracking-[0.22em]"
                 style={{ color: TEAL }}
               >
-                Eyegis · true tone
+                {c.color.eyegisLabel}
               </span>
             </div>
           </div>
@@ -484,8 +462,7 @@ function OrangeDistortion() {
           className="mt-10 max-w-2xl text-[15px] leading-relaxed"
           style={{ color: "rgba(29,37,45,0.75)" }}
         >
-          For some applications, that trade-off may be acceptable. For many
-          users, it is not.
+          {c.color.closing}
         </p>
       </div>
     </section>
@@ -493,13 +470,8 @@ function OrangeDistortion() {
 }
 
 /* 6. Middle ground */
-function MiddleGround() {
-  const items = [
-    "Targeted filtering",
-    "Superior color fidelity",
-    "More comfortable everyday use",
-    "No extreme orange tint",
-  ];
+function MiddleGround({ c }: { c: ScienceCopy }) {
+  const items = c.middle.items;
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -507,13 +479,13 @@ function MiddleGround() {
     >
       <div className="mx-auto max-w-5xl text-center">
         <SectionLabel n="§ 05">
-          <span style={{ color: TEAL }}>The middle ground</span>
+          <span style={{ color: TEAL }}>{c.middle.label}</span>
         </SectionLabel>
         <h3
           className="mt-6 font-editorial text-3xl leading-tight md:text-5xl"
           style={{ color: TEAL }}
         >
-          Protection <span className="italic">without compromise</span>.
+          {c.middle.title} <span className="italic">{c.middle.titleAccent}</span>
         </h3>
 
         <div className="mx-auto mt-14 grid max-w-3xl gap-4 md:grid-cols-2">
@@ -540,7 +512,7 @@ function MiddleGround() {
 }
 
 /* 7. E-Guard Scores */
-function EGuardScores() {
+function EGuardScores({ c }: { c: ScienceCopy }) {
   return (
     <section
       className="relative px-6 py-28 md:px-12 md:py-36"
@@ -550,12 +522,12 @@ function EGuardScores() {
         <div className="flex items-start gap-4">
           <PictoShield />
           <div>
-            <SectionLabel n="§ 06">E-Guard Scores</SectionLabel>
+            <SectionLabel n="§ 06">{c.scores.label}</SectionLabel>
             <h3
               className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
               style={{ color: TEAL }}
             >
-              Understanding <span className="italic">E-Guard Scores</span>.
+              {c.scores.title} <span className="italic">{c.scores.titleAccent}</span>
             </h3>
           </div>
         </div>
@@ -564,13 +536,7 @@ function EGuardScores() {
           className="mt-10 space-y-6 text-[15px] leading-relaxed"
           style={{ color: "rgba(29,37,45,0.78)" }}
         >
-          <p>
-            The <strong>E-Guard Retina</strong> and{" "}
-            <strong>E-Guard Circadian</strong> scores are proprietary Eyegis
-            indicators. They are inspired by published scientific literature,
-            including work from the CIE and research on circadian light
-            exposure.
-          </p>
+          <p>{c.scores.body}</p>
           <p
             className="rounded-xl border-l-4 px-5 py-4 italic"
             style={{
@@ -579,8 +545,7 @@ function EGuardScores() {
               color: TEAL,
             }}
           >
-            They are <strong>not medical certifications</strong> and should not
-            be interpreted as medical claims.
+            {c.scores.notice}
           </p>
         </div>
 
@@ -597,13 +562,13 @@ function EGuardScores() {
             </span>
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
-                E-Guard Retina
+                {c.scores.retinaName}
               </div>
               <div
                 className="mt-0.5 text-xs"
                 style={{ color: "rgba(29,37,45,0.6)" }}
               >
-                Blue-violet filtering
+                {c.scores.retinaCaption}
               </div>
             </div>
           </div>
@@ -619,13 +584,13 @@ function EGuardScores() {
             </span>
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
-                E-Guard Circadian
+                {c.scores.circadianName}
               </div>
               <div
                 className="mt-0.5 text-xs"
                 style={{ color: "rgba(29,37,45,0.6)" }}
               >
-                Circadian-related blue-light filtering
+                {c.scores.circadianCaption}
               </div>
             </div>
           </div>
@@ -636,13 +601,8 @@ function EGuardScores() {
 }
 
 /* 8. References */
-function References() {
-  const refs = [
-    "International Commission on Illumination (CIE) — Blue Light Hazard",
-    "Harvard Medical School — Blue Light Has a Dark Side",
-    "National Sleep Foundation — Light and Sleep",
-    "CIE — Melanopic Metrics",
-  ];
+function References({ c }: { c: ScienceCopy }) {
+  const refs = c.references.items;
   return (
     <section
       className="relative px-6 py-20 md:px-12"
@@ -653,7 +613,7 @@ function References() {
           className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em]"
           style={{ color: MINT }}
         >
-          <span>§ References</span>
+          <span>{c.references.label}</span>
           <span className="h-px flex-1" style={{ background: `${MINT}30` }} />
         </div>
         <ul className="mt-8 grid gap-3 md:grid-cols-2">
@@ -675,16 +635,19 @@ function References() {
 }
 
 export function HonestScience() {
+  const { lang } = useI18n();
+  const content = useContentDocument<typeof honestScienceData>("honest-science", honestScienceData);
+  const c = content[lang] ?? content.EN;
   return (
-    <section id="honest-science" aria-label="Honest Science">
-      <Hero />
-      <SpectrumSection />
-      <RetinaVsCircadian />
-      <SelectiveFiltering />
-      <OrangeDistortion />
-      <MiddleGround />
-      <EGuardScores />
-      <References />
+    <section id="honest-science" aria-label={c.ariaLabel}>
+      <Hero c={c} />
+      <SpectrumSection c={c} />
+      <RetinaVsCircadian c={c} />
+      <SelectiveFiltering c={c} />
+      <OrangeDistortion c={c} />
+      <MiddleGround c={c} />
+      <EGuardScores c={c} />
+      <References c={c} />
     </section>
   );
 }

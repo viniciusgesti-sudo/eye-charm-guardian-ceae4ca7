@@ -1,31 +1,26 @@
-/**
- * Client-safe entry point for CMS data.
- *
- * `getSiteContentFn` is a TanStack server function that runs on the edge,
- * queries Wix through the gateway, and returns a normalized CmsMap. On the
- * client side it becomes an RPC stub — no credentials ship to the browser.
- *
- * `siteContentQueryOptions` is the shared query key + fetcher used by the
- * root loader and the RootComponent so SSR + hydration share one entry.
- */
-import { createServerFn } from "@tanstack/react-start";
 import { queryOptions } from "@tanstack/react-query";
+import { createServerFn } from "@tanstack/react-start";
 
-import type { CmsMap } from "./types";
+import type { WordPressContentPayload } from "./types";
+
+const EMPTY_PAYLOAD: WordPressContentPayload = {
+  version: "fallback",
+  generated_at: "",
+  documents: {},
+};
 
 export const getSiteContentFn = createServerFn({ method: "GET" }).handler(
-  async (): Promise<CmsMap> => {
-    // Server-only import kept inside the handler so it never enters the
-    // client bundle.
-    const { fetchSiteContent } = await import("./wix.server");
-    return fetchSiteContent();
+  async (): Promise<WordPressContentPayload> => {
+    const { fetchWordPressContent } = await import("./wordpress.server");
+    return fetchWordPressContent();
   },
 );
 
 export const siteContentQueryOptions = queryOptions({
-  queryKey: ["cms", "site-content"],
+  queryKey: ["cms", "wordpress-content"],
   queryFn: () => getSiteContentFn(),
-  // CMS content is edited manually and does not need per-navigation refetch.
-  staleTime: 5 * 60_000, // 5 minutes
-  gcTime: 30 * 60_000, // 30 minutes
+  placeholderData: EMPTY_PAYLOAD,
+  staleTime: 60_000,
+  gcTime: 15 * 60_000,
+  retry: 1,
 });

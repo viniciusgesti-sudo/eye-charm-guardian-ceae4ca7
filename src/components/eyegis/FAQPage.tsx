@@ -6,6 +6,7 @@ import { Picture } from "@/components/eyegis/Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 import faqData from "@/content/faq.json";
+import { formatContentTemplate, useContentDocument } from "@/lib/cms";
 
 const OFFWHITE = "#F6F3EE";
 const CHAMPAGNE = "#E9DFCC";
@@ -133,8 +134,8 @@ type PageContent = {
   contactUs: string;
   open: string;
   categoriesRule: string;
-  categoryLabel: (n: string) => string;
-  answersCount: (n: number) => string;
+  categoryLabel: string;
+  answersCount: string;
   related: string;
   relatedMap: Record<RelatedKey, { label: string; to: string; hash?: string }>;
   stillNeedRule: string;
@@ -163,8 +164,8 @@ const CONTENT: Record<Lang, PageContent> = {
     contactUs: "contact us",
     open: "Open →",
     categoriesRule: "Categories",
-    categoryLabel: (n) => `Category ${n}`,
-    answersCount: (n) => `${n} answers in this category.`,
+    categoryLabel: "Category {n}",
+    answersCount: "{n} answers in this category.",
     related: "Related",
     relatedMap: {
       technology: { label: "Learn About EyegisGuard™", to: "/lenses" },
@@ -294,8 +295,8 @@ const CONTENT: Record<Lang, PageContent> = {
     contactUs: "fale conosco",
     open: "Abrir →",
     categoriesRule: "Categorias",
-    categoryLabel: (n) => `Categoria ${n}`,
-    answersCount: (n) => `${n} respostas nesta categoria.`,
+    categoryLabel: "Categoria {n}",
+    answersCount: "{n} respostas nesta categoria.",
     related: "Relacionados",
     relatedMap: {
       technology: { label: "Conheça o EyegisGuard™", to: "/lenses" },
@@ -425,8 +426,8 @@ const CONTENT: Record<Lang, PageContent> = {
     contactUs: "contactez-nous",
     open: "Ouvrir →",
     categoriesRule: "Catégories",
-    categoryLabel: (n) => `Catégorie ${n}`,
-    answersCount: (n) => `${n} réponses dans cette catégorie.`,
+    categoryLabel: "Catégorie {n}",
+    answersCount: "{n} réponses dans cette catégorie.",
     related: "En lien",
     relatedMap: {
       technology: { label: "Découvrir EyegisGuard™", to: "/lenses" },
@@ -607,23 +608,25 @@ function Rule({ label }: { label: string }) {
 
 export function FAQPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const pageContent = useContentDocument<typeof CONTENT>("faq-page", CONTENT);
+  const c = pageContent[lang];
+  const faqContent = useContentDocument<typeof faqData>("faq", faqData);
 
   const categories = useMemo(
     () =>
       CATEGORY_META.map((meta) => {
         const localized = c.categories.find((x) => x.id === meta.id)!;
         if (meta.id === "general") {
-          const cmsItems = (faqData as any)[lang]?.questions?.map((q: any) => ({
+          const cmsItems = faqContent[lang]?.questions?.map((q) => ({
             q: q.q,
             a: q.a,
-            related: []
+            related: [] as RelatedKey[],
           })) || [];
           return { ...meta, label: localized.label, items: [...cmsItems, ...localized.items] };
         }
         return { ...meta, label: localized.label, items: localized.items };
       }),
-    [c, lang],
+    [c, faqContent, lang],
   );
 
   const allQuestions = useMemo(
@@ -877,11 +880,11 @@ export function FAQPage() {
                   className="shrink-0 text-[10px] uppercase tracking-[0.35em]"
                   style={{ color: MUTED }}
                 >
-                  {c.categoryLabel(activeCategory.index)}
+                  {formatContentTemplate(c.categoryLabel, { n: activeCategory.index })}
                 </span>
               </div>
               <p className="mt-4 max-w-xl text-[13px] leading-[1.7]" style={{ color: MUTED }}>
-                {c.answersCount(activeCategory.items.length)}
+                {formatContentTemplate(c.answersCount, { n: activeCategory.items.length })}
               </p>
 
               <div className="mt-10 border-t" style={{ borderColor: "rgba(14,22,19,0.15)" }}>

@@ -1,5 +1,6 @@
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; p: string }[] }> = {
   EN: {
@@ -36,7 +37,8 @@ const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; 
 
 export function PrivacyPage() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("privacy", COPY);
+  const c = content[lang];
   return (
     <>
       
@@ -58,4 +60,3 @@ export function PrivacyPage() {
     </>
   );
 }
-

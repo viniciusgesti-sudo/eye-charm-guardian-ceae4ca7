@@ -1,0 +1,744 @@
+:root {
+  --eyegis-teal: #0f4c55;
+  --eyegis-teal-dark: #0a3840;
+  --eyegis-teal-soft: #eaf4f3;
+  --eyegis-gold: #ba8b4a;
+  --eyegis-ink: #172a2e;
+  --eyegis-muted: #607276;
+  --eyegis-line: #dbe3e4;
+  --eyegis-canvas: #f6f8f8;
+  --eyegis-radius: 14px;
+  --eyegis-shadow: 0 8px 30px rgba(15, 76, 85, 0.08);
+}
+
+.post-type-eyegis_document #titlediv {
+  display: none;
+}
+
+.post-type-eyegis_document #poststuff #eyegis-content-fields .inside {
+  margin: 0;
+  padding: 0;
+}
+
+.post-type-eyegis_document #eyegis-content-fields {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.post-type-eyegis_document #eyegis-content-fields > .postbox-header {
+  display: none;
+}
+
+.eyegis-kicker {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--eyegis-gold);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.eyegis-edit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 14px;
+  padding: 20px 22px;
+  background: linear-gradient(135deg, var(--eyegis-teal-dark), var(--eyegis-teal));
+  border-radius: var(--eyegis-radius);
+  color: #fff;
+}
+
+.eyegis-edit-header .button {
+  flex: 0 0 auto;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.eyegis-editor-intro {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 14px;
+}
+
+.eyegis-technical-info {
+  margin: 0 0 14px;
+  color: var(--eyegis-muted);
+  font-size: 12px;
+}
+
+.eyegis-technical-info summary {
+  cursor: pointer;
+}
+
+.eyegis-editor-shell {
+  position: relative;
+  display: grid;
+  gap: 16px;
+}
+
+.eyegis-editor-toolbar {
+  position: sticky;
+  z-index: 30;
+  top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--eyegis-line);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(15, 76, 85, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.eyegis-save-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--eyegis-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eyegis-save-status::before {
+  width: 8px;
+  height: 8px;
+  background: #79a58c;
+  border-radius: 50%;
+  content: "";
+}
+
+.eyegis-save-status.is-dirty {
+  color: #8a5d18;
+}
+
+.eyegis-save-status.is-dirty::before {
+  background: #d99c3b;
+}
+
+.eyegis-toolbar-actions,
+.eyegis-array-item-actions,
+.eyegis-image-controls,
+.eyegis-media-picker-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.eyegis-save-button.button.button-primary {
+  min-height: 36px;
+  padding: 0 18px;
+  border-color: var(--eyegis-teal);
+  background: var(--eyegis-teal);
+}
+
+.eyegis-fields {
+  display: grid;
+  gap: 14px;
+}
+
+.eyegis-group,
+.eyegis-array,
+.eyegis-language-section {
+  margin: 0;
+  padding: 0;
+  overflow: clip;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-radius: var(--eyegis-radius);
+  box-shadow: 0 2px 12px rgba(15, 76, 85, 0.035);
+}
+
+.eyegis-group-title,
+.eyegis-array-heading {
+  padding: 16px 18px;
+  color: var(--eyegis-ink);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.eyegis-group-title::marker {
+  color: var(--eyegis-gold);
+}
+
+.eyegis-group[open] > .eyegis-group-title {
+  background: var(--eyegis-canvas);
+  border-bottom: 1px solid var(--eyegis-line);
+}
+
+.eyegis-group > .eyegis-fields,
+.eyegis-array-items {
+  padding: 18px;
+}
+
+.eyegis-field {
+  display: grid;
+  gap: 7px;
+}
+
+.eyegis-field[hidden],
+.eyegis-media-card[hidden] {
+  display: none !important;
+}
+
+.eyegis-label {
+  color: var(--eyegis-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eyegis-field-help {
+  margin-top: -3px;
+  color: var(--eyegis-muted);
+  font-size: 11px;
+}
+
+.eyegis-field input[type="text"],
+.eyegis-field input[type="url"],
+.eyegis-field input[type="number"],
+.eyegis-field textarea,
+.eyegis-image-field input,
+.eyegis-media-alt input,
+.eyegis-media-picker-actions input,
+.eyegis-media-search input {
+  width: 100%;
+  max-width: none;
+  min-height: 42px;
+  padding: 8px 11px;
+  border-color: #cbd7d8;
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.eyegis-field input:focus,
+.eyegis-field textarea:focus,
+.eyegis-media-alt input:focus,
+.eyegis-media-search input:focus {
+  border-color: var(--eyegis-teal);
+  box-shadow: 0 0 0 1px var(--eyegis-teal);
+}
+
+.eyegis-field textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.eyegis-field--technical {
+  padding: 10px;
+  background: #fff8e8;
+  border: 1px dashed #d5b675;
+  border-radius: 7px;
+}
+
+.eyegis-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.eyegis-switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.eyegis-switch-slider {
+  position: relative;
+  width: 42px;
+  height: 23px;
+  background: #aeb9bb;
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+
+.eyegis-switch-slider::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 17px;
+  height: 17px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  content: "";
+  transition: 0.2s ease;
+}
+
+.eyegis-switch input:checked + .eyegis-switch-slider {
+  background: var(--eyegis-teal);
+}
+
+.eyegis-switch input:checked + .eyegis-switch-slider::after {
+  transform: translateX(19px);
+}
+
+.eyegis-array {
+  padding: 0 0 18px;
+}
+
+.eyegis-array-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--eyegis-canvas);
+  border-bottom: 1px solid var(--eyegis-line);
+}
+
+.eyegis-count-badge {
+  padding: 3px 8px;
+  background: var(--eyegis-teal-soft);
+  border-radius: 999px;
+  color: var(--eyegis-teal);
+  font-size: 11px;
+}
+
+.eyegis-array > .button {
+  margin-left: 18px;
+}
+
+.eyegis-array-items {
+  display: grid;
+  gap: 14px;
+}
+
+.eyegis-array-item {
+  padding: 15px;
+  background: var(--eyegis-canvas);
+  border: 1px solid var(--eyegis-line);
+  border-radius: 9px;
+}
+
+.eyegis-array-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eyegis-icon-button {
+  min-width: 31px;
+  padding: 0;
+  font-weight: 700;
+}
+
+.eyegis-language-section {
+  padding: 18px;
+}
+
+.eyegis-language-heading {
+  margin: 0 0 4px;
+  color: var(--eyegis-ink);
+  font-size: 15px;
+}
+
+.eyegis-language-help {
+  margin: 0 0 14px;
+  color: var(--eyegis-muted);
+}
+
+.eyegis-language-tabs {
+  display: flex;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--eyegis-line);
+}
+
+.eyegis-language-tabs .button {
+  min-width: 100px;
+  border-color: transparent;
+  background: var(--eyegis-canvas);
+  color: var(--eyegis-muted);
+}
+
+.eyegis-language-tabs .button.is-active {
+  border-color: var(--eyegis-teal);
+  background: var(--eyegis-teal);
+  color: #fff;
+}
+
+.eyegis-language-panel {
+  padding-top: 18px;
+}
+
+.eyegis-image-field {
+  display: grid;
+  grid-template-columns: 220px minmax(220px, 1fr);
+  gap: 12px 16px;
+}
+
+.eyegis-image-preview-wrap,
+.eyegis-media-picker-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 130px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eff3f3, #e2e8e8);
+  border: 1px solid var(--eyegis-line);
+  border-radius: 9px;
+}
+
+.eyegis-image-preview,
+.eyegis-media-picker-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.eyegis-image-placeholder {
+  max-width: 24ch;
+  padding: 18px;
+  color: var(--eyegis-muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+.eyegis-image-controls {
+  align-content: start;
+}
+
+.eyegis-image-field > input {
+  grid-column: 1 / -1;
+}
+
+/* Dashboard */
+.eyegis-dashboard {
+  max-width: 1240px;
+  color: var(--eyegis-ink);
+}
+
+.eyegis-dashboard-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 18px 0 14px;
+  padding: 30px;
+  background: linear-gradient(135deg, var(--eyegis-teal-dark), var(--eyegis-teal));
+  border-radius: 18px;
+  box-shadow: var(--eyegis-shadow);
+  color: #fff;
+}
+
+.eyegis-dashboard-hero h1 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.1;
+}
+
+.eyegis-dashboard-hero p {
+  max-width: 700px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+}
+
+.eyegis-dashboard-hero .button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 4px 16px;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.eyegis-dashboard-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.eyegis-dashboard-stats span {
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-radius: 999px;
+  color: var(--eyegis-muted);
+}
+
+.eyegis-dashboard-stats strong {
+  color: var(--eyegis-teal);
+}
+
+.eyegis-image-spotlight {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 24px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-left: 5px solid var(--eyegis-gold);
+  border-radius: var(--eyegis-radius);
+  box-shadow: var(--eyegis-shadow);
+}
+
+.eyegis-image-spotlight-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: var(--eyegis-teal-soft);
+  border-radius: 12px;
+  color: var(--eyegis-teal);
+  font-size: 27px;
+}
+
+.eyegis-image-spotlight h2,
+.eyegis-image-spotlight p {
+  margin: 0;
+}
+
+.eyegis-image-spotlight p {
+  margin-top: 4px;
+  color: var(--eyegis-muted);
+}
+
+.eyegis-section-heading {
+  margin: 22px 0 12px;
+  color: var(--eyegis-ink);
+}
+
+.eyegis-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.eyegis-dashboard-card {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-radius: var(--eyegis-radius);
+  box-shadow: 0 4px 18px rgba(15, 76, 85, 0.045);
+}
+
+.eyegis-dashboard-card-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--eyegis-teal-soft);
+  border-radius: 9px;
+  color: var(--eyegis-teal);
+  font-size: 21px;
+}
+
+.eyegis-dashboard-card h3 {
+  margin: 13px 0 5px;
+  color: var(--eyegis-ink);
+  font-size: 17px;
+}
+
+.eyegis-dashboard-card > p {
+  min-height: 38px;
+  margin: 0 0 14px;
+  color: var(--eyegis-muted);
+}
+
+.eyegis-dashboard-links {
+  display: grid;
+  border-top: 1px solid var(--eyegis-line);
+}
+
+.eyegis-dashboard-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 2px;
+  border-bottom: 1px solid var(--eyegis-line);
+  color: var(--eyegis-teal);
+  text-decoration: none;
+}
+
+.eyegis-dashboard-links a:hover {
+  color: var(--eyegis-gold);
+}
+
+.eyegis-advanced-link {
+  margin: 20px 0 30px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-radius: 10px;
+}
+
+.eyegis-advanced-link summary {
+  color: var(--eyegis-muted);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Media gallery */
+.eyegis-media-intro {
+  padding: 20px;
+  background: var(--eyegis-teal-soft);
+  border-radius: var(--eyegis-radius);
+}
+
+.eyegis-media-intro h2,
+.eyegis-media-intro p {
+  margin: 0;
+}
+
+.eyegis-media-intro p {
+  max-width: 800px;
+  margin-top: 5px;
+  color: var(--eyegis-muted);
+}
+
+.eyegis-media-search {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.eyegis-media-result-count {
+  color: var(--eyegis-muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.eyegis-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.eyegis-media-card {
+  display: grid;
+  gap: 14px;
+  padding: 17px;
+  background: #fff;
+  border: 1px solid var(--eyegis-line);
+  border-radius: var(--eyegis-radius);
+  box-shadow: 0 3px 15px rgba(15, 76, 85, 0.045);
+}
+
+.eyegis-media-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyegis-media-card h3 {
+  margin: 0;
+  color: var(--eyegis-ink);
+  font-size: 15px;
+}
+
+.eyegis-media-area {
+  color: var(--eyegis-muted);
+  font-size: 11px;
+}
+
+.eyegis-media-state {
+  padding: 4px 8px;
+  background: #eef1f1;
+  border-radius: 999px;
+  color: var(--eyegis-muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.eyegis-media-state.is-custom {
+  background: #e7f5ec;
+  color: #2f7048;
+}
+
+.eyegis-media-picker {
+  display: grid;
+  gap: 7px;
+}
+
+.eyegis-media-picker-visual {
+  aspect-ratio: 16 / 8;
+  min-height: 0;
+}
+
+.eyegis-media-picker-visual img {
+  position: absolute;
+  inset: 0;
+  max-height: none;
+}
+
+.eyegis-media-alt {
+  display: grid;
+  gap: 7px;
+}
+
+.eyegis-media-technical {
+  padding: 8px;
+  background: #fff8e8;
+  border: 1px dashed #d5b675;
+  border-radius: 6px;
+  color: #72551f;
+  font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+  .eyegis-media-grid,
+  .eyegis-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 782px) {
+  .eyegis-editor-toolbar {
+    top: 46px;
+  }
+
+  .eyegis-edit-header,
+  .eyegis-dashboard-hero,
+  .eyegis-array-item-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .eyegis-toolbar-actions {
+    width: 100%;
+  }
+
+  .eyegis-toolbar-actions .eyegis-save-button {
+    flex: 1;
+  }
+
+  .eyegis-image-field,
+  .eyegis-image-spotlight,
+  .eyegis-media-search {
+    grid-template-columns: 1fr;
+  }
+
+  .eyegis-image-preview-wrap {
+    min-height: 180px;
+  }
+
+  .eyegis-image-spotlight .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyegis-language-tabs {
+    overflow-x: auto;
+  }
+}

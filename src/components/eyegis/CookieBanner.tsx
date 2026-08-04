@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/context";
+import { useContentDocument } from "@/lib/cms";
 
 const STORAGE_KEY = "eyegis-cookies-accepted";
 
@@ -23,6 +24,7 @@ const COPY = {
 
 export function CookieBanner() {
   const { lang } = useI18n();
+  const content = useContentDocument<typeof COPY>("cookie-banner", COPY);
   const [visible, setVisible] = useState(false);
   const [leaving, setLeaving] = useState(false);
 
@@ -38,7 +40,7 @@ export function CookieBanner() {
 
   if (!visible) return null;
 
-  const copy = COPY[lang] ?? COPY.EN;
+  const copy = content[lang] ?? content.EN;
 
   const accept = () => {
     try {

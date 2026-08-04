@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
+import collectionData from "@/content/collection_comp.json";
 
 /* Campaign / editorial imagery */
 import heroSaoPaulo from "@/assets/hero-saopaulo-eyegis.jpg?w=640;1024;1600&format=avif;webp;jpg&as=picture";
@@ -105,7 +107,7 @@ type CollectionCopy = {
   highlights: string[];
   primaryCta: string;
 };
-type ProductCopy = {
+type Copy = {
   section: string;
   eyebrow: string;
   introHeadline1: string;
@@ -152,8 +154,7 @@ type ProductCopy = {
     cities: string;
   };
 };
-// @ts-ignore
-const COPY: Record<Lang, CollectionCopy> = collectionData;
+const COPY = collectionData as Record<Lang, Copy>;
 
 /* ---------- Static (non-translatable) data ---------- */
 type CollectionMeta = {
@@ -912,7 +913,8 @@ export type CollectionAudience = "men" | "women" | "kids";
 
 export function Collection({ audience }: { audience?: CollectionAudience } = {}) {
   const { lang } = useI18n();
-  const copy = COPY[lang];
+  const content = useContentDocument<typeof collectionData>("collection_comp", collectionData);
+  const copy = (content as Record<Lang, Copy>)[lang] ?? COPY[lang];
   const collections = audience ? COLLECTIONS.filter((c) => c.id === audience) : COLLECTIONS;
 
   return (
@@ -957,4 +959,3 @@ export function Collection({ audience }: { audience?: CollectionAudience } = {})
     </section>
   );
 }
-

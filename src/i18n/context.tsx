@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import { useRouterState } from "@tanstack/react-router";
+import { useContentDocument } from "@/lib/cms";
 
 import {
   LANGS,
@@ -43,6 +44,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const urlLang = langFromPathname(pathname);
 
   const [lang, setLangState] = useState<Lang>(() => urlLang ?? "EN");
+  const contentTranslations = useContentDocument<typeof translations>(
+    "translations",
+    translations,
+  );
 
   useEffect(() => {
     if (urlLang && urlLang !== lang) {
@@ -80,10 +85,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback(
     (key: string) => {
-      const dict = translations[lang];
-      return dict[key] ?? translations.EN[key] ?? key;
+      const dict = contentTranslations[lang] ?? translations[lang];
+      return dict[key] ?? contentTranslations.EN?.[key] ?? translations.EN[key] ?? key;
     },
-    [lang],
+    [contentTranslations, lang],
   );
 
   const value = useMemo<I18nContextValue>(

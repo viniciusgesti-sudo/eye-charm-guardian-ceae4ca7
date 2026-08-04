@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 const TEAL = "#004B57";
 const TEAL_DEEP = "#003842";
@@ -220,7 +221,8 @@ function FaqCard({
 
 export function FAQ() {
   const { lang } = useI18n();
-  const c = COPY[lang] ?? COPY.EN;
+  const content = useContentDocument<typeof COPY>("home-faq", COPY);
+  const c = content[lang] ?? content.EN;
   const items: FaqItem[] = c.items.map((it) => ({
     q: it.q,
     a: it.a,

@@ -1,5 +1,24 @@
 import { useI18n } from "@/i18n/context";
-import { COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon";
+import { COMING_SOON_HREF } from "@/lib/amazon";
+import { useContentDocument } from "@/lib/cms";
+
+const COPY = {
+  en: {
+    certification: "Independently lab tested",
+    chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "60-day comfort guarantee", "2-year warranty"],
+    cta: "Coming soon on Amazon",
+  },
+  pt: {
+    certification: "Testado em laboratório independente",
+    chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantia de conforto 60 dias", "Garantia de 2 anos"],
+    cta: "Em breve na Amazon",
+  },
+  fr: {
+    certification: "Testé en laboratoire indépendant",
+    chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantie confort 60 jours", "Garantie 2 ans"],
+    cta: "Bientôt sur Amazon",
+  },
+} as const;
 
 /**
  * Above-the-fold-ish trust bar shown right after the Hero.
@@ -7,22 +26,8 @@ import { COMING_SOON_HREF, LAB_CERTIFICATIONS } from "@/lib/amazon";
  */
 export function TrustStrip() {
   const { lang } = useI18n();
-  const copy = {
-    en: {
-      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "60-day comfort guarantee", "2-year warranty"],
-      cta: "Coming soon on Amazon",
-    },
-    pt: {
-      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantia de conforto 60 dias", "Garantia de 2 anos"],
-      cta: "Em breve na Amazon",
-    },
-    fr: {
-      chips: ["ANSI Z80.3 · EN ISO 12312-1 · AS/NZS 1067.1", "Garantie confort 60 jours", "Garantie 2 ans"],
-      cta: "Bientôt sur Amazon",
-    },
-  } as const;
-  const c = copy[lang.toLowerCase() as keyof typeof copy] ?? copy.en;
-  const certCopy = LAB_CERTIFICATIONS.long[(lang.toLowerCase() as "en" | "pt" | "fr")] ?? LAB_CERTIFICATIONS.long.en;
+  const content = useContentDocument<typeof COPY>("trust-strip", COPY);
+  const c = content[lang.toLowerCase() as keyof typeof content] ?? content.en;
 
   return (
     <section aria-label="Verified certifications" className="border-y border-ink/10 bg-paper">
@@ -38,7 +43,7 @@ export function TrustStrip() {
           >
             ✓
           </span>
-          <span className="font-semibold">{certCopy}</span>
+          <span className="font-semibold">{c.certification}</span>
         </div>
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/70">
           {c.chips.map((label) => (

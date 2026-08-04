@@ -4,3 +4,8 @@
 
 [build.environment]
   NETLIFY = "true"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'self' https://cms.eyegis-eyewear.com"

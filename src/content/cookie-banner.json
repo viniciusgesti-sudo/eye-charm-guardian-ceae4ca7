@@ -1,0 +1,17 @@
+{
+  "EN": {
+    "text": "This site uses cookies to improve your experience.",
+    "accept": "Accept",
+    "learn": "Learn more"
+  },
+  "PT": {
+    "text": "Este site usa cookies para melhorar sua experiência.",
+    "accept": "Aceitar",
+    "learn": "Saiba mais"
+  },
+  "FR": {
+    "text": "Ce site utilise des cookies pour améliorer votre expérience.",
+    "accept": "Accepter",
+    "learn": "En savoir plus"
+  }
+}

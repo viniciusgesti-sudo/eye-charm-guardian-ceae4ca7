@@ -1,96 +1,96 @@
-/**
- * CMS Context — provides a CMS map (from Wix) merged with local fallbacks.
- *
- * Data flow:
- *
- *   Wix Velo (backend .jsw) --> queries `SiteContent` --> serializes to JSON
- *      |
- *      v
- *   Custom Element receives JSON (via attribute `cms-json` OR window global)
- *      |
- *      v
- *   <CmsProvider value={parsed}> wraps the app
- *      |
- *      v
- *   Components call useCms("home.hero.men") -> gets merged entry
- *
- * When running the standalone TanStack dev server (this repo), no CMS is
- * present — every component silently gets its fallback and the site looks
- * identical to today.
- */
-
 import { createContext, useContext, useMemo, type ReactNode } from "react";
 
-import { fallbacks } from "./fallbacks";
-import { resolveImageUrl } from "./image";
-import type { CmsEntry, CmsKey, CmsMap } from "./types";
+import { defaultDocuments } from "./defaults";
+import type {
+  ContentDocument,
+  ContentDocuments,
+  MediaDocument,
+  MediaOverride,
+  WordPressContentPayload,
+} from "./types";
 
-const CmsContext = createContext<CmsMap>({});
+const ContentContext = createContext<ContentDocuments>(defaultDocuments);
 
 export function CmsProvider({
   value,
   children,
 }: {
-  value?: CmsMap;
+  value?: WordPressContentPayload;
   children: ReactNode;
 }) {
-  const normalized = useMemo(() => normalize(value ?? {}), [value]);
-  return <CmsContext.Provider value={normalized}>{children}</CmsContext.Provider>;
+  const documents = useMemo(
+    () => mergeDocuments(defaultDocuments, value?.documents ?? {}),
+    [value],
+  );
+
+  return <ContentContext.Provider value={documents}>{children}</ContentContext.Provider>;
 }
 
-/**
- * Get a CMS entry by key. Missing/empty fields transparently fall back to
- * `fallbacks[key]`, so callers never need to null-check individual fields.
- */
-export function useCms(key: CmsKey): CmsEntry {
-  const map = useContext(CmsContext);
-  const remote = map[key];
-  const local = fallbacks[key];
-  if (!remote) return local;
-  return mergeEntry(local, remote);
+export function useContentDocument<T = ContentDocument>(
+  key: string,
+  fallback?: T,
+): T {
+  const documents = useContext(ContentContext);
+  const document = documents[key];
+
+  return useMemo(() => {
+    if (fallback !== undefined && isPlainObject(fallback) && isPlainObject(document)) {
+      return deepMerge(fallback, document) as T;
+    }
+    return (document ?? fallback ?? {}) as T;
+  }, [document, fallback]);
 }
 
-/** Merge every provided key with its fallback; used at provider time. */
-function normalize(raw: CmsMap): CmsMap {
-  const out: CmsMap = {};
-  for (const key of Object.keys(raw)) {
-    const remote = raw[key];
-    if (!remote.active && remote.active !== undefined) continue;
-    out[key] = {
-      ...remote,
-      image: remote.image
-        ? { ...remote.image, src: resolveImageUrl(remote.image.src) ?? remote.image.src }
-        : undefined,
-      mobileImage: remote.mobileImage
-        ? {
-            ...remote.mobileImage,
-            src: resolveImageUrl(remote.mobileImage.src) ?? remote.mobileImage.src,
-          }
-        : undefined,
-    };
+export function useContentDocuments(): ContentDocuments {
+  return useContext(ContentContext);
+}
+
+export function useMediaOverride(sourceUrl: string): MediaOverride | undefined {
+  const media = useContentDocument<MediaDocument>("media", {});
+
+  return useMemo(() => {
+    const normalizedSource = sourceUrl.toLowerCase();
+    return Object.values(media).find((entry) => {
+      if (!entry?.url?.trim()) return false;
+      const match = entry.match?.trim().toLowerCase();
+      return Boolean(match && normalizedSource.includes(match));
+    });
+  }, [media, sourceUrl]);
+}
+
+function mergeDocuments(
+  local: ContentDocuments,
+  remote: ContentDocuments,
+): ContentDocuments {
+  const output: ContentDocuments = { ...local };
+
+  for (const [key, remoteDocument] of Object.entries(remote)) {
+    const localDocument = local[key];
+    output[key] = isPlainObject(localDocument) && isPlainObject(remoteDocument)
+      ? (deepMerge(localDocument, remoteDocument) as ContentDocument)
+      : remoteDocument;
   }
-  return out;
+
+  return output;
 }
 
-function mergeEntry(local: CmsEntry, remote: CmsEntry): CmsEntry {
-  return {
-    ...local,
-    ...pruneEmpty(remote),
-    image: remote.image?.src ? remote.image : local.image,
-    mobileImage: remote.mobileImage?.src ? remote.mobileImage : local.mobileImage,
-  };
-}
-
-function pruneEmpty<T extends object>(o: T): Partial<T> {
-  const out: Partial<T> = {};
-  for (const k of Object.keys(o) as Array<keyof T>) {
-    const v = o[k];
-    if (v === undefined || v === null) continue;
-    if (typeof v === "string" && v.trim() === "") continue;
-    out[k] = v;
+function deepMerge(local: unknown, remote: unknown): unknown {
+  if (Array.isArray(remote)) {
+    const localItems = Array.isArray(local) ? local : [];
+    return remote.map((value, index) => deepMerge(localItems[index], value));
   }
-  return out;
+  if (!isPlainObject(remote)) return remote;
+
+  const base = isPlainObject(local) ? local : {};
+  const output: Record<string, unknown> = { ...base };
+
+  for (const [key, value] of Object.entries(remote)) {
+    output[key] = deepMerge(base[key], value);
+  }
+
+  return output;
 }
 
-export { fallbacks };
-export type { CmsEntry, CmsKey, CmsMap };
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}

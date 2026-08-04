@@ -115,6 +115,7 @@ type Panel = {
 };
 
 import lifestyleData from "@/content/lifestyle.json";
+import { useContentDocument } from "@/lib/cms";
 
 type LifestyleCopy = {
   sectionEyebrow: string;
@@ -143,8 +144,7 @@ type LifestyleCopy = {
   continueTarget: string;
 };
 
-// @ts-ignore
-const LIFESTYLE_COPY: Record<Lang, LifestyleCopy> = lifestyleData;
+const LIFESTYLE_COPY = lifestyleData as Record<Lang, LifestyleCopy>;
 
 /* Panel/Tone types are declared above near the copy dictionary. */
 
@@ -316,7 +316,8 @@ export function LifestyleUniverse({ audience, compact = false }: { audience?: Li
   const { lang } = useI18n();
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = params.locale ?? "br";
-  const copy = LIFESTYLE_COPY[lang];
+  const content = useContentDocument<typeof lifestyleData>("lifestyle", lifestyleData);
+  const copy = (content as Record<Lang, LifestyleCopy>)[lang] ?? LIFESTYLE_COPY[lang];
   const panels = buildPanels(copy, audience);
 
   if (compact) {

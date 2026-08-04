@@ -115,9 +115,9 @@ type Copy = {
 };
 
 import lensesData from "@/content/lenses_page.json";
+import { useContentDocument } from "@/lib/cms";
 
-// @ts-ignore
-const CONTENT: Record<Lang, Copy> = lensesData;
+const CONTENT = lensesData as Record<Lang, Copy>;
 
 /* ------------------------------------------------------------------ */
 /*  Data (scores keyed by criterion index — language independent)     */
@@ -945,7 +945,8 @@ function FinalCta({ c }: { c: Copy }) {
 
 export function LensesPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const content = useContentDocument<typeof lensesData>("lenses_page", lensesData);
+  const c = (content as Record<Lang, Copy>)[lang] ?? CONTENT[lang];
   const [active, setActive] = useState<PersonaId>("creative");
 
   const persona = c.personas.find((p) => p.id === active) ?? c.personas[1];
