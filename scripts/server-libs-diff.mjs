@@ -26,10 +26,12 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from "node:fs";
 import { join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { canonicalBuildPath, resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BASELINE = join(ROOT, "bundle-stats.baseline.json");
-const SERVER_DIR = join(ROOT, ".output/server");
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
 const LIBS_DIR = join(SERVER_DIR, "_libs");
 const OUT_DIR = join(ROOT, "reports");
 
@@ -75,7 +77,7 @@ if (!existsSync(LIBS_DIR)) {
 }
 const currentFiles = walk(LIBS_DIR).map((f) => ({
   key: normalizeKey(relative(SERVER_DIR, f.path).replace(/\\/g, "/")),
-  rawPath: relative(ROOT, f.path).replace(/\\/g, "/"),
+  rawPath: canonicalBuildPath(BUILD_OUTPUT, f.path, "server"),
   size: f.size,
 }));
 const currentMap = new Map(currentFiles.map((f) => [f.key, f]));
@@ -210,8 +212,8 @@ if (UPDATE) {
   // Remove old _libs entries, re-add current ones.
   for (const k of Object.keys(byPath)) if (k.includes("/_libs/")) delete byPath[k];
   for (const f of currentFiles) {
-    byPath[`.output/server/${f.key}`] = {
-      path: `.output/server/${f.key}`,
+    byPath[f.rawPath] = {
+      path: f.rawPath,
       size: f.size,
       modules: null,
     };

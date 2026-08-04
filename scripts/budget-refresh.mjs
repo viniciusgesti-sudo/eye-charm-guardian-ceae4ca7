@@ -23,6 +23,7 @@
 import { execFileSync, spawnSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, copyFileSync, unlinkSync } from "node:fs";
 import { join } from "node:path";
+import { resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = process.cwd();
 const args = process.argv.slice(2);
@@ -84,12 +85,14 @@ if (!ALLOW_DIRTY) {
 }
 
 // -------- Guard 3: build first if asked / needed --------
-const DIST = join(ROOT, ".output", "public");
-if (BUILD_FIRST || !existsSync(DIST)) {
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const BUILD_MISSING =
+  !existsSync(BUILD_OUTPUT.clientDir) || !existsSync(BUILD_OUTPUT.serverDir);
+if (BUILD_FIRST || BUILD_MISSING) {
   info(
     BUILD_FIRST
       ? "Running `bun run build` (--build passed)…"
-      : ".output/ missing — running `bun run build` first…",
+      : `${BUILD_OUTPUT.clientRelative} or ${BUILD_OUTPUT.serverRelative} missing — running \`bun run build\` first…`,
   );
   const r = spawnSync("bun", ["run", "build"], { stdio: "inherit" });
   if (r.status !== 0) die("Build failed. Baseline NOT updated.", r.status ?? 1);

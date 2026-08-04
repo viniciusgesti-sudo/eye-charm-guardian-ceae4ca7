@@ -20,6 +20,9 @@ dist-ssr
 # Local Netlify output
 .netlify
 
+# Local Vercel output
+.vercel
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars

@@ -31,9 +31,12 @@ import {
   copyFileSync,
 } from "node:fs";
 import { join, extname, basename } from "node:path";
+import { canonicalBuildPath, resolveBuildOutput } from "./build-output.mjs";
 
 const KB = 1024;
 const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
+const ROOT = process.cwd();
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
 
 const WARN_PCT = Math.min(100, Math.max(1, num(process.env.BUDGET_WARN_PCT, 90)));
 const MAX_GROWTH_PCT = Math.max(0, num(process.env.BUDGET_MAX_GROWTH_PCT, 40));
@@ -42,7 +45,9 @@ const UPDATE_BASELINE =
 
 // --- Baseline environment ------------------------------------------------
 // Pick a baseline slot via `BUDGET_BASELINE_ENV` (e.g. `dev`, `prod`, `ci`)
-// or `--baseline=<env>`. Each env keeps its own file:
+// or `--baseline=<env>`. Provider builds default to their own slot so
+// Netlify/Vercel runtime chunks are never compared to a local Cloudflare build.
+// Each env keeps its own file:
 //   bundle-budget.baseline.<env>.json
 // The legacy `bundle-budget.baseline.json` is still used as fallback for
 // backward compatibility when no env is selected.
@@ -50,6 +55,7 @@ const cliBaselineArg = process.argv.find((a) => a.startsWith("--baseline="));
 const BASELINE_ENV = (
   cliBaselineArg?.split("=")[1] ||
   process.env.BUDGET_BASELINE_ENV ||
+  (BUILD_OUTPUT.provider === "local" ? "" : BUILD_OUTPUT.provider) ||
   process.env.NODE_ENV ||
   ""
 )
@@ -70,9 +76,8 @@ const BUDGETS = {
   },
 };
 
-const ROOT = process.cwd();
-const CLIENT_DIR = join(ROOT, ".output", "public");
-const SERVER_DIR = join(ROOT, ".output", "server");
+const CLIENT_DIR = BUILD_OUTPUT.clientDir;
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
 const LEGACY_BASELINE_PATH = join(ROOT, "bundle-budget.baseline.json");
 const ENV_BASELINE_PATH = BASELINE_ENV
   ? join(ROOT, `bundle-budget.baseline.${BASELINE_ENV}.json`)
@@ -101,16 +106,16 @@ const growthPct = (curr, prev) =>
 const signed = (n) => (n >= 0 ? `+${n.toFixed(1)}` : n.toFixed(1));
 
 /** Strip Vite content hash so chunk names stay stable across builds. */
-function normalizeKey(path) {
-  const r = rel(path);
+function normalizeKey(path, side) {
+  const r = canonicalBuildPath(BUILD_OUTPUT, path, side);
   // "assets/index-CTEfyqnu.js" -> "assets/index.js"
   return r.replace(/-[A-Za-z0-9_-]{6,}(\.[a-z0-9]+)$/i, "$1");
 }
 
-function collect(dir, exts) {
+function collect(dir, exts, side) {
   return walk(dir)
     .filter((f) => exts.includes(extname(f)))
-    .map((f) => ({ path: f, key: normalizeKey(f), size: statSync(f).size }))
+    .map((f) => ({ path: f, key: normalizeKey(f, side), size: statSync(f).size }))
     .sort((a, b) => b.size - a.size);
 }
 
@@ -136,8 +141,8 @@ function checkLimit(label, bytes, limitKb) {
 }
 
 // --- Collect current build ----------------------------------------------
-const clientFiles = collect(CLIENT_DIR, [".js", ".css"]);
-const serverFiles = collect(SERVER_DIR, [".mjs", ".js"]);
+const clientFiles = collect(CLIENT_DIR, [".js", ".css"], "client");
+const serverFiles = collect(SERVER_DIR, [".mjs", ".js"], "server");
 const clientTotal = clientFiles.reduce((s, f) => s + f.size, 0);
 const serverTotal = serverFiles.reduce((s, f) => s + f.size, 0);
 
@@ -288,6 +293,9 @@ if (baseline) {
 // --- Report --------------------------------------------------------------
 console.log(
   `\n[bundle-budget] warn ${WARN_PCT}% · fail 100% · max baseline growth ${MAX_GROWTH_PCT}%`,
+);
+console.log(
+  `  provider: ${BUILD_OUTPUT.provider} · client: ${BUILD_OUTPUT.clientRelative} · server: ${BUILD_OUTPUT.serverRelative}`,
 );
 for (const line of summary) console.log("  " + line);
 

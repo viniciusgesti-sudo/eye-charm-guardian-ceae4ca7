@@ -2,20 +2,25 @@
 // Server bundle profiler — ranks the largest server chunks and emits
 // automatic reduction suggestions based on shape/heuristics.
 //
-// Reads .output/server/**, groups by _ssr / _libs / routes / other, prints a
+// Reads the active provider's server output, groups by _ssr / _libs / routes / other, prints a
 // ranked table, writes JSON + HTML reports to dist/reports/server-profile.*
-// and dist/reports/server-profile.md. Never fails the build — pure advice.
+// and dist/reports/server-profile.md. The analysis is advisory, but a missing
+// provider output fails so a stale or mismatched build cannot pass silently.
 
 import fs from "node:fs";
 import path from "node:path";
+import { resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = process.cwd();
-const SERVER_DIR = path.join(ROOT, ".output", "server");
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
 const OUT_DIR = path.join(ROOT, "dist", "reports");
 
 if (!fs.existsSync(SERVER_DIR)) {
-  console.error("[server-profiler] .output/server not found — run the build first.");
-  process.exit(0);
+  console.error(
+    `[server-profiler] ${BUILD_OUTPUT.serverRelative} not found for ${BUILD_OUTPUT.provider} — run the matching build first.`,
+  );
+  process.exit(1);
 }
 
 const TOP_N = Number(process.env.PROFILE_TOP ?? 15);
@@ -163,7 +168,9 @@ const top = files.slice(0, TOP_N).map((entry) => {
 
 // --- Print ---
 const fmtKB = (b) => `${(b / 1024).toFixed(1)} KB`;
-console.log("\n[server-profiler] .output/server profile");
+console.log(
+  `\n[server-profiler] ${BUILD_OUTPUT.serverRelative} profile (${BUILD_OUTPUT.provider})`,
+);
 console.log(`  total: ${fmtKB(total)}  (${files.length} files)`);
 console.log("  by kind:");
 for (const [k, v] of Object.entries(byKind).sort((a, b) => b[1].bytes - a[1].bytes)) {
@@ -184,6 +191,8 @@ for (const e of top) {
 fs.mkdirSync(OUT_DIR, { recursive: true });
 const json = {
   generatedAt: new Date().toISOString(),
+  provider: BUILD_OUTPUT.provider,
+  serverDirectory: BUILD_OUTPUT.serverRelative,
   totalBytes: total,
   fileCount: files.length,
   byKind,

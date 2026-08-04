@@ -20,10 +20,12 @@
  */
 import { readdirSync, statSync, existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, relative } from "node:path";
+import { canonicalBuildPath, resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = process.cwd();
-const CLIENT_DIR = join(ROOT, ".output", "public");
-const SERVER_DIR = join(ROOT, ".output", "server");
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const CLIENT_DIR = BUILD_OUTPUT.clientDir;
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
 const REPORTS_DIR = join(ROOT, "reports");
 const BASELINE_PATH = join(ROOT, "bundle-stats.baseline.json");
 
@@ -111,12 +113,12 @@ function attributeBytes(code, mapJson) {
 }
 
 // -------- Collect chunks + modules --------
-function collectChunks(dir) {
+function collectChunks(dir, side) {
   const files = walk(dir).filter((f) => /\.(m?js|css)$/.test(f) && !f.endsWith(".map"));
   const chunks = [];
   for (const f of files) {
     const size = statSync(f).size;
-    const rel = relative(ROOT, f);
+    const rel = canonicalBuildPath(BUILD_OUTPUT, f, side);
     const chunk = { path: rel, size, modules: null };
     // Try inline sourcemap ref, then .map file
     let mapPath = f + ".map";
@@ -172,8 +174,9 @@ const current = {
   version: 1,
   capturedAt: new Date().toISOString(),
   hasSourcemaps: process.env.BUNDLE_STATS === "1",
-  client: summarize(collectChunks(CLIENT_DIR)),
-  server: summarize(collectChunks(SERVER_DIR)),
+  provider: BUILD_OUTPUT.provider,
+  client: summarize(collectChunks(CLIENT_DIR, "client")),
+  server: summarize(collectChunks(SERVER_DIR, "server")),
 };
 
 if (UPDATE) {
