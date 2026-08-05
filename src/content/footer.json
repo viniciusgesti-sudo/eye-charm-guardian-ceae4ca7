@@ -1,0 +1,311 @@
+{
+  "EN": {
+    "columns": [
+      {
+        "title": "Products",
+        "links": [
+          {
+            "label": "Men",
+            "to": "/men"
+          },
+          {
+            "label": "Women",
+            "to": "/women"
+          },
+          {
+            "label": "Kids & Teens",
+            "to": "/kids"
+          },
+          {
+            "label": "Choose your lenses",
+            "to": "/lenses"
+          },
+          {
+            "label": "Shop on Amazon",
+            "external": true
+          }
+        ]
+      },
+      {
+        "title": "Learn",
+        "links": [
+          {
+            "label": "Our Technology",
+            "to": "/technology"
+          },
+          {
+            "label": "Honest Science™",
+            "to": "/technology",
+            "hash": "#honest-science"
+          },
+          {
+            "label": "About Eyegis",
+            "to": "/about"
+          },
+          {
+            "label": "FAQ",
+            "to": "/faq"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "Contact",
+            "to": "/contact"
+          },
+          {
+            "label": "Shipping & Returns",
+            "to": "/shipping"
+          },
+          {
+            "label": "Warranty & Comfort Guarantee",
+            "to": "/warranty"
+          },
+          {
+            "label": "Website Terms of Use",
+            "to": "/legal"
+          },
+          {
+            "label": "Declaration of Compliance",
+            "to": "/compliance"
+          },
+          {
+            "label": "Privacy Policy",
+            "to": "/privacy"
+          }
+        ]
+      },
+      {
+        "title": "Follow Eyegis",
+        "social": [
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/"
+          },
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/"
+          },
+          {
+            "label": "Facebook",
+            "href": "https://www.facebook.com/"
+          },
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 Eyegis. All rights reserved.",
+    "langLabel": "Language"
+  },
+  "PT": {
+    "columns": [
+      {
+        "title": "Produtos",
+        "links": [
+          {
+            "label": "Homem",
+            "to": "/men"
+          },
+          {
+            "label": "Mulher",
+            "to": "/women"
+          },
+          {
+            "label": "Kids & Teens",
+            "to": "/kids"
+          },
+          {
+            "label": "Escolha suas lentes",
+            "to": "/lenses"
+          },
+          {
+            "label": "Comprar na Amazon",
+            "external": true
+          }
+        ]
+      },
+      {
+        "title": "Aprenda",
+        "links": [
+          {
+            "label": "Nossa Tecnologia",
+            "to": "/technology"
+          },
+          {
+            "label": "Honest Science™",
+            "to": "/technology",
+            "hash": "#honest-science"
+          },
+          {
+            "label": "Sobre a Eyegis",
+            "to": "/about"
+          },
+          {
+            "label": "FAQ",
+            "to": "/faq"
+          }
+        ]
+      },
+      {
+        "title": "Recursos",
+        "links": [
+          {
+            "label": "Contato",
+            "to": "/contact"
+          },
+          {
+            "label": "Envio & Trocas",
+            "to": "/shipping"
+          },
+          {
+            "label": "Garantia & Conforto",
+            "to": "/warranty"
+          },
+          {
+            "label": "Termos de Uso",
+            "to": "/legal"
+          },
+          {
+            "label": "Declaração de Conformidade",
+            "to": "/compliance"
+          },
+          {
+            "label": "Política de Privacidade",
+            "to": "/privacy"
+          }
+        ]
+      },
+      {
+        "title": "Siga a Eyegis",
+        "social": [
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/"
+          },
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/"
+          },
+          {
+            "label": "Facebook",
+            "href": "https://www.facebook.com/"
+          },
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 Eyegis. Todos os direitos reservados.",
+    "langLabel": "Idioma"
+  },
+  "FR": {
+    "columns": [
+      {
+        "title": "Produits",
+        "links": [
+          {
+            "label": "Homme",
+            "to": "/men"
+          },
+          {
+            "label": "Femme",
+            "to": "/women"
+          },
+          {
+            "label": "Enfants & Ados",
+            "to": "/kids"
+          },
+          {
+            "label": "Choisir ses verres",
+            "to": "/lenses"
+          },
+          {
+            "label": "Acheter sur Amazon",
+            "external": true
+          }
+        ]
+      },
+      {
+        "title": "Comprendre",
+        "links": [
+          {
+            "label": "Notre Technologie",
+            "to": "/technology"
+          },
+          {
+            "label": "Honest Science™",
+            "to": "/technology",
+            "hash": "#honest-science"
+          },
+          {
+            "label": "À propos d'Eyegis",
+            "to": "/about"
+          },
+          {
+            "label": "FAQ",
+            "to": "/faq"
+          }
+        ]
+      },
+      {
+        "title": "Ressources",
+        "links": [
+          {
+            "label": "Contact",
+            "to": "/contact"
+          },
+          {
+            "label": "Livraison & Retours",
+            "to": "/shipping"
+          },
+          {
+            "label": "Garantie & Confort",
+            "to": "/warranty"
+          },
+          {
+            "label": "Mentions légales",
+            "to": "/legal"
+          },
+          {
+            "label": "Déclaration de conformité",
+            "to": "/compliance"
+          },
+          {
+            "label": "Politique de confidentialité",
+            "to": "/privacy"
+          }
+        ]
+      },
+      {
+        "title": "Suivre Eyegis",
+        "social": [
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/"
+          },
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/"
+          },
+          {
+            "label": "Facebook",
+            "href": "https://www.facebook.com/"
+          },
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 Eyegis. Tous droits réservés.",
+    "langLabel": "Langue"
+  }
+}

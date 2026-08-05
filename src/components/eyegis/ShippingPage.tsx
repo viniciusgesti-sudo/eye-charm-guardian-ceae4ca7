@@ -7,6 +7,7 @@ import { Picture } from "@/components/eyegis/Picture";
 import storeImg from "@/assets/products/meridian-hero.jpg?w=768;1200;1920;2400&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { formatContentTemplate, useContentDocument } from "@/lib/cms";
 
 type ShippingCopy = {
   nav: { back: string; tag: string };
@@ -16,9 +17,9 @@ type ShippingCopy = {
     title: string;
     lead: string;
     cards: { k: string; d: string }[];
-    tileIndex: (n: number) => string;
+    tileIndex: string;
   };
-  steps: { rule: string; title: [string, string]; stepLabel: (n: number) => string; items: { k: string; d: string }[] };
+  steps: { rule: string; title: [string, string]; stepLabel: string; items: { k: string; d: string }[] };
   delivery: { rule: string; title: [string, string]; paragraphs: [string, string, string] };
   returns: { rule: string; title: [string, string]; items: { tag: string; k: string; d: string }[] };
   countries: {
@@ -40,7 +41,7 @@ type ShippingCopy = {
     lead: string;
     tiles: { k: string; d: string; href: string }[];
     openLabel: string;
-    tileIndex: (n: number) => string;
+    tileIndex: string;
   };
   store: {
     rule: string;
@@ -91,12 +92,12 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "Easy Returns", d: "A simple, transparent return process managed through your Amazon account." },
         { k: "Trusted Platform", d: "Hundreds of millions of customers worldwide already trust Amazon." },
       ],
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     steps: {
       rule: "02 — How Your Order Works",
       title: ["Six quiet steps", "from click to comfort."],
-      stepLabel: (n) => `Step 0${n}`,
+      stepLabel: "Step 0{n}",
       items: [
         { k: "Choose your frame", d: "Discover the collection that fits your life." },
         { k: "Click Buy on Amazon", d: "One click sends you to the official Eyegis store." },
@@ -168,7 +169,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "FAQ", d: "Lenses, fit & care", href: "/lenses" },
       ],
       openLabel: "Open →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     store: {
       rule: "08 — Official Amazon Store",
@@ -202,12 +203,12 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "Devoluções Fáceis", d: "Um processo de devolução simples e transparente gerenciado pela sua conta Amazon." },
         { k: "Plataforma Confiável", d: "Centenas de milhões de clientes no mundo já confiam na Amazon." },
       ],
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     steps: {
       rule: "02 — Como Funciona Seu Pedido",
       title: ["Seis passos tranquilos", "do clique ao conforto."],
-      stepLabel: (n) => `Etapa 0${n}`,
+      stepLabel: "Etapa 0{n}",
       items: [
         { k: "Escolha sua armação", d: "Descubra a coleção que combina com sua vida." },
         { k: "Clique em Comprar na Amazon", d: "Um clique leva você à loja oficial Eyegis." },
@@ -279,7 +280,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "FAQ", d: "Lentes, ajuste e cuidados", href: "/lenses" },
       ],
       openLabel: "Abrir →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     store: {
       rule: "08 — Loja Oficial Amazon",
@@ -313,12 +314,12 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "Retours Faciles", d: "Un processus de retour simple et transparent géré via votre compte Amazon." },
         { k: "Plateforme de Confiance", d: "Des centaines de millions de clients font déjà confiance à Amazon." },
       ],
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     steps: {
       rule: "02 — Comment Fonctionne Votre Commande",
       title: ["Six étapes tranquilles", "du clic au confort."],
-      stepLabel: (n) => `Étape 0${n}`,
+      stepLabel: "Étape 0{n}",
       items: [
         { k: "Choisissez votre monture", d: "Découvrez la collection qui correspond à votre vie." },
         { k: "Cliquez sur Acheter sur Amazon", d: "Un clic vous mène à la boutique officielle Eyegis." },
@@ -390,7 +391,7 @@ const CONTENT: Record<Lang, ShippingCopy> = {
         { k: "FAQ", d: "Verres, ajustement et entretien", href: "/lenses" },
       ],
       openLabel: "Ouvrir →",
-      tileIndex: (n) => `0${n}`,
+      tileIndex: "0{n}",
     },
     store: {
       rule: "08 — Boutique Officielle Amazon",
@@ -534,7 +535,8 @@ const WHY_ICONS = [<Icon.Lock />, <Icon.Truck />, <Icon.Return />, <Icon.Star />
 
 export function ShippingPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const content = useContentDocument<typeof CONTENT>("shipping", CONTENT);
+  const c = content[lang];
   const serif = "'Cormorant Garamond', 'Times New Roman', serif";
   const sans = "'Inter', system-ui, sans-serif";
 
@@ -609,7 +611,7 @@ export function ShippingPage() {
                 <div style={{ color: TEAL }}>{WHY_ICONS[i]}</div>
                 <div>
                   <span className="text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
-                    {c.why.tileIndex(i + 1)}
+                    {formatContentTemplate(c.why.tileIndex, { n: i + 1 })}
                   </span>
                   <h3 className="mt-3 text-[26px] leading-[1.05]" style={{ fontFamily: serif, fontWeight: 400 }}>
                     {card.k}
@@ -645,7 +647,7 @@ export function ShippingPage() {
                   <div className="relative border-t px-2 py-8 md:border-t-0 md:border-l md:px-6 md:py-2" style={{ borderColor: "rgba(14,22,19,0.18)" }}>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3 md:block">
                       <span className="min-w-0 text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
-                        {c.steps.stepLabel(i + 1)}
+                        {formatContentTemplate(c.steps.stepLabel, { n: i + 1 })}
                       </span>
                       <span className="shrink-0 text-[10px] tracking-[0.3em] md:hidden" style={{ color: MUTED }}>
                         {i < c.steps.items.length - 1 ? "↓" : "•"}
@@ -830,7 +832,7 @@ export function ShippingPage() {
                 style={{ background: OFFWHITE, color: INK }}
               >
                 <span className="text-[10px] uppercase tracking-[0.35em]" style={{ color: MUTED }}>
-                  {c.support.tileIndex(i + 1)}
+                  {formatContentTemplate(c.support.tileIndex, { n: i + 1 })}
                 </span>
                 <div>
                   <h3 className="text-[26px] leading-[1.05]" style={{ fontFamily: serif, fontWeight: 400 }}>

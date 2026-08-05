@@ -9,91 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WarrantyRouteImport } from './routes/warranty'
-import { Route as TechnologyRouteImport } from './routes/technology'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ShippingRouteImport } from './routes/shipping'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as LensesRouteImport } from './routes/lenses'
-import { Route as LegalRouteImport } from './routes/legal'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ComplianceRouteImport } from './routes/compliance'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as LocaleRouteImport } from './routes/$locale'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocaleRouteImport } from './routes/$locale'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LegalRouteImport } from './routes/legal'
+import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ShippingRouteImport } from './routes/shipping'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as WarrantyRouteImport } from './routes/warranty'
 import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
-import { Route as ProductSoleneRouteImport } from './routes/product.solene'
-import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
-import { Route as ProductMaraisRouteImport } from './routes/product.marais'
-import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
-import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
-import { Route as LocaleWarrantyRouteImport } from './routes/$locale.warranty'
-import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
-import { Route as LocaleShippingRouteImport } from './routes/$locale.shipping'
-import { Route as LocalePrivacyRouteImport } from './routes/$locale.privacy'
-import { Route as LocaleMenRouteImport } from './routes/$locale.men'
-import { Route as LocaleLensesRouteImport } from './routes/$locale.lenses'
-import { Route as LocaleLegalRouteImport } from './routes/$locale.legal'
-import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
-import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
-import { Route as LocaleContactRouteImport } from './routes/$locale.contact'
-import { Route as LocaleComplianceRouteImport } from './routes/$locale.compliance'
 import { Route as LocaleAboutRouteImport } from './routes/$locale.about'
+import { Route as LocaleComplianceRouteImport } from './routes/$locale.compliance'
+import { Route as LocaleContactRouteImport } from './routes/$locale.contact'
+import { Route as LocaleFaqRouteImport } from './routes/$locale.faq'
+import { Route as LocaleKidsRouteImport } from './routes/$locale.kids'
+import { Route as LocaleLegalRouteImport } from './routes/$locale.legal'
+import { Route as LocaleLensesRouteImport } from './routes/$locale.lenses'
+import { Route as LocaleMenRouteImport } from './routes/$locale.men'
+import { Route as LocalePrivacyRouteImport } from './routes/$locale.privacy'
+import { Route as LocaleShippingRouteImport } from './routes/$locale.shipping'
+import { Route as LocaleTechnologyRouteImport } from './routes/$locale.technology'
+import { Route as LocaleWarrantyRouteImport } from './routes/$locale.warranty'
+import { Route as LocaleWomenRouteImport } from './routes/$locale.women'
+import { Route as ProductAtelierRouteImport } from './routes/product.atelier'
+import { Route as ProductMaraisRouteImport } from './routes/product.marais'
+import { Route as ProductMeridianRouteImport } from './routes/product.meridian'
+import { Route as ProductSoleneRouteImport } from './routes/product.solene'
 
-const WarrantyRoute = WarrantyRouteImport.update({
-  id: '/warranty',
-  path: '/warranty',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TechnologyRoute = TechnologyRouteImport.update({
-  id: '/technology',
-  path: '/technology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShippingRoute = ShippingRouteImport.update({
-  id: '/shipping',
-  path: '/shipping',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LensesRoute = LensesRouteImport.update({
-  id: '/lenses',
-  path: '/lenses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LegalRoute = LegalRouteImport.update({
-  id: '/legal',
-  path: '/legal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComplianceRoute = ComplianceRouteImport.update({
-  id: '/compliance',
-  path: '/compliance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocaleRoute = LocaleRouteImport.update({
@@ -101,9 +51,59 @@ const LocaleRoute = LocaleRouteImport.update({
   path: '/$locale',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRoute = LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LensesRoute = LensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingRoute = ShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarrantyRoute = WarrantyRouteImport.update({
+  id: '/warranty',
+  path: '/warranty',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocaleIndexRoute = LocaleIndexRouteImport.update({
@@ -111,79 +111,9 @@ const LocaleIndexRoute = LocaleIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LocaleRoute,
 } as any)
-const ProductSoleneRoute = ProductSoleneRouteImport.update({
-  id: '/product/solene',
-  path: '/product/solene',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductMeridianRoute = ProductMeridianRouteImport.update({
-  id: '/product/meridian',
-  path: '/product/meridian',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductMaraisRoute = ProductMaraisRouteImport.update({
-  id: '/product/marais',
-  path: '/product/marais',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductAtelierRoute = ProductAtelierRouteImport.update({
-  id: '/product/atelier',
-  path: '/product/atelier',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocaleWomenRoute = LocaleWomenRouteImport.update({
-  id: '/women',
-  path: '/women',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleWarrantyRoute = LocaleWarrantyRouteImport.update({
-  id: '/warranty',
-  path: '/warranty',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleTechnologyRoute = LocaleTechnologyRouteImport.update({
-  id: '/technology',
-  path: '/technology',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleShippingRoute = LocaleShippingRouteImport.update({
-  id: '/shipping',
-  path: '/shipping',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocalePrivacyRoute = LocalePrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleMenRoute = LocaleMenRouteImport.update({
-  id: '/men',
-  path: '/men',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleLensesRoute = LocaleLensesRouteImport.update({
-  id: '/lenses',
-  path: '/lenses',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleLegalRoute = LocaleLegalRouteImport.update({
-  id: '/legal',
-  path: '/legal',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleKidsRoute = LocaleKidsRouteImport.update({
-  id: '/kids',
-  path: '/kids',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleFaqRoute = LocaleFaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => LocaleRoute,
-} as any)
-const LocaleContactRoute = LocaleContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const LocaleAboutRoute = LocaleAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => LocaleRoute,
 } as any)
 const LocaleComplianceRoute = LocaleComplianceRouteImport.update({
@@ -191,10 +121,80 @@ const LocaleComplianceRoute = LocaleComplianceRouteImport.update({
   path: '/compliance',
   getParentRoute: () => LocaleRoute,
 } as any)
-const LocaleAboutRoute = LocaleAboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const LocaleContactRoute = LocaleContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleFaqRoute = LocaleFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleKidsRoute = LocaleKidsRouteImport.update({
+  id: '/kids',
+  path: '/kids',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleLegalRoute = LocaleLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleLensesRoute = LocaleLensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleMenRoute = LocaleMenRouteImport.update({
+  id: '/men',
+  path: '/men',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocalePrivacyRoute = LocalePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleShippingRoute = LocaleShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleTechnologyRoute = LocaleTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleWarrantyRoute = LocaleWarrantyRouteImport.update({
+  id: '/warranty',
+  path: '/warranty',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const LocaleWomenRoute = LocaleWomenRouteImport.update({
+  id: '/women',
+  path: '/women',
+  getParentRoute: () => LocaleRoute,
+} as any)
+const ProductAtelierRoute = ProductAtelierRouteImport.update({
+  id: '/product/atelier',
+  path: '/product/atelier',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductMaraisRoute = ProductMaraisRouteImport.update({
+  id: '/product/marais',
+  path: '/product/marais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductMeridianRoute = ProductMeridianRouteImport.update({
+  id: '/product/meridian',
+  path: '/product/meridian',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductSoleneRoute = ProductSoleneRouteImport.update({
+  id: '/product/solene',
+  path: '/product/solene',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -419,81 +419,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/warranty': {
-      id: '/warranty'
-      path: '/warranty'
-      fullPath: '/warranty'
-      preLoaderRoute: typeof WarrantyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/technology': {
-      id: '/technology'
-      path: '/technology'
-      fullPath: '/technology'
-      preLoaderRoute: typeof TechnologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shipping': {
-      id: '/shipping'
-      path: '/shipping'
-      fullPath: '/shipping'
-      preLoaderRoute: typeof ShippingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lenses': {
-      id: '/lenses'
-      path: '/lenses'
-      fullPath: '/lenses'
-      preLoaderRoute: typeof LensesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legal': {
-      id: '/legal'
-      path: '/legal'
-      fullPath: '/legal'
-      preLoaderRoute: typeof LegalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/compliance': {
-      id: '/compliance'
-      path: '/compliance'
-      fullPath: '/compliance'
-      preLoaderRoute: typeof ComplianceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$locale': {
@@ -503,11 +433,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lenses': {
+      id: '/lenses'
+      path: '/lenses'
+      fullPath: '/lenses'
+      preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping': {
+      id: '/shipping'
+      path: '/shipping'
+      fullPath: '/shipping'
+      preLoaderRoute: typeof ShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warranty': {
+      id: '/warranty'
+      path: '/warranty'
+      fullPath: '/warranty'
+      preLoaderRoute: typeof WarrantyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$locale/': {
@@ -517,109 +517,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleIndexRouteImport
       parentRoute: typeof LocaleRoute
     }
-    '/product/solene': {
-      id: '/product/solene'
-      path: '/product/solene'
-      fullPath: '/product/solene'
-      preLoaderRoute: typeof ProductSoleneRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product/meridian': {
-      id: '/product/meridian'
-      path: '/product/meridian'
-      fullPath: '/product/meridian'
-      preLoaderRoute: typeof ProductMeridianRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product/marais': {
-      id: '/product/marais'
-      path: '/product/marais'
-      fullPath: '/product/marais'
-      preLoaderRoute: typeof ProductMaraisRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product/atelier': {
-      id: '/product/atelier'
-      path: '/product/atelier'
-      fullPath: '/product/atelier'
-      preLoaderRoute: typeof ProductAtelierRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$locale/women': {
-      id: '/$locale/women'
-      path: '/women'
-      fullPath: '/$locale/women'
-      preLoaderRoute: typeof LocaleWomenRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/warranty': {
-      id: '/$locale/warranty'
-      path: '/warranty'
-      fullPath: '/$locale/warranty'
-      preLoaderRoute: typeof LocaleWarrantyRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/technology': {
-      id: '/$locale/technology'
-      path: '/technology'
-      fullPath: '/$locale/technology'
-      preLoaderRoute: typeof LocaleTechnologyRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/shipping': {
-      id: '/$locale/shipping'
-      path: '/shipping'
-      fullPath: '/$locale/shipping'
-      preLoaderRoute: typeof LocaleShippingRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/privacy': {
-      id: '/$locale/privacy'
-      path: '/privacy'
-      fullPath: '/$locale/privacy'
-      preLoaderRoute: typeof LocalePrivacyRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/men': {
-      id: '/$locale/men'
-      path: '/men'
-      fullPath: '/$locale/men'
-      preLoaderRoute: typeof LocaleMenRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/lenses': {
-      id: '/$locale/lenses'
-      path: '/lenses'
-      fullPath: '/$locale/lenses'
-      preLoaderRoute: typeof LocaleLensesRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/legal': {
-      id: '/$locale/legal'
-      path: '/legal'
-      fullPath: '/$locale/legal'
-      preLoaderRoute: typeof LocaleLegalRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/kids': {
-      id: '/$locale/kids'
-      path: '/kids'
-      fullPath: '/$locale/kids'
-      preLoaderRoute: typeof LocaleKidsRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/faq': {
-      id: '/$locale/faq'
-      path: '/faq'
-      fullPath: '/$locale/faq'
-      preLoaderRoute: typeof LocaleFaqRouteImport
-      parentRoute: typeof LocaleRoute
-    }
-    '/$locale/contact': {
-      id: '/$locale/contact'
-      path: '/contact'
-      fullPath: '/$locale/contact'
-      preLoaderRoute: typeof LocaleContactRouteImport
+    '/$locale/about': {
+      id: '/$locale/about'
+      path: '/about'
+      fullPath: '/$locale/about'
+      preLoaderRoute: typeof LocaleAboutRouteImport
       parentRoute: typeof LocaleRoute
     }
     '/$locale/compliance': {
@@ -629,12 +531,110 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleComplianceRouteImport
       parentRoute: typeof LocaleRoute
     }
-    '/$locale/about': {
-      id: '/$locale/about'
-      path: '/about'
-      fullPath: '/$locale/about'
-      preLoaderRoute: typeof LocaleAboutRouteImport
+    '/$locale/contact': {
+      id: '/$locale/contact'
+      path: '/contact'
+      fullPath: '/$locale/contact'
+      preLoaderRoute: typeof LocaleContactRouteImport
       parentRoute: typeof LocaleRoute
+    }
+    '/$locale/faq': {
+      id: '/$locale/faq'
+      path: '/faq'
+      fullPath: '/$locale/faq'
+      preLoaderRoute: typeof LocaleFaqRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/kids': {
+      id: '/$locale/kids'
+      path: '/kids'
+      fullPath: '/$locale/kids'
+      preLoaderRoute: typeof LocaleKidsRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/legal': {
+      id: '/$locale/legal'
+      path: '/legal'
+      fullPath: '/$locale/legal'
+      preLoaderRoute: typeof LocaleLegalRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/lenses': {
+      id: '/$locale/lenses'
+      path: '/lenses'
+      fullPath: '/$locale/lenses'
+      preLoaderRoute: typeof LocaleLensesRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/men': {
+      id: '/$locale/men'
+      path: '/men'
+      fullPath: '/$locale/men'
+      preLoaderRoute: typeof LocaleMenRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/privacy': {
+      id: '/$locale/privacy'
+      path: '/privacy'
+      fullPath: '/$locale/privacy'
+      preLoaderRoute: typeof LocalePrivacyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/shipping': {
+      id: '/$locale/shipping'
+      path: '/shipping'
+      fullPath: '/$locale/shipping'
+      preLoaderRoute: typeof LocaleShippingRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/technology': {
+      id: '/$locale/technology'
+      path: '/technology'
+      fullPath: '/$locale/technology'
+      preLoaderRoute: typeof LocaleTechnologyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/warranty': {
+      id: '/$locale/warranty'
+      path: '/warranty'
+      fullPath: '/$locale/warranty'
+      preLoaderRoute: typeof LocaleWarrantyRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/$locale/women': {
+      id: '/$locale/women'
+      path: '/women'
+      fullPath: '/$locale/women'
+      preLoaderRoute: typeof LocaleWomenRouteImport
+      parentRoute: typeof LocaleRoute
+    }
+    '/product/atelier': {
+      id: '/product/atelier'
+      path: '/product/atelier'
+      fullPath: '/product/atelier'
+      preLoaderRoute: typeof ProductAtelierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/marais': {
+      id: '/product/marais'
+      path: '/product/marais'
+      fullPath: '/product/marais'
+      preLoaderRoute: typeof ProductMaraisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/meridian': {
+      id: '/product/meridian'
+      path: '/product/meridian'
+      fullPath: '/product/meridian'
+      preLoaderRoute: typeof ProductMeridianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/solene': {
+      id: '/product/solene'
+      path: '/product/solene'
+      fullPath: '/product/solene'
+      preLoaderRoute: typeof ProductSoleneRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }

@@ -8,6 +8,7 @@ import universeEyewear from "@/assets/products/collection-family.jpg?w=480;800;1
 import { Picture, type PictureSource } from "./Picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 /* ---------- Localized copy ---------- */
 type UniverseCopy = {
@@ -222,24 +223,21 @@ function useReveal<T extends HTMLElement>() {
 function Reveal({
   children,
   delay = 0,
-  as: As = "div",
   className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
-  as?: keyof React.JSX.IntrinsicElements;
   className?: string;
 }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
-  const Tag = As as any;
   return (
-    <Tag
-      ref={ref as any}
+    <div
+      ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`reveal ${visible ? "reveal-in" : ""} ${className}`}
     >
       {children}
-    </Tag>
+    </div>
   );
 }
 
@@ -292,7 +290,7 @@ function EditorialPanel({ panel, delay = 0 }: { panel: Panel; delay?: number }) 
 
   return (
     <article
-      ref={ref as any}
+      ref={ref}
       className="group relative"
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -363,7 +361,8 @@ export function Universe() {
   const { lang } = useI18n();
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = params.locale ?? "br";
-  const copy = UNIVERSE_COPY[lang];
+  const content = useContentDocument<typeof UNIVERSE_COPY>("home-universe", UNIVERSE_COPY);
+  const copy = content[lang];
   const panelMeta = [
     { href: `/${locale}/technology`, image: universeLens, icon: <IconShield />, tone: "paper" as const, aspect: "aspect-[4/5]" },
     { href: `/${locale}#honest-science`, image: universeScience, icon: <IconFlask />, tone: "champagne" as const, aspect: "aspect-[4/5]" },

@@ -2,7 +2,7 @@
 /**
  * server-libs-diff.mjs
  *
- * Compares dist/server/_libs (current build) against the server._libs slice
+ * Compares .output/server/_libs (current build) against the server._libs slice
  * of bundle-stats.baseline.json to confirm that a specific dependency
  * (default: @tanstack/react-router) was the size bottleneck and that no
  * other server chunk regressed.
@@ -26,10 +26,13 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from "node:fs";
 import { join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { canonicalBuildPath, resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BASELINE = join(ROOT, "bundle-stats.baseline.json");
-const LIBS_DIR = join(ROOT, "dist/server/_libs");
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
+const LIBS_DIR = join(SERVER_DIR, "_libs");
 const OUT_DIR = join(ROOT, "reports");
 
 const args = new Set(process.argv.slice(2));
@@ -63,7 +66,9 @@ function fmt(n) {
   if (Math.abs(n) >= 1024) return `${sign}${(n / 1024).toFixed(1)} KB`;
   return `${sign}${n} B`;
 }
-function kb(n) { return `${(n / 1024).toFixed(1)} KB`; }
+function kb(n) {
+  return `${(n / 1024).toFixed(1)} KB`;
+}
 
 // --- Load current state ------------------------------------------------------
 if (!existsSync(LIBS_DIR)) {
@@ -71,8 +76,8 @@ if (!existsSync(LIBS_DIR)) {
   process.exit(2);
 }
 const currentFiles = walk(LIBS_DIR).map((f) => ({
-  key: normalizeKey(relative(join(ROOT, "dist/server"), f.path).replace(/\\/g, "/")),
-  rawPath: relative(ROOT, f.path).replace(/\\/g, "/"),
+  key: normalizeKey(relative(SERVER_DIR, f.path).replace(/\\/g, "/")),
+  rawPath: canonicalBuildPath(BUILD_OUTPUT, f.path, "server"),
   size: f.size,
 }));
 const currentMap = new Map(currentFiles.map((f) => [f.key, f]));
@@ -86,7 +91,7 @@ const baseline = JSON.parse(readFileSync(BASELINE, "utf8"));
 const baselineLibs = Object.entries(baseline.server?.byPath ?? {})
   .filter(([k]) => k.includes("/_libs/"))
   .map(([k, v]) => ({
-    key: normalizeKey(k.replace(/^dist\/server\//, "")),
+    key: normalizeKey(k.replace(/^(?:dist\/server|\.output\/server)\//, "")),
     rawPath: k,
     size: v.size,
   }));
@@ -185,7 +190,12 @@ const html = `<!doctype html><meta charset="utf-8"><title>server _libs diff</tit
  <tbody>
  ${rows
    .map((r) => {
-     const cls = r.status === "▲" || r.status === "NEW" ? "up" : r.status === "▼" || r.status === "GONE" ? "down" : "eq";
+     const cls =
+       r.status === "▲" || r.status === "NEW"
+         ? "up"
+         : r.status === "▼" || r.status === "GONE"
+           ? "down"
+           : "eq";
      const highlight = r.key.includes(FOCUS) ? " focus" : "";
      return `<tr class="${highlight.trim()}"><td class="${cls === "up" ? "up" : cls === "down" ? "down" : "eq"}">${r.status}</td><td><code>${r.key}</code></td><td class="num">${kb(r.before)}</td><td class="num">${kb(r.after)}</td><td class="num ${cls}">${fmt(r.delta)}</td><td class="num ${cls}">${r.pct === Infinity ? "∞" : r.pct.toFixed(1) + "%"}</td></tr>`;
    })
@@ -201,7 +211,13 @@ if (UPDATE) {
   const byPath = { ...(baseline.server?.byPath ?? {}) };
   // Remove old _libs entries, re-add current ones.
   for (const k of Object.keys(byPath)) if (k.includes("/_libs/")) delete byPath[k];
-  for (const f of currentFiles) byPath[`dist/server/${f.key}`] = { path: `dist/server/${f.key}`, size: f.size, modules: null };
+  for (const f of currentFiles) {
+    byPath[f.rawPath] = {
+      path: f.rawPath,
+      size: f.size,
+      modules: null,
+    };
+  }
   next.server.byPath = byPath;
   next.server.total = Object.values(byPath).reduce((s, v) => s + v.size, 0);
   next.capturedAt = new Date().toISOString();
@@ -210,7 +226,9 @@ if (UPDATE) {
 }
 
 if (regressions.length) {
-  console.error(`\n[server-libs-diff] ${regressions.length} regression(s) detected in non-focus chunks.`);
+  console.error(
+    `\n[server-libs-diff] ${regressions.length} regression(s) detected in non-focus chunks.`,
+  );
   process.exit(1);
 }
 process.exit(0);

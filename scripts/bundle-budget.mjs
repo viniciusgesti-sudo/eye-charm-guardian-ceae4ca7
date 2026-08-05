@@ -31,19 +31,23 @@ import {
   copyFileSync,
 } from "node:fs";
 import { join, extname, basename } from "node:path";
+import { canonicalBuildPath, resolveBuildOutput } from "./build-output.mjs";
 
 const KB = 1024;
 const num = (v, d) => (v != null && !Number.isNaN(Number(v)) ? Number(v) : d);
+const ROOT = process.cwd();
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
 
 const WARN_PCT = Math.min(100, Math.max(1, num(process.env.BUDGET_WARN_PCT, 90)));
 const MAX_GROWTH_PCT = Math.max(0, num(process.env.BUDGET_MAX_GROWTH_PCT, 40));
 const UPDATE_BASELINE =
-  process.argv.includes("--update-baseline") ||
-  process.env.BUDGET_UPDATE_BASELINE === "1";
+  process.argv.includes("--update-baseline") || process.env.BUDGET_UPDATE_BASELINE === "1";
 
 // --- Baseline environment ------------------------------------------------
 // Pick a baseline slot via `BUDGET_BASELINE_ENV` (e.g. `dev`, `prod`, `ci`)
-// or `--baseline=<env>`. Each env keeps its own file:
+// or `--baseline=<env>`. Provider builds default to their own slot so
+// Netlify/Vercel runtime chunks are never compared to a local Cloudflare build.
+// Each env keeps its own file:
 //   bundle-budget.baseline.<env>.json
 // The legacy `bundle-budget.baseline.json` is still used as fallback for
 // backward compatibility when no env is selected.
@@ -51,6 +55,7 @@ const cliBaselineArg = process.argv.find((a) => a.startsWith("--baseline="));
 const BASELINE_ENV = (
   cliBaselineArg?.split("=")[1] ||
   process.env.BUDGET_BASELINE_ENV ||
+  (BUILD_OUTPUT.provider === "local" ? "" : BUILD_OUTPUT.provider) ||
   process.env.NODE_ENV ||
   ""
 )
@@ -71,9 +76,8 @@ const BUDGETS = {
   },
 };
 
-const ROOT = process.cwd();
-const CLIENT_DIR = join(ROOT, "dist", "client");
-const SERVER_DIR = join(ROOT, "dist", "server");
+const CLIENT_DIR = BUILD_OUTPUT.clientDir;
+const SERVER_DIR = BUILD_OUTPUT.serverDir;
 const LEGACY_BASELINE_PATH = join(ROOT, "bundle-budget.baseline.json");
 const ENV_BASELINE_PATH = BASELINE_ENV
   ? join(ROOT, `bundle-budget.baseline.${BASELINE_ENV}.json`)
@@ -81,10 +85,7 @@ const ENV_BASELINE_PATH = BASELINE_ENV
 // Write always goes to the env-scoped file (or legacy when no env set).
 // Read prefers env file, then falls back to legacy so existing setups keep working.
 const BASELINE_WRITE_PATH = ENV_BASELINE_PATH;
-const BASELINE_READ_PATH = existsSync(ENV_BASELINE_PATH)
-  ? ENV_BASELINE_PATH
-  : LEGACY_BASELINE_PATH;
-
+const BASELINE_READ_PATH = existsSync(ENV_BASELINE_PATH) ? ENV_BASELINE_PATH : LEGACY_BASELINE_PATH;
 
 function walk(dir) {
   if (!existsSync(dir)) return [];
@@ -100,20 +101,21 @@ function walk(dir) {
 const fmt = (bytes) => `${(bytes / KB).toFixed(1)} KB`;
 const rel = (p) => p.replace(ROOT + "/", "");
 const pct = (bytes, limitKb) => (bytes / (limitKb * KB)) * 100;
-const growthPct = (curr, prev) => (prev === 0 ? (curr > 0 ? Infinity : 0) : ((curr - prev) / prev) * 100);
+const growthPct = (curr, prev) =>
+  prev === 0 ? (curr > 0 ? Infinity : 0) : ((curr - prev) / prev) * 100;
 const signed = (n) => (n >= 0 ? `+${n.toFixed(1)}` : n.toFixed(1));
 
 /** Strip Vite content hash so chunk names stay stable across builds. */
-function normalizeKey(path) {
-  const r = rel(path);
+function normalizeKey(path, side) {
+  const r = canonicalBuildPath(BUILD_OUTPUT, path, side);
   // "assets/index-CTEfyqnu.js" -> "assets/index.js"
   return r.replace(/-[A-Za-z0-9_-]{6,}(\.[a-z0-9]+)$/i, "$1");
 }
 
-function collect(dir, exts) {
+function collect(dir, exts, side) {
   return walk(dir)
     .filter((f) => exts.includes(extname(f)))
-    .map((f) => ({ path: f, key: normalizeKey(f), size: statSync(f).size }))
+    .map((f) => ({ path: f, key: normalizeKey(f, side), size: statSync(f).size }))
     .sort((a, b) => b.size - a.size);
 }
 
@@ -139,10 +141,21 @@ function checkLimit(label, bytes, limitKb) {
 }
 
 // --- Collect current build ----------------------------------------------
-const clientFiles = collect(CLIENT_DIR, [".js", ".css"]);
-const serverFiles = collect(SERVER_DIR, [".mjs", ".js"]);
+const clientFiles = collect(CLIENT_DIR, [".js", ".css"], "client");
+const serverFiles = collect(SERVER_DIR, [".mjs", ".js"], "server");
 const clientTotal = clientFiles.reduce((s, f) => s + f.size, 0);
 const serverTotal = serverFiles.reduce((s, f) => s + f.size, 0);
+
+if (!existsSync(CLIENT_DIR)) {
+  violations.push(`client build directory missing: ${rel(CLIENT_DIR)}`);
+} else if (clientFiles.length === 0) {
+  violations.push(`client build contains no JavaScript or CSS: ${rel(CLIENT_DIR)}`);
+}
+if (!existsSync(SERVER_DIR)) {
+  violations.push(`server build directory missing: ${rel(SERVER_DIR)}`);
+} else if (serverFiles.length === 0) {
+  violations.push(`server build contains no JavaScript: ${rel(SERVER_DIR)}`);
+}
 
 // --- Hard budget checks --------------------------------------------------
 for (const f of clientFiles) {
@@ -182,9 +195,7 @@ if (UPDATE_BASELINE) {
 }
 
 const baselineExists = existsSync(BASELINE_READ_PATH);
-const baseline = baselineExists
-  ? JSON.parse(readFileSync(BASELINE_READ_PATH, "utf8"))
-  : null;
+const baseline = baselineExists ? JSON.parse(readFileSync(BASELINE_READ_PATH, "utf8")) : null;
 const baselineSource = baselineExists
   ? `${rel(BASELINE_READ_PATH)}${BASELINE_ENV && BASELINE_READ_PATH === LEGACY_BASELINE_PATH ? " (legacy fallback)" : ""}`
   : "missing";
@@ -206,8 +217,12 @@ const rawIgnore = [
   .filter(Boolean);
 const ignorePatterns = rawIgnore
   .map((src) => {
-    try { return { src, re: new RegExp(src) }; }
-    catch (e) { warnings.push(`baseline ignore · invalid regex "${src}": ${e.message}`); return null; }
+    try {
+      return { src, re: new RegExp(src) };
+    } catch (e) {
+      warnings.push(`baseline ignore · invalid regex "${src}": ${e.message}`);
+      return null;
+    }
   })
   .filter(Boolean);
 const isIgnored = (side, key) => ignorePatterns.some((p) => p.re.test(`${side}/${key}`));
@@ -257,16 +272,18 @@ if (baseline) {
     }
     for (const key of Object.keys(prevGroups)) {
       if (isIgnored(side, key)) continue;
-      if (!(key in currGroups)) removedChunks.push(`${side}/${key} = ${fmt(prevGroups[key])} (removed)`);
+      if (!(key in currGroups))
+        removedChunks.push(`${side}/${key} = ${fmt(prevGroups[key])} (removed)`);
     }
   }
 
   baselineReport.push(...bumps.map((b) => `  ${b.line}`));
   if (ignorePatterns.length) {
-    baselineReport.push(`  ignore patterns (${ignorePatterns.length}): ${ignorePatterns.map((p) => p.src).join(", ")}`);
+    baselineReport.push(
+      `  ignore patterns (${ignorePatterns.length}): ${ignorePatterns.map((p) => p.src).join(", ")}`,
+    );
     baselineReport.push(`  ignored chunks: ${ignoredHits.length}`);
   }
-
 } else {
   baselineReport.push(
     `  no baseline yet — run \`node scripts/bundle-budget.mjs --update-baseline\` to record one.`,
@@ -276,6 +293,9 @@ if (baseline) {
 // --- Report --------------------------------------------------------------
 console.log(
   `\n[bundle-budget] warn ${WARN_PCT}% · fail 100% · max baseline growth ${MAX_GROWTH_PCT}%`,
+);
+console.log(
+  `  provider: ${BUILD_OUTPUT.provider} · client: ${BUILD_OUTPUT.clientRelative} · server: ${BUILD_OUTPUT.serverRelative}`,
 );
 for (const line of summary) console.log("  " + line);
 
@@ -338,7 +358,8 @@ const assetsReport = [
       sizeKB: +(f.size / KB).toFixed(2),
       limitKB: limitKb,
       pctOfLimit: +pct(f.size, limitKb).toFixed(1),
-      status: pct(f.size, limitKb) > 100 ? "fail" : pct(f.size, limitKb) >= WARN_PCT ? "warn" : "ok",
+      status:
+        pct(f.size, limitKb) > 100 ? "fail" : pct(f.size, limitKb) >= WARN_PCT ? "warn" : "ok",
       suggestions: suggestFor(f, "client"),
     };
   }),
@@ -366,8 +387,18 @@ const reportJson = {
   thresholds: { warnPct: WARN_PCT, failPct: 100, maxGrowthPct: MAX_GROWTH_PCT },
   budgets: BUDGETS,
   totals: {
-    client: { bytes: clientTotal, sizeKB: +(clientTotal / KB).toFixed(2), limitKB: BUDGETS.client.total, pctOfLimit: +pct(clientTotal, BUDGETS.client.total).toFixed(1) },
-    server: { bytes: serverTotal, sizeKB: +(serverTotal / KB).toFixed(2), limitKB: BUDGETS.server.total, pctOfLimit: +pct(serverTotal, BUDGETS.server.total).toFixed(1) },
+    client: {
+      bytes: clientTotal,
+      sizeKB: +(clientTotal / KB).toFixed(2),
+      limitKB: BUDGETS.client.total,
+      pctOfLimit: +pct(clientTotal, BUDGETS.client.total).toFixed(1),
+    },
+    server: {
+      bytes: serverTotal,
+      sizeKB: +(serverTotal / KB).toFixed(2),
+      limitKB: BUDGETS.server.total,
+      pctOfLimit: +pct(serverTotal, BUDGETS.server.total).toFixed(1),
+    },
   },
   violations,
   warnings,
@@ -377,8 +408,12 @@ const reportJson = {
 };
 
 function renderHtml(r) {
-  const row = (a) => `<tr class="${a.status}"><td>${a.side}</td><td><code>${a.path}</code></td><td>${a.type}</td><td class="num">${a.sizeKB.toFixed(1)} KB</td><td class="num">${a.limitKB} KB</td><td class="num">${a.pctOfLimit.toFixed(1)}%</td><td class="badge b-${a.status}">${a.status.toUpperCase()}</td><td>${a.suggestions.map((s) => `<div>• ${s}</div>`).join("") || "<span class='muted'>—</span>"}</td></tr>`;
-  const list = (arr) => (arr.length ? `<ul>${arr.map((x) => `<li>${x}</li>`).join("")}</ul>` : `<p class="muted">Nenhum.</p>`);
+  const row = (a) =>
+    `<tr class="${a.status}"><td>${a.side}</td><td><code>${a.path}</code></td><td>${a.type}</td><td class="num">${a.sizeKB.toFixed(1)} KB</td><td class="num">${a.limitKB} KB</td><td class="num">${a.pctOfLimit.toFixed(1)}%</td><td class="badge b-${a.status}">${a.status.toUpperCase()}</td><td>${a.suggestions.map((s) => `<div>• ${s}</div>`).join("") || "<span class='muted'>—</span>"}</td></tr>`;
+  const list = (arr) =>
+    arr.length
+      ? `<ul>${arr.map((x) => `<li>${x}</li>`).join("")}</ul>`
+      : `<p class="muted">Nenhum.</p>`;
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Bundle Budget Report — Eyegis</title>
 <style>
 :root{--ink:#1D252D;--muted:#6b7480;--ok:#0a8f3e;--warn:#b7791f;--fail:#c0392b;--bg:#F9F9F9;--surface:#fff;--border:#e6e8ec;--primary:#004B57}
@@ -407,7 +442,7 @@ section{margin:24px 0}h2{font-weight:600;font-size:16px;letter-spacing:.02em;mar
 <div class="cards">
 <div class="card"><h3>Client total</h3><div class="big">${r.totals.client.sizeKB.toFixed(1)} KB</div><div class="muted">${r.totals.client.pctOfLimit.toFixed(1)}% de ${r.totals.client.limitKB} KB</div></div>
 <div class="card"><h3>Server total</h3><div class="big">${r.totals.server.sizeKB.toFixed(1)} KB</div><div class="muted">${r.totals.server.pctOfLimit.toFixed(1)}% de ${r.totals.server.limitKB} KB</div></div>
-<div class="card"><h3>Assets</h3><div class="big">${r.assets.length}</div><div class="muted">${r.assets.filter((a)=>a.status==="fail").length} fail · ${r.assets.filter((a)=>a.status==="warn").length} warn</div></div>
+<div class="card"><h3>Assets</h3><div class="big">${r.assets.length}</div><div class="muted">${r.assets.filter((a) => a.status === "fail").length} fail · ${r.assets.filter((a) => a.status === "warn").length} warn</div></div>
 <div class="card"><h3>Baseline</h3><div class="big">${r.newChunks.length}+ / ${r.removedChunks.length}−</div><div class="muted">novos / removidos</div></div>
 </div>
 <section class="grid2">
@@ -425,7 +460,9 @@ section{margin:24px 0}h2{font-weight:600;font-size:16px;letter-spacing:.02em;mar
 }
 
 const REPORT_DIR = join(ROOT, "dist", "reports");
-try { mkdirSync(REPORT_DIR, { recursive: true }); } catch {}
+try {
+  mkdirSync(REPORT_DIR, { recursive: true });
+} catch {}
 const jsonPath = join(REPORT_DIR, "bundle-report.json");
 const htmlPath = join(REPORT_DIR, "bundle-report.html");
 writeFileSync(jsonPath, JSON.stringify(reportJson, null, 2));
@@ -449,7 +486,9 @@ if (flagged.length) {
   console.log(`\n[bundle-budget] assets acima do warn threshold (${flagged.length}):`);
   for (const a of flagged) {
     const mark = a.status === "fail" ? "✗" : "⚠";
-    console.log(`  ${mark} [${a.side}] ${a.path}  ${a.sizeKB.toFixed(1)} KB (${a.pctOfLimit.toFixed(1)}% de ${a.limitKB} KB)`);
+    console.log(
+      `  ${mark} [${a.side}] ${a.path}  ${a.sizeKB.toFixed(1)} KB (${a.pctOfLimit.toFixed(1)}% de ${a.limitKB} KB)`,
+    );
     for (const s of a.suggestions) console.log(`      → ${s}`);
   }
 }
@@ -474,8 +513,14 @@ function locateSource(side, key) {
       radix: 57,
       "motion-icons": 63,
     };
-    if (base in vendorLines) return { file: "vite.config.ts", line: vendorLines[base], reason: `manualChunks group "${base}"` };
-    if (/\.css$/i.test(key)) return { file: "src/styles.css", line: 1, reason: "CSS bundle (Tailwind + tokens)" };
+    if (base in vendorLines)
+      return {
+        file: "vite.config.ts",
+        line: vendorLines[base],
+        reason: `manualChunks group "${base}"`,
+      };
+    if (/\.css$/i.test(key))
+      return { file: "src/styles.css", line: 1, reason: "CSS bundle (Tailwind + tokens)" };
     // Entry / route chunks — map back to the route source file when possible.
     const routeGuess = mapRouteKey(base);
     if (routeGuess) return routeGuess;
@@ -485,14 +530,16 @@ function locateSource(side, key) {
   // Server side: nitro emits per-route .mjs files matching src/routes/*.tsx.
   const routeGuess = mapRouteKey(base);
   if (routeGuess) return routeGuess;
-  if (base === "index" || base === "server") return { file: "src/server.ts", line: 1, reason: `server entry chunk "${base}"` };
+  if (base === "index" || base === "server")
+    return { file: "src/server.ts", line: 1, reason: `server entry chunk "${base}"` };
   return { file: "scripts/bundle-budget.mjs", line: 61, reason: `unmapped server chunk "${base}"` };
 }
 
 /** `_locale.technology` -> `src/routes/$locale.technology.tsx`, etc. */
 function mapRouteKey(base) {
   const candidate = "src/routes/" + base.replace(/^_/, "$") + ".tsx";
-  if (existsSync(join(ROOT, candidate))) return { file: candidate, line: 1, reason: `route chunk "${base}"` };
+  if (existsSync(join(ROOT, candidate)))
+    return { file: candidate, line: 1, reason: `route chunk "${base}"` };
   const withoutLocale = base.replace(/^_?locale\./, "$locale.");
   const alt = "src/routes/" + withoutLocale + ".tsx";
   if (existsSync(join(ROOT, alt))) return { file: alt, line: 1, reason: `route chunk "${base}"` };
@@ -504,7 +551,7 @@ function parseIssue(msg) {
   let m = msg.match(/^baseline growth · (client|server) ([^:]+):/);
   if (m) return { side: m[1], key: m[2].trim() };
   m = msg.match(/^(client|server) file (\S+)/);
-  if (m) return { side: m[1], key: normalizeKey(m[2]) };
+  if (m) return { side: m[1], key: normalizeKey(m[2], m[1]) };
   m = msg.match(/^(client|server) total/);
   if (m) return { side: m[1], key: null };
   return null;
@@ -517,7 +564,9 @@ function emitGithubAnnotations() {
     const dedupe = `${target.file}:${target.line}:${title}`;
     if (seen.has(dedupe)) return;
     seen.add(dedupe);
-    const props = [`file=${target.file}`, `line=${target.line}`, `title=${ghEscape(title)}`].join(",");
+    const props = [`file=${target.file}`, `line=${target.line}`, `title=${ghEscape(title)}`].join(
+      ",",
+    );
     process.stdout.write(`::${level} ${props}::${ghEscape(message)}\n`);
   };
 

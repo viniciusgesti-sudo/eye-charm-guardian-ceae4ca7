@@ -1,0 +1,600 @@
+{
+  "EN": {
+    "backAll": "← All Collections",
+    "buyAmazon": "Coming soon on Amazon",
+    "viewGallery": "View Gallery",
+    "chapter": "Chapter I · Men's Collection",
+    "by": "by Eyegis",
+    "badges": [
+      "EyegisGuard™",
+      "Blue Light Filtering",
+      "TR90 Frame",
+      "Anti-Reflective",
+      "2-Year Warranty",
+      "60-Day Comfort Guarantee"
+    ],
+    "section": "Section {n}{sub}",
+    "sectionNames": {
+      "lifestyle": "Lifestyle",
+      "technology": "Technology",
+      "reviews": "Reviews",
+      "faq": "FAQ"
+    },
+    "gallery": {
+      "title": "A closer look.",
+      "labels": [
+        "Front",
+        "Pair",
+        "Lens Macro",
+        "Pouch",
+        "Packaging",
+        "On Face"
+      ],
+      "zoom": "Click to zoom",
+      "reset": "Click to reset"
+    },
+    "why": {
+      "title": "Why you'll love it.",
+      "features": [
+        {
+          "title": "Visual Comfort",
+          "body": "Filters the most disruptive band of high-energy blue light so long hours feel like short ones."
+        },
+        {
+          "title": "Lightweight Frame",
+          "body": "TR90 memory polymer — under 18g on the face, engineered to be forgotten."
+        },
+        {
+          "title": "Natural Color Accuracy",
+          "body": "No amber tint. No color shift. What you see on screen is what your work requires."
+        },
+        {
+          "title": "Designed for All-Day Wear",
+          "body": "Balanced weight distribution, soft-touch nose pads, sculpted temple arms."
+        }
+      ]
+    },
+    "details": {
+      "title1": "Every part,",
+      "title2": "measured.",
+      "body": "Men's Collection is drawn from five components chosen for balance, durability and quiet elegance. Hover any point to reveal.",
+      "parts": [
+        {
+          "label": "Frame Material",
+          "value": "TR90 polymer"
+        },
+        {
+          "label": "Lens",
+          "value": "EyegisGuard™ optical"
+        },
+        {
+          "label": "Hinges",
+          "value": "Precision spring-hinge"
+        },
+        {
+          "label": "Nose Pads",
+          "value": "Soft silicone"
+        },
+        {
+          "label": "Temple Arms",
+          "value": "Balanced 138mm"
+        }
+      ]
+    },
+    "specs": {
+      "title": "Specifications.",
+      "rows": [
+        {
+          "k": "Frame Material",
+          "v": "TR90 memory polymer"
+        },
+        {
+          "k": "Lens Type",
+          "v": "EyegisGuard™ optical grade"
+        },
+        {
+          "k": "Weight",
+          "v": "17.8 g"
+        },
+        {
+          "k": "Protection",
+          "v": "Filters 400–455 nm HEV blue light"
+        },
+        {
+          "k": "Coating",
+          "v": "Anti-reflective · Anti-scratch · Oleophobic"
+        },
+        {
+          "k": "Warranty",
+          "v": "2-year international"
+        },
+        {
+          "k": "Comfort Guarantee",
+          "v": "60 days, no questions"
+        },
+        {
+          "k": "Recommended Usage",
+          "v": "Screen work · Reading · Travel"
+        }
+      ]
+    },
+    "lifestyle": {
+      "title1": "Where Men's Collection",
+      "title2": "belongs.",
+      "contexts": [
+        "Business",
+        "Creative",
+        "Travel",
+        "Gaming",
+        "Remote Work",
+        "Architecture"
+      ]
+    },
+    "tech": {
+      "title1": "EyegisGuard™",
+      "title2": "optical filter.",
+      "body": "A precisely tuned coating that attenuates the 400–455 nm band of high-energy visible light without shifting natural colors. No amber tint. No compromise.",
+      "filtered": "400 – 455 nm · filtered",
+      "learn": "Learn More"
+    },
+    "reviews": {
+      "title1": "From people who",
+      "title2": " wear them.",
+      "rating": "4.8 · Overall Rating",
+      "based": "Based on verified purchases",
+      "verified": "✓ Verified Purchase",
+      "items": [
+        {
+          "name": "Camille R.",
+          "role": "Product Designer · Paris",
+          "text": "I wear these ten hours a day. By evening I've simply forgotten they're there — which is the highest praise I can give a pair of glasses."
+        },
+        {
+          "name": "Andrés L.",
+          "role": "Software Engineer · São Paulo",
+          "text": "Colors on my screen still look correct, and my eyes are genuinely less tired at the end of the day. Build quality feels premium."
+        },
+        {
+          "name": "Sophie M.",
+          "role": "Architect · Lisbon",
+          "text": "The finish is impeccable and the frame is barely there on the face. Elegant enough for client meetings, quiet enough for the studio."
+        }
+      ]
+    },
+    "faq": {
+      "title1": "Questions,",
+      "title2": " answered.",
+      "items": [
+        {
+          "q": "Are Men's Collection frames compatible with prescription lenses?",
+          "a": "Yes. Any optician can replace the demo lenses with your prescription. The EyegisGuard™ coating can also be added to prescription lenses on request."
+        },
+        {
+          "q": "How should I clean the frame and lenses?",
+          "a": "Use the microfibre cloth included in the box, with lukewarm water and a drop of neutral soap when needed. Avoid alcohol-based cleaners on the coating."
+        },
+        {
+          "q": "What does the 2-year warranty cover?",
+          "a": "Manufacturing defects on frame, hinges and coating. Accidental damage and normal wear are not covered."
+        },
+        {
+          "q": "How fast is shipping?",
+          "a": "Men's Collection is fulfilled through Amazon. Standard delivery is 1–3 business days in most regions with Prime."
+        },
+        {
+          "q": "Can I return them?",
+          "a": "Yes — through our 60-day comfort guarantee. If Men's Collection isn't right for you, return them for a full refund."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Men's Collection · by Eyegis",
+      "title1": "Ready to experience",
+      "title2": "digital comfort?",
+      "trust": [
+        "Secure purchase through Amazon",
+        "Fast shipping",
+        "Trusted customer support"
+      ]
+    }
+  },
+  "PT": {
+    "backAll": "← Todas as coleções",
+    "buyAmazon": "Comprar na Amazon",
+    "viewGallery": "Ver galeria",
+    "chapter": "Capítulo I · Men's Collection",
+    "by": "por Eyegis",
+    "badges": [
+      "EyegisGuard™",
+      "Filtro de luz azul",
+      "Armação TR90",
+      "Antirreflexo",
+      "Garantia de 2 anos",
+      "Garantia de conforto 60 dias"
+    ],
+    "section": "Seção {n}{sub}",
+    "sectionNames": {
+      "lifestyle": "Estilo de vida",
+      "technology": "Tecnologia",
+      "reviews": "Avaliações",
+      "faq": "FAQ"
+    },
+    "gallery": {
+      "title": "Um olhar mais próximo.",
+      "labels": [
+        "Frente",
+        "Par",
+        "Macro da lente",
+        "Bolsa",
+        "Embalagem",
+        "No rosto"
+      ],
+      "zoom": "Clique para ampliar",
+      "reset": "Clique para restaurar"
+    },
+    "why": {
+      "title": "Por que você vai amar.",
+      "features": [
+        {
+          "title": "Conforto visual",
+          "body": "Filtra a faixa mais agressiva da luz azul de alta energia — horas longas passam a parecer curtas."
+        },
+        {
+          "title": "Armação leve",
+          "body": "Polímero TR90 com memória — menos de 18g no rosto, feita para ser esquecida."
+        },
+        {
+          "title": "Cores naturais",
+          "body": "Sem tom âmbar. Sem desvio de cor. Você vê na tela exatamente o que seu trabalho exige."
+        },
+        {
+          "title": "Uso o dia inteiro",
+          "body": "Distribuição equilibrada, plaquetas suaves e hastes esculpidas para conforto contínuo."
+        }
+      ]
+    },
+    "details": {
+      "title1": "Cada peça,",
+      "title2": "medida.",
+      "body": "Men's Collection é composta por cinco elementos escolhidos por equilíbrio, durabilidade e elegância silenciosa. Passe o mouse em cada ponto.",
+      "parts": [
+        {
+          "label": "Material da armação",
+          "value": "Polímero TR90"
+        },
+        {
+          "label": "Lente",
+          "value": "Óptica EyegisGuard™"
+        },
+        {
+          "label": "Charneiras",
+          "value": "Mola de precisão"
+        },
+        {
+          "label": "Plaquetas",
+          "value": "Silicone suave"
+        },
+        {
+          "label": "Hastes",
+          "value": "Equilibradas 138mm"
+        }
+      ]
+    },
+    "specs": {
+      "title": "Especificações.",
+      "rows": [
+        {
+          "k": "Material da armação",
+          "v": "Polímero TR90 com memória"
+        },
+        {
+          "k": "Tipo de lente",
+          "v": "Óptica EyegisGuard™"
+        },
+        {
+          "k": "Peso",
+          "v": "17,8 g"
+        },
+        {
+          "k": "Proteção",
+          "v": "Filtra HEV 400–455 nm"
+        },
+        {
+          "k": "Tratamento",
+          "v": "Antirreflexo · Antirrisco · Oleofóbico"
+        },
+        {
+          "k": "Garantia",
+          "v": "2 anos internacional"
+        },
+        {
+          "k": "Garantia de conforto",
+          "v": "60 dias, sem perguntas"
+        },
+        {
+          "k": "Uso recomendado",
+          "v": "Tela · Leitura · Viagem"
+        }
+      ]
+    },
+    "lifestyle": {
+      "title1": "Onde Men's Collection",
+      "title2": "pertence.",
+      "contexts": [
+        "Negócios",
+        "Criativo",
+        "Viagem",
+        "Games",
+        "Trabalho remoto",
+        "Arquitetura"
+      ]
+    },
+    "tech": {
+      "title1": "EyegisGuard™",
+      "title2": "filtro óptico.",
+      "body": "Um tratamento afinado com precisão que atenua a faixa 400–455 nm da luz azul de alta energia sem alterar as cores naturais. Sem tom âmbar. Sem concessão.",
+      "filtered": "400 – 455 nm · filtrada",
+      "learn": "Saiba mais"
+    },
+    "reviews": {
+      "title1": "De quem",
+      "title2": " usa todos os dias.",
+      "rating": "4,8 · Avaliação geral",
+      "based": "Baseada em compras verificadas",
+      "verified": "✓ Compra verificada",
+      "items": [
+        {
+          "name": "Camille R.",
+          "role": "Product Designer · Paris",
+          "text": "Uso dez horas por dia. À noite simplesmente esqueci que estão no rosto — é o maior elogio que posso dar a um óculos."
+        },
+        {
+          "name": "Andrés L.",
+          "role": "Engenheiro de software · São Paulo",
+          "text": "As cores da tela continuam corretas e meus olhos ficam realmente menos cansados. A construção é premium."
+        },
+        {
+          "name": "Sophie M.",
+          "role": "Arquiteta · Lisboa",
+          "text": "O acabamento é impecável e a armação quase não se sente. Elegante para reuniões, discreta para o estúdio."
+        }
+      ]
+    },
+    "faq": {
+      "title1": "Perguntas,",
+      "title2": " respondidas.",
+      "items": [
+        {
+          "q": "A Men's Collection aceita lentes de grau?",
+          "a": "Sim. Qualquer óptica pode substituir as lentes demonstração pelas suas de grau. O tratamento EyegisGuard™ também pode ser aplicado sob pedido."
+        },
+        {
+          "q": "Como limpar armação e lentes?",
+          "a": "Use o pano de microfibra que acompanha, com água morna e uma gota de sabão neutro quando necessário. Evite limpadores com álcool."
+        },
+        {
+          "q": "O que a garantia de 2 anos cobre?",
+          "a": "Defeitos de fabricação na armação, charneiras e tratamento. Danos acidentais e desgaste normal não são cobertos."
+        },
+        {
+          "q": "Como funciona a entrega?",
+          "a": "A Men's Collection é vendida pela Amazon. Entrega padrão em 1–3 dias úteis na maioria das regiões com Prime."
+        },
+        {
+          "q": "Posso devolver?",
+          "a": "Sim — pela nossa garantia de conforto de 60 dias. Se a Men's Collection não for para você, devolvemos o valor integral."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Men's Collection · por Eyegis",
+      "title1": "Pronto para experimentar",
+      "title2": "o conforto digital?",
+      "trust": [
+        "Compra segura pela Amazon",
+        "Entrega rápida",
+        "Suporte confiável"
+      ]
+    }
+  },
+  "FR": {
+    "backAll": "← Toutes les collections",
+    "buyAmazon": "Acheter sur Amazon",
+    "viewGallery": "Voir la galerie",
+    "chapter": "Chapitre I · Men's Collection",
+    "by": "par Eyegis",
+    "intro": "Pensée pour les professionnels qui exigent un confort visuel sans compromis sur le style. Une ligne architecturale discrète, conçue pour les longues heures d'écran.",
+    "badges": [
+      "EyegisGuard™",
+      "Filtre lumière bleue",
+      "Monture TR90",
+      "Anti-reflet",
+      "Garantie 2 ans",
+      "Garantie confort 60 jours"
+    ],
+    "section": "Section {n}{sub}",
+    "sectionNames": {
+      "lifestyle": "Mode de vie",
+      "technology": "Technologie",
+      "reviews": "Avis",
+      "faq": "FAQ"
+    },
+    "gallery": {
+      "title": "Regardez de plus près.",
+      "labels": [
+        "Face",
+        "Paire",
+        "Macro verre",
+        "Pochette",
+        "Emballage",
+        "Portée"
+      ],
+      "zoom": "Cliquer pour zoomer",
+      "reset": "Cliquer pour réinitialiser"
+    },
+    "why": {
+      "title": "Pourquoi vous allez l'aimer.",
+      "features": [
+        {
+          "title": "Confort visuel",
+          "body": "Filtre la bande la plus agressive de la lumière bleue haute énergie — les longues heures paraissent courtes."
+        },
+        {
+          "title": "Monture légère",
+          "body": "Polymère à mémoire TR90 — moins de 18g sur le visage, conçue pour être oubliée."
+        },
+        {
+          "title": "Couleurs naturelles",
+          "body": "Aucune teinte ambrée. Aucun décalage colorimétrique. Ce que vous voyez à l'écran est fidèle."
+        },
+        {
+          "title": "Confort toute la journée",
+          "body": "Répartition équilibrée, plaquettes douces, branches sculptées."
+        }
+      ]
+    },
+    "details": {
+      "title1": "Chaque pièce,",
+      "title2": "mesurée.",
+      "body": "Men's Collection repose sur cinq composants choisis pour l'équilibre, la durabilité et l'élégance silencieuse. Survolez chaque point.",
+      "parts": [
+        {
+          "label": "Matériau",
+          "value": "Polymère TR90"
+        },
+        {
+          "label": "Verre",
+          "value": "Optique EyegisGuard™"
+        },
+        {
+          "label": "Charnières",
+          "value": "Ressort de précision"
+        },
+        {
+          "label": "Plaquettes",
+          "value": "Silicone doux"
+        },
+        {
+          "label": "Branches",
+          "value": "Équilibrées 138mm"
+        }
+      ]
+    },
+    "specs": {
+      "title": "Spécifications.",
+      "rows": [
+        {
+          "k": "Matériau",
+          "v": "Polymère à mémoire TR90"
+        },
+        {
+          "k": "Type de verre",
+          "v": "Optique EyegisGuard™"
+        },
+        {
+          "k": "Poids",
+          "v": "17,8 g"
+        },
+        {
+          "k": "Protection",
+          "v": "Filtre HEV 400–455 nm"
+        },
+        {
+          "k": "Traitement",
+          "v": "Anti-reflet · Anti-rayures · Oléophobe"
+        },
+        {
+          "k": "Garantie",
+          "v": "2 ans internationale"
+        },
+        {
+          "k": "Garantie confort",
+          "v": "60 jours, sans questions"
+        },
+        {
+          "k": "Usage recommandé",
+          "v": "Écran · Lecture · Voyage"
+        }
+      ]
+    },
+    "lifestyle": {
+      "title1": "Où Men's Collection",
+      "title2": "s'inscrit.",
+      "contexts": [
+        "Business",
+        "Créatif",
+        "Voyage",
+        "Gaming",
+        "Télétravail",
+        "Architecture"
+      ]
+    },
+    "tech": {
+      "title1": "EyegisGuard™",
+      "title2": "filtre optique.",
+      "body": "Un traitement précisément calibré qui atténue la bande 400–455 nm de la lumière visible haute énergie sans décaler les couleurs. Aucune teinte ambrée. Aucun compromis.",
+      "filtered": "400 – 455 nm · filtrée",
+      "learn": "En savoir plus"
+    },
+    "reviews": {
+      "title1": "De ceux qui",
+      "title2": " les portent.",
+      "rating": "4,8 · Note globale",
+      "based": "Basée sur des achats vérifiés",
+      "verified": "✓ Achat vérifié",
+      "items": [
+        {
+          "name": "Camille R.",
+          "role": "Designer produit · Paris",
+          "text": "Je les porte dix heures par jour. Le soir, je les avais oubliées — c'est le plus beau compliment pour une paire de lunettes."
+        },
+        {
+          "name": "Andrés L.",
+          "role": "Ingénieur logiciel · São Paulo",
+          "text": "Les couleurs à l'écran restent justes et mes yeux sont vraiment moins fatigués. La fabrication est premium."
+        },
+        {
+          "name": "Sophie M.",
+          "role": "Architecte · Lisbonne",
+          "text": "La finition est impeccable et la monture se fait oublier. Élégante pour les rendez-vous, discrète au studio."
+        }
+      ]
+    },
+    "faq": {
+      "title1": "Questions,",
+      "title2": " réponses.",
+      "items": [
+        {
+          "q": "Men's Collection accepte-t-elle des verres correcteurs ?",
+          "a": "Oui. N'importe quel opticien peut remplacer les verres démo par vos verres correcteurs. Le traitement EyegisGuard™ peut aussi être ajouté sur demande."
+        },
+        {
+          "q": "Comment nettoyer la monture et les verres ?",
+          "a": "Utilisez le chiffon microfibre fourni, avec de l'eau tiède et une goutte de savon neutre si besoin. Évitez les nettoyants alcoolisés."
+        },
+        {
+          "q": "Que couvre la garantie 2 ans ?",
+          "a": "Les défauts de fabrication sur la monture, les charnières et le traitement. Les dommages accidentels et l'usure normale ne sont pas couverts."
+        },
+        {
+          "q": "Quels sont les délais de livraison ?",
+          "a": "Men's Collection est expédiée via Amazon. Livraison standard sous 1–3 jours ouvrés dans la plupart des régions avec Prime."
+        },
+        {
+          "q": "Puis-je les retourner ?",
+          "a": "Oui — via notre garantie confort 60 jours. Si Men's Collection ne vous convient pas, remboursement intégral."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Men's Collection · par Eyegis",
+      "title1": "Prêt à vivre",
+      "title2": "le confort numérique ?",
+      "trust": [
+        "Achat sécurisé via Amazon",
+        "Livraison rapide",
+        "Service client de confiance"
+      ]
+    }
+  }
+}

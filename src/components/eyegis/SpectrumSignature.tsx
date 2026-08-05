@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState, useEffect } from "react";
 import { useI18n } from "@/i18n/context";
 import { SpectrumMark } from "./SpectrumMark";
+import { useContentDocument } from "@/lib/cms";
 
 /**
  * SpectrumSignature — Eyegis's signature interactive ritual.
@@ -19,12 +20,8 @@ import { SpectrumMark } from "./SpectrumMark";
 const COPY = {
   PT: {
     eyebrow: "Ritual da Marca",
-    title: (
-      <>
-        Arraste pelo espectro.<br />
-        <span className="italic text-mint">Sinta onde a Eyegis atua.</span>
-      </>
-    ),
+    title: "Arraste pelo espectro.",
+    titleAccent: "Sinta onde a Eyegis atua.",
     subtitle:
       "380 a 500 nanômetros. É onde a luz azul de alta energia mora. Mova a lente e leia o que muda para a retina — e para o seu ritmo circadiano.",
     hint: "Arraste ↔",
@@ -36,12 +33,8 @@ const COPY = {
   },
   EN: {
     eyebrow: "Brand Ritual",
-    title: (
-      <>
-        Drag across the spectrum.<br />
-        <span className="italic text-mint">Feel where Eyegis works.</span>
-      </>
-    ),
+    title: "Drag across the spectrum.",
+    titleAccent: "Feel where Eyegis works.",
     subtitle:
       "380 to 500 nanometres. Where high-energy blue light lives. Move the lens and read what changes for the retina — and for your circadian rhythm.",
     hint: "Drag ↔",
@@ -53,12 +46,8 @@ const COPY = {
   },
   FR: {
     eyebrow: "Rituel de Marque",
-    title: (
-      <>
-        Glissez sur le spectre.<br />
-        <span className="italic text-mint">Sentez où Eyegis agit.</span>
-      </>
-    ),
+    title: "Glissez sur le spectre.",
+    titleAccent: "Sentez où Eyegis agit.",
     subtitle:
       "380 à 500 nanomètres. Là où vit la lumière bleue haute énergie. Déplacez la lentille et lisez ce qui change pour la rétine — et pour votre rythme circadien.",
     hint: "Glissez ↔",
@@ -88,7 +77,8 @@ const SPECTRUM =
 
 export function SpectrumSignature() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("technology-spectrum", COPY);
+  const c = content[lang];
 
   const bandRef = useRef<HTMLDivElement>(null);
   const [nm, setNm] = useState(445);
@@ -147,7 +137,8 @@ export function SpectrumSignature() {
           <div className="lg:col-span-5">
             <SpectrumMark nm={nm} label={c.eyebrow} tone="paper" />
             <h2 className="mt-6 font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.01em] text-balance">
-              {c.title}
+              {c.title}<br />
+              <span className="italic text-mint">{c.titleAccent}</span>
             </h2>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 flex items-end">

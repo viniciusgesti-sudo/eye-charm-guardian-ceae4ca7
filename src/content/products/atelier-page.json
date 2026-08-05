@@ -1,0 +1,54 @@
+{
+  "buyLink": "https://www.amazon.com/",
+  "hero": {
+    "chapter": "Chapter IV · Men's Collection",
+    "title": "A quieter",
+    "titleAccent": "silhouette.",
+    "description": "Drawn in São Paulo studios — a men's frame designed to be forgotten on the face and remembered by the eyes.",
+    "buyLabel": "Coming soon on Amazon",
+    "labLabel": "Independent lab tested",
+    "badges": ["EyegisGuard™", "Matte acetate", "Thin temples", "2-yr warranty", "60-day comfort"]
+  },
+  "features": [
+    { "title": "Considered proportion", "body": "A quieter silhouette — narrower, lower, drawn to disappear rather than announce." },
+    { "title": "Screen-honest color", "body": "EyegisGuard™ filters the harmful HEV band without an amber tint or color shift." },
+    { "title": "Weightless on the bridge", "body": "17.8g of hand-polished acetate with titanium-core hinges tuned for zero pressure." }
+  ],
+  "detail": {
+    "eyebrow": "The profile",
+    "title": "Thin temples,",
+    "titleAccent": "honest hinges.",
+    "body": "Every line is functional. Titanium-core hinges disappear into the acetate. No ornament, no logo screaming across the temple — just a quiet, considered profile."
+  },
+  "box": {
+    "eyebrow": "In the box",
+    "title": "Men's Collection, carefully packed.",
+    "packageCaption": "Recyclable paperboard box · debossed Eyegis mark",
+    "pouchCaption": "Microfibre pouch · doubles as a lens cloth"
+  },
+  "specifications": {
+    "eyebrow": "Specifications",
+    "title": "Every measurement, honest.",
+    "rows": [
+      { "k": "Frame Material", "v": "Italian acetate — matte graphite" },
+      { "k": "Lens Type", "v": "EyegisGuard™ optical grade" },
+      { "k": "Weight", "v": "17.8 g" },
+      { "k": "Protection", "v": "Filters 400–455 nm HEV blue light" },
+      { "k": "Coating", "v": "Anti-reflective · Anti-scratch · Oleophobic" },
+      { "k": "Temples", "v": "Thin profile · titanium-core hinges" },
+      { "k": "Warranty", "v": "2-year international" },
+      { "k": "Comfort Guarantee", "v": "60 days, no questions" }
+    ]
+  },
+  "lifestyle": {
+    "eyebrow": "Where Men's Collection belongs",
+    "title": "Studios, long deep work, unhurried thinking."
+  },
+  "cta": {
+    "eyebrow": "Men's Collection · by Eyegis",
+    "title": "Ready to design",
+    "titleAccent": "a quieter day?",
+    "buyLabel": "Buy on Amazon",
+    "trust": ["Secure purchase through Amazon", "Fast Prime shipping", "60-day comfort guarantee"]
+  }
+}

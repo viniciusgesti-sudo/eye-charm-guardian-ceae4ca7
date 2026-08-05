@@ -8,13 +8,9 @@ import {
   type ReactNode,
 } from "react";
 import { useRouterState } from "@tanstack/react-router";
+import { useContentDocument } from "@/lib/cms";
 
-import {
-  LANGS,
-  detectBrowserLang,
-  translations,
-  type Lang,
-} from "./translations";
+import { LANGS, detectBrowserLang, toHtmlLanguage, translations, type Lang } from "./translations";
 
 type I18nContextValue = {
   lang: Lang;
@@ -43,11 +39,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const urlLang = langFromPathname(pathname);
 
   const [lang, setLangState] = useState<Lang>(() => urlLang ?? "EN");
+  const contentTranslations = useContentDocument<typeof translations>("translations", translations);
 
   useEffect(() => {
     if (urlLang && urlLang !== lang) {
       setLangState(urlLang);
-      document.documentElement.lang = urlLang.toLowerCase();
+      document.documentElement.lang = toHtmlLanguage(urlLang);
     }
   }, [urlLang, lang]);
 
@@ -57,7 +54,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
       if (stored && LANGS.includes(stored)) {
         setLangState(stored);
-        document.documentElement.lang = stored.toLowerCase();
+        document.documentElement.lang = toHtmlLanguage(stored);
         return;
       }
     } catch {
@@ -65,14 +62,14 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
     const detected = detectBrowserLang();
     setLangState(detected);
-    document.documentElement.lang = detected.toLowerCase();
+    document.documentElement.lang = toHtmlLanguage(detected);
   }, [urlLang]);
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
     try {
       localStorage.setItem(STORAGE_KEY, l);
-      document.documentElement.lang = l.toLowerCase();
+      document.documentElement.lang = toHtmlLanguage(l);
     } catch {
       // ignore
     }
@@ -80,10 +77,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback(
     (key: string) => {
-      const dict = translations[lang];
-      return dict[key] ?? translations.EN[key] ?? key;
+      const dict = contentTranslations[lang] ?? translations[lang];
+      return dict[key] ?? contentTranslations.EN?.[key] ?? translations.EN[key] ?? key;
     },
-    [lang],
+    [contentTranslations, lang],
   );
 
   const value = useMemo<I18nContextValue>(

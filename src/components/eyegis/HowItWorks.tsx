@@ -1,5 +1,6 @@
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 type Copy = {
   eyebrow: string;
@@ -43,7 +44,8 @@ const COPY: Record<Lang, Copy> = {
 
 export function HowItWorks() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("home-how-it-works", COPY);
+  const c = content[lang];
 
   return (
     <section className="relative bg-paper py-24 md:py-32">
@@ -90,4 +92,3 @@ export function HowItWorks() {
     </section>
   );
 }
-

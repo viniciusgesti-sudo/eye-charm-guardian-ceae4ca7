@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; p: string }[] }> = {
   EN: {
@@ -41,7 +42,8 @@ const COPY: Record<Lang, { title: string; intro: string; sections: { h: string; 
 
 function LegalPage() {
   const { lang } = useI18n();
-  const c = COPY[lang];
+  const content = useContentDocument<typeof COPY>("legal", COPY);
+  const c = content[lang];
   return (
     <>
       

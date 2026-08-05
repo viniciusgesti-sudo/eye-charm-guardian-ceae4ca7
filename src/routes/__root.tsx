@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -14,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
 import { CmsProvider, siteContentQueryOptions } from "../lib/cms";
+import { useCmsPreviewPayload } from "../lib/cms/preview";
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
@@ -43,7 +45,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const url = typeof window !== "undefined" ? window.location.href : "(ssr)";
   // Structured log so preview tooling can grep [PREVIEW-ERROR] and pick up
   // the URL alongside the framework error (import/export/syntax issues, etc.).
-  // eslint-disable-next-line no-console
   console.error(`[PREVIEW-ERROR] kind=ROUTE_RENDER url=${url} :: ${error.message}`);
   console.error(error);
   const router = useRouter();
@@ -68,7 +69,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again →
           </button>
-          <a href="/" className="font-eyebrow text-muted-foreground hover:text-ink transition-colors">
+          <a
+            href="/"
+            className="font-eyebrow text-muted-foreground hover:text-ink transition-colors"
+          >
             Go home
           </a>
         </div>
@@ -112,8 +116,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       // Adaptive SVG favicons — Safari/Chrome/Firefox switch by system theme.
-      { rel: "icon", type: "image/svg+xml", href: "/favicon-light.svg", media: "(prefers-color-scheme: light)" },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon-dark.svg", media: "(prefers-color-scheme: dark)" },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/favicon-light.svg",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/favicon-dark.svg",
+        media: "(prefers-color-scheme: dark)",
+      },
       // PNG + ICO fallbacks for browsers without SVG favicon or media support.
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
@@ -136,47 +150,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap",
       },
-
-
     ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
-  // Prime the CMS query on the server so the first paint uses live Wix
-  // content. The fetcher itself never throws — on failure it resolves to
-  // an empty map and CmsProvider transparently uses local fallbacks.
+  // Prime the WordPress query on the server. The fetcher never throws: when
+  // WordPress is unavailable, the provider keeps the versioned local content.
   loader: async ({ context }) => {
-    // `fetchSiteContent` swallows every error and returns {} on failure, so
-    // awaiting here is safe — SSR will never break because the CMS is slow.
     await context.queryClient.ensureQueryData(siteContentQueryOptions);
   },
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const locale = pathname.split("/")[1]?.toLowerCase();
+  const documentLanguage = locale === "br" ? "pt-BR" : locale === "fr" ? "fr" : "en";
+
   return (
-    <html lang="en">
+    <html lang={documentLanguage}>
       <head>
         <HeadContent />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </head>
       <body>
         {children}
         <Scripts />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            if (window.netlifyIdentity) {
-              window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                  window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                  });
-                }
-              });
-            }
-          `
-        }} />
       </body>
     </html>
   );
@@ -202,11 +201,11 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <CmsHydrator>
         <I18nProvider>
-          <a href="#main" className="skip-to-content">Skip to content</a>
+          <a href="#main" className="skip-to-content">
+            Skip to content
+          </a>
           <PreviewErrorBoundary
-            fallback={(err, resetBoundary) => (
-              <ErrorComponent error={err} reset={resetBoundary} />
-            )}
+            fallback={(err, resetBoundary) => <ErrorComponent error={err} reset={resetBoundary} />}
           >
             <Outlet />
           </PreviewErrorBoundary>
@@ -220,13 +219,11 @@ function RootComponent() {
 }
 
 /**
- * Reads the pre-fetched CMS map from React Query and feeds it into
- * CmsProvider. Uses `useQuery` (not suspense) so a slow or failing Wix
- * response never blocks the shell — components silently render fallbacks
- * until the map arrives.
+ * Reads the pre-fetched WordPress payload and feeds it into CmsProvider.
+ * Local versioned content remains available during an API outage.
  */
 function CmsHydrator({ children }: { children: ReactNode }) {
   const { data } = useQuery(siteContentQueryOptions);
-  return <CmsProvider value={data ?? undefined}>{children}</CmsProvider>;
+  const previewData = useCmsPreviewPayload(data ?? undefined);
+  return <CmsProvider value={previewData}>{children}</CmsProvider>;
 }
-

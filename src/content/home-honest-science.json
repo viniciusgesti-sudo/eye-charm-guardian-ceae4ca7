@@ -1,0 +1,35 @@
+{
+  "PT": {
+    "eyebrow": "Honest Science™",
+    "title": "A ciência antes",
+    "titleAccent": "de qualquer promessa.",
+    "bullets": [
+      "Luz azul não é uma só — são vários comprimentos de onda, com efeitos distintos sobre a retina e o ritmo circadiano.",
+      "O que importa é filtrar o certo, na medida certa — não estampar uma porcentagem grande na caixa.",
+      "Cada lente passa por laboratório independente contra padrões internacionais: ICNIRP, CIE S 026, ANSI Z80.3."
+    ],
+    "cta": "Ler a ciência completa"
+  },
+  "EN": {
+    "eyebrow": "Honest Science™",
+    "title": "The science first.",
+    "titleAccent": "Then the promise.",
+    "bullets": [
+      "Blue light isn't one thing — it's several wavelengths, with distinct effects on the retina and the circadian rhythm.",
+      "What matters is filtering the right nanometres, in the right measure — not printing a big percentage on the box.",
+      "Every lens passes through an independent laboratory against international standards: ICNIRP, CIE S 026, ANSI Z80.3."
+    ],
+    "cta": "Read the full science"
+  },
+  "FR": {
+    "eyebrow": "Honest Science™",
+    "title": "La science d'abord.",
+    "titleAccent": "La promesse ensuite.",
+    "bullets": [
+      "La lumière bleue n'est pas une seule chose — plusieurs longueurs d'onde, aux effets distincts sur la rétine et le rythme circadien.",
+      "Ce qui compte, c'est filtrer les bons nanomètres, dans la juste mesure — pas imprimer un grand pourcentage sur la boîte.",
+      "Chaque verre passe par un laboratoire indépendant selon les normes internationales : ICNIRP, CIE S 026, ANSI Z80.3."
+    ],
+    "cta": "Lire la science complète"
+  }
+}

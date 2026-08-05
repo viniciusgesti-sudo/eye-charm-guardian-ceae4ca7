@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 
 import { AmazonMark } from "./AmazonMark";
@@ -25,6 +26,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   const location = useLocation();
   const navigate = useNavigate();
   const { t, setLang, lang } = useI18n();
+  const globalContent = useContentDocument<typeof globalData>("global", globalData);
+  const global = globalContent[lang] ?? globalContent.EN;
 
   // Sincroniza o idioma com o segmento /$locale da URL para evitar
   // que rotas /br/* renderizem textos EN (que estouram no mobile).
@@ -71,9 +74,9 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             : "bg-transparent border-b border-transparent"
       }`}
     >
-      {globalData[lang]?.topbar && (
+      {global.topbar && (
         <div className="bg-ink text-paper text-center py-1.5 px-4 font-eyebrow text-[9px] md:text-[10px] uppercase tracking-widest">
-          {globalData[lang].topbar}
+          {global.topbar}
         </div>
       )}
       <div className={`mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-4 px-4 md:px-8 lg:px-12 ${compact ? "py-3 md:py-3.5" : "py-4 md:py-5"}`}>
@@ -150,7 +153,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
 
           <a
             data-testid="header-cta"
-            href="https://www.amazon.com.br/"
+            href={global.amazon_url}
             target="_blank"
             rel="noopener noreferrer"
             className={`group hidden lg:inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[11px] md:text-xs min-h-[40px] transition-all duration-500 ${
@@ -243,7 +246,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             </div>
             <div className="mt-auto">
               <a
-                href="https://www.amazon.com.br/"
+                href={global.amazon_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}

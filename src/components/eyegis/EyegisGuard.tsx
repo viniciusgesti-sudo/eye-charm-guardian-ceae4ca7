@@ -16,6 +16,7 @@ import lifeStudentKid from "@/assets/guard-life-student-kid.jpg?w=480;800;1200;1
 import lifeGamerMan from "@/assets/guard-life-gamer-man.jpg?w=480;800;1200;1600&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 
 /* ---------- Copy ---------- */
 type Callout = { n: string; title: string; body: string };
@@ -317,7 +318,7 @@ function Reveal({
   const Comp = Tag as ElementType;
   return (
     <Comp
-      ref={ref as any}
+      ref={ref as React.Ref<HTMLElement>}
       className={`reveal ${visible ? "reveal-in" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -645,7 +646,8 @@ const LIFE_META_MEN: { img: PictureSource; Icon: ElementType }[] = [
 
 export function EyegisGuard({ audience }: { audience?: GuardAudience } = {}) {
   const { lang } = useI18n();
-  const copy = COPY[lang];
+  const content = useContentDocument<typeof COPY>("technology-guard", COPY);
+  const copy = content[lang];
   const LIFE_META = audience === "men" ? LIFE_META_MEN : LIFE_META_WOMEN;
   const lensMacro =
     audience === "men" ? lensMacroMen : audience === "kids" ? lensMacroKids : lensMacroWomen;

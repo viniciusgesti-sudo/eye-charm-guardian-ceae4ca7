@@ -1,0 +1,35 @@
+{
+  "EN": {
+    "eyebrow": "Coming soon on Amazon",
+    "title": "Be first to know when Eyegis lands.",
+    "body": "Eyegis is preparing its Amazon launch. Leave your email and we'll notify you with priority access before general release.",
+    "placeholder": "your@email.com",
+    "submit": "Notify me",
+    "success": "You're on the list.",
+    "successBody": "We'll email you as soon as Eyegis is live on Amazon.",
+    "close": "Close",
+    "trust": "No spam · Unsubscribe in one click"
+  },
+  "PT": {
+    "eyebrow": "Em breve na Amazon",
+    "title": "Seja o primeiro a saber quando Eyegis chegar.",
+    "body": "Os óculos Eyegis estarão disponíveis em breve na Amazon. Cadastre seu e-mail para ser avisado com prioridade.",
+    "placeholder": "seu@email.com",
+    "submit": "Notifique-me",
+    "success": "Você está na lista.",
+    "successBody": "Avisaremos por e-mail assim que Eyegis estiver disponível na Amazon.",
+    "close": "Fechar",
+    "trust": "Sem spam · Cancele em um clique"
+  },
+  "FR": {
+    "eyebrow": "Bientôt sur Amazon",
+    "title": "Soyez informé du lancement Eyegis.",
+    "body": "Eyegis prépare son lancement sur Amazon. Laissez votre e-mail pour un accès prioritaire dès la sortie.",
+    "placeholder": "votre@email.com",
+    "submit": "Prévenez-moi",
+    "success": "Vous êtes inscrit.",
+    "successBody": "Nous vous enverrons un e-mail dès qu'Eyegis sera disponible sur Amazon.",
+    "close": "Fermer",
+    "trust": "Pas de spam · Désabonnement en un clic"
+  }
+}

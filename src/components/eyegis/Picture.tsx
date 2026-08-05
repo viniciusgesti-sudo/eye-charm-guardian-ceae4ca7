@@ -1,4 +1,6 @@
-import { useState, type ImgHTMLAttributes, type SyntheticEvent } from "react";
+import { useEffect, useState, type ImgHTMLAttributes, type SyntheticEvent } from "react";
+
+import { useMediaOverride } from "@/lib/cms";
 
 export type PictureSource = {
   sources: Record<string, string>;
@@ -6,7 +8,8 @@ export type PictureSource = {
 };
 
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "srcSet"> & {
-  source: PictureSource;
+  source: PictureSource | string;
+  mobileSource?: string;
   sizes?: string;
   /** Set true for the LCP image; adds fetchpriority=high and eager loading. */
   priority?: boolean;
@@ -23,6 +26,7 @@ type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "srcSet"> & {
  */
 export function Picture({
   source,
+  mobileSource,
   sizes = "100vw",
   priority = false,
   className,
@@ -32,6 +36,17 @@ export function Picture({
   ...rest
 }: Props) {
   const [failed, setFailed] = useState(false);
+  const localSourceUrl = typeof source === "string" ? source : source.img.src;
+  const mediaOverride = useMediaOverride(localSourceUrl);
+  const remoteSource = typeof source === "string" ? source : mediaOverride?.url?.trim();
+  const remoteMobileSource = mobileSource?.trim() || mediaOverride?.mobileUrl?.trim();
+  const resolvedAlt = mediaOverride?.alt?.trim() || alt;
+  const width = typeof source === "string" ? rest.width : source.img.w;
+  const height = typeof source === "string" ? rest.height : source.img.h;
+
+  useEffect(() => {
+    setFailed(false);
+  }, [localSourceUrl, remoteMobileSource, remoteSource]);
 
   const handleLoad = (e: SyntheticEvent<HTMLImageElement>) => {
     if (e.currentTarget.naturalWidth === 0) setFailed(true);
@@ -46,17 +61,43 @@ export function Picture({
     return (
       <div
         role="img"
-        aria-label={alt || undefined}
+        aria-label={resolvedAlt || undefined}
         className={`flex items-center justify-center bg-teal-deep/10 text-teal-deep/60 text-xs font-eyebrow tracking-wider p-4 text-center ${className ?? ""}`}
-        style={{ aspectRatio: `${source.img.w} / ${source.img.h}` }}
+        style={width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
       >
-        <span className="max-w-[28ch] leading-relaxed">{alt || "Image unavailable"}</span>
+        <span className="max-w-[28ch] leading-relaxed">{resolvedAlt || "Image unavailable"}</span>
       </div>
     );
   }
 
+  if (remoteSource) {
+    return (
+      <picture>
+        {remoteMobileSource && <source media="(max-width: 767px)" srcSet={remoteMobileSource} />}
+        <img
+          src={remoteSource}
+          width={width}
+          height={height}
+          alt={resolvedAlt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          className={className}
+          onLoad={handleLoad}
+          onError={handleError}
+          {...rest}
+        />
+      </picture>
+    );
+  }
+
+  if (typeof source === "string") {
+    return null;
+  }
+
   return (
     <picture>
+      {remoteMobileSource && <source media="(max-width: 767px)" srcSet={remoteMobileSource} />}
       {Object.entries(source.sources).map(([format, srcSet]) => (
         <source key={format} type={`image/${format}`} srcSet={srcSet} sizes={sizes} />
       ))}
@@ -64,7 +105,7 @@ export function Picture({
         src={source.img.src}
         width={source.img.w}
         height={source.img.h}
-        alt={alt}
+        alt={resolvedAlt}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={priority ? "high" : "auto"}

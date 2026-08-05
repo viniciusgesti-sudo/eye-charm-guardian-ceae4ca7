@@ -1,0 +1,842 @@
+{
+  "EN": {
+    "nav": {
+      "back": "← Eyegis",
+      "tag": "Contact"
+    },
+    "hero": {
+      "eyebrow": "— Customer Care",
+      "title": [
+        "We're here",
+        "to help."
+      ],
+      "body": "Whether you have questions about our products, technology, warranty or your Amazon order, our team is ready to assist you."
+    },
+    "s1": {
+      "rule": "01 — How can we help",
+      "title": [
+        "Choose the door",
+        "that fits your question."
+      ],
+      "options": [
+        {
+          "k": "General Questions",
+          "d": "For anything about the brand, product line or press.",
+          "cta": "hello@eyegis.com"
+        },
+        {
+          "k": "Product Support",
+          "d": "Fit, lens choice, comfort or feature questions.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Warranty & Returns",
+          "d": "2-year warranty and 60-day comfort guarantee.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Business & Partnerships",
+          "d": "Collaborations, retail and international distribution.",
+          "cta": "partners@eyegis.com"
+        }
+      ]
+    },
+    "s2": {
+      "rule": "02 — Write to Us",
+      "title": [
+        "A message,",
+        "answered by",
+        "a real person."
+      ],
+      "body": "Expect a reply within one business day, from a member of our care team — never an automated system.",
+      "labels": {
+        "care": "Care",
+        "partners": "Partnerships"
+      },
+      "form": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "country": "Country",
+        "reason": "Reason for Contact",
+        "message": "Message",
+        "submit": "Send Message",
+        "sending": "Sending...",
+        "consent": "By sending, you agree to be contacted about your enquiry.",
+        "required": "Required",
+        "invalidEmail": "Invalid email",
+        "tooShort": "Please add a few more details",
+        "successTitle": "Message received.",
+        "successBody": "Thank you, {name}. A member of our care team will reply to {email} within one business day.",
+        "sendAnother": "Send another message →"
+      },
+      "reasons": [
+        "General Question",
+        "Product Support",
+        "Warranty & Returns",
+        "Amazon Order",
+        "Business & Partnerships",
+        "Press"
+      ]
+    },
+    "s3": {
+      "rule": "03 — Customer Support",
+      "title": [
+        "Support for every",
+        "part of ownership."
+      ],
+      "categories": [
+        "Product Questions",
+        "Order Assistance",
+        "Warranty",
+        "Returns",
+        "Lens Information",
+        "Business Inquiries"
+      ]
+    },
+    "s4": {
+      "rule": "04 — Official Amazon Store",
+      "title": "Need immediate assistance with your order?",
+      "body": "Orders are securely processed through our official Amazon Store. Track shipments, request returns and manage refunds directly from your Amazon account.",
+      "cta": "Visit Official Amazon Store"
+    },
+    "s5": {
+      "rule": "05 — Follow Eyegis",
+      "title": [
+        "Meet the brand,",
+        "wherever you are."
+      ],
+      "follow": "Follow →",
+      "socials": [
+        {
+          "k": "Instagram",
+          "d": "Daily editorial",
+          "handle": "@eyegis",
+          "href": "https://instagram.com/eyegis"
+        },
+        {
+          "k": "TikTok",
+          "d": "Behind the design",
+          "handle": "@eyegis",
+          "href": "https://tiktok.com/@eyegis"
+        },
+        {
+          "k": "Facebook",
+          "d": "Community & updates",
+          "handle": "/eyegis",
+          "href": "https://facebook.com/eyegis"
+        },
+        {
+          "k": "LinkedIn",
+          "d": "Company & partnerships",
+          "handle": "/company/eyegis",
+          "href": "https://linkedin.com/company/eyegis"
+        },
+        {
+          "k": "YouTube",
+          "d": "Films & tech stories",
+          "handle": "@eyegis",
+          "href": "https://youtube.com/@eyegis"
+        }
+      ]
+    },
+    "s6": {
+      "rule": "06 — Business Hours",
+      "title": [
+        "When our team",
+        "is at the desk."
+      ],
+      "body": "Times shown in Central European Time (CET). Our international team covers extended hours across time zones.",
+      "hours": [
+        {
+          "k": "Monday – Friday",
+          "d": "09:00 – 19:00 CET"
+        },
+        {
+          "k": "Saturday",
+          "d": "10:00 – 16:00 CET"
+        },
+        {
+          "k": "Sunday",
+          "d": "By email — care@eyegis.com"
+        }
+      ]
+    },
+    "s7": {
+      "rule": "07 — Global Support",
+      "title": [
+        "Support that",
+        "speaks globally."
+      ],
+      "body": "Active support across three continents today, expanding to Asia, Oceania and the Middle East next.",
+      "countries": [
+        {
+          "k": "North America",
+          "x": 205,
+          "y": 165,
+          "live": true
+        },
+        {
+          "k": "Europe",
+          "x": 445,
+          "y": 152,
+          "live": true
+        },
+        {
+          "k": "South America",
+          "x": 250,
+          "y": 250,
+          "live": true
+        },
+        {
+          "k": "Asia",
+          "x": 640,
+          "y": 190,
+          "live": false
+        },
+        {
+          "k": "Oceania",
+          "x": 720,
+          "y": 285,
+          "live": false
+        },
+        {
+          "k": "Middle East",
+          "x": 545,
+          "y": 190,
+          "live": false
+        }
+      ],
+      "soonSuffix": "Soon"
+    },
+    "s8": {
+      "rule": "08 — Common Questions",
+      "title": [
+        "Jump straight",
+        "to an answer."
+      ],
+      "read": "Read",
+      "quickLinks": [
+        {
+          "k": "Shipping",
+          "to": "/shipping"
+        },
+        {
+          "k": "Warranty",
+          "to": "/warranty"
+        },
+        {
+          "k": "Returns",
+          "to": "/shipping"
+        },
+        {
+          "k": "Technology",
+          "to": "/lenses"
+        },
+        {
+          "k": "Choose Your Lens",
+          "to": "/lenses"
+        },
+        {
+          "k": "About",
+          "to": "/about"
+        }
+      ]
+    },
+    "cta": {
+      "title": [
+        "Let's make your",
+        "digital life more comfortable."
+      ],
+      "amazon": "Buy on Amazon",
+      "collections": "Explore Collections",
+      "lenses": "Learn About EyegisGuard™"
+    },
+    "footer": {
+      "copyright": "Eyegis © 2026 — Customer Care",
+      "links": [
+        {
+          "k": "Home",
+          "to": "/"
+        },
+        {
+          "k": "About",
+          "to": "/about"
+        },
+        {
+          "k": "Lenses",
+          "to": "/lenses"
+        },
+        {
+          "k": "Warranty",
+          "to": "/warranty"
+        },
+        {
+          "k": "Shipping",
+          "to": "/shipping"
+        }
+      ]
+    },
+    "sticky": "Contact Care Team"
+  },
+  "PT": {
+    "nav": {
+      "back": "← Eyegis",
+      "tag": "Contato"
+    },
+    "hero": {
+      "eyebrow": "— Atendimento",
+      "title": [
+        "Estamos aqui",
+        "para ajudar."
+      ],
+      "body": "Se você tem perguntas sobre nossos produtos, tecnologia, garantia ou seu pedido na Amazon, nossa equipe está pronta para atender."
+    },
+    "s1": {
+      "rule": "01 — Como podemos ajudar",
+      "title": [
+        "Escolha a porta",
+        "para a sua pergunta."
+      ],
+      "options": [
+        {
+          "k": "Dúvidas Gerais",
+          "d": "Sobre a marca, a linha de produtos ou imprensa.",
+          "cta": "hello@eyegis.com"
+        },
+        {
+          "k": "Suporte ao Produto",
+          "d": "Ajuste, escolha de lente, conforto ou recursos.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Garantia e Devoluções",
+          "d": "Garantia de 2 anos e 60 dias de conforto.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Negócios e Parcerias",
+          "d": "Colaborações, varejo e distribuição internacional.",
+          "cta": "partners@eyegis.com"
+        }
+      ]
+    },
+    "s2": {
+      "rule": "02 — Escreva para Nós",
+      "title": [
+        "Uma mensagem,",
+        "respondida por",
+        "uma pessoa real."
+      ],
+      "body": "Resposta em até um dia útil, feita por um membro da nossa equipe — nunca por um sistema automatizado.",
+      "labels": {
+        "care": "Atendimento",
+        "partners": "Parcerias"
+      },
+      "form": {
+        "firstName": "Nome",
+        "lastName": "Sobrenome",
+        "email": "E-mail",
+        "country": "País",
+        "reason": "Motivo do Contato",
+        "message": "Mensagem",
+        "submit": "Enviar Mensagem",
+        "sending": "Enviando...",
+        "consent": "Ao enviar, você concorda em ser contatado sobre sua solicitação.",
+        "required": "Obrigatório",
+        "invalidEmail": "E-mail inválido",
+        "tooShort": "Por favor, adicione mais alguns detalhes",
+        "successTitle": "Mensagem recebida.",
+        "successBody": "Obrigado, {name}. Um membro da nossa equipe responderá em {email} em até um dia útil.",
+        "sendAnother": "Enviar outra mensagem →"
+      },
+      "reasons": [
+        "Dúvida Geral",
+        "Suporte ao Produto",
+        "Garantia e Devoluções",
+        "Pedido na Amazon",
+        "Negócios e Parcerias",
+        "Imprensa"
+      ]
+    },
+    "s3": {
+      "rule": "03 — Suporte ao Cliente",
+      "title": [
+        "Suporte em cada",
+        "parte da experiência."
+      ],
+      "categories": [
+        "Dúvidas de Produto",
+        "Ajuda com Pedido",
+        "Garantia",
+        "Devoluções",
+        "Informações sobre Lentes",
+        "Consultas Comerciais"
+      ]
+    },
+    "s4": {
+      "rule": "04 — Loja Oficial na Amazon",
+      "title": "Precisa de ajuda imediata com seu pedido?",
+      "body": "Os pedidos são processados com segurança pela nossa Loja Oficial na Amazon. Acompanhe envios, solicite devoluções e gerencie reembolsos direto pela sua conta Amazon.",
+      "cta": "Visitar Loja Oficial Amazon"
+    },
+    "s5": {
+      "rule": "05 — Siga a Eyegis",
+      "title": [
+        "Conheça a marca,",
+        "onde você estiver."
+      ],
+      "follow": "Seguir →",
+      "socials": [
+        {
+          "k": "Instagram",
+          "d": "Editorial diário",
+          "handle": "@eyegis",
+          "href": "https://instagram.com/eyegis"
+        },
+        {
+          "k": "TikTok",
+          "d": "Por trás do design",
+          "handle": "@eyegis",
+          "href": "https://tiktok.com/@eyegis"
+        },
+        {
+          "k": "Facebook",
+          "d": "Comunidade e novidades",
+          "handle": "/eyegis",
+          "href": "https://facebook.com/eyegis"
+        },
+        {
+          "k": "LinkedIn",
+          "d": "Empresa e parcerias",
+          "handle": "/company/eyegis",
+          "href": "https://linkedin.com/company/eyegis"
+        },
+        {
+          "k": "YouTube",
+          "d": "Filmes e histórias técnicas",
+          "handle": "@eyegis",
+          "href": "https://youtube.com/@eyegis"
+        }
+      ]
+    },
+    "s6": {
+      "rule": "06 — Horário de Atendimento",
+      "title": [
+        "Quando nossa equipe",
+        "está na mesa."
+      ],
+      "body": "Horários em Horário da Europa Central (CET). Nossa equipe internacional cobre horários estendidos em vários fusos.",
+      "hours": [
+        {
+          "k": "Segunda – Sexta",
+          "d": "09:00 – 19:00 CET"
+        },
+        {
+          "k": "Sábado",
+          "d": "10:00 – 16:00 CET"
+        },
+        {
+          "k": "Domingo",
+          "d": "Por e-mail — care@eyegis.com"
+        }
+      ]
+    },
+    "s7": {
+      "rule": "07 — Suporte Global",
+      "title": [
+        "Um suporte que",
+        "fala globalmente."
+      ],
+      "body": "Suporte ativo em três continentes hoje, expandindo em breve para Ásia, Oceania e Oriente Médio.",
+      "countries": [
+        {
+          "k": "América do Norte",
+          "x": 205,
+          "y": 165,
+          "live": true
+        },
+        {
+          "k": "Europa",
+          "x": 445,
+          "y": 152,
+          "live": true
+        },
+        {
+          "k": "América do Sul",
+          "x": 250,
+          "y": 250,
+          "live": true
+        },
+        {
+          "k": "Ásia",
+          "x": 640,
+          "y": 190,
+          "live": false
+        },
+        {
+          "k": "Oceania",
+          "x": 720,
+          "y": 285,
+          "live": false
+        },
+        {
+          "k": "Oriente Médio",
+          "x": 545,
+          "y": 190,
+          "live": false
+        }
+      ],
+      "soonSuffix": "Em breve"
+    },
+    "s8": {
+      "rule": "08 — Perguntas Frequentes",
+      "title": [
+        "Vá direto",
+        "para a resposta."
+      ],
+      "read": "Ler",
+      "quickLinks": [
+        {
+          "k": "Envio",
+          "to": "/shipping"
+        },
+        {
+          "k": "Garantia",
+          "to": "/warranty"
+        },
+        {
+          "k": "Devoluções",
+          "to": "/shipping"
+        },
+        {
+          "k": "Tecnologia",
+          "to": "/lenses"
+        },
+        {
+          "k": "Escolha sua Lente",
+          "to": "/lenses"
+        },
+        {
+          "k": "Sobre",
+          "to": "/about"
+        }
+      ]
+    },
+    "cta": {
+      "title": [
+        "Vamos tornar sua",
+        "vida digital mais confortável."
+      ],
+      "amazon": "Comprar na Amazon",
+      "collections": "Explorar Coleções",
+      "lenses": "Conheça a EyegisGuard™"
+    },
+    "footer": {
+      "copyright": "Eyegis © 2026 — Atendimento ao Cliente",
+      "links": [
+        {
+          "k": "Início",
+          "to": "/"
+        },
+        {
+          "k": "Sobre",
+          "to": "/about"
+        },
+        {
+          "k": "Lentes",
+          "to": "/lenses"
+        },
+        {
+          "k": "Garantia",
+          "to": "/warranty"
+        },
+        {
+          "k": "Envio",
+          "to": "/shipping"
+        }
+      ]
+    },
+    "sticky": "Falar com o Atendimento"
+  },
+  "FR": {
+    "nav": {
+      "back": "← Eyegis",
+      "tag": "Contact"
+    },
+    "hero": {
+      "eyebrow": "— Service Client",
+      "title": [
+        "Nous sommes là",
+        "pour vous aider."
+      ],
+      "body": "Que vous ayez des questions sur nos produits, notre technologie, la garantie ou votre commande Amazon, notre équipe est prête à vous répondre."
+    },
+    "s1": {
+      "rule": "01 — Comment aider",
+      "title": [
+        "Choisissez la porte",
+        "qui correspond à votre question."
+      ],
+      "options": [
+        {
+          "k": "Questions Générales",
+          "d": "Sur la marque, la gamme de produits ou la presse.",
+          "cta": "hello@eyegis.com"
+        },
+        {
+          "k": "Support Produit",
+          "d": "Ajustement, choix de verres, confort ou fonctionnalités.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Garantie & Retours",
+          "d": "Garantie 2 ans et essai confort 60 jours.",
+          "cta": "care@eyegis.com"
+        },
+        {
+          "k": "Affaires & Partenariats",
+          "d": "Collaborations, retail et distribution internationale.",
+          "cta": "partners@eyegis.com"
+        }
+      ]
+    },
+    "s2": {
+      "rule": "02 — Écrivez-nous",
+      "title": [
+        "Un message,",
+        "une réponse par",
+        "une vraie personne."
+      ],
+      "body": "Réponse sous un jour ouvré, par un membre de notre équipe — jamais par un système automatisé.",
+      "labels": {
+        "care": "Service",
+        "partners": "Partenariats"
+      },
+      "form": {
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "E-mail",
+        "country": "Pays",
+        "reason": "Motif du contact",
+        "message": "Message",
+        "submit": "Envoyer le message",
+        "sending": "Envoi...",
+        "consent": "En envoyant, vous acceptez d'être contacté au sujet de votre demande.",
+        "required": "Requis",
+        "invalidEmail": "E-mail invalide",
+        "tooShort": "Merci d'ajouter quelques détails",
+        "successTitle": "Message reçu.",
+        "successBody": "Merci, {name}. Un membre de notre équipe vous répondra à {email} sous un jour ouvré.",
+        "sendAnother": "Envoyer un autre message →"
+      },
+      "reasons": [
+        "Question générale",
+        "Support produit",
+        "Garantie & retours",
+        "Commande Amazon",
+        "Affaires & partenariats",
+        "Presse"
+      ]
+    },
+    "s3": {
+      "rule": "03 — Service Client",
+      "title": [
+        "Un support pour chaque",
+        "étape de la possession."
+      ],
+      "categories": [
+        "Questions produit",
+        "Aide commande",
+        "Garantie",
+        "Retours",
+        "Informations verres",
+        "Demandes commerciales"
+      ]
+    },
+    "s4": {
+      "rule": "04 — Boutique Officielle Amazon",
+      "title": "Besoin d'une assistance immédiate pour votre commande ?",
+      "body": "Les commandes sont traitées en toute sécurité via notre boutique officielle Amazon. Suivez les livraisons, demandez des retours et gérez les remboursements depuis votre compte Amazon.",
+      "cta": "Visiter la boutique officielle Amazon"
+    },
+    "s5": {
+      "rule": "05 — Suivez Eyegis",
+      "title": [
+        "Rencontrez la marque,",
+        "où que vous soyez."
+      ],
+      "follow": "Suivre →",
+      "socials": [
+        {
+          "k": "Instagram",
+          "d": "Éditorial quotidien",
+          "handle": "@eyegis",
+          "href": "https://instagram.com/eyegis"
+        },
+        {
+          "k": "TikTok",
+          "d": "Coulisses du design",
+          "handle": "@eyegis",
+          "href": "https://tiktok.com/@eyegis"
+        },
+        {
+          "k": "Facebook",
+          "d": "Communauté & actualités",
+          "handle": "/eyegis",
+          "href": "https://facebook.com/eyegis"
+        },
+        {
+          "k": "LinkedIn",
+          "d": "Entreprise & partenariats",
+          "handle": "/company/eyegis",
+          "href": "https://linkedin.com/company/eyegis"
+        },
+        {
+          "k": "YouTube",
+          "d": "Films & récits techniques",
+          "handle": "@eyegis",
+          "href": "https://youtube.com/@eyegis"
+        }
+      ]
+    },
+    "s6": {
+      "rule": "06 — Horaires",
+      "title": [
+        "Quand notre équipe",
+        "est au bureau."
+      ],
+      "body": "Horaires en Heure d'Europe Centrale (CET). Notre équipe internationale couvre des plages étendues à travers les fuseaux horaires.",
+      "hours": [
+        {
+          "k": "Lundi – Vendredi",
+          "d": "09:00 – 19:00 CET"
+        },
+        {
+          "k": "Samedi",
+          "d": "10:00 – 16:00 CET"
+        },
+        {
+          "k": "Dimanche",
+          "d": "Par e-mail — care@eyegis.com"
+        }
+      ]
+    },
+    "s7": {
+      "rule": "07 — Support Global",
+      "title": [
+        "Un support qui",
+        "parle mondialement."
+      ],
+      "body": "Support actif sur trois continents aujourd'hui, avec une expansion prévue vers l'Asie, l'Océanie et le Moyen-Orient.",
+      "countries": [
+        {
+          "k": "Amérique du Nord",
+          "x": 205,
+          "y": 165,
+          "live": true
+        },
+        {
+          "k": "Europe",
+          "x": 445,
+          "y": 152,
+          "live": true
+        },
+        {
+          "k": "Amérique du Sud",
+          "x": 250,
+          "y": 250,
+          "live": true
+        },
+        {
+          "k": "Asie",
+          "x": 640,
+          "y": 190,
+          "live": false
+        },
+        {
+          "k": "Océanie",
+          "x": 720,
+          "y": 285,
+          "live": false
+        },
+        {
+          "k": "Moyen-Orient",
+          "x": 545,
+          "y": 190,
+          "live": false
+        }
+      ],
+      "soonSuffix": "Bientôt"
+    },
+    "s8": {
+      "rule": "08 — Questions Fréquentes",
+      "title": [
+        "Accédez directement",
+        "à la réponse."
+      ],
+      "read": "Lire",
+      "quickLinks": [
+        {
+          "k": "Livraison",
+          "to": "/shipping"
+        },
+        {
+          "k": "Garantie",
+          "to": "/warranty"
+        },
+        {
+          "k": "Retours",
+          "to": "/shipping"
+        },
+        {
+          "k": "Technologie",
+          "to": "/lenses"
+        },
+        {
+          "k": "Choisir vos verres",
+          "to": "/lenses"
+        },
+        {
+          "k": "À propos",
+          "to": "/about"
+        }
+      ]
+    },
+    "cta": {
+      "title": [
+        "Rendons votre",
+        "vie numérique plus confortable."
+      ],
+      "amazon": "Acheter sur Amazon",
+      "collections": "Explorer les collections",
+      "lenses": "Découvrir EyegisGuard™"
+    },
+    "footer": {
+      "copyright": "Eyegis © 2026 — Service Client",
+      "links": [
+        {
+          "k": "Accueil",
+          "to": "/"
+        },
+        {
+          "k": "À propos",
+          "to": "/about"
+        },
+        {
+          "k": "Verres",
+          "to": "/lenses"
+        },
+        {
+          "k": "Garantie",
+          "to": "/warranty"
+        },
+        {
+          "k": "Livraison",
+          "to": "/shipping"
+        }
+      ]
+    },
+    "sticky": "Contacter le service"
+  }
+}

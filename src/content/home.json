@@ -1,17 +1,65 @@
 {
   "PT": {
+    "heroEyebrow": "Manifesto Eyegis",
     "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
-    "heroSubtitle": "O Manifesto Eyegis",
-    "heroImage": ""
+    "heroManifesto": "Óculos com engenharia para a visão. Design para o seu jeito de viver.",
+    "men": {
+      "tag": "São Paulo · Noite",
+      "product": "Coleção Masculina",
+      "cta": "Ver coleção",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Coleção Masculina Eyegis — armação de acetato brilhante, à noite em São Paulo."
+    },
+    "women": {
+      "tag": "Paris · Hora Dourada",
+      "product": "Coleção Feminina",
+      "cta": "Ver coleção",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Coleção Feminina Eyegis — armação de acetato tartaruga, hora dourada em Paris."
+    }
   },
   "EN": {
-    "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
-    "heroSubtitle": "O Manifesto Eyegis",
-    "heroImage": ""
+    "heroEyebrow": "The Eyegis Manifesto",
+    "heroTitle": "Eyegis, engineered for vision and designed for style.",
+    "heroManifesto": "Eyewear engineered for vision. Designed for the way you live.",
+    "men": {
+      "tag": "São Paulo · Night",
+      "product": "Men's Collection",
+      "cta": "View Collection",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Eyegis Men's Collection — glossy acetate frame worn in São Paulo's night skyline."
+    },
+    "women": {
+      "tag": "Paris · Golden Hour",
+      "product": "Women's Collection",
+      "cta": "View Collection",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Eyegis Women's Collection — tortoise acetate frame in Paris golden hour."
+    }
   },
   "FR": {
-    "heroTitle": "Eyegis, engenharia para a visão e design para o estilo.",
-    "heroSubtitle": "O Manifesto Eyegis",
-    "heroImage": ""
+    "heroEyebrow": "Manifeste Eyegis",
+    "heroTitle": "Eyegis, l'ingénierie de la vision et le design du style.",
+    "heroManifesto": "Des lunettes pensées pour la vision. Dessinées pour votre façon de vivre.",
+    "men": {
+      "tag": "São Paulo · Nuit",
+      "product": "Collection Homme",
+      "cta": "Voir la collection",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Collection Homme Eyegis — monture acétate brillant, nuit à São Paulo."
+    },
+    "women": {
+      "tag": "Paris · Heure Dorée",
+      "product": "Collection Femme",
+      "cta": "Voir la collection",
+      "image": "",
+      "mobileImage": "",
+      "imageAlt": "Collection Femme Eyegis — monture acétate écaille, heure dorée à Paris."
+    }
   }
 }

@@ -2,6 +2,7 @@ import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
 
 import whatsInTheBoxData from "@/content/whatsinthebox.json";
+import { useContentDocument } from "@/lib/cms";
 
 type Item = { title: string; body: string };
 type Copy = {
@@ -14,8 +15,11 @@ type Copy = {
 
 export function WhatsInTheBox() {
   const { lang } = useI18n();
-  // @ts-ignore
-  const c = whatsInTheBoxData[lang] as Copy;
+  const content = useContentDocument<typeof whatsInTheBoxData>(
+    "whatsinthebox",
+    whatsInTheBoxData,
+  );
+  const c = content[lang] as Copy;
   return (
     <section className="relative bg-sand/40 py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">

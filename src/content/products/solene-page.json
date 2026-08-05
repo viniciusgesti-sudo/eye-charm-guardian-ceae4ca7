@@ -1,0 +1,54 @@
+{
+  "buyLink": "https://www.amazon.com/",
+  "hero": {
+    "chapter": "Chapter II · Women's Collection",
+    "title": "Softened geometry,",
+    "titleAccent": "golden-hour every day.",
+    "description": "A cat-eye acetate frame drawn from Parisian afternoons — designed for women who spend the day between screens and softer light.",
+    "buyLabel": "Coming soon on Amazon",
+    "labLabel": "Independent lab tested",
+    "badges": ["EyegisGuard™", "Cat-eye acetate", "Gold hinge", "2-yr warranty", "60-day comfort"]
+  },
+  "features": [
+    { "title": "Cat-eye, softened", "body": "Warm tortoise acetate cut in a rounded cat-eye — feminine but never loud." },
+    { "title": "Screen-honest color", "body": "EyegisGuard™ filters the harmful HEV band without an amber tint or color shift." },
+    { "title": "All-day balance", "body": "19.4g on the face with gold-tone spring hinges tuned for a soft, secure fit." }
+  ],
+  "detail": {
+    "eyebrow": "The lens",
+    "title": "EyegisGuard™",
+    "titleAccent": "optical filter.",
+    "body": "A precisely tuned coating that attenuates the 400–455 nm band of high-energy visible light — without shifting natural colors. No amber tint. No compromise."
+  },
+  "box": {
+    "eyebrow": "In the box",
+    "title": "Women's Collection, carefully packed.",
+    "packageCaption": "Recyclable paperboard box · debossed Eyegis mark",
+    "pouchCaption": "Microfibre pouch · doubles as a lens cloth"
+  },
+  "specifications": {
+    "eyebrow": "Specifications",
+    "title": "Every measurement, honest.",
+    "rows": [
+      { "k": "Frame Material", "v": "Italian acetate — warm tortoise" },
+      { "k": "Lens Type", "v": "EyegisGuard™ optical grade" },
+      { "k": "Weight", "v": "19.4 g" },
+      { "k": "Protection", "v": "Filters 400–455 nm HEV blue light" },
+      { "k": "Coating", "v": "Anti-reflective · Anti-scratch · Oleophobic" },
+      { "k": "Hinge", "v": "Gold-tone precision spring hinge" },
+      { "k": "Warranty", "v": "2-year international" },
+      { "k": "Comfort Guarantee", "v": "60 days, no questions" }
+    ]
+  },
+  "lifestyle": {
+    "eyebrow": "Where Women's Collection belongs",
+    "title": "Long meetings, quiet afternoons, golden light."
+  },
+  "cta": {
+    "eyebrow": "Women's Collection · by Eyegis",
+    "title": "Ready to see the day",
+    "titleAccent": "a little softer?",
+    "buyLabel": "Buy on Amazon",
+    "trust": ["Secure purchase through Amazon", "Fast Prime shipping", "60-day comfort guarantee"]
+  }
+}

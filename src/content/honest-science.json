@@ -1,0 +1,245 @@
+{
+  "EN": {
+    "ariaLabel": "Honest Science",
+    "hero": {
+      "eyebrow": "§ Honest Science™",
+      "title": "The science behind the lenses.",
+      "titleAccent": "Without the marketing myths.",
+      "body": "The blue-light market is filled with confusion, exaggerated claims and misleading numbers. Our goal is simple: explain what we know, what we don't know and how our lenses are engineered."
+    },
+    "spectrum": {
+      "label": "Spectrum",
+      "title": "Blue light is not",
+      "titleAccent": "one single thing.",
+      "body": "Blue light is often marketed as one specific threat. In reality, it spans a broad spectrum of visible wavelengths between 380 and 500 nanometers. Think of it like UV light: it is a category, not a single wavelength.",
+      "retinaMarker": "Retina · 435–440",
+      "circadianMarker": "Circadian · ~480"
+    },
+    "mechanisms": {
+      "label": "Two mechanisms",
+      "title": "Retina vs Circadian.",
+      "retina": {
+        "eyebrow": "Retina",
+        "title": "Photobiological hazard",
+        "body": "Research on photobiological hazards identifies a peak sensitivity in the blue-violet region, around 435–440 nm.",
+        "reference": "Ref. ICNIRP 2013 · ANSI 2015"
+      },
+      "circadian": {
+        "eyebrow": "Circadian",
+        "title": "Biological clock",
+        "body": "The body's internal clock is most sensitive to slightly longer blue wavelengths, centered around roughly 480 nm.",
+        "reference": "Ref. CIE S 026/E:2018"
+      },
+      "closing": "Because the biological mechanisms and wavelengths are different, Eyegis targets them as",
+      "closingAccent": "two separate problems."
+    },
+    "selective": {
+      "label": "Selective filtering",
+      "title": "Why selective filtering",
+      "titleAccent": "matters.",
+      "paragraphs": [
+        "Many brands advertise a single, catch-all number: Blocks 40%, Blocks 60% or Blocks 90%. These metrics are highly misleading because they depend entirely on which wavelengths are included in the math.",
+        "A lens could block large amounts of relatively less relevant wavelengths while allowing much of the critical range to pass through. The cornea already filters close to 100% of blue light at the lowest wavelengths, around 380–400 nm."
+      ],
+      "closing": "Eyegis measures performance where it actually matters, not where it inflates a marketing claim."
+    },
+    "color": {
+      "label": "Color fidelity",
+      "title": "Why heavy orange lenses",
+      "titleAccent": "distort colors.",
+      "body": "When a lens aggressively strips away all blue light, color accuracy vanishes.",
+      "amberLabel": "Heavy amber",
+      "eyegisLabel": "Eyegis · true tone",
+      "issues": ["Reddish or amber screens", "Reduced color accuracy", "Altered white balance", "Distorted visual experience"],
+      "closing": "For some applications, that trade-off may be acceptable. For many users, it is not."
+    },
+    "middle": {
+      "label": "The middle ground",
+      "title": "Protection",
+      "titleAccent": "without compromise.",
+      "items": ["Targeted filtering", "Superior color fidelity", "More comfortable everyday use", "No extreme orange tint"]
+    },
+    "scores": {
+      "label": "E-Guard Scores",
+      "title": "Understanding",
+      "titleAccent": "E-Guard Scores.",
+      "body": "The E-Guard Retina and E-Guard Circadian scores are proprietary Eyegis indicators. They are inspired by published scientific literature, including work from the CIE and research on circadian light exposure.",
+      "notice": "They are not medical certifications and should not be interpreted as medical claims.",
+      "retinaName": "E-Guard Retina",
+      "retinaCaption": "Blue-violet filtering",
+      "circadianName": "E-Guard Circadian",
+      "circadianCaption": "Circadian-related blue-light filtering"
+    },
+    "references": {
+      "label": "§ References",
+      "items": [
+        "International Commission on Illumination (CIE) — Blue Light Hazard",
+        "Harvard Medical School — Blue Light Has a Dark Side",
+        "National Sleep Foundation — Light and Sleep",
+        "CIE — Melanopic Metrics"
+      ]
+    }
+  },
+  "PT": {
+    "ariaLabel": "Ciência Honesta",
+    "hero": {
+      "eyebrow": "§ Honest Science™",
+      "title": "A ciência por trás das lentes.",
+      "titleAccent": "Sem os mitos do marketing.",
+      "body": "O mercado de luz azul está cheio de confusão, alegações exageradas e números enganosos. Nosso objetivo é simples: explicar o que sabemos, o que ainda não sabemos e como nossas lentes são projetadas."
+    },
+    "spectrum": {
+      "label": "Espectro",
+      "title": "A luz azul não é",
+      "titleAccent": "uma coisa só.",
+      "body": "A luz azul costuma ser divulgada como uma ameaça única. Na realidade, ela ocupa uma ampla faixa do espectro visível entre 380 e 500 nanômetros. Pense nela como a luz UV: é uma categoria, não um único comprimento de onda.",
+      "retinaMarker": "Retina · 435–440",
+      "circadianMarker": "Circadiano · ~480"
+    },
+    "mechanisms": {
+      "label": "Dois mecanismos",
+      "title": "Retina vs Circadiano.",
+      "retina": {
+        "eyebrow": "Retina",
+        "title": "Risco fotobiológico",
+        "body": "Pesquisas sobre riscos fotobiológicos identificam um pico de sensibilidade na região azul-violeta, em torno de 435–440 nm.",
+        "reference": "Ref. ICNIRP 2013 · ANSI 2015"
+      },
+      "circadian": {
+        "eyebrow": "Circadiano",
+        "title": "Relógio biológico",
+        "body": "O relógio interno do corpo é mais sensível a comprimentos de onda azuis um pouco mais longos, centrados aproximadamente em 480 nm.",
+        "reference": "Ref. CIE S 026/E:2018"
+      },
+      "closing": "Como os mecanismos biológicos e os comprimentos de onda são diferentes, a Eyegis trata como",
+      "closingAccent": "dois problemas separados."
+    },
+    "selective": {
+      "label": "Filtragem seletiva",
+      "title": "Por que a filtragem seletiva",
+      "titleAccent": "importa.",
+      "paragraphs": [
+        "Muitas marcas divulgam um único número genérico: Bloqueia 40%, 60% ou 90%. Essas métricas podem enganar porque dependem totalmente dos comprimentos de onda incluídos no cálculo.",
+        "Uma lente pode bloquear grandes quantidades de faixas menos relevantes e deixar passar boa parte da faixa crítica. A própria córnea já filtra quase 100% da luz azul nos comprimentos mais baixos, por volta de 380–400 nm."
+      ],
+      "closing": "A Eyegis mede o desempenho onde realmente importa, não onde um número aumenta uma alegação de marketing."
+    },
+    "color": {
+      "label": "Fidelidade de cor",
+      "title": "Por que lentes muito alaranjadas",
+      "titleAccent": "distorcem as cores.",
+      "body": "Quando uma lente remove agressivamente toda a luz azul, a precisão das cores desaparece.",
+      "amberLabel": "Âmbar intenso",
+      "eyegisLabel": "Eyegis · tom natural",
+      "issues": ["Telas avermelhadas ou âmbar", "Menor precisão de cor", "Balanço de branco alterado", "Experiência visual distorcida"],
+      "closing": "Em algumas aplicações, essa troca pode ser aceitável. Para muitos usuários, não é."
+    },
+    "middle": {
+      "label": "O equilíbrio",
+      "title": "Proteção",
+      "titleAccent": "sem comprometer as cores.",
+      "items": ["Filtragem direcionada", "Maior fidelidade de cor", "Uso diário mais confortável", "Sem tom laranja extremo"]
+    },
+    "scores": {
+      "label": "Scores E-Guard",
+      "title": "Entendendo os",
+      "titleAccent": "Scores E-Guard.",
+      "body": "Os scores E-Guard Retina e E-Guard Circadian são indicadores proprietários da Eyegis. Eles se inspiram em literatura científica publicada, incluindo trabalhos da CIE e pesquisas sobre exposição circadiana à luz.",
+      "notice": "Eles não são certificações médicas e não devem ser interpretados como alegações médicas.",
+      "retinaName": "E-Guard Retina",
+      "retinaCaption": "Filtragem azul-violeta",
+      "circadianName": "E-Guard Circadian",
+      "circadianCaption": "Filtragem de luz azul relacionada ao ritmo circadiano"
+    },
+    "references": {
+      "label": "§ Referências",
+      "items": [
+        "Comissão Internacional de Iluminação (CIE) — Risco da Luz Azul",
+        "Harvard Medical School — Blue Light Has a Dark Side",
+        "National Sleep Foundation — Luz e Sono",
+        "CIE — Métricas Melanópicas"
+      ]
+    }
+  },
+  "FR": {
+    "ariaLabel": "Science Honnête",
+    "hero": {
+      "eyebrow": "§ Honest Science™",
+      "title": "La science derrière les verres.",
+      "titleAccent": "Sans les mythes marketing.",
+      "body": "Le marché de la lumière bleue est rempli de confusion, d'affirmations exagérées et de chiffres trompeurs. Notre objectif est simple : expliquer ce que nous savons, ce que nous ignorons encore et comment nos verres sont conçus."
+    },
+    "spectrum": {
+      "label": "Spectre",
+      "title": "La lumière bleue n'est pas",
+      "titleAccent": "une seule chose.",
+      "body": "La lumière bleue est souvent présentée comme une menace unique. En réalité, elle couvre une large partie du spectre visible entre 380 et 500 nanomètres. Comme les UV, c'est une catégorie et non une longueur d'onde unique.",
+      "retinaMarker": "Rétine · 435–440",
+      "circadianMarker": "Circadien · ~480"
+    },
+    "mechanisms": {
+      "label": "Deux mécanismes",
+      "title": "Rétine vs Circadien.",
+      "retina": {
+        "eyebrow": "Rétine",
+        "title": "Risque photobiologique",
+        "body": "Les recherches sur les risques photobiologiques identifient un pic de sensibilité dans la région bleu-violet, autour de 435–440 nm.",
+        "reference": "Réf. ICNIRP 2013 · ANSI 2015"
+      },
+      "circadian": {
+        "eyebrow": "Circadien",
+        "title": "Horloge biologique",
+        "body": "L'horloge interne du corps est plus sensible aux longueurs d'onde bleues légèrement plus longues, centrées autour de 480 nm.",
+        "reference": "Réf. CIE S 026/E:2018"
+      },
+      "closing": "Les mécanismes biologiques et les longueurs d'onde étant différents, Eyegis les traite comme",
+      "closingAccent": "deux problèmes distincts."
+    },
+    "selective": {
+      "label": "Filtrage sélectif",
+      "title": "Pourquoi le filtrage sélectif",
+      "titleAccent": "est essentiel.",
+      "paragraphs": [
+        "De nombreuses marques annoncent un chiffre unique : bloque 40 %, 60 % ou 90 %. Ces métriques peuvent être trompeuses, car elles dépendent entièrement des longueurs d'onde incluses dans le calcul.",
+        "Un verre peut bloquer de grandes quantités de longueurs d'onde moins pertinentes tout en laissant passer une partie de la plage critique. La cornée filtre déjà presque 100 % de la lumière bleue aux longueurs les plus basses, autour de 380–400 nm."
+      ],
+      "closing": "Eyegis mesure la performance là où elle compte vraiment, pas là où elle gonfle une promesse marketing."
+    },
+    "color": {
+      "label": "Fidélité des couleurs",
+      "title": "Pourquoi les verres très orangés",
+      "titleAccent": "déforment les couleurs.",
+      "body": "Lorsqu'un verre retire agressivement toute la lumière bleue, la précision des couleurs disparaît.",
+      "amberLabel": "Ambre intense",
+      "eyegisLabel": "Eyegis · ton naturel",
+      "issues": ["Écrans rougeâtres ou ambrés", "Précision des couleurs réduite", "Balance des blancs modifiée", "Expérience visuelle déformée"],
+      "closing": "Pour certaines applications, ce compromis peut être acceptable. Pour de nombreux utilisateurs, il ne l'est pas."
+    },
+    "middle": {
+      "label": "Le juste équilibre",
+      "title": "Protection",
+      "titleAccent": "sans compromis.",
+      "items": ["Filtrage ciblé", "Fidélité des couleurs supérieure", "Usage quotidien plus confortable", "Sans teinte orange extrême"]
+    },
+    "scores": {
+      "label": "Scores E-Guard",
+      "title": "Comprendre les",
+      "titleAccent": "Scores E-Guard.",
+      "body": "Les scores E-Guard Retina et E-Guard Circadian sont des indicateurs propriétaires d'Eyegis. Ils s'inspirent de la littérature scientifique publiée, notamment des travaux de la CIE et des recherches sur l'exposition circadienne à la lumière.",
+      "notice": "Ils ne sont pas des certifications médicales et ne doivent pas être interprétés comme des allégations médicales.",
+      "retinaName": "E-Guard Retina",
+      "retinaCaption": "Filtrage bleu-violet",
+      "circadianName": "E-Guard Circadian",
+      "circadianCaption": "Filtrage de lumière bleue lié au rythme circadien"
+    },
+    "references": {
+      "label": "§ Références",
+      "items": [
+        "Commission Internationale de l'Éclairage (CIE) — Risque de Lumière Bleue",
+        "Harvard Medical School — Blue Light Has a Dark Side",
+        "National Sleep Foundation — Lumière et Sommeil",
+        "CIE — Métriques Mélanopiques"
+      ]
+    }
+  }
+}

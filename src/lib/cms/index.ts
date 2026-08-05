@@ -1,4 +1,16 @@
-export { CmsProvider, useCms, fallbacks } from "./context";
-export { resolveImageUrl, wixImageAt } from "./image";
+export {
+  CmsProvider,
+  useContentDocument,
+  useContentDocuments,
+  useMediaOverride,
+} from "./context";
+export { defaultDocuments } from "./defaults";
+export { formatContentTemplate } from "./format";
 export { getSiteContentFn, siteContentQueryOptions } from "./cms.functions";
-export type { CmsEntry, CmsKey, CmsMap, CmsImage } from "./types";
+export type {
+  ContentDocument,
+  ContentDocuments,
+  MediaDocument,
+  MediaOverride,
+  WordPressContentPayload,
+} from "./types";

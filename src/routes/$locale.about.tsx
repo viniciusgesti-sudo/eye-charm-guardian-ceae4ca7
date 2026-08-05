@@ -34,11 +34,14 @@ const META = {
 
 export const Route = createFileRoute("/$locale/about")({
   head: ({ params }) => {
-    const m = META[(params.locale as keyof typeof META)] ?? META.en;
+    const locale = (params.locale in META ? params.locale : "br") as "br" | "en" | "fr";
+    const m = META[locale];
     return buildSeo({
       title: m.title,
       description: m.description,
-      path: `/${params.locale}/about`,
+      path: `/${locale}/about`,
+      locale,
+      localizedBasePath: "/about",
     });
   },
   component: LocaleAboutRoute,

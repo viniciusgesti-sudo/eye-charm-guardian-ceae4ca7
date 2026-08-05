@@ -22,8 +22,10 @@
     "bundle:stats": "BUNDLE_STATS=1 vite build && node scripts/bundle-diff.mjs",
     "server:libs:diff": "node scripts/server-libs-diff.mjs",
     "server:libs:diff:baseline": "node scripts/server-libs-diff.mjs --update-baseline",
+    "test:build-output": "node --test scripts/build-output.test.mjs",
     "profile:server": "node scripts/server-profiler.mjs",
-    "preview": "vite preview",
+    "preview": "NITRO_PRESET=node-server vite build && node .output/server/index.mjs",
+    "preview:serve": "node .output/server/index.mjs",
     "lint": "eslint .",
     "test:collisions": "python tests/visual/collisions.py",
     "test:icons-logo": "python tests/visual/icons_and_logo.py compare",
@@ -36,6 +38,7 @@
     "smoke:about": "node scripts/smoke-about.mjs",
     "smoke:hmr-about": "node scripts/hmr-about.mjs",
     "check:route-exports": "node scripts/check-route-exports.mjs",
+    "cms:seed": "node scripts/extract-component-content.mjs && node scripts/generate-wordpress-seed.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

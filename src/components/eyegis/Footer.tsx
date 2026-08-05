@@ -2,6 +2,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { useI18n } from "@/i18n/context";
 import type { Lang } from "@/i18n/translations";
+import { useContentDocument } from "@/lib/cms";
 import globalData from "@/content/global.json";
 
 /* ---------- Icons (line-art, currentColor) ---------- */
@@ -91,7 +92,8 @@ const trustIcons = [Ic.Shield, Ic.Eye, Ic.Frame, Ic.Check];
 
 function TrustBar() {
   const { lang } = useI18n();
-  const items = TRUST_COPY[lang].items;
+  const content = useContentDocument<typeof TRUST_COPY>("footer-trust", TRUST_COPY);
+  const items = content[lang].items;
   return (
     <section className="bg-paper border-t border-b border-ink/10">
       <div className="container-editorial grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
@@ -117,11 +119,26 @@ const AMZ = "#coming-soon";
 type LocaleSeg = "br" | "en" | "fr";
 const LOCALES: LocaleSeg[] = ["br", "en", "fr"];
 
+type FooterRoute =
+  | "/men"
+  | "/women"
+  | "/kids"
+  | "/lenses"
+  | "/technology"
+  | "/about"
+  | "/faq"
+  | "/contact"
+  | "/shipping"
+  | "/warranty"
+  | "/legal"
+  | "/compliance"
+  | "/privacy";
+
 type FooterCopy = {
   columns: [
-    { title: string; links: { label: string; to?: string; href?: string; external?: boolean }[] },
-    { title: string; links: { label: string; to?: string; href?: string; hash?: string }[] },
-    { title: string; links: { label: string; to?: string; href?: string }[] },
+    { title: string; links: { label: string; to?: FooterRoute; href?: string; external?: boolean }[] },
+    { title: string; links: { label: string; to?: FooterRoute; href?: string; hash?: string }[] },
+    { title: string; links: { label: string; to?: FooterRoute; href?: string }[] },
     { title: string; social: { label: string; href: string; icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactElement }[] },
   ];
   copyright: string;
@@ -164,7 +181,7 @@ const FOOTER_COPY: Record<Lang, FooterCopy> = {
       {
         title: "Follow Eyegis",
         social: [
-          { label: "Instagram", href: globalData.instagram_url || "https://www.instagram.com/", icon: Ic.Instagram },
+          { label: "Instagram", href: "https://www.instagram.com/", icon: Ic.Instagram },
           { label: "TikTok",    href: "https://www.tiktok.com/",    icon: Ic.TikTok },
           { label: "Facebook",  href: "https://www.facebook.com/",  icon: Ic.Facebook },
           { label: "YouTube",   href: "https://www.youtube.com/",   icon: Ic.YouTube },
@@ -209,7 +226,7 @@ const FOOTER_COPY: Record<Lang, FooterCopy> = {
       {
         title: "Siga a Eyegis",
         social: [
-          { label: "Instagram", href: globalData.instagram_url || "https://www.instagram.com/", icon: Ic.Instagram },
+          { label: "Instagram", href: "https://www.instagram.com/", icon: Ic.Instagram },
           { label: "TikTok",    href: "https://www.tiktok.com/",    icon: Ic.TikTok },
           { label: "Facebook",  href: "https://www.facebook.com/",  icon: Ic.Facebook },
           { label: "YouTube",   href: "https://www.youtube.com/",   icon: Ic.YouTube },
@@ -266,11 +283,28 @@ const FOOTER_COPY: Record<Lang, FooterCopy> = {
   },
 };
 
+function socialUrl(
+  label: string,
+  global: (typeof globalData)[keyof typeof globalData],
+  fallback: string,
+) {
+  const urls: Record<string, string> = {
+    Instagram: global.instagram_url,
+    TikTok: global.tiktok_url,
+    Facebook: global.facebook_url,
+    YouTube: global.youtube_url,
+  };
+  return urls[label] || fallback;
+}
+
 export function Footer() {
   const { lang, setLang } = useI18n();
+  const globalContent = useContentDocument<typeof globalData>("global", globalData);
+  const global = globalContent[lang] ?? globalContent.EN;
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = ((params.locale ?? "br").toLowerCase()) as LocaleSeg;
-  const c = FOOTER_COPY[lang];
+  const footerContent = useContentDocument<typeof FOOTER_COPY>("footer", FOOTER_COPY);
+  const c = footerContent[lang];
 
   
 
@@ -317,7 +351,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-2 lg:pr-10">
               <Logo className="h-8 w-auto text-paper" />
               <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/60">
-                {globalData[lang]?.footer_text}
+                {global.footer_text}
               </p>
               <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.32em] text-mint/80">
                 Honest Science™ · λ 445nm
@@ -333,7 +367,7 @@ export function Footer() {
                     {col.social.map((s) => (
                       <li key={s.label}>
                         <a
-                          href={s.href}
+                          href={socialUrl(s.label, global, s.href)}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
@@ -346,7 +380,7 @@ export function Footer() {
                   </ul>
                 ) : (
                   <ul className="mt-5 space-y-3">
-                    {(col as { links: { label: string; to?: string; href?: string; external?: boolean; hash?: string }[] }).links.map((link) => (
+                    {(col as { links: { label: string; to?: FooterRoute; href?: string; external?: boolean; hash?: string }[] }).links.map((link) => (
                       <li key={link.label}>
                         {link.href ? (
                           <a

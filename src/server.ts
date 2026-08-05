@@ -53,7 +53,9 @@ function logPreviewFailure(context: {
   const err =
     context.error instanceof Error
       ? context.error
-      : new Error(typeof context.error === "string" ? context.error : JSON.stringify(context.error));
+      : new Error(
+          typeof context.error === "string" ? context.error : JSON.stringify(context.error),
+        );
   // Single structured line first — easy to grep in preview logs.
   console.error(
     `[PREVIEW-ERROR] kind=${kind} status=${context.status} ${context.method} ${context.url} :: ${err.message}`,
@@ -108,12 +110,23 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+function withEyegisSecurityHeaders(response: Response): Response {
+  const headers = new Headers(response.headers);
+  headers.set("Content-Security-Policy", "frame-ancestors 'self' https://cms.eyegis-eyewear.com");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(request, response);
+      return withEyegisSecurityHeaders(await normalizeCatastrophicSsrResponse(request, response));
     } catch (error) {
       logPreviewFailure({
         url: request.url,
@@ -121,10 +134,12 @@ export default {
         status: 500,
         error,
       });
-      return new Response(renderErrorPage(), {
-        status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      });
+      return withEyegisSecurityHeaders(
+        new Response(renderErrorPage(), {
+          status: 500,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+      );
     }
   },
 };

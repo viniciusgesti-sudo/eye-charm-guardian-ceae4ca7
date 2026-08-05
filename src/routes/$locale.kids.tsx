@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo } from "@/lib/seo";
-
+import { buildSeo, SITE } from "@/lib/seo";
 
 import kidsHero from "@/assets/collection-hero-kids.jpg?url";
 import kidsHeroSrc from "@/assets/collection-hero-kids.jpg?w=768;1200;1920&format=avif;webp;jpg&as=picture";
@@ -11,13 +10,15 @@ import { ShopOnAmazon } from "@/components/eyegis/ShopOnAmazon";
 import { WhatsInTheBox } from "@/components/eyegis/WhatsInTheBox";
 import { DEFAULT_AMAZON_URL } from "@/lib/amazon";
 import kidsData from "@/content/kids.json";
+import { useContentDocument } from "@/lib/cms";
 
 const COPY = {
   br: {
     eyebrow: kidsData.PT?.eyebrow,
     title: (
       <>
-        {kidsData.PT?.title}<br />
+        {kidsData.PT?.title}
+        <br />
         <span className="italic text-mint">{kidsData.PT?.titleAccent}</span>
       </>
     ),
@@ -30,7 +31,8 @@ const COPY = {
     eyebrow: kidsData.EN?.eyebrow,
     title: (
       <>
-        {kidsData.EN?.title}<br />
+        {kidsData.EN?.title}
+        <br />
         <span className="italic text-mint">{kidsData.EN?.titleAccent}</span>
       </>
     ),
@@ -43,7 +45,8 @@ const COPY = {
     eyebrow: kidsData.FR?.eyebrow,
     title: (
       <>
-        {kidsData.FR?.title}<br />
+        {kidsData.FR?.title}
+        <br />
         <span className="italic text-mint">{kidsData.FR?.titleAccent}</span>
       </>
     ),
@@ -62,7 +65,7 @@ export const Route = createFileRoute("/$locale/kids")({
       title: c.metaTitle,
       description: c.metaDesc,
       path: `/${locale}/kids`,
-      image: `https://eye-charm-guardian.lovable.app${kidsHero}`,
+      image: `${SITE}${kidsHero}`,
       locale,
       localizedBasePath: "/kids",
     });
@@ -73,17 +76,25 @@ export const Route = createFileRoute("/$locale/kids")({
 
 function KidsPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
+  const content = useContentDocument<typeof kidsData>("kids", kidsData);
+  const lang = locale === "br" ? "PT" : (locale.toUpperCase() as "EN" | "FR");
+  const page = content[lang] ?? content.PT;
   return (
     <>
       <PageHero
-        eyebrow={c.eyebrow}
-        title={c.title}
-        subtitle={c.subtitle}
+        eyebrow={page.eyebrow}
+        title={
+          <>
+            {page.title}
+            <br />
+            <span className="italic text-mint">{page.titleAccent}</span>
+          </>
+        }
+        subtitle={page.subtitle}
         bgImage={kidsHero}
         bgSource={kidsHeroSrc}
         tone="dark"
-        externalCta={{ label: c.ctaLabel, href: DEFAULT_AMAZON_URL }}
+        externalCta={{ label: page.ctaLabel, href: DEFAULT_AMAZON_URL }}
       />
       <Collection audience="kids" />
       <WhatsInTheBox />

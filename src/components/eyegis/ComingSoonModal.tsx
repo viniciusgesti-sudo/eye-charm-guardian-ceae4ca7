@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { X, CheckCircle2, ShieldCheck } from "lucide-react";
 import { useI18n } from "@/i18n/context";
+import { useContentDocument } from "@/lib/cms";
 
 const FOCUSABLE_SELECTOR = [
   "a[href]",
@@ -52,7 +53,8 @@ const STORAGE_KEY = "eyegis:coming-soon:emails";
 
 export function ComingSoonModal() {
   const { lang } = useI18n();
-  const c = COPY[lang] ?? COPY.EN;
+  const content = useContentDocument<typeof COPY>("coming-soon", COPY);
+  const c = content[lang] ?? content.EN;
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");

@@ -21,14 +21,9 @@
  *   bun run budget:refresh --force --allow-dirty
  */
 import { execFileSync, spawnSync } from "node:child_process";
-import {
-  existsSync,
-  readFileSync,
-  writeFileSync,
-  copyFileSync,
-  unlinkSync,
-} from "node:fs";
+import { existsSync, readFileSync, writeFileSync, copyFileSync, unlinkSync } from "node:fs";
 import { join } from "node:path";
+import { resolveBuildOutput } from "./build-output.mjs";
 
 const ROOT = process.cwd();
 const args = process.argv.slice(2);
@@ -43,9 +38,7 @@ const ALLOW_DIRTY = has("--allow-dirty");
 const BUILD_FIRST = has("--build");
 const ENV = (val("env") || process.env.BUDGET_BASELINE_ENV || "").trim();
 
-const BASELINE_FILE = ENV
-  ? `bundle-budget.baseline.${ENV}.json`
-  : "bundle-budget.baseline.json";
+const BASELINE_FILE = ENV ? `bundle-budget.baseline.${ENV}.json` : "bundle-budget.baseline.json";
 const BASELINE_PATH = join(ROOT, BASELINE_FILE);
 const BACKUP_PATH = BASELINE_PATH + ".bak";
 
@@ -92,12 +85,14 @@ if (!ALLOW_DIRTY) {
 }
 
 // -------- Guard 3: build first if asked / needed --------
-const DIST = join(ROOT, "dist", "client");
-if (BUILD_FIRST || !existsSync(DIST)) {
+const BUILD_OUTPUT = resolveBuildOutput(ROOT);
+const BUILD_MISSING =
+  !existsSync(BUILD_OUTPUT.clientDir) || !existsSync(BUILD_OUTPUT.serverDir);
+if (BUILD_FIRST || BUILD_MISSING) {
   info(
     BUILD_FIRST
       ? "Running `bun run build` (--build passed)…"
-      : "dist/ missing — running `bun run build` first…",
+      : `${BUILD_OUTPUT.clientRelative} or ${BUILD_OUTPUT.serverRelative} missing — running \`bun run build\` first…`,
   );
   const r = spawnSync("bun", ["run", "build"], { stdio: "inherit" });
   if (r.status !== 0) die("Build failed. Baseline NOT updated.", r.status ?? 1);
@@ -110,14 +105,10 @@ if (hadPrevious) copyFileSync(BASELINE_PATH, BACKUP_PATH);
 // -------- Write new baseline --------
 info(`Writing new baseline → ${BASELINE_FILE}`);
 {
-  const r = spawnSync(
-    "node",
-    ["scripts/bundle-budget.mjs", "--update-baseline"],
-    {
-      stdio: "inherit",
-      env: { ...process.env, ...(ENV ? { BUDGET_BASELINE_ENV: ENV } : {}) },
-    },
-  );
+  const r = spawnSync("node", ["scripts/bundle-budget.mjs", "--update-baseline"], {
+    stdio: "inherit",
+    env: { ...process.env, ...(ENV ? { BUDGET_BASELINE_ENV: ENV } : {}) },
+  });
   if (r.status !== 0) {
     if (hadPrevious) copyFileSync(BACKUP_PATH, BASELINE_PATH);
     die("Baseline write failed — previous baseline restored.", r.status ?? 1);
@@ -150,10 +141,7 @@ if (hadPrevious) {
   try {
     const prev = JSON.parse(readFileSync(BACKUP_PATH, "utf8"));
     const next = JSON.parse(readFileSync(BASELINE_PATH, "utf8"));
-    const fmt = (n) =>
-      n == null
-        ? "—"
-        : `${(n / 1024).toFixed(1)} KB`;
+    const fmt = (n) => (n == null ? "—" : `${(n / 1024).toFixed(1)} KB`);
     const delta = (a, b) => {
       const d = (a ?? 0) - (b ?? 0);
       const p = b ? ((d / b) * 100).toFixed(1) : "∞";
@@ -181,7 +169,9 @@ if (hadPrevious) {
       console.log("\ntop chunk deltas:");
       for (const g of groupDeltas.slice(0, 10)) {
         const sign = g.d >= 0 ? "+" : "";
-        console.log(`  ${sign}${fmt(g.d).padStart(9)}  ${g.k.replace(/^dist\/client\/assets\//, "")}`);
+        console.log(
+          `  ${sign}${fmt(g.d).padStart(9)}  ${g.k.replace(/^dist\/client\/assets\//, "")}`,
+        );
       }
     } else {
       console.log("no per-chunk changes.");

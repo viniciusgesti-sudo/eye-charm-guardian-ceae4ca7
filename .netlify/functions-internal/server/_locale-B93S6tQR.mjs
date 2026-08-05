@@ -1,1 +1,0 @@
-import{N as e,h as t,m as n}from"./_libs/@tanstack/react-router+[...].mjs";var r=()=>import(`./_locale-g8EwUk2h.mjs`),i=[`br`,`en`,`fr`];function a(e){return i.includes(e)}var o=t(`/$locale`)({beforeLoad:({params:t})=>{if(!a(t.locale))throw e({to:`/$locale`,params:{locale:`br`},replace:!0})},component:n(r,`component`)});export{o as t};

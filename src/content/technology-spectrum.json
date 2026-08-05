@@ -1,0 +1,38 @@
+{
+  "PT": {
+    "eyebrow": "Ritual da Marca",
+    "title": "Arraste pelo espectro.",
+    "titleAccent": "Sinta onde a Eyegis atua.",
+    "subtitle": "380 a 500 nanômetros. É onde a luz azul de alta energia mora. Mova a lente e leia o que muda para a retina — e para o seu ritmo circadiano.",
+    "hint": "Arraste ↔",
+    "zoneRetina": "Zona Retina · HEV alta",
+    "zoneCircadian": "Zona Circadiana · azul-turquesa",
+    "zoneVisible": "Luz visível segura",
+    "sweetLabel": "Ponto ideal E-Guard",
+    "footnote": "Referências ICNIRP · CIE S 026 · ANSI Z80.3"
+  },
+  "EN": {
+    "eyebrow": "Brand Ritual",
+    "title": "Drag across the spectrum.",
+    "titleAccent": "Feel where Eyegis works.",
+    "subtitle": "380 to 500 nanometres. Where high-energy blue light lives. Move the lens and read what changes for the retina — and for your circadian rhythm.",
+    "hint": "Drag ↔",
+    "zoneRetina": "Retina zone · high HEV",
+    "zoneCircadian": "Circadian zone · turquoise-blue",
+    "zoneVisible": "Safe visible light",
+    "sweetLabel": "E-Guard sweet spot",
+    "footnote": "Refs. ICNIRP · CIE S 026 · ANSI Z80.3"
+  },
+  "FR": {
+    "eyebrow": "Rituel de Marque",
+    "title": "Glissez sur le spectre.",
+    "titleAccent": "Sentez où Eyegis agit.",
+    "subtitle": "380 à 500 nanomètres. Là où vit la lumière bleue haute énergie. Déplacez la lentille et lisez ce qui change pour la rétine — et pour votre rythme circadien.",
+    "hint": "Glissez ↔",
+    "zoneRetina": "Zone Rétine · HEV élevée",
+    "zoneCircadian": "Zone Circadienne · bleu-turquoise",
+    "zoneVisible": "Lumière visible sûre",
+    "sweetLabel": "Point idéal E-Guard",
+    "footnote": "Réfs. ICNIRP · CIE S 026 · ANSI Z80.3"
+  }
+}
