@@ -1360,52 +1360,6 @@ function BeforeAfter({ c }: { c: Copy }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Who is it for                                                     */
-/* ------------------------------------------------------------------ */
-
-function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
-  return (
-    <section className="bg-paper py-12 md:py-14">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <Reveal>
-          <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            {c.who.h2a}
-            <span className="italic text-teal">{c.who.h2b}</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {c.who.items.map((l, i) => (
-            <Reveal key={l.label} delay={i * 50}>
-              <button
-                type="button"
-                onClick={() => onPick(l.target)}
-                className="group w-full text-left rounded-xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_20px_50px_-30px_rgba(0,75,87,0.35)]"
-              >
-                <div className="font-eyebrow text-[10px] text-teal">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="mt-4 font-editorial text-ink text-xl leading-tight">
-                  {l.label}
-                </div>
-                <p className="mt-2 font-light text-ink/65 leading-relaxed">
-                  {l.note}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 font-eyebrow text-[10px] text-ink/50 transition-colors group-hover:text-teal">
-                  {c.who.see}
-                </span>
-              </button>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  Recommended product (reacts to selected persona)                  */
