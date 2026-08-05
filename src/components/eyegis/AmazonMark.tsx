@@ -10,8 +10,8 @@ import amazonAsset from "@/assets/amazon-logo.png.asset.json";
 type Tone = "brand" | "dark" | "light";
 
 const TONE_FILTER: Record<Tone, string> = {
-  /** Original Amazon orange artwork — only for light/neutral surfaces. */
-  brand: "",
+  /** Monochrome ink (kept for back-compat with `brand` callers). */
+  brand: "[filter:brightness(0)_saturate(0)]",
   /** Solid ink silhouette — use on light backgrounds (paper, mint, white). */
   dark: "[filter:brightness(0)_saturate(0)]",
   /** Solid white silhouette — use on dark backgrounds (teal, ink). */
@@ -21,7 +21,7 @@ const TONE_FILTER: Record<Tone, string> = {
 export function AmazonMark({
   className = "h-4 w-4",
   alt = "Amazon",
-  tone = "brand",
+  tone = "dark",
   ...props
 }: Omit<ImgHTMLAttributes<HTMLImageElement>, "src"> & { tone?: Tone }) {
   return (
