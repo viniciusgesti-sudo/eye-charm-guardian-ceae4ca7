@@ -527,150 +527,165 @@ function FilteringComparison() {
     </div>
   );
 }
-    </section>
-  );
-}
-
-/* 5. Orange distortion */
-function OrangeDistortion() {
-  const issues = [
-    "Reddish or amber screens",
-    "Reduced color accuracy",
-    "Altered white balance",
-    "Distorted visual experience",
+/* 4. The right balance */
+function RightBalance() {
+  const lenses = [
+    {
+      label: "Heavy orange lens",
+      note: "Broad spectrum filtering",
+      filter: "sepia(0.55) saturate(1.5) hue-rotate(-18deg) contrast(1.02)",
+    },
+    {
+      label: "EyegisGuard™ lens",
+      note: "Targeted filtering",
+      filter: "saturate(1.04) contrast(1.03)",
+    },
+    {
+      label: "Clear lens",
+      note: "No filtering",
+      filter: "saturate(1.08) hue-rotate(6deg)",
+    },
   ];
+
+  const practice = [
+    { title: "Targeted filtering", body: "Focus on what matters most." },
+    { title: "Superior color fidelity", body: "Natural colors you can trust." },
+    { title: "More comfortable everyday use", body: "Less strain, more well-being." },
+    { title: "No extreme orange tint", body: "Clear appearance, confident look." },
+  ];
+
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-20"
       style={{ background: PAPER, color: INK }}
     >
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-center">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <SectionLabel n="§ 04">Color fidelity</SectionLabel>
+            <SectionLabel n="§ 04">Science</SectionLabel>
             <h3
-              className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
-              style={{ color: TEAL }}
+              className="mt-4 font-editorial text-3xl leading-tight md:text-4xl"
+              style={{ color: INK }}
             >
-              Why heavy orange lenses{" "}
-              <span className="italic">distort colors</span>.
+              The <span style={{ color: TEAL }}>right</span> balance.
             </h3>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
+            <div className="mt-4 h-px w-10" style={{ background: `${TEAL}60` }} />
+
+            <div
+              className="mt-6 space-y-4 text-[14px] leading-relaxed"
               style={{ color: "rgba(29,37,45,0.75)" }}
             >
-              When a lens aggressively strips away all blue light, color
-              accuracy vanishes.
+              <p>
+                At Eyegis, we believe in a balanced and honest approach to
+                blue-light filtering. While reaching 100% blue-light filtering is
+                possible, it is at the cost of major light and color distortions.
+              </p>
+              <p>
+                Our goal is to provide{" "}
+                <span style={{ color: TEAL }}>targeted filtering</span> where
+                scientific evidence suggests it matters most while preserving a
+                natural visual experience, finding the{" "}
+                <span style={{ color: TEAL }}>right balance</span> between
+                filtering and comfort of use.
+              </p>
+            </div>
+
+            <p
+              className="mt-8 font-mono text-[10px] uppercase tracking-[0.24em]"
+              style={{ color: TEAL }}
+            >
+              In practice, this means:
             </p>
+            <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 lg:grid-cols-2">
+              {practice.map((p) => (
+                <div key={p.title}>
+                  <span
+                    className="grid h-8 w-8 place-items-center rounded-full"
+                    style={{ background: `${MINT}25`, color: TEAL }}
+                  >
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                  </span>
+                  <div
+                    className="mt-3 font-mono text-[9px] uppercase leading-snug tracking-[0.16em]"
+                    style={{ color: INK }}
+                  >
+                    {p.title}
+                  </div>
+                  <div
+                    className="mt-1 text-[11px] leading-relaxed"
+                    style={{ color: "rgba(29,37,45,0.6)" }}
+                  >
+                    {p.body}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="relative flex items-center justify-center gap-6">
-            <div className="flex flex-col items-center gap-3">
-              <div
-                className="h-32 w-32 rounded-full ring-1"
-                style={{
-                  background:
-                    "radial-gradient(circle at 35% 30%, #FFC983, #E08A3C 65%, #A24E1D)",
-                  borderColor: `${TEAL}30`,
-                }}
-              />
-              <span
-                className="font-mono text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: "rgba(29,37,45,0.55)" }}
-              >
-                Heavy amber
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div
-                className="h-32 w-32 rounded-full ring-1"
-                style={{
-                  background:
-                    "radial-gradient(circle at 35% 30%, #E9F7F5, #C9E9E4 60%, #86D9D1)",
-                  borderColor: `${TEAL}30`,
-                }}
-              />
-              <span
-                className="font-mono text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: TEAL }}
-              >
-                Eyegis · true tone
-              </span>
-            </div>
+          {/* Three-lens comparison */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4">
+            {lenses.map((l) => (
+              <figure key={l.label}>
+                <figcaption>
+                  <div
+                    className="font-mono text-[9px] uppercase tracking-[0.18em]"
+                    style={{ color: l.label.startsWith("Heavy") ? "#C07A2E" : TEAL }}
+                  >
+                    {l.label}
+                  </div>
+                  <div
+                    className="mt-1 text-[10px]"
+                    style={{ color: "rgba(29,37,45,0.55)" }}
+                  >
+                    {l.note}
+                  </div>
+                </figcaption>
+                <div className="mt-3 overflow-hidden rounded-xl ring-1 ring-[#004B57]/10">
+                  <img
+                    src={lensScene.url}
+                    alt={`Mountain lake seen through a ${l.label}`}
+                    loading="lazy"
+                    width={768}
+                    height={1024}
+                    className="aspect-[3/4] w-full object-cover"
+                    style={{ filter: l.filter }}
+                  />
+                </div>
+              </figure>
+            ))}
           </div>
         </div>
 
-        <ul className="mt-8 grid gap-3 md:grid-cols-2">
-          {issues.map((t) => (
-            <li
-              key={t}
-              className="flex items-center gap-3 rounded-xl border bg-white px-5 py-4"
-              style={{ borderColor: `${TEAL}18` }}
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ background: TEAL }}
-              />
-              <span className="text-sm" style={{ color: "rgba(29,37,45,0.8)" }}>
-                {t}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <p
-          className="mt-8 max-w-2xl text-[15px] leading-relaxed"
-          style={{ color: "rgba(29,37,45,0.75)" }}
+        {/* Closing strip */}
+        <div
+          className="mt-10 flex flex-col gap-6 rounded-2xl bg-white px-6 py-6 ring-1 md:flex-row md:items-center md:justify-between"
+          style={{ borderColor: `${TEAL}18` }}
         >
-          For some applications, that trade-off may be acceptable. For many
-          users, it is not.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/* 6. Middle ground */
-function MiddleGround() {
-  const items = [
-    "Targeted filtering",
-    "Superior color fidelity",
-    "More comfortable everyday use",
-    "No extreme orange tint",
-  ];
-  return (
-    <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
-      style={{ background: CHAMPAGNE, color: INK }}
-    >
-      <div className="mx-auto max-w-5xl text-center">
-        <SectionLabel n="§ 05">
-          <span style={{ color: TEAL }}>The middle ground</span>
-        </SectionLabel>
-        <h3
-          className="mt-6 font-editorial text-3xl leading-tight md:text-5xl"
-          style={{ color: TEAL }}
-        >
-          Protection <span className="italic">without compromise</span>.
-        </h3>
-
-        <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-2">
-          {items.map((t) => (
-            <div
-              key={t}
-              className="flex items-center gap-4 rounded-2xl bg-white/70 px-6 py-5 text-left ring-1 ring-white/60 backdrop-blur-sm"
-            >
-              <span
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full"
-                style={{ background: `${MINT}30`, color: TEAL }}
-              >
-                <Check className="h-4 w-4" strokeWidth={3} />
+          <div className="flex items-center gap-4">
+            <PictoShield />
+            <p className="text-sm" style={{ color: "rgba(29,37,45,0.8)" }}>
+              Balance is not a compromise.
+              <br />
+              <span className="font-editorial italic" style={{ color: TEAL }}>
+                It's precision.
               </span>
-              <span className="font-editorial text-lg" style={{ color: INK }}>
-                {t}
-              </span>
-            </div>
-          ))}
+            </p>
+          </div>
+          <p
+            className="max-w-xs text-[12px] leading-relaxed"
+            style={{ color: "rgba(29,37,45,0.6)" }}
+          >
+            EyegisGuard™ is engineered to filter what matters most while
+            preserving what matters to you.
+          </p>
+          <a
+            href="#our-technology"
+            className="group inline-flex items-center gap-2 self-start rounded-full border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition hover:bg-[#004B57] hover:text-white"
+            style={{ borderColor: `${TEAL}40`, color: TEAL }}
+          >
+            Discover EyegisGuard™ Technology
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
     </section>
