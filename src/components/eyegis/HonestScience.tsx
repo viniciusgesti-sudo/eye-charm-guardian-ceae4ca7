@@ -2,7 +2,7 @@
  * HonestScience — comprehensive scientific credibility section.
  * Palette: Deep Teal #004B57, Champagne #E2D1C3, Mint #86D9D1, Obsidian #1D252D, Off-white #F9F9F9
  */
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import lensScene from "@/assets/lens-scene.jpg.asset.json";
 
@@ -834,8 +834,7 @@ export function HonestScience() {
       <SpectrumSection />
       <RetinaVsCircadian />
       <SelectiveFiltering />
-      <OrangeDistortion />
-      <MiddleGround />
+      <RightBalance />
       <EGuardScores />
       <References />
     </section>
