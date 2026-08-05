@@ -822,6 +822,12 @@ function PersonaIcon({ id }: { id: PersonaId }) {
   );
 }
 
+const LENS_BY_PERSONA: Record<PersonaId, { name: string; className: string }> = {
+  everyday: { name: "Clarity", className: "text-teal" },
+  creative: { name: "Serenity", className: "text-ink/55" },
+  max: { name: "Gaming", className: "text-teal-deep" },
+};
+
 function HowToChoose({
   c,
   onPick,
@@ -831,87 +837,92 @@ function HowToChoose({
   onPick: (id: PersonaId) => void;
   active: PersonaId;
 }) {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollBy = (dir: -1 | 1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.max(280, el.clientWidth * 0.8), behavior: "smooth" });
+  };
+
   return (
     <section className="bg-paper-warm py-12 md:py-14">
       <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <Reveal>
-          <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            {c.how.h2a}
-            <span className="italic text-teal">{c.how.h2b}</span>
-          </h2>
-        </Reveal>
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
+          <div className="min-w-0">
+            <Reveal>
+              <span className="font-eyebrow text-teal">{c.how.eyebrow}</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-3 max-w-3xl font-editorial text-ink text-3xl md:text-5xl leading-[0.98]">
+                {c.how.h2a}
+                <span className="italic text-teal">{c.how.h2b}</span>
+              </h2>
+            </Reveal>
+          </div>
+          <div className="hidden shrink-0 gap-2 sm:flex">
+            {([-1, 1] as const).map((dir) => (
+              <button
+                key={dir}
+                type="button"
+                onClick={() => scrollBy(dir)}
+                aria-label={dir === -1 ? "Previous" : "Next"}
+                className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 bg-paper text-ink transition-colors hover:border-teal hover:text-teal"
+              >
+                <span aria-hidden>{dir === -1 ? "←" : "→"}</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {c.personas.map((p, i) => {
-            const isActive = active === p.id;
+        <div
+          ref={trackRef}
+          className="mt-8 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:-mx-10 md:px-10 lg:-mx-14 lg:px-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {c.who.items.map((item, i) => {
+            const p = c.personas.find((x) => x.id === item.target) ?? c.personas[0];
+            const lens = LENS_BY_PERSONA[item.target];
+            const isActive = active === item.target;
             return (
-              <Reveal key={p.id} delay={i * 100}>
-                <button
-                  type="button"
-                  onClick={() => onPick(p.id)}
-                  className={`group relative w-full text-left overflow-hidden rounded-2xl border transition-all duration-500 ${
-                    isActive
-                      ? "border-teal bg-paper shadow-[0_40px_100px_-40px_rgba(0,75,87,0.4)] -translate-y-1"
-                      : "border-ink/10 bg-paper hover:-translate-y-1 hover:border-ink/25"
-                  }`}
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Picture
-                      source={PERSONA_IMAGES[p.id]}
-                      alt={`${p.label} — persona wearing Eyegis eyewear during ${p.hours}`}
-                      sizes="(min-width:1024px) 33vw, 100vw"
-                      className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 rounded-full bg-paper/85 backdrop-blur px-3 py-1 font-eyebrow text-[9px] text-teal">
-                      {p.hours}
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => onPick(item.target)}
+                className={`group w-[76%] shrink-0 snap-start overflow-hidden rounded-2xl border bg-paper text-left transition-all duration-500 sm:w-[46%] lg:w-[23%] xl:w-[calc((100%-4rem)/5)] ${
+                  isActive
+                    ? "border-teal shadow-[0_30px_70px_-40px_rgba(0,75,87,0.45)]"
+                    : "border-ink/10 hover:-translate-y-1 hover:border-ink/25"
+                }`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Picture
+                    source={PERSONA_IMAGES[item.target]}
+                    alt={`${item.label} — ${p.label}`}
+                    sizes="(min-width:1024px) 22vw, 80vw"
+                    className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
+                  <span className="absolute top-3 left-3 rounded-full bg-paper/85 px-2.5 py-0.5 font-eyebrow text-[9px] text-teal backdrop-blur">
+                    {String(i + 1).padStart(2, "0")} · {p.hours}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-2 p-5">
+                  <span className="text-ink/45">
+                    <PersonaIcon id={item.target} />
+                  </span>
+                  <h3 className="font-editorial text-ink text-lg leading-tight">{item.label}</h3>
+                  <p className="font-light text-ink/65 text-sm leading-relaxed">{item.note}</p>
+                  <div className="mt-3 border-t border-ink/10 pt-3">
+                    <div className="font-eyebrow text-[9px] text-ink/45">{c.compare.lensTier}</div>
+                    <div className={`mt-1 flex items-center gap-2 font-eyebrow text-[11px] ${lens.className}`}>
+                      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden>
+                        <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
+                      </svg>
+                      {lens.name}
                     </div>
                   </div>
-                  <div className="p-7 flex flex-col gap-5 text-teal">
-                    <div className="flex items-center justify-between font-eyebrow text-ink/50">
-                      <span>{p.eyebrow}</span>
-                      <PersonaIcon id={p.id} />
-                    </div>
-                    <h3 className="font-editorial text-ink text-2xl md:text-3xl leading-tight">
-                      {p.label}
-                    </h3>
-                    <p className="font-light text-ink/70 leading-relaxed">{p.desc}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {p.contexts.map((cx) => (
-                        <span
-                          key={cx}
-                          className="rounded-full border border-ink/12 px-2.5 py-0.5 font-eyebrow text-[9px] text-ink/60"
-                        >
-                          {cx}
-                        </span>
-                      ))}
-                    </div>
-                    <div
-                      className={`mt-2 inline-flex items-center gap-3 font-eyebrow text-sm transition-colors ${
-                        isActive ? "text-teal" : "text-ink/70 group-hover:text-teal"
-                      }`}
-                    >
-                      {p.cta}
-                      <span
-                        className={`transition-transform duration-500 ${
-                          isActive ? "translate-x-1" : "group-hover:translate-x-1"
-                        }`}
-                        aria-hidden="true"
-                      >
-                        →
-                      </span>
-                    </div>
-                  </div>
-                  {isActive && (
-                    <span className="absolute top-4 right-4 font-eyebrow text-[9px] text-teal">
-                      {c.how.selected}
-                    </span>
-                  )}
-                </button>
-              </Reveal>
+                </div>
+              </button>
             );
           })}
         </div>
@@ -919,6 +930,7 @@ function HowToChoose({
     </section>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 /*  Interactive Comparison                                            */
@@ -1348,52 +1360,6 @@ function BeforeAfter({ c }: { c: Copy }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Who is it for                                                     */
-/* ------------------------------------------------------------------ */
-
-function WhoFor({ c, onPick }: { c: Copy; onPick: (id: PersonaId) => void }) {
-  return (
-    <section className="bg-paper py-12 md:py-14">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-14">
-        <Reveal>
-          <span className="font-eyebrow text-teal">{c.who.eyebrow}</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="mt-4 max-w-3xl font-editorial text-ink text-4xl md:text-6xl leading-[0.95]">
-            {c.who.h2a}
-            <span className="italic text-teal">{c.who.h2b}</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {c.who.items.map((l, i) => (
-            <Reveal key={l.label} delay={i * 50}>
-              <button
-                type="button"
-                onClick={() => onPick(l.target)}
-                className="group w-full text-left rounded-xl border border-ink/10 bg-paper-warm/60 backdrop-blur-sm p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_20px_50px_-30px_rgba(0,75,87,0.35)]"
-              >
-                <div className="font-eyebrow text-[10px] text-teal">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="mt-4 font-editorial text-ink text-xl leading-tight">
-                  {l.label}
-                </div>
-                <p className="mt-2 font-light text-ink/65 leading-relaxed">
-                  {l.note}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 font-eyebrow text-[10px] text-ink/50 transition-colors group-hover:text-teal">
-                  {c.who.see}
-                </span>
-              </button>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  Recommended product (reacts to selected persona)                  */
@@ -1563,10 +1529,9 @@ export function LensesPage() {
     <main className="bg-background text-foreground overflow-x-hidden">
       {/* Global <Header /> is provided by the /$locale layout */}
       <Hero c={c} />
-      <HowToChoose c={c} active={active} onPick={setActive} />
+      <HowToChoose c={c} active={active} onPick={pickAndScroll} />
       <BeforeAfter c={c} />
       <Comparison c={c} />
-      <WhoFor c={c} onPick={pickAndScroll} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />
       </div>
