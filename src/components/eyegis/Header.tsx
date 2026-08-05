@@ -18,6 +18,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
   const compact = variant === "compact";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = (params.locale ?? "br").toLowerCase();
   const currentSeg = (LOCALES as string[]).includes(locale) ? (locale as LocaleSeg) : "br";
@@ -110,32 +111,59 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             useInk ? "text-ink" : "text-paper"
           }`}
         >
-          <label
-            className={`relative inline-flex h-10 items-center gap-1.5 rounded-full border pl-3 pr-2.5 transition-colors duration-500 ${
-              useInk
-                ? "border-ink/25 text-ink hover:bg-ink/5"
-                : "border-paper/40 text-paper hover:bg-paper/10"
-            }`}
-          >
-            <span className="sr-only">Language</span>
-            <Globe className="pointer-events-none h-3.5 w-3.5 shrink-0" aria-hidden />
-            <select
-              value={currentSeg}
-              onChange={(event) => switchLocale(event.target.value as LocaleSeg)}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setLangOpen((v) => !v)}
+              onBlur={() => window.setTimeout(() => setLangOpen(false), 120)}
+              aria-haspopup="listbox"
+              aria-expanded={langOpen}
               aria-label={`Language: ${currentSeg.toUpperCase()}`}
-              className="h-10 cursor-pointer appearance-none rounded-full bg-transparent pr-4 font-eyebrow text-[11px] uppercase leading-none tracking-[0.18em] text-current outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+              className={`inline-flex h-10 items-center gap-2 rounded-full border px-3.5 transition-colors duration-500 ${
+                useInk
+                  ? "border-ink/25 text-ink hover:bg-ink/5"
+                  : "border-paper/40 text-paper hover:bg-paper/10"
+              }`}
             >
-              {LOCALES.map((l) => (
-                <option key={l} value={l} className="bg-paper text-ink">
-                  {l.toUpperCase()}
-                </option>
-              ))}
-            </select>
-            <ChevronDown
-              className="pointer-events-none absolute right-2.5 h-3 w-3 opacity-70"
-              aria-hidden
-            />
-          </label>
+              <Globe className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span className="font-eyebrow text-[11px] uppercase leading-none tracking-[0.18em]">
+                {currentSeg.toUpperCase()}
+              </span>
+              <ChevronDown
+                className={`h-3 w-3 opacity-70 transition-transform duration-300 ${langOpen ? "rotate-180" : ""}`}
+                aria-hidden
+              />
+            </button>
+            {langOpen && (
+              <ul
+                role="listbox"
+                className="absolute right-0 top-[calc(100%+8px)] z-50 min-w-[9.5rem] overflow-hidden rounded-2xl border border-ink/10 bg-paper py-1 shadow-[0_20px_50px_-20px_rgba(0,75,87,0.45)]"
+              >
+                {LOCALES.map((l) => (
+                  <li key={l}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={l === currentSeg}
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => {
+                        setLangOpen(false);
+                        switchLocale(l);
+                      }}
+                      className={`flex w-full items-center justify-between gap-3 px-3.5 py-2 text-left transition-colors hover:bg-teal/10 ${
+                        l === currentSeg ? "text-teal" : "text-ink/80"
+                      }`}
+                    >
+                      <span className="text-[13px]">{LOCALE_LABEL[l]}</span>
+                      <span className="font-eyebrow text-[10px] uppercase tracking-[0.18em] opacity-70">
+                        {l}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <a
             data-testid="header-cta"
