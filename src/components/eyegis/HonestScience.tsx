@@ -372,58 +372,161 @@ function RetinaVsCircadian() {
 function SelectiveFiltering() {
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-24"
       style={{ background: INK, color: PAPER }}
     >
-      <div className="mx-auto max-w-4xl">
-        <div className="flex items-start gap-4">
-          <div className="[&_svg_*]:!stroke-[#86D9D1]">
-            <PictoSpectrum />
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div>
+          <div className="flex items-start gap-4">
+            <div className="[&_svg_*]:!stroke-[#86D9D1]">
+              <PictoSpectrum />
+            </div>
+            <div>
+              <div
+                className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
+                style={{ color: MINT }}
+              >
+                <span>§ 03</span>
+                <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
+                <span>Selective filtering</span>
+              </div>
+              <h3 className="mt-4 font-editorial text-3xl leading-tight md:text-4xl">
+                Why selective filtering{" "}
+                <span className="italic" style={{ color: MINT }}>
+                  matters
+                </span>
+                .
+              </h3>
+            </div>
           </div>
-          <div>
-            <div
-              className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
+
+          <div
+            className="mt-6 space-y-5 text-[15px] leading-relaxed"
+            style={{ color: "rgba(249,249,249,0.78)" }}
+          >
+            <p>
+              Many brands advertise a single, catch-all number:{" "}
+              <em>"Blocks 40%"</em>, <em>"Blocks 60%"</em>, or{" "}
+              <em>"Blocks 90%"</em>. These metrics are highly misleading because
+              they depend entirely on which wavelengths are included in the math.
+            </p>
+            <p>
+              A lens could block large amounts of relatively less relevant
+              wavelengths while allowing much of the critical range to pass
+              through. Actually, the cornea already filters close to 100% of
+              blue-light on the lowest wavelengths (~380 nm to 400 nm).
+            </p>
+            <p
+              className="font-editorial text-xl italic"
               style={{ color: MINT }}
             >
-              <span>§ 03</span>
-              <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
-              <span>Selective filtering</span>
-            </div>
-            <h3 className="mt-4 font-editorial text-3xl leading-tight md:text-5xl">
-              Why selective filtering{" "}
-              <span className="italic" style={{ color: MINT }}>
-                matters
-              </span>
-              .
-            </h3>
+              Eyegis measures performance where it actually matters, not where it
+              inflates a marketing claim.
+            </p>
           </div>
         </div>
 
-        <div
-          className="mt-8 space-y-8 text-[15px] leading-relaxed md:text-base"
-          style={{ color: "rgba(249,249,249,0.78)" }}
-        >
-          <p>
-            Many brands advertise a single, catch-all number:{" "}
-            <em>"Blocks 40%"</em>, <em>"Blocks 60%"</em>, or{" "}
-            <em>"Blocks 90%"</em>. These metrics are highly misleading because
-            they depend entirely on which wavelengths are included in the math.
-          </p>
-          <p>
-            A lens could block large amounts of relatively less relevant
-            wavelengths while allowing much of the critical range to pass
-            through. Actually, the cornea already filters close to 100% of
-            blue-light on the lowest wavelengths (~380 nm to 400 nm).
-          </p>
-          <p
-            className="font-editorial text-xl italic md:text-2xl"
-            style={{ color: MINT }}
-          >
-            Eyegis measures performance where it actually matters, not where it
-            inflates a marketing claim.
-          </p>
-        </div>
+        {/* Comparison table — heavy vs selective filtering */}
+        <FilteringComparison />
       </div>
+    </section>
+  );
+}
+
+/* Heavy vs selective filtering — editorial comparison table */
+function FilteringComparison() {
+  const rows = [
+    {
+      heavy: {
+        title: "Blocks a wide range of wavelengths",
+        body: "Including beneficial blue and turquoise light.",
+      },
+      selective: {
+        title: "Targets high-energy blue light",
+        body: "Preserves the wavelengths that support well-being.",
+      },
+    },
+    {
+      heavy: {
+        title: "Lower color fidelity",
+        body: "Colors appear less vibrant, more amber.",
+      },
+      selective: {
+        title: "High color fidelity",
+        body: "Natural, true-to-life colors with no amber cast.",
+      },
+    },
+    {
+      heavy: {
+        title: "Altered visual experience",
+        body: "Can impact depth perception and overall comfort.",
+      },
+      selective: {
+        title: "Optimized visual comfort",
+        body: "Designed for all-day use in digital environments.",
+      },
+    },
+  ];
+
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-white/10">
+      <div className="grid grid-cols-2">
+        <div className="border-b border-r px-5 py-4" style={{ borderColor: `${TEAL}18` }}>
+          <div
+            className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: "#C07A2E" }}
+          >
+            Heavy filtering
+          </div>
+          <div className="mt-1 text-[11px]" style={{ color: "rgba(29,37,45,0.6)" }}>
+            Broad wavelength reduction
+          </div>
+        </div>
+        <div className="border-b px-5 py-4" style={{ borderColor: `${TEAL}18` }}>
+          <div
+            className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: TEAL }}
+          >
+            Selective filtering
+          </div>
+          <div className="mt-1 text-[11px]" style={{ color: "rgba(29,37,45,0.6)" }}>
+            Targeted wavelength reduction
+          </div>
+        </div>
+
+        {rows.map((row) => (
+          <Fragment key={row.heavy.title}>
+            <div
+              className="border-b border-r px-5 py-4"
+              style={{ borderColor: `${TEAL}12` }}
+            >
+              <div className="text-[13px] font-semibold" style={{ color: INK }}>
+                {row.heavy.title}
+              </div>
+              <div
+                className="mt-1 text-[12px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.6)" }}
+              >
+                {row.heavy.body}
+              </div>
+            </div>
+            <div className="border-b px-5 py-4" style={{ borderColor: `${TEAL}12` }}>
+              <div className="text-[13px] font-semibold" style={{ color: INK }}>
+                {row.selective.title}
+              </div>
+              <div
+                className="mt-1 text-[12px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.6)" }}
+              >
+                {row.selective.body}
+              </div>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
     </section>
   );
 }
