@@ -2,7 +2,9 @@
  * HonestScience — comprehensive scientific credibility section.
  * Palette: Deep Teal #004B57, Champagne #E2D1C3, Mint #86D9D1, Obsidian #1D252D, Off-white #F9F9F9
  */
-import { Check } from "lucide-react";
+import { Fragment, useState } from "react";
+import { ArrowRight, Check } from "lucide-react";
+import lensScene from "@/assets/lens-scene.jpg.asset.json";
 
 const TEAL = "#004B57";
 const CHAMPAGNE = "#E2D1C3";
@@ -237,91 +239,124 @@ function SpectrumSection() {
   );
 }
 
-/* 3. Retina vs Circadian */
+/* 3. Retina vs Circadian — driven by a wavelength slider */
 function RetinaVsCircadian() {
+  const [nm, setNm] = useState(437);
+  const mode: "retina" | "circadian" = nm <= 460 ? "retina" : "circadian";
+
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-24"
       style={{ background: PAPER, borderTop: `1px solid ${TEAL}15` }}
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <SectionLabel n="§ 02">Two mechanisms</SectionLabel>
           <h3
-            className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
+            className="mt-4 font-editorial text-3xl leading-tight md:text-4xl"
             style={{ color: TEAL }}
           >
             Retina vs Circadian.
           </h3>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <article className="relative rounded-2xl bg-white p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
-            <div className="flex items-center gap-4">
-              <PictoEye />
-              <div>
-                <span
-                  className="font-mono text-[10px] uppercase tracking-[0.28em]"
-                  style={{ color: TEAL }}
-                >
-                  Retina
-                </span>
-                <h4 className="mt-1 font-editorial text-2xl" style={{ color: INK }}>
-                  Photobiological hazard
-                </h4>
-              </div>
-            </div>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
-              style={{ color: "rgba(29,37,45,0.8)" }}
-            >
-              Research on photobiological hazards identifies a peak sensitivity
-              in the blue-violet region, around <strong>435–440 nm</strong>.
-            </p>
-            <p
-              className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
-              style={{ borderColor: `${TEAL}20`, color: "rgba(29,37,45,0.55)" }}
-            >
-              Ref. ICNIRP 2013 · ANSI 2015
-            </p>
-          </article>
-
-          <article
-            className="relative rounded-2xl p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.4)] ring-1"
-            style={{ background: TEAL, color: PAPER, borderColor: `${MINT}30` }}
+        {/* Wavelength selector */}
+        <div className="mt-6 max-w-2xl">
+          <div
+            className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: "rgba(29,37,45,0.55)" }}
           >
-            <div className="flex items-center gap-4">
-              <div className="[&_svg_*]:!stroke-[#86D9D1] [&_svg_circle:last-child]:!fill-[#86D9D1]">
-                <PictoMoon />
+            <span>380 nm</span>
+            <span style={{ color: TEAL }}>
+              λ {nm} nm · {mode === "retina" ? "Retina zone" : "Circadian zone"}
+            </span>
+            <span>500 nm</span>
+          </div>
+          <input
+            type="range"
+            min={380}
+            max={500}
+            step={1}
+            value={nm}
+            onChange={(e) => setNm(Number(e.target.value))}
+            aria-label="Wavelength selector, 380 to 500 nanometres"
+            className="mt-3 h-2 w-full cursor-ew-resize appearance-none rounded-full accent-[#004B57]"
+            style={{
+              background:
+                "linear-gradient(90deg,#3B1F6B 0%,#4B2AA0 15%,#3D3FD1 30%,#2960E8 50%,#1E8BFF 72%,#22C6E5 100%)",
+            }}
+          />
+        </div>
+
+        <div className="mt-6">
+          {mode === "retina" ? (
+            <article className="relative rounded-2xl bg-white p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
+              <div className="flex items-center gap-4">
+                <PictoEye />
+                <div>
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-[0.28em]"
+                    style={{ color: TEAL }}
+                  >
+                    Retina
+                  </span>
+                  <h4 className="mt-1 font-editorial text-2xl" style={{ color: INK }}>
+                    Photobiological hazard
+                  </h4>
+                </div>
               </div>
-              <div>
-                <span
-                  className="font-mono text-[10px] uppercase tracking-[0.28em]"
-                  style={{ color: MINT }}
-                >
-                  Circadian
-                </span>
-                <h4 className="mt-1 font-editorial text-2xl">Biological clock</h4>
+              <p
+                className="mt-5 max-w-2xl text-[15px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.8)" }}
+              >
+                Research on photobiological hazards identifies a peak sensitivity
+                in the blue-violet region, around <strong>435–440 nm</strong>.
+              </p>
+              <p
+                className="mt-5 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
+                style={{ borderColor: `${TEAL}20`, color: "rgba(29,37,45,0.55)" }}
+              >
+                Ref. ICNIRP 2013 · ANSI 2015
+              </p>
+            </article>
+          ) : (
+            <article
+              className="relative rounded-2xl p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.4)] ring-1"
+              style={{ background: TEAL, color: PAPER, borderColor: `${MINT}30` }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="[&_svg_*]:!stroke-[#86D9D1] [&_svg_circle:last-child]:!fill-[#86D9D1]">
+                  <PictoMoon />
+                </div>
+                <div>
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-[0.28em]"
+                    style={{ color: MINT }}
+                  >
+                    Circadian
+                  </span>
+                  <h4 className="mt-1 font-editorial text-2xl">Biological clock</h4>
+                </div>
               </div>
-            </div>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
-              style={{ color: "rgba(249,249,249,0.85)" }}
-            >
-              The body's internal clock is most sensitive to slightly longer
-              blue wavelengths, centered around roughly <strong>480 nm</strong>.
-            </p>
-            <p
-              className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
-              style={{ borderColor: `${MINT}30`, color: "rgba(249,249,249,0.55)" }}
-            >
-              Ref. CIE S 026/E:2018
-            </p>
-          </article>
+              <p
+                className="mt-5 max-w-2xl text-[15px] leading-relaxed"
+                style={{ color: "rgba(249,249,249,0.85)" }}
+              >
+                The body's internal clock is most sensitive to slightly longer
+                blue wavelengths, centered around roughly <strong>480 nm</strong>.
+              </p>
+              <p
+                className="mt-5 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
+                style={{ borderColor: `${MINT}30`, color: "rgba(249,249,249,0.55)" }}
+              >
+                Ref. CIE S 026/E:2018
+              </p>
+            </article>
+          )}
         </div>
 
         <p
-          className="mx-auto mt-8 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
+          className="mx-auto mt-6 max-w-2xl text-center font-editorial text-lg italic md:text-xl"
           style={{ color: TEAL }}
         >
           Because the biological mechanisms and wavelengths are different,
@@ -337,205 +372,366 @@ function RetinaVsCircadian() {
 function SelectiveFiltering() {
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-24"
       style={{ background: INK, color: PAPER }}
     >
-      <div className="mx-auto max-w-4xl">
-        <div className="flex items-start gap-4">
-          <div className="[&_svg_*]:!stroke-[#86D9D1]">
-            <PictoSpectrum />
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div>
+          <div className="flex items-start gap-4">
+            <div className="[&_svg_*]:!stroke-[#86D9D1]">
+              <PictoSpectrum />
+            </div>
+            <div>
+              <div
+                className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
+                style={{ color: MINT }}
+              >
+                <span>§ 03</span>
+                <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
+                <span>Selective filtering</span>
+              </div>
+              <h3 className="mt-4 font-editorial text-3xl leading-tight md:text-4xl">
+                Why selective filtering{" "}
+                <span className="italic" style={{ color: MINT }}>
+                  matters
+                </span>
+                .
+              </h3>
+            </div>
           </div>
-          <div>
-            <div
-              className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em]"
+
+          <div
+            className="mt-6 space-y-5 text-[15px] leading-relaxed"
+            style={{ color: "rgba(249,249,249,0.78)" }}
+          >
+            <p>
+              Many brands advertise a single, catch-all number:{" "}
+              <em>"Blocks 40%"</em>, <em>"Blocks 60%"</em>, or{" "}
+              <em>"Blocks 90%"</em>. These metrics are highly misleading because
+              they depend entirely on which wavelengths are included in the math.
+            </p>
+            <p>
+              A lens could block large amounts of relatively less relevant
+              wavelengths while allowing much of the critical range to pass
+              through. Actually, the cornea already filters close to 100% of
+              blue-light on the lowest wavelengths (~380 nm to 400 nm).
+            </p>
+            <p
+              className="font-editorial text-xl italic"
               style={{ color: MINT }}
             >
-              <span>§ 03</span>
-              <span className="h-px w-8" style={{ background: MINT, opacity: 0.4 }} />
-              <span>Selective filtering</span>
-            </div>
-            <h3 className="mt-4 font-editorial text-3xl leading-tight md:text-5xl">
-              Why selective filtering{" "}
-              <span className="italic" style={{ color: MINT }}>
-                matters
-              </span>
-              .
-            </h3>
-          </div>
-        </div>
-
-        <div
-          className="mt-8 space-y-8 text-[15px] leading-relaxed md:text-base"
-          style={{ color: "rgba(249,249,249,0.78)" }}
-        >
-          <p>
-            Many brands advertise a single, catch-all number:{" "}
-            <em>"Blocks 40%"</em>, <em>"Blocks 60%"</em>, or{" "}
-            <em>"Blocks 90%"</em>. These metrics are highly misleading because
-            they depend entirely on which wavelengths are included in the math.
-          </p>
-          <p>
-            A lens could block large amounts of relatively less relevant
-            wavelengths while allowing much of the critical range to pass
-            through. Actually, the cornea already filters close to 100% of
-            blue-light on the lowest wavelengths (~380 nm to 400 nm).
-          </p>
-          <p
-            className="font-editorial text-xl italic md:text-2xl"
-            style={{ color: MINT }}
-          >
-            Eyegis measures performance where it actually matters, not where it
-            inflates a marketing claim.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* 5. Orange distortion */
-function OrangeDistortion() {
-  const issues = [
-    "Reddish or amber screens",
-    "Reduced color accuracy",
-    "Altered white balance",
-    "Distorted visual experience",
-  ];
-  return (
-    <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
-      style={{ background: PAPER, color: INK }}
-    >
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-center">
-          <div>
-            <SectionLabel n="§ 04">Color fidelity</SectionLabel>
-            <h3
-              className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
-              style={{ color: TEAL }}
-            >
-              Why heavy orange lenses{" "}
-              <span className="italic">distort colors</span>.
-            </h3>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
-              style={{ color: "rgba(29,37,45,0.75)" }}
-            >
-              When a lens aggressively strips away all blue light, color
-              accuracy vanishes.
+              Eyegis measures performance where it actually matters, not where it
+              inflates a marketing claim.
             </p>
           </div>
-
-          <div className="relative flex items-center justify-center gap-6">
-            <div className="flex flex-col items-center gap-3">
-              <div
-                className="h-32 w-32 rounded-full ring-1"
-                style={{
-                  background:
-                    "radial-gradient(circle at 35% 30%, #FFC983, #E08A3C 65%, #A24E1D)",
-                  borderColor: `${TEAL}30`,
-                }}
-              />
-              <span
-                className="font-mono text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: "rgba(29,37,45,0.55)" }}
-              >
-                Heavy amber
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div
-                className="h-32 w-32 rounded-full ring-1"
-                style={{
-                  background:
-                    "radial-gradient(circle at 35% 30%, #E9F7F5, #C9E9E4 60%, #86D9D1)",
-                  borderColor: `${TEAL}30`,
-                }}
-              />
-              <span
-                className="font-mono text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: TEAL }}
-              >
-                Eyegis · true tone
-              </span>
-            </div>
-          </div>
         </div>
 
-        <ul className="mt-8 grid gap-3 md:grid-cols-2">
-          {issues.map((t) => (
-            <li
-              key={t}
-              className="flex items-center gap-3 rounded-xl border bg-white px-5 py-4"
-              style={{ borderColor: `${TEAL}18` }}
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ background: TEAL }}
-              />
-              <span className="text-sm" style={{ color: "rgba(29,37,45,0.8)" }}>
-                {t}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <p
-          className="mt-8 max-w-2xl text-[15px] leading-relaxed"
-          style={{ color: "rgba(29,37,45,0.75)" }}
-        >
-          For some applications, that trade-off may be acceptable. For many
-          users, it is not.
-        </p>
+        {/* Comparison table — heavy vs selective filtering */}
+        <FilteringComparison />
       </div>
     </section>
   );
 }
 
-/* 6. Middle ground */
-function MiddleGround() {
-  const items = [
-    "Targeted filtering",
-    "Superior color fidelity",
-    "More comfortable everyday use",
-    "No extreme orange tint",
+/* Heavy vs selective filtering — editorial comparison table */
+function FilteringComparison() {
+  const rows = [
+    {
+      heavy: {
+        title: "Blocks a wide range of wavelengths",
+        body: "Including beneficial blue and turquoise light.",
+      },
+      selective: {
+        title: "Targets high-energy blue light",
+        body: "Preserves the wavelengths that support well-being.",
+      },
+    },
+    {
+      heavy: {
+        title: "Lower color fidelity",
+        body: "Colors appear less vibrant, more amber.",
+      },
+      selective: {
+        title: "High color fidelity",
+        body: "Natural, true-to-life colors with no amber cast.",
+      },
+    },
+    {
+      heavy: {
+        title: "Altered visual experience",
+        body: "Can impact depth perception and overall comfort.",
+      },
+      selective: {
+        title: "Optimized visual comfort",
+        body: "Designed for all-day use in digital environments.",
+      },
+    },
   ];
+
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-white/10">
+      <div className="grid grid-cols-2">
+        <div className="border-b border-r px-5 py-4" style={{ borderColor: `${TEAL}18` }}>
+          <div
+            className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: "#C07A2E" }}
+          >
+            Heavy filtering
+          </div>
+          <div className="mt-1 text-[11px]" style={{ color: "rgba(29,37,45,0.6)" }}>
+            Broad wavelength reduction
+          </div>
+        </div>
+        <div className="border-b px-5 py-4" style={{ borderColor: `${TEAL}18` }}>
+          <div
+            className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: TEAL }}
+          >
+            Selective filtering
+          </div>
+          <div className="mt-1 text-[11px]" style={{ color: "rgba(29,37,45,0.6)" }}>
+            Targeted wavelength reduction
+          </div>
+        </div>
+
+        {rows.map((row) => (
+          <Fragment key={row.heavy.title}>
+            <div
+              className="border-b border-r px-5 py-4"
+              style={{ borderColor: `${TEAL}12` }}
+            >
+              <div className="text-[13px] font-semibold" style={{ color: INK }}>
+                {row.heavy.title}
+              </div>
+              <div
+                className="mt-1 text-[12px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.6)" }}
+              >
+                {row.heavy.body}
+              </div>
+            </div>
+            <div className="border-b px-5 py-4" style={{ borderColor: `${TEAL}12` }}>
+              <div className="text-[13px] font-semibold" style={{ color: INK }}>
+                {row.selective.title}
+              </div>
+              <div
+                className="mt-1 text-[12px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.6)" }}
+              >
+                {row.selective.body}
+              </div>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+/* 4. The right balance */
+function RightBalance() {
+  const lenses = [
+    {
+      label: "Heavy orange lens",
+      note: "Broad spectrum filtering",
+      filter: "sepia(0.55) saturate(1.5) hue-rotate(-18deg) contrast(1.02)",
+    },
+    {
+      label: "EyegisGuard™ lens",
+      note: "Targeted filtering",
+      filter: "saturate(1.04) contrast(1.03)",
+    },
+    {
+      label: "Clear lens",
+      note: "No filtering",
+      filter: "saturate(1.08) hue-rotate(6deg)",
+    },
+  ];
+
+  const practice = [
+    { title: "Targeted filtering", body: "Focus on what matters most." },
+    { title: "Superior color fidelity", body: "Natural colors you can trust." },
+    { title: "More comfortable everyday use", body: "Less strain, more well-being." },
+    { title: "No extreme orange tint", body: "Clear appearance, confident look." },
+  ];
+
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
-      style={{ background: CHAMPAGNE, color: INK }}
+      className="relative px-6 py-10 md:px-12 md:py-20"
+      style={{ background: PAPER, color: INK }}
     >
-      <div className="mx-auto max-w-5xl text-center">
-        <SectionLabel n="§ 05">
-          <span style={{ color: TEAL }}>The middle ground</span>
-        </SectionLabel>
-        <h3
-          className="mt-6 font-editorial text-3xl leading-tight md:text-5xl"
-          style={{ color: TEAL }}
-        >
-          Protection <span className="italic">without compromise</span>.
-        </h3>
-
-        <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-2">
-          {items.map((t) => (
-            <div
-              key={t}
-              className="flex items-center gap-4 rounded-2xl bg-white/70 px-6 py-5 text-left ring-1 ring-white/60 backdrop-blur-sm"
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <SectionLabel n="§ 04">Science</SectionLabel>
+            <h3
+              className="mt-4 font-editorial text-3xl leading-tight md:text-4xl"
+              style={{ color: INK }}
             >
-              <span
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full"
-                style={{ background: `${MINT}30`, color: TEAL }}
-              >
-                <Check className="h-4 w-4" strokeWidth={3} />
-              </span>
-              <span className="font-editorial text-lg" style={{ color: INK }}>
-                {t}
-              </span>
+              The <span style={{ color: TEAL }}>right</span> balance.
+            </h3>
+            <div className="mt-4 h-px w-10" style={{ background: `${TEAL}60` }} />
+
+            <div
+              className="mt-6 space-y-4 text-[14px] leading-relaxed"
+              style={{ color: "rgba(29,37,45,0.75)" }}
+            >
+              <p>
+                At Eyegis, we believe in a balanced and honest approach to
+                blue-light filtering. While reaching 100% blue-light filtering is
+                possible, it is at the cost of major light and color distortions.
+              </p>
+              <p>
+                Our goal is to provide{" "}
+                <span style={{ color: TEAL }}>targeted filtering</span> where
+                scientific evidence suggests it matters most while preserving a
+                natural visual experience, finding the{" "}
+                <span style={{ color: TEAL }}>right balance</span> between
+                filtering and comfort of use.
+              </p>
             </div>
-          ))}
+
+            <p
+              className="mt-8 font-mono text-[10px] uppercase tracking-[0.24em]"
+              style={{ color: TEAL }}
+            >
+              In practice, this means:
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 lg:grid-cols-2">
+              {practice.map((p) => (
+                <div key={p.title}>
+                  <span
+                    className="grid h-8 w-8 place-items-center rounded-full"
+                    style={{ background: `${MINT}25`, color: TEAL }}
+                  >
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                  </span>
+                  <div
+                    className="mt-3 font-mono text-[9px] uppercase leading-snug tracking-[0.16em]"
+                    style={{ color: INK }}
+                  >
+                    {p.title}
+                  </div>
+                  <div
+                    className="mt-1 text-[11px] leading-relaxed"
+                    style={{ color: "rgba(29,37,45,0.6)" }}
+                  >
+                    {p.body}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Three-lens comparison */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4">
+            {lenses.map((l) => (
+              <figure key={l.label}>
+                <figcaption>
+                  <div
+                    className="font-mono text-[9px] uppercase tracking-[0.18em]"
+                    style={{ color: l.label.startsWith("Heavy") ? "#C07A2E" : TEAL }}
+                  >
+                    {l.label}
+                  </div>
+                  <div
+                    className="mt-1 text-[10px]"
+                    style={{ color: "rgba(29,37,45,0.55)" }}
+                  >
+                    {l.note}
+                  </div>
+                </figcaption>
+                <div className="mt-3 overflow-hidden rounded-xl ring-1 ring-[#004B57]/10">
+                  <img
+                    src={lensScene.url}
+                    alt={`Mountain lake seen through a ${l.label}`}
+                    loading="lazy"
+                    width={768}
+                    height={1024}
+                    className="aspect-[3/4] w-full object-cover"
+                    style={{ filter: l.filter }}
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        {/* Closing strip */}
+        <div
+          className="mt-10 flex flex-col gap-6 rounded-2xl bg-white px-6 py-6 ring-1 md:flex-row md:items-center md:justify-between"
+          style={{ borderColor: `${TEAL}18` }}
+        >
+          <div className="flex items-center gap-4">
+            <PictoShield />
+            <p className="text-sm" style={{ color: "rgba(29,37,45,0.8)" }}>
+              Balance is not a compromise.
+              <br />
+              <span className="font-editorial italic" style={{ color: TEAL }}>
+                It's precision.
+              </span>
+            </p>
+          </div>
+          <p
+            className="max-w-xs text-[12px] leading-relaxed"
+            style={{ color: "rgba(29,37,45,0.6)" }}
+          >
+            EyegisGuard™ is engineered to filter what matters most while
+            preserving what matters to you.
+          </p>
+          <a
+            href="#our-technology"
+            className="group inline-flex items-center gap-2 self-start rounded-full border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition hover:bg-[#004B57] hover:text-white"
+            style={{ borderColor: `${TEAL}40`, color: TEAL }}
+          >
+            Discover EyegisGuard™ Technology
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
     </section>
+  );
+}
+/* E-Guard shield mark — matches the certification badges on the Technology page */
+function EGuardShield({ variant }: { variant: "retina" | "circadian" }) {
+  return (
+    <svg
+      viewBox="0 0 64 74"
+      className="h-14 w-14 shrink-0 drop-shadow-[0_8px_18px_rgba(0,75,87,0.28)]"
+      aria-hidden="true"
+    >
+      <path
+        d="M32 2 L60 11 V36 C60 55 48 66 32 72 C16 66 4 55 4 36 V11 Z"
+        fill={TEAL}
+        stroke={MINT}
+        strokeOpacity="0.55"
+        strokeWidth="1.4"
+      />
+      <path
+        d="M32 8 L54 15 V35 C54 51 44 60 32 65 C20 60 10 51 10 35 V15 Z"
+        fill="none"
+        stroke={MINT}
+        strokeOpacity="0.3"
+        strokeWidth="0.8"
+      />
+      {variant === "retina" ? (
+        <g stroke={MINT} strokeWidth="2" fill="none">
+          <path d="M18 33 C24 24 28 21 32 21 C36 21 40 24 46 33 C40 42 36 45 32 45 C28 45 24 42 18 33 Z" />
+          <circle cx="32" cy="33" r="5.5" />
+          <circle cx="32" cy="33" r="2" fill={MINT} stroke="none" />
+        </g>
+      ) : (
+        <g>
+          <path
+            d="M39 20 A13 13 0 1 0 46 42 A10.5 10.5 0 0 1 39 20 Z"
+            stroke={MINT}
+            strokeWidth="2"
+            fill="none"
+          />
+          <circle cx="21" cy="24" r="1.1" fill={MINT} />
+          <circle cx="19" cy="40" r="0.9" fill={MINT} />
+        </g>
+      )}
+    </svg>
   );
 }
 
@@ -589,12 +785,7 @@ function EGuardScores() {
             className="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1"
             style={{ borderColor: `${TEAL}18` }}
           >
-            <span
-              className="grid h-14 w-14 shrink-0 place-items-center rounded-full font-mono text-sm font-bold"
-              style={{ background: TEAL, color: MINT }}
-            >
-              R
-            </span>
+            <EGuardShield variant="retina" />
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
                 E-Guard Retina
@@ -611,12 +802,7 @@ function EGuardScores() {
             className="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1"
             style={{ borderColor: `${TEAL}18` }}
           >
-            <span
-              className="grid h-14 w-14 shrink-0 place-items-center rounded-full font-mono text-sm font-bold"
-              style={{ background: TEAL, color: MINT }}
-            >
-              C
-            </span>
+            <EGuardShield variant="circadian" />
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
                 E-Guard Circadian
@@ -681,8 +867,7 @@ export function HonestScience() {
       <SpectrumSection />
       <RetinaVsCircadian />
       <SelectiveFiltering />
-      <OrangeDistortion />
-      <MiddleGround />
+      <RightBalance />
       <EGuardScores />
       <References />
     </section>

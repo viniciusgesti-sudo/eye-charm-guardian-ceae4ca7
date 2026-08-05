@@ -361,7 +361,7 @@ export function Footer() {
                           </a>
                         ) : (
                           <Link
-                            to={`/$locale${link.to!}`}
+                            to={`/$locale${link.to!}` as "/$locale"}
                             params={{ locale }}
                             hash={link.hash ? link.hash.replace(/^#/, "") : undefined}
                             className="font-sans text-sm font-light text-white/60 transition-colors hover:text-white"

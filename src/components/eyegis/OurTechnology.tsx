@@ -37,7 +37,7 @@ function ShieldBadge({
 }) {
   return (
     <div className="relative inline-flex flex-col items-center">
-      <div className="relative h-36 w-36">
+      <div className="relative h-24 w-24">
         {/* Ambient glow */}
         <div
           className="absolute inset-0 rounded-full bg-mint/25 blur-2xl"
@@ -120,11 +120,11 @@ function ShieldBadge({
           />
         </svg>
         {/* Central symbol overlay */}
-        <div className="absolute inset-0 flex items-start justify-center pt-8 text-mint">
+        <div className="absolute inset-0 flex items-start justify-center pt-5 text-mint">
           {children}
         </div>
       </div>
-      <span className="mt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-teal">
+      <span className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-teal">
         {label}
       </span>
     </div>
@@ -133,7 +133,7 @@ function ShieldBadge({
 
 function EyeInsignia() {
   return (
-    <svg viewBox="0 0 80 80" className="h-16 w-16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 80 80" className="h-11 w-11" fill="none" aria-hidden="true">
       <path
         d="M6 40 C18 20 30 14 40 14 C50 14 62 20 74 40 C62 60 50 66 40 66 C30 66 18 60 6 40 Z"
         stroke="#86D9D1"
@@ -169,7 +169,7 @@ function EyeInsignia() {
 
 function MoonStarsInsignia() {
   return (
-    <svg viewBox="0 0 80 80" className="h-16 w-16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 80 80" className="h-11 w-11" fill="none" aria-hidden="true">
       {/* Crescent moon */}
       <path
         d="M52 18 A22 22 0 1 0 62 52 A18 18 0 0 1 52 18 Z"
@@ -304,16 +304,16 @@ export function OurTechnology() {
         {/* Two sub-sections */}
         <div className="mt-9 grid gap-8 lg:mt-10 lg:grid-cols-2">
           {/* E-Guard Retina */}
-          <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
+          <article className="relative rounded-3xl border border-teal/10 bg-white p-6 md:p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
               <ShieldBadge label="Certified · Daytime">
                 <EyeInsignia />
               </ShieldBadge>
-              <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
+              <h3 className="mt-5 text-xl font-bold uppercase tracking-[0.12em] text-[#004B57] md:text-2xl">
                 E-Guard™ Retina
               </h3>
-              <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
+              <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-ink/70">
                 Protection du bleu-violet haute énergie
                 <span className="mx-2 text-ink/30">·</span>
                 Protect visual comfort during long screen sessions
@@ -321,15 +321,15 @@ export function OurTechnology() {
               <TealAccent />
             </div>
 
-            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
+            <p className="mt-5 text-[14px] leading-relaxed text-ink/80">
               E-Guard Retina selectively filters part of the blue-violet
               wavelengths responsible for digital eye strain during prolonged
               screen sessions, while preserving color perception.
             </p>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
+            <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <Benefit
                 title="Defeats Screen Fatigue"
                 desc="Minimizes dry, itchy, and red eyes"
@@ -346,16 +346,16 @@ export function OurTechnology() {
           </article>
 
           {/* E-Guard Circadian */}
-          <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
+          <article className="relative rounded-3xl border border-teal/10 bg-white p-6 md:p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
               <ShieldBadge label="Certified · Nighttime">
                 <MoonStarsInsignia />
               </ShieldBadge>
-              <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
+              <h3 className="mt-5 text-xl font-bold uppercase tracking-[0.12em] text-[#004B57] md:text-2xl">
                 E-Guard™ Circadian
               </h3>
-              <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
+              <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-ink/70">
                 Soutien du rythme circadien et du confort visuel
                 <span className="mx-2 text-ink/30">·</span>
                 Sunset Mode &amp; Sleep Protection
@@ -363,16 +363,16 @@ export function OurTechnology() {
               <TealAccent />
             </div>
 
-            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
+            <p className="mt-5 text-[14px] leading-relaxed text-ink/80">
               Exposure to high-energy blue light after dark tricks your brain
               into thinking it's still noon, disrupting your natural sleep
               cycle. E-Guard Circadian™ mitigates these specific evening
               wavelengths while maintaining a natural viewing experience.
             </p>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
+            <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <Benefit
                 title="Protects Melatonin"
                 desc="Limits evening light disruption to support deeper, uninterrupted sleep"
@@ -390,8 +390,8 @@ export function OurTechnology() {
         </div>
 
         {/* Why Both Matter — champagne panel */}
-        <div className="mt-10 md:mt-16">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#E2D1C3]/60 px-6 py-8 md:px-16 md:py-10">
+        <div className="mt-8 md:mt-12">
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[1.5rem] bg-[#E2D1C3]/60 px-5 py-6 md:px-10 md:py-8">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.05]"
               style={{
@@ -403,75 +403,75 @@ export function OurTechnology() {
             />
             <div className="relative">
               <div className="text-center">
-                <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-teal">
+                <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-teal">
                   § Why Both Matter
                 </span>
-                <h3 className="mt-4 font-editorial text-3xl leading-tight text-[#004B57] md:text-5xl">
+                <h3 className="mt-3 font-editorial text-2xl leading-tight text-[#004B57] md:text-3xl">
                   Why both matter.
                 </h3>
-                <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink/75">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-ink/75">
                   Most blue-light eyewear treat all blue light as if it were the
                   same. At Eyegis we see it as two very different challenges.
                 </p>
               </div>
 
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {/* Daytime */}
-                <div className="rounded-2xl bg-white/70 p-10 ring-1 ring-white/60 backdrop-blur-sm">
-                  <div className="flex items-center gap-4">
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-champagne text-teal-deep">
-                      <SunGlyph className="h-6 w-6" />
+                <div className="rounded-xl bg-white/70 p-5 ring-1 ring-white/60 backdrop-blur-sm">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-champagne text-teal-deep">
+                      <SunGlyph className="h-4.5 w-4.5" />
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink/60">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink/60">
                       The Daytime Challenge
                     </span>
                   </div>
-                  <p className="mt-6 font-editorial text-2xl leading-tight text-ink md:text-3xl">
+                  <p className="mt-4 font-editorial text-xl leading-tight text-ink md:text-2xl">
                     Eye strain &amp; fatigue.
                   </p>
-                  <div className="mt-6 flex items-center gap-3 text-teal">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
+                  <div className="mt-4 flex items-center gap-2 text-teal">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
                       Solved by
                     </span>
-                    <span className="h-px w-8 bg-teal/40" />
-                    <span className="font-editorial text-lg">
+                    <span className="h-px w-6 bg-teal/40" />
+                    <span className="font-editorial text-base">
                       E-Guard Retina™
                     </span>
                   </div>
                 </div>
 
                 {/* Nighttime */}
-                <div className="rounded-2xl bg-[#004B57] p-10 text-paper ring-1 ring-teal/40">
-                  <div className="flex items-center gap-4">
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-mint/15 text-mint">
-                      <MoonGlyph className="h-6 w-6" />
+                <div className="rounded-xl bg-[#004B57] p-5 text-paper ring-1 ring-teal/40">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-mint/15 text-mint">
+                      <MoonGlyph className="h-4.5 w-4.5" />
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-paper/60">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/60">
                       The Nighttime Challenge
                     </span>
                   </div>
-                  <p className="mt-6 font-editorial text-2xl leading-tight md:text-3xl">
+                  <p className="mt-4 font-editorial text-xl leading-tight md:text-2xl">
                     Sleep disruption &amp; biological clock.
                   </p>
-                  <div className="mt-6 flex items-center gap-3 text-mint">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
+                  <div className="mt-4 flex items-center gap-2 text-mint">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
                       Solved by
                     </span>
-                    <span className="h-px w-8 bg-mint/40" />
-                    <span className="font-editorial text-lg">
+                    <span className="h-px w-6 bg-mint/40" />
+                    <span className="font-editorial text-base">
                       E-Guard Circadian™
                     </span>
                   </div>
                 </div>
               </div>
 
-              <p className="mx-auto mt-8 max-w-2xl text-center font-editorial text-xl italic text-[#004B57] md:text-2xl">
+              <p className="mx-auto mt-6 max-w-xl text-center font-editorial text-lg italic text-[#004B57] md:text-xl">
                 Different wavelengths. Different effects.
                 <br />
                 <span className="text-ink/70">Two dedicated solutions.</span>
               </p>
 
-              <div className="mt-8 flex justify-center">
+              <div className="mt-6 flex justify-center">
                 <Link
                   to="/"
                   hash="honest-science"
