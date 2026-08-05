@@ -976,7 +976,7 @@ export function AboutPage() {
               {c.values.items.map((v, i) => (
                 <Reveal key={v.k} delay={i * 100}>
                   <div
-                    className="flex min-h-[170px] flex-col justify-between p-8 md:min-h-[200px] md:p-10"
+                    className="flex min-h-[170px] flex-col justify-between p-6 md:min-h-[200px] md:p-7"
                     style={{ background: INK }}
                   >
                     <span
@@ -1161,7 +1161,7 @@ export function AboutPage() {
 
       {/* 08 — OUR PROMISE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-12">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -1238,7 +1238,7 @@ export function AboutPage() {
         </div>
 
         <div
-          className="mt-16 flex flex-col items-start justify-between gap-6 border-t pt-8 md:flex-row md:items-center"
+          className="mt-9 flex flex-col items-start justify-between gap-6 border-t pt-8 md:flex-row md:items-center"
           style={{ borderColor: "rgba(14,22,19,0.15)" }}
         >
           <span
