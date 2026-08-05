@@ -1,9 +1,11 @@
 import type { ImgHTMLAttributes } from "react";
-import amazonAsset from "@/assets/amazon-logo.png.asset.json";
+
+const AMAZON_MARK_URL = "/amazon-logo.png";
 
 /**
  * Amazon "a-smile" brand mark. Uses the official PNG published via
- * lovable-assets so button badges match Amazon's brand exactly.
+ * the app itself so Netlify, Vercel and production do not depend on the
+ * Lovable-only asset proxy.
  *
  * Default: square badge, sized by className (e.g. h-4 w-4).
  */
@@ -14,7 +16,7 @@ export function AmazonMark({
 }: Omit<ImgHTMLAttributes<HTMLImageElement>, "src">) {
   return (
     <img
-      src={amazonAsset.url}
+      src={AMAZON_MARK_URL}
       alt={alt}
       loading="lazy"
       decoding="async"

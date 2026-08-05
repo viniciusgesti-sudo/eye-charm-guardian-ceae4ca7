@@ -4,6 +4,16 @@ export type Lang = "EN" | "PT" | "FR";
 
 export const LANGS: readonly Lang[] = ["EN", "PT", "FR"] as const;
 
+const HTML_LANGUAGE: Record<Lang, string> = {
+  EN: "en",
+  PT: "pt-BR",
+  FR: "fr",
+};
+
+export function toHtmlLanguage(lang: Lang): string {
+  return HTML_LANGUAGE[lang];
+}
+
 type Dict = Record<string, string>;
 
 export const translations: Record<Lang, Dict> = translationsData;

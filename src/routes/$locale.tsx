@@ -1,11 +1,13 @@
 import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
 import { Suspense, lazy, useEffect } from "react";
 
-const Footer = lazy(() => import("@/components/eyegis/Footer").then((m) => ({ default: m.Footer })));
+const Footer = lazy(() =>
+  import("@/components/eyegis/Footer").then((m) => ({ default: m.Footer })),
+);
 import { Header } from "@/components/eyegis/Header";
 import { StickyBuyBar } from "@/components/eyegis/StickyBuyBar";
 import { useI18n } from "@/i18n/context";
-import type { Lang } from "@/i18n/translations";
+import { toHtmlLanguage, type Lang } from "@/i18n/translations";
 
 const ComingSoonModal = lazy(() =>
   import("@/components/eyegis/ComingSoonModal").then((m) => ({ default: m.ComingSoonModal })),
@@ -43,15 +45,21 @@ function LocaleLayout() {
   useEffect(() => {
     if (lang !== target) setLang(target);
     if (typeof document !== "undefined") {
-      document.documentElement.lang = locale;
+      document.documentElement.lang = toHtmlLanguage(target);
     }
   }, [locale, target, lang, setLang]);
 
   return (
-    <main id="main" tabIndex={-1} className="bg-background text-foreground overflow-x-hidden outline-none">
+    <main
+      id="main"
+      tabIndex={-1}
+      className="bg-background text-foreground overflow-x-hidden outline-none"
+    >
       <Header />
       <Outlet />
-      <Suspense fallback={null}><Footer /></Suspense>
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       <StickyBuyBar />
       <Suspense fallback={null}>
         <ComingSoonModal />

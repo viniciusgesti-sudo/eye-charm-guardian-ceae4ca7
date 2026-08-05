@@ -40,11 +40,9 @@ const LOCALIZED = [
   "/compliance",
 ];
 const NON_LOCALIZED = ["/", "/about", "/technology", "/lenses", "/contact", "/faq"];
+const HTML_LANGUAGE = { br: "pt-BR", en: "en", fr: "fr" };
 
-const ROUTES = [
-  ...NON_LOCALIZED,
-  ...LOCALES.flatMap((l) => LOCALIZED.map((p) => `/${l}${p}`)),
-];
+const ROUTES = [...NON_LOCALIZED, ...LOCALES.flatMap((l) => LOCALIZED.map((p) => `/${l}${p}`))];
 
 const results = { pass: 0, fail: 0, warn: 0, details: [] };
 const log = (icon, msg) => console.log(`${icon} ${msg}`);
@@ -137,6 +135,25 @@ async function consoleAudit() {
       }
       if (errors.length) issues.push(`${path}: ${errors.length} console error(s) → ${errors[0]}`);
       if (failedReq.length) issues.push(`${path}: ${failedReq.length} failed request(s)`);
+      const locale = path.match(/^\/(br|en|fr)(?:\/|$)/)?.[1];
+      if (locale) {
+        const htmlLanguage = await page.locator("html").getAttribute("lang");
+        if (htmlLanguage !== HTML_LANGUAGE[locale]) {
+          issues.push(
+            `${path}: hydrated html lang expected ${HTML_LANGUAGE[locale]}, got ${htmlLanguage}`,
+          );
+        }
+      }
+      const brokenImages = await page
+        .locator("img")
+        .evaluateAll((images) =>
+          images
+            .filter((image) => image.complete && image.naturalWidth === 0)
+            .map((image) => image.currentSrc || image.src),
+        );
+      if (brokenImages.length) {
+        issues.push(`${path}: ${brokenImages.length} broken image(s) → ${brokenImages[0]}`);
+      }
     } catch (err) {
       issues.push(`${path}: ${err.message}`);
     }
