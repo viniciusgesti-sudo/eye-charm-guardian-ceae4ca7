@@ -2,7 +2,9 @@
  * HonestScience — comprehensive scientific credibility section.
  * Palette: Deep Teal #004B57, Champagne #E2D1C3, Mint #86D9D1, Obsidian #1D252D, Off-white #F9F9F9
  */
-import { Check } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Check } from "lucide-react";
+import lensScene from "@/assets/lens-scene.jpg.asset.json";
 
 const TEAL = "#004B57";
 const CHAMPAGNE = "#E2D1C3";
@@ -237,91 +239,124 @@ function SpectrumSection() {
   );
 }
 
-/* 3. Retina vs Circadian */
+/* 3. Retina vs Circadian — driven by a wavelength slider */
 function RetinaVsCircadian() {
+  const [nm, setNm] = useState(437);
+  const mode: "retina" | "circadian" = nm <= 460 ? "retina" : "circadian";
+
   return (
     <section
-      className="relative px-6 py-10 md:px-12 md:py-36"
+      className="relative px-6 py-10 md:px-12 md:py-24"
       style={{ background: PAPER, borderTop: `1px solid ${TEAL}15` }}
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <SectionLabel n="§ 02">Two mechanisms</SectionLabel>
           <h3
-            className="mt-4 font-editorial text-3xl leading-tight md:text-5xl"
+            className="mt-4 font-editorial text-3xl leading-tight md:text-4xl"
             style={{ color: TEAL }}
           >
             Retina vs Circadian.
           </h3>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <article className="relative rounded-2xl bg-white p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
-            <div className="flex items-center gap-4">
-              <PictoEye />
-              <div>
-                <span
-                  className="font-mono text-[10px] uppercase tracking-[0.28em]"
-                  style={{ color: TEAL }}
-                >
-                  Retina
-                </span>
-                <h4 className="mt-1 font-editorial text-2xl" style={{ color: INK }}>
-                  Photobiological hazard
-                </h4>
-              </div>
-            </div>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
-              style={{ color: "rgba(29,37,45,0.8)" }}
-            >
-              Research on photobiological hazards identifies a peak sensitivity
-              in the blue-violet region, around <strong>435–440 nm</strong>.
-            </p>
-            <p
-              className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
-              style={{ borderColor: `${TEAL}20`, color: "rgba(29,37,45,0.55)" }}
-            >
-              Ref. ICNIRP 2013 · ANSI 2015
-            </p>
-          </article>
-
-          <article
-            className="relative rounded-2xl p-10 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.4)] ring-1"
-            style={{ background: TEAL, color: PAPER, borderColor: `${MINT}30` }}
+        {/* Wavelength selector */}
+        <div className="mt-6 max-w-2xl">
+          <div
+            className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em]"
+            style={{ color: "rgba(29,37,45,0.55)" }}
           >
-            <div className="flex items-center gap-4">
-              <div className="[&_svg_*]:!stroke-[#86D9D1] [&_svg_circle:last-child]:!fill-[#86D9D1]">
-                <PictoMoon />
+            <span>380 nm</span>
+            <span style={{ color: TEAL }}>
+              λ {nm} nm · {mode === "retina" ? "Retina zone" : "Circadian zone"}
+            </span>
+            <span>500 nm</span>
+          </div>
+          <input
+            type="range"
+            min={380}
+            max={500}
+            step={1}
+            value={nm}
+            onChange={(e) => setNm(Number(e.target.value))}
+            aria-label="Wavelength selector, 380 to 500 nanometres"
+            className="mt-3 h-2 w-full cursor-ew-resize appearance-none rounded-full accent-[#004B57]"
+            style={{
+              background:
+                "linear-gradient(90deg,#3B1F6B 0%,#4B2AA0 15%,#3D3FD1 30%,#2960E8 50%,#1E8BFF 72%,#22C6E5 100%)",
+            }}
+          />
+        </div>
+
+        <div className="mt-6">
+          {mode === "retina" ? (
+            <article className="relative rounded-2xl bg-white p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] ring-1 ring-[#004B57]/10">
+              <div className="flex items-center gap-4">
+                <PictoEye />
+                <div>
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-[0.28em]"
+                    style={{ color: TEAL }}
+                  >
+                    Retina
+                  </span>
+                  <h4 className="mt-1 font-editorial text-2xl" style={{ color: INK }}>
+                    Photobiological hazard
+                  </h4>
+                </div>
               </div>
-              <div>
-                <span
-                  className="font-mono text-[10px] uppercase tracking-[0.28em]"
-                  style={{ color: MINT }}
-                >
-                  Circadian
-                </span>
-                <h4 className="mt-1 font-editorial text-2xl">Biological clock</h4>
+              <p
+                className="mt-5 max-w-2xl text-[15px] leading-relaxed"
+                style={{ color: "rgba(29,37,45,0.8)" }}
+              >
+                Research on photobiological hazards identifies a peak sensitivity
+                in the blue-violet region, around <strong>435–440 nm</strong>.
+              </p>
+              <p
+                className="mt-5 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
+                style={{ borderColor: `${TEAL}20`, color: "rgba(29,37,45,0.55)" }}
+              >
+                Ref. ICNIRP 2013 · ANSI 2015
+              </p>
+            </article>
+          ) : (
+            <article
+              className="relative rounded-2xl p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.4)] ring-1"
+              style={{ background: TEAL, color: PAPER, borderColor: `${MINT}30` }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="[&_svg_*]:!stroke-[#86D9D1] [&_svg_circle:last-child]:!fill-[#86D9D1]">
+                  <PictoMoon />
+                </div>
+                <div>
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-[0.28em]"
+                    style={{ color: MINT }}
+                  >
+                    Circadian
+                  </span>
+                  <h4 className="mt-1 font-editorial text-2xl">Biological clock</h4>
+                </div>
               </div>
-            </div>
-            <p
-              className="mt-6 text-[15px] leading-relaxed"
-              style={{ color: "rgba(249,249,249,0.85)" }}
-            >
-              The body's internal clock is most sensitive to slightly longer
-              blue wavelengths, centered around roughly <strong>480 nm</strong>.
-            </p>
-            <p
-              className="mt-6 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
-              style={{ borderColor: `${MINT}30`, color: "rgba(249,249,249,0.55)" }}
-            >
-              Ref. CIE S 026/E:2018
-            </p>
-          </article>
+              <p
+                className="mt-5 max-w-2xl text-[15px] leading-relaxed"
+                style={{ color: "rgba(249,249,249,0.85)" }}
+              >
+                The body's internal clock is most sensitive to slightly longer
+                blue wavelengths, centered around roughly <strong>480 nm</strong>.
+              </p>
+              <p
+                className="mt-5 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.2em]"
+                style={{ borderColor: `${MINT}30`, color: "rgba(249,249,249,0.55)" }}
+              >
+                Ref. CIE S 026/E:2018
+              </p>
+            </article>
+          )}
         </div>
 
         <p
-          className="mx-auto mt-8 max-w-2xl text-center font-editorial text-xl italic md:text-2xl"
+          className="mx-auto mt-6 max-w-2xl text-center font-editorial text-lg italic md:text-xl"
           style={{ color: TEAL }}
         >
           Because the biological mechanisms and wavelengths are different,
