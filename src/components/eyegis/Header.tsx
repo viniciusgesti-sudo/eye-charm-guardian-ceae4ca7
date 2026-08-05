@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate, useParams } from "@tanstack/react-router";
-import { Globe, Menu, X } from "lucide-react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { useI18n } from "@/i18n/context";
@@ -111,19 +111,19 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
           }`}
         >
           <label
-            className={`relative inline-flex min-h-[36px] items-center rounded-full border transition-colors duration-500 ${
+            className={`relative inline-flex h-10 items-center gap-1.5 rounded-full border pl-3 pr-2.5 transition-colors duration-500 ${
               useInk
                 ? "border-ink/25 text-ink hover:bg-ink/5"
                 : "border-paper/40 text-paper hover:bg-paper/10"
             }`}
           >
             <span className="sr-only">Language</span>
-            <Globe className="pointer-events-none absolute left-2.5 h-3.5 w-3.5" aria-hidden />
+            <Globe className="pointer-events-none h-3.5 w-3.5 shrink-0" aria-hidden />
             <select
               value={currentSeg}
               onChange={(event) => switchLocale(event.target.value as LocaleSeg)}
               aria-label={`Language: ${currentSeg.toUpperCase()}`}
-              className="min-h-[36px] appearance-none rounded-full bg-transparent py-1.5 pr-3 pl-8 font-eyebrow text-[11px] uppercase tracking-[0.2em] outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+              className="h-10 cursor-pointer appearance-none rounded-full bg-transparent pr-4 font-eyebrow text-[11px] uppercase leading-none tracking-[0.18em] text-current outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
             >
               {LOCALES.map((l) => (
                 <option key={l} value={l} className="bg-paper text-ink">
@@ -131,6 +131,10 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                 </option>
               ))}
             </select>
+            <ChevronDown
+              className="pointer-events-none absolute right-2.5 h-3 w-3 opacity-70"
+              aria-hidden
+            />
           </label>
 
           <a
