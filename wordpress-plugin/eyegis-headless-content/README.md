@@ -9,8 +9,9 @@ Plugin editorial do site React da Eyegis. Ele cria documentos editáveis no Word
 3. Envie o ZIP e ative.
 4. Abra **Editor do site → Studio** para editar a Home com preview real.
 5. Use **Editor do site → Conteúdos e páginas** para escolher outras áreas ou gerenciar imagens.
-6. Abra **Editor do site → Integração React** e copie a URL da API.
-7. O projeto React de produção já possui esse endpoint configurado. Use
+6. Abra **Editor do site → Integração React**, confirme o endereço do front-end e copie a URL da API.
+7. O endereço padrão do Studio é `https://eyegis-eyewear.com`. Durante a homologação, informe nessa tela a URL do Deploy Preview; o botão **Usar produção** restaura o padrão sem alterar o domínio público.
+8. O projeto React de produção já possui esse endpoint configurado. Use
    `WORDPRESS_API_URL` no Netlify somente para substituir a instalação padrão
    em preview ou staging.
 
@@ -36,6 +37,11 @@ O front-end precisa ser publicado com o bridge de preview e o cabeçalho
 `Content-Security-Policy: frame-ancestors` antes de o iframe funcionar em
 produção. Instalar o plugin antes dessa publicação não altera o site, mas o
 Studio mostrará um aviso de que o preview ainda não respondeu.
+
+Na tela **Integração React**, administradores podem apontar temporariamente o
+Studio para um Deploy Preview. Essa configuração afeta somente o iframe e os
+atalhos internos do plugin; ela não troca o domínio público nem executa um
+deploy.
 
 ## Editor simplificado e biblioteca completa
 

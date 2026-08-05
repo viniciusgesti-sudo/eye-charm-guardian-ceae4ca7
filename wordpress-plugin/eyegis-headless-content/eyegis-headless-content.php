@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Eyegis Headless Content
  * Description: Painel editorial e API de conteúdo para o front-end React da Eyegis.
- * Version: 2.0.0-beta.2
+ * Version: 2.0.0-beta.3
  * Author: Eyegis
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -14,17 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Eyegis_Headless_Content {
-	const VERSION       = '2.0.0-beta.2';
-	const POST_TYPE     = 'eyegis_document';
-	const META_KEY      = '_eyegis_document_json';
-	const DRAFT_META_KEY = '_eyegis_document_draft_json';
-	const DRAFT_DATE_KEY = '_eyegis_document_draft_date';
-	const DOCUMENT_KEY  = '_eyegis_document_key';
-	const NONCE_ACTION  = 'eyegis_save_document';
-	const NONCE_NAME    = 'eyegis_document_nonce';
-	const SCHEMA_OPTION = 'eyegis_headless_schema_version';
-	const CACHE_KEY     = 'eyegis_headless_content_payload';
-	const CACHE_TTL     = 60;
+	const VERSION              = '2.0.0-beta.3';
+	const DEFAULT_FRONTEND_URL = 'https://eyegis-eyewear.com';
+	const FRONTEND_URL_OPTION  = 'eyegis_headless_frontend_url';
+	const POST_TYPE            = 'eyegis_document';
+	const META_KEY             = '_eyegis_document_json';
+	const DRAFT_META_KEY       = '_eyegis_document_draft_json';
+	const DRAFT_DATE_KEY       = '_eyegis_document_draft_date';
+	const DOCUMENT_KEY         = '_eyegis_document_key';
+	const NONCE_ACTION         = 'eyegis_save_document';
+	const NONCE_NAME           = 'eyegis_document_nonce';
+	const SCHEMA_OPTION        = 'eyegis_headless_schema_version';
+	const CACHE_KEY            = 'eyegis_headless_content_payload';
+	const CACHE_TTL            = 60;
 
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_post_type' ) );
@@ -36,6 +38,7 @@ final class Eyegis_Headless_Content {
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 		add_action( 'admin_menu', array( $this, 'register_status_page' ) );
 		add_action( 'admin_post_eyegis_seed_missing', array( $this, 'handle_seed_missing' ) );
+		add_action( 'admin_post_eyegis_save_settings', array( $this, 'handle_save_settings' ) );
 		add_action( 'admin_init', array( $this, 'maybe_upgrade_seed' ) );
 	}
 
@@ -523,7 +526,7 @@ final class Eyegis_Headless_Content {
 			'version'      => self::VERSION,
 			'documentKey'  => 'home',
 			'document'     => $state,
-			'frontendUrl'  => apply_filters( 'eyegis_frontend_url', 'https://eyegis-eyewear.com' ),
+			'frontendUrl'  => $this->frontend_url(),
 			'localeRoutes' => array(
 				'PT' => '/br/',
 				'EN' => '/en/',
@@ -704,7 +707,7 @@ final class Eyegis_Headless_Content {
 			$media_content = json_decode( (string) get_post_meta( $media_post->ID, self::META_KEY, true ), true );
 			$media_count = is_array( $media_content ) ? count( $media_content ) : 0;
 		}
-		$frontend_url = apply_filters( 'eyegis_frontend_url', 'https://eyegis-eyewear.com' );
+		$frontend_url = $this->frontend_url();
 		?>
 		<div class="wrap eyegis-dashboard">
 			<div class="eyegis-dashboard-hero">
@@ -713,7 +716,7 @@ final class Eyegis_Headless_Content {
 					<h1>O que você quer alterar?</h1>
 					<p>Escolha uma página ou abra a galeria de imagens. Você edita o conteúdo; o design do site permanece protegido.</p>
 				</div>
-				<a class="button button-secondary" href="<?php echo esc_url( $frontend_url ); ?>" target="_blank" rel="noopener noreferrer">Ver site publicado ↗</a>
+				<a class="button button-secondary" href="<?php echo esc_url( $frontend_url ); ?>" target="_blank" rel="noopener noreferrer">Abrir front-end configurado ↗</a>
 			</div>
 
 			<div class="eyegis-dashboard-stats" aria-label="Resumo do conteúdo">
@@ -825,11 +828,48 @@ final class Eyegis_Headless_Content {
 	}
 
 	public function render_status_page() {
-		$endpoint = rest_url( 'eyegis/v1/content' );
-		$seed_url = wp_nonce_url( admin_url( 'admin-post.php?action=eyegis_seed_missing' ), 'eyegis_seed_missing' );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Sem permissão.' );
+		}
+
+		$endpoint          = rest_url( 'eyegis/v1/content' );
+		$seed_url          = wp_nonce_url( admin_url( 'admin-post.php?action=eyegis_seed_missing' ), 'eyegis_seed_missing' );
+		$frontend_url      = $this->frontend_url();
+		$is_preview        = self::DEFAULT_FRONTEND_URL !== $frontend_url;
+		$settings_feedback = isset( $_GET['frontend-updated'] ) && is_string( $_GET['frontend-updated'] ) ? sanitize_key( wp_unslash( $_GET['frontend-updated'] ) ) : '';
 		?>
 		<div class="wrap">
 			<h1>Integração React</h1>
+			<?php if ( 'saved' === $settings_feedback ) : ?>
+				<div class="notice notice-success is-dismissible"><p>Endereço do front-end salvo.</p></div>
+			<?php elseif ( 'default' === $settings_feedback ) : ?>
+				<div class="notice notice-success is-dismissible"><p>O Studio voltou a usar o site de produção.</p></div>
+			<?php elseif ( 'invalid' === $settings_feedback ) : ?>
+				<div class="notice notice-error"><p>Informe um endereço HTTP ou HTTPS válido.</p></div>
+			<?php endif; ?>
+
+			<h2>Endereço do preview do Studio</h2>
+			<p>O iframe do Studio e o atalho do painel usam este endereço. Isso não troca o domínio público nem publica alterações no site.</p>
+			<?php if ( $is_preview ) : ?>
+				<div class="notice notice-warning inline"><p><strong>Ambiente de teste ativo:</strong> o Studio está conectado a <?php echo esc_html( $frontend_url ); ?>.</p></div>
+			<?php endif; ?>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="eyegis_save_settings">
+				<?php wp_nonce_field( 'eyegis_save_settings' ); ?>
+				<p>
+					<label class="screen-reader-text" for="eyegis-frontend-url">Endereço do front-end</label>
+					<input id="eyegis-frontend-url" name="eyegis_frontend_url" type="url" class="large-text code" required value="<?php echo esc_attr( $frontend_url ); ?>" placeholder="https://eyegis-eyewear.com">
+				</p>
+				<p class="submit">
+					<button type="submit" class="button button-primary">Salvar endereço</button>
+					<?php if ( $is_preview ) : ?>
+						<button type="submit" class="button" name="eyegis_use_default" value="1">Usar produção</button>
+					<?php endif; ?>
+				</p>
+			</form>
+
+			<hr>
+			<h2>API pública de conteúdo</h2>
 			<p>Este é o endereço público de leitura usado pelo site React. Nenhuma senha é exposta.</p>
 			<p><input type="text" class="large-text code" readonly value="<?php echo esc_attr( $endpoint ); ?>"></p>
 			<p><a class="button button-primary" href="<?php echo esc_url( $endpoint ); ?>" target="_blank" rel="noopener noreferrer">Testar API</a></p>
@@ -839,6 +879,63 @@ final class Eyegis_Headless_Content {
 			<p><a class="button" href="<?php echo esc_url( $seed_url ); ?>">Criar ou reparar documentos</a></p>
 		</div>
 		<?php
+	}
+
+	public function handle_save_settings() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Sem permissão.' );
+		}
+		check_admin_referer( 'eyegis_save_settings' );
+
+		if ( isset( $_POST['eyegis_use_default'] ) ) {
+			delete_option( self::FRONTEND_URL_OPTION );
+			$this->redirect_to_status_page( 'default' );
+		}
+
+		$submitted = isset( $_POST['eyegis_frontend_url'] ) && is_string( $_POST['eyegis_frontend_url'] ) ? wp_unslash( $_POST['eyegis_frontend_url'] ) : '';
+		$normalized = $this->normalize_frontend_url( $submitted );
+		if ( '' === $normalized ) {
+			$this->redirect_to_status_page( 'invalid' );
+		}
+
+		if ( self::DEFAULT_FRONTEND_URL === $normalized ) {
+			delete_option( self::FRONTEND_URL_OPTION );
+		} else {
+			update_option( self::FRONTEND_URL_OPTION, $normalized );
+		}
+		$this->redirect_to_status_page( 'saved' );
+	}
+
+	private function frontend_url() {
+		$stored     = get_option( self::FRONTEND_URL_OPTION, self::DEFAULT_FRONTEND_URL );
+		$configured = $this->normalize_frontend_url( $stored );
+		if ( '' === $configured ) {
+			$configured = self::DEFAULT_FRONTEND_URL;
+		}
+
+		$filtered = apply_filters( 'eyegis_frontend_url', $configured );
+		$filtered = $this->normalize_frontend_url( $filtered );
+		return '' !== $filtered ? $filtered : self::DEFAULT_FRONTEND_URL;
+	}
+
+	private function normalize_frontend_url( $url ) {
+		$url = esc_url_raw( trim( (string) $url ), array( 'http', 'https' ) );
+		if ( '' === $url || ! wp_http_validate_url( $url ) ) {
+			return '';
+		}
+		return untrailingslashit( $url );
+	}
+
+	private function redirect_to_status_page( $status ) {
+		$url = add_query_arg(
+			array(
+				'page'             => 'eyegis-headless-status',
+				'frontend-updated' => sanitize_key( $status ),
+			),
+			admin_url( 'admin.php' )
+		);
+		wp_safe_redirect( $url );
+		exit;
 	}
 
 	public function handle_seed_missing() {
