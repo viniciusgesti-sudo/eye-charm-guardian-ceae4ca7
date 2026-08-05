@@ -285,36 +285,14 @@ export function Footer() {
         />
 
         <div className="container-editorial py-16 md:py-20">
-          {/* Top row — logo */}
-          <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center">
-            <Link to="/$locale" params={{ locale }} aria-label="Eyegis home" className="text-paper">
-              <Logo className="h-7 w-auto text-paper" />
-            </Link>
-
-            <div className="flex items-center gap-3 font-eyebrow text-[11px] text-white/60">
-              <span className="small-caps">{c.langLabel}</span>
-              {LOCALES.map((l, i) => (
-                <div key={l} className="flex items-center gap-3">
-                  {i > 0 && <span aria-hidden className="text-white/25">·</span>}
-                  <Link
-                    to="/$locale"
-                    params={{ locale: l }}
-                    onClick={() => setLang(l === "br" ? "PT" : (l.toUpperCase() as Lang))}
-                    className={`uppercase transition-colors ${locale === l ? "text-white" : "text-white/60 hover:text-white"}`}
-                    aria-current={locale === l ? "true" : undefined}
-                  >
-                    {l}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Brand pillar + 4 columns — brand takes 2/6 on desktop for stronger hierarchy */}
-          <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 md:gap-10 lg:grid-cols-6">
+          <div className="grid grid-cols-1 gap-10 pb-14 sm:grid-cols-2 md:gap-10 lg:grid-cols-6">
             {/* Brand pillar */}
             <div className="sm:col-span-2 lg:col-span-2 lg:pr-10">
-              <Logo className="h-8 w-auto text-paper" />
+              <Link to="/$locale" params={{ locale }} aria-label="Eyegis home" className="inline-block text-paper">
+                <Logo className="h-8 w-auto text-paper" />
+              </Link>
+
               <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/60">
                 {lang === "PT"
                   ? "Óculos com engenharia para a visão. Design para o seu jeito de viver."
@@ -378,12 +356,32 @@ export function Footer() {
           </div>
 
           {/* Bottom bar */}
-          <div className="flex flex-col items-center gap-3 border-t border-white/10 pt-8 text-center md:flex-row md:justify-between md:text-left">
+          <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:justify-between md:text-left">
             <p className="font-sans text-xs font-light text-white/70">{c.copyright}</p>
-            <p className="font-sans text-[11px] font-light text-white/70">
+
+            <p className="order-last font-sans text-[11px] font-light text-white/70 md:order-none">
               EyegisGuard™ · E-Guard Retina™ · E-Guard Circadian™
             </p>
+
+            <div className="flex items-center gap-3 font-eyebrow text-[11px] text-white/60">
+              <span className="small-caps">{c.langLabel}</span>
+              {LOCALES.map((l, i) => (
+                <div key={l} className="flex items-center gap-3">
+                  {i > 0 && <span aria-hidden className="text-white/25">·</span>}
+                  <Link
+                    to="/$locale"
+                    params={{ locale: l }}
+                    onClick={() => setLang(l === "br" ? "PT" : (l.toUpperCase() as Lang))}
+                    className={`uppercase transition-colors ${locale === l ? "text-white" : "text-white/60 hover:text-white"}`}
+                    aria-current={locale === l ? "true" : undefined}
+                  >
+                    {l}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </footer>
     </>
