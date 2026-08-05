@@ -37,7 +37,7 @@ function ShieldBadge({
 }) {
   return (
     <div className="relative inline-flex flex-col items-center">
-      <div className="relative h-36 w-36">
+      <div className="relative h-24 w-24">
         {/* Ambient glow */}
         <div
           className="absolute inset-0 rounded-full bg-mint/25 blur-2xl"
@@ -120,11 +120,11 @@ function ShieldBadge({
           />
         </svg>
         {/* Central symbol overlay */}
-        <div className="absolute inset-0 flex items-start justify-center pt-8 text-mint">
+        <div className="absolute inset-0 flex items-start justify-center pt-5 text-mint">
           {children}
         </div>
       </div>
-      <span className="mt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-teal">
+      <span className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-teal">
         {label}
       </span>
     </div>
@@ -133,7 +133,7 @@ function ShieldBadge({
 
 function EyeInsignia() {
   return (
-    <svg viewBox="0 0 80 80" className="h-16 w-16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 80 80" className="h-11 w-11" fill="none" aria-hidden="true">
       <path
         d="M6 40 C18 20 30 14 40 14 C50 14 62 20 74 40 C62 60 50 66 40 66 C30 66 18 60 6 40 Z"
         stroke="#86D9D1"
@@ -169,7 +169,7 @@ function EyeInsignia() {
 
 function MoonStarsInsignia() {
   return (
-    <svg viewBox="0 0 80 80" className="h-16 w-16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 80 80" className="h-11 w-11" fill="none" aria-hidden="true">
       {/* Crescent moon */}
       <path
         d="M52 18 A22 22 0 1 0 62 52 A18 18 0 0 1 52 18 Z"
