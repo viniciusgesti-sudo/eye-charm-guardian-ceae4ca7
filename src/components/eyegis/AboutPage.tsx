@@ -614,7 +614,7 @@ export function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[52vh] max-w-[1400px] items-center px-6 py-8 md:min-h-[58vh] md:px-12 md:py-9">
+        <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-[1400px] items-center px-6 py-8 md:min-h-[46vh] md:px-12 md:py-9">
           <div className="max-w-[560px]">
             <Reveal>
               <span
@@ -626,7 +626,7 @@ export function AboutPage() {
             </Reveal>
             <Reveal delay={120}>
               <h1
-                className="mt-4 text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[40px] lg:text-[46px]"
+                className="mt-4 text-[24px] leading-[1.05] tracking-[-0.02em] md:text-[40px] lg:text-[46px]"
                 style={{ fontFamily: serif, color: "#F6F3EE", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
               >
                 {c.hero.h1a}{" "}
@@ -648,13 +648,13 @@ export function AboutPage() {
 
 
       {/* 01 — WHERE SCIENCE MEETS STYLE */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-12">
         <Reveal>
           <Rule label={c.belief.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-8 max-w-[1000px] text-[34px] leading-[1.05] tracking-[-0.02em] md:text-[64px] lg:text-[76px]"
+            className="mt-8 max-w-[1000px] text-[26px] leading-[1.05] tracking-[-0.02em] md:text-[38px] lg:text-[46px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.belief.h2a}
@@ -693,7 +693,7 @@ export function AboutPage() {
           <div className="mt-8 grid gap-8 md:grid-cols-12">
             <Reveal delay={100} className="md:col-span-5">
               <h3
-                className="text-[28px] leading-[1.1] tracking-[-0.02em] md:text-[40px]"
+                className="text-[24px] leading-[1.1] tracking-[-0.02em] md:text-[40px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.origin.h2}
@@ -718,7 +718,7 @@ export function AboutPage() {
                   {c.origin.closing}
                 </p>
                 <p
-                  className="mt-4 text-[22px] leading-[1.3] md:text-[30px]"
+                  className="mt-4 text-[22px] leading-[1.3] md:text-[24px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   “{c.origin.quote}”
@@ -739,7 +739,7 @@ export function AboutPage() {
 
           <Reveal delay={80}>
             <h3
-              className="mx-auto mt-8 max-w-[720px] text-center text-[30px] leading-[1.1] tracking-[-0.02em] md:text-[46px]"
+              className="mx-auto mt-8 max-w-[720px] text-center text-[24px] leading-[1.1] tracking-[-0.02em] md:text-[46px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.why.h2a}
@@ -757,7 +757,7 @@ export function AboutPage() {
                 source={parisImg}
                 alt={c.why.cities[0].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
+                className="h-[180px] w-full object-cover md:h-full md:min-h-[240px]"
               />
             </Reveal>
 
@@ -784,7 +784,7 @@ export function AboutPage() {
                 source={saoPauloImg}
                 alt={c.why.cities[1].alt}
                 sizes="(min-width:768px) 33vw, 100vw"
-                className="h-[220px] w-full object-cover md:h-full md:min-h-[300px]"
+                className="h-[180px] w-full object-cover md:h-full md:min-h-[240px]"
               />
             </Reveal>
           </div>
@@ -801,7 +801,7 @@ export function AboutPage() {
               </Reveal>
               <Reveal delay={100}>
                 <h3
-                  className="mt-6 text-balance text-[26px] leading-[1.15] tracking-[-0.02em] sm:text-[28px] md:text-[42px]"
+                  className="mt-6 text-balance text-[26px] leading-[1.15] tracking-[-0.02em] sm:text-[24px] md:text-[26px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   {c.why.name.eq}
@@ -841,7 +841,7 @@ export function AboutPage() {
               </Reveal>
               <Reveal delay={100}>
                 <h3
-                  className="mt-6 text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[42px]"
+                  className="mt-6 text-[24px] leading-[1.15] tracking-[-0.02em] md:text-[26px]"
                   style={{ fontFamily: serif, fontWeight: 400 }}
                 >
                   {c.why.honest.h2}
@@ -886,13 +886,13 @@ export function AboutPage() {
 
 
       {/* 03 — OUR PHILOSOPHY */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
         <Reveal>
           <Rule label={c.philosophy.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-8 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
+            className="mt-8 max-w-[1000px] text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[38px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.philosophy.h2a}
@@ -923,7 +923,7 @@ export function AboutPage() {
                       {p.idx}
                     </span>
                     <h3
-                      className="mt-4 text-[34px] leading-[1.05] tracking-[-0.01em] md:text-[42px]"
+                      className="mt-4 text-[26px] leading-[1.05] tracking-[-0.01em] md:text-[26px]"
                       style={{ fontFamily: serif, fontWeight: 400 }}
                     >
                       {p.title}
@@ -950,7 +950,7 @@ export function AboutPage() {
 
       {/* 04 — OUR VALUES */}
       <section style={{ background: INK, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -964,7 +964,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[76px]"
+              className="mt-8 max-w-[1100px] text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[26px]"
               style={{ fontFamily: serif, fontWeight: 400, color: OFFWHITE }}
             >
               {c.values.h2}
@@ -976,7 +976,7 @@ export function AboutPage() {
               {c.values.items.map((v, i) => (
                 <Reveal key={v.k} delay={i * 100}>
                   <div
-                    className="flex min-h-[220px] flex-col justify-between p-8 md:min-h-[280px] md:p-10"
+                    className="flex min-h-[170px] flex-col justify-between p-8 md:min-h-[200px] md:p-10"
                     style={{ background: INK }}
                   >
                     <span
@@ -987,7 +987,7 @@ export function AboutPage() {
                     </span>
                     <div>
                       <h3
-                        className="text-[36px] leading-[1] tracking-[-0.01em] md:text-[54px]"
+                        className="text-[28px] leading-[1] tracking-[-0.01em] md:text-[26px]"
                         style={{ fontFamily: serif, fontWeight: 400 }}
                       >
                         {v.k}
@@ -1008,13 +1008,13 @@ export function AboutPage() {
       </section>
 
       {/* 05 — DESIGN PROCESS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
         <Reveal>
           <Rule label={c.process.rule} />
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="mt-8 max-w-[1000px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[68px]"
+            className="mt-8 max-w-[1000px] text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[38px]"
             style={{ fontFamily: serif, fontWeight: 400 }}
           >
             {c.process.h2a}
@@ -1042,7 +1042,7 @@ export function AboutPage() {
                       </span>
                     </div>
                     <h3
-                      className="mt-8 text-[28px] leading-[1]"
+                      className="mt-8 text-[24px] leading-[1]"
                       style={{ fontFamily: serif, fontWeight: 400 }}
                     >
                       {s.k}
@@ -1054,7 +1054,7 @@ export function AboutPage() {
                   <div className="md:hidden">
                     <div className="flex items-baseline justify-between">
                       <h3
-                        className="text-[28px] leading-[1]"
+                        className="text-[24px] leading-[1]"
                         style={{ fontFamily: serif, fontWeight: 400 }}
                       >
                         {s.k}
@@ -1079,13 +1079,13 @@ export function AboutPage() {
 
       {/* 06 — THE PEOPLE WE DESIGN FOR */}
       <section style={{ background: CHAMPAGNE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+        <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
           <Reveal>
             <Rule label={c.people.rule} />
           </Reveal>
           <Reveal delay={100}>
             <h2
-              className="mt-8 max-w-[1100px] text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[72px]"
+              className="mt-8 max-w-[1100px] text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[40px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.people.h2a}
@@ -1120,7 +1120,7 @@ export function AboutPage() {
       </section>
 
       {/* 07 — GLOBAL VISION */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
         <Reveal>
           <Rule label={c.global.rule} />
         </Reveal>
@@ -1128,7 +1128,7 @@ export function AboutPage() {
           <div className="md:col-span-5">
             <Reveal delay={100}>
               <h2
-                className="text-[36px] leading-[1.05] tracking-[-0.02em] md:text-[64px]"
+                className="text-[28px] leading-[1.05] tracking-[-0.02em] md:text-[38px]"
                 style={{ fontFamily: serif, fontWeight: 400 }}
               >
                 {c.global.h2}
@@ -1161,7 +1161,7 @@ export function AboutPage() {
 
       {/* 08 — OUR PROMISE */}
       <section style={{ background: TEAL, color: OFFWHITE }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-52">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-12">
           <Reveal>
             <div className="flex items-center gap-4">
               <span className="h-px w-10" style={{ background: OFFWHITE }} />
@@ -1170,7 +1170,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal delay={120}>
             <blockquote
-              className="mt-8 max-w-[1200px] text-[32px] leading-[1.15] tracking-[-0.01em] md:text-[64px] lg:text-[80px]"
+              className="mt-8 max-w-[1200px] text-[26px] leading-[1.15] tracking-[-0.01em] md:text-[38px] lg:text-[46px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.promise.quote}
@@ -1188,11 +1188,11 @@ export function AboutPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-40">
+      <section className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-14">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-7">
             <h2
-              className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[88px]"
+              className="text-[40px] leading-[1.02] tracking-[-0.02em] md:text-[44px]"
               style={{ fontFamily: serif, fontWeight: 400 }}
             >
               {c.cta.h1a}
