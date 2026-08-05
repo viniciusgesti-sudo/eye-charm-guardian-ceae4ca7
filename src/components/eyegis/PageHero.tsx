@@ -129,13 +129,20 @@ export function PageHero({
                 href={externalCta.href}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className={`inline-flex items-center gap-3 rounded-full border px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] transition ${
+                className={`group inline-flex items-center gap-3 rounded-full border px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.24em] transition ${
                   isDark
                     ? "border-paper/40 text-paper hover:bg-paper hover:text-ink"
                     : "border-ink/30 text-ink hover:bg-ink hover:text-paper"
                 }`}
               >
-                <AmazonMark className="h-5 w-5" />
+                <AmazonMark
+                  tone={isDark ? "light" : "dark"}
+                  className={`h-5 w-5 ${
+                    isDark
+                      ? "group-hover:[filter:brightness(0)_saturate(0)]"
+                      : "group-hover:[filter:brightness(0)_saturate(0)_invert(1)]"
+                  }`}
+                />
                 {externalCta.label}
                 <span aria-hidden>→</span>
               </a>

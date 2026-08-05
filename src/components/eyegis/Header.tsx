@@ -177,7 +177,14 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
             }`}
             aria-label={t("nav.shopAmazon")}
           >
-            <AmazonMark className="h-4 w-4" />
+            <AmazonMark
+              tone={useInk ? "dark" : "light"}
+              className={`h-4 w-4 ${
+                useInk
+                  ? "group-hover:[filter:brightness(0)_saturate(0)_invert(1)]"
+                  : "group-hover:[filter:brightness(0)_saturate(0)]"
+              }`}
+            />
             <span className="whitespace-nowrap uppercase tracking-[0.2em]">{t("nav.shopAmazon")}</span>
             <span
               className="transition-transform duration-500 group-hover:translate-x-0.5"
@@ -267,7 +274,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "compact
                 className="flex min-h-[52px] w-full items-center justify-between gap-4 rounded-full bg-teal px-6 py-4 font-eyebrow text-sm uppercase tracking-[0.2em] text-paper shadow-[0_20px_50px_-20px_rgba(0,75,87,0.7)] transition-all hover:bg-teal-deep"
               >
                 <span className="flex items-center gap-3">
-                  <AmazonMark className="h-5 w-5 [filter:brightness(0)_invert(1)]" />
+                  <AmazonMark tone="light" className="h-5 w-5" />
                   <span>{t("nav.shopAmazon")}</span>
                 </span>
                 <span aria-hidden>→</span>
