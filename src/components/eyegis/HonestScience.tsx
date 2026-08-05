@@ -691,6 +691,49 @@ function RightBalance() {
     </section>
   );
 }
+/* E-Guard shield mark — matches the certification badges on the Technology page */
+function EGuardShield({ variant }: { variant: "retina" | "circadian" }) {
+  return (
+    <svg
+      viewBox="0 0 64 74"
+      className="h-14 w-14 shrink-0 drop-shadow-[0_8px_18px_rgba(0,75,87,0.28)]"
+      aria-hidden="true"
+    >
+      <path
+        d="M32 2 L60 11 V36 C60 55 48 66 32 72 C16 66 4 55 4 36 V11 Z"
+        fill={TEAL}
+        stroke={MINT}
+        strokeOpacity="0.55"
+        strokeWidth="1.4"
+      />
+      <path
+        d="M32 8 L54 15 V35 C54 51 44 60 32 65 C20 60 10 51 10 35 V15 Z"
+        fill="none"
+        stroke={MINT}
+        strokeOpacity="0.3"
+        strokeWidth="0.8"
+      />
+      {variant === "retina" ? (
+        <g stroke={MINT} strokeWidth="2" fill="none">
+          <path d="M18 33 C24 24 28 21 32 21 C36 21 40 24 46 33 C40 42 36 45 32 45 C28 45 24 42 18 33 Z" />
+          <circle cx="32" cy="33" r="5.5" />
+          <circle cx="32" cy="33" r="2" fill={MINT} stroke="none" />
+        </g>
+      ) : (
+        <g>
+          <path
+            d="M39 20 A13 13 0 1 0 46 42 A10.5 10.5 0 0 1 39 20 Z"
+            stroke={MINT}
+            strokeWidth="2"
+            fill="none"
+          />
+          <circle cx="21" cy="24" r="1.1" fill={MINT} />
+          <circle cx="19" cy="40" r="0.9" fill={MINT} />
+        </g>
+      )}
+    </svg>
+  );
+}
 
 /* 7. E-Guard Scores */
 function EGuardScores() {
@@ -742,12 +785,7 @@ function EGuardScores() {
             className="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1"
             style={{ borderColor: `${TEAL}18` }}
           >
-            <span
-              className="grid h-14 w-14 shrink-0 place-items-center rounded-full font-mono text-sm font-bold"
-              style={{ background: TEAL, color: MINT }}
-            >
-              R
-            </span>
+            <EGuardShield variant="retina" />
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
                 E-Guard Retina
@@ -764,12 +802,7 @@ function EGuardScores() {
             className="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1"
             style={{ borderColor: `${TEAL}18` }}
           >
-            <span
-              className="grid h-14 w-14 shrink-0 place-items-center rounded-full font-mono text-sm font-bold"
-              style={{ background: TEAL, color: MINT }}
-            >
-              C
-            </span>
+            <EGuardShield variant="circadian" />
             <div>
               <div className="font-editorial text-lg" style={{ color: TEAL }}>
                 E-Guard Circadian
