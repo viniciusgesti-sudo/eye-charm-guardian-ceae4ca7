@@ -304,16 +304,16 @@ export function OurTechnology() {
         {/* Two sub-sections */}
         <div className="mt-9 grid gap-8 lg:mt-10 lg:grid-cols-2">
           {/* E-Guard Retina */}
-          <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
+          <article className="relative rounded-3xl border border-teal/10 bg-white p-6 md:p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
               <ShieldBadge label="Certified · Daytime">
                 <EyeInsignia />
               </ShieldBadge>
-              <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
+              <h3 className="mt-5 text-xl font-bold uppercase tracking-[0.12em] text-[#004B57] md:text-2xl">
                 E-Guard™ Retina
               </h3>
-              <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
+              <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-ink/70">
                 Protection du bleu-violet haute énergie
                 <span className="mx-2 text-ink/30">·</span>
                 Protect visual comfort during long screen sessions
@@ -321,15 +321,15 @@ export function OurTechnology() {
               <TealAccent />
             </div>
 
-            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
+            <p className="mt-5 text-[14px] leading-relaxed text-ink/80">
               E-Guard Retina selectively filters part of the blue-violet
               wavelengths responsible for digital eye strain during prolonged
               screen sessions, while preserving color perception.
             </p>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
+            <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <Benefit
                 title="Defeats Screen Fatigue"
                 desc="Minimizes dry, itchy, and red eyes"
@@ -346,16 +346,16 @@ export function OurTechnology() {
           </article>
 
           {/* E-Guard Circadian */}
-          <article className="relative rounded-3xl border border-teal/10 bg-white p-8 md:p-12 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
+          <article className="relative rounded-3xl border border-teal/10 bg-white p-6 md:p-8 shadow-[0_30px_80px_-40px_rgba(0,75,87,0.25)] transition-transform duration-500 hover:-translate-y-1">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/60 to-transparent" />
             <div className="flex flex-col items-center text-center">
               <ShieldBadge label="Certified · Nighttime">
                 <MoonStarsInsignia />
               </ShieldBadge>
-              <h3 className="mt-8 text-2xl font-bold uppercase tracking-[0.14em] text-[#004B57] md:text-3xl">
+              <h3 className="mt-5 text-xl font-bold uppercase tracking-[0.12em] text-[#004B57] md:text-2xl">
                 E-Guard™ Circadian
               </h3>
-              <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-ink/70">
+              <p className="mt-2 max-w-xs text-[12px] leading-relaxed text-ink/70">
                 Soutien du rythme circadien et du confort visuel
                 <span className="mx-2 text-ink/30">·</span>
                 Sunset Mode &amp; Sleep Protection
@@ -363,16 +363,16 @@ export function OurTechnology() {
               <TealAccent />
             </div>
 
-            <p className="mt-8 text-[15px] leading-relaxed text-ink/80">
+            <p className="mt-5 text-[14px] leading-relaxed text-ink/80">
               Exposure to high-energy blue light after dark tricks your brain
               into thinking it's still noon, disrupting your natural sleep
               cycle. E-Guard Circadian™ mitigates these specific evening
               wavelengths while maintaining a natural viewing experience.
             </p>
 
-            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
+            <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-[#E2D1C3] to-transparent" />
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <Benefit
                 title="Protects Melatonin"
                 desc="Limits evening light disruption to support deeper, uninterrupted sleep"
