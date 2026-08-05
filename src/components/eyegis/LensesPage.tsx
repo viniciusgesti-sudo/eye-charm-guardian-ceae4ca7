@@ -1529,10 +1529,9 @@ export function LensesPage() {
     <main className="bg-background text-foreground overflow-x-hidden">
       {/* Global <Header /> is provided by the /$locale layout */}
       <Hero c={c} />
-      <HowToChoose c={c} active={active} onPick={setActive} />
+      <HowToChoose c={c} active={active} onPick={pickAndScroll} />
       <BeforeAfter c={c} />
       <Comparison c={c} />
-      <WhoFor c={c} onPick={pickAndScroll} />
       <div id="recommendation">
         <Recommended c={c} persona={persona} />
       </div>
