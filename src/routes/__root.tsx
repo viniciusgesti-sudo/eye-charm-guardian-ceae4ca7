@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
+import { WpCmsProvider, wpContentQueryOptions } from "../lib/wpcms";
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
@@ -143,6 +144,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
+  // Aquece o conteúdo do WordPress no servidor, mas NUNCA bloqueia o render:
+  // o fetcher já tem timeout e resolve vazio em caso de falha, e aqui ainda
+  // há um teto de 2,5s para o SSR jamais ficar preso no CMS.
+  loader: async ({ context }) => {
+    try {
+      await Promise.race([
+        context.queryClient.ensureQueryData(wpContentQueryOptions),
+        new Promise((resolve) => setTimeout(resolve, 2500)),
+      ]);
+    } catch {
+      /* conteúdo local assume */
+    }
+  },
 });
 
 function RootShell({ children }: { children: ReactNode }) {
@@ -177,7 +191,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-        <I18nProvider>
+      <I18nProvider>
+        <WpCmsHydrator>
           <a href="#main" className="skip-to-content">Skip to content</a>
           <PreviewErrorBoundary
             fallback={(err, resetBoundary) => (
@@ -189,7 +204,18 @@ function RootComponent() {
           <Suspense fallback={null}>
             <CookieBanner />
           </Suspense>
-        </I18nProvider>
+        </WpCmsHydrator>
+      </I18nProvider>
     </QueryClientProvider>
   );
+}
+
+/**
+ * Alimenta o WpCmsProvider com o payload do WordPress vindo do React Query.
+ * Usa `useQuery` (não suspense) para que uma resposta lenta ou com erro
+ * nunca segure a árvore — os componentes seguem no conteúdo local.
+ */
+function WpCmsHydrator({ children }: { children: ReactNode }) {
+  const { data } = useQuery(wpContentQueryOptions);
+  return <WpCmsProvider value={data}>{children}</WpCmsProvider>;
 }
