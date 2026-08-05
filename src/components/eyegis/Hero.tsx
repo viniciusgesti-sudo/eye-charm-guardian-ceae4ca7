@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 import heroSaoPaulo from "@/assets/hero-saopaulo-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
 import heroParis from "@/assets/hero-paris-glasses.jpg?w=768;1280;1920&format=avif;webp;jpg&as=picture";
+import { useWpDoc, str, type JsonValue } from "@/lib/wpcms";
 import { useI18n } from "@/i18n/context";
 
 import { Picture } from "./Picture";
@@ -79,16 +80,21 @@ export function Hero({ locale }: Props) {
   const t = COPY[lang];
   const alts = ALTS[lang];
 
-  const headline = t.headline;
+  // Conteúdo do WordPress (documento `home`) — cai no texto local se vazio.
+  const wp = useWpDoc("home");
+  const wpMen = (wp["men"] ?? {}) as Record<string, JsonValue>;
+  const wpWomen = (wp["women"] ?? {}) as Record<string, JsonValue>;
 
-  const menTag = t.men.tag;
-  const menProduct = t.men.product;
-  const menCta = t.men.cta;
-  const menAlt = alts.men;
-  const womenTag = t.women.tag;
-  const womenProduct = t.women.product;
-  const womenCta = t.women.cta;
-  const womenAlt = alts.women;
+  const headline = str(wp["heroTitle"]) ?? t.headline;
+
+  const menTag = str(wpMen["tag"]) ?? t.men.tag;
+  const menProduct = str(wpMen["product"]) ?? t.men.product;
+  const menCta = str(wpMen["cta"]) ?? t.men.cta;
+  const menAlt = str(wpMen["imageAlt"]) ?? alts.men;
+  const womenTag = str(wpWomen["tag"]) ?? t.women.tag;
+  const womenProduct = str(wpWomen["product"]) ?? t.women.product;
+  const womenCta = str(wpWomen["cta"]) ?? t.women.cta;
+  const womenAlt = str(wpWomen["imageAlt"]) ?? alts.women;
 
   return (
     <section
