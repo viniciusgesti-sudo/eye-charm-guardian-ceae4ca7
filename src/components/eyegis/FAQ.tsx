@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useI18n } from "@/i18n/context";
+import { useWpCopy } from "@/lib/wpcms";
 import type { Lang } from "@/i18n/translations";
 
 const TEAL = "#004B57";
