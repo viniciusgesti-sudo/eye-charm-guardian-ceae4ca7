@@ -31,3 +31,5 @@ dist-ssr
 *.sln
 *.sw?
 dist-wix/
+
+.vercel

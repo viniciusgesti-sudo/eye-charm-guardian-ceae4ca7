@@ -17,7 +17,12 @@ export default defineConfig({
   // heaviest vendor chunk (@tanstack/react-router) roughly in half without
   // changing runtime behavior. The template's public type omits `minify`, but
   // user nitro options are spread straight into `nitro()`, so a cast is safe.
-  nitro: { minify: true } as any,
+  // Deploy target: Lovable/Cloudflare by default. Set NITRO_PRESET (e.g. "vercel")
+  // in the hosting provider to emit that provider's output format instead.
+  nitro: {
+    minify: true,
+    ...(process.env.NITRO_PRESET ? { preset: process.env.NITRO_PRESET } : {}),
+  } as any,
 
 
   plugins: [
