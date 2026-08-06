@@ -215,8 +215,39 @@ function RootComponent() {
  * Alimenta o WpCmsProvider com o payload do WordPress vindo do React Query.
  * Usa `useQuery` (não suspense) para que uma resposta lenta ou com erro
  * nunca segure a árvore — os componentes seguem no conteúdo local.
+ *
+ * Revalidação automática: uma sonda leve lê o `version` do endpoint; quando
+ * ele muda (alguém publicou no WordPress), o conteúdo é invalidado.
  */
 function WpCmsHydrator({ children }: { children: ReactNode }) {
-  const { data } = useQuery(wpContentQueryOptions);
-  return <WpCmsProvider value={data}>{children}</WpCmsProvider>;
+  const search = useRouterState({ select: (s) => s.location.search });
+  const preview = isPreviewSearch(search);
+  const queryClient = useQueryClient();
+
+  const { data } = useQuery(wpContentQueryOptions(preview));
+  const { data: probe } = useQuery(wpVersionQueryOptions(preview));
+  const remoteVersion = probe?.version ?? null;
+
+  useEffect(() => {
+    if (!remoteVersion) return;
+    if (data?.version && data.version === remoteVersion) return;
+    queryClient.invalidateQueries({
+      queryKey: ["wp-cms", "content", preview ? "preview" : "published"],
+    });
+  }, [remoteVersion, data?.version, preview, queryClient]);
+
+  return (
+    <WpCmsProvider value={data}>
+      {children}
+      {preview ? <PreviewBadge version={data?.version ?? null} /> : null}
+    </WpCmsProvider>
+  );
+}
+
+function PreviewBadge({ version }: { version: string | null }) {
+  return (
+    <div className="fixed bottom-4 left-4 z-[100] rounded-full border border-teal/30 bg-teal px-4 py-2 font-sans text-[11px] tracking-wide text-paper shadow-lg">
+      WordPress preview{version ? ` · ${version.slice(0, 12)}` : ""}
+    </div>
+  );
 }
