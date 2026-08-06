@@ -19,6 +19,7 @@ import { Route as LegalRouteImport } from './routes/legal'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as CmsStatusRouteImport } from './routes/cms-status'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteImport } from './routes/$locale'
 import { Route as IndexRouteImport } from './routes/index'
@@ -89,6 +90,11 @@ const ContactRoute = ContactRouteImport.update({
 const ComplianceRoute = ComplianceRouteImport.update({
   id: '/compliance',
   path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CmsStatusRoute = CmsStatusRouteImport.update({
+  id: '/cms-status',
+  path: '/cms-status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -201,6 +207,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
+  '/cms-status': typeof CmsStatusRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -233,6 +240,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cms-status': typeof CmsStatusRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -267,6 +275,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$locale': typeof LocaleRouteWithChildren
   '/about': typeof AboutRoute
+  '/cms-status': typeof CmsStatusRoute
   '/compliance': typeof ComplianceRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
@@ -302,6 +311,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale'
     | '/about'
+    | '/cms-status'
     | '/compliance'
     | '/contact'
     | '/faq'
@@ -334,6 +344,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/cms-status'
     | '/compliance'
     | '/contact'
     | '/faq'
@@ -367,6 +378,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$locale'
     | '/about'
+    | '/cms-status'
     | '/compliance'
     | '/contact'
     | '/faq'
@@ -401,6 +413,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LocaleRoute: typeof LocaleRouteWithChildren
   AboutRoute: typeof AboutRoute
+  CmsStatusRoute: typeof CmsStatusRoute
   ComplianceRoute: typeof ComplianceRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
@@ -487,6 +500,13 @@ declare module '@tanstack/react-router' {
       path: '/compliance'
       fullPath: '/compliance'
       preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cms-status': {
+      id: '/cms-status'
+      path: '/cms-status'
+      fullPath: '/cms-status'
+      preLoaderRoute: typeof CmsStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -680,6 +700,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LocaleRoute: LocaleRouteWithChildren,
   AboutRoute: AboutRoute,
+  CmsStatusRoute: CmsStatusRoute,
   ComplianceRoute: ComplianceRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,

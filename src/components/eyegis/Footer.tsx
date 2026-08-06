@@ -1,6 +1,7 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { useI18n } from "@/i18n/context";
+import { useWpCopy } from "@/lib/wpcms";
 import type { Lang } from "@/i18n/translations";
 
 /* ---------- Icons (line-art, currentColor) ---------- */
@@ -90,7 +91,7 @@ const trustIcons = [Ic.Shield, Ic.Eye, Ic.Frame, Ic.Check];
 
 function TrustBar() {
   const { lang } = useI18n();
-  const items = TRUST_COPY[lang].items;
+  const items = useWpCopy("footer-trust", TRUST_COPY[lang]).items;
   return (
     <section className="bg-paper border-t border-b border-ink/10">
       <div className="container-editorial grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
@@ -269,7 +270,7 @@ export function Footer() {
   const { lang, setLang } = useI18n();
   const params = useParams({ strict: false }) as { locale?: string };
   const locale = ((params.locale ?? "br").toLowerCase()) as LocaleSeg;
-  const c = FOOTER_COPY[lang];
+  const c = useWpCopy("footer", FOOTER_COPY[lang]);
 
   
 

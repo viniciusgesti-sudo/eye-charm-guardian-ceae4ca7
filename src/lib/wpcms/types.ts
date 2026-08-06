@@ -46,11 +46,31 @@ export type WpContentPayload = {
 export type WpContent = {
   version: string | null;
   generatedAt: string | null;
+  /** `true` quando o payload veio do modo preview (rascunhos do WordPress). */
+  preview: boolean;
   documents: Record<string, JsonValue>;
 };
 
 export const EMPTY_WP_CONTENT: WpContent = {
   version: null,
   generatedAt: null,
+  preview: false,
   documents: {},
+};
+
+/** Resultado do diagnóstico do CMS (`/cms-status`). */
+export type WpDiagnostics = {
+  ok: boolean;
+  endpoint: string;
+  status: number | null;
+  latencyMs: number;
+  preview: boolean;
+  version: string | null;
+  generatedAt: string | null;
+  tokenConfigured: boolean;
+  documents: { key: string; languages: string[]; fieldCount: number }[];
+  mediaCount: number;
+  mediaWithUrl: number;
+  error: string | null;
+  checkedAt: string;
 };

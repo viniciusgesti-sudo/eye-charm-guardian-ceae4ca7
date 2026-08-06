@@ -1,9 +1,15 @@
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,7 +19,17 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
-import { WpCmsProvider, wpContentQueryOptions } from "../lib/wpcms";
+import { WpCmsProvider, wpContentQueryOptions, wpVersionQueryOptions } from "../lib/wpcms";
+
+/**
+ * Modo preview do CMS: `?wp_preview=1` em qualquer URL do site.
+ * O cache é totalmente separado do conteúdo publicado.
+ */
+function isPreviewSearch(search: unknown): boolean {
+  if (!search || typeof search !== "object") return false;
+  const value = (search as Record<string, unknown>)["wp_preview"];
+  return value === true || value === 1 || value === "1" || value === "true";
+}
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
@@ -147,10 +163,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   // Aquece o conteúdo do WordPress no servidor, mas NUNCA bloqueia o render:
   // o fetcher já tem timeout e resolve vazio em caso de falha, e aqui ainda
   // há um teto de 2,5s para o SSR jamais ficar preso no CMS.
-  loader: async ({ context }) => {
+  loader: async ({ context, location }) => {
+    const preview = isPreviewSearch(location.search);
     try {
       await Promise.race([
-        context.queryClient.ensureQueryData(wpContentQueryOptions),
+        context.queryClient.ensureQueryData(wpContentQueryOptions(preview)),
         new Promise((resolve) => setTimeout(resolve, 2500)),
       ]);
     } catch {
@@ -214,8 +231,39 @@ function RootComponent() {
  * Alimenta o WpCmsProvider com o payload do WordPress vindo do React Query.
  * Usa `useQuery` (não suspense) para que uma resposta lenta ou com erro
  * nunca segure a árvore — os componentes seguem no conteúdo local.
+ *
+ * Revalidação automática: uma sonda leve lê o `version` do endpoint; quando
+ * ele muda (alguém publicou no WordPress), o conteúdo é invalidado.
  */
 function WpCmsHydrator({ children }: { children: ReactNode }) {
-  const { data } = useQuery(wpContentQueryOptions);
-  return <WpCmsProvider value={data}>{children}</WpCmsProvider>;
+  const search = useRouterState({ select: (s) => s.location.search });
+  const preview = isPreviewSearch(search);
+  const queryClient = useQueryClient();
+
+  const { data } = useQuery(wpContentQueryOptions(preview));
+  const { data: probe } = useQuery(wpVersionQueryOptions(preview));
+  const remoteVersion = probe?.version ?? null;
+
+  useEffect(() => {
+    if (!remoteVersion) return;
+    if (data?.version && data.version === remoteVersion) return;
+    queryClient.invalidateQueries({
+      queryKey: ["wp-cms", "content", preview ? "preview" : "published"],
+    });
+  }, [remoteVersion, data?.version, preview, queryClient]);
+
+  return (
+    <WpCmsProvider value={data}>
+      {children}
+      {preview ? <PreviewBadge version={data?.version ?? null} /> : null}
+    </WpCmsProvider>
+  );
+}
+
+function PreviewBadge({ version }: { version: string | null }) {
+  return (
+    <div className="fixed bottom-4 left-4 z-[100] rounded-full border border-teal/30 bg-teal px-4 py-2 font-sans text-[11px] tracking-wide text-paper shadow-lg">
+      WordPress preview{version ? ` · ${version.slice(0, 12)}` : ""}
+    </div>
+  );
 }

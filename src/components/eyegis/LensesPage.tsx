@@ -11,6 +11,7 @@ import meridianHero from "@/assets/products/meridian-hero.jpg?w=480;800;1200&for
 import atelierFront from "@/assets/products/atelier-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import soleneFront from "@/assets/products/solene-front.jpg?w=480;800;1200&format=avif;webp;jpg&as=picture";
 import { useI18n } from "@/i18n/context";
+import { useWpCopy } from "@/lib/wpcms";
 import type { Lang } from "@/i18n/translations";
 
 const AMAZON_URL = "#coming-soon";
@@ -1512,7 +1513,7 @@ function FinalCta({ c }: { c: Copy }) {
 
 export function LensesPage() {
   const { lang } = useI18n();
-  const c = CONTENT[lang];
+  const c = useWpCopy("lenses_page", CONTENT[lang]);
   const [active, setActive] = useState<PersonaId>("creative");
 
   const persona = c.personas.find((p) => p.id === active) ?? c.personas[1];
