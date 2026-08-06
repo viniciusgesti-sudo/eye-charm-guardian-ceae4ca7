@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useWpDoc, str } from "@/lib/wpcms";
 import { buildSeo } from "@/lib/seo";
 
 
@@ -81,7 +82,25 @@ export const Route = createFileRoute("/$locale/women")({
 
 function WomenPage() {
   const { locale } = Route.useParams();
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.br;
+  const local = COPY[locale as keyof typeof COPY] ?? COPY.br;
+  const cms = useWpDoc("women");
+  const cmsTitle = str(cms["title"]);
+  const cmsAccent = str(cms["titleAccent"]);
+  const c = {
+    ...local,
+    eyebrow: str(cms["eyebrow"]) ?? local.eyebrow,
+    subtitle: str(cms["subtitle"]) ?? local.subtitle,
+    ctaLabel: str(cms["ctaLabel"]) ?? local.ctaLabel,
+    title: cmsTitle ? (
+      <>
+        {cmsTitle}
+        <br />
+        {cmsAccent ? <span className="italic text-teal-deep">{cmsAccent}</span> : null}
+      </>
+    ) : (
+      local.title
+    ),
+  };
   return (
     <>
       <PageHero
