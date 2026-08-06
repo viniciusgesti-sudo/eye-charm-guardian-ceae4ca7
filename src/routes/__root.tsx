@@ -147,10 +147,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   // Aquece o conteúdo do WordPress no servidor, mas NUNCA bloqueia o render:
   // o fetcher já tem timeout e resolve vazio em caso de falha, e aqui ainda
   // há um teto de 2,5s para o SSR jamais ficar preso no CMS.
-  loader: async ({ context }) => {
+  loader: async ({ context, location }) => {
+    const preview = isPreviewSearch(location.search);
     try {
       await Promise.race([
-        context.queryClient.ensureQueryData(wpContentQueryOptions),
+        context.queryClient.ensureQueryData(wpContentQueryOptions(preview)),
         new Promise((resolve) => setTimeout(resolve, 2500)),
       ]);
     } catch {
