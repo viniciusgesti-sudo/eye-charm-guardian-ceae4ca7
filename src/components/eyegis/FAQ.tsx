@@ -220,7 +220,7 @@ function FaqCard({
 
 export function FAQ() {
   const { lang } = useI18n();
-  const c = COPY[lang] ?? COPY.EN;
+  const c = useWpCopy("home-faq", COPY[lang] ?? COPY.EN);
   const items: FaqItem[] = c.items.map((it) => ({
     q: it.q,
     a: it.a,
