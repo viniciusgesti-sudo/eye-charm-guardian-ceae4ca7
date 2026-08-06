@@ -1,9 +1,15 @@
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,7 +19,17 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PreviewErrorBoundary } from "../lib/preview-error-boundary";
 import { I18nProvider } from "../i18n/context";
-import { WpCmsProvider, wpContentQueryOptions } from "../lib/wpcms";
+import { WpCmsProvider, wpContentQueryOptions, wpVersionQueryOptions } from "../lib/wpcms";
+
+/**
+ * Modo preview do CMS: `?wp_preview=1` em qualquer URL do site.
+ * O cache é totalmente separado do conteúdo publicado.
+ */
+function isPreviewSearch(search: unknown): boolean {
+  if (!search || typeof search !== "object") return false;
+  const value = (search as Record<string, unknown>)["wp_preview"];
+  return value === true || value === 1 || value === "1" || value === "true";
+}
 
 // Cookie banner is non-critical and shown after hydration — lazy-load to keep
 // it out of the client entry chunk.
